@@ -36,6 +36,7 @@ By 1986, ANSI and ISO standard groups officially adopted the standard "Database 
 
 ##### DEMO
 
+We will be writting a few queries on a database inside of our vagrant machines.
 In order to work with the examples in this doc, you'll first have to setup the database with our seeded data. This can be done by following these steps:
 
 1. Open a terminal
