@@ -49,6 +49,8 @@ The first thing you'll notice is each table has an `id` column marked as a `PK`,
 
 We also have a field marked as a "Foreign Key" in our Tasks table, this is a column which references the `id` column of the `Urls` table.
 
+![Schema](https://raw.githubusercontent.com/vasiliy-klimkin/lhl-lectures/master/w05d01-SQL-Intro/tinyurl-schema.png)
+
 ##### Basic `SELECT`
 
 -- Show all the users that are stored in the database
@@ -187,8 +189,6 @@ __Result__
 ```
 
 ![join cheatsheet](https://cooltechiedotblog.files.wordpress.com/2017/04/capture6.png?w=616)
-
-
 
 #### `GROUP BY` Clause and Aggregation
 
