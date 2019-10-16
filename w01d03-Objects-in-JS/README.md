@@ -212,3 +212,6 @@ In the function `printSpecs()` we get the `brand` and `model` by using the `this
     }
   }
 ```
+
+
+#### Other cool things you can do with Objects
