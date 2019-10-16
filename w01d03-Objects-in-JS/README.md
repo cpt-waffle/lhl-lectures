@@ -215,3 +215,62 @@ In the function `printSpecs()` we get the `brand` and `model` by using the `this
 
 
 #### Other cool things you can do with Objects
+
+```js
+let batman = {
+  realName: 'Bruce Wayne',
+  suit: 'Mark 2',
+  gadgets: []
+}
+// Make a function that adds a new gadget
+// to the the batman object. The batman object
+// will be passed into our function..
+const addGadget = function(gadgetName, obj) {
+  obj.gadgets.push(gadgetName);
+}
+```
+We can pass objects into a function and `change` specific values.
+Because the object is passed by memory address it effects the object that we passed.
+(Note how we did this with primative types for the `swap` function and nothing happened!)
+
+
+We can loop through all keys and print out spefic values from it.
+
+```js
+let shoppingCart = {
+  four: 'SPAM',
+  6: 'folders',
+  two: 'Brush',
+  one: 'Toothpaste',
+  three: 'toilet paper',
+  7: 'Chrismas Tree',
+  five: 'toilet brush'
+};
+
+// I want to print each item (value) in our object
+
+const printCart = function(cart) {
+  // console.log(cart);
+  // I want to loop over an object
+  // METHOD 1 --- Using the IN
+  for (let item in cart) {
+    console.log(cart[item]);
+  }
+  // METHOD 2 -
+  // let values = Object.values(cart);
+  // console.log(values);
+  // for (let item of values) {
+  //   console.log(item);
+  // }
+  // METHOD 3
+  // let keys = Object.keys(cart);
+  // // console.log(keys);
+  // for (let key of keys) {
+  //   console.log(cart[key]);
+
+  // }
+  // console.log(key);
+
+}
+
+```
