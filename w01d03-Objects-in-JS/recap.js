@@ -15,11 +15,11 @@ car[index];
 //  BUUUUUUUUUUUUUT..................
 
 let carObject = {
-  brand: 'Toyota',
   model: 'Corolla',
-  year: 2019,
-  driveTrain: 'FWD',
+  brand: 'Toyota',
   color: ['red', 'white', 'black', 'blue'],
+  driveTrain: 'FWD',
+  year: 2019,
   driver: {
     name: 'Bob',
     height: 178,
@@ -62,6 +62,7 @@ let apple = "year";
 // Add object within Objects
 
 
+// console.log(JSON.parse(console));
 
 
 
