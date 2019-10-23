@@ -1,6 +1,3 @@
-
-##### [Repo Link](https://github.com/vasiliy-klimkin/w2d3-tcp-http)
-
 #### W2D3 - Networking with TCP + HTTP
 
 Thanks for sitting through todays lecture!
