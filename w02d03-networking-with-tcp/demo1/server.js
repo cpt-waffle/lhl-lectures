@@ -30,6 +30,7 @@ const users = [];
 
 server.on('connection', user => {
   console.log("someone has connected!");
+  user.send('hello world');
   user.setEncoding('utf8');
   users.push(user);
   user.on('data', data => {

@@ -1,7 +1,6 @@
 #### W2D3 - Networking with TCP + HTTP
 
-Thanks for sitting through todays lecture!
-First part of the leture we talked about networking.
+Welcome to Week 2 Day 3 !!! Today we will be talking about Networking and TCP ( with alittle bit of a touch of HTTP)
 
 #### Networking
 
