@@ -11,9 +11,11 @@ const list = [
   {item: 'Finish watching HMYM', done: false},
 ]
 
+// useContext <-----------
 export default () => {
 
   const [todoList, modifyList] = useState(list);
+  const [error, toggleError] = useState(false)
 
   const toggleDone = i => {
     modifyList( prev => {
@@ -28,7 +30,14 @@ export default () => {
 
   const onAdd = evt => {
     evt.preventDefault()
-    addItem(evt.target.newItem.value)
+    // console.log("TEST")
+    if (evt && evt.target && evt.target.newItem && evt.target.newItem.value.length) {
+      addItem(evt.target.newItem.value)
+      toggleError(false)
+    }
+    else {
+      toggleError(true)
+    }
   }
 
   return (
@@ -39,6 +48,7 @@ export default () => {
         <input className="addForm-input" type="text" name="newItem"/>
         <button className="submit-btn">Add</button>
       </form>
+        {error && <p>Item cannot be Blank!</p>}
     </div>
   );
 }

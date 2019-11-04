@@ -1,0 +1,18 @@
+import React, { useState } from 'react';
+import App from '../App';
+
+import { render, fireEvent } from '@testing-library/react';
+
+describe( "items", () => {
+
+  it('renders without crashing', () => {
+    render(<App/>)
+  });
+
+  it('renders without crashing', () => {
+    const { container , getByText } = render(<App/>);
+    fireEvent.click(getByText('Add'));
+    expect(getByText("Item cannot be Blank!"))
+  });
+
+})
