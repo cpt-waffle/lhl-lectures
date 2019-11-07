@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display:flex;
+  /*flex-direction:;*/
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.item2 {
+  width: 100%;
+  background: red;
+}
+
+.item3 {
+  /*width: 300px;*/
+  width: 100%;
+
+  background: green;
+}
+
+.menu-item {
+  background-color: lightblue;
+  flex-grow: 1;
+
+}
+
+.menu-item2 {
+  background-color: lightblue;
+  flex-grow: 2;
+  margin: 2px;
+}
+
+
+.item4 {
+  width: 100%;
+  background: orange;
+
+}
+
+@media only screen and (max-width: 763px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+}

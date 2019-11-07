@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: salmon;
+  font-size: 0;
+
+}
+
+div {
+  height: 100px;
+  font-size: 5rem;
+  color: white;
+}
+
+.item1 {
+  width: 100%;
+  background: firebrick;
+}
+
+.item2 {
+  width: 50%;
+
+  background: yellow;
+}
+
+.item3 {
+  width: 25%;
+  background: navy;
+}
+
+
+@media only screen and (max-width: 763px) {
+  .item1 {
+    background: lightblue;
+  }
+  .item2 {
+    width: 50%;
+    display: inline-block;
+  }
+
+  .item3 {
+    width: 50%;
+    display: inline-block;
+  }
+}

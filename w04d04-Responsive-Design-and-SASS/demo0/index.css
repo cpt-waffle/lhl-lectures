@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: LightSalmon;
+  text-align: center;
+}
+
+div {
+  height: 100px;
+  width: 500px;
+}
+
+.item1 {
+  background: white;
+}
+
+.item2 {
+  background: orange;
+}
+
+.item3 {
+  background: yellow;
+}
+
+@media only screen and (max-width: 600px) {
+  .item1 {
+    background: green;
+    width:100%;
+  }
+
+  .item2 {
+    background: blue;
+    width: 49%;
+    display:inline-block;
+    box-sizing: border-box;
+  }
+
+  .item3 {
+    background: black;
+    width:49%;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+}

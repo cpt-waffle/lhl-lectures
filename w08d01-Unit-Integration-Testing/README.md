@@ -27,6 +27,7 @@ Remember to import `React`, the component you are testing and `render`, `fireIEv
 
 
 Testing the Item Component
+
 ```js
 import React, { useState } from 'react';
 import Item from '../Components/Item';
