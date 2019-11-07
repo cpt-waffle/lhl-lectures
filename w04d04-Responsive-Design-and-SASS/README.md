@@ -22,7 +22,7 @@ This is not a problem because we are finally entering the realm of responsive de
 
 [What is viewport](https://www.w3schools.com/css/css_rwd_viewport.asp)
 
-```js
+```html
   <!DOCTYPE html>
   <html>
   <head>
@@ -102,12 +102,16 @@ Not much to say about it thats its one of the best tools that you can use to lay
 
 Best way to describe sass, that it adds extra functionality and features which then COMPILES back to css so the browser can understand it. Its great to have variables declaration and nesting.
 
+Shoutout to Nima for his great example within his repo
+[Nima's SASS Example](https://github.com/NimaBoscarino/responsive-sass-notes)
+
 #### My favorite resources
+
+I suggest if you have time today, try one or all of these! These are great!
 
 [Internet is HAAAARD](https://internetingishard.com/html-and-css/) <--- highly recommend!!!!
 
 [Flex Froggy](https://flexboxfroggy.com/)
 
 [Grid Garden](https://cssgridgarden.com/)
-
 
