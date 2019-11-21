@@ -1,0 +1,50 @@
+
+.hi {
+  background-color: firebrick;
+  width: 100px;
+  border: 1px solid black;
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.menu-item1{
+  flex-basis: 2;
+  background-color: lightblue;
+  border: 3px solid black;
+  width: 100px;
+  height: 100px;
+  display: inline;
+
+}
+
+.menu-item2{
+  background-color: red;
+  border: 3px solid black;
+  width: 100px;
+  height: 100px;
+  display: inline;
+
+}
+
+.menu-item3{
+  background-color: green;
+  border: 3px solid black;
+  width: 100px;
+  height: 100px;
+
+
+}
+
+.menu-item4{
+  background-color: yellow;
+  border: 3px solid black;
+  width: 100px;
+  height: 100px;
+
+}
