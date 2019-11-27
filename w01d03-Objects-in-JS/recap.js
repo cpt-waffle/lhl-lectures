@@ -1,77 +1,71 @@
-let number = 4;
-let arr = [1, 'hello', 4.35, [2,3], true, function() { console.log('hello world')} ];
+// Review
 
-// console.log(arr);
+// array manipulations
+let arr = [function() { console.log('hi')},1,'hello',2, 'hi', 3, 'im batman', 4];
+// functions
 
-// I want to store information about a car
-// brand, model, year
+// primative variables
 
-let car = ['Toyota', 'Corolla', 2019, 'FWD'];
-let index = 2;
-car[index];
-// console.log(' the car element at 0 is ' + car[0]);
-// OBJECTS!!!!!!!!!!!!!!!!!!
-// its a collection, just like an array...
-//  BUUUUUUUUUUUUUT..................
+let name = "Vasiliy";
+let number = 99;
+let tired = false;
+let bigNumber = 12346790094578984578984578986434;
+// Symbol <--- if you have time, google what this is.
+// its kind of cool!!!
 
-let carObject = {
-  model: 'Corolla',
-  brand: 'Toyota',
-  color: ['red', 'white', 'black', 'blue'],
-  driveTrain: 'FWD',
+let cars = ['Honda', 'Toyota', 'BMW', 'Subaru'];
+
+// console.log(cars);
+
+// I want to store a specific cars features
+
+// make, model, year, how many seats, types of colors
+
+// let car = ['AWD','Subaru', 2014, 4, ['red', 'green', 'blue']];
+
+// Hey listen! Remember that The name of the car
+//is array[0], and ....
+// console.log(car);
+
+//  OBJECTS :D
+
+// order does not matter in objects
+// every value has a specific key <-- important!
+
+// let car = {
+//   driveT: "AWD",
+//   brand: 'Subaru',
+//   year: 2019,
+//   seats: 4,
+//   //
+// };
+// console.log('car obj before adding',  car)
+// // I want to add, colors into this car object
+
+// car.color = 'red';
+// // array.push()
+let car = {
+  driveT: "AWD",
+  brand: 'Subaru',
   year: 2019,
+  seats: 4,
   driver: {
-    name: 'Bob',
-    height: 178,
-    bloodType: 'O+',
-    clothes: {
-      pants: 'jeans',
-      pockes: ['keys', 'cellphone']
-    },
+    name: 'Paul',
+    age: 25,
+    test: function() {
+      console.log(this)
+    }
   },
+  colors: ['red', 'blue', 'green'],
   noise: function() {
-   console.log('ffffffffffffffffffbrrbrbrbr');
-   return 43;
+    console.log('brbrbrbrbrbrbrbrbrbrbrbbr');
   },
-  printCarDetails: function() {
-    //  'this' is context of our object
-    // console.log(this.noise());
-    console.log('Brand', this.brand);
-    console.log('Model', this.model);
-    console.log('Year', this.year);
-    console.log("The driver's name is ", this.driver.name);
-    console.log('The car goes...');
-    this.noise();
+  details: function() {
+    // console.log(this.driveT);//Refers to the object you are
+    // currently in
+    console.log("This car belongs to ", this.driver.name);// driver name
+    console.log("This car is ", this.driveT);//driveT
   }
 };
 
-let ttt = "brand";
-
-carObject[ttt] = 'Subaru';
-
-console.log("OBJECT CHANGED");
-console.log(carObject);
-
-
-// console.log(carObject);
-
-let apple = "year";
-
-// console.log(carObject.printCarDetails());
-
-// Add object within Objects
-
-
-// console.log(JSON.parse(console));
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(car.driver.test());
