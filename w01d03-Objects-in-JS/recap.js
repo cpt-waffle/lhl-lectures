@@ -18,17 +18,13 @@ let cars = ['Honda', 'Toyota', 'BMW', 'Subaru'];
 // console.log(cars);
 
 // I want to store a specific cars features
-
 // make, model, year, how many seats, types of colors
-
 // let car = ['AWD','Subaru', 2014, 4, ['red', 'green', 'blue']];
-
 // Hey listen! Remember that The name of the car
 //is array[0], and ....
 // console.log(car);
 
 //  OBJECTS :D
-
 // order does not matter in objects
 // every value has a specific key <-- important!
 
