@@ -55,7 +55,7 @@ Keep in mind that initial setup may take you a good chunk of your time, but it i
 6. Organize your tasks
 
 
-#### Should i add testing?
+#### Should I add testing?
 
 Why should you include tests in your take-home coding challenge? It’s simple: your tests will make your submission shine.
 
@@ -63,5 +63,4 @@ Why should you include tests in your take-home coding challenge? It’s simple: 
 
 Asking yourself: what is the employer really looking to get out of this exercise? Just my coding skills? What about inquiry? Communication? Estimation / scope management?
 
-What position was the challenge for?
-
+What position was the challenge for? ( Front, Back, Full Stack )
