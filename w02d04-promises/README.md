@@ -15,10 +15,6 @@ With time you will start to understand them (just like callbacks), so please do 
 
 None of this :)
 
-#### Javascript Event Loop
-
-![event_loop](https://user.oc-static.com/upload/2018/12/06/15440890869914_event-loop.jpg)
-
 [Resource explaining the event loop in depth.](https://medium.com/front-end-weekly/javascript-event-loop-explained-4cd26af121d4)
 
 
@@ -164,3 +160,9 @@ diceRoll().then( (number) => {
   console.log("THE NUMBER IS ", number);
 });
 ```
+
+
+
+#### Javascript Event Loop - The Event Loop
+
+![event_loop](https://user.oc-static.com/upload/2018/12/06/15440890869914_event-loop.jpg)
