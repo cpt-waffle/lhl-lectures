@@ -71,6 +71,67 @@ fs.readFile('data/file1.txt', 'utf8')
   printSong(song);
 })
 ```
+### Error PRotecting
+
+With errors using callbacks, we would have to check each `err` variable and if it was true we would throw it
+
+```js
+fs.readFile('./data/file11.txt', 'utf8', (error, data,f,c) => {
+  if (err) {
+    throw err;
+  }
+  console.log(data);
+  song.push(data);
+  fs.readFile('./data/file2.txt', 'utf8', (err, data) => {
+    console.log(data);
+    if (err) {
+      throw err;
+    }
+    song.push(data);
+    fs.readFile('./data/file3.txt', 'utf8', (err, data) => {
+      console.log(data);
+      if (err) {
+        throw err;
+      }
+      song.push(data);
+      fs.readFile('./data/file4.txt', 'utf8', (err, data) => {
+        console.log(data);
+        if (err) {
+          throw err;
+        //.....
+```
+
+With Promises...
+
+```js
+f1.then((data) => {
+  console.log(data);
+  song.push(data);
+  // Returns a new promise from read File 2
+  return fs.readFile('./data/file2.txt', 'utf8');
+}).then((data) => {
+  // then() for readFile 2 promise
+  console.log("Promise 2 ===>", data);
+  song.push(data);
+  return fs.readFile('./data/file3.txt', 'utf8');
+}).then((data) => {
+  console.log("Promise 3 ===>",data);
+  song.push(data);
+  return fs.readFile('./data/file4fghkljhgfhkjhgs.txt', 'utf8');
+}).then((data) => {
+  console.log("Promise 4 ===>",data);
+  song.push(data);
+  return fs.readFile('./data/file5.txt', 'utf8');
+}).then((data) => {
+  console.log("Promise 5 ===>",data);
+  song.push(data);
+}).catch(error => { /// TO CATCH ANY ERROR THAT HAPPENED
+  console.log("ERROR HAS HAPPENED");
+  throw error;
+})
+```
+
+
 
 Alot easier and cleaner to read right?
 
