@@ -1,6 +1,6 @@
 #### W2D4 - Intro to Promises
 
-##### [Repo Link](https://github.com/vasiliy-klimkin/w2d4-promises)
+##### [Repo Link](https://github.com/vasiliy-klimkin/lhl-lectures/tree/master/w02d04-promises)
 
 Thank you for coming to the lecture! Today we talked about about callbacks, promises and async in Javascript
 
