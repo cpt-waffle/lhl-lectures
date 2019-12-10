@@ -84,8 +84,8 @@ module.exports = () => {
 #### Restful Routing
 
 ```
-|   NAME   |     PATH       |   HTTP VERB     |            PURPOSE                   |
-|----------|----------------|-----------------|--------------------------------------|
+|   NAME   |     PATH        |   HTTP VERB     |            PURPOSE                   |
+|----------|-----------------|-----------------|--------------------------------------|
 | Index    | /blogs          |      GET        | Displays all blog post               |
 | New      | /blogs/new      |      GET        | Shows new form for new blog entry    |
 | Create   | /blogs          |      POST       | Creates a new blog post              |
