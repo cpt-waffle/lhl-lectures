@@ -113,3 +113,41 @@ GET `blogs/new`
 GET `blogs/:id`
 
 This does alittle bit of time to get used to, but once you get the hang of it, it makes creating and picking your routes MUCH MUCH easier
+
+
+### BONUS: Writting our own Middleware for `body-parcer` and `cookie-parser`
+
+Common misconception that we do not need body-parcer or cookie-parcer because we can do it ourselves (For learning purposes only!!!! Using the `npm` packages is alot better and you dont need to waste time re-inventingthe wheel)
+
+```js
+// THIS IS BODY PARCER IN A NUT SHELL!!!
+app.use((req, res, next) => {
+  const body = [];
+  req.on('data', (chunk) => body.push(chunk)).on('end', () => {
+    const parsedBody = Buffer.concat(body).toString();
+    const obj = {};
+    parsedBody.split('&').forEach( arr => {
+      const pair = arr.split('=');
+      obj[pair[0]] = pair[1];
+    })
+    req.body = obj;
+    next();
+  })
+});
+```
+
+
+
+```js
+// THIS IS COOKIE PARSER IN A NUT SHELL!!!!
+app.use((req,res,next) => {
+  const cookies = req.headers.cookie.split('; ');
+  const obj = {};
+  cookies.forEach(cookie => {
+    const keyVal = cookie.split('=');
+    obj[keyVal[0]] = keyVal[1];
+  })
+  req.cookies = obj;
+  next();
+})
+```
