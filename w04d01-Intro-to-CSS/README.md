@@ -31,7 +31,7 @@ Some of the things we talked about writing `HTML`:
  - `<body>...</body>` contains all of the data formatted that will be displayed by the browser. ONE body tag per page.
 
 So far you have been using `divs`, `tables`, `forms`, and `p` tags. There are a few more that you haven't seen up to this this point but you will be starting to use today. You will be seeing things such as:
- -  `<header/>`
+ - `<header/>`
  - `<footer/>`
  - `<aside/>`
 
