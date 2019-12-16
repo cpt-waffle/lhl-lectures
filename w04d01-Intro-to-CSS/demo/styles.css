@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+}
+
+#page-header {
+  background-color: #17a3dd;
+  text-align: center;
+  padding: 100px;
+  min-height: 100px;
+  font-size: 20px;
+}
+
+#page-header h4 {
+  font-size: 50px;
+  margin: 0;
+  color: white;
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.content {
+  margin-left:  10%;
+  margin-right: 10%;
+}
+
+.intro {
+  margin-top: 20px;
+}
+
+.intro h3 {
+  font-family: sans-serif;
+  font-size: 50px;
+}
+
+.intro p {
+  font-family: sans-serif;
+  font-size: 25px;
+  line-height: 2.3;
+  padding-bottom: 100px;
+}
+
+.bios-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.bio {
+  width: 400px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.bio:hover {
+  background-color: #80808038;
+}
+
+.bio img {
+  width: 100%;
+  border-bottom: 3px solid red;
+  opacity: 0.5;
+}
+
+.bio:hover img{
+  opacity: 1;
+}
+
+.bio h5 {
+  font-family: sans-serif;
+  font-size: 15px;
+  margin: 0;
+}
+
+.bio p {
+  font-family: sans-serif;
+  margin: 0;
+  margin-top: 10px;
+  opacity: 0;
+}
+
+.bio:hover p {
+  opacity: 1;
+}
