@@ -1,7 +1,5 @@
 ## Functions and Callbacks
 
-### [REPO LINK](https://github.com/vasiliy-klimkin/w1d5-callbacks)
-
 Today's lecture will focus on functions and callbacks. We will first talk about functions.
 
 ### What Are Functions??
