@@ -66,10 +66,36 @@ We need to write a program that:
 **2:** Research The Unknowns
 
  - How can we tell if it's a whole number?
+
+    ```js
+      Number.isInteger(parcedNum);
+    ```
+
  - How do we get the command line arguments?
+
+    ```js
+    process.argv
+    ```
+
  - How do we loop through an an array?
+
+    ```js
+    for (let i = 0; i < numbers.length; i++) {
+      console.log(numbers[i]);
+    }
+    ```
+
  - Does the command line give us a string or an number?
+
+  ```js
+    console.log(process.argv)
+  ```
+
  - How do we convert string to number?
+
+  ```js
+    parseInt(numberArray[i]);
+  ```
 
 
 **3:** Coding Time!! With Increments!!
@@ -85,3 +111,17 @@ IF i can get the command line arguments then I can probably loop through them.
 
 IF I can loop through them I must be able to add them toghether. etc etc etc.
 
+#### !!!! Do not try to do 'code golf' !!!!
+
+Code golfing is a term where you are trying to solve a problem with the least amount of lines. Even though it maybe very nice to solve something in a 1 lines, sometimes in becomes unreadable, or unmaintainable.
+
+__Exibit A__
+
+
+```js
+const addNumbers = function (numberArray) {
+  return numberArray.reduce((acc, num) => Number.isInteger(parseInt(num)) ? parseInt(num) + parseInt(acc) : acc);
+}
+```
+
+Sometimes going into refactoringis too much! Ask me about this in a few weeks and i wont remember why i did this or how i did it!
