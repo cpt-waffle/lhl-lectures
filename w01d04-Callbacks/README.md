@@ -71,30 +71,6 @@ backward(['hello', 'lighthouse labs', 'and', 'world'], function(word) {
 });
 ```
 
-An incrementing example of this, that we looked into into, was converting a simple `logEach` function into a `high-order function` so that it takes a `callback`.
-
-```js
-const array = [1, 2, 3];
-for (const item of items) {
-  console.log(item);
-};
-
-// can be rewritten as:
-
-const logEach = function(items) {
-  for (const item of items) {
-    console.log(item);
-  }
-};
-
-// but if we want something more abstract and single-purpose
-
-const forEach = function(items, action) {
-  for (const item of items) {
-    action(item);
-  }
-};
-```
 
 ### Why write Higher-order functions? What's the rationale?
 
