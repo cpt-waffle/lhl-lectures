@@ -2,7 +2,6 @@ const express = require('express');
 
 const router = express.Router();
 
-module.exports = () => {
 
   router.get('/', (req,res) => {
     console.log("now we are in the '/urls' route");
@@ -18,5 +17,4 @@ module.exports = () => {
     res.render('show');
   })
 
-  return router;
-}
+module.exports = router;
