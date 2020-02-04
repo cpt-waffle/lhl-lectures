@@ -12,5 +12,12 @@
 let arr = process.argv.slice(2);
 console.log('arr => ', arr);
 
+let sum = 0;
+
+for (let number in arr) {
+  sum = sum + Number(arr[number]);
+}
+
+console.log(sum);
 
 // console.log(process.argv)
