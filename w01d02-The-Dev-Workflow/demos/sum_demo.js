@@ -24,6 +24,12 @@ const sumArray = function(arr) {
   return sum;
 }
 
+
+// const sumArray = arr => arr.map(e => Number(e)).reduce((total, num) => Number(num) % 1 === 0 ? total += Number(num) : total += 0);
+
+
+
+
 let sum = sumArray(arr_one);
 
 console.log(sum);
