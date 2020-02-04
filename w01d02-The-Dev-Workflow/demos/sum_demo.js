@@ -24,7 +24,7 @@ const sumArray = function(arr) {
   return sum;
 }
 
-
+// DO NOT DO THIS!!! THIS IS TOO MUCH TO REFACTOR AFTER OR EDIT !!!!!!! BAAAAAAAAAAAAAAAAAD!!!!
 // const sumArray = arr => arr.map(e => Number(e)).reduce((total, num) => Number(num) % 1 === 0 ? total += Number(num) : total += 0);
 
 
