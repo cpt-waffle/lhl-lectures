@@ -15,7 +15,10 @@ console.log('arr => ', arr);
 let sum = 0;
 
 for (let number in arr) {
-  sum = sum + Number(arr[number]);
+  if (Number(arr[number]) % 1 === 0) {
+    sum = sum + Number(arr[number]);
+    // console.log('test')
+  }
 }
 
 console.log(sum);
