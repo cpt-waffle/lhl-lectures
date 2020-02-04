@@ -9,18 +9,29 @@
 // use a loop
 // how to check if its a whole number???
 
-let arr = process.argv.slice(2);
-console.log('arr => ', arr);
+let arr_one = process.argv.slice(2);
 
-let sum = 0;
+// This function takes an array and sums the contents of it
+const sumArray = function(arr) {
+  let sum = 0;
+  for (let number of arr) {
 
-for (let number in arr) {
-  if (Number(arr[number]) % 1 === 0) {
-    sum = sum + Number(arr[number]);
-    // console.log('test')
+    // checks if the number is a whole
+    if (Number(number) % 1 === 0) {
+      sum += Number(number);
+    }
   }
+  return sum;
 }
 
+let sum = sumArray(arr_one);
+
 console.log(sum);
+
+
+
+
+
+
 
 // console.log(process.argv)
