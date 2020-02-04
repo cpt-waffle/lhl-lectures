@@ -1,9 +1,9 @@
 // console.log("arguments", process.argv);
-// console.log("arguments that are only numbers that we need to add", process.argv.splice(2));
+console.log("arguments that are only numbers that we need to add", process.argv.splice(2));
 
 //first working
 // let numbers = process.argv.splice(2);
-// console.log(numbers);
+console.log(numbers);
 
 // let sum = 0;
 // for (let i = 0; i < numbers.length; i++) {
