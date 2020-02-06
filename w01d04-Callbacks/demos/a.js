@@ -13,4 +13,10 @@ const printNumbers = (arr, cb) => {
     }
   }
 }
-printNumbers([1,'2',3,'four',5], (val) => typeof val === 'number' ? true : false);
+printNumbers([1,'2',3,'four',5], (val) => {
+  if (typeof val === 'number') {
+    return true;
+  } else {
+    return false;
+  }
+})
