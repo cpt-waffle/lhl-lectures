@@ -1,4 +1,4 @@
-## Functions and Callbacks
+  ## Functions and Callbacks
 
 Today's lecture will focus on functions and callbacks. We will first talk about functions.
 
