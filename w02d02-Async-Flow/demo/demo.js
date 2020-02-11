@@ -26,40 +26,10 @@ const multiTwo = (x) => {
 //   console.log('our value is ==>', val);
 // });
 
+console.log(" START ");
 
-slowPrint("This is my string");
+setTimeout(() => console.log("IN CALLBACK TIMEOUT"), 2000);
 
+console.log(" END   ")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// async examples setInterval, setTimeout
-
-
-// print example (maybe?)
-
-
-// file read example (fs.readFile())
-
+//
