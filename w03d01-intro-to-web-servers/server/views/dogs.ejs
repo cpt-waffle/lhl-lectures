@@ -1,0 +1,10 @@
+<h1>Dogs</h1>
+
+<% for (let i of dogs) { %>
+  <li><%= i %></li>
+<%}%>
+
+<form method="POST" action="/dogs">
+  <input type="text" name="dog"/>
+  <button>Add Dog</button>
+</form>

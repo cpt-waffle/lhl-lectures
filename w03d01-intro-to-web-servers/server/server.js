@@ -1,65 +1,49 @@
 const express = require('express');
-
+const bodyParser = require('body-parser');
 const app = express();
-const port = 8000;
+const dogs = [
+  'Husky',
+  'Shnozer',
+  'Weiner',
+  'Chiwawa',
+  'Golden Retriever'
+]
 
 
 app.set('view engine', 'ejs');
-
-// console.log(app);
-const items = [{item_name: 'shoes', price: 99.99}, {item_name: 'socks', price: 20.00}];
+app.use(bodyParser.urlencoded({ extended: false }))
 
 
-
-app.get("/", (request, response) => {
-  // console.log("Someone has come to our home page!!!!");
-  // console.log(request.headers);
-  // console.log(response);
-  response.send('<h1>Welcome to My page!!!</h1>');
+app.get('/cats', (req,res) => {
+  console.log(req);
+  // res.send('<body><h2>hello wrld</h2></body>')
+  res.render('homepage');
 })
 
-app.get('/cats', (request, response) => {
-  console.log(`we have hit the "Cats" route!!`);
-  response.send({cat: {description: "this is a very basic cat!!!"}});
-})
-
-
-app.get('/number', (request, response) => {
-  console.log("we hit the number route");
-  response.render('number');
-})
-
-app.get('/number/:id', (request, response) => {
-  // console.log("Number route with params");
-  console.log('request params  ', request.params);
-  console.log('request query   ', request.query); // ?? google that when you have time
-  console.log('request body    ', request.body); // Form
-  let templateVars = {
-    userNumber: request.params.id,
-    array: ['apple', 'pair', 'banana']
+app.get('/dogs', (req,res) => {
+  const templateVars = {
+    dogs: dogs
   }
-  response.render('specific_number', templateVars);
-});
+  res.render('dogs', templateVars);
+})
 
-app.post('/apples', (request, response) => {
-  console.log("POST request has been hit to apples");
-  response.redirect('/');
+app.post('/dogs', (req,res) => {
+  dogs.push(req.body.dog);
+  res.redirect('/dogs');
+})
+
+/////// the next pathway after /dogs/_____ is now called breed
+// inside of req.params
+app.get('/dogs/:id', (req,res) => {
+  const templateVars = {
+    ttt: dogs[Number(req.params.id)]
+  }
+  console.log(req.params);
+  res.render('specificDog', templateVars);
 })
 
 
 
-app.listen(port, () => {
-  console.log("Server is running on port ", port);
-});
 
 
-
-
-
-
-
-
-
-
-
-
+app.listen(8080, () => console.log('Server is on!'));
