@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import List from './components/List/';
+import ListItemList from "./components/ListItemList";
+import Form from './components/Form'
+
+const items = ['Learn props in react', 'get to lhl', 'work on a project'];
+
 
 function App() {
-  //STATES
-  const [items, setItems] = useState([]);
-  const addItem = () => {
-    const copy = [...items];
-    copy.push('buy bitcoin');
-    setItems(copy);
-    // items = copy
-    // Tell react to re-render, because state has changed!
+  const [list, setList] = useState(items);
+
+
+  function addItem(val){
+    console.log(val);
+    setList([...list, val])
   }
 
   return (
     <div className="App">
-      <h1>Todo List</h1>
-      <List items={items}/>
-      <button onClick={() => addItem()}>CLICK ME</button>
+      {list.length}
+      <ListItemList list={list}/>
+      <Form handleAddItem={addItem}/>
     </div>
   );
 }
