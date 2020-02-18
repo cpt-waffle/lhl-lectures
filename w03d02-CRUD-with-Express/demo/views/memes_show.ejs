@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <h1>Specfic meme</h1>
+  <img style="width: 300px; height: 300px; object-fit: cover;"src="<%=specificMeme.picture%>" />
+  <form method="POST" action="/memes/<%= key %>/delete">
+    <button>DELETE</button>
+  </form>
+</body>
+</html>
