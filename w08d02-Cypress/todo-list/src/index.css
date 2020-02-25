@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h5 {
+  padding-top: 0.2rem;
+}
+
+body {
+  font-family: monospace;
+  margin: 0;
+  background-color: black;
+  color: white;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  text-align: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.list {
+  margin-top: 1em;
+  width: 50%;
+}
+
+.done {
+  color:white;
+  background-color: green;
+  border: none;
+  width:  1.2em;
+  height: 1.2em;
+  font-size: 2em;
+  border-radius: 50%;
+}
+
+.undone {
+  color:white;
+  background-color: red;
+  border: none;
+  width:  1.2em;
+  height: 1.2em;
+  font-size: 2em;
+  border-radius: 50%;
+}
+
+.done:hover {
+  background-color: darkgreen;
+}
+
+.listItem {
+  display:flex;
+  justify-content: space-between;
+  background-color: #7237b8;
+  padding: 1.4em;
+  margin: 0.5em;
+}
+
+.listItem:hover {
+  background-color: #451182;
+}
+
+.doneItem {
+  background-color: darkgreen;
+}
+
+form {
+  text-align: center;
+
+  margin: 1em;
+}
+
+form input {
+  height: 3em;
+  width: 30%;
+  font-size: 1rem;
+  margin-right: 5px;
+}
+
+form button {
+  margin: auto;
+  height: 4rem;
+  width: 15%;
+  font-size: 1rem;
+  color: white;
+  background-color: #451182;
+  border: none;
+}

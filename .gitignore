@@ -12,6 +12,8 @@ w07d02-Data-Fetching-And-Other-SideEffects/server-demo/client/node_modules
 w07d02-Data-Fetching-And-Other-SideEffects/side-effects/node_modules
 w07d03-CustomHooks/custom-hooks/node_modules
 w07d04-Reducers/memes-part2/node_modules
+w08d02-Cypress/demo/node_modules/myapp/node_modules
+w08d02-Cypress/demo/node_modules/todo-list/node_modules
 w08d03-Next-Steps/demo/node_modules
 w08d03-Next-Steps/styled-components-example/node_modules
 
