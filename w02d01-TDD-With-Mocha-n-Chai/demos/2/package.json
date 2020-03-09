@@ -1,0 +1,20 @@
+{
+  "name": "eq-arrays",
+  "version": "1.0.0",
+  "description": "",
+  "main": "equalArrays.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha",
+    "potato": "node equalArrays.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^7.1.0",
+    "chai": "^4.2.0"
+  },
+  "dependencies": {}
+}
