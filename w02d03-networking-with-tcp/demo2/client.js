@@ -3,7 +3,7 @@ const stdin = process.stdin;
 stdin.setEncoding('utf8');
 
 const client = net.createConnection({
-  host: '172.46.2.44',
+  host: 'localhost',
   port: 3000
 });
 
