@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memes Index</title>
+</head>
+<body>
+    Hello world 
+    <% if ( user ) { %>
+        <h1>User is logged in as <%= user %></h1>
+    <% } else  { %>
+        <a href='/login'>Login in here</a>
+    <% } %>
+    <h3>List of Memes</h3>
+    <a href="/memes/new">make a fresh meme!</a>
+    <ul>
+        <% for (let meme of listOfMemes) { %>
+           <li>
+               <img style="width: 250px; object-fit: cover;" src="<%= meme.url %>" />
+           </li> 
+        <% } %>
+    </ul>
+</body>
+</html>

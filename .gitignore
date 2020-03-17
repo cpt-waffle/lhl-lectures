@@ -2,6 +2,7 @@ w02d01-TDD-With-Mocha-n-Chai/demos/1/node_modules/
 w02d01-TDD-With-Mocha-n-Chai/demos/2/node_modules/
 w03d01-intro-to-web-servers/server/node_modules/
 w03d02-CRUD-with-Express/demo/node_modules/
+w03d02-CRUD-with-Express/demo2/node_modules/
 w03d04-Real-World-HTTP-Servers/demo/node_modules/
 w03d04-Real-World-HTTP-Servers/demo2/node_modules/
 w03d04-Real-World-HTTP-Servers/demo3/node_modules/
@@ -10,6 +11,7 @@ w03d04-Real-World-HTTP-Servers/demo5/node_modules/
 w08d01-Unit-Integration-Testing/to-dos-/node_modules/
 w07d02-Data-Fetching-And-Other-SideEffects/server-demo/node_modules
 w07d01-Intro-to-React/todos/node_modules/
+w07d01-Intro-to-React/memes-app/node_modules/
 w07d02-Data-Fetching-And-Other-SideEffects/server-demo/client/node_modules
 w07d02-Data-Fetching-And-Other-SideEffects/side-effects/node_modules
 w07d03-CustomHooks/custom-hooks/node_modules
