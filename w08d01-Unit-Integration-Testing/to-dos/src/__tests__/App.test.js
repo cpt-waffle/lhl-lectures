@@ -1,45 +1,44 @@
 import React from 'react';
-import App from '../App'
+import App from '../App';
+import { render, prettyDOM, fireEvent } from '@testing-library/react';
 
-import { render, prettyDOM, fireEvent } from  '@testing-library/react';
-
-describe('Tests for Item Component', () => {
-
-  it("Renders on the screen", () => {
-
-    const {container} = render(<App/>)
-    // console.log(prettyDOM(container));
-  })
-
-  it('has 5 items inside of the list', () => {
-    const {container} = render(<App/>)
-    // console.log(container.firstChild.children[1].children.length);
-  })
-
-  it('App has a todo list', () => {
-    const {container} = render(<App/>)
-    // console.log(container.firstChild.children[1].className);
-  })
+describe('App Tests', () => {
+    it('Renders the App', () => {
+        render(<App/>);
+    })
+    
+    it('Renders the App', () => {
+        const { container } = render(<App/>);
+        expect(container.children[0].children[1].children.length).toBe(6);
+    })
 
 
-  it('App has a button on screen', () => {
-    const {container, getByText} = render(<App/>);
-    // console.log(prettyDOM(getByText('Add')));
-  })
+    it('has "learn react", unchecked. We then click the checkbox.. checkbox is now checked', () => {
+        const { container, getByText } = render(<App/>);
+        // console.log(prettyDOM(getByText('learn react').parentElement.children[1]))
+        expect(getByText('learn react').parentElement.children[1].checked).toBe(false)
+        fireEvent.click(getByText('learn react').parentElement.children[1])
+        expect(getByText('learn react').parentElement.children[1].checked).toBe(true)
+        // console.log(getByText('learn react').parentElement.children[1].checked);
 
-  it('App has an item in the list with name "learn react"', () => {
-    const {container, getByText} = render(<App/>);
-    // console.log(prettyDOM(getByText('learn react')));
-  })
+    })
 
+    it('Clicks the button "add", (without filling out the form), nothing gets added, and we get Error "Item Cannot be Blank!!!"', () => {
+        const { container, getByText } = render(<App/>);
+        expect(container.children[0].children[1].children.length).toBe(6);
+        const button = getByText('Add');
+        const input = container.querySelector('input[name="newItem"]')
+        // console.log(prettyDOM(input))
+        // console.log(prettyDOM(button));
+        fireEvent.click(button);
+        // console.log(prettyDOM(container));
+        expect(getByText('Cannot Be Blank!'));
+        fireEvent.change(input, { target: { value: 'panda' } })
+        fireEvent.click(button);
+        // console.log(prettyDOM(container))
+        // console.log(prettyDOM(container))
+        expect(container.children[0].children[1].children.length).toBe(7);
 
-  it("Clicks a button and an error occurs on the screen saying that: item connot be blank!!!", () => {
-    const {container, getByText} = render(<App/>);
-    const button = getByText("Add");
-    // fireEvent.click(button);
-    console.log(prettyDOM(container));
-    expect(getByText('Item cannot be Blank!'))
-  })
-
+    })
 
 })

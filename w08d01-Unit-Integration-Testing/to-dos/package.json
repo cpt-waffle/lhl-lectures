@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/dom": "^6.11.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-scripts": "3.2.0"
@@ -30,6 +29,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/dom": "^6.16.0",
     "@testing-library/react": "^9.3.2",
     "jest": "^24.9.0"
   }

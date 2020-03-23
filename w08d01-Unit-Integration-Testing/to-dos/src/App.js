@@ -9,13 +9,17 @@ const list = [
   {item: 'get food', done: false},
   {item: 'sleep 12 hours', done: false},
   {item: 'Finish watching HMYM', done: false},
+  {item: 'Finish watching HMYM', done: false},
+
 ]
 
 // useContext <-----------
 export default () => {
 
   const [todoList, modifyList] = useState(list);
-  const [error, toggleError] = useState(false)
+  const [val, changeVal] = useState('');
+  const [error, toggleError] = useState(false);
+
 
   const toggleDone = i => {
     modifyList( prev => {
@@ -31,13 +35,15 @@ export default () => {
   const onAdd = evt => {
     evt.preventDefault()
     // console.log("TEST")
-    if (evt && evt.target && evt.target.newItem && evt.target.newItem.value.length) {
-      addItem(evt.target.newItem.value)
-      toggleError(false)
+
+    if (val) {
+      addItem(val);
+      changeVal('');
+      toggleError(false);
+    } else {
+      toggleError(true);
     }
-    else {
-      toggleError(true)
-    }
+
   }
 
   return (
@@ -45,10 +51,10 @@ export default () => {
       <h1>ToDo List</h1>
       <List items={todoList} toggleDone={toggleDone}/>
       <form className="addForm" onSubmit={onAdd}>
-        <input className="addForm-input" type="text" name="newItem"/>
+        <input className="addForm-input" type="text" name="newItem" value={val} onChange={evt => changeVal(evt.target.value)}/>
         <button className="submit-btn">Add</button>
+        {error && <h1>Cannot Be Blank!</h1>}
       </form>
-        {error && <p>Item cannot be Blank!</p>}
     </div>
   );
 }
