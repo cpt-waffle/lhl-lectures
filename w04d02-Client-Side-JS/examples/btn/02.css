@@ -1,0 +1,17 @@
+body {
+  margin: auto;
+  text-align: center;
+}
+
+#red-btn {
+  background-color: red;
+  color: white;
+  font-size: 3rem;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 100%;
+}
+
+#red-btn:active {
+  background-color: darkred;
+}
