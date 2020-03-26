@@ -1,0 +1,19 @@
+$wow-color: #c6538c;
+
+.test {
+    background-color: blue;
+    padding: 5px;
+    .wow {
+      color: red;
+      background-color: $wow-color;
+
+    }
+
+    &:hover {
+        background-color: salmon;
+
+        .wow {
+            color: green;
+        }
+    }
+}

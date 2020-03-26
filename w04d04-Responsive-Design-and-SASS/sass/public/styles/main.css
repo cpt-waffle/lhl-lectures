@@ -1,0 +1,17 @@
+.test {
+  background-color: blue;
+  padding: 5px;
+}
+
+.test .wow {
+  color: red;
+  background-color: #c6538c;
+}
+
+.test:hover {
+  background-color: salmon;
+}
+
+.test:hover .wow {
+  color: green;
+}
