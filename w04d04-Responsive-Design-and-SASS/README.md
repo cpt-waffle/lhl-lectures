@@ -45,7 +45,7 @@ This is not a problem because we are finally entering the realm of responsive de
 
 Generally for anything responsive we tend to use `em`s, `rem`s and `percent`s. we tend to avoid pixels just forth the fact of
 
-```css
+```css    
   .item1 {
     background: green;
     width:100%;
