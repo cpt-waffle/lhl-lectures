@@ -10,6 +10,8 @@ w03d04-Real-World-HTTP-Servers/demo4/node_modules/
 w03d04-Real-World-HTTP-Servers/demo5/node_modules/
 w03d04-HTTP-Servers/demo/node_modules/
 w04d04-Responsive-Design-and-SASS/sass/node_modules/
+w05d03-SQL-from-our-Apps/demo/node_modules/
+w05d03-SQL-from-our-Apps/demo2/node_modules/
 w08d01-Unit-Integration-Testing/to-dos-/node_modules/
 w07d02-Data-Fetching-And-Other-SideEffects/server-demo/node_modules
 w07d01-Intro-to-React/todos/node_modules/
@@ -23,4 +25,3 @@ w08d02-Cypress/demo/node_modules/todo-list/node_modules
 w08d03-Next-Steps/demo/node_modules
 w08d03-Next-Steps/more-memes/node_modules
 w08d03-Next-Steps/styled-components-example/node_modules
-
