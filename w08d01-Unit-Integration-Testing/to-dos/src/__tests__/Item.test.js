@@ -1,50 +1,41 @@
 import React from 'react';
 import Item from '../Components/Item';
-
 import { render, prettyDOM, fireEvent } from '@testing-library/react';
 
-// test() and it() ARE THE SAME THING
-// xit() SKIPs your test
-
-describe('Tests for Item Component', () => {
-    it('renders on the screen!', () => {
-      const { container } = render(<Item/>);
-      // console.log(prettyDOM(container));
+describe( 'Items Tests', () => {
+    it('renders on the screen without issue', () => {
+        render(<Item item={'test react'}/>);
     })
 
-    test('renders the component with name, and checkmarked', () => {
-      const { container } = render(<Item item={'Buy Apples'} done={true}/>);
-      // console.log(prettyDOM(container));
+    it('renders on the screen but nothing was passed', () => {
+        render(<Item/>);
     })
 
-    it('the component has "Buy Apples"', () => {
-      const { container, getByText } = render(<Item item={'Buy Apples'} done={true}/>);
-      // console.log(prettyDOM(container));
-      expect( getByText('buy apples') );
+    it('renders, and should have "test react" in the item name', () => {
+        const {container, getByText} = render(<Item item={'test react'}/>)
+        // console.log(prettyDOM(getByText('test react')))
+        // console.log(prettyDOM(container));
     })
 
-    it('the component has "Buy Apples", AND its lowercase', () => {
-      const { container, getByText } = render(<Item item={'BuY ApPles'} done={true}/>);
-      expect( getByText('buy apples') );
+    it('should have a classname "todo-item"', () => {
+        const {container} = render(<Item item={'test react'}/>)
+        expect(container.firstChild.className).toBe('todo-item')
     })
 
-    it('should have className "todo-item"', () => {
-      const { container } = render(<Item item={'learn testing'} done={false}/>);
-      expect(container.firstChild.className).toBe('todo-item');
+
+    it('should not be checked', () => {
+        const {container} = render(<Item item={'test react'} />)
+        expect(container.firstChild.children[1].checked).toBe(false)
+        // expect(container.firstChild.className).toBe('todo-item')
     })
 
-    it('should be unchecked', () => {
-      const { container } = render(<Item item={'learn testing'} done={false}/>);
-      expect(container.firstChild.children[1].checked).toBe(false);
-      // expect()
-    })
 
-    it('should be unchecked. Then we click the input field, then it should be checked', () => {
-      let checked = false;
-      const { container } = render(<Item item={'learn testing'} done={checked} toggleDone={() => checked = true}/>);
-      // console.log(prettyDOM(container.firstChild.children[1]));
-      expect(checked).toBe(false);
-      fireEvent.click(container.firstChild.children[1]);
-      expect(checked).toBe(true);
+    it('should not be checked', () => {
+        let status = false;
+        const {container, getByTestId} = render(<Item item={'test react'} done={status} toggleDone={() => status = true}/>)
+        expect(container.firstChild.children[1].checked).toBe(false)
+        fireEvent.click(getByTestId('input'))
+        expect(status).toBe(true);
+        // expect(container.firstChild.className).toBe('todo-item')
     })
 })

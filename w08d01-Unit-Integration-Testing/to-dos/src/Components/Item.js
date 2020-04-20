@@ -3,8 +3,9 @@ import React from 'react';
 export default (props) => {
   return (
     <li className="todo-item" key={props.index} >
-      <p>{props && props.item && props.item.toLowerCase()}</p>
+      <p>{props.item && props.item.toLowerCase()}</p>
       <input
+        data-testid="input"
         className="checkbox"
         type="checkbox"
         name="done"
