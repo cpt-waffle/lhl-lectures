@@ -1,24 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import List from './components/List';
 import Form from './components/Form';
-
-// Some simulation
-const API = [
-  {item: 'Buy Milk',          done: false},
-  {item: 'Do Testing',        done: false},
-  {item: 'Buy A Boat',        done: false},
-  {item: 'Write some Memes',  done: false},
-]
-
 
 const App = () => {
 
   const [list, setList] = useState([]);
+  const [error, toggleError] = useState(false);
 
   useEffect( () => {
-    setTimeout(() => {
-      setList( prev => [...prev, ...API]);
-    }, 1000)
+    axios.get('http://localhost:8080/')
+    .then(res => setList(res.data))
+    .catch(e => toggleError(true))
   }, []);
 
   const handleAdd = name => {
@@ -41,6 +34,7 @@ const App = () => {
         <List list={list} handleComplete={handleComplete}/>
       </div>
       <Form handleAdd={handleAdd}/>
+      {error && <h3>Error Occured, server Offline</h3>}
     </div>
   );
 }

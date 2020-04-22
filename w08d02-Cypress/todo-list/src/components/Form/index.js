@@ -7,10 +7,12 @@ const Form = ({handleAdd}) => {
   const onSubmit = evt => {
     evt.preventDefault();
     let val = evt.target.newItem.value.trim();
-    if (val.length > 0)
+    if (val.length > 0) {
       handleAdd(evt.target.newItem.value);
+      toggleError(false);
+    }
     else
-      toggleError(prev => !prev);
+      toggleError(true);
     evt.target.newItem.value = '';
   }
 
