@@ -23,6 +23,7 @@ INSERT INTO users (id, email, password) VALUES (2, 'lisa.simpson@gmail.com', 'eh
 INSERT INTO users (id, email, password) VALUES (3, 'link@yahoo.com', 'hyrule');
 INSERT INTO users (id, email, password) VALUES (4, 'simon_bel123@mail.ca', 'dracula');
 INSERT INTO users (id, email, password) VALUES (5, 'all_might@academia.jp', 'plusUltra');
+INSERT INTO users (id, email, password) VALUES (6, 'mario@mushroomkindom.jp', 'plumber79');
 
 -- Seed Rick
 INSERT INTO urls (id, user_id, long_url, short_url, favorite) VALUES (1, 1, 'www.google.ca', 'XcD3d', false);

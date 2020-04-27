@@ -249,6 +249,26 @@ __Result__
 
 ```
 
+-- Only show users with more than 3 urls
+
+```sql
+SELECT users.email, count(urls.id)
+FROM users
+JOIN urls ON users.id = urls.user_id
+GROUP BY users.email;
+HAVING count(urls.id) > 3;
+```
+
+__Result__
+
+```
+          email          | count 
+-------------------------+-------
+ lisa.simpson@gmail.com  |     4
+ rick.sandchez@gmail.com |     4
+ simon_bel123@mail.ca    |     8
+```
+
 #### `Sub`-Selects
 
 -- Show me total number of favorited urls, total number of regular urls, for each user email
