@@ -1,0 +1,19 @@
+.card {
+    background-color: black;
+    color: white;
+    margin: 1em;
+    padding: 1em;
+}
+
+.meme-img {
+    width: 300px;
+    object-fit: cover;
+}
+
+.err {
+    background-color: darkred;
+    color: gray;
+    border: 1px solid black;
+    margin: 1em;
+    padding: 1em;    
+}
