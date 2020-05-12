@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Memes Homepage</h1>
+    <a href='/memes/new'>Make a fresh meme!!</a>
+    <% for ( meme in list ) { %>
+        <li>
+            <h4><%= list[meme].name %></h4>
+            <img style="width: 300px; object-fit: cover;"src="<%= list[meme].url%>"/>
+        </li>
+    <% } %>
+</body>
+</html>

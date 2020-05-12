@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>New Meme</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-  <form method="POST" action="/memes">
-    <p>Image URL Link
-      <input type='text' name="urlLink"/>
-    </p>
-    <button>Add Meme</button>
-  </form>
+    <h2>Add a New Fresh Meme!!!</h2>
+    <form method="POST" action='/memes'>
+        <p>Title<input name="name" type='text'/></p>
+        <p>URL<input name="url" type='text'/></p>
+        <button>Make a meme!</button>
+    </form>
 </body>
 </html>
