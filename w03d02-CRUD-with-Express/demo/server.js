@@ -33,6 +33,8 @@ app.set('view engine', 'ejs');
 // find a new place to work
 let i = 4;
 
+// a mock database!!!
+// ALmost real (very close other than persist after restart)
 const memesList = {
     0: {id: 0, name: 'build failed', url: 'https://i.redd.it/ir5c02qa0by41.png'},
     1: {id: 1, name: 'neural network for babies', url: 'https://preview.redd.it/8d1stdly7by41.jpg?width=640&crop=smart&auto=webp&s=aa4f8637b80149ba8cea86d29b0807f439a8e2be'},

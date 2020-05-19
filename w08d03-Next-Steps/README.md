@@ -119,6 +119,60 @@ Finally we Looked into react router. This 3rd party library that helps you condi
 
 [React Router Docs (VERY EASY TO READ)](https://reacttraining.com/react-router/web)
 
+
+
+### React Context
+
+Context is a way to share a specific state between components without `prop-drilling`. 
+
+Note taken from the React Docs:
+
+__Context is primarily used when some data needs to be accessible by many components at different nesting levels. Apply it sparingly because it makes component reuse more difficult.__
+
+To start we have to make a `context file`
+
+```jsx
+import React, { createContext, useState } from 'react';
+// step 1: make a context -- which makes the default shareable state
+const GlobalContext = createContext({count: 0});
+
+// step 2: make a provider from the context we made. We need the provider, to
+// WRAP around all of Components(Children) that may use this global state.
+export function GlobalContextProvider(props) {
+  // Step 3: add a state and pass it into the Provider value prop
+  const [state, setState] = useState({count: 0});
+  return (
+    <GlobalContext.Provider value={[state, setState]}>
+      {props.children}
+    </GlobalContext.Provider>
+  )
+}
+
+export default GlobalContext;
+```
+
+Now to use it in another Component:
+
+```jsx
+import React, { useContext } from 'react';
+import GlobalContext from '../Context/GlobalContext';
+
+
+export default function Dogs(props){
+  const [state, setState] = useContext(GlobalContext);
+  const clickDown = () => setState(prev => ({...prev, count: prev.count - 1}));
+  return (
+    <div>
+      <h2>Dogs Page</h2>
+      <h1>Count is: {state.count}</h1>
+      <button onClick={clickDown}>click me</button>
+    </div>
+  )
+}
+```
+
+
+
 #### Netlify and SPA
 
 We finally did a quick deploy to netlify and looked into making the app into an SPA (Remeber the `service worker`). By enabling this (or by setting a service worker up, assuming you are not using create react app), you are now letting your app be saved to a phone. You can also now push notifications to the phone!
