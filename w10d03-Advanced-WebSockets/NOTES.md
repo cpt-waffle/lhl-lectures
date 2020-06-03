@@ -1,20 +1,19 @@
-Final Projects!!!
+Final Projects!!
 
-WHAT is an API???!?!
+Real Time communication --- Using Sockets (SocketIO)
 
+Quick Review
 
-Rails <- its not api->
+HTTP
 
-rememeber that you have views, and your views generat HTML
-
-Server                   Client
- Listens                
-    <------REQ-----------RES>
-
-
-WEB SOCKETS
+CLIENT                                   SERVER
+CONNECTION IS MADE
+request==================================>AWESOME GOT IT (GET/POST)
+      <==================================response
+CONNECTION IS TERMINATED
 
 
-Server                          Client
- <-----------CONNECTION---------------->
- <-------------Both are listening------>
+SOCKETS (WEB SOCKETS) (TCP)
+kinda snek game?
+CLIENT                                            SERVER
+<------------------CONNECTION ESTABLISHED---------------------->
