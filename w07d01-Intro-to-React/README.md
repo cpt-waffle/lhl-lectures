@@ -51,32 +51,45 @@ storiesOf('List', module)
 With React, it's an extension for XML-like code for elements and components.
 JSX is alittle more stricter than HTML. We will have to these rules to write JSX correctly.
 
- - Rule 0 - `import React from "react";` AND `export default _______` <- your function name here
+ - Rule 0  - All Tags MUST be closed.
 
- - Rule 1 - All Tags MUST be closed.
+```jsx
+  // Rule number 1
+  // import React from 'react';
+  import React from 'react';
+  import './card.css'
+  const suits = {
+      clubs: '♣',
+      diamonds: '♦',
+      hearts: '♥',
+      spades: '♠',
+  }
 
-   ```jsx
-   <div>
-     {/* ... Components or other HTML in here ...  which are also closed correctly! */}
-   </div>
-   ```
+  // Rule Number 2
+  // make a function, Capitalized (with the same name as your file)
+  function Card(props) {
+      console.log(props);
+      // Rule number 4 ( not hard rule )
+      // Component must return some sort of JSX
 
-   Or
+      //PITFALL must return one parent (WRAP IT ALL OF IT)
+      // <%= urls.shortURL
+      let greetings = 'hello world';
 
-   ```jsx
-    <ListItem/>
-   ```
-
- - Rule 2 - Child tags `MUST` close before the parent.
-
-   ```jsx
-    <ul>
-      <li>Child1</li>
-      <li>Child2</li>
-      <li>Child3</li>
-      <li>Child4</li>
-    </ul>
-   ```
+      // boolean && value ==> if boolean is true, value wil be returned otherwise nothing will be returned
+      // boolean ? if true  : if false ===> if boolean is true, do if true, if false, do if false 
+      return (
+          <div className={'card' + ' ' + (props.color && 'red')}>
+              <h2>{props.number ? props.number : 'A'}</h2>
+              <h1 className="symbol">{props.suit ? suits[props.suit] : suits.spades}</h1>
+              <h2 className="right">{props.number ? props.number : 'A'}</h2>
+          </div>
+      )
+  }
+  // Rule Number 3
+  // EXPORT DEFAULT function you have made
+  export default Card;
+```
 
  - Rule 3 - All JSX expressions `MUST` have a parent (or root) element.
 
@@ -106,9 +119,8 @@ We Will be making a ToDo list.
 First thing is first, we need to dermined what components we will need.
 
 `App`       - will be our main component that consists of the entire app.
-`List`      - a list where all the ToDo items live.
-`ListItem`  - an item of a list.
-`ItemForm`  - A form to be able to add an item.
+`Hand`      - a hand to keep Cards
+`Card`      -   a single card
 
 
 Code examples from the live lecture:
@@ -119,43 +131,29 @@ To pass props into a component:
 
 ```jsx
 
-<List className="List" items={items} />
+<Card number={3} suit={'clubs'}/>
 
 ```
 
-in this instance, the props are: `className` and `items`. When we get into the The `List` Component, we can see the props from:
+in this instance, the props are: `number` and `suit`. When we get into the The `Card` Component, we can see the props from:
 
 ```jsx
 
-export default function List(props) {
-  console.log(props) // we will see an object with keys className and items, which will be the props
+function Card(props) {
+    console.log(props);
 }
+
 ```
-
-
-#### Controlled Inputs
+### Conditional Renderdering
 
 ```jsx
-import React, { useState } from "react";
-
-export default function List(props) {
-
-
-  const [input, handleInput] = useState("");
-
-  const handleForm = (evt) => {
-    evt.preventDefault();
-    props.addItem(input);
-    handleInput("");
-  }
-
-  return (
-    <form className="ItemForm" onSubmit={handleForm} >
-      <input value={input} onChange={evt => handleInput(evt.target.value)} className="itemAdd" type="text"/>
-      <button className="add-btn">Add</button>
-    </form>
-  )
-}
+      return (
+          <div className={'card' + ' ' + (props.color && 'red')}>
+              <h2>{props.number ? props.number : 'A'}</h2>
+              <h1 className="symbol">{props.suit ? suits[props.suit] : suits.spades}</h1>
+              <h2 className="right">{props.number ? props.number : 'A'}</h2>
+          </div>
+      )
 ```
 
 #### Fragments
@@ -169,51 +167,37 @@ return (
 
 Fragments are basically root tags for components. You should ONLY use them IF you do not need to style the component. (Fragments do not have className)
 
-### Conditional Renderdering
+#### Managing State
+
+We will use something called `React Hooks` to manage our state.
+first thing, we need import `useState`.
+Then we define a hook, we must remember it needes a deconstructer array, where it sets the value of the item to the first element of the array, followed by the function to use it to update the state
+Then we can assign an event function to update the state and react will re-render the DOM for it.
 
 ```jsx
-const arr = ['item1', 'item2']
+import React, { useState } from "react";
 
-return (
-  <div>
-    {arr.length > 0 ? <List/> : <p>No items</p>}
-  </div>
-);
+export default function example (props) {
+  const [number, numberEvent] = useState(0);
+  return (
+    <div>
+      {number}
+      <button onClick={e => numberEvent(number + 1)}>Add +1 </button>
+    </div>
+  )
+}
 ```
-
-We can use turniary expressions to perform conditional rendering.
-
-If I need to not render a component at all or render it depending on an expression:
-
-```jsx
-const arr = ['item1', 'item2']
-
-return (
-  <div>
-    {arr.length > 0 && <List/> }
-  </div>
-);
-```
-
-This basically evaluates to this kind of pseudocode:
-
-```jsx
-  if (arr.length > 0) {
-    return <List/>
-  }
-```
-
-
 #### Looping Pattern
 
 ```jsx
-const items = props.items.map( (item, index) => <ListItem key={index}>{item}</ListItem>)
-//...
-return (
-  <div>
-    {items}
-  </div>
-)
+    return (    
+        <div>
+            {props.cards.map((card, i) => <Card key={i} number={card.number} suit={card.suit} color={card.color}/>)}
+
+            <h1>{number}</h1>
+            <button onClick={addUp}>add</button>
+        </div>
+    )
 ```
 
 #### Passing children with JSX
@@ -267,23 +251,29 @@ return (
 
 ```
 
-#### Managing State
-
-We will use something called `React Hooks` to manage our state.
-first thing, we need import `useState`.
-Then we define a hook, we must remember it needes a deconstructer array, where it sets the value of the item to the first element of the array, followed by the function to use it to update the state
-Then we can assign an event function to update the state and react will re-render the DOM for it.
+#### Controlled Inputs
 
 ```jsx
 import React, { useState } from "react";
 
-export default function example (props) {
-  const [number, numberEvent] = useState(0);
+export default function List(props) {
+
+
+  const [input, handleInput] = useState("");
+
+  const handleForm = (evt) => {
+    evt.preventDefault();
+    props.addItem(input);
+    handleInput("");
+  }
+
   return (
-    <div>
-      {number}
-      <button onClick={e => numberEvent(number + 1)}>Add +1 </button>
-    </div>
+    <form className="ItemForm" onSubmit={handleForm} >
+      <input value={input} onChange={evt => handleInput(evt.target.value)} className="itemAdd" type="text"/>
+      <button className="add-btn">Add</button>
+    </form>
   )
 }
 ```
+
+
