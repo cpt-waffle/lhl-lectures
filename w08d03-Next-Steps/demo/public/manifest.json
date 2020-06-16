@@ -1,6 +1,6 @@
 {
-  "short_name": "Example Demo",
-  "name": "Sample Exammple Demo",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "green",
-  "background_color": "salmon"
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }

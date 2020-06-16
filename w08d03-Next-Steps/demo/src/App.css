@@ -1,9 +1,5 @@
 .App {
   text-align: center;
-  background-color: pink;
-  width:100%;
-  height:100%;
-  border: 4px dotted green;
 }
 
 .App-logo {
@@ -39,4 +35,15 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.link {
+  padding: 7px;
+  background-color: blue;
+  color: white;
+}
+
+.link:hover {
+  
+  background-color: darkblue;
 }
