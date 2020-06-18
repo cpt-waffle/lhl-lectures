@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
-import Meme from './Meme'
 import './App.css';
 
 const memesObj = [
@@ -12,31 +11,39 @@ const memesObj = [
 ]
 
 
-// 1: ____ extends Component or ( React.Component )
+// Rule Number one Class ____ extends component
 class App extends Component {
-  constructor() {
+  constructor(props) {
     super();
-    this.state = { list: memesObj };
+    this.state = {
+      memesList: memesObj
+    };
   }
-  // must have a render 
+
+  // if you see class component, make arrow notation
+  helloWorld = () => {
+
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log("updated!!");
+  }
 
   componentDidMount() {
-    console.log('loaded!');
+    console.log('ready!');
   }
 
-  componentWillMount() {
-    console.log("WILL MOUNT");
-  }
-
-
+  // Rule Number 2: you have a render()
   render() {
+    console.log(this)
     return (
       <div className="App">
-        <h1>CLASS MEMES</h1>
-        <Meme url={'www.google.ca'}/>
+        <button onClick={() => this.setState({memesList: [...this.state.memesList, this.state.memesList[this.state.memesList.length -1]]})}>HELLO</button>
+        {this.state.memesList.map(item => <img src={item.meme}/>)}
       </div>
     )
   }
+
 }
-// export 
+
 export default App;

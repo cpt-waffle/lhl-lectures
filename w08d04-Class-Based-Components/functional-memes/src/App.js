@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import Meme from './Meme'
+import React, { useState, useEffect } from 'react';
+import logo from './logo.svg';
 import './App.css';
 
 const memesObj = [
@@ -11,18 +11,16 @@ const memesObj = [
 ]
 
 function App() {
-  const [list, setList] = useState(memesObj);
-  const [num, setNum] = useState(0);
+  // This is how to get state.
+  const [memesList, setMemesList] = useState(memesObj);
 
   useEffect(() => {
-    console.log('Loaded!');
-    setNum(num + 1);
-  },[])
-
+    console.log('ready!');
+  }, [memesList])
   return (
     <div className="App">
-      <h1>FUNCTIONAL MEMES</h1>
-      {num}
+      <button onClick={() => setMemesList([...memesList, memesList[memesList.length-1]])}>HELLO WORLD</button>
+      {memesList.map(item => <img src={item.meme}/>)}
     </div>
   );
 }
