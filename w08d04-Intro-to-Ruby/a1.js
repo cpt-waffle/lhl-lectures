@@ -1,31 +1,28 @@
-let a = 'a variable';
-const b = 'another variable';
-var c = 'third variable';
-const arr = [1,2,3,4,5,6,7,8,9];
-const obj = {
-    foo:'bar',
-    num: 12
+const pizza = 'BBQ chicken Feast';
+// console.log(pizza);
+
+// const arr = [1,2,3,4,5,6,7,8,9,10];
+// let i = 1;
+// i++
+// console.log(i);
+
+// const printArr = arr => {
+//     for (let elem of arr) {
+//         console.log("The element is " + elem );
+//     }
+// }
+
+// countChars ?
+
+const countChars = str => {
+    const result = {};
+    console.log(result['h']);
+    for (let c of str) {
+        if (result[c])
+            result[c]++;
+        else
+            result[c] = 1;
+    }
+    return result;
 }
-//for loop and populate arr of 1000 numbers
-
-if (true) {
-
-} else if (a == true){
-
-} else {
-    
-}
-
-for ( let i of arr) {
-    console.log('the number is ' + i);
-}
-
-let number = 1;
-let boolean = true;
-
-
-// console.log(a);
-// console.log(b);
-// console.log(c);
-
-console.log(arr);
+console.log(countChars('hello'));
