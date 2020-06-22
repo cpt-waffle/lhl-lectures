@@ -1,11 +1,9 @@
 -- Show all the users that are stored in the database
-
 SELECT *
 FROM users;
 
 -- Show only the emails of all the users that are currently stored int he database.
 -- How to select a specific column(s) with a SELECT statement
-
 SELECT email
 FROM users;
 
@@ -19,45 +17,53 @@ WHERE user_id = 1;
 -- We can tac on more statements with AND and OR to our WHERE clause to have stricter fitering
 SELECT *
 FROM urls
-where user_id = 1
-AND favorite = true;
+WHERE user_id = 1 AND favorite = true;
 
 -- Show all urls that end with '.ca'
-
 SELECT *
 FROM urls
-where long_url LIKE '%.ca';
+WHERE long_url LIKE '%.ca';
 
 -- Show the email, long url, and favorite, for the user number 2
-
-SELECT users.email, urls.long_url, urls.favorite
-FROM urls
-JOIN users ON urls.user_id = users.id
-where user_id = 2;
+-- Show all long urls, with the email registered for those long urls, for user number 2
+SELECT users.id, email, long_url
+FROM users
+  LEFT JOIN urls ON urls.user_id = users.id
+WHERE users.id = 2;
 
 -- How many users do we have??
 
-SELECT count(*)
+SELECT COUNT(*)
 FROM users;
 
 -- How many urls does user 4 have?
-
-SELECT count(*)
+SELECT COUNT(*)
 FROM urls
 WHERE user_id = 4;
 
--- How many urls does each user have?
 
-SELECT users.email, count(urls.id)
+-- How many urls does each user have?
+SELECT users.id, email, COUNT(long_url)
 FROM users
-JOIN urls ON users.id = urls.user_id
-GROUP BY users.email;
+  LEFT JOIN urls ON users.id = urls.user_id
+GROUP BY email, users.id;
+
+-- Only show users with more than 3 urls
+SELECT users.id, email, COUNT(long_url)
+FROM users
+  LEFT JOIN urls ON users.id = urls.user_id
+GROUP BY email, users.id
+HAVING COUNT(long_url) >= 2;
 
 -- Show me total number of favorited urls, total number of regular urls, for each user email
 
-SELECT users.id, users.email,
-  (SELECT count(*) FROM urls where favorite = true AND urls.user_id = users.id) as "favorited",
-  (SELECT count(*) FROM urls where favorite = false AND urls.user_id = users.id) as "regular"
+SELECT users.email,
+  (SELECT count(*)
+  FROM urls
+  WHERE favorite = true AND urls.user_id = users.id) as "fav",
+  (SELECT count(*)
+  FROM urls
+  WHERE favorite = false AND urls.user_id = users.id) as "reg"
 FROM users
-JOIN urls on users.id = urls.user_id
 GROUP BY users.email, users.id;
+
