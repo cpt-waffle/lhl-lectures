@@ -1,0 +1,22 @@
+* {
+    margin: 6px;
+}
+
+.card {
+    border: 1px solid black;
+    height: 150px;
+    width: 100px;
+}
+
+.red {
+    color: red;
+}
+
+.right {
+    text-align: right;
+}
+
+.symbol {
+    text-align: center;
+    font-size: 70px;
+}
