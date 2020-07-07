@@ -2,8 +2,8 @@ w02d01-TDD-With-Mocha-n-Chai/demos/1/node_modules/
 w02d01-TDD-With-Mocha-n-Chai/demos/2/node_modules/
 w03d01-intro-to-web-servers/server/node_modules/
 w03d01-intro-to-web-servers/demo-server/node_modules/
-w03d02-CRUD-with-Express/demo/node_modules/
-w03d02-CRUD-with-Express/demo2/node_modules/
+w03d02-CRUD-with-Express/ramsey-meme-app/node_modules/
+w03d02-CRUD-with-Express/memes-app/node_modules/
 w03d04-Real-World-HTTP-Servers/demo/node_modules/
 w03d04-Real-World-HTTP-Servers/demo2/node_modules/
 w03d04-Real-World-HTTP-Servers/demo3/node_modules/
@@ -24,6 +24,7 @@ w07d02-Data-Fetching-And-Other-SideEffects/server-demo/client/node_modules
 w07d02-Data-Fetching-And-Other-SideEffects/meme-server/node_modules
 w07d02-Data-Fetching-And-Other-SideEffects/memes-v2/node_modules
 w07d02-Data-Fetching-And-Other-SideEffects/side-effects-demo2/node_modules
+w07d02br-state-props-advanced/node_modules/
 w07d2-Immutable-Patterns/demo/node_modules/
 w07d2-Immutable-Patterns/immutable-demo/node_modules
 w07d2-Immutable-Patterns/memes-v2/node_modules
