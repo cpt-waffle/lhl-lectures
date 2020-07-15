@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: gainsboro;
+}
+
+.header {
+    background-color: salmon;
+    padding: 1rem;
+    color: burlywood;
+}
+
+.item {
+    background-color: #e8cbc7;
+    display: flex;
+}
+
+.item:hover {
+    background-color:pink;
+}
+
+.item > img {
+    width: 65px;
+}
+
+.item > div {
+    padding: 1em;
+}
