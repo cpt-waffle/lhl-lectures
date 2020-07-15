@@ -34,7 +34,6 @@ context('Cypress.Commands', () => {
   })
 })
 
-
 context('Cypress.Cookies', () => {
   beforeEach(() => {
     cy.visit('https://example.cypress.io/cypress-api')
@@ -71,7 +70,6 @@ context('Cypress.Cookies', () => {
     })
   })
 })
-
 
 context('Cypress.Server', () => {
   beforeEach(() => {
@@ -185,7 +183,6 @@ context('Cypress.log', () => {
     // https://on.cypress.io/cypress-log
   })
 })
-
 
 context('Cypress.platform', () => {
   beforeEach(() => {
