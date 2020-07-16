@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Meme from './components/Meme';
 
 const memesObj = [
 	{meme: 'https://preview.redd.it/fpiq8ichbeu41.jpg?width=640&crop=smart&auto=webp&s=5437e65f7913f74a81705c217488afbcff28d869'},
@@ -11,16 +11,11 @@ const memesObj = [
 ]
 
 function App() {
-  // This is how to get state.
-  const [memesList, setMemesList] = useState(memesObj);
 
-  useEffect(() => {
-    console.log('ready!');
-  }, [memesList])
   return (
     <div className="App">
-      <button onClick={() => setMemesList([...memesList, memesList[memesList.length-1]])}>HELLO WORLD</button>
-      {memesList.map(item => <img src={item.meme}/>)}
+      <h1>Functional Memes</h1>
+      <Meme {...memesObj[0]}/>
     </div>
   );
 }
