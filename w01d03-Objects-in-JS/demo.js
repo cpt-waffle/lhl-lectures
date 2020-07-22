@@ -1,57 +1,56 @@
-// Arrays Review
+// Review
+// if i want to store a single value 
+// what shoud i do?
 
+let PI = 3.14;
+PI = 1;
 
-
-
-
-const array = ['Toyota', 'Corrola', 2015, 'Automatic', false];
-const keys = ['make', 'type', 'year']
-array.push('red');
-//console.log(array);
-
-// That is what object are,
-// A way to store data, BUT instead of having an INDEX and a val, it has a KEY and val
-
-
-// in objects the order of things how you store them, does not matter!
-
-//In objects there are 2 ways of storing a key value pair
-// so first way, but the only way we can store is because we define key name ourselves
-// obj.color = 'red';
-// // 
-
-// whe you have a variable, with a value inside of variable that YOU WANT TO BE THE KEY
-// we MUST use the square bracket notation.
-
-// obj.keyName = 'leather';
-
-
-// we want the make of the car
-// we want the type of car
-// and we want all the drivers 
-// const drivers = function(object) {
-//   // console.log(object)
-//   console.log(object.make + ' ' + object.type);
-//   console.log(object.drivers.length);
-//   for (let i = 0; i < object.drivers.length; i++) {
-//     // console.log("The Driver is: ", obj.drivers[i]);
-//   }
-// }
-
-// drivers(obj);
-
-const obj = {
-  sunroof: false,
-  type: 'Corolla',
-  make: 'Toyota',
-  transmission: 'Automatic',
+// If i want to store MANY MANY MANY values, what should i use?
+const array = [1,2,3,4, 'five', 'six', false, [1,2,3]];
+// types
+// console.log(array);
+// Loook 
+// first value of the car array MUST BE a MAKE
+// second value of the car array MUST BE a MODEL
+// third value of the car array MUST BE COLOR
+const car = ['white', 'Honda', 'Civic', 2015, false];
+// console.log(car[2]);
+// car[0]
+// car[1]
+// Objects (they are kind of like arrays)
+// curly brackets for object
+// 
+const carObj = {
+  driver: {name: 'Bob'},
+  model: 'Civic',
+  color: ['white','blue','red','yellow', 'purple'],
   year: 2015,
-  drivers: [['Vasiliy'],['Paul'],['Bob']]
+  manual: false,
+  make: 'Honda'
 };
-// show a better ver of this!
-let keyName = 'interior';
-obj[keyName] = 'leather';
+// i use the dot notation when i 100% know the key that i want access
+// console.log(carObj.color);
+const key = 'color';
+carObj['engine'];
+carObj.model = ['Civic', 'Fit'];
+carObj.driver.name = 'Vasiliy'
+console.log(carObj)
 
-for (let i in obj) {
-  console.log(obj[i]);
+
+// Honda Civic 2015, color: white
+const prettyPrintCar = function(obj) {
+  console.log(obj.make, obj.model, obj.year, ', color: ', obj.color);
 }
+// prettyPrintCar(carObj);
+
+
+
+
+const getValueOfKey = function(obj, keyName) {
+  console.log('line 30', obj);
+  // console.log(keyName);
+  console.log(obj[keyName]);
+  // car[3]
+}
+
+//getValueOfKey(carObj, 'model');

@@ -1,10 +1,8 @@
-Objects in JS
+-- Agenda--
 
+-- Intro's (i havent met you during your d1)
+-- Review ( arrays )
+-- Objects ( and comparing them to arrays)
+-- BREAK ---
 
---------- Agenda ----------
- - Quick Review on Arrays
- - Introduction to objects ( when to use them, and why )
- - Looking through an object ( getting values, using keys )
- BREAK 
- - Excercises with Objects
- 
+-- A few examples objects

@@ -1,89 +1,138 @@
-// Make a function that takes in an object as a paramater. The object will have
-// two values inside of under key a and key b. Swap the values of A and B.
+// finish the function that returns how many instances of the word "dog" and "cat" were in the string parameter
+// output {dog: 5, cat: 4}
 
-let obj = {a:99, b:1};
+// PART B - Modify the function so that it returns a count of every animal
+// output {dog: 5, cat: 4, rabbit: 1, moose: 1, parrot: 3}
+let str = 'DoG DOg Dog DAWG';
 
-const swap = function(object) {
-    //... code here
-    // how can i acess values inside of object?
-    // console.log(object.b)
-    // how can i take a value from an object and assign to a variable
-    let tempValB = object.b;
-    object.b  = object.a;
-    object.a = tempValB;
-    // console.log('temp Val ====>',tempVal);
-    // how can i assign a value to an object?
-}
-// console.log("Object Before ", obj);
-// swap(obj);
-// console.log("Object After ", obj);
-
-
-// make a function that takes in a string
-// and returns an object that tells you how many times a word was repeated in a string
-
-
-let str = 'dog dog dog cat cat dog cat dog cat rabbit moose parrot parrot parrot';
 
 const dogCatCounter = function(string) {
-    const arr = str.split(' ');
-    let result = {};
-    console.log(result.dog)
-    // How do i loop through a string?
-    for (let i = 0; i < arr.length; i++) {
-        let key = arr[i];
-        // console.log('the key is: ', key, 'and the value of that key in the object is ', result[key]);
-        if (result[key] === undefined) {
-            result[key] = 1;
-        } else {
-            result[key]++;
+    const objCounter = {};
+    // console.log(string);
+    // we split a string for each space into an array (space parced per each item)
+    const animals = string.split(' ');
+    // console.log(animals[0]);
+    // animal is iterator
+    for (let i=0; i < animals.length;  i++) {
+        let animal = animals[i].toLowerCase();
+        console.log(objCounter[animal]);
+        if (!objCounter[animal]) {
+            objCounter[animal] = 1;
+        } else { // 
+            objCounter[animal]++;
         }
+        
+        // if (animal === 'cat') {
+        //     objCounter.cat++;
+        // }
+        // if (animal === 'rabbit') {
+        //     objCounter.rabbit++;
+        // }
+        // if (animal === 'dog') {
+        //     objCounter.dog++;
+        // }
     }
-    return result;
-    // How do i count how many dogs or cats i have?
+    return objCounter;
 }
 
 // console.log(dogCatCounter(str));
 
 
-// Array of Objects Question.
-
-const students = [
-    {name: 'Zofia Mcdougall', grade: 10},
-    {name: 'Anisha Franco', grade: 8},
-    {name: 'Colin Lam', grade: 10},
-    {name: 'Ozan Robbins', grade: 8},
-    {name: 'Doug Velez', grade: 12},
-]
 
 
-//  Given an array of objects above, make a function, that that array as a parameter,
-// and returns back an array of all student names.
 
-const getStudentNames = function(array) {
-    //How do i loop throgh an array?
-    const result = [];
-    for (let student of students) {
-        // console.log(arra[i]);
-        //how can i acess a value of an object inside of an array?
-        result.push(student.name);
+
+
+
+
+
+// Find Data Question
+// Bellow we have an object of users. 
+// A key is denoted as a user_id, and the value is the name of the user.
+
+const users = {
+    zbxN3: 'Zofia Mcdougall',
+    Ff3dc: 'Anisha Franco',
+    AaCf3: 'Colin Lam', 
+    X63ef: 'Ozan Robbins', 
+    RfErt: 'Doug Velez',
+}
+
+
+// Function takes in a id, and finds the correct user for that id
+// if no user is found, return undefined
+// findUserWithId(users, 'X63ef') => Ozan Robbins
+const findUserWithId = function(users, id) {
+    // console.log(users);
+    // console.log(id);
+    console.log(users[id]);
+}
+
+//findUserWithId(users, 'zbxN3');
+
+
+// Function takes a name, and looks for the corresponding id
+// findUserId(users, 'Colin Lam') => 'X63ef'
+const findUserId = function(users, username) {
+    // Object.keys() [zbXN3, Ff3dc, ...]
+    // Object.values() [Zofia, Anisha, ...]
+    // console.log(users);
+    // console.log(username);
+    // FOR OBJECTS you CANNOT USE FOR OF LOOP!!
+    for (let i in users) {
+        // console.log(i);
+        // console.log(users[i]);
+        if (users[i] === username) {
+            console.log("FOUND username, key is:", i);
+            return i;
+        }
     }
-    return result;
-    //... code here
-    //how i can store that value in another array? ===========> array.push()
 }
-console.log(getStudentNames(students))
+
+// findUserId(users, 'Colin Lam');
 
 
-// give an array of objects above, make a function, where it returns an object they KEY being the GRADE
-// and the values being an array of students that are in that grade
-// {
-//     '10': ['Zofia Mcdougall', 'Colin Lam'],
-//     '8': ['Anisha Franco', 'Ozan Robbins'],
-//     '12': ['Dough Velez']
-// }
 
 
-const gradesForStudent = function(array) {
-    //... code here
+// return total number of users
+// countUsers(users) => 5
+const countUsers = function(users) {
+    console.log(Object.values(users).length);
 }
+
+// countUsers(users)
+
+
+
+
+
+
+
+
+
+// Given this grocery list
+
+const groceryList = {
+    one: 'Milk',
+    2: 'Cookies',
+    2.43: 'Steak',
+    'item number three': 'Herbs',
+    'i_n.4': 'Candy'
+};
+
+// write a function, that prints out a number followed by each item
+const prettyPrintList = function(list) {
+    // console.log(list);
+    // method: 2 
+    // values = Object.values(list) // [Cookies, Milk, Steak...]
+    // a Ctyle or an in loop or of 
+    console.log(list)
+    let i = 1;
+    for (let key in list) {
+        console.log(i,' -- ',list[key]);
+        i++;
+    }
+}
+
+prettyPrintList(groceryList);
+
