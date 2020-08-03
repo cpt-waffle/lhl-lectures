@@ -1,0 +1,11 @@
+.meme {
+    background-color: black;
+    color:whitesmoke;
+    text-align: center;
+    padding: 5px;
+}
+
+.meme > button {
+    width: 100px;
+    height: 40px;
+}

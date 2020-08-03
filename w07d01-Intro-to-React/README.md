@@ -192,7 +192,7 @@ export default function example (props) {
 ```jsx
     return (    
         <div>
-            {props.cards.map((card, i) => <Card key={i} number={card.number} suit={card.suit} color={card.color}/>)}
+            {props.cards.map((card) => <Card number={card.number} suit={card.suit} color={card.color}/>)}
 
             <h1>{number}</h1>
             <button onClick={addUp}>add</button>
