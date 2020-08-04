@@ -1,2 +1,0 @@
-class Meme < ApplicationRecord
-end

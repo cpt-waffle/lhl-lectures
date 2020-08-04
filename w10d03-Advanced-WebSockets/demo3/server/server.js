@@ -22,6 +22,8 @@ io.on('connection', (user) => {
     user.emit('INITIAL', {name, users});
     user.broadcast.emit('USER_CONNECTED', {users});
 
+    user.emit("WITHIN_COMPONENT", {test: 'FUUUCK'})
+
     user.on('disconnect', () => {
         const pos = users.indexOf(user.name);
         users.splice(pos, 1);

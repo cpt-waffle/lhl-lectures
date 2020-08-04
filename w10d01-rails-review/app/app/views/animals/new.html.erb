@@ -1,0 +1,7 @@
+<h1>This is where we create our animal</h1>
+<%= @random %>
+<%= form_for :animal, :url => { :action => "create" } do |f|%>
+    <p>Type: <%= f.text_field :type %></p>
+    <p>Image:<%= f.text_field :img %></p>
+    <p><%= f.submit%></p>
+<% end %>
