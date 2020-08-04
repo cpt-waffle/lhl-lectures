@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Comment from './Components/Comment/index';
-import CommentList from './Components/CommentList/index';
+import CommentList from './Components/CommentList/CommentList';
 
 const commentsData = [
   { 
@@ -39,18 +38,44 @@ const commentsData = [
 
 function App() {
   const [comments, setComments] = useState(commentsData);
-
-  const handleComment = (type, id) => {
-    // Find the correct index of the comment that was clicked
+  const handleComment = (id, type) => {
+    console.log("IM HANDLING IT ON");
+    console.log("LINE 43 in APP.js")
+    console.log("the id came from Comment.js ==>", id);
+    console.log(type);
+    // make a copy of our state
     const commentsCopy = [...comments];
-    const commentId = commentsCopy.map(singleComment => singleComment.id).indexOf(id);
-    commentsCopy[commentId][type]++;
-    setComments(commentsCopy);
-  }
+    // go through the copy and find the correct comment
+    // (id)
+      // for (let index in commentsCopy) {
+      //   if (commentsCopy[index].id === id) {
+      //     console.log("FOUND IT");
+      //     // increment like/dislikes
+      //     if (type === 'like')
+      //       commentsCopy[index].likes++;
+      //     else {
+      //       commentsCopy[index].dislikes++;
+      //     }
+      //   }
+      // }
 
+    const commentIndex = commentsCopy.map(comment => comment.id).indexOf(id);
+    if (type === 'like')
+      commentsCopy[commentIndex].likes++;
+    else 
+    commentsCopy[commentIndex].dislikes++;
+    setComments(commentsCopy);
+    // set copy to original
+
+  }
+  
   return (
     <div>
-      <CommentList listOfComments={comments} changeComment={handleComment}/>
+      <h1>Hello World!</h1>
+      <CommentList 
+        list={comments}
+        changeComment={handleComment}
+      />
     </div>
   );
 }
