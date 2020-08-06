@@ -1,27 +1,28 @@
-import React, {useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
-import GeneralForm from './GeneralForm'
-import UserForm from './UserForm'
+import GeneralForm from './GeneralForm';
+import InfoForm from './InfoForm';
+
+
+// USE EFFECT
 
 
 function App() {
-  const [memes, setMemes] = useState([]);
-  
-  useEffect(() => {
-    console.log('use Effect Runs!!');
-    axios.get('http://localhost:8080/memes').then( response => {
-      setMemes(response.data)
-      console.log(response);
-    })
-  }, [])
+  // const [memes, setMemes] = useState([]);
+  // const [number, setNumber] = useState(0);
+  // Pay attention on what your use effect params are! YOu can accidently make an infinite loop!
+  // useEffect(() => {
+  //   axios.get('http://localhost:8080/memes').then( res => {
+  //     console.log(res);
 
-  console.log('App has been loaded!');
-
+  //   })
+  // }, [])
   return (
     <div>
       <h1>Form Stuff here</h1>
       <GeneralForm/>
+      <InfoForm/>
     </div>
   );
 }

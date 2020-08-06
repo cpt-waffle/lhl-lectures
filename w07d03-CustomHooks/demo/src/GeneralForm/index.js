@@ -1,62 +1,53 @@
 import React, { useState } from 'react';
-
-import useGeneralForm from '../hooks/useGeneralForm';
-
-// WHAT IF I TOLD U THAT EVERY SINGLE STATE
-// CAN BE MOVED INTO A FILE AND RE-USED!!!!!!!!
-
-// Rule of custom Hooks ( convertion )
-// Your hook name should start with the lowercase `use` word
-
-// useGeneralForm.js
-
+import useForm from '../hooks/useForm';
 
 function GeneralForm(props) {
+    const info = useForm();
+    const planets = useForm();
+    const email = useForm();
+    console.log(info, planets, email);
 
-    const firstName = useGeneralForm();
-    const lastName = useGeneralForm();
-    const email = useGeneralForm();
-    const nickName = useGeneralForm();
-
+    const onSubmit = () => {
+        console.log({info: info.value, planets: planets.value, email: email.value});
+    }
 
     return (<div>
-        THIS IS A GENERAL FORM
+    THIS IS A GENERAL FORM
+
         <p>
-            First name: 
+            Information:
             <input
-                value={firstName.value}
-                onChange={firstName.onChange}
-                name="firstName"
+                value={info.value}
+                onChange={info.onValueChange}
+                type="text"
+                name="information"
             />
-            <button onClick={firstName.clear}>Clear</button>
+            <button onClick={info.clear}>Clear</button>
+        </p>
+
+        <p>
+            Planets:
+            <input
+                value={planets.value}
+                onChange={planets.onValueChange}
+                type="text"
+                name="planets"
+            />
+            <button onClick={planets.clear}>Clear</button>
+
         </p>
         <p>
-            Last name: 
-            <input
-                value={lastName.value}
-                onChange={lastName.onChange}
-                name="firstName"
-            />
-            <button onClick={lastName.clear}>Clear</button>
-        </p>
-        <p>
-            Nickname: 
-            <input
-                value={nickName.value}
-                onChange={nickName.onChange}
-                name="firstName"
-            />
-            <button onClick={nickName.clear}>Clear</button>
-        </p>
-        <p>
-            Email: 
+            Email:
             <input
                 value={email.value}
-                onChange={email.onChange}
-                name="firstName"
+                onChange={email.onValueChange}
+                type="email"
+                name="email"
             />
             <button onClick={email.clear}>Clear</button>
+
         </p>
+        <button onClick={onSubmit}>Submit</button>
     </div>)
 }
 
