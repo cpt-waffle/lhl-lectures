@@ -3,29 +3,43 @@
     padding: 0;
 }
 
-body {
-    background-color: gainsboro;
-}
 
 .header {
-    background-color: salmon;
-    padding: 1rem;
-    color: burlywood;
-}
-
-.item {
-    background-color: #e8cbc7;
+    background-color: orange;
+    padding: 12px;
+    height: 60px;
     display: flex;
 }
 
-.item:hover {
-    background-color:pink;
+.header > img {
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid green;
+    object-fit: cover;
+}
+
+.search-form {
+    border: 2px solid black;
+    padding: 15px;
+    background-color: skyblue;
+    text-align: center;
+}
+
+.search-form > input {
+    border-radius: 15px;
+}
+
+.item {
+    display: flex;
+    background-color: #e3f7ff;
+    padding: 10px;
+    border: 2px solid black;
 }
 
 .item > img {
-    width: 65px;
+    width: 70px;
 }
 
 .item > div {
-    padding: 1em;
+    padding-left: 5px;
 }

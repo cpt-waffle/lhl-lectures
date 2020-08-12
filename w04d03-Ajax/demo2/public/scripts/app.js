@@ -1,55 +1,205 @@
-//show.show.image.medium / original
-//show.show.name
-//show.show.type
-//show.show.summary
+console.log("file is being loaded!!!");
 
+const defaultItems = [{
+    score: 16.965609,
+    show: {
+        id: 1715,
+        url: "http://www.tvmaze.com/shows/1715/counting-cars",
+        name: "Counting Cars",
+        type: "Reality",
+        language: "English",
+        genres: [ ],
+        status: "Running",
+        runtime: 60,
+        premiered: "2012-08-13",
+        officialSite: "http://www.history.com/shows/counting-cars",
+        schedule: {
+        time: "22:00",
+        days: [
+            "Wednesday"
+        ]
+        },
+        rating: {
+            average: 8.1
+        },
+        weight: 96,
+        network: {
+            id: 53,
+            name: "History",
+            country: {
+                name: "United States",
+                code: "US",
+                timezone: "America/New_York"
+            }
+        },
+        webChannel: null,
+        externals: {
+            tvrage: 32440,
+            thetvdb: 261181,
+            imdb: "tt2338096"
+        },
+        image: {
+            medium: "http://static.tvmaze.com/uploads/images/medium_portrait/9/24055.jpg",
+            original: "http://static.tvmaze.com/uploads/images/original_untouched/9/24055.jpg"
+        },
+        summary: "<p>Most people in Las Vegas bet with chips, but Danny 'The Count' Koker bets with cars. Known from his numerous appearances on Pawn Stars, this Sin City legend walks, talks and breathes classic American muscle cars. When he sees a car he wants, he will do whatever it takes to get his hands on it—including making on-the-spot cash offers to unsuspecting owners. On the HISTORY series <b>Counting Cars</b>, Danny and his team restore, customize and sell cars in a hurry, scrambling to keep their Las Vegas shop in the black. From vintage Thunderbirds to classic Corvettes, toy cars to souped-up sidecar motorcycles, Danny and the crew of Count's Kustoms will stop at nothing to find and flip the greatest rides of all time.</p>",
+        updated: 1594819913,
+        _links: {
+            self: {
+            href: "http://api.tvmaze.com/shows/1715"
+            },
+                previousepisode: {
+                href: "http://api.tvmaze.com/episodes/1896383"
+            }
+        }
+    }
+},{
+    score: 16.965609,
+    show: {
+        id: 1715,
+        url: "http://www.tvmaze.com/shows/1715/counting-cars",
+        name: "Counting Cars",
+        type: "Reality",
+        language: "English",
+        genres: [ ],
+        status: "Running",
+        runtime: 60,
+        premiered: "2012-08-13",
+        officialSite: "http://www.history.com/shows/counting-cars",
+        schedule: {
+        time: "22:00",
+        days: [
+            "Wednesday"
+        ]
+        },
+        rating: {
+            average: 8.1
+        },
+        weight: 96,
+        network: {
+            id: 53,
+            name: "History",
+            country: {
+                name: "United States",
+                code: "US",
+                timezone: "America/New_York"
+            }
+        },
+        webChannel: null,
+        externals: {
+            tvrage: 32440,
+            thetvdb: 261181,
+            imdb: "tt2338096"
+        },
+        image: {
+            medium: "http://static.tvmaze.com/uploads/images/medium_portrait/9/24055.jpg",
+            original: "http://static.tvmaze.com/uploads/images/original_untouched/9/24055.jpg"
+        },
+        summary: "<p>Most people in Las Vegas bet with chips, but Danny 'The Count' Koker bets with cars. Known from his numerous appearances on Pawn Stars, this Sin City legend walks, talks and breathes classic American muscle cars. When he sees a car he wants, he will do whatever it takes to get his hands on it—including making on-the-spot cash offers to unsuspecting owners. On the HISTORY series <b>Counting Cars</b>, Danny and his team restore, customize and sell cars in a hurry, scrambling to keep their Las Vegas shop in the black. From vintage Thunderbirds to classic Corvettes, toy cars to souped-up sidecar motorcycles, Danny and the crew of Count's Kustoms will stop at nothing to find and flip the greatest rides of all time.</p>",
+        updated: 1594819913,
+        _links: {
+            self: {
+            href: "http://api.tvmaze.com/shows/1715"
+            },
+                previousepisode: {
+                href: "http://api.tvmaze.com/episodes/1896383"
+            }
+        }
+    }
+},{
+    score: 16.965609,
+    show: {
+        id: 1715,
+        url: "http://www.tvmaze.com/shows/1715/counting-cars",
+        name: "Counting Cars",
+        type: "Reality",
+        language: "English",
+        genres: [ ],
+        status: "Running",
+        runtime: 60,
+        premiered: "2012-08-13",
+        officialSite: "http://www.history.com/shows/counting-cars",
+        schedule: {
+        time: "22:00",
+        days: [
+            "Wednesday"
+        ]
+        },
+        rating: {
+            average: 8.1
+        },
+        weight: 96,
+        network: {
+            id: 53,
+            name: "History",
+            country: {
+                name: "United States",
+                code: "US",
+                timezone: "America/New_York"
+            }
+        },
+        webChannel: null,
+        externals: {
+            tvrage: 32440,
+            thetvdb: 261181,
+            imdb: "tt2338096"
+        },
+        image: {
+            medium: "http://static.tvmaze.com/uploads/images/medium_portrait/9/24055.jpg",
+            original: "http://static.tvmaze.com/uploads/images/original_untouched/9/24055.jpg"
+        },
+        summary: "<p>Most people in Las Vegas bet with chips, but Danny 'The Count' Koker bets with cars. Known from his numerous appearances on Pawn Stars, this Sin City legend walks, talks and breathes classic American muscle cars. When he sees a car he wants, he will do whatever it takes to get his hands on it—including making on-the-spot cash offers to unsuspecting owners. On the HISTORY series <b>Counting Cars</b>, Danny and his team restore, customize and sell cars in a hurry, scrambling to keep their Las Vegas shop in the black. From vintage Thunderbirds to classic Corvettes, toy cars to souped-up sidecar motorcycles, Danny and the crew of Count's Kustoms will stop at nothing to find and flip the greatest rides of all time.</p>",
+        updated: 1594819913,
+        _links: {
+            self: {
+            href: "http://api.tvmaze.com/shows/1715"
+            },
+                previousepisode: {
+                href: "http://api.tvmaze.com/episodes/1896383"
+            }
+        }
+    }
+},
+]
+    
 
-const createItem = (data) => {
+// Make a function that is able to embbed some html on a page!
+const addItem = (object) => {
+    // console.log(object);
     const item = `
         <div class="item">
-            <img src="${data.show.image ? data.show.image.medium : 'https://i.guim.co.uk/img/media/20098ae982d6b3ba4d70ede3ef9b8f79ab1205ce/0_0_969_1005/master/969.jpg?width=700&quality=85&auto=format&fit=max&s=470657ebd2a0e704df88997d393aea15'}"/>
+            <img src="${object.show.image.medium}"/>
             <div>
-                <h4>${data.show.name}</h4>
-                <h5>${data.show.type}</h5>
+                <h4>${object.show.name}</h4>
+                <h4>${object.show.type}</h4>
             </div>
         </div>
     `;
-
-    return item;
+    $('#items').append(item)
 }
 
-const searchItem = (string) => {
-    const api = 'http://api.tvmaze.com/search/shows?q=';
-    const apiWithParam = api + string;
-    //GET INFORMATION from an API ( a server with data )
-    $.ajax({
-        url: apiWithParam,
-        method: "GET",
-    }).then( (response) => {
-        $('#item-container').empty()
-        console.log("AJAX call came back with response");
-        response.forEach( (element) => {
-            if ( element ) {
+const addItems = (arr) => {
+    for (let iterator of arr) {
+        addItem(iterator);
+    }
 
-                console.log(element.show.image);
-                let tempItem = createItem(element);
-                $('#item-container').append(tempItem);
-            }
-        })
-    }).catch((e) => console.log(e));
-    //then once we got the information, we will use the function we built (createItem)
-    // to append multiple items we found
 }
 
 
 $(document).ready(function() {
     $('#search').on('submit', (evt) => {
+        $('#items').empty();
+        let apiURL = 'http://api.tvmaze.com/search/shows?q=' + evt.target.search.value;
+
         evt.preventDefault();
-        //console.log(evt.target.searchParam.value);
-        const searchParameter = evt.target.searchParam.value;
-        searchItem(searchParameter);
+        // debugger
+        // alert('hello world!!');
+        console.log('hey')
+        $.ajax({url: apiURL, method: 'GET'}).then((response) => {
+            console.log("something came back!!!!!");
+            addItems(response);
+        })
     })
-
-    console.log("READY!!");
-
+    // addItems(defaultItems);
+    // addItem(defaultItem);
 })
