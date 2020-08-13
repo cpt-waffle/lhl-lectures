@@ -1,0 +1,12 @@
+.card {
+    background-color: salmon;
+    display:flex;
+}
+
+.card > img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid green;
+}
