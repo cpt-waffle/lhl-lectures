@@ -3,48 +3,40 @@
 
 // PART B - Modify the function so that it returns a count of every animal
 // output {dog: 5, cat: 4, rabbit: 1, moose: 1, parrot: 3}
-let str = 'DoG DOg Dog DAWG';
-
+let str = 'dog dog rabbit rabbit rabbit dog cat cat chair parrot dog cat cat parrot cat cat moose cat dog';
 
 const dogCatCounter = function(string) {
-    const objCounter = {};
-    // console.log(string);
-    // we split a string for each space into an array (space parced per each item)
-    const animals = string.split(' ');
-    // console.log(animals[0]);
-    // animal is iterator
-    for (let i=0; i < animals.length;  i++) {
-        let animal = animals[i].toLowerCase();
-        console.log(objCounter[animal]);
-        if (!objCounter[animal]) {
-            objCounter[animal] = 1;
-        } else { // 
-            objCounter[animal]++;
+    const words = string.split(" ");
+    // how do i create an object with the cats and dogs
+    const result = {};
+    let i = 0;
+    // figure out how am i going to loop through a string of words? X
+    for (let word of words) {
+        // word = dog  ===> result['dog'];
+        if (result[word] === undefined) {
+            result[word] = 1;
+        } else {
+            result[word]++;
         }
-        
-        // if (animal === 'cat') {
-        //     objCounter.cat++;
-        // }
-        // if (animal === 'rabbit') {
-        //     objCounter.rabbit++;
-        // }
-        // if (animal === 'dog') {
-        //     objCounter.dog++;
-        // }
+        // how do i increment a value inside of an object
     }
-    return objCounter;
+    console.log(result);
+    // return the object to the user/client
+    return result;
 }
 
+// dogCatCounter(str);
+
+
+
+
+
+
+
+
+
+
 // console.log(dogCatCounter(str));
-
-
-
-
-
-
-
-
-
 
 // Find Data Question
 // Bellow we have an object of users. 
@@ -63,44 +55,53 @@ const users = {
 // if no user is found, return undefined
 // findUserWithId(users, 'X63ef') => Ozan Robbins
 const findUserWithId = function(users, id) {
-    // console.log(users);
-    // console.log(id);
     console.log(users[id]);
 }
 
-//findUserWithId(users, 'zbxN3');
+// findUserWithId(users, 'AaCf3');
 
 
 // Function takes a name, and looks for the corresponding id
 // findUserId(users, 'Colin Lam') => 'X63ef'
 const findUserId = function(users, username) {
-    // Object.keys() [zbXN3, Ff3dc, ...]
-    // Object.values() [Zofia, Anisha, ...]
-    // console.log(users);
-    // console.log(username);
-    // FOR OBJECTS you CANNOT USE FOR OF LOOP!!
-    for (let i in users) {
-        // console.log(i);
-        // console.log(users[i]);
-        if (users[i] === username) {
-            console.log("FOUND username, key is:", i);
-            return i;
+    // console.log('users =>', users);
+    // console.log('username =>', username);
+
+    // go through an object ( loop ??? )
+    // in objects.. you are allowed to loop through them
+    // but can only loop through the keys not the values
+    // you can ONLY use a for in loop... (For OF does not work!!!!)
+
+    
+    for (let key in users) {
+        // ---------------------- Value
+        if (users[key] === username) {
+            return key;
         }
     }
+    // find the value that matches username
+    // return the key that corresponds with that value
+
 }
 
-// findUserId(users, 'Colin Lam');
+// console.log(findUserId(users, 'Ozan Robbins'));
 
 
+// CODE GOLFING!!?!?
 
 
 // return total number of users
 // countUsers(users) => 5
 const countUsers = function(users) {
-    console.log(Object.values(users).length);
+    let count = 0;
+    // for (let key in users) {
+    //     count++;
+    // }
+    count = Object.values(users).length;
+    console.log(count);
 }
 
-// countUsers(users)
+countUsers(users)
 
 
 
@@ -122,17 +123,7 @@ const groceryList = {
 
 // write a function, that prints out a number followed by each item
 const prettyPrintList = function(list) {
-    // console.log(list);
-    // method: 2 
-    // values = Object.values(list) // [Cookies, Milk, Steak...]
-    // a Ctyle or an in loop or of 
-    console.log(list)
-    let i = 1;
-    for (let key in list) {
-        console.log(i,' -- ',list[key]);
-        i++;
-    }
+
 }
 
-prettyPrintList(groceryList);
-
+// prettyPrintList(groceryList);

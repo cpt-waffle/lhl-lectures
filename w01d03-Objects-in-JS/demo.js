@@ -1,56 +1,96 @@
-// Review
-// if i want to store a single value 
-// what shoud i do?
+// ------------ Review ---------------
 
-let PI = 3.14;
-PI = 1;
+const PI = 3.14;
 
-// If i want to store MANY MANY MANY values, what should i use?
-const array = [1,2,3,4, 'five', 'six', false, [1,2,3]];
-// types
-// console.log(array);
-// Loook 
-// first value of the car array MUST BE a MAKE
-// second value of the car array MUST BE a MODEL
-// third value of the car array MUST BE COLOR
-const car = ['white', 'Honda', 'Civic', 2015, false];
-// console.log(car[2]);
-// car[0]
-// car[1]
-// Objects (they are kind of like arrays)
-// curly brackets for object
-// 
-const carObj = {
-  driver: {name: 'Bob'},
-  model: 'Civic',
-  color: ['white','blue','red','yellow', 'purple'],
-  year: 2015,
-  manual: false,
-  make: 'Honda'
+const array = [1, 'two', 'three', 'four', 5, 6, false];
+array.push('eight');
+array[0] = 'zero';
+///////////////////////////////////////
+// first element in the array WILL ALWAYS BE MAKE
+// the second element WILL AWLAYS ME MODEL
+
+let car = ['blue', 'Toyota', 'Corolla', 2020, 'automatic', 4, ['leather', 'sporty', 'economy']];
+// --------->0         1         2        3         4      5
+// OBJECTS
+let ObjCar = {
+  trim: ['leather', 'sporty', 'economy'],
+  model: 'Corolla',
+  color: 'teal',
+  make: 'Toyota',
+
+  year: 2020,
+  transmission: 'automatic',
+  doors: 4,
+  //someAwesomeKey: 'whatever?'
 };
-// i use the dot notation when i 100% know the key that i want access
-// console.log(carObj.color);
-const key = 'color';
-carObj['engine'];
-carObj.model = ['Civic', 'Fit'];
-carObj.driver.name = 'Vasiliy'
-console.log(carObj)
+// array portion of car
+console.log("Model:", car[1]);
+// object
+const someAwesomeKey = 'doors';
+//          ObjCar["doors"];
+console.log(ObjCar[someAwesomeKey]);
+// console.log(ObjCar.make)
+
+// console.log(newCar);
+
+// When using the = operator with object/arrays
+// it does not make a copy, but rather passes a reference.
+
+// console.log(ObjCar.trim);
+
+// for (let i of ObjCar.trim) {
+//   console.log('trim is: ', i);
+// }
 
 
-// Honda Civic 2015, color: white
-const prettyPrintCar = function(obj) {
-  console.log(obj.make, obj.model, obj.year, ', color: ', obj.color);
-}
-// prettyPrintCar(carObj);
+// Add a new key/value pair to an object
+// console.log(ObjCar);
+// ObjCar.sunroof = false;
+// ObjCar['sunroof'] = true;
+// console.log(ObjCar.trim[1]);
+const newCar = {...ObjCar};
+newCar.sunroof = false;
+// console.log(newCar);
 
+const arrayOfCars = [
+  {
+    trim: ['leather', 'sporty', 'economy'],
+    model: 'Corolla',
+    color: 'teal',
+    make: 'Toyota',
+  
+    year: 2020,
+    transmission: 'automatic',
+    doors: 4,
+    //someAwesomeKey: 'whatever?'
+  },
+  {
+    trim: ['leather', 'sporty', 'economy'],
+    model: 'Honda',
+    color: 'teal',
+    make: 'Civic',
+  
+    year: 2012,
+    transmission: 'manual',
+    doors: 4,
+    //someAwesomeKey: 'whatever?'
+  },
+  {
+    trim: ['leather', 'sporty', 'economy'],
+    model: 'ModelX',
+    color: 'Grey',
+    make: 'Tesla',
+  
+    year: 2020,
+    transmission: 'automatic',
+    doors: 4,
+    //someAwesomeKey: 'whatever?'
+  },
+  ObjCar,
+  ObjCar,
+  ObjCar,
 
+];
 
-
-const getValueOfKey = function(obj, keyName) {
-  console.log('line 30', obj);
-  // console.log(keyName);
-  console.log(obj[keyName]);
-  // car[3]
-}
-
-//getValueOfKey(carObj, 'model');
+arrayOfCars[3].sunroof = true;
+console.log(arrayOfCars)
