@@ -3,7 +3,7 @@ const stdin = process.stdin;
 const name = 'Vasiliy';
 
 const connection = net.createConnection({
-    host: '135.23.222.148',                                   
+    host: 'localhost',                                   
     port: 3001
 });
 // LOCALHOST

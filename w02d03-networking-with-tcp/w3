@@ -1,199 +1,56 @@
-W2D3 -
+----- Agenda -----
 
-How you guys doing?1?!?!
-(good)
+-- Theory Talk ----
+--- talking tcp and connections
+-- BUILDING a SERVER and CLIENT
+-- functionalities to send recieve messages 
+-- You all will be able to conenct to my server 
 
-Networking ( TCP - HTTP)
 
-Networking
+Tips For Networking
 
-Vasiliy's Hot Tips for Networking!!!
-
-1) Firm handshake
+1) Firm handsake
+1.5) Say Hi and repeat the persons name!!
 2) State your name
-3) Dont be nervous!
-4) Tell the person your skill set
-5) Say bye it was nice to meet you!!!
+3) Dont be nervous! or dont act nervous!
+4) show interest in another person!!!
+5) say bye and it was good meeting and then leave!
+
+Air Sound to communicate with people
 
 
-Networking - form of communication
+Computers ----
 
- Networking Mediums
+internet -
+wifi
+cable --> router
+bluethooth 
 
- Cables
- Routers
- Radio signals ( wifi, blutooth, IFRD)
-
- Can PHone
- Air
- Smoke Signals
- Mail
- Morse Code
- Shutters Signaling
- Flags
- Telegraphs
-
+Sign language
 Can Phone
-
-Rules for my can phone club
-Protocols
-
-1)   One person has one can phone
-1.5) the other has another can phone
-2)   Only one person can speak at a time
-3)   The other person listens while the first person talks
-4)   When one person finishes talking.. they say "OVER"
-5)   Person A can talk only on even seconds
-6)   Person B can talk only on odd seconds
-
-TCP - Transmission Control Protocol
-
-Set of rules that computers follow for communication.
-
-A clients or a computer MUST connect in order to do the following....
-
-they can send information/data
-they can listen for incoming information/data
-and server can let a client connect
-and a server can get the incoming info/data
-
-
-IP - (intelectual prop) (unique address)
-
-
-TCP
-HTTP - Hyperlink Text Transfer Protocol
-
-
-HTTP
-
-Makes a connection
-client asks the server " HEY can I have html file for google.ca"
-Server says - "Ok let find it quick.... OK GOT IT SENDING"
-client gets the file - "OK THXBYE"
-
-
-Types of requests
-
-GET -
-POST - to put/store something in
-
-
-Response (Server)
-
-
-STATUS
- - 200 OK
- - 400s something went wrong
- - 500 Server failure
-
-
-
-
-
-Here is www.google.ca
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Mail
+Smoke Signals
+Morse Code
+Flags
+
+---- Can Phone Rules ----
+
+1) Person one must have a CAN in their hand to communicate with person 2
+2) Once Person two takes another CAN communcation has been established
+3) One one person can talk at the same time
+4) After a person has finished talking, we very for 2 seconds of silence followed another person talks
+
+Transmission Control Protocol
+
+TCP 
+
+-- Server          --------------          CLIENT
+Server LISTENS <-------
+Client is able to connect to the server ( handshake )
+Client can send messages and server on recieval of messages can decide on what to do with them:
+ --- send it back
+ --- send a brand new message
+ --- broadscast
+ --- ???
+
+When Client disconnects, the server listens to that as well

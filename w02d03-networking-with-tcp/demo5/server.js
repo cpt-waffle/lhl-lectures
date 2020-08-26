@@ -14,14 +14,16 @@ server.on('connection', (user) => {
     user.setEncoding('utf8')
     user.write('Greetings from my server!! You are now connected!')
     user.on('data', (data) => {
-        // console.log(data);
+        console.log(data);
         broadcast(data);
     })
 
     user.on('end', () => {
         console.log("someone disconnected");
-        // 
+        // line 13: we add users to an array so we can send messages back to everyone 
+        // line 7: user.write() <---- THIS USER DISCONNECTED => error
         users.splice(users.indexOf(user), 1);
+        //
     })
 
 })
