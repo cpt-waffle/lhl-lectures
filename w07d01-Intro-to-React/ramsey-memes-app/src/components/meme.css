@@ -1,0 +1,9 @@
+.meme {
+    color: white;
+    background-color: black;
+}
+
+.meme > img {
+    width: 250px;
+    object-fit: cover;
+}
