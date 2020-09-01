@@ -6,15 +6,17 @@ function Comment(props) {
 	const { id, image, content, likes, dislikes } = props.data;
 
 	function onLikeClick() {
-		console.log(id)
-		console.log("on like click")
-		props.changeComment(id, 'like');
+		// console.log(id)
+		// console.log("on like click")
+		props.onClick(id, 'like');
+		// props.changeComment(id, 'like');
 	}
 
 	function ondDislikeClick() {
-		console.log(id)
-		console.log("on dislike click")
-		props.changeComment(id, 'dislike');
+		// console.log(id)
+		// console.log("on dislike click")
+		props.onClick(id, 'dislike');
+		// props.changeComment(id, 'dislike');
 	}
 
 

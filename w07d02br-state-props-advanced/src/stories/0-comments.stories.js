@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 
 import Comment from '../Components/Comment';
-import CommentList from '../Components/CommentList/CommentList'
+import CommentList from '../Components/CommentList';
 
 const comment = {
 	image: 'https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -32,5 +32,5 @@ const commentList = [
 storiesOf('Comments')
 	.add('A Random Comment', () => <Comment data={comment}/>)
 
-storiesOf("CommentsList")
-	.add('2 comments', () => <CommentList list={commentList}/>)
+storiesOf('Comment List')
+	.add('A bunch of Comments', () => <CommentList list={commentList}/>)
