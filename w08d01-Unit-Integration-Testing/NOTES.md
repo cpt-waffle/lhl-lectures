@@ -1,18 +1,20 @@
-#### TESTING NOTES!!!
+#### TEST STUFF 
 
-##### Why do we test?
+### Why do we write test?
 
-- benefits of the long game
-- catch errors/issues early on
-- confidence (shoutout to Jimmy!!!)
-- Time (not in the beginning....)
-- Find Bugs
-- getting other people started faster
-- Because there's no more features to built *(when you do your take home interviews, write tests....)
-- to prouve your app is robust
+ - Things dont break -
+ - to known what function we are writting (Guidelines-  ( TTD)
+ - to see if things break
+ - confirmation of things working (code confidence)
+ - so it wont be inconvinent for th  client when its in production
+ - code delivery and quality
+ - to make sure new code doesnt break old code ( sideffects )
 
-#### Types Testing
+### Types of Testing
 
-- unit and integration testing
-- component testing
-- error driven testing (prob happens in prod)
+Unit tests
+component testing 
+error driven testing
+static testing
+end to end testing <-----
+integration testing 

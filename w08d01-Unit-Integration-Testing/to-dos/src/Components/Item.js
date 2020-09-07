@@ -5,6 +5,7 @@ export default (props) => {
     <li className="todo-item" key={props.index} >
       <p>{props.item && props.item.toLowerCase()}</p>
       <input
+        id="check"
         data-testid="input"
         className="checkbox"
         type="checkbox"

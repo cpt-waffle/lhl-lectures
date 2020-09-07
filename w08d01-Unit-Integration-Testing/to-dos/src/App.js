@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import List from './Components/List';
+import Form from './Components/Form';
+
 
 import './App.css';
 
@@ -28,30 +30,15 @@ export default () => {
   }
 
   const addItem = item => {
+    // axios.post('/items', {itemData}).then( =>....)
     modifyList( prev => [...prev, {item, done: false} ])
-  }
-
-  const onAdd = evt => {
-    evt.preventDefault()
-    // console.log("TEST")
-    if (val) {
-      addItem(val);
-      changeVal('');
-      setError(false);
-    } else {
-      setError(true);
-    }
   }
 
   return (
     <div className="App">
       <h1>ToDo List</h1>
       <List items={todoList} toggleDone={toggleDone}/>
-      <form className="addForm" onSubmit={onAdd}>
-        <input className="addForm-input" type="text" name="newItem" value={val} onChange={evt => changeVal(evt.target.value)}/>
-        <button className="submit-btn">Add</button>
-      </form>
-      {error && <p>CANNOT BE BLANK</p>}
+      <Form addItem={addItem}/>
     </div>
   );
 }
