@@ -36,7 +36,7 @@ DOM is like a tree structure of your HTML elements. The DOM lets us traverse thr
 
 ![](https://www.w3schools.com/js/pic_htmltree.gif)
 
-#### Dom EVents
+#### Dom Events
 
 - An event is a notification that some action has occurred (eg. a button is clicked, the mouse pointer is moved, a key is pressed)
  - We can attach code (usually in the form of a `callback`function) to run when a specific event occurs... we call this "attaching an event listener"
