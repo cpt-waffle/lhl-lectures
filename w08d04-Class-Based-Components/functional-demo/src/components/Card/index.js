@@ -1,47 +1,42 @@
-// import react
 import React, { useState, useEffect } from 'react';
-import './card.css';
+import './card.css'
 
-const imgLink = 'https://i.pinimg.com/564x/a7/71/26/a77126ed93bff8d24aaa4aa44c77a9b8.jpg';
-
-// create function which is going to return JSX Component
 function Card(props) {
     const [likes, setLikes] = useState(0);
-    const [dislikes, setDisLikes] = useState(0);
+    const [dislikes, setDislikes] = useState(0);
 
-    useEffect(() => {
-        console.log("Rendered!");
+
+    const handleLikeClick = () => {
+        setLikes(prev => prev + 1);
+    }
+
+    const handleDisLikeClick = () => {
+        setDislikes(prev => prev + 1);
+    }
+
+    useEffect( () => {
+        console.log('rendered!!');
     })
 
-    useEffect(() => {
-        console.log("Rendered once!!!")
-    }, []);
+    useEffect( () => {
+        console.log('rendered ONCE!!!!!!!')
+    }, [])
 
+    useEffect( () => {
+        console.log("dislikes CHANGED");
+        console.log('re-rendering for dislikes!');
+    }, [dislikes])
 
-    useEffect(() => {
-        console.log("likes has Changed");
-    }, [likes])
-
-    const onClickLikes = () => {
-        setLikes(prev => prev+1);
-    }
-
-    const onClickDislikes = () => {
-        setDisLikes(prev => prev+1);
-    }
-
-    return (<div className='card'>
-        <img src={imgLink}/>
+    return (
         <div>
-            <h3>{props.name}</h3>
-            <h5>{props.position}</h5>
+            <img className='img' src="https://static.boredpanda.com/blog/wp-content/uploads/2014/04/funny-derpy-animals-33.jpg"/>
+            <h1>{props.name}</h1>
+            <h3>{props.title}</h3>
+            <button onClick={handleLikeClick}>Likes {likes}</button>
+            <button onClick={handleDisLikeClick}>DisLikes {dislikes}</button>
+
         </div>
-        <button onClick={onClickLikes}>Likes {likes}</button>
-        <button onClick={onClickDislikes}>Dislikes {dislikes}</button>
-
-    </div>)
-
+    )
 }
 
-// export function/component
 export default Card;
