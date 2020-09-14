@@ -15,11 +15,58 @@ A BUNCH OF QUERIES
  BONUS
   - SUB SELECTS aka SCARY QUERY
 
---- LETS GO BACK TIME ---
-TINYAPP 
 
---- as your sitting on a giant island that you own
-google comes back, and they say: "hey can we got some analytics features in?"
+----------- BACK IN TIME ---------------
 
-Databases are just a collection of data, that no matter, if you turn off and on a server or a computer, data still will persisted. 
+Tweeter -  ( Twitter but different sort off)
+TinyApp -  ( collect URLs and shroten them so they can be easily shared)
+
+TinyApp has become the next Insta
+
+Node JS TinyApp Run!!
+
+  ****      www.google.ca     Xfg45f   DELETE
+
+
+fs.write(...)
+
+ - When should you write into a file
+ - when should you read from a  file
+ - How do you organize data <-------
+
+
+DATABASE
+
+a service. Able to persist, retreive, and organize data. 
+
+// Commands for PSQL
+
+psql --- will connect to your default database
+psql -d DATABASE_NAME -- will connect you to a specific database from the start
+
+\DU --- to display USERS.
+\q --- To quit of PSQL service
+\l --- LIST all of my databses that i currently have
+\c --- connect to specific database
+
+\dt --- Displays all the tables in our Database
+
+----- SQL Commands -----
+DROP DATABASE database_name # deletes all of the tables and data;
+CREATE DATABASE datbase_name;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
