@@ -1,0 +1,2 @@
+class Trim < ApplicationRecord
+end
