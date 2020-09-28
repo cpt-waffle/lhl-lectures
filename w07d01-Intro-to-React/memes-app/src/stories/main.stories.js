@@ -1,32 +1,39 @@
-// Building a Story(Stories)
-// Step #1
+// STEP #1 Import React from 'react'
 import React from 'react';
-// Step #2
+// Step #2 import storiesof from Storybook
 import { storiesOf } from '@storybook/react';
-// Step #3 - Write some Stories
-////////////////////////////////////////////
-// Components that I am making stories for....
-import Meme from '../Components/Meme';
+
+// Import our component
+import Meme from '../components/Meme';
+//      ^---------------------- as a function Meme() // ---> FOR LEARNING PURPOSES ONLY
+// url = '//' Meme(url)
+
+// <Meme  memeURL={...} id={....} apple={...}/>
+//            ^----------^----------^ ----- properties or PROPS
+
+
+import MemeList from '../components/MemeList';
+
+// STEP 3 write your stories....
+storiesOf('Basic React rendering')
+    .add('h1 with hello world', () => <h1>Hello World!</h1>)
+    .add('h2 with greetings', () => <input type='text'/>)
+    .add('image with a cat', () => <img src="https://i.imgur.com/DSCvjeO.jpg"/>)
 
 
 
-storiesOf('Random Div')
-  .add('Div with words', () =><div>Hello World</div>)
-  .add('Div with numbers', () =><div>12345</div>)
-  .add('empty div', () => <div></div>)
+const url = 'https://pleated-jeans.com/wp-content/uploads/2013/04/3sxnop-1.jpg';
 
-  storiesOf('Random Div-2')
-  .add('Div with words-2', () =><div>Hello World</div>)
-  .add('Div with numbers-2', () =><div>12345</div>)
-  .add('empty div-2', () => <div></div>)
+storiesOf('Meme Component')
+    .add('default meme', () => <Meme></Meme>)
+    .add("Another meme", () => <Meme memeURL={url} apple={11} title={'DRY SOUP'}/>)
 
-// obj = {title: 'Dogs are Cray!!!', imgURL: ''}
-// Meme(obj)
-// <Meme title={'Dogs are Cray!!!'} imgURL={'...'} likesNumber={33} />
-const customTitle = 'What a Funny Dog!!!';
 
-  storiesOf('Meme Component')
-    .add('A default Meme', () => <Meme/>)
-    .add('A Dog Meme', () => <Meme title={customTitle} imgURL={'https://i.pinimg.com/236x/f7/1a/3b/f71a3b1e7fcaa922150b77c5d2ea1917--puns-for-kids-funny-comics-for-kids.jpg'}/>)
-    .add('A Cat Meme', () => <Meme title='crazy cat!' imgURL={'https://i.insider.com/5df773cefd9db21a1c58b0c4?width=1100&format=jpeg&auto=webp'}/>)
-    .add('A JS Meme', () =>  <Meme title='programmer humor' imgURL={'https://i.redd.it/4skcofasa1p01.png'}/>)
+const ramseyMemes= [
+    {id: 1, url: 'https://pleated-jeans.com/wp-content/uploads/2013/04/3sxnop-1.jpg'},
+    {id: 2, url: 'https://www.shutupandtakemymoney.com/wp-content/uploads/2020/04/oscar-ramsay-gordon-ramsay-son-meme.jpg'},
+    {id: 3, url: 'https://www.memesmonkey.com/images/memesmonkey/b8/b84a1746dd6c40559f5190e6f99b2eff.jpeg'}
+]
+   
+storiesOf('meme List')
+    .add('a bunch of memes', () => <MemeList collection={ramseyMemes}/>)

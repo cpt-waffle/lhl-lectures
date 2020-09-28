@@ -1,6 +1,10 @@
 .meme {
-    color: white;
     background-color: black;
+    color: white;
+    width: 300px;
+    margin: 2px;
+    padding: 4px;
+    text-align: center;
 }
 
 .meme > img {
