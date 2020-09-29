@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from "@storybook/addon-actions";
 
 
 import Comment from '../Components/Comment';
@@ -30,7 +31,7 @@ const commentList = [
 
 
 storiesOf('Comments')
-	.add('A Random Comment', () => <Comment data={comment}/>)
+	.add('A Random Comment', () => <Comment data={comment} onClick={action('onClick')}/>)
 
-storiesOf('Comment List')
-	.add('A bunch of Comments', () => <CommentList list={commentList}/>)
+storiesOf("CommentList")
+	.add("A bunch of Comments", () => <CommentList list={commentList}/>)

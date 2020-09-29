@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+
 import CommentList from './Components/CommentList';
 
 const commentsData = [
@@ -36,45 +37,56 @@ const commentsData = [
 ]
 
 
+
+
+
+
+// Props ALWAYS go down levels ( down down down down down)
+// Function calls propagate BACK UP ( up up up to the original function definition )
 function App() {
-  // Props go DOWN
-  // Function propogations go BACK UP to the Original Component
-  // use state returns back 2 variables
-  // first one is the state ( under that name)
-  // second one is a function that changes the said state
-  const [list, setList] = useState(commentsData);
-  
-  const handleComment = (id, type) => {
-    console.log("Hello from Line 46 in App.js");
-    console.log("ID coming from Comment Component and it is:", id , type);
-    // make a carbon copy of list state
-    // const listCopy = [...list];
-    // for (let index in listCopy) {
-    //   if (id === listCopy[index].id) {
-    //     console.log("FOUND THE CORRECT COMMENT");
-    //     if (type === 'like')
-    //       listCopy[index].likes++;
-    //     else 
-    //       listCopy[index].dislikes++;
+  const [comments, setComments] = useState(commentsData);
+
+  // ALWAYS COPY YOUR STATE --> ALTER THE COPY ---> SET THE COPY AS ORIGINAL 
+  const handleClick = (type, id) => {
+    console.log("Line 45: IN APP.js");
+    console.log(comments);
+    console.log(type, id);
+    // METHOD 1 ==== for in loop not the cleanest solution but it works
+    // // MAKE a COPY of OG --> comments
+    // const commentsCopy = [...comments];
+    // // go through the copy, find the correct comment by id
+    // for (let index in commentsCopy) {
+    //   // alter that comments liek or dislike depending on what was clicked
+    //   if (commentsCopy[index].id === id) {
+    //     if (type === 'like') {
+    //       commentsCopy[index].likes++;
+    //     } else {
+    //       commentsCopy[index].dislikes++;
+    //     }
     //   }
     // }
-    // METHOD 2 the MAP WAY!
-    const listCopy = list.map( item => {
-      if (item.id === id) {
-        if (type === 'like') item.likes++;
-        else item.dislikes++;
+    // // SET THE COPY TO OG ---> setComments()
+    // METHOD 2 ==== REFACTOR
+
+    setComments(comments.map( comment => {
+      if (comment.id === id) {
+        if (type === 'like') {
+          comment.likes++;
+        } else {
+          comment.dislikes++;
+        }
       }
-      return item;
-    })
-
-
-    setList(listCopy);
+      return comment;
+    }));
   }
+
+  const printHello = () => 'hello';
 
   return (
     <div>
-      <h1>Hello World!</h1>
-      <CommentList list={list} onClick={handleComment}/>
+      <h1>{printHello()}</h1>
+      <CommentList list={comments} handleClick={handleClick}/>
+
     </div>
   );
 }
