@@ -5,18 +5,10 @@ test("Just to see if it passes", () => {
   expect(true).toBe(true);
 });
 
-test("useForm should start with an empty string", () => {
-  const { result } = renderHook( () => useForm());
-  console.log(result.current);
-  expect(result.current.value).toBe("");
-})
-
-test('useForm should be able to be set to Apple', () => {
-  const { result } = renderHook( () => useForm());
-  console.log(result.current);
-  const evt = { target: { value: "Apple"}};
-  act(() => {
-    result.current.handleSetValue(evt);
+test('UseForm should be able to be set to apple', () => {
+  const { result } = renderHook( () => useForm() );
+  act( () => {
+    result.current.setValue('Apple');
   })
   expect(result.current.value).toBe('Apple');
 })

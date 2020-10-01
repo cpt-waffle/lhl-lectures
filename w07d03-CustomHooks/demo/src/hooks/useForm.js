@@ -1,19 +1,25 @@
-// 1) name your file to be called "use_____.js (convention)"
-import { useState } from 'react';
+// Hooks always get called with the word "use"
 
+// We need import NOT REACT but the REACT tools/hooks that we are going to use....
 
-// 2) Make a function (prob the same name as your file)
+import { useState, useEffect } from 'react';
+
+// We make a function ( same as your file name as usual...)
 
 function useForm() {
     const [value, setValue] = useState('');
 
-    const handleSetValue = (evt) => {
-        setValue(evt.target.value);
-    }    
+    const clear = () => {
+        setValue('');
+    }
 
-    // function returns everything YOU NEED in your component.
-    return { value, handleSetValue }
+
+    // return ALL of the variables/functions we need from this useForm...
+    return { value, setValue, clear };
+  
 }
-// 3) export default that function
+
+
+// export default ....
 
 export default useForm;
