@@ -1,47 +1,32 @@
 * {
   margin: 0;
   padding: 0;
+  font-size: 1em;
+  background-color: lightgreen;
 }
 
 body {
-  background: LightSalmon;
-  text-align: center;
-}
-
-div {
-  height: 100px;
-  width: 500px;
+    display:flex;
 }
 
 .item1 {
-  background: white;
+
+    flex-grow: 1;
 }
 
 .item2 {
-  background: orange;
+    flex-grow: 1;
 }
 
 .item3 {
-  background: yellow;
+    flex-grow: 1;
 }
 
-@media only screen and (max-width: 600px) {
-  .item1 {
-    background: green;
-    width:100%;
-  }
+/* Media Quaries */
 
-  .item2 {
-    background: blue;
-    width: 49%;
-    display:inline-block;
-    box-sizing: border-box;
-  }
-
-  .item3 {
-    background: black;
-    width:49%;
-    display: inline-block;
-    box-sizing: border-box;
-  }
+@media only screen and (max-width: 500px) {
+    body {
+        flex-direction: column;
+    }
 }
+

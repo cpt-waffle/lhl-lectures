@@ -4,14 +4,14 @@
 }
 
 .test .wow {
-  color: red;
+  color: yellow;
   background-color: #c6538c;
 }
 
-.test:hover {
-  background-color: salmon;
+.test .wow:hover {
+  color: black;
 }
 
-.test:hover .wow {
-  color: green;
+.test:hover {
+  background-color: red;
 }

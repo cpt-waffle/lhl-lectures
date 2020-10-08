@@ -4,16 +4,14 @@ $wow-color: #c6538c;
     background-color: blue;
     padding: 5px;
     .wow {
-      color: red;
+      color: yellow;
       background-color: $wow-color;
-
+      &:hover {
+        color: black;
+      }
     }
 
     &:hover {
-        background-color: salmon;
-
-        .wow {
-            color: green;
-        }
+        background-color: red;
     }
 }
