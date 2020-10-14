@@ -1,37 +1,34 @@
-const { Client } = require('pg')
-const client = new Client({
-	user: 'development',
-	password: 'development',
-	database: 'w05d03'
+const { Pool } = require('pg');
+const pool = new Pool({
+    host: 'localhost',
+    user: 'development',
+    password: 'development',
+    database: 'w05d03',
+    port: 5432
 })
-client.connect()
 
-const getStudents = () => {
-	return client.query("SELECT * FROM STUDENTS").then( res => {
-		return res.rows;
-	});
+pool.connect();
+
+// num = 1;
+// pool.query(`SELECT * FROM students WHERE id = $1 ;`, [num] ).then((response) => {
+//     console.log(response.rows);
+//     console.log('successful');
+// })
+
+module.exports = () => {
+    const getAllUsers = () => {
+        return pool.query('SELECT * FROM students').then(response => {
+            console.log('successful');
+            console.log(response.rows);
+            return response.rows;
+        })
+    }
+
+    const getUser = (id) => {
+        return pool.query('SELECT * FROM students WHERE id = $1', [id]).then(response => {
+            return response.rows;
+        })
+    }
+
+    return { getAllUsers, getUser };
 }
-
-const getStudent = (id) => {
-	const query = `SELECT * FROM STUDENTS WHERE id = ${id};`;
-	return client.query(query).then( res => {
-		return res.rows;
-	});
-
-}
-
-const getMarks = () => {
-	const query = `
-		SELECT name, quiz_results.mark, quizes.total
-		FROM students 
-		JOIN quiz_results ON students.quiz_results_id = quiz_results.id 
-		JOIN quizes ON quiz_results.quiz_id = quizes.id;
-	`;
-
-	return client.query(query).then( res => {
-		return res.rows;
-	})
-}
-
-
-module.exports = { getStudents, getStudent, getMarks };

@@ -35,8 +35,8 @@ We will be using this package for the lecture to connect to the db.
 
 ## Basic Connection
 ```js
-const { Client } = require('pg')
-const client = new Client({
+const { Pool } = require('pg')
+const pool = new Pool({
   user: 'random',
   password: 'password',
   database: 'w4d2_schema',
@@ -45,7 +45,7 @@ const client = new Client({
   ssl: true
 })
 
-client.connect((err) => {
+pool.connect((err) => {
   if (err) return console.log(err) // Shows error if something happened
 }
 ```
