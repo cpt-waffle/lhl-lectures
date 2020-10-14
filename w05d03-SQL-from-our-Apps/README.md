@@ -107,16 +107,16 @@ lib.getStudents().then(rows => {
 `lib.js`
 
 ```js
-const { Client } = require('pg')
-const client = new Client({
+const { Pool } = require('pg')
+const pool = new Pool({
   user: 'development',
   password: 'development',
   database: 'w05d03'
 })
-client.connect()
+pool.connect()
 
 const getStudents = () => {
-  return client.query("SELECT * FROM STUDENTS").then( res => {
+  return pool.query("SELECT * FROM students").then( res => {
     return res.rows;
   });
 }
@@ -129,4 +129,64 @@ export.default = { getStudents }
 [Error First Callbacks](http://fredkschott.com/post/2014/03/understanding-error-first-callbacks-in-node-js/)
 
 
-Cheers
+### Connecting it with Express Server
+
+For this we create, a `db` file that its purpose is just to connect to our database. Then we would import it into our server.js and after pass to our helper methods that contain psql commands.
+
+```js
+// db.js
+
+const { Pool } = require('pg');
+// Setup a connection to PSQL with the correct credentials.
+const pool = new Pool({
+    user: 'development',
+    password: 'development',
+    database: 'w05d03',
+    host: 'localhost',
+    port: 5432
+})
+
+console.log("connection establishing...");
+
+module.exports = pool;
+
+```
+
+```js
+
+// server.js
+
+const db = require('./db/db'); // require our connection to PSQL
+const dbHelpers = require('./dbHelpers/index');
+const { getUsers, getMarks } = dbHelpers(db);
+
+
+```
+
+```js
+
+//dbhelpers.js
+module.exports = (db) => {
+    const getUsers = () => {
+        return db.query("SELECT * FROM students").then(response => {
+            return response.rows;
+        })
+    }
+
+    const getMarks = () => {
+        return db.query(`
+            SELECT name, quiz_results.mark, total  FROM students
+            JOIN quiz_results
+            ON students.id = quiz_results.student_id
+            JOIN quizes
+            ON quizes.id = quiz_results.quiz_id;`
+        ).then(response => {
+            console.log(response);
+            return response.rows;
+        })
+    }
+
+    return { getUsers, getMarks };
+}
+
+```
