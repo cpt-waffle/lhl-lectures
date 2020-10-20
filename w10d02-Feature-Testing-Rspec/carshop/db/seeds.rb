@@ -34,7 +34,7 @@ puts "creating cars..."
     model: models.sample,
     style: styles.sample,
     trim: trims.sample,
-    year: rand(1950..2020),
+    year: rand(1950..2019),
     color: Faker::Color.color_name.capitalize,
   })
 end

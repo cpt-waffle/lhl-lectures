@@ -177,7 +177,6 @@ rails g controller cars index
 <section class="car-list" id="car-list">
   <% @cars.each do |car| %>
     <div class="car">
-      <h3 class="description"><%= car.description %></h3>
       <p class="details">
         <strong>Make:</strong> <%= car.make.make %> |
         <strong>Model:</strong> <%= car.model.model %> |

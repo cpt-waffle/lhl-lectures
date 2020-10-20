@@ -1,9 +1,13 @@
 require 'rails_helper'
+
+# require database_cleaner which will erase database on each test!
 require 'support/database_cleaner'
 
-RSpec.feature "Cars", type: :feature, js: true do
-  before :each do
-    @car1 = Car.create!(
+#                                      DONT FORGET JS:TRUE
+RSpec.feature "Cars", type: :feature, js:true do
+
+    before :each do
+      @car1 = Car.create!(
       make: Make.create!(make: 'Toyota'),
       model: Model.create!(model: 'Prius'),
       style: Style.create!(body_style: 'Extended Cab Pickup'),
@@ -29,35 +33,36 @@ RSpec.feature "Cars", type: :feature, js: true do
       year: 1975,
       color: 'Purple'
     )
-  end
-
-
-  scenario 'display the cars page' do
-    visit '/cars'
-    save_screenshot 'cars_home.png'
-    expect(page).to have_text "All My Cars!"
-    expect(page).to have_css ".car-list"
-  end
-
-  scenario 'go to home page and visit the first car descriptipn page' do 
-    visit '/cars'
-    expect(page).to have_text "All My Cars!"
-    save_screenshot 'test2-home_page.png'
-    first(:link, 'More Info').click
-    sleep(1)
-    save_screenshot 'test2-details_page.png'
-    expect(page).to have_text "Specific Car"
-  end
-
-  scenario 'go to homepage and find Dodge' do
-    visit '/cars'
-    save_screenshot 'test3-home_page1.png'
-    within '.search-form' do
-      select 'Dodge', from: 'make'
-      click_button 'Search!'
     end
-    save_screenshot 'test3-home_page2.png'
-    expect(page).to have_text 'Accord'
-  end
 
+    scenario 'display the cars page' do
+        visit cars_path
+        save_screenshot 'test-1.png'
+    end
+
+    scenario 'get the list of all the cars that are on the page' do
+        visit cars_path
+        save_screenshot 'test-2.png'
+        expect(page).to have_css('.car', count: 3)
+    end
+
+    scenario 'go to cars page, click on more info for first car to show info' do
+        visit cars_path
+        # save_screenshot 'test-3a.png' 
+        # find something without a class just by the value
+        # first(:link, 'More Info').click
+        # find something by class
+        first('.more-info-link').click
+        # sleep(1) not the most correct way buuut if your screenshot is not syncing correctly add this in
+        save_screenshot 'test-3b.png'
+    end
+
+    scenario 'go to homepage and filter Dodge' do
+        visit cars_path
+        select 'Dodge', from: 'make'
+        save_screenshot 'test4a.png'
+        click_button 'Search!'
+        save_screenshot 'test4b.png'
+        expect(page).to have_css('.car', count: 1)
+    end
 end
