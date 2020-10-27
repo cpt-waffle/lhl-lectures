@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
 
 function Form(props) {
-    console.log("PROPS FOR FORM =====>");
-    console.log(props);
-
     const [name, handleName] = useState(''); 
     const [url, handleUrl] = useState(''); 
 
     function handleNameInput(evt) {
-        // debugger
-        // console.log(evt.target.value);
         handleName(evt.target.value);
     }
 

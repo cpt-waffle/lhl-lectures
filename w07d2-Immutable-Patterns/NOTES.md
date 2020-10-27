@@ -1,11 +1,14 @@
---- First day of react has finished
--- How you all doing?!?!?
+Agenda 
+
+-- How you all doing?
+-- What questions we got on react so far?
 
 
--- Kinda confusing
--- alot of things are happening
--- instructions hard to read
--- DIFFERENT ( unlike vanillaJS )
+-- Review
 
--- State and Props
--- Immutable Patterns in React!!! (AKA or TLDR --- Copy everything destroy original!)
+- Components Building
+- Props
+- State
+- Complex-ish state ()
+- Immutable Patterns and why 
+(Maybe) BONUS 'prev'
