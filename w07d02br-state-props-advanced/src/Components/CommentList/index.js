@@ -1,18 +1,15 @@
+import React from 'react';
+import Comment from '../Comment';
 
-
-
-
-
-import React from 'react'
-import Comment from '../Comment'
 
 function CommentList(props) {
-    console.log(props);
-    return (
-        <div>
-            {props.list.map( e => <Comment data={e} handleClick={props.handleClick}/>)}
-        </div>
-    )
+    const comments = props.list.map(comment => {
+        return <Comment key={comment.id} data={comment} handleClick={props.handleClick} />
+    })
+
+    return (<div>
+        {comments}
+    </div>)
 }
 
 export default CommentList;

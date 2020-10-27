@@ -1,16 +1,13 @@
 import React from 'react';
 import './comment.css'
 
-
-
-
-
-
 function Comment(props) {
+	// props.id props.image,
 	const { id, image, content, likes, dislikes } = props.data;
 
 	function onLikeClick() {
 		console.log("LIKE Clicked!");
+		console.log('id is on Comment line 10:', id);
 		props.handleClick('like', id);
 	}
 
@@ -19,6 +16,7 @@ function Comment(props) {
 		props.handleClick('dislike', id);
 	}
 
+	// $('#form').on('submit', (evt) => {/..})
 
 	return (
 		<div className='comment'>

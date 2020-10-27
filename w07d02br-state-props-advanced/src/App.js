@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 import CommentList from './Components/CommentList';
@@ -37,38 +36,39 @@ const commentsData = [
 ]
 
 
-
-
-
-
 // Props ALWAYS go down levels ( down down down down down)
 // Function calls propagate BACK UP ( up up up to the original function definition )
 function App() {
   const [comments, setComments] = useState(commentsData);
-
   // ALWAYS COPY YOUR STATE --> ALTER THE COPY ---> SET THE COPY AS ORIGINAL 
+
+  // What happens IF I PASS a FUNCTION DOWN INTO COMMENT LIST
+  // and comment list PASSES THAT FUNCTION into Comment
+
+
+  // Props CAN ONLY be passed down down down to components
+  // Function Call PROPAGATE back up up up up all the way where they were defined.
+
   const handleClick = (type, id) => {
-    console.log("Line 45: IN APP.js");
-    console.log(comments);
-    console.log(type, id);
-    // METHOD 1 ==== for in loop not the cleanest solution but it works
-    // // MAKE a COPY of OG --> comments
+    console.log("%c HELLO FROM LINE 50 APP.js", 'color: red');
+    console.log(type, id)
+    console.log('App.js line 56');
+    // make a copy
     // const commentsCopy = [...comments];
-    // // go through the copy, find the correct comment by id
-    // for (let index in commentsCopy) {
-    //   // alter that comments liek or dislike depending on what was clicked
-    //   if (commentsCopy[index].id === id) {
+    // loop through your copy , find the correct ID thats been clicked
+    // for (let comment of commentsCopy) {
+    //   if (comment.id === id) {
+    //     // increment either like or dislikes
     //     if (type === 'like') {
-    //       commentsCopy[index].likes++;
+    //       comment.likes++;
     //     } else {
-    //       commentsCopy[index].dislikes++;
+    //       comment.dislikes++;
     //     }
     //   }
-    // }
-    // // SET THE COPY TO OG ---> setComments()
-    // METHOD 2 ==== REFACTOR
-
-    setComments(comments.map( comment => {
+    // } 
+    // POST REQUEST to comments/:id/like
+    // if post request was successful THEN do the following..
+    const commentsCopy = comments.map( comment => {
       if (comment.id === id) {
         if (type === 'like') {
           comment.likes++;
@@ -77,16 +77,16 @@ function App() {
         }
       }
       return comment;
-    }));
+    })
+
+    setComments(commentsCopy);
   }
 
-  const printHello = () => 'hello';
-
+  //  loop through array of comments if ID matches do stuff to it
+  // then return comment
   return (
     <div>
-      <h1>{printHello()}</h1>
       <CommentList list={comments} handleClick={handleClick}/>
-
     </div>
   );
 }

@@ -81,5 +81,19 @@ const handleComment = (type, id) => {
   setComments(commentsCopy);
 }
 ```
+A better refactor of it could be:
+
+```jsx
+const commentsCopy = comments.map( comment => {
+  if (comment.id === id) {
+    if (type === 'like') {
+      comment.likes++;
+    } else {
+      comment.dislikes++;
+    }
+  }
+  return comment;
+  })
+```
 
 We then built out the logic to change the state with the comment with +1 dislike/like with the logic above.
