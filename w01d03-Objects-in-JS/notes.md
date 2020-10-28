@@ -1,8 +1,7 @@
 -- Agenda--
 
--- Intro's (i havent met you during your d1)
--- Review ( arrays )
+-- Intros
+-- Review, Different Data types 
 -- Objects ( and comparing them to arrays)
 -- BREAK ---
-
 -- A few examples objects

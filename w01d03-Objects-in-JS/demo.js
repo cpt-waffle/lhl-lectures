@@ -1,96 +1,58 @@
 // ------------ Review ---------------
+const number = 1;
+const string = 'hello';
+const bool = false;
 
-const PI = 3.14;
+const foo = function() {
+  console.log('bar');
+}
+// FIRST THING IN THE ARRAY MUST BE BRAND NAME
+// SECOND IN THE ARRAY MUST BE MODEL
+const carArr = ['toyota', 'corolla', '2014', 'automatic', 4, 'red'];
+               // 0,       1         2          3       4    5
+carArr.push('Sport');
+// console.log(car[1]);
 
-const array = [1, 'two', 'three', 'four', 5, 6, false];
-array.push('eight');
-array[0] = 'zero';
-///////////////////////////////////////
-// first element in the array WILL ALWAYS BE MAKE
-// the second element WILL AWLAYS ME MODEL
+// OBJECTS Storing data
+// objects denoted with curly brackets
+const carObj = { doors: 4, model: 'corolla', make: 'toyota', transmissionType: 'automatic',year: 2014, color: 'red'};
 
-let car = ['blue', 'Toyota', 'Corolla', 2020, 'automatic', 4, ['leather', 'sporty', 'economy']];
-// --------->0         1         2        3         4      5
-// OBJECTS
-let ObjCar = {
-  trim: ['leather', 'sporty', 'economy'],
-  model: 'Corolla',
-  color: 'teal',
-  make: 'Toyota',
+// console.log(carObj.model)
 
-  year: 2020,
-  transmission: 'automatic',
-  doors: 4,
-  //someAwesomeKey: 'whatever?'
-};
-// array portion of car
-console.log("Model:", car[1]);
-// object
-const someAwesomeKey = 'doors';
-//          ObjCar["doors"];
-console.log(ObjCar[someAwesomeKey]);
-// console.log(ObjCar.make)
+const banana = 'make';
 
-// console.log(newCar);
+// console.log(carObj[banana])
 
-// When using the = operator with object/arrays
-// it does not make a copy, but rather passes a reference.
-
-// console.log(ObjCar.trim);
-
-// for (let i of ObjCar.trim) {
-//   console.log('trim is: ', i);
+// Looping through an object !!
+// i = 0; i < arr.length; i++
+// OF and IN
+// console.log("ARRAY LOOP")
+// for (let i of carArr) {
+//   console.log(i);
+// }
+// console.log("OBJECT LOOP")
+// i in obj == keys 
+// i of obj == ERROR
+// for (let i in carObj) {
+//   console.log('key is: ', i);
+//   console.log(carObj.i)
+//   console.log('value of this key is : ', carObj[i]);
 // }
 
+//ZENFUN
+// 0 undefined false null '' NaN
+const cars = [
+  {make: 'toyota', model:'corolla', year: 2014, transmissionType: 'auto', drivers: ['a', 'b']},
+  {make: 'toyota', model:'86', year: 2019, transmissionType: 'manual', drivers: ['a', 'b']},
+  {make: 'honda',  model: 's2000', year: 2002, transmissionType: 'manual', drivers: ['a', 'b']},
+  {year: 1992}
+]
 
-// Add a new key/value pair to an object
-// console.log(ObjCar);
-// ObjCar.sunroof = false;
-// ObjCar['sunroof'] = true;
-// console.log(ObjCar.trim[1]);
-const newCar = {...ObjCar};
-newCar.sunroof = false;
-// console.log(newCar);
-
-const arrayOfCars = [
-  {
-    trim: ['leather', 'sporty', 'economy'],
-    model: 'Corolla',
-    color: 'teal',
-    make: 'Toyota',
-  
-    year: 2020,
-    transmission: 'automatic',
-    doors: 4,
-    //someAwesomeKey: 'whatever?'
-  },
-  {
-    trim: ['leather', 'sporty', 'economy'],
-    model: 'Honda',
-    color: 'teal',
-    make: 'Civic',
-  
-    year: 2012,
-    transmission: 'manual',
-    doors: 4,
-    //someAwesomeKey: 'whatever?'
-  },
-  {
-    trim: ['leather', 'sporty', 'economy'],
-    model: 'ModelX',
-    color: 'Grey',
-    make: 'Tesla',
-  
-    year: 2020,
-    transmission: 'automatic',
-    doors: 4,
-    //someAwesomeKey: 'whatever?'
-  },
-  ObjCar,
-  ObjCar,
-  ObjCar,
-
-];
-
-arrayOfCars[3].sunroof = true;
-console.log(arrayOfCars)
+for (let car of cars) {
+  console.log('car is');
+  if (car.drivers) {
+    console.log(car.drivers[0]);
+  } else {
+    console.log("NO DRIVERS!!!");
+  }
+}

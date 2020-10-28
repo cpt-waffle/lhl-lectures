@@ -3,29 +3,34 @@
 
 // PART B - Modify the function so that it returns a count of every animal
 // output {dog: 5, cat: 4, rabbit: 1, moose: 1, parrot: 3}
-let str = 'dog dog rabbit rabbit rabbit dog cat cat chair parrot dog cat cat parrot cat cat moose cat dog';
+let str = 'dog dog dog cat cat dog parrot parrot cat moose cat rabbit dog piggy chair rock rock';
+       // ['dog', 'dog', 'dog', 'cat'....]
 
 const dogCatCounter = function(string) {
-    const words = string.split(" ");
-    // how do i create an object with the cats and dogs
-    const result = {};
-    let i = 0;
-    // figure out how am i going to loop through a string of words? X
-    for (let word of words) {
-        // word = dog  ===> result['dog'];
-        if (result[word] === undefined) {
-            result[word] = 1;
+    // what is string?
+    const arr = string.split(' ');
+    const resultObj = {};
+    //...
+    // how do i loop thorough a string?
+    for (let val of arr) {     // THIRD LOOP = VAl = DOG
+        // THIRD LOOP resultOBJ = { dog: 2}
+        // console.log(val);
+        // in loop count dog and count cat
+
+        if (resultObj[val]) { // resultObj[DOG] ==> 1
+            // how can i increment a value that is stored in an object???
+            resultObj[val]++; //  { dog: 3 }
         } else {
-            result[word]++;
+            // hxow can i store a new value in an object???
+            resultObj[val] = 1; // resultObj[DOG] = 1 ==> { dog: 1 }
         }
-        // how do i increment a value inside of an object
     }
-    console.log(result);
-    // return the object to the user/client
-    return result;
+    console.log(resultObj);
+    return resultObj;
+    // return object with dog: ? cat ? 
 }
 
-// dogCatCounter(str);
+// console.log(dogCatCounter(str));
 
 
 
@@ -55,53 +60,41 @@ const users = {
 // if no user is found, return undefined
 // findUserWithId(users, 'X63ef') => Ozan Robbins
 const findUserWithId = function(users, id) {
-    console.log(users[id]);
+    console.log('users:',users);
+    console.log('id', id);
+    return users[id];
 }
 
-// findUserWithId(users, 'AaCf3');
+// console.log(findUserWithId(users, 'AaCf3'));
 
 
 // Function takes a name, and looks for the corresponding id
 // findUserId(users, 'Colin Lam') => 'X63ef'
 const findUserId = function(users, username) {
-    // console.log('users =>', users);
-    // console.log('username =>', username);
-
-    // go through an object ( loop ??? )
-    // in objects.. you are allowed to loop through them
-    // but can only loop through the keys not the values
-    // you can ONLY use a for in loop... (For OF does not work!!!!)
-
-    
-    for (let key in users) {
-        // ---------------------- Value
-        if (users[key] === username) {
-            return key;
+    for (let id in users) {
+        // console.log('id', id);
+        // i have an id 
+        // how do i get the value out of this users obj?
+        if (users[id] === username) {
+            console.log("I FOUND THEM");
+            return id;
         }
     }
-    // find the value that matches username
-    // return the key that corresponds with that value
+    return undefined;
 
+    // DONT DO WHAT's about to go down here!!!
+    // Code Golfing ---> 
+    // return Object.keys(users)[Object.values(users).indexOf(username)];
 }
-
-// console.log(findUserId(users, 'Ozan Robbins'));
-
-
-// CODE GOLFING!!?!?
-
+console.log(findUserId(users, 'Colin Lam'));
 
 // return total number of users
 // countUsers(users) => 5
 const countUsers = function(users) {
-    let count = 0;
-    // for (let key in users) {
-    //     count++;
-    // }
-    count = Object.values(users).length;
-    console.log(count);
+
 }
 
-countUsers(users)
+// countUsers(users)
 
 
 
