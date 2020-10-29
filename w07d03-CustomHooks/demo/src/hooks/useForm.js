@@ -1,25 +1,23 @@
-// Hooks always get called with the word "use"
-
-// We need import NOT REACT but the REACT tools/hooks that we are going to use....
-
 import { useState, useEffect } from 'react';
+// import only the things you need in a hook, ( if you do not need React to be rendered dont import react)
 
-// We make a function ( same as your file name as usual...)
 
-function useForm() {
-    const [value, setValue] = useState('');
 
-    const clear = () => {
+function useForm(val) {
+
+    const [value, setValue] = useState(val || '');
+
+    const handleVal = (val) => {
+        setValue(val);
+    }
+
+    const clear = (evt) => {
+        evt.preventDefault();
         setValue('');
     }
 
-
-    // return ALL of the variables/functions we need from this useForm...
-    return { value, setValue, clear };
-  
+    return {value, handleVal, clear}
 }
 
-
-// export default ....
 
 export default useForm;

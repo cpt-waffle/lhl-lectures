@@ -1,14 +1,15 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import useForm from "../useForm";
 
-test("Just to see if it passes", () => {
+it("Just to see if it passes", () => {
   expect(true).toBe(true);
 });
 
-test('UseForm should be able to be set to apple', () => {
-  const { result } = renderHook( () => useForm() );
-  act( () => {
-    result.current.setValue('Apple');
+it('changed the value from nothing to apple', () => {
+  const { result } = renderHook(() => useForm());
+  console.log(result.current);
+  act(() => {
+    result.current.handleVal('Apple');
   })
   expect(result.current.value).toBe('Apple');
 })
