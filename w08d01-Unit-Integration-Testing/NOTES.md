@@ -1,20 +1,25 @@
-#### TEST STUFF 
+--- WHY do we Test!?!?
 
-### Why do we write test?
 
- - Things dont break -
- - to known what function we are writting (Guidelines-  ( TTD)
- - to see if things break
- - confirmation of things working (code confidence)
- - so it wont be inconvinent for th  client when its in production
- - code delivery and quality
- - to make sure new code doesnt break old code ( sideffects )
+- to improve confidence !!! 
+- read through tests, see how things are implemented
+- Enhance workflow
+- Saves Time (in A LONG RUN!!!)
+  ^---- everytime you push or commit or add a feature ALL YOUR TESTS RUN!
 
-### Types of Testing
+- ensure security
+- edge cases ( happy path vs sad path)
+- keep track of features
+- MONEY ---
+  - less downtime = more buisness time
 
-Unit tests
-component testing 
-error driven testing
-static testing
-end to end testing <-----
-integration testing 
+
+### Types of Tests
+
+Unit Testing --- tesing functions, true -- Cheap 
+E2E --- testings out big features/ user stories (your wed) --- PRICEY 
+Integration Testing --- Checking components, by themselves, are they working -- CHEAP 
+static testing -- Linting, code checks, etc --- CHEAPEST
+
+
+

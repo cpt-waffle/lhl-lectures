@@ -1,44 +1,46 @@
 import React from 'react';
-// Fire event to mimic the execution of a click
-import { render, prettyDOM, fireEvent, getByPlaceholderText } from '@testing-library/react';
+import { prettyDOM, render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Form from '../Components/Form';
 
-it('renders the Form component', () => {
-    const { container } = render(<Form/>)
-    // console.log(prettyDOM(container));
-})
+describe('Form Tests', () => {
+    it('renders a form', () => {
+        const { container } = render(<Form/>);
+        // console.log(prettyDOM(container));
+    })
 
-it('Tries to save an empty item to the list', () => {
-    const mockAddItem = jest.fn();
-    const { container, getByText } = render(<Form addItem={mockAddItem}/>);
-    const button = getByText('Add');
-    // console.log(prettyDOM(button));
-    fireEvent.click(button)
-    // console.log(mockAddItem());
-    // console.log(mockAddItem);
-    expect(mockAddItem).not.toHaveBeenCalled();
-})
+    it(' adds an item to the list (correctly)', () => {
+        const mockAddItem = jest.fn();
+        const { container, getByPlaceholderText, getByText } = render(<Form addItem={mockAddItem}/>);
+        const input = getByPlaceholderText('enter todo');
+        // console.log(prettyDOM(input));
+        // console.log(prettyDOM(container));
+        const btn = getByText(/Add/i);
+        fireEvent.change(input, { target: { value: 'Buy Some Apples!!!!!!' } });
+        console.log(prettyDOM(input));
+        console.log(prettyDOM(btn));
+        fireEvent.click(btn);
+        expect(mockAddItem).toHaveBeenCalled();
+    })
 
-it('adds an item properly to list', () => {
-    const mockAddItem = jest.fn();
-    const { container, getByText, getByPlaceholderText } = render(<Form addItem={mockAddItem}/>);
-    const button = getByText('Add');
-    const input = getByPlaceholderText('enter todo');
-    fireEvent.change(input, {target: {value: 'random test!'}});
-    // console.log(prettyDOM(input));
-    fireEvent.click(button);
-    expect(mockAddItem).toHaveBeenCalled();
-})
+    it(' tried to add item but does not (empty string in form)', () => {
+        const mockAddItem = jest.fn();
+        const { container, getByPlaceholderText, getByText } = render(<Form addItem={mockAddItem}/>);
+        const input = getByPlaceholderText('enter todo');
+        const btn = getByText(/Add/i);
+        fireEvent.click(btn);
+        expect(mockAddItem).not.toHaveBeenCalled();
+    })
 
-it('tries to save an empty item, doesnt save, and gets a warning', () => {
-    const mockAddItem = jest.fn();
-    const { container, getByText } = render(<Form addItem={mockAddItem}/>);
-    const button = getByText('Add');
-    // console.log(prettyDOM(button));
-    fireEvent.click(button)
-    // console.log(mockAddItem());
-    // console.log(mockAddItem);
-    expect(mockAddItem).not.toHaveBeenCalled();
-    const error = getByText(/Cannot be Blank/i);
+    it(' tries to submit an empty item, but gets error "cannot be blank"', () => {
+        const mockAddItem = jest.fn();
+        const { container, getByPlaceholderText, getByText } = render(<Form addItem={mockAddItem}/>);
+        const input = getByPlaceholderText('enter todo');
+        const btn = getByText(/Add/i);
+        fireEvent.click(btn);
+        expect(mockAddItem).not.toHaveBeenCalled();
+        const error = getByText(/Cannot be Blank/i);
+        console.log(prettyDOM(error));
+        expect(error).toBeInTheDocument();
+    })
 })
