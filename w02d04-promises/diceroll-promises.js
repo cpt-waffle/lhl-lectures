@@ -1,42 +1,37 @@
-// Promises are basically syntatic sugar of callbacks!
+// Make a function that rolls a dice and returns a value ( 1 - 6 )
+// The roll should take around 2 seconds...
+// and make 3 consecutive dice rolls
 
+// const randomNumber = function() { ... }
 
 const randomNumber = () => {
-    const number = Math.floor(Math.random() * 6) + 1;
-    return number;
+    const result = Math.floor(Math.random() * 6) + 1;
+    return result;
 }
 
 const diceRoll = () => {
-    //...
     return new Promise((resolve, reject) => {
-        console.log("Rolling Dice.....")
-        setTimeout( () => {
-            const num = randomNumber();
-            if (num >= 3) {
-                resolve(num); // <----- TASK HAS BEEN COMPLETED AND THE VALUE THAT WAS FINISHED COMPUTING IS THIS
-            } else {
-                reject('OPSIE')
-            }
-        }, 1000)
+        console.log('Dice is Rolling...')
+        setTimeout(() => {
+            let number = randomNumber()
+            console.log(number);
+            resolve(number);
+        }, 2000)
     })
 }
+functionName().then( (result ) => {
 
+})
 
-a  = diceRoll()
-console.log(a);
-
-
-a.then((val) => {
-    console.log(val);
+diceRoll().then((num) => {
+    console.log("PROMISE COMPLETED");
+    // console.log(num);
     return diceRoll();
-}).then((val) => {
-    console.log("SECOND roll");
-    console.log(val);
+}).then((num) => {
+    console.log("SECOND PROMISE COMPLETED");
+    // console.log(num)
     return diceRoll();
-}).then((val) => {
-    console.log("THIRD diceroll");
-    console.log(val)
-}).catch((err) => {
-    console.log("SOMETHING WENT WRONG :( ")
-    throw new Error(err);
+}).then((num) => {
+    console.log("THIRD PROMISE COMPLETED");
+    // console.log(num);
 })

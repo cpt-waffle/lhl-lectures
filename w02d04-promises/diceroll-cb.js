@@ -1,37 +1,36 @@
 // Make a function that rolls a dice and returns a value ( 1 - 6 )
 // The roll should take around 2 seconds...
+// and make 3 consecutive dice rolls
 
 const randomNumber = () => {
-    const number = Math.floor(Math.random() * 6) + 1;
-    return number;
+    const result = Math.floor(Math.random() * 6) + 1;
+    return result;
+}
+
+// this a variable that contains a value.
+let fruit = 'apple';
+
+// this is a variable that contains a value.
+let randomFunc = () => {
+    console.log("hello world");
 }
 
 
-// Using callbacks to deal with async functions
-
-const diceRoll = (cb) => {
-    console.log('Rolling the dice.....');
+const diceRoll = (callback) => {
+    console.log('Dice is Rolling...')
     setTimeout(() => {
-        const num = randomNumber()
-        console.log(num);
-        console.log(cb);
-        cb(num);
-        return 3;
-    }, 100)
+        let number = randomNumber()
+        console.log(number);
+        callback();
+    }, 2000)
 }
 
-diceRoll( (num) => {
-    // if (err) return err
-    console.log("DONE FIRST ROLL");
+
+diceRoll(() => {
     diceRoll(() => {
-        // if (err) return err
-
-        console.log("DONE SECOND ROLL");
-        diceRoll( () => {
-        // if (err) return err
-
-            console.log("DONE THIRD ROLL");
+        diceRoll(() => {
+            console.log("FINISHED!");
         })
-    });
+    }) 
 });
 

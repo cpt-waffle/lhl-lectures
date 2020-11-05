@@ -1,8 +1,9 @@
 ------ AGENDA ------
 
--- Intro ( I was away last week so we may have met only on Monday for a very quick Hi!)
+-- Intro
 -- Review -- Callbacks!!
 -- Promises intro ( and maybe how they are written under the hood, AKA MAKING PROMISE)
+ --> Bonus --> how do you build a promise
 
 COFFEE BREAK!!
 
