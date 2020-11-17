@@ -1,10 +1,2 @@
-<h1>Car Details</h1>
-
-
-
-<strong>Make:</strong> <%= @car.make.make %> |
-<strong>Model:</strong> <%= @car.model.model %> |
-<strong>Trim:</strong> <%= @car.trim.trim_level %> |
-<strong>Style:</strong> <%= @car.style.body_style %> |
-<strong>Year:</strong> <%= @car.year %>
-<strong>Color:</strong> <%= @car.color %>
+<h1>Car: <%= "#{@car.make.make} #{@car.model.model}" %></h1>
+<h3><%= @car.trim.trim_level %> </p>

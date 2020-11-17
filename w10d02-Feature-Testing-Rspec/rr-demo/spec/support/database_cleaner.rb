@@ -1,4 +1,4 @@
- RSpec.configure do |config|
+RSpec.configure do |config|
 
     config.before(:suite) do
       if config.use_transactional_fixtures?
