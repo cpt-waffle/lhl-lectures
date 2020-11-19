@@ -21,21 +21,22 @@ body {
 .box-c {
     border: 2px dashed blue;
     font-size: 2em;
-
 }
-
-.box-d {
+/* -------------------------------------- */
+.box-d{
     border: 2px dashed lightgreen;
     font-size: 2rem;
 }
 
 .box-e {
     border: 2px dashed salmon;
-    font-size: 4rem;
-
+    font-size: 2rem;
 }
 
 .box-f {
     border: 2px dashed blue;
-    font-size: 6rem;
+    font-size: 2rem;
+
 }
+
+
