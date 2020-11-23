@@ -1,72 +1,66 @@
----------- Agenda ------------
+--- W5D1 ----
 
-SQL Intro
- - The Who,What,Where and Why SQL
- - env travel
- - FIRST QUERY ( with a meme )
-BREAK
-A BUNCH OF QUERIES
- - SELECT
- - WHERE
- - LIKE
- - JOIN
- - GROUP BY
- - HAVING
- BONUS
-  - SUB SELECTS aka SCARY QUERY
+ - SQL intro
+ - Why SQL  ( what is the point?)
+ - psql ( and different commands that we can do)
+ - first query 
+ BREAK 
+ - more queries 
+ - more db talks 
 
 
------------ BACK IN TIME ---------------
+--- BACK IN TIME -----
 
-Tweeter -  ( Twitter but different sort off)
-TinyApp -  ( collect URLs and shroten them so they can be easily shared)
+TinyApp - short URLs
 
-TinyApp has become the next Insta
+^--- lets you favorite a short/long URL 
 
-Node JS TinyApp Run!!
+^---- deploy the feature, and the server restarts......
+urlsDatabase = {...}
+usersDatabase = {...}
 
-  ****      www.google.ca     Xfg45f   DELETE
+Is the app truly dead when you destroy the server and frontend of it?
+^--- not really...
 
+---------------------------------------------------
+files....
+fs.write()....
+.txt <---
+|name,   | email, |  password
+|vasiliy, v@k.ca,  12345
+|Jessie   j@k.ca   54321
 
-fs.write(...)
+---------------------------------------------------
 
- - When should you write into a file
- - when should you read from a  file
- - How do you organize data <-------
+in order to have read/write privilages to a file, it needs to be stored
+on THIS machine.
 
+- make a service, that keeps the data organized in its own container...
+- we'll give it tools to connect to that data(base)
+- AND you dont have to be on the same machine...
+- data persistance
+---- sql services, psql
+- SQL
+-- structured query language ---
 
-DATABASE
+==== 
 
-a service. Able to persist, retreive, and organize data. 
+psql -- it connected me to my psql service
+\q  <--- exit out psql
+\du <--- display users
 
-// Commands for PSQL
+DATA will catogorized by a DATABASE
 
-psql --- will connect to your default database
-psql -d DATABASE_NAME -- will connect you to a specific database from the start
+CREATE DATABASE database_name;
 
-\DU --- to display USERS.
-\q --- To quit of PSQL service
-\l --- LIST all of my databses that i currently have
-\c --- connect to specific database
-
-\dt --- Displays all the tables in our Database
-
------ SQL Commands -----
-DROP DATABASE database_name # deletes all of the tables and data;
-CREATE DATABASE datbase_name;
-
-
-
-
-
-
-
-
-
-
+\c  <--- connect database_name
+\dt <--- display tables
 
 
+=== ERDs  and Data itself
 
-
+Entity 
+Relationship
+Diagrams
 
 
