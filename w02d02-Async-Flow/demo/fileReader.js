@@ -1,39 +1,38 @@
 const fs = require('fs');
 
-const output = (cb) => {
-    fs.readFile('./data1.txt', 'utf8', (err, data1) => {
+const addFiles = (callback) => {
+    let result = 0;
+    fs.readFile('./data1.txt', 'utf8', (err, num1) => {
         if (err) {
-            console.log(err);
-        } else {
-            // console.log(data);
-            fs.readFile('./data2.txt', 'utf8', (err, data2) => {
-                if (err) {
-                    console.log(err);
-                } else {
-                    fs.readFile('./data3.txt', 'utf8', (err, data3) => {
-                        if (err) {
-                            console.log(err);
-                        } else {
-                            console.log('the values are: ', data1, data2, data3);
-                            const sum = Number(data1) + Number(data2) + Number(data3);
-                            cb(sum);
-                        }
-                    })
-                }
-            })
-            
+            throw new Error(err);
         }
-    })
-    
+        fs.readFile('./data2.txt', 'utf8', (err, num2) => {
+            if (err) {
+                throw new Error(err);
+            }
+            fs.readFile('./data3.txt', 'utf8', (err, num3) => {
+                if (err) {
+                    throw new Error(err);
+                }
+                result += num1 + num2, num3;
+                callback(num1, num2, num3);
+            })
+        })
+    });
+    return result;
 }
 
-output((result) => {
-    console.log(result);
-    //...
-});
+const callback = (num1, num2, num3) => {
+    console.log("HELLO CALLBACK");
+    console.log('LINE 25 ===> ', Number(num1) + Number(num2) + Number(num3));
+}
+
+addFiles(callback);
 
 
-// IF YOU SEE THIS RUN!!!!!!
+//  DO NOT DO THIS!!
+//  EVER 
+//  IF YOU SEE IN THIS PRODUCTION SITE, RUN!!!!!!
 // setTimeout(() => {
-//     console.log(number1, number2);
-// }, 2000);
+//     console.log(num1, num2);
+// }, 9000);

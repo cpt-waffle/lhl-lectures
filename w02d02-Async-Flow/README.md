@@ -65,7 +65,17 @@ A more typical waiter is asynchronous. They take a customers order, deliver it t
 
 Node is single threaded which means only one operation at a time can occur. However when something takes longer than it should ( like reading a file, or waiting for input, or getting information from a server ) node will simply put it in the event queue, and will keep going with the main code. Once main is finished, it will go back and check if anything finished on the event queue, and if it did, then it will output that.
 
+####  High Level Explanation from Rafic
+
+JavaScript is single threaded, which means that it is NOT able to run multiple tasks in parallel. 
+To overcome this, we have the asynchronous behavior which means that if 
+there is any portion of the code that is Input/Output 
+(read from file, write to file, read from web socket, write to web socket, etc…), 
+JS will push this call to the event loop and this is handled by the engine that runs JS (node , V8, etc …). 
+Those engines are multi threaded and will run those I/O functions in parallel. Hope that helps 
+
 ```js
+
 console.log('BEFORE CALL');
 
 setTimeout(() => console.log('INSIDE CALL'), 1000);

@@ -1,5 +1,5 @@
 ------------ Agenda -----------
-Small review ( functions, callbacks) <----
+review ( functions, callbacks) <----
 Async
 BREAK
-Async
+Async file read
