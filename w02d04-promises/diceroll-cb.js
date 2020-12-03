@@ -2,35 +2,43 @@
 // The roll should take around 2 seconds...
 // and make 3 consecutive dice rolls
 
-const randomNumber = () => {
-    const result = Math.floor(Math.random() * 6) + 1;
+// const randomNumber = function() { ... }
+const randomNumber = (diceSize) => {
+    const result = Math.floor(Math.random() * diceSize) + 1;
     return result;
 }
 
-// this a variable that contains a value.
-let fruit = 'apple';
-
-// this is a variable that contains a value.
-let randomFunc = () => {
-    console.log("hello world");
-}
-
-
-const diceRoll = (callback) => {
-    console.log('Dice is Rolling...')
+const diceRoll = (randNumFunc, cb)  => {
+    console.log("dice is rolling...");
     setTimeout(() => {
-        let number = randomNumber()
-        console.log(number);
-        callback();
-    }, 2000)
+        const result = randNumFunc(6);
+        console.log(randNumFunc(6));
+        if (result > 3) 
+            cb('SOMETHING WENT WRONG');
+        else 
+            cb();
+    },2000);
 }
 
-
-diceRoll(() => {
-    diceRoll(() => {
-        diceRoll(() => {
-            console.log("FINISHED!");
+diceRoll(randomNumber, (err) => {
+    console.log("first roll finished!");
+    if (err) {
+        console.log("SOMETHING WENT WRONG!!")
+        throw new Error(err);
+    }
+    diceRoll(randomNumber, (err) => {
+        console.log("second roll finished!");
+        if (err) {
+            console.log("SOMETHING WENT WRONG!!")
+            throw new Error(err);
+        }
+        diceRoll(randomNumber, (err) => {
+            console.log("third and final roll finished");
+            if (err) {
+                console.log("SOMETHING WENT WRONG!!")
+                throw new Error(err);
+            }
         })
-    }) 
+    })
 });
 
