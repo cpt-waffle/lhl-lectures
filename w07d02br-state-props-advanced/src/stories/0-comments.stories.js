@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { action } from "@storybook/addon-actions";
 
 
-import Comment from '../Components/Comment';
-import CommentList from '../Components/CommentList'
+import Comment from '../Components/Comment/';
+import CommentList from '../Components/CommentList';
 
 const comment = {
 	id: 1,
@@ -34,5 +34,5 @@ const commentList = [
 	}
 ]
 
-storiesOf('CommentList')
-	.add('A bunch of comments',() => <CommentList list={commentList}/>)
+storiesOf('CommentList', module)
+	.add("list", () => <CommentList list={commentList}/>)

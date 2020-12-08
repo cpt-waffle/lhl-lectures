@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-
 import CommentList from './Components/CommentList';
 
+// our fake api data...
 const commentsData = [
   { 
     id: 1,
@@ -36,38 +36,30 @@ const commentsData = [
 ]
 
 
-// Props ALWAYS go down levels ( down down down down down)
-// Function calls propagate BACK UP ( up up up to the original function definition )
 function App() {
   const [comments, setComments] = useState(commentsData);
-  // ALWAYS COPY YOUR STATE --> ALTER THE COPY ---> SET THE COPY AS ORIGINAL 
 
-  // What happens IF I PASS a FUNCTION DOWN INTO COMMENT LIST
-  // and comment list PASSES THAT FUNCTION into Comment
+  const handleComments = (id, type) => {
+    console.log("something has been clicked!!!");
+    console.log("what is id???", id);
+    console.log("type is: ", type);
 
-
-  // Props CAN ONLY be passed down down down to components
-  // Function Call PROPAGATE back up up up up all the way where they were defined.
-
-  const handleClick = (type, id) => {
-    console.log("%c HELLO FROM LINE 50 APP.js", 'color: red');
-    console.log(type, id)
-    console.log('App.js line 56');
-    // make a copy
     // const commentsCopy = [...comments];
-    // loop through your copy , find the correct ID thats been clicked
+    // loop through comments Copy
     // for (let comment of commentsCopy) {
+    //   // find the id of the specific comment that was clicked
     //   if (comment.id === id) {
-    //     // increment either like or dislikes
+    //     console.log("THIS IS THE SPECIFIC ONE --> ", comment);
+    //     // increment like or dislike depending on what was clicked
     //     if (type === 'like') {
     //       comment.likes++;
     //     } else {
     //       comment.dislikes++;
     //     }
     //   }
-    // } 
-    // POST REQUEST to comments/:id/like
-    // if post request was successful THEN do the following..
+    // }
+    // // set the new modified copy to the original state
+    // setComments(commentsCopy);
     const commentsCopy = comments.map( comment => {
       if (comment.id === id) {
         if (type === 'like') {
@@ -82,11 +74,11 @@ function App() {
     setComments(commentsCopy);
   }
 
-  //  loop through array of comments if ID matches do stuff to it
-  // then return comment
   return (
     <div>
-      <CommentList list={comments} handleClick={handleClick}/>
+      <CommentList list={commentsData} handleComments={handleComments}/>
+      <h1>2nd Comment list</h1>
+      <CommentList list={commentsData} handleComments={handleComments}/>
     </div>
   );
 }
