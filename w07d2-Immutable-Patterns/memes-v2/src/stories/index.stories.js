@@ -3,13 +3,18 @@ import { action } from '@storybook/addon-actions';
 import { Button } from '@storybook/react/demo';
 import { storiesOf } from '@storybook/react';
 
-import Meme from '../components/Meme';
+import Form from '../components/Form'
+import Meme from '../components/Meme'
+// Meme(....)
+// Meme(img:'www.google.ca', num: 1, favorited: true)
 
 // <% require(src/menu) %>
 // createMeme(id, name, imgLink, comments, ...///)
 
 
 
-storiesOf('MEMES TEST', module)
-    .add('Getting a Default Meme to Appear', () => <Meme name={"Just Once..."} url={'https://preview.redd.it/ff3hhsds9ks41.jpg?width=960&crop=smart&auto=webp&s=bf75658ce17a530f610fdc49b772254e6356f145'}/>)
-    .add('Empy Meme', () => <Meme/>)
+storiesOf('Form', module)
+    .add('Generic Form', () => <Form/>)
+
+storiesOf('Meme', module)
+    .add('Default meme', () => <Meme img="https://i.pinimg.com/originals/b8/2d/a4/b82da434ed0b91d1928e4877f4011753.jpg"/>)
