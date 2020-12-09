@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <% if (user) { %>
+            <h1>Hi <%= user.email %></h1>
+            <h2>Your password is <%= user.password %></h2>
+        <% } else { %>
+            <h1>nothing here yet :) </h1>
+    <% } %>
+</body>
+</html>
