@@ -42,11 +42,59 @@ Cookies are:
 Basically, we've moved the key=val solution from the URL to the HTTP header. That's all cookies are.
 The best part about this, well its gotten alot cleaner than having everything in the URL. The not so great part is that, as you can see, we can still understand what the information stored in the cookie is. So bottom line, its still not secure !!!!!
 
+#### Building a Server a BAD Way!
+
+So for this we used a typical req.query to store our user id and know that we authenticated. This is not a good way at all because anyone who looks at URL can change our `user_id` manually and then login as another user.
+```js
+// BAD WAY (DO NOT DO THIS) FOR DEMO PURPOSES ONLY
+app.post('/login', (req,res) => {
+    console.log(req.body);
+    const user = findUserByEmail(req.body.email);
+    if (user) {
+        res.redirect(`/?user_id=${user.id}`);
+    } else {
+        res.send("FAILED LOGIN");
+    }
+})
+```
+
+#### Building a Server Better(ish) way
+
+Then we decided to use cookies which would help us store the `user_id` in the header BUT that turned out to be not the best way either, because anyone with chrome dev tools can simply change `user_id`.
+
+```js
+// STILL NOT A GOOD WAY (Cookies can be changed via dev tools)
+app.post('/login', (req,res) => {
+    console.log(req.body);
+    const user = findUserByEmail(req.body.email);
+    if (user) {
+        res.cookie('id', user.id);
+        res.redirect(`/`);
+    } else {
+        res.send("FAILED LOGIN");
+    }
+})
+```
+
 #### Security
 
 So far we figured out that cookies arent secure, but they are very useful in tracking login. So what can we use instead of them?
 https://overthewire.org/wargames/
-We can use `cookie-session` which is basically a hashed cookie. We quickly looked into how to convert our login into `cookie-session` ( in the repo )
+We can use `cookie-session` which is basically a hashed cookie. We quickly looked into how to convert our login into `cookie-session`
+
+```jsx
+// now we are secure !! 
+app.post('/login', (req,res) => {
+    console.log(req.body);
+    const user = findUserByEmail(req.body.email);
+    if (user) {
+        req.session.user_id = user.id; // <-------- GOOD WAY
+        res.redirect(`/`);
+    } else {
+        res.send("FAILED LOGIN");
+    }
+})
+```
 
 We quickly talked about a hashing algorithm/function called bcrypt. I believe it's the most popular option for password hashing.
 
