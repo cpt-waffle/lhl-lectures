@@ -3,43 +3,43 @@ import { render, prettyDOM, getByText } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Item from '../Components/Item';
 
-describe('Our first tests', () => {
-    xit('checks if 2 == 2 is true', () => {
+describe('Items tests', () => {
+    it('checks uf 2 == 2 is true', () => {
         let answer = 2 === 2;
-        console.log(answer);
         expect(answer).toBe(true);
     })
 
-    xit('renders an Item component', () => {
+    it('renders a h1 tag', () => {
+        const { container } = render(<h1>Hello World</h1>);
+        // console.log(prettyDOM(container));
+    })
+
+    it('renders a component', () => {
         const { container } = render(<Item/>);
         // console.log(prettyDOM(container));
     })
 
-    xit("renders an Item components and it says Buy Apples", () => {
-        const { container } = render(<Item item="Buy Apples"/>);
-
-        // getByText(/Buy Apples/i);
-        // console.log(container);
-        const text = getByText(container, /Buy Apples/i);
-        // console.log(prettyDOM(container));
-
+    it('renders a component with item prop "buy apples" and it has to be lowercase', () => {
+        const {container, getByText} = render(<Item item="Buy Apples"/>);
+        // method 1, import getBy* from top the file, 
+        // you will have to pass the container as the first argument!
+        // const text = getByText(container, 'Buy Apples');
+        const text = getByText('buy apples');
         // console.log(prettyDOM(text));
         expect(text).toBeInTheDocument();
-        // expect(container.children[0]).toHaveClass('todo-item');
     })
 
-    it('what is JEST FN?', () => {
-        // jest.fn is a function that RETURNS a MOCK FUNCTION
-        // i have to call it to get it....
-        const randomFunc = jest.fn();
-        randomFunc();
-        randomFunc();
+    it("renders a component with item prop 'buy apples' and has class 'todo-item'", () => {
+        const {container, getByText} = render(<Item item="Buy Apples"/>);
+        const li = container.children[0];
+        // console.log(prettyDOM(li));
+        expect(li).toHaveClass('todo-item');
+    })
 
-        randomFunc();
-
-
-        // console.log(randomFunc)
-        expect(randomFunc).toHaveBeenCalledTimes(3);
-
+    it("renders a component with item prop 'buy apples' but prop had a bad case", () => {
+        const {container, getByText} = render(<Item item="BuY APPlEs"/>);
+        const text = getByText(/Buy Apples/i);
+        console.log(prettyDOM(text));
+        expect(text).toBeInTheDocument();
     })
 })
