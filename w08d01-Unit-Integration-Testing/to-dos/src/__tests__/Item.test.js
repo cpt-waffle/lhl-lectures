@@ -1,45 +1,44 @@
 import React from 'react';
-import { render, prettyDOM, getByText } from '@testing-library/react';
-import '@testing-library/jest-dom';
+// method 1 = using screen
+// method 2 = directly importing it out
+import { render, prettyDOM, screen, getByText } from '@testing-library/react';
 import Item from '../Components/Item';
+import '@testing-library/jest-dom';
 
-describe('Items tests', () => {
-    it('checks uf 2 == 2 is true', () => {
-        let answer = 2 === 2;
-        expect(answer).toBe(true);
+// make a describe of what are we testing
+// followed by a bunch of tests....
+const isTwo = (num) => {
+    return 2 === num;
+}
+
+
+describe('Item Tests', () => {
+    it('our first test', () => {
+        expect(isTwo(2)).toBe(true);
     })
 
-    it('renders a h1 tag', () => {
-        const { container } = render(<h1>Hello World</h1>);
-        // console.log(prettyDOM(container));
-    })
-
-    it('renders a component', () => {
+    it('renders our Item component', () => {
         const { container } = render(<Item/>);
         // console.log(prettyDOM(container));
     })
 
-    it('renders a component with item prop "buy apples" and it has to be lowercase', () => {
-        const {container, getByText} = render(<Item item="Buy Apples"/>);
-        // method 1, import getBy* from top the file, 
-        // you will have to pass the container as the first argument!
-        // const text = getByText(container, 'Buy Apples');
-        const text = getByText('buy apples');
-        // console.log(prettyDOM(text));
-        expect(text).toBeInTheDocument();
+    it('renders an Item with prop "buy apples"', () => {
+        // directory destructuring it out of render()
+        const { container, getByText } = render(<Item item="Buy Apples"/>);
+        const apples = getByText(/buy apples/i);
+        // console.log(prettyDOM(apples));
+        expect(apples).toBeInTheDocument();
     })
 
-    it("renders a component with item prop 'buy apples' and has class 'todo-item'", () => {
-        const {container, getByText} = render(<Item item="Buy Apples"/>);
-        const li = container.children[0];
-        // console.log(prettyDOM(li));
-        expect(li).toHaveClass('todo-item');
+    it('renders an Item with prop "BuY ApPlEs"', () => {
+        const { container, getByText } = render(<Item item="BuY ApPlEs"/>);
+        const apples = getByText("buy apples");
+        expect(apples).toBeInTheDocument();
     })
-
-    it("renders a component with item prop 'buy apples' but prop had a bad case", () => {
-        const {container, getByText} = render(<Item item="BuY APPlEs"/>);
-        const text = getByText(/Buy Apples/i);
-        console.log(prettyDOM(text));
-        expect(text).toBeInTheDocument();
+    
+    it('renders an Item, and an item has a class "todo-item"', () => {
+        const { container } = render(<Item item="Buy Apples"/>);
+        console.log(prettyDOM(container));
+        expect(container.children[0]).toHaveClass('todo-item');
     })
 })
