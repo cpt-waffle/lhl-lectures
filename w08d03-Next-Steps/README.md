@@ -138,5 +138,6 @@ We finally did a quick deploy to netlify and looked into making the app into an 
  - [All other Hooks](https://reactjs.org/docs/hooks-reference.html)
  - [Web sockets Tutorial](https://blog.bitlabstudio.com/a-simple-chat-app-with-react-node-and-websocket-35d3c9835807)
  - [Adavanced React Patterns](https://www.udemy.com/course/the-complete-guide-to-advanced-react-patterns/)
+ - [How to make a PWA](https://create-react-app.dev/docs/making-a-progressive-web-app/)
 
 One suggestion from Alumni ( and me ) if you need to do some practice on your own for react but do not have a good project to start with: Make a resume site for yourself in `React`!! its a fun, and small project that you can explore!!

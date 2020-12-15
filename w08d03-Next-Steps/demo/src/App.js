@@ -1,42 +1,38 @@
-import React from 'react';
+import logo from './logo.svg';
 import './App.css';
-import Cats from './Components/Cats';
-import DogPage from './Pages/DogPage';
+// imports for pages below
+import Home from './pages/Home';
+import Memes from './pages/Memes';
+//
+import { GlobalContextProvider } from './context/GlobalContext';
+
+
+import Navbar from './components/Navbar';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
-import {GlobalContextProvider} from './Context/GlobalContext';
 
 function App() {
   return (
     <Router>
-      <span>
-        <Link className='link' to="/">Home</Link>
-        <Link className='link' to="/cats">Look at some Cats</Link>
-        <Link className='link' to="/dogs">Look at some Dogs</Link>
-      </span>
-      <div className="App">
-        <Switch>
-          
-          <GlobalContextProvider>
-            <Route exact path='/'>
-              <h2>This is home page</h2>
-            </Route>
-            <Route path="/cats"> 
-              <Cats/>
-            </Route>
-            <Route path="/dogs">
-              <DogPage/>
-            </Route>
-          </GlobalContextProvider>
-        </Switch>
-      </div>
+      <Navbar/>
+      <Switch>
+       <GlobalContextProvider>
+          <Route path="/memes">
+            <Memes/>
+          </Route>
+          <Route path="/contact">
+            <h3>Contact US</h3>
+          </Route>
+          <Route path="/">
+            <Home/>
+          </Route>
+        </GlobalContextProvider>
+      </Switch>
     </Router>
-
   );
 }
 
