@@ -16,7 +16,7 @@ app.use(cors());
 app.get('/', (req,res) => {
     setTimeout( () => {
         res.json(data);
-    }, 2000)
+    }, 500)
 })
 
 app.listen(8080, () => console.log('Server is on 8080!'));
