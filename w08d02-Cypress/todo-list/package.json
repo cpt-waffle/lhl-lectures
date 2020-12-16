@@ -13,7 +13,7 @@
     "react-scripts": "3.4.0"
   },
   "scripts": {
-    "cypress": "node_modules/.bin/cypress open",
+    "cypress": "cypress open -P .",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

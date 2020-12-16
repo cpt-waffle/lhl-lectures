@@ -10,7 +10,7 @@ const App = () => {
 
   useEffect( () => {
     axios.get('http://localhost:8080/')
-    .then(res => setList(res.data))
+    .then(res => setList(prev => [...res.data, ...prev]))
     .catch(e => toggleError(true))
   }, []);
 
