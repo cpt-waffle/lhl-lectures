@@ -1,13 +1,17 @@
+// Put connection here...
 const { Pool } = require('pg');
-// Setup a connection to PSQL with the correct credentials.
+
 const pool = new Pool({
+    host: 'localhost',
     user: 'development',
     password: 'development',
     database: 'w05d03',
-    host: 'localhost',
     port: 5432
 })
+// #3 connect
+pool.connect();
 
-console.log("connection establishing...");
 
+
+// then export it
 module.exports = pool;
