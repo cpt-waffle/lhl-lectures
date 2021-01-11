@@ -1,0 +1,16 @@
+<h1>Make new URL here!!</h1>
+
+<form method="POST" action="/urls">
+    <p>long url: <input type="text" name="long_url"/></p>
+    <div><button>Submit URL!!</button></div>
+</form>
+
+<% flash.each do |error| %>
+        <%= error %>
+<% end %>
+
+<%= form_for @url do |f| %>
+   <p> long url: <%= f.text_field :long_url %>
+   <div><%= f.submit 'Submit URL!!'%></div>
+
+<% end %>
