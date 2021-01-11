@@ -1,2 +1,0 @@
-class Animal < ApplicationRecord
-end

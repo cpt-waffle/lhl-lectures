@@ -1,0 +1,7 @@
+<h1>New User</h1>
+
+<%= form_for @user, url: '/sessions', method: :post  do |form| %>
+    <p> Email: <%= form.email_field :email %> </p>
+    <p> Password: <%= form.password_field :password %> </p>
+    <div><%= form.submit "Sign in" %></div>
+<% end %>

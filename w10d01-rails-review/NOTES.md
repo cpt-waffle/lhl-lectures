@@ -10,25 +10,49 @@
 -- nested routes and namespaces
 -- BONUS talk about react + rails configuration
 
+### Rails ###
 
---- Routes.rb
+rails new tinyApp == setup the entire project in one go
+express => npm init => npm install 
 
-Routes file, determines what action needs to be taken for the response that comes in.
+-- config/routes.rb
 
---- Controller
+- every time, a client/user does a request, THE FIRST FILE that gets checked/ran
+is routes.rb
 
-Controller is for logic. Logic that gets done and then sends out a view. The view is determined
-by the name of the function.
+C - Controller
 
---- View
+Controller - is a file, that when a route decides to use a specific controller, logic will execture
+from that controller and .... rendered
 
-A file that gets proccessed into HTML, then gets sent out to the client ( server side rendering!! )
+View - Once the method of the controller finishes executing, a view (file) will be sent out
+that is the SAME NAME as the controller method.
 
+Model - ?? 
+
+db.js <-- connection
+dbHelpers.js <--- queries
 
 Migrations
+Is a way to keep history, of every single addition to the database. IT also lets so, do things like
+"rollback" if things break on the db.
 
---- they are the way to create tables, add columns, remove columns in your database. They serve as a 
-HISTORY of what has happened during the development process. You can always "rollback" a migration
-if it doesnt satisfy our eneds or breaks something.
+Creating migrations, generates a schema RB file which is maintained automatically.
 
-Rollback and add a migration ONLY IF IT DOES NOT TAMPER WITH HISTORY!!!!!
+!!!WARNING!!!
+
+DO NOT TOUCH/EDIT THE SCHEMA.RB file!!!!!
+
+
+-- SCHEMA.js <------ when i add a new addition to schema, i have to slack everyone
+and say "reset ur DB"
+
+-- SEEDS.js 
+
+Rails Models
+
+-- Some quaries, are created for you, without you needing to define/write them
+
+
+
+MVC

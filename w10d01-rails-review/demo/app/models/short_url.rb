@@ -1,2 +1,0 @@
-class ShortUrl < ApplicationRecord
-end

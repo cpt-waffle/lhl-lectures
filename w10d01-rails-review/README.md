@@ -88,6 +88,4 @@ And have react fetch or axios call the rails routes.
 
 You can also use rails gems to render server-side react.
 
-[React for Rails Gem](https://github.com/reactjs/react-rails)
-
 

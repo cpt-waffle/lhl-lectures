@@ -1,0 +1,12 @@
+<h1>Create new URL</h1>
+
+<% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
+
+<%= form_for @url do |form| %>
+    <%= form.text_field :longURL %>
+    <%= form.submit %>
+<% end %>
