@@ -114,6 +114,12 @@ RSpec.feature "Cars", type: :feature, js:true do
     expect(page).to have_text("Toyota Prius Extended Cab Pickup XL")
   end
 
+  scenario 'page has a prius on the page listing' do
+    visit cars_path
+    save_screenshot('test_3a.png')
+    expect(page).to have_text 'Prius'
+  end
+
   scenario "pick a car and show more info" do
     visit cars_path
     save_screenshot("pick_car1.png")
