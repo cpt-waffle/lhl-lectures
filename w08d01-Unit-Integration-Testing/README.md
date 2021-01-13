@@ -76,10 +76,11 @@ describe( "items", () => {
   it('Clicked! Should be checked now', () => {
     //  but more of show you how to click an event
     let status = false;
-    const { container } = render(<Item item={'buy apples'} done={status} toggleDone={() => status = true }/>)
+    const toggleClick = jest.fn();
+    const { container } = render(<Item item={'buy apples'} done={status} toggleDone={toggleClick}/>)
     fireEvent.click(container.firstChild.children[0])
-    console.log(container.firstChild.children[0].checked)
-    expect(status).toBe(true)
+    expect(toggleClick)..toHaveBeenCalled();
+    expect(toggleClick)..toHaveBeenCalledTimes(1);
   })
 
 
