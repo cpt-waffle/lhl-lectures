@@ -1,23 +1,26 @@
-console.log('I am the coolest client!!');
-
+const name = "Vasiliy";
 const net = require('net');
 const stdin = process.stdin;
+// localhost
+// ip
 
 const client = net.createConnection({
-  host: 'localhost',
-  port: 3000
+    host: 'localhost',
+    port: 3001
 });
 
+
+
+stdin.setEncoding('utf8');
 client.setEncoding('utf8');
+client.write(`its me ${name}`, );
 
-client.on('connect', function() {
-  client.write("Hello I have connected!!!!");
+stdin.on('data', (input) => {
+    client.write(`${name}: ${input}`);
 })
 
-stdin.on('data', function(data) {
-  client.write(data);
-})
 
-client.on('data', function(data) {
-  console.log(data);
+// on('data') --- do something, when Data got recieved
+client.on('data', (data) => {
+    console.log(data);
 })
