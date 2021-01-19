@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import CommentList from './Components/CommentList';
-
+import CommentList from "./Components/CommentList";
 // our fake api data...
 const commentsData = [
   { 
@@ -40,45 +39,45 @@ function App() {
   const [comments, setComments] = useState(commentsData);
 
   const handleComments = (id, type) => {
-    console.log("something has been clicked!!!");
-    console.log("what is id???", id);
-    console.log("type is: ", type);
-
+    console.log(id, type);
+    console.log("HELLO FROM LINE 42: App.js")
+    // make a copy of state
     // const commentsCopy = [...comments];
-    // loop through comments Copy
-    // for (let comment of commentsCopy) {
-    //   // find the id of the specific comment that was clicked
+    // // loop through the comments
+    // for(let comment of commentsCopy) {
+    //   // increment a like or dislike for a specific comment
     //   if (comment.id === id) {
-    //     console.log("THIS IS THE SPECIFIC ONE --> ", comment);
-    //     // increment like or dislike depending on what was clicked
-    //     if (type === 'like') {
-    //       comment.likes++;
-    //     } else {
+    //     if (type === 'dislike') {
     //       comment.dislikes++;
+    //     } else {
+    //       comment.likes++;
     //     }
     //   }
     // }
-    // // set the new modified copy to the original state
     // setComments(commentsCopy);
+    // comments = commentsCopy
+    // set the copy to original
+    ////////////////////////////// How to do it incrementaly
     const commentsCopy = comments.map( comment => {
       if (comment.id === id) {
-        if (type === 'like') {
-          comment.likes++;
-        } else {
+        if (type === 'dislike') {
           comment.dislikes++;
+        } else {
+          comment.likes++;
         }
       }
       return comment;
     })
-
     setComments(commentsCopy);
   }
 
   return (
     <div>
-      <CommentList list={commentsData} handleComments={handleComments}/>
-      <h1>2nd Comment list</h1>
-      <CommentList list={commentsData} handleComments={handleComments}/>
+      <h1>Comments for Dogs</h1>
+      <CommentList 
+        comments={comments} 
+        handleComments={handleComments}
+      />
     </div>
   );
 }

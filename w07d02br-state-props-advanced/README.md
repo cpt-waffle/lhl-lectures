@@ -52,7 +52,7 @@ We started by mapping how our component tree looks
 
 Then we tried to pass a function and learn that Props can be `passed down` but function calls `come up and propagate up`
 
-Once we learned that, we realized that we can return back values from `Comment` Component all the way back a function inside of `App.js`
+Once we learned that, we realized that we c	an return back values from `Comment` Component all the way back a function inside of `App.js`
 
 We then used that knowledge, to modify our `state` by using `immutable patterns` to make a copy of the `state` and change that ONE `comment` that was clicked on. 
 

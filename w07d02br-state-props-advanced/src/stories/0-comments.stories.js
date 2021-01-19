@@ -4,7 +4,7 @@ import { action } from "@storybook/addon-actions";
 
 
 import Comment from '../Components/Comment/';
-import CommentList from '../Components/CommentList';
+import CommentList from '../Components/CommentList/'
 
 const comment = {
 	id: 1,
@@ -18,7 +18,8 @@ storiesOf('Comments')
 	.add('A Random Comment', () => <Comment data={comment} handleClick={action('onClick')}/>)
 
 
-const commentList = [
+
+const comments = [
 	{
 		id: 1,
 		image: 'https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
@@ -26,13 +27,14 @@ const commentList = [
 		likes: 10,
 		dislikes: 1,
 	},
-	{	id: 2,
+	{
+		id: 2,
 		image: 'https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-		content: 'This is a terrible comment ',
+		content: 'THIS IS A TERRIBLE COMMENT!!!',
 		likes: 0,
-		dislikes: 99899,
+		dislikes: 55,
 	}
 ]
 
-storiesOf('CommentList', module)
-	.add("list", () => <CommentList list={commentList}/>)
+storiesOf('CommentsList')
+.add("default comment list", () => <CommentList comments={comments}/>)
