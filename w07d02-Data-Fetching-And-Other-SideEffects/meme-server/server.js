@@ -20,6 +20,10 @@ app.get('/memes', (req,res) => {
     res.json(memeList);
 })
 
+app.get('/favorite', (req,res) => {
+  res.json({name: 'me today', url: 'https://i.pinimg.com/originals/1a/4c/bb/1a4cbbb5d5f996ebc93a18a8c4c9f8f3.jpg'})
+})
+
 
 
 app.listen(8080, () => console.log('server is listening 8080!'));
