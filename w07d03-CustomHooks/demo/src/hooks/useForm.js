@@ -1,23 +1,25 @@
-import { useState, useEffect } from 'react';
-// import only the things you need in a hook, ( if you do not need React to be rendered dont import react)
+// we are NOT importing REACT 
+// we may import useState, useEffect, etc
+import { useState } from 'react';
 
+// this function will not be RENDERING anything on the screen
+// this is NOT a component!!!
+function useForm() {
+    const [val, setVal] = useState('');
 
-
-function useForm(val) {
-
-    const [value, setValue] = useState(val || '');
-
-    const handleVal = (val) => {
-        setValue(val);
+    const handleVal =(newVal) => {
+        
+        setVal(newVal);
     }
 
-    const clear = (evt) => {
-        evt.preventDefault();
-        setValue('');
+    const cleanup = (e) => {
+        e.preventDefault();
+        setVal('');
     }
-
-    return {value, handleVal, clear}
+    
+    return {val, handleVal, cleanup};
 }
+
 
 
 export default useForm;

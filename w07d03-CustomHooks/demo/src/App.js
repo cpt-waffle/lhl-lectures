@@ -1,18 +1,25 @@
 import React, { useState } from 'react';
-import './App.css';
-import UserForm from './UserForm'
-import LoginForm from './LoginForm'
-import axios from 'axios';
+import './App.css'; //css
+// import axios from 'axios';
+import ColorChanger from './components/ColorChanger' // components
 
 
 function App() {
+
+  // const [day, setDay] = useState([]);
+  // const [appointments, setAppointments] = useState({});
+
+
+
+
+
+
 
 
 
   return (
     <div className="App">
-      <UserForm/>
-      <LoginForm/>
+      <ColorChanger currentColor="blue" colorArr={['green', 'yellow', 'black', 'firebrick', 'skyblue']}/>
     </div>
   );
 }

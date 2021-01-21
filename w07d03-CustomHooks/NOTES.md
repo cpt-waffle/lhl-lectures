@@ -1,7 +1,7 @@
---------------- Agenda ----------------
-
-Quick Small review on useEffect ( and how it can burn your computer, DDOS a server!! )
-Custom Hooks
------ BREAK ----
-Custom Hooks
-Talking about exercises for Today
+------------ Agenda --------------
+Q/A everything there is about react
+Review Custom Hooks (build a changing color div)
+Testing a Hook
+BREAK
+Testing a Hook (some history)
+Q/A Finish
