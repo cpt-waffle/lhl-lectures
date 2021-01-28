@@ -3,40 +3,42 @@
     padding: 0;
 }
 
+
+
 body {
     padding: 2px;
-    font-size: 16px;
+    /* font-size: 16px; */
 }
 
 .box-a {
     border: 2px dashed lightgreen;
-    font-size: 2em;
+    /* 32 px */
 }
 
 .box-b {
     border: 2px dashed salmon;
     font-size: 2em;
+    /* 32 x 2 */
 }
 
 .box-c {
-    border: 2px dashed blue;
+    border: 2px dashed rebeccapurple;
+    /* 64 x 2 */
     font-size: 2em;
 }
-/* -------------------------------------- */
-.box-d{
-    border: 2px dashed lightgreen;
+/* -------------REMS---------------- */
+.box-d {
+    border: 2px dashed red;
     font-size: 2rem;
 }
 
 .box-e {
-    border: 2px dashed salmon;
+    border: 2px dashed blue;
     font-size: 2rem;
 }
 
 .box-f {
-    border: 2px dashed blue;
+    border: 2px dashed green;
     font-size: 2rem;
 
 }
-
-

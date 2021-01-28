@@ -3,50 +3,43 @@
     padding: 0;
 }
 
-body {
+.layout {
     text-align: center;
-}
-
-.container {
+    padding-top: 2rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.container > .content-one {
-    flex-grow: 1;
-    flex-basis: 0;
-    background-color: sandybrown;
-}
-
-.container > .content-two {
-    flex-basis: 0;
-    flex-grow: 1;
-    background-color: red;
+.profile-pic {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    border: 3px solid greenyellow;
 }
 
 .content-one {
-    background-color: green;
+    background-color: yellow;
 }
 
-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover; 
+.content-two {
+    background-color: red;
 }
 
-@media only screen and (min-width: 500px) {
-    .container {
-        flex-direction: row;
+
+@media only screen and (min-width: 575px) {
+    .layout {
+        background-color: black;
+        flex-direction: column-reverse;
     }
 
-    .container > .content-two {
-        flex-grow: 3;
-    }
-
-    img {
+    .profile-pic {
         width: 100%;
-        border-radius: 0;
         height: auto;
+        border-radius: 0;
+    }
+
+    .content {
+        display: flex;
     }
 }

@@ -1,17 +1,36 @@
 $wow-color: #c6538c;
 
+
 .test {
     background-color: blue;
-    padding: 5px;
-    .wow {
-      color: yellow;
-      background-color: $wow-color;
-      &:hover {
-        color: black;
-      }
+    padding: 3px;
+    > h1 {
+        background-color: yellow;
     }
-
     &:hover {
-        background-color: red;
+        background-color: $wow-color;
+        h1 {
+            background-color: orange;
+        }
     }
 }
+
+
+
+
+// .test {
+//     background-color: blue;
+//     padding: 3px;
+// }
+
+// .test > h1 {
+//     background-color: yellow;
+// }
+
+// .test:hover {
+//     background-color: lightskyblue;
+// }
+
+// .test:hover > h1 {
+//     background-color: orange;
+// }

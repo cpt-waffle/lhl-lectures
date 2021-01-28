@@ -5,52 +5,58 @@
 }
 
 .container {
-  display: flex;
+  display:flex;
 }
 
 
 .item1 {
-  background-color: turquoise;
-  flex-basis: 0;
+  background-color: firebrick;
   flex-grow: 1;
-
+  /*  1/3 */
 }
 
 .item2 {
-  background-color: firebrick;
-  flex-basis: 0;
-  flex-grow: 2;
+  background-color: limegreen;
+  flex-grow: 1;
 }
 
 .item3 {
-  background-color: gold;
-  flex-basis: 0;
+  background-color: mediumslateblue;
   flex-grow: 1;
-
 }
 
-/* if max width is LESS THAN 500px ... APPLY THE FOLLOWING CSS BELOW */
-@media only screen and (max-width: 500px) {
-  * {
-    font-size: 1.3em;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-/* if the min width is GREATER THAN 800px ... APPLY THE FOLLOWING CSS */
 @media only screen and (min-width: 800px) {
+  .item1 {
+    background-color: blue;
+  }
+
   .item2 {
-    background-color: sandybrown;
-    border: 1px solid black
+    background-color: cornflowerblue;
+    border: 2px solid green;
+  }
+}
+
+
+@media only screen and (max-width: 400px) {
+  .container {
+    /* display: block */
+    flex-direction: column-reverse;
+    background-color: hotpink;
+    padding: 20px;
   }
 }
 
 @media only screen and (max-width: 600px) and (min-width: 550px) {
-  .item3 {
-    font-size: 5em;
+  .container {
+    position: absolute;
   }
-} 
+  .item1 {
+    position: absolute;
+  }
+  .item2 {
+    position: absolute;
+  }
+  .item3 {
+    position: absolute;
+  }
+}
