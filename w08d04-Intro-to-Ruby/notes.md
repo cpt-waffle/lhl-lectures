@@ -7,22 +7,26 @@
 - BONUS (Classes)
 
 
-Ruby
- - Created by Yukihiro Matsumoto
- - Ruby got popular because Rails
-                             ^----- Framework (MVC) for WEB!!
- - has a very english-y syntax ( almost pythonic )
- - mostly OOP ( object oriented )
- - Ruby is STRICTLY BACKEND LANGUAGE
- - fairly big library ( gems )
- - strongly opinionated
- - rails (perforamance of rails is alright so-so)
+- Yukihiro Matsumoto
+      ^---
+- Ruby Lang
+- englishy syntax -- its kinda like writing sentances in english
+- OOP - Object Oriented Programming
+- Fairly big library - (Gem)
 
-JS
- - frontend - backend 
- - pretty good performance
- - HAS A HUUUUUUUGE library (npm)
- - unopiniated 
 
------------------------------------------------
 
+--------------------------------------------
+JS/NODE ---------      -----------         ---------------- Ruby/Rails
+- created in 10 days 1995   |          released in 1995 BUT got popular in 2005
+                            |         Rails - MVC Web Framework  === ExpressJS
+low level coding            |         high level abstracations 
+Highly Performant           |         Performance Issues
+configure alot of it        |         conventions - 
+async                       |         sync 
+front/back end language     |         backend only!!!!!
+
+
+generateRandomHash = ( ) => {
+    return 6 // xBn3df6
+}
