@@ -8,59 +8,73 @@
  - more queries 
  - more db talks 
 
+------------------------
 
---- BACK IN TIME -----
+TinyApp
 
-TinyApp - short URLs
+7 million users!!
+production server is hosted on the best server ever (NASA)
 
-^--- lets you favorite a short/long URL 
+- features like
+- friends list
+- likes/dislikes
+- twitter integration
+- analyctics
 
-^---- deploy the feature, and the server restarts......
-urlsDatabase = {...}
-usersDatabase = {...}
+finsihed all the features
+and then you push to production
+. . . . .
+kill the server
+npm install
+star the server
 
-Is the app truly dead when you destroy the server and frontend of it?
-^--- not really...
-
----------------------------------------------------
-files....
-fs.write()....
-.txt <---
-|name,   | email, |  password
-|vasiliy, v@k.ca,  12345
-|Jessie   j@k.ca   54321
-
----------------------------------------------------
-
-in order to have read/write privilages to a file, it needs to be stored
-on THIS machine.
-
-- make a service, that keeps the data organized in its own container...
-- we'll give it tools to connect to that data(base)
-- AND you dont have to be on the same machine...
-- data persistance
----- sql services, psql
-- SQL
--- structured query language ---
-
-==== 
-
-psql -- it connected me to my psql service
-\q  <--- exit out psql
-\du <--- display users
-
-DATA will catogorized by a DATABASE
-
-CREATE DATABASE database_name;
-
-\c  <--- connect database_name
-\dt <--- display tables
+- app restarts -
+You LOST ALL OF YOUR 5 MILLION USERS
 
 
-=== ERDs  and Data itself
+Use a File to store people, and other data?
 
-Entity 
-Relationship
-Diagrams
+// fs = require('fs');
+ seperation of concerns
+
+now we gotta write controls for fs
+so that it can connect to another machine
+read a file from that machine , write info to that machine, 
+
+username, password, first_name
+v@k.ca  , 12345678, Vasiliy
 
 
+
+^---- Databases
+        ^-----------  SQL
+
+
+PSQL Postgresql <-- a service, that is a database
+PSQL runs on PORT 5432
+
+
+PSQL is global service -- meaning the program is accesbale anywhere 
+on your machine...
+
+you can connect to postgres virtually ANYWHERE on your machine
+
+
+PSQL Commands
+
+from machine we can write `psql` to connect to the database service
+from the `psql` connection we can write `\q` to exit out of it.
+
+psql can have many databases
+
+`\l` <---- LIST ME ALL THE DATABASES ON THIS SYSTEM
+`\c _DATABASE_NAME_` <-- CONNECT TO THE DATABASE SPECIFIED
+`\dt` <--------- DISPLAY TABLES
+
+--- CREATING A DATABASE ---
+
+`CREATE DATABASE _DATABASE_NAME_` <-- create db
+
+--- DELETING A DATABASE ---
+
+`DROP DATABASE _DATABASE_NAME_`   <-- delete db

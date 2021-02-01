@@ -1,0 +1,24 @@
+          long_url           |          email          | id 
+-----------------------------+-------------------------+----
+ www.google.ca               | rick.sandchez@gmail.com |  1
+ www.intergalacticebay.gl    | rick.sandchez@gmail.com |  1
+ www.plumbus.gl              | rick.sandchez@gmail.com |  1
+ www.fedaration.com          | rick.sandchez@gmail.com |  1
+ www.torontopubliclibrary.ca | lisa.simpson@gmail.com  |  2
+ www.ontario.ca              | lisa.simpson@gmail.com  |  2
+ www.apple.ca                | lisa.simpson@gmail.com  |  2
+ www.itchyandscratchshow.com | lisa.simpson@gmail.com  |  2
+ www.google.ca               | link@yahoo.com          |  3
+ www.reddit.com              | link@yahoo.com          |  3
+ www.esl-languages.com       | link@yahoo.com          |  3
+ www.vampires.com            | simon_bel123@mail.ca    |  4
+ www.wikipedia.com           | simon_bel123@mail.ca    |  4
+ www.reddit.com              | simon_bel123@mail.ca    |  4
+ www.google.com              | simon_bel123@mail.ca    |  4
+ www.yahoo.ca                | simon_bel123@mail.ca    |  4
+ www.thepiratebay.au         | simon_bel123@mail.ca    |  4
+ www.history.com             | simon_bel123@mail.ca    |  4
+ www.amazon.com              | simon_bel123@mail.ca    |  4
+ www.heroacademia.jp         | all_might@academia.jp   |  5
+(20 rows)
+

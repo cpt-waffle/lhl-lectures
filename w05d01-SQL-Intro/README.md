@@ -46,6 +46,18 @@ In order to work with the examples in this doc, you'll first have to setup the d
 5. Exit psql # \q
 6. Load the seed SQL into the database $ psql -d w5d1 < seed.sql
 
+#### Alternate ways of doing Step 6
+
+You can also log into psql, then use the `-i` flag to navigate to the file you want to
+execute:
+
+```sql
+psql
+\c database_name -- to connect to db
+\i 
+```
+
+
 The first thing you'll notice is each table has an `id` column marked as a `PK`, this is our "Primary Key", in other words, a unique identifier which identifies each row. In this database, all of our `id` values are just sequencially incrementing integers (i.e. 1, 2, 3, 4, 5, 6, ...).
 
 We also have a field marked as a "Foreign Key" in our Tasks table, this is a column which references the `id` column of the `Urls` table.
