@@ -1,15 +1,22 @@
-// Your Db functions go here...
+module.exports = (pool) => {
+    const getStudents = () => {
+        return pool.query('SELECT * FROM students;').then(output => {
+            console.log("INSIDE OF INDEX.JS HELPER!!");
+            return output.rows;
+          }).catch(e => {
+            console.log(e);
+        })
+    }
 
-module.exports = (db) => {
-  const getStudents = () => {
-      console.log("DO I RUN!?")
-      return db.query('SELECT * FROM students;')
-        .then(res => {
-        //   console.log(res);
-          return res.rows;
-      })
-  }
+    const getMarks = () => {
+        const q = `SELECT name, mark, total  FROM students JOIN
+        quiz_results ON quiz_results.student_id = students.id 
+        JOIN quizes
+        ON quiz_results.quiz_id = quizes.id;`;
+        return pool.query(q).then(res => {
+            return res.rows;
+        })
+    }
 
-
-  return { getStudents }
+    return { getStudents, getMarks }
 }

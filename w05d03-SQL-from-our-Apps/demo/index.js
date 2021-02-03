@@ -1,10 +1,15 @@
-const { Pool } = require('pg');
+const {Pool, Client} = require('pg');
 
-//database: w05d03
-//host: localhost
-//port: 5432
-//user: development
-//pass: development
+console.log("Hello world!!!");
+// HOW DO I CONNECT to Postgresql database?
+// npm package that does the connection for us
+
+// is your connection to postgresql
+// Pool takes in options...
+
+// Client -- single connection 
+// Pool   -- is a bunch of clients toghether
+
 
 
 const pool = new Pool({
@@ -12,41 +17,45 @@ const pool = new Pool({
     port: 5432,
     user: 'development',
     password: 'development',
-    database: 'w05d03'
+    database: 'sqlinapp'
 });
 
-pool.connect();
-// What is $1 ????
+
+pool.connect((err) => {
+    if (err) throw new Error(err);
+    console.log('connected!');
+});
+
+// first arg is your SQL query, second argument is your callback
+
+// CALLBACK WAY
 // pool.query('SELECT * FROM students;', (err, res) => {
-//     console.log(res.rows); // Hello World!
-//     console.log(res.rows[0].name);
-//   })
-
-// const getStudents = function() { ... }
- const getStudents = () => {
-    return pool.query('SELECT * FROM students;')
-    .then(res => {
-        // console.log(res);
-        return res.rows;
-    })
-    .then(data => {
-    console.log(data)
-})
-}
-
-// getStudents().then(data => {
-//     console.log(data)
+//     console.log(res.rows);
 // })
-
-
-const getStudent = (id) => {
-    //                                                $1 $2 etc are ARGUMENTS from the ARRAY (1 reprents first elemnt of array, 2 rep...)
-    return pool.query("SELECT * FROM students WHERE id = $1;", [id]).then(res => {
-        return res.rows;
-    })
+// PROMISE WAY
+const getAllStudents = () => {
+    pool.query('SELECT * FROM students;').then(res => {
+        console.log("IN PROMISE....")
+        console.log(res.rows);
+    }).catch(e => console.log(e));
 }
 
+// getAllStudents();
 
-getStudent(1).then(data => {
-    console.log(data);
-})
+const getSpecificStudent = (id) => {
+    pool.query("SELECT * FROM students WHERE id = $1", [id]).then(res => {
+        console.log(res);
+    }).catch(e => console.log(e));
+}
+
+getSpecificStudent(process.argv[2]);
+
+
+
+
+
+
+
+
+// console.log(pool);
+

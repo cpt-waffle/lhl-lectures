@@ -9,24 +9,23 @@
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <title>Home Page</title>
-</head>
-<body>
-    <h1>Hello World! :)</h1>
     <%= JSON.stringify(students) %>
     <table>
         <tr>
-          <th>id</th>
-          <th>name</th>
-          <th>email</th>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
         </tr>
-        <% for(const student of students) { %>
+        <% for (const student of students) { %>
             <tr>
-                <td><%= student.id %> </td>
+                <td><%= student.id %></td>
                 <td><%= student.name %></td>
                 <td><%= student.email %></td>
             </tr>
         <% } %>
     </table>
+</head>
+<body>
 
 </body>
 </html>

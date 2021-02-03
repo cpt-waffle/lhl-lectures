@@ -5,43 +5,46 @@ Database - what and why?
 Express Server - What and why?
 How do we conceptualize the two working togheter ?
 
-
-Using PSQL within JS
-Using the PG npm package
- - connecting, writing a select query, using promises,
- - making it modular (breaking things into seperated files)
-
-BREAK 
-
-- How to add PG into ExpressJS ( which you will be working on tomorrow )
-- serverside vs clientside calls for data 
+JS + SQL
+BREAK
+JS + Express + SQL
 
 
-Database and/or PSQL
-
-What is? Why?
-Store Data !
-Organize it!
-Persist it 
-To Keep it secure!!
-Easier to update 
+Databases persist data 
+data storage system
+persist
+organize
+keep it secure
+easier to update
 Accuracy
-REduce Duplication
 
 NodeJS/Express
+- create interface and communication
+- deliver content
+- control content
+- concurrency -- helpful for scaling 
 
-What is? Why?
+Database + Node
 
-Handles Requests!
-Server will respond back!
-Connections
+Client              HTTPS                Server
+---------------------req------------------>
+                                         DOES SOMETHING...
+<--------------------res-------------------
+GET /bank_account/:id     
 
-Client-----Req----->Server(ExpressJS) <--------------> DB
-Client<----Res------Server(ExpressJS) <--------------> DB
-
-(Bank Page)
-Client(HTML page) <---------------------------------------> DB
-WROOOONG ()
+(Check if cookie/session is the same as the id, then respond back with corrent user info)
+(otherwise return to home page)
 
 
-HOW do we use SQL and NODEJS at the same time!?
+Lets just say...we do not need server (express)
+
+Client                                   DB
+---------------------req----------------->
+<--------------------data-----------------
+
+SECURITY FLAW
+Client can do whatever they wish to with data
+
+Client             SERVER               DB
+-----------req--->does logic------------>
+    <---res------   logic   <---data----
