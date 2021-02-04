@@ -1,20 +1,31 @@
-// make a function that takes in an array and a callback
-// the callback will determine if a number is odd or even
-// if the number is even add in it into an array
-// and return an array of even numbers
+// make a function that loops through the array
+// and also takes a callback for the user to do anything with
+// each value of the array..
 
-const even = (arr, cb) => {
-  let result = [];
-  arr.forEach((element) => {
-    if (cb(element)) {
-      console.log('pushing element ', element);
-      result.push(element);
+const forEvery = (arr, cb) => {
+    for (let val of arr) {
+        cb(val);
     }
-    console.log(element);
-  })
-  return result;
 }
 
-console.log(even([1,2,3,4,5,6,7,8,9,22], (e) => {
-  return e % 2 === 0;
-}));
+const arr = [1,'two', 3, 'four', 5, 'six', 7, 'eight', 9, 'ten'];
+
+let sumOfNumbers = 0;
+
+forEvery(arr, (v) => {
+    if (typeof v === 'number') {
+        sumOfNumbers += v;
+    }
+})
+// for let i of ..
+// for let i in ..
+// for let i = 0; i < arr.length; i++
+arr.forEach((element, i ) => {
+    console.log('current val:' ,element);
+    console.log('current i:' , i);
+})
+
+
+
+// console.log(sumOfNumbers);
+

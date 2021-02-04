@@ -1,46 +1,64 @@
-// // create a program that prints an array backwards //
-
-// const arr = [1,2,3,4,5]
-
-// const printBackwards = function(arr) {
-//   for (let i = arr.length -1; i >= 0; i--) {
-//     console.log(arr[i]);
-//   }
-// }
-
-// printBackwards(arr);
-
-// // create a program that prints an array backwards.
-// //Each element should be printed with a prefix "the element is:"
-
-// const printBackwards2 = function(arr) {
-//   for (let i = arr.length -1; i >= 0; i--) {
-//     console.log('the element is ',arr[i]);
-//   }
-// }
-
-// printBackwards2(arr);
 
 
-const arr = [1,2,3,4,5]
+// WHat is a function? Why even use functions? Whats the point?
+// DRY 
+// Groups a bunch of code
+// packs functionality
+// performs one specific task
 
-// const printElement = (element) => {
-//   console.log('This is => ', element);
-// }
+// can be stored in a variable
 
-const standardPrint = (element) =>{
-  console.log(element);
+// variable declarations
+// left side is variable name
+let fruit = 'apple'; // right side is value
+let number = 1;
+
+// this is a variable  
+const prettyFruitPrint = function(f, n) { // a function
+    console.log('-------------------');
+    console.log('fruit: ', f, '     number: ', n);
+    console.log('-------------------');
 }
 
-const printBackwards = (arr, cb) => {
-  for (let i = arr.length -1; i >= 0; i--) {
-    cb(arr[i]);
-  }
+
+
+// declaration function
+const numFruit = function(fruitName, numOfFruits, func) { // value happens to be a function...
+    console.log(func);
+    func(fruitName, numOfFruits);
 }
 
-printBackwards(arr, (element) => {
-  console.log('This is =>', element);
-}));
 
-printBackwards(arr, standardPrint);
+numFruit('banana', 99, function(a,b) {
+    console.log("not a very pretty print....");
+    console.log(a,b);
+})
+
+numFruit(fruit, number, prettyFruitPrint); // < this is also fine
+
+
+
+// call notation with the ()
+
+// passing a function INTO another function as parameter === CALLBACK
+
+
+// numFruit('banana', 99); // < this is fine
+
+// const notPrettyPrint =  function(a,b) {
+//     console.log("not a very pretty print....");
+//     console.log(a,b);
+// }
+
+
+// WHY THE HELL IS THIS POSSIBLE
+
+// - DRY - cleaner code 
+// - maximum reusability
+
+
+
+
+
+// - async 
 

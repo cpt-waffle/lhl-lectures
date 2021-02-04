@@ -1,6 +1,23 @@
-console.log("Im about to start my timing function");
+const arr = [1,'two', 3, 'four', 5, 'six', 7, 'eight', 9, 'ten'];
 
-setTimeout(() => {
-  console.log("time function finished!!!")
-  console.log("Im about to FINISH my timing function");
-}, 3000)
+
+const printOnly = (arr, callback) => {
+    console.log(callback);
+    for (let val of arr) {
+        const result = callback(val);
+        if (result === true) {
+            console.log(val);
+        }
+    }
+}
+
+
+console.log('--- Only Numbers ---');
+printOnly(arr, (v) => {
+    return typeof v === 'number';
+});
+
+console.log('--- Only Strings ---');
+printOnly(arr, (v) => {
+    return typeof v === 'string';
+})

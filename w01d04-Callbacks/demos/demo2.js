@@ -1,26 +1,35 @@
+// write a function that takes an array as an argument.
+// then it prints out ONLY numbers from this array.
+// 1,3,5,7,9
+const arr = [1,'two', 3, 'four', 5, 'six', 7, 'eight', 9, 'ten'];
 
-
-// const result = numbers.map((element) => {
-//   console.log(element);
-//   return 'hi';
-// })
-
-
-const numbers = [1,2,3,4,5,6,7,8,9];
-const map = (arr, callback) => {
-  let result = [];
-  for (let element of arr) {
-    // console.log('the element is =>', element);
-    // console.log('element after we run the callback on it => ', callback(element));
-    // console.log("PUSHING INTO NEW ARRAY")
-    result.push(callback(element));
-    console.log(result)
+const printOnlyNumbers = function(arr) {
+  // for (let i = 0; i < arr.length; i++) arr[i]
+  // loop through array...
+  console.log(" --- Only Numbers ---")
+  for (let val of arr) {
+      if (typeof val === 'number') {
+        // if number then print number
+        console.log(val);
+    }
+    // if not then dont
   }
-  return result;
 }
 
-const result2 = map(numbers, (element) => {
-  return element * 3;
-})
+printOnlyNumbers(arr);
 
-console.log(result2);
+// write a function that takes an array as an argument.
+// then it prints out ONLY strings from this array.
+// two, four, six, eight, ten
+
+// const printOnlyStrings = function() { .... }
+const printOnlyStrings = (arr) => {
+  console.log('--- Only Stings ---')
+  for (let val of arr) {
+    if (typeof val === 'string') {
+      console.log(val);
+    }
+  }
+}
+
+printOnlyStrings(arr);
