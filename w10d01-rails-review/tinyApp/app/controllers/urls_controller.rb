@@ -1,33 +1,41 @@
 class UrlsController < ApplicationController
     def index
-        # res.render('/urls', templateVars);
-        if params[:user_id]
-            @urls = Url.where(user_id = params[:user_id]) 
-        else 
-            @urls = Url.all # SELECT * FROM urls;
-            render json: @urls
-        end
+        #  in express
+        #  app.get('/urls', (req, res) => {
+            # templateVars = {urls: urlsDatabase};
+            # res.render('urls_index', templateVars);
+        # })
+        @urls = Url.all
+        puts 'SESSION --------------------'
+        puts session[:user_id]
+        # render json: @urls
     end
 
+
     def new
-        # @ variables in this instance are your templateVars
-        @greetings = HELLO
-        @url = Url.new
     end
 
     def create
-        url = Url.new(url_params)
-        url.short_url = SecureRandom.hex(4);
-        if url.save
+        puts "----------------------- CREATE HERE!!!"
+        # bodyParser, cookieSessions, etc
+        # req.params
+
+        puts params[:url]
+        new_url = Url.new(url_params())
+        if new_url.save
+            session[:user_id] = 35
             redirect_to '/urls'
         else
-            redirect_to '/urls/new', flash: 'Something Wrong happened!'
+            redirect_to '/urls/new'
         end
     end
 
-
     private
+
     def url_params
-        params.require(:url).permit(:long_url)
+        #  no matter whats inside the urls object 
+        #  I only am going to grab the longURL key/val pair
+        # {id: 1, longURL: 'www.google.ca', shortURL: 'asfd45f', ...}
+        params.require(:url).permit(:longURL) # returns a hash { with only longURL }
     end
 end

@@ -1,4 +1,4 @@
 class PagesController < ApplicationController
-    def apple
+    def about
     end
 end

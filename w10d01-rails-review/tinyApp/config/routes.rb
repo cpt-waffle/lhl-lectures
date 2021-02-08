@@ -1,21 +1,13 @@
-# server.js // express
-# app.use('/urls', urlsRoutes(db));
-# 
 Rails.application.routes.draw do
+  resources :posts
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :urls, only: [:index, :show, :create, :new]
+  resources :cats
+
+  resources :urls, only: [:index, :new, :create]
+  # resource :dashboard
+  get '/about', to: 'pages#about'
 
   resources :users do
     resources :urls
   end
-
-  # make your own route without using the resource clause
-  get '/apple', to: 'pages#apple'
-
-  namespace :dashboard do
-    resources :urls
-  end
-
-  
-
 end

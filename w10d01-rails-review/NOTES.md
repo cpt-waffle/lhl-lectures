@@ -9,67 +9,75 @@
 -- nested routes and namespaces
 -- BONUS talk about react + rails configuration
 
-/// Rails ///
+### What is rails?
 
-What is Rails?
- - ruby --  language
- - rails -- framework -- have rules, you have to follow them, or things dont really work well?
+- A Web framework
 
- expresJS -- Framework
+## How is it different from expressJS? 
 
-lowdash library - collection of methods
+- less code in rails 
+- MVC
+- JS vs Ruby
+- Scaffolding in rails
+- OOP vs Functional
+- convention over configuration
 
-
-Rails has conventions -- behave well!, do stuff well!
-
-rails new ______
-bunch of packages,
-made me a file structure
-
-
-express
- server.js
-
- ------------------------------------------------
-
-/config/routes.rb
-
-When user REQUESTS something, the first thing that gets hit, it the ROUTES.RB FILE
+In rails, you follow some rules, it plays nice :)
+you don't follow the rules, rails missbehaves, nothing works
 
 
-routes -----> controller
 
-C - Controller 
-
-a file, that has a bunch of function that have logic in them
-
-V - is a file that gets sent out back to the client as a response 
-the View file MUST be the same name as the controller method/(action)
+Express you needed to configure EVERYTHING!!
 
 
-M - Model
-- something that talks to database
-- something that is able to grab info from the database
-- a blueprint of a specific table that is in the DB
+### Where Do you I should be looking into when working with rails?
 
-/////////////////////////////////////////////////////////////////
-schema.sql? schema.js
-seeds.sql? seeds.js
-
-Migration needs to be ran before using the rails server!
- 
-WTF is Migration!?
-
-Migrations are files that have a specific database operation (create table, edit table, delete table)
-
--- If i'm working on a branch
- - im able to mirgrate/rollback 
-ONCE ITS ON MASTER/PRODUCTION gg
-you have to make new migrations now. . .
-- rollback on MASTER if NEW FEATURE is borked
-
------ if you need to change anything, its a new migration. 
+Rails starts from the routes.rb file
+From here it all gets trickled out to all of other files such Model, View, Controller, Service, Helpers, Library
 
 
-_____
- M V C 
+# Routes
+
+Where your rails app starts!!!
+This is the ENTRY POINT for ALL OF THE REQUEST the user/client makes
+
+# Controller 
+
+Logic of the app! where you have all of your logic happen (gathering URLS, deleting URLS, adding URLS, etc) 
+
+# View
+
+the file that will be sent out on the response. It is determined by the controller action, which is named the same as file.
+
+# Model
+
+It is a blueprint of a table that you have in your database. This blue print already has an established connection to your database, and it assumes some of the common SQL calls that you may want to make.
+
+ - migrations 
+
+    It is a history of your database maturity. 
+    Every migration represents either a table, a column insert, or a column delete, or a table deletion that happens within your database overtime.
+
+
+    db -> migrate 
+
+Schema.rb gets AUTO GENERATED!!!!!
+
+NEVER EVER EVER touch/code schema.rb !!!
+BAD THINGS WILL HAPPEN
+
+
+migrations is your database history
+you cant/shouldn't go back in time...
+
+
+- IF you are on a branch.. and you made a migration
+and you need alter it... its ok to rollback and migrate again
+
+- IF my branch is MERGED INTO MASTER, that means the migrations are 
+history... That means i will make a brand new migration to add a new row etc...
+
+
+### IF this doesn't super makes sense yet...
+
+If you migrated, and forgot something, make a new migration...

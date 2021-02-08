@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_11_154325) do
+ActiveRecord::Schema.define(version: 2021_02_08_165320) do
 
-  create_table "urls", force: :cascade do |t|
-    t.string "long_url"
-    t.string "short_url"
+  create_table "posts", force: :cascade do |t|
+    t.string "name"
+    t.string "title"
+    t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "urls", force: :cascade do |t|
+    t.string "shortURL"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "longURL"
   end
 
 end

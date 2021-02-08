@@ -1,13 +1,12 @@
-<h2>Make a new URL Here!</h2>
-<%= @gg %>
-<%= @url.inspect %>
-<form action='/urls' method='post'>
-    <p>long url<input type='text'/></p>
-    <button>Submit!!</button>
+<h1>Create URL Here :)</h1>
+
+
+<form method="POST" action="/urls">
+    <p> url: <input type='text' name='longURL'/> </p>
+    <button> Add new URL!</button>
 </form>
 
-
-<%= form_for @url do |form| %>
-    <p>long url<%= form.text_field :long_url %>
-    <div><%= form.submit 'Submit new URL' %></div>
+<%=  form_for :url, url: urls_path  do |form| %>
+    <p> url: <%= form.text_field :longURL %> </p> 
+    <%= form.submit %>
 <% end %>
