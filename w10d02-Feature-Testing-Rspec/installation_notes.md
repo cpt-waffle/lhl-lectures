@@ -49,6 +49,14 @@ end
 One test for shoulda-matchers
 
 ```ruby
+  model = Model.new
+  model.save
+  expect(model.errors.messages[:model]).to include "can't be blank"
+```
+
+
+
+```ruby
 require 'rails_helper'
 
 RSpec.describe Make, type: :model do

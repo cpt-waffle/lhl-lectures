@@ -55,7 +55,7 @@
         <strong>Year:</strong> <%= car.year %>
         <strong>Color:</strong> <%= car.color %>
       </p>
+      <%= link_to 'Info', car_path(car), class: 'info-link' %>
     </div>
-    <p><%= link_to 'More Info', car_path(car), class: 'more-info-link' %></p>
   <% end %>
 </section>
