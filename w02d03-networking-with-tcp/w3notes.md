@@ -1,100 +1,90 @@
---- W2D3 Agenda ---
- - Networking what is it?
- - TCP
- - HTTP
- Coding -- building a server and client to CHAT WITH US 
-        ^----- all of you can connect to my awesome server
- BREAK
+--- w3 Agenda
+
+- Q and A - 5/10 min
+- What is Networking? 
+- Networking with TCP
+- build server/build a client 
+- you are going to connect to my server !!! :) 
 
 
- What is networking?
+Async --- 
 
- 2 or more things that start communicating
+- Dusting
+- laundry
+throw everything into the washing machine - async
+do it manually the tub - sync 
 
-communication between parties
+- load up the dish washer
+- mopping
+- throwing the garbage
 
+## What is Networking !!!!
 
-US as people
+ - communication between things
+ - connecting between entities 2 more
 
-Types of Mediums to communicate?
+## Tips for Networking by Vas
 
-- mouths 
-- phone
+- Say Hello!
+- Say your name
+- try to be not nervous, stay on point 
+- show interest 
+- make to say a proper goodbye
+
+## What are some of the Mediums we use to communite 
+
 - air 
-- body lang
-- light ray
-- vibin
-- smoke 
-- flag
-- can phone???
-- text
-- writting
+- sound waves
+- light
+- phones
+- lip reading
+- vibrations
+- telepathy
+- pen/paper writing
+- Can Phone (phone category)
+- morse code
+
+## Computer communication Mediums
+
+-  binary 
+-  cables 
+-  radio 
+-  frequencies (wifi)
+-  bluetooth
+-  LAN
+
+## Lecture Rules
+
+- one person speaks 
+- everyone else listens
+- one person shares screen
+- Camera on
+- you can unmute and ask questions and/or chat in the chat window
+
+## Computer Networking Rules
+
+<!-- Another word for rules is.... -->
+Transmission Control Protocol
+
+- Computer A is server Computer B is Client
+- Computer A turns on and LISTENS to connections
+- Computer B can connect to computer A by knowing its "options" that need to be configured...
+( nobody ever disconnects until they have to... )
+- Computer B can send messages
+- Computer A can recieve messages
+- Computer A can send messages
+- Computer B can recieve messages
+- Both computers cant be sending messages at the same time
+- Computer B can disconnect
+
+HTTP
+HyperText Transfer Protocol
+- Once a client connects they are asking for a REQUEST
+- server recives a REQUEST does some logic... sends back a response
+- CONNECTION GETS TERMINATED
 
 
- A interview 
-No swearing
-A handshake
-Tell the person your name
-introduce yourself
-inside voice
-wear a shirt 
------
-exit out of your convo without being rude
-say nice to meet you
-and leave 
+### Library called net
+net is a TCP library that is built in nodeJS
 
-#### Networking in Computers
-
-Computers use a medium:
-
- - Cables
- - NIC
- - wifi
- - radio waves
- - bluetooth
- - NFC
-
- These mediums MUST HAVE some rules. The rules arent that different than human rules.
-
-RULES --  Transmission Control  Protocol
-
- You got a link to the call
- You clicked on a link 
- You established a connection
- and then you are reciving information as time goes on
-
--- Server         Computer ---
-
-Server turns on, and LISTENS to a connection
-Computer (client) inputs the correct credentials where the server is located
-IP  and  PORT
-Client will attempt to connect to the server
-When connection is established client can send messages
-Server can recieve messages 
-Server can send messages back to client or clients
-Client can recieve messages 
-
-Client can disconnect
-
-
-When i refresh or use my browser 
-I do "some sort" of TCP  
-(its built upon TCP)
-
-HTTP IS ANOTHER protocol
-
-Computer (client) inputs the correct credentials where the server is located
-Client makes a REQUEST to the server
-connection gets established
-server gives back a RESPONSE to the client
-connection terminates
-
-
-
-A CHAT CLIENT SERVER with TCP
-
-
-Todays Activities in Compass
-
-- making ONLY the client 
-- 
+it has a bunch of methods for SERVER and CLIENT(socket)
