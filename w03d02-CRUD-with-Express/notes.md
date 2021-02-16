@@ -9,13 +9,3 @@
  - Finishing up the server 
 --------------------------------------------------
 
-
-How to create an express Server?
-
-make directory
-npm init
-npm i express
-touch server.js -- make a file
-intialzied server.js
-installed ejs (templates)
-made a view folder for the ejs files
