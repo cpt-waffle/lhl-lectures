@@ -4,7 +4,7 @@ import { action } from "@storybook/addon-actions";
 
 
 import Comment from '../Components/Comment/';
-import CommentList from '../Components/CommentList/'
+import CommentList from '../Components/CommentList'
 
 const comment = {
 	id: 1,
@@ -36,5 +36,10 @@ const comments = [
 	}
 ]
 
-storiesOf('CommentsList')
-.add("default comment list", () => <CommentList comments={comments}/>)
+// const commentList = (list, 'hello', true, [1,2,3,4]) => ....
+// commentList(comments) IF IT WAS A FUNCTION!!!
+
+
+
+storiesOf('Comment List')
+	.add('A list of comments', () => <CommentList list={comments}/>)

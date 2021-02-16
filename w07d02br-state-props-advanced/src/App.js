@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import CommentList from "./Components/CommentList";
+import CommentList from './Components/CommentList';
 // our fake api data...
 const commentsData = [
   { 
@@ -35,49 +35,72 @@ const commentsData = [
 ]
 
 
-function App() {
-  const [comments, setComments] = useState(commentsData);
 
-  const handleComments = (id, type) => {
+function App() {
+  // PROPS ONLY GO DOWN DOWN DOWN DOWN to other components
+  // You cannot pass stuff up into parent component...
+
+
+  // let number = 0;
+ // setNumber = (n) => number = n // BUT ALSO TELL REACT TO RERENDER THE VALUE NUMBER ON PAGE
+  const [number, setNumber] = useState(0)
+  const addNumber = () => {
+    setNumber(number + 1);
+    console.log(number)
+  }
+
+  const [commentsList, setCommentsList] = useState(commentsData)
+
+  const handleClick = (id, type) => {
+    console.log("LINE 44 FROM App.js (VERY TOP)")
     console.log(id, type);
-    console.log("HELLO FROM LINE 42: App.js")
-    // make a copy of state
-    // const commentsCopy = [...comments];
-    // // loop through the comments
-    // for(let comment of commentsCopy) {
-    //   // increment a like or dislike for a specific comment
-    //   if (comment.id === id) {
-    //     if (type === 'dislike') {
-    //       comment.dislikes++;
-    //     } else {
-    //       comment.likes++;
+    //////////////////////////////////// METHOD 1 //////////////////////////
+    // // make a copy of our state
+    // const commentsCopy = [... commentsList];
+    // // loop through the comments 
+    // for (let singleComment of commentsCopy) {
+    //   console.log(singleComment);
+    //   if (singleComment.id === id) {
+    //     // increment a like or a dislike based on the correct comment
+    //     if (type === 'like') {
+    //       singleComment.likes++
+    //     }
+    //     else {
+    //       singleComment.dislikes++
     //     }
     //   }
     // }
-    // setComments(commentsCopy);
-    // comments = commentsCopy
-    // set the copy to original
-    ////////////////////////////// How to do it incrementaly
-    const commentsCopy = comments.map( comment => {
-      if (comment.id === id) {
-        if (type === 'dislike') {
-          comment.dislikes++;
+    // console.log(commentsCopy);
+    // // set the copy to the original using the setState function (setCommentsList)
+    // setCommentsList(commentsCopy)
+    ////////////////////////////////////////////////////////
+    //                           METHOD 2
+    // "what you will see in react way..."
+    // make a copy of our state
+    // loop through the comments
+    const commentsCopy = commentsList.map( singleComment => {
+      // return ... commentsCopy.push(...)
+      if (singleComment.id === id) {
+        // increment like or dislike based on the correct comment
+        if (type === 'like') {
+          singleComment.likes++
         } else {
-          comment.likes++;
+          singleComment.dislikes++
         }
       }
-      return comment;
+      return singleComment // commentsCopy.push(singleComment)
     })
-    setComments(commentsCopy);
+    // set CommentListe to the original using the setState function (setCommentsList)
+    setCommentsList(commentsCopy)
+
+
   }
 
   return (
     <div>
       <h1>Comments for Dogs</h1>
-      <CommentList 
-        comments={comments} 
-        handleComments={handleComments}
-      />
+      <button onClick={addNumber}>{number}</button>
+      <CommentList list={commentsList} handleClick={handleClick}/>
     </div>
   );
 }
