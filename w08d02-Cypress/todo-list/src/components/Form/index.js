@@ -6,21 +6,22 @@ const Form = ({handleAdd}) => {
   const onSubmit = evt => {
     evt.preventDefault();
     let val = evt.target.newItem.value.trim();
-
-      if (val.length) {
-        handleAdd(val);
-        evt.target.newItem.value = '';
+    if (val.length) {
+      handleAdd(val);
+      if (error) {
         setError(false);
-      } else {
-        setError(true);
       }
+      evt.target.newItem.value = '';
+    } else {
+      setError(true);
+    }
   }
 
   return (
     <form onSubmit={onSubmit}>
       <input name="newItem" type="text"/>
       <button id="submit">Submit</button>
-      {error && <h2>CANNOT BE BLANK</h2>}
+      {error && <h2>Error! Cannot be Blank!</h2>}
     </form>
   );
 }
