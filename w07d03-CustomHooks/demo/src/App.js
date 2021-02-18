@@ -1,25 +1,21 @@
 import React, { useState } from 'react';
-import './App.css'; //css
-// import axios from 'axios';
-import ColorChanger from './components/ColorChanger' // components
+import LoginForm from './components/LoginForm';
+import RegisterForm from './components/RegisterForm';
+import Color from './components/Color';
+
+// Custom hook is basically a way to refactor/test your states
+// it also makes state re-usable...
 
 
 function App() {
-
-  // const [day, setDay] = useState([]);
-  // const [appointments, setAppointments] = useState({});
-
-
-
-
-
-
 
 
 
   return (
     <div className="App">
-      <ColorChanger currentColor="blue" colorArr={['green', 'yellow', 'black', 'firebrick', 'skyblue']}/>
+      <LoginForm/>
+      <RegisterForm/>
+      <Color/>
     </div>
   );
 }

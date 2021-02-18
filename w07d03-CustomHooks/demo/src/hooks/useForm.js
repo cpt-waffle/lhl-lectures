@@ -1,25 +1,26 @@
-// we are NOT importing REACT 
-// we may import useState, useEffect, etc
-import { useState } from 'react';
+//
+import { useState, useEffect } from 'react';
 
-// this function will not be RENDERING anything on the screen
-// this is NOT a component!!!
+
+
 function useForm() {
+
     const [val, setVal] = useState('');
-
-    const handleVal =(newVal) => {
-        
-        setVal(newVal);
-    }
-
-    const cleanup = (e) => {
-        e.preventDefault();
-        setVal('');
-    }
+    const [name, setName] = useState('')
     
-    return {val, handleVal, cleanup};
+
+    useEffect(() => {
+        // axios here....
+        console.log("HEllo world");
+    })
+
+    const handleValChange = (evt) => setVal(evt.target.value);
+
+
+
+    return {val, handleValChange};
 }
 
-
-
+// kind of what we did in making components
+// BUT alittle different....
 export default useForm;

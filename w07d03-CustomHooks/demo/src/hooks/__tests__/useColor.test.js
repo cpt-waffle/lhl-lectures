@@ -1,28 +1,32 @@
 import useColor from '../useColor'
 import { renderHook, act } from '@testing-library/react-hooks'
 
-it('sets the color to default color RED', () => {
-    const { result } = renderHook(() => useColor('red', ['green', 'blue']));
-    expect(result.current.currentColor).toBe('red');
+const colorArray = ['firebrick', 'lime', 'salmon', 'orange', 'rebeccapurple'];
+
+
+it('takes in a color array, and sets the current color to the first elemnt in the array', () => {
+    const { result } = renderHook(() => useColor(colorArray))
+    // result.current.currentColor should be equal to firebrick
+    console.log(result.current)
+    expect(result.current.currentColor).toBe('firebrick');
 })
 
-it('switches to the next color which it will be green', () => {
-    const { result } = renderHook(() => useColor('red', ['green', 'blue']));
+it('it takes in a color array, and uses a function called next() to switch to the next color (LIME)', () => {
+    const { result } = renderHook(() => useColor(colorArray))
     act(() => {
-        result.current.nextColor();
+        result.current.next();
     })
-
-    expect(result.current.currentColor).toBe('green');
+    expect(result.current.currentColor).toBe('lime');
 })
 
-it('switches to the next color and switches back to the original', () => {
-    const { result } = renderHook(() => useColor('red', ['green', 'blue']));
+it(`it takes in a color array, and uses a 
+function called next() to switch to the next color 
+(LIME), calls back() to go back a color (FIREBRICK)`, () => {
+    const { result } = renderHook(() => useColor(colorArray))
     act(() => {
-        result.current.nextColor();
+        result.current.next();
+        result.current.back();
     })
-
-    expect(result.current.currentColor).toBe('green');
-    act(() => result.current.prevColor());
-    expect(result.current.currentColor).toBe('red');
+    expect(result.current.currentColor).toBe('firebrick');
 
 })
