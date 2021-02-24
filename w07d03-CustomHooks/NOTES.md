@@ -1,7 +1,7 @@
 ------------ Agenda --------------
-Q/A everything there is about react
-Review Custom Hooks (build a changing color div)
-Testing a Hook
+What is Custom Hook?
+Making a custoom Hook
 BREAK
+Making a Hook again as a revew
 Testing a Hook (some history)
 Q/A Finish
