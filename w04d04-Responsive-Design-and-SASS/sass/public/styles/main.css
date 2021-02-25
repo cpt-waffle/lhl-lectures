@@ -1,16 +1,8 @@
 .test {
-  background-color: blue;
-  padding: 3px;
+  text-align: center;
+  background-color: skyblue;
 }
 
-.test > h1 {
-  background-color: yellow;
-}
-
-.test:hover {
-  background-color: #c6538c;
-}
-
-.test:hover h1 {
-  background-color: orange;
+.test h1 {
+  border: 2px dotted green;
 }

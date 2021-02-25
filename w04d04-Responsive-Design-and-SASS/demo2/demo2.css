@@ -5,41 +5,41 @@
 
 .layout {
     text-align: center;
-    padding-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-.profile-pic {
-    width: 10rem;
-    height: 10rem;
+.profile-img {
+    margin-top: 12px;
     border-radius: 50%;
-    border: 3px solid greenyellow;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
 }
 
-.content-one {
-    background-color: yellow;
+.content-1 {
+  background-color: yellow;
 }
 
-.content-two {
-    background-color: red;
+.content-2 {
+  background-color: red;
 }
 
+.content-3 {
+  background-color: yellowgreen;
+}
 
-@media only screen and (min-width: 575px) {
-    .layout {
-        background-color: black;
+@media only screen and (min-width: 750px) {
+    .profile-img {
+        border-radius: 0;
+        width: 100%;
+        height: 285px;
+    }
+
+    .content-layout {
+        display: flex;
         flex-direction: column-reverse;
     }
 
-    .profile-pic {
-        width: 100%;
-        height: auto;
-        border-radius: 0;
-    }
-
-    .content {
-        display: flex;
+    .sub-content {
+        display:flex;
     }
 }

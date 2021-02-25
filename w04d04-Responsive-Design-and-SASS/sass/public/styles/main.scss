@@ -2,16 +2,10 @@ $wow-color: #c6538c;
 
 
 .test {
-    background-color: blue;
-    padding: 3px;
-    > h1 {
-        background-color: yellow;
-    }
-    &:hover {
-        background-color: $wow-color;
-        h1 {
-            background-color: orange;
-        }
+    text-align: center;
+    background-color: skyblue;
+    h1 {
+        border: 2px dotted green;
     }
 }
 
