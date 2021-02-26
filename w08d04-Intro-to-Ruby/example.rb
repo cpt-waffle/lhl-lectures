@@ -1,92 +1,74 @@
-foo = 'bar'
+foo = 123
 PI = 3.14
-require 'byebug'
-# they are types - they are of a class
+
+puts "Hello World #{PI.to_s}"
+puts "#{foo} #{PI}"
+
 def greetings name
-    puts "Hello #{name}"
-    puts "Hello " + name.to_s
-    4 * 4
+    puts 'Hello There!'
+    puts "General #{name}..."
+    name
 end
 
-# greetings 'Vas'
-# puts greetings 1334
-# greetings 1334, 'vas', false, 54, 5 ,6
+a = greetings 'Kenobi'
+puts a
 
-# RUBY has AWESOME HELPER METHODS
-# array = Array 0..100
-array = []
-array.push 1
-array.push 2
-array.push 3
+VAL = 10
 
-# puts array.first
-# puts array.last
-# JSON.stringify(...)
-# puts array.inspect
-
-val = 5
-
-if val > 5 
-    # puts 'GREATER THAN'
-elsif val == 5
-    # puts 'EQUAL'
+if VAL <= 9
+    puts 'it might be 9 o clock...'
+elsif VAL == 10
+    puts 'its 10 clock'
 else
-    # puts 'LESS THAN'
+    puts 'its past 10....'
 end
 
-if true
-    # ...
+puts "YAY!" if true
+
+puts 'it wasnt false' unless false
+
+if true 
+   puts "YAY"
 end
 
-# puts "its 5!!" if val == 5
-# puts "its not 4!" unless val == 4 # if !________
-
-obj = {A: 1, B: 2, C: 3} # hash
-obj2 = {:A => 1, :B=> 2, :C => 3}
-
-# puts obj
-# puts obj[:A]
-# puts obj2[:A]
-
-
-#  array looping
-
-array.each_with_index do |val, index|
-    # puts "#{val} #{index} #{array.inspect}"
+unless false
+    puts "it wasnt false"
 end
+
+for counter in 0..10
+    puts counter
+end
+
+arr = [1,2,3,4,5]
+
+arr.each_with_index do |val, i|
+    puts "Val is => #{val} #{i}"
+end
+
+arr.each {|val| puts val }
+
+obj = {
+   a: [1,2],
+   b: [3,4] 
+}
+
+obj_copy = obj.clone
+
+obj_copy[:a].push(3)
+
+puts obj
+puts '---------------'
+puts obj_copy
+
 
 obj.each do |key, val|
-    # puts '---->' + key.inspect
-    # puts '-V-->' + val.inspect
+    puts "#{key}" + " " + "#{val}"
 end
 
-def sampleFunc
-    puts 'BEFORE CALLBACK'
+def yield_example
+    puts "before cb"
     yield
-    puts 'AFTER CALLBACK'
+    puts "after cb"
 end
 
-
-# sampleFunc { puts "RUNNING SOMETHING IN THE MIDDLE" }
-
-class Person
-    # constructor
-    def initialize(name,age)
-        @name = name
-        @age = age
-    end
-
-    # methods...
-    def print_name
-        puts "my name is " + @name.inspect
-    end
-end
-
-p1 = Person.new 'Vasily', 29
-p2 = Person.new 'Martha', 29
-p3 = Person.new 'Tom', 29
-p1.print_name
-
-
-
-puts p3.inspect
+yield_example { puts "YIELD RUNNING!"}

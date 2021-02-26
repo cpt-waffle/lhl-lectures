@@ -1,49 +1,74 @@
-let foo = 'bar';
+let foo = 123;
 const PI = 3.14;
 
+console.log(`Hello World ${PI}`);
+console.log(foo, PI);
+
 const greetings = (name) => {
-    console.log(`Hello ${name}`);
-    console.log("Hello " + name);
-    return 4 * 4;
+    console.log("Hello There!");
+    console.log(`General ${name}...`);
+    return name;
 }
 
-greetings('Vas');
-console.log(greetings(1334));
-// greetings(1334, 'vas', false, 54, 5 ,6);
+const a = greetings("Kenobi", 12, false);
+console.log(a);
 
-// 
+const val = 10;
 
-const array = [];
-array.push(1);
-array.push(2);
-array.push(3);
-
-// console.log(array[0]);
-// console.log(array[array.length-1]);
-
-// console.log(array);
-let val = 5;
-
-if (val > 5) {
-    // console.log("GREATER THAN");
-} else if (val === 5) {
-    // console.log('EQUAL');
-} else {
-    // console.log("LESS THAN");
+if (val <= 9) {
+    console.log('it might be 9 o clock...');
+} else if (val === 10)
+    console.log('its 10 clock');
+else {
+    console.log('its past 10....');
 }
+
+if (true) console.log("YAY!");
+
+if (!false) console.log('it wasnt false');
 
 if (true) {
-    // ...
+    console.log("YAY");
 }
 
-// if (val == 5) console.log("its 5!!");
-// if (val != 4) console.log("its not 4!");
+if (!false) {
+    console.log("It wasnt false");
+}
 
-const obj = {A: 1, B:2, C: 3};
-console.log(obj);
-console.log(obj.A);
-console.log(obj['A']);
+for (let i = 0; i <=10; i++) {
+    console.log(i);
+}
 
-array.forEach((val, index, array) => {
-    console.log(val, index, array);
+const arr = [1,2,3,4,5]
+
+arr.forEach((val, i) => {
+    console.log(`Val is => `, val, i);
 })
+
+arr.forEach(console.log)
+const obj = {
+    a: [1,2],
+    b: [3,4]
+}
+
+const objCopy = {...obj};
+
+objCopy.a.push(3);
+
+
+console.log(obj);
+console.log('------------');
+console.log(objCopy);
+
+
+Object.keys(obj).forEach(key => {
+    console.log("Key:", key, "   val:", obj[key]);
+})
+
+const callbackExample = cb => {
+    console.log("before cb");
+    cb()
+    console.log("after cb");
+}
+
+callbackExample(() => console.log("CALLBACK RUNNING!"))
