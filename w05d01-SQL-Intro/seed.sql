@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS urls CASCADE;
 -- CREATE USERS
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  email VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,  -- TEXT BUT you tell psql how big of a string you will have (Max width)
   password VARCHAR(255)
 );
 

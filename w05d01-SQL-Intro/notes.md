@@ -1,6 +1,6 @@
 --- W5D1 ----
 
- - SQL intro
+ - SQL intro (databases in general)
  - Why SQL  ( what is the point?)
  - psql ( and different commands that we can do)
  - first query 
@@ -10,71 +10,104 @@
 
 ------------------------
 
-TinyApp
+TinyApp !!!
 
-7 million users!!
-production server is hosted on the best server ever (NASA)
+7 Million Users added+
 
-- features like
-- friends list
-- likes/dislikes
-- twitter integration
-- analyctics
+ - people be sharing all of the URLS
 
-finsihed all the features
-and then you push to production
-. . . . .
-kill the server
-npm install
-star the server
+--- People are Demanding Features ----
 
-- app restarts -
-You LOST ALL OF YOUR 5 MILLION USERS
+- likes features 
+- favorites features
+- twitter integrations
+- img integration
+- analytics
+- revenue tracking
 
+== LETS WORK ==
 
-Use a File to store people, and other data?
+analytics, likes, favorites
 
-// fs = require('fs');
- seperation of concerns
+git add .
+git commit -m "New features added"
+git push 
 
-now we gotta write controls for fs
-so that it can connect to another machine
-read a file from that machine , write info to that machine, 
+-- REDEPLOYING PROCESS ENABLED
+-- IT HAPPENS 
 
-username, password, first_name
-v@k.ca  , 12345678, Vasiliy
+your data gets reset (wiped, cleaned....)
+lost 7 million users !!!
 
+-- Data is new oil --
 
+to collect data 
+we must be able to:
 
-^---- Databases
-        ^-----------  SQL
-
-
-PSQL Postgresql <-- a service, that is a database
-PSQL runs on PORT 5432
+- store it 
+- co-relate it
+- retrieve it
 
 
-PSQL is global service -- meaning the program is accesbale anywhere 
-on your machine...
+require (fs)
+users.txt
+name,    email,        passwordHash,      id
+vasily,  vas@gmail.com, aSd43f46sdf4f5f, 245,
 
-you can connect to postgres virtually ANYWHERE on your machine
+urls.txt
+short_url, long_url, user_id
 
 
-PSQL Commands
+--------- server failure (physical/software) -----------
 
-from machine we can write `psql` to connect to the database service
-from the `psql` connection we can write `\q` to exit out of it.
+Seperation of Concerns
 
-psql can have many databases
+  NASA BASE                                   AW3
+Backend Server <--------------------------> Data Sever  <----> data files
+                                           /addUrl
 
-`\l` <---- LIST ME ALL THE DATABASES ON THIS SYSTEM
-`\c _DATABASE_NAME_` <-- CONNECT TO THE DATABASE SPECIFIED
-`\dt` <--------- DISPLAY TABLES
+Database Services
+SQ
+PSQL <---- relationsional ----->
 
---- CREATING A DATABASE ---
+id
+245 Vasiliy Klimkin v@k.ca
 
-`CREATE DATABASE _DATABASE_NAME_` <-- create db
+user_id   long_url
+245       www.google.ca
 
---- DELETING A DATABASE ---
 
-`DROP DATABASE _DATABASE_NAME_`   <-- delete db
+non-relational database
+
+
+users: {
+   1: ..
+   ....
+   245: {name: Vasily, email: v@k.ca, urls: {
+       0: {longURL: google.ca}
+   }}
+}
+
+
+-- PSQL ---
+
+port # 5432
+
+-- DATABASES are globally installed, as long they are ON, you can get in one from anywhere
+
+to get into postgreql -- "psql" in terminal
+to quit psql --          "\q"   in terminal
+
+List all the database  -- "\l" 
+list all the users     -- "\du"
+connected to a specific database  -- "\c _DATABASE_NAME_"
+display some sort of data in it   -- "\dt" - display tables
+
+
+to DELETE the DATABASE -- SQL Command
+DROP _DATABASE_NAME_; <===== dont forget the semi-colon
+CREATE A database
+CREATE DATABASE _DATABASE_NAME_;
+
+Seeding --- the act of putting data into your database
+command to run a file externally from psql - "\i"
