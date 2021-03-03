@@ -3,45 +3,33 @@
 
 // PART B - Modify the function so that it returns a count of every animal
 // output {dog: 5, cat: 4, rabbit: 1, moose: 1, parrot: 3}
-let str = 'dog dog dog cat cat dog parrot parrot cat moose cat rabbit dog piggy chair rock rock';
+let str = 'dog table dog dog car cat dog car cat rabbit dog cat moose cat chair';
        // ['dog', 'dog', 'dog', 'cat'....]
 
 const dogCatCounter = function(string) {
-    // what is string?
-    const arr = string.split(' ');
-    const resultObj = {};
-    //...
-    // how do i loop thorough a string?
-    for (let val of arr) {     // THIRD LOOP = VAl = DOG
-        // THIRD LOOP resultOBJ = { dog: 2}
-        // console.log(val);
-        // in loop count dog and count cat
-
-        if (resultObj[val]) { // resultObj[DOG] ==> 1
-            // how can i increment a value that is stored in an object???
-            resultObj[val]++; //  { dog: 3 }
-        } else {
-            // hxow can i store a new value in an object???
-            resultObj[val] = 1; // resultObj[DOG] = 1 ==> { dog: 1 }
+    // create an object with dog and cat keys with values starting at 0
+    // need to make a string into an array
+    const array = string.split(" ");
+    console.log(array);
+    const result = {};
+    // loop through a string
+    // for (let i in array) array[i]
+    for (let word of array) {
+        console.log('word is ==', word);
+        if (result[word] === undefined) { // if result at key is undefined
+            result[word] = 1;
+        } else { 
+            result[word]++;
         }
+        // result[word] = result[word] ? result[word] + 1 : 1;
     }
-    console.log(resultObj);
-    return resultObj;
-    // return object with dog: ? cat ? 
+    return result;
+    // return the object with numbers
 }
 
 // console.log(dogCatCounter(str));
 
 
-
-
-
-
-
-
-
-
-// console.log(dogCatCounter(str));
 
 // Find Data Question
 // Bellow we have an object of users. 
@@ -60,33 +48,53 @@ const users = {
 // if no user is found, return undefined
 // findUserWithId(users, 'X63ef') => Ozan Robbins
 const findUserWithId = function(users, id) {
-    console.log('users:',users);
-    console.log('id', id);
-    return users[id];
+    return users[id]  
 }
 
 // console.log(findUserWithId(users, 'AaCf3'));
 
 
 // Function takes a name, and looks for the corresponding id
-// findUserId(users, 'Colin Lam') => 'X63ef'
+// findUserId(users, 'Colin Lam') => 'AaCf3'
+
 const findUserId = function(users, username) {
-    for (let id in users) {
-        // console.log('id', id);
-        // i have an id 
-        // how do i get the value out of this users obj?
-        if (users[id] === username) {
-            console.log("I FOUND THEM");
-            return id;
+  // how do i loop through objects???? :o
+  console.log(users);
+  // there are many different ways of looping through an object
+  // for ... of loop DOES NOT WORK WITH OBJECTS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  ///////////////// METHOD 1 ///// FOR IN ////////////////////////////
+//   for (let key in users) { // in loops with indexes in an array
+//                            // what does it do for objects???
+//     console.log('key -->', key);
+//     console.log("users[key] ==>", users[key]);
+//     if (users[key] === username) {
+//         return key;
+//     }
+//   }
+////////////////////////////////////////////////////////////////////
+//////////////// METHOD 2 /// converting the keys/values to an array type /////////////
+    const userKeys = Object.keys(users);
+
+    console.log("Object.entries", Object.entries(users));
+    console.log('--->', userKeys);
+    for (let key of userKeys) {
+        if (users[key] === username) {
+            return key;
         }
     }
-    return undefined;
 
-    // DONT DO WHAT's about to go down here!!!
-    // Code Golfing ---> 
-    // return Object.keys(users)[Object.values(users).indexOf(username)];
+/////////////////////////////////////////////////////////////////////////////////////
+
 }
+
 console.log(findUserId(users, 'Colin Lam'));
+
+
+
+
+
+
+
 
 // return total number of users
 // countUsers(users) => 5

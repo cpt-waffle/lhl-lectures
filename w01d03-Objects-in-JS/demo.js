@@ -1,58 +1,64 @@
-// ------------ Review ---------------
-const number = 1;
-const string = 'hello';
-const bool = false;
+// SMALL REVIEW
 
-const foo = function() {
-  console.log('bar');
-}
-// FIRST THING IN THE ARRAY MUST BE BRAND NAME
-// SECOND IN THE ARRAY MUST BE MODEL
-const carArr = ['toyota', 'corolla', '2014', 'automatic', 4, 'red'];
-               // 0,       1         2          3       4    5
-carArr.push('Sport');
-// console.log(car[1]);
+// let or const
+// const cannot be re-assigned 
+// let can be re-assigned
 
-// OBJECTS Storing data
-// objects denoted with curly brackets
-const carObj = { doors: 4, model: 'corolla', make: 'toyota', transmissionType: 'automatic',year: 2014, color: 'red'};
+let item = 'list';
+const PI = 3.14;
+let hungery = false;
 
-// console.log(carObj.model)
+// console.log(item);
+// console.log(PI);
+// an array is a list of any kind of data in a specific order!!
 
-const banana = 'make';
+// Look, this array contains my user information
+// the first value in the array is a name,
+// the next value in the array is a last name
+// the next value....
+// const userOne = ['Vasiliy', 'Klimkin', 'AB+', 'right-handed', 'green', 'Toyota Corolla', 178, 'teacher'];
+// const userTwo = ['Joe', 'Turner', 'A+', 'left-handed', 'brown', 'cyber-sec', 168, 'Chevy Malibu',];
+// console.log('user variable before push....');
+// console.log(userOne);
+// userOne.push('teacher');
+// console.log('user variable after push.....');
+// console.log(userOne);
 
-// console.log(carObj[banana])
+// console.log('first name:', userOne[0]);
+// console.log('last name:', userOne[1]);
+// console.log('profession:', userOne[7]);
 
-// Looping through an object !!
-// i = 0; i < arr.length; i++
-// OF and IN
-// console.log("ARRAY LOOP")
-// for (let i of carArr) {
-//   console.log(i);
-// }
-// console.log("OBJECT LOOP")
-// i in obj == keys 
-// i of obj == ERROR
-// for (let i in carObj) {
-//   console.log('key is: ', i);
-//   console.log(carObj.i)
-//   console.log('value of this key is : ', carObj[i]);
-// }
+// Objects 
+// is a collection of data...
+// objects have no indexes ([0], [1])
+// objects order of data does not matter
+// instead of indexes, objects have "keys" and "values"
 
-//ZENFUN
-// 0 undefined false null '' NaN
-const cars = [
-  {make: 'toyota', model:'corolla', year: 2014, transmissionType: 'auto', drivers: ['a', 'b']},
-  {make: 'toyota', model:'86', year: 2019, transmissionType: 'manual', drivers: ['a', 'b']},
-  {make: 'honda',  model: 's2000', year: 2002, transmissionType: 'manual', drivers: ['a', 'b']},
-  {year: 1992}
-]
+//                   0          1        2          3 
+const userOne = ['Toyota Corolla', 'Vasiliy', 'Klimkin', 'AB+', 'right-handed', 'green' , 178, 'teacher'];
+const userObject = {
+  car: 'Toyota Corolla',
+  "first name": 'Vasiliy',
+  lastName: 'Klimkin',
+  bloodType: 'AB+',
+  dominantHand: 'right-handed',
+  eyeColor: 'green',
+  height: 178,
+  profession: "teacher",
+  3: 3.14
+};
+// Objects 
+// dot notation
+// userObject.eyeColor // green
+// you should use the dot notation whenever you KNOW exactly what key you want/need
+// with an exception of numbers and keys with a space in it ("first name")
 
-for (let car of cars) {
-  console.log('car is');
-  if (car.drivers) {
-    console.log(car.drivers[0]);
-  } else {
-    console.log("NO DRIVERS!!!");
-  }
-}
+// console.log('user obj: ', userObject.car);
+
+//Objects 
+// square bracket notation (kinda like an array notation...)
+
+// const xyz = 'dominantHand';
+
+console.log('user obj: ', userObject['xyz']);
+
