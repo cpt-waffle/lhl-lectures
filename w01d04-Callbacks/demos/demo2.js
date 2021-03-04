@@ -4,19 +4,18 @@
 const arr = [1,'two', 3, 'four', 5, 'six', 7, 'eight', 9, 'ten'];
 
 const printOnlyNumbers = function(arr) {
-  // for (let i = 0; i < arr.length; i++) arr[i]
-  // loop through array...
-  console.log(" --- Only Numbers ---")
-  for (let val of arr) {
-      if (typeof val === 'number') {
-        // if number then print number
-        console.log(val);
+  // we have an array
+  // we loop through array
+  for (let item of arr) {
+    // we check if the item we loop through is a number
+    if (typeof item === 'number') {
+      // if it is a number ---> print
+      console.log(item);
     }
-    // if not then dont
   }
 }
 
-printOnlyNumbers(arr);
+console.log(printOnlyNumbers(arr));
 
 // write a function that takes an array as an argument.
 // then it prints out ONLY strings from this array.
@@ -24,12 +23,11 @@ printOnlyNumbers(arr);
 
 // const printOnlyStrings = function() { .... }
 const printOnlyStrings = (arr) => {
-  console.log('--- Only Stings ---')
-  for (let val of arr) {
-    if (typeof val === 'string') {
-      console.log(val);
+  for (let item of arr) {
+    if (typeof item === 'string') {
+      console.log(item);
     }
   }
 }
 
-printOnlyStrings(arr);
+console.log(printOnlyStrings(arr));

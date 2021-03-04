@@ -1,7 +1,7 @@
 ---- Agenda ----
-- QA
+- Q and A
 - Review (what are functions?)
-- Arrow Notation Functions
 - Callbacks
+- Arrow Notation Functions
 BREAK
 - MORE CALLBACKS

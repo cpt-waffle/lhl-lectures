@@ -1,23 +1,27 @@
-// input [1,2,3,4,5]
-// output[2,4,6,8,10]
+const array = [1,'two', 3, 'four', 5.5, 'six', false, 20, 2, 4];
 
-let input = [1,2,3,4,5];
+// forEach
+// for i in array ===> what is i? ===> index
+// for i of array ===> what is i? ===> value
 
-// basic way without callbacks or anything...
+const newArray = []
+// function() {}
+array.forEach( elem => console.log(elem));
+// array.forEach((element, index, arr) => {
+//     newArray.push(element * 2);
+// })
 
-const result = [];
+// console.log(newArray);
 
-for (let val of input) {
-    const answer = val * 2;
-    result.push(answer);
-}
+// map
 
-const result2 = input.map((val) => {
-    console.log(val)
-    return val * 2;
+const arr2 = array.map((element) => {
+    return element * 2;
 })
+console.log("the map");
+console.log(arr2);
 
-console.log(result2);
+
+// filter
 
 
-// console.log(result);

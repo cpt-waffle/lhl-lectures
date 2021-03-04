@@ -2,30 +2,30 @@
 // and also takes a callback for the user to do anything with
 // each value of the array..
 
-const forEvery = (arr, cb) => {
-    for (let val of arr) {
-        cb(val);
+const array = [1,2,3,4,6,7,8,9,10];
+
+//               es5 notation
+//               es6 notation ---> arrow notation ---> arrow functions
+// function () { ... }
+const arrLoop = (arr, callback) => {
+    for (let item of arr) {
+        callback(item);
     }
 }
 
-const arr = [1,'two', 3, 'four', 5, 'six', 7, 'eight', 9, 'ten'];
 
-let sumOfNumbers = 0;
+let sum = 0;
 
-forEvery(arr, (v) => {
-    if (typeof v === 'number') {
-        sumOfNumbers += v;
+arrLoop(array, (val) => {
+    sum+= val;
+})
+console.log(sum);
+
+const evenNumbers = [];
+arrLoop(array, (val) => {
+    if (val % 2 === 0) {
+        evenNumbers.push(val);
     }
 })
-// for let i of ..
-// for let i in ..
-// for let i = 0; i < arr.length; i++
-arr.forEach((element, i ) => {
-    console.log('current val:' ,element);
-    console.log('current i:' , i);
-})
-
-
-
-// console.log(sumOfNumbers);
+console.log(evenNumbers);
 
