@@ -1,17 +1,11 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :urls, only: [:index, :create, :new]
-  # resource :dashboard
-  # resources :abouts, only: [:show]
-  # Can we make a custom route with rails? is it possible?
-  get '/about', to: 'pages#about'
+  # RAILS STARTS FROM the Routes.rb file!!!
+  # const urlRoutes = require('./routes/url');
+  # app.use('/urls', urlRoutes(db)) 
+  # rails creates you RESTFUL convention routes for you!!
+  resources :urls
+  # resource :dashboard # for a singular RESTFUL convention
 
-  resources :users do 
-    resources :urls, only: [:index]
-  end
-
-  namespace :admin do
-    resources :urls
-  end
 
 end

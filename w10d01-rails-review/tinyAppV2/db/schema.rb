@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_08_185220) do
+ActiveRecord::Schema.define(version: 2021_03_08_161853) do
 
   create_table "urls", force: :cascade do |t|
     t.string "shortURL"
     t.string "longURL"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_urls_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

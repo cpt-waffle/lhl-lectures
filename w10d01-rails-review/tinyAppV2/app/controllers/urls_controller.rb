@@ -1,47 +1,44 @@
 class UrlsController < ApplicationController
-    # JS EXPRESS
-    # app.get('/urls', (req, res) => {
-        # templateVars = {urls: urlsDatabase};
-        # res.render('urls_index', templateVars);
+
+    # router.get('/urls', (req, res) => {
+    # ..logic here
+    # const templateVars = {database, users};
+    # res.render('urls_index', templateVars); 
     # })
 
-
+    # Migrations
+    # Models
+    # Forms (<-- most annyoing and secure part of rails ever known to people!!!  >:( )
     def index
-        # because rails is implicit
-        # the res.render() is already "written for you" (RAILS MAGIC)
-        @urls = Url.all # its a helper method that does SELECT * FROM _TABLE_NAME_
-        # if params[:user_id]
-          #@urls = Urls.where(user_id: params[:user_id])
-        #
+        @urls = User.find(1).urls
         render json: @urls
     end
 
     def new
     end
 
+
+    # in tinyApp in post, we never rendered() we redirected()
     def create
-        # express JS
-        # remember middleware?
-        # bodyParser
-        # cookieParser
-        # cookie-session
-        # ...morgan
-        url = Url.new url_params
-        url.shortURL = SecureRandom.hex(10)
-        # url.save! # why did you use the ! instead of just .save
-        if url.save
-            redirect_to urls_path
+        puts '----------------------'
+        puts params 
+        # i got the longURL
+        # I need the shortURL
+        # I need to generate the shortURL
+        shortUrl = SecureRandom.hex(10)
+        url = Url.new(url_params)
+        url.user_id = 1
+        url.shortURL = shortUrl
+        if url.save 
+            redirect_to '/urls'
         else
-            redirect_to 'urls/new'
+            redirect_to '/urls/new'
         end
     end
 
     private
     def url_params
-        # params is a giant object
-        #  which contains a key called URL which is also an object
-        #  in that object no matter how big is the URL object is... we only take the values
-        #  that are permitted
-        params.require(:url).permit(:longURL)
+        return params.require(:url).permit(:longURL)
     end
+
 end
