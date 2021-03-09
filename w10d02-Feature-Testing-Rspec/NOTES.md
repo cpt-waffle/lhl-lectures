@@ -1,17 +1,26 @@
 ---- Agenda ----
 
  - Rspec Setup
- - small blur from yesterday and a quick thinkg about a gem called shoulda-mathcers
  - How to setup Capybarra
  - DB cleaner
  - How to write a few tests
+
+
+
 
 ```ruby
 gem 'rspec-rails'
 ```
 
+initialize rpsec
 
-E2E Testing
+rails g rspec:install
 
-Cypress > Capybara
+
+migrations and app setup!
+
+make some models with migrations
+
+migrate !!
+
 
