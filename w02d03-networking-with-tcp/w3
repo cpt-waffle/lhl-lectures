@@ -1,56 +1,10 @@
------ Agenda -----
+--- w3 Agenda
 
--- Theory Talk ----
---- talking tcp and connections
--- BUILDING a SERVER and CLIENT
--- functionalities to send recieve messages 
--- You all will be able to conenct to my server 
-
-
-Tips For Networking
-
-1) Firm handsake
-1.5) Say Hi and repeat the persons name!!
-2) State your name
-3) Dont be nervous! or dont act nervous!
-4) show interest in another person!!!
-5) say bye and it was good meeting and then leave!
-
-Air Sound to communicate with people
+- Q and A - 5/10 min
+- What is Networking? 
+- Networking with TCP
+- build server/build a client 
+- you are going to connect to my server !!! :) 
 
 
-Computers ----
 
-internet -
-wifi
-cable --> router
-bluethooth 
-
-Sign language
-Can Phone
-Mail
-Smoke Signals
-Morse Code
-Flags
-
----- Can Phone Rules ----
-
-1) Person one must have a CAN in their hand to communicate with person 2
-2) Once Person two takes another CAN communcation has been established
-3) One one person can talk at the same time
-4) After a person has finished talking, we very for 2 seconds of silence followed another person talks
-
-Transmission Control Protocol
-
-TCP 
-
--- Server          --------------          CLIENT
-Server LISTENS <-------
-Client is able to connect to the server ( handshake )
-Client can send messages and server on recieval of messages can decide on what to do with them:
- --- send it back
- --- send a brand new message
- --- broadscast
- --- ???
-
-When Client disconnects, the server listens to that as well

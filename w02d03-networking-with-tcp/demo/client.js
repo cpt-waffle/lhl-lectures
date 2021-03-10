@@ -1,24 +1,24 @@
+// CLIENT
 const net = require('net');
+// use a package from yesterdays works (stdin)
 const stdin = process.stdin;
-const name = "Vas";
-// connection takes in those "options"
-//  host <--- IP city -> building
-//  port <--- which the room #
+stdin.setEncoding('utf8');
+// let the client type the message
+// on enter send the message to the server
 const client = net.createConnection({
   host: 'localhost',
   port: 3001
 })
-stdin.setEncoding('utf8');
 client.setEncoding('utf8');
 
-// sends information to the server...
-client.write(JSON.stringify({name}));
+client.on("data", (data) => {
+  console.log("data came back from server...");
+  console.log(data);
+})
+
 
 stdin.on('data', (input) => {
-    client.write(JSON.stringify({name,input}));
+  client.write(input);
 })
-
-client.on('data', (data) => {
-    parsedData = JSON.parse(data);
-    console.log("\x1b[33m",`${parsedData.name} Said: `, parsedData.input);
-})
+// WRITE is a way to send messages to the server
+// client.write('Whats everyone up 2?');
