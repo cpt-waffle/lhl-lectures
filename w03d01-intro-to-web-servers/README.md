@@ -1,110 +1,205 @@
 ### W3D1 - INTRO TO SERVERS
 
-#### ( SHOUTOUT TO Nima for Lecture notes !!!! )
+Today we will be talking about 
 
-Today's code and notes available at: https://github.com/NimaBoscarino/amon-amarth
+- Web Servers
+- NodeJS Server
+- Request <----> Response
+- ExpressJS
+- EJS
+- Sending information from Server to EJS
 
-More notes available at: https://github.com/NimaBoscarino/web-server-notes
 
-Note: I keep all of my lecture material on Github, under a big repo: https://github.com/NimaBoscarino/LighthouseLabs/
+#### What is A Server?
 
-The notes that we wrote in class can be found in the `notes.md` file.
+![req-res-server](https://bytesofgigabytes.com/IMAGES/Networking/HTTPcommuncation/http%20communication.png)
 
-1. [Express: Getting Started](https://expressjs.com/en/starter/installing.html)
-2. [Routing with Express.js](https://expressjs.com/en/guide/routing.html)
-3. [EJS templating](http://ejs.co/)
-4. [What is Express Middleware?](https://expressjs.com/en/guide/using-middleware.html)
-5. [How do I write middleware?](https://expressjs.com/en/guide/writing-middleware.html)
-6. [Anatomy of an HTTP Transaction](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/)
-7. [Using EJS with Express](https://github.com/mde/ejs/wiki/Using-EJS-with-Express)
+A server is a program, that is able to serve up information to other 
+computers/programs. A server `listens` to peoples `requests`, if the 
+`request` is valid, then server will respond with information, otherwise
+it may throw an error, show a warning to the client, or send the client
+somewhere else.
 
-## WEB SERVERS:
+By itself, server can only do one thing: `listen`. Servers listen to 
+other communications made by clients(other computers). 
 
-To review, we went over what it means for HTTP to be a "stateless" protocol. This means that everything needed for the server to identify the client needs to be passed along with every request. You'll explore this idea later this week!
+A client always asks a server for a `request`, and a server always has
+to give back a `response`. This is how the two comunicate with each other.
+A typical request/response senario is:
 
-My way of boiling down HTTP:
+- __Server is online!__
+- __Server is listening__
+- __A Wild Client Appears!__
+- Client: Hey server im looking for a method: `GET` and route: `http://example.edu/`
+- Server: Let me check if i have it...
+- Server: Aha found it, `responding` back with info i got on that.
+- __Server: Server is listening__
 
-1 person asks - client
-Another person responds - server
+![server2](https://www.quexsolutions.com/wp-content/uploads/2016/07/cloud-servers-1.gif)
 
-Remember that HTTP is a resource based protocol. So when you make HTTP requests keep in mind that the requests are always _for something_.
-
-HTTP is a state-less protocol
-  - no ongoing communication
-  - ask for thing, get thing, end transmission
-  - everything that the server needs to form a response needs to be sent with the request
-  - how do we pack useful info into the request and then how does the server read that useful info?
-
-Over the course of the lecture I made heavy use of a tool called Postman. This is basically cURL, but with a nice GUI.
-
-## HTTP Servers
-
-In lecture we played around with the HTTP module that Node provides, and saw that creating specific routes is a huge pain. For examples, look in the `http-test` folder at the `server.js` file. So we choose a framework that abstracts those problems away for us. Enter... Express!
-
-## Express
-
-Express is good for:
-1) Routing
-    - "I'm trying to find a resource... it kind of looks like this..."
-    - Pattern matching of routes + resources
-2) Middleware
-    - anything that needs to happen between the request and the response
-    - e.g. parsing form data into easier-to-use formats
-
-With Express we saw that it's fairly simple to set up new routes. We can even set up general **patterns** for routes that Express will use to *match* to requests. For example...
+A very basic NodeJS server can be code like so:
 
 ```js
-app.get('/people/:id', function(req, res) {
-    let id = req.params.id // I can get his parameter
-    let person = // ... find user by id ...
-    res.json({person: person}) // or some other response
+const PORT = 8080;
+let http = require('http');
+
+// server logic goes in here...
+let server = http.createServer((request, response) => {
+    response.end('Hello World!!');
+})
+
+// listening...
+server.listen(PORT, () => {
+    console.log("Server listening on port ", PORT);
+});
+```
+
+
+Now this code can be improved to take different requests and respond back
+with different logic like so:
+
+```js
+const PORT = 8080;
+let http = require('http');
+
+// server logic goes in here...
+let server = http.createServer((request, response) => {
+        // respond to all requests in this function
+        console.log(request.method); // method of request
+        console.log(request.url);   // url of request
+        if (request.method === 'GET' && request.url === '/') { 
+            // based on url and method we will do the following...
+            response.end('<h1>hello world</h1>');
+        }
+});
+
+// listening...
+server.listen(PORT, () => {
+    console.log("Server listening on port ", PORT);
+});
+```
+
+Now this is working as intended BUT managing this is going to be harder and 
+harder if we want to scale this well. Alot of [features](https://www.geeksforgeeks.org/node-js-vs-express-js/) are missing that we would have to code ourselves. So instead of using this, we will be switching to 
+a server framework called `ExpressJS`.
+
+#### What is ExpressJS
+
+![expressJS](https://miro.medium.com/max/6668/1*XP-mZOrIqX7OsFInN2ngRQ.png)
+
+"Express.js, or simply Express, is a back end web application framework for Node.js, released as free and open-source software under the MIT License. It is designed for building web applications and APIs. It has been called the de facto standard server framework for Node.js." - Wikipedia
+
+To start with we will first initialize a folder called `demo-expressJS` and run `npm init` so we can 
+keep track of all the node package dependencies.
+
+#### Getting Started
+
+`npm init`
+__follow the questionare that gets asked__
+
+Then we will make a file called `server.js`.
+
+Afterwards we will install `expressJS` by running the `npm install` command.
+
+`npm install express`
+
+This will install all the dependencies into our node_modules so we can start using `expressJS`.
+
+Now inside of `server.js` we will start working on getting a basics setup. Following the example
+from the [express documentation](https://expressjs.com/en/starter/hello-world.html)
+
+```js
+const PORT = 8080;
+
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at ${PORT}`);
 })
 ```
 
-Look in `express_demo` for some examples of different routes.
+TIP: `Req` and `Res` are requests and responses that will be used ALWAYS in servers!
 
-## Middleware
 
-Towards the end of the lecture I mentioned something called `middleware`. Middleware means "any code that you want to run between the request and the response". Check the links at the top of the notes for some good resources on middleware. If you look in the code that we wrote, there's a small example of some custom middleware (`app.use...`).
+#### EJS 
 
-I also mentioned something called Morgan. Morgan is one example of middleware that you can `npm install` and use in your project. It's used to log every request. I recommend installing it for your TinyApp project.
+Now that we we have a rudimentary server in the works, We need to make a bit more scalable.
+We can write `HTML` in the `res.send()` BUT its going to be messy and very hard to maintain...
+So we will be using a template engine called `EJS`
 
-## Views with EJS
+- FIRST we have to install `ejs` with `npm install`
 
-Often we'll want our web servers to return HTML pages containing that might have been pulled from a database, another API, etc. In these cases, we'd like to have a **"template"** system that lets us specify the general form of certain web pages (e.g. a profile page) which we can fill in with the required data.
+`npm install ejs`
 
-Let's consider a Wikipedia article page. This page requires data (title, images, etc.), and our template engine will combine the data and the template to generate a nice HTML page to serve to the browser.
+- then we will make a folder where our server is located called `views`
 
-    TEMPLATE ENGINE:
-        ---> Give me data
-        ---> Fill in the template with
-            - title
-            - images
-            - authors
-            - edit status (e.g. locked, open)
-        ---> RETURNS AN HTML FILE EVENTUALLY
+`mkdir views`
 
-The template engine we're using is EJS. EJS lets us embed arbitrary Javascript expressions, and it also lets up easily pass in template variables into the render function. Take a look at the `views` folder in the `express_demo` project to see examples of using EJS.
-
-Here's a bit of a cheat sheet:
-
-```
-<h1><%= hello %></h1>
-
-<% for (let i = 0; i < 10; i++) { %>
-    <h1>WOOP WOOP</h1>
-<% } %>
-```
-
-## Aside:
-
-Someone in a previous lecture asked a great question about how to make HTTP requests "on click" from the browser. That will be the topic of an entire lecture this week. For now, I'll leave this little snippet of code here. I don't recommend reading into this just yet, as you'll have plenty of time with this through assignments this week.
+- inside of views, we will make a file called: `home.ejs` and put the following code in it:
 
 ```html
-<form action="/dogs" method="POST">
-  <input type="text" name="something">
-  <button type="submit">Submit Form</button>
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+    <h1>HELLO WORLD</h1>
+</body>
+</html>
 ```
 
-Enjoy!
+
+- Finally, we will make modifications to our server.
+
+```js
+const PORT = 8080;
+
+const express = require('express');
+const app = express();
+
+// set the view engine to ejs
+app.set('view engine', 'ejs'); // <-----
+
+app.get('/', (req, res) => {
+  res.render('home') // <-- tell to render the HTML/EJS page we made
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening at ${PORT}`);
+})
+```
+
+#### Passing information from Server to View
+
+Sometimes we want to render something that is on the server. We need to remember that 
+`res.render()` takes in two arguments: one being the file to send, the second being 
+an `object` that can be used in the view file. So for instance:
+
+```js
+app.get('/', (req, res) => {
+  const object = {fruit: 'banana', vegetable: 'green pepper'}; // <-- OBJECT TO BE USED..
+  res.render('home', object) // OBJECT passed in...
+```
+
+We can now use thouse `keys` in `home.ejs` as follows:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+    <h1>HELLO WORLD</h1>
+    <%= fruit %>
+    <h3><%= vegetable %></h3>
+</body>
+</html>
+```
+
