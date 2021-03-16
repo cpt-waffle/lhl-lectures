@@ -31,76 +31,67 @@ const commentsData = [
     likes: 2,
     dislikes: 1,
   },
-
 ]
 
 
 
+
+
 function App() {
-  // PROPS ONLY GO DOWN DOWN DOWN DOWN to other components
-  // You cannot pass stuff up into parent component...
-
-
-  // let number = 0;
- // setNumber = (n) => number = n // BUT ALSO TELL REACT TO RERENDER THE VALUE NUMBER ON PAGE
-  const [number, setNumber] = useState(0)
-  const addNumber = () => {
-    setNumber(number + 1);
-    console.log(number)
-  }
 
   const [commentsList, setCommentsList] = useState(commentsData)
+  const [i, setI] = useState(0);
 
-  const handleClick = (id, type) => {
-    console.log("LINE 44 FROM App.js (VERY TOP)")
-    console.log(id, type);
-    //////////////////////////////////// METHOD 1 //////////////////////////
-    // // make a copy of our state
-    // const commentsCopy = [... commentsList];
-    // // loop through the comments 
-    // for (let singleComment of commentsCopy) {
-    //   console.log(singleComment);
-    //   if (singleComment.id === id) {
-    //     // increment a like or a dislike based on the correct comment
-    //     if (type === 'like') {
-    //       singleComment.likes++
-    //     }
-    //     else {
-    //       singleComment.dislikes++
-    //     }
-    //   }
-    // }
-    // console.log(commentsCopy);
-    // // set the copy to the original using the setState function (setCommentsList)
-    // setCommentsList(commentsCopy)
-    ////////////////////////////////////////////////////////
-    //                           METHOD 2
-    // "what you will see in react way..."
-    // make a copy of our state
-    // loop through the comments
-    const commentsCopy = commentsList.map( singleComment => {
-      // return ... commentsCopy.push(...)
-      if (singleComment.id === id) {
-        // increment like or dislike based on the correct comment
-        if (type === 'like') {
-          singleComment.likes++
-        } else {
-          singleComment.dislikes++
-        }
-      }
-      return singleComment // commentsCopy.push(singleComment)
-    })
-    // set CommentListe to the original using the setState function (setCommentsList)
-    setCommentsList(commentsCopy)
-
-
+  const handleIClick = () => {
+    setI(i+1);
+    console.log(i);
   }
+
+  const handleComment = (type, id) => {
+    console.log('Hello from Line 42 App.js');
+    console.log(type, id);
+    // // -------------- METHOD 1 -----------------
+    // // make a copy of our state
+    // const commentCopy = [...commentsList];
+    // // loop through the comments
+    // for (let comment of commentCopy) {
+    //   // if i find the correct comment
+    //   if (comment.id === id) {
+    //     // for that specific type 
+    //     if (type === 'like') {
+    //       // ++ type 
+    //       comment.likes++
+    //     } else {
+    //       comment.dislikes++
+    //     }
+    //   } 
+    // }
+    // // console.log('---->',commentCopy);
+    // // once done set the copy to the original
+    // setCommentsList(commentCopy)
+    // ---------------- METHOD 2 -----------------
+    // make a copy of our state
+    const commentsCopy = commentsList.map(comment => {
+        if (comment.id === id) {
+          // for that specific type 
+          if (type === 'like') {
+            // ++ type 
+            comment.likes++
+          } else {
+            comment.dislikes++
+          }
+        }
+        return comment;
+    })
+    setCommentsList(commentsCopy)
+  }
+
 
   return (
     <div>
       <h1>Comments for Dogs</h1>
-      <button onClick={addNumber}>{number}</button>
-      <CommentList list={commentsList} handleClick={handleClick}/>
+      <button onClick={handleIClick}>{i}</button>
+      <CommentList list={commentsList} sendIt={handleComment}/>
     </div>
   );
 }

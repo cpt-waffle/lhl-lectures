@@ -4,7 +4,7 @@ import { action } from "@storybook/addon-actions";
 
 
 import Comment from '../Components/Comment/';
-import CommentList from '../Components/CommentList'
+import CommentList from '../Components/CommentList';
 
 const comment = {
 	id: 1,
@@ -40,6 +40,5 @@ const comments = [
 // commentList(comments) IF IT WAS A FUNCTION!!!
 
 
-
 storiesOf('Comment List')
-	.add('A list of comments', () => <CommentList list={comments}/>)
+	.add('A list of comments', () => <CommentList list={comments}/> )

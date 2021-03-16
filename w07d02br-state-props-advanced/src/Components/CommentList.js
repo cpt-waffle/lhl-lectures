@@ -1,29 +1,21 @@
-// 1st thing 
-import React from 'react'
-import Comment from './Comment/index'
+// import React...
+import React from 'react';
+import Comment from './Comment/index';
+// making a component REVIEW ---
 
-// 2nd thing?
 
+// make a function
 function CommentList(props) {
-    console.log(props.list)
-    const arrayOfCommentsComponents = [];
+    console.log(props.list);
+    const renderComments = props.list.map(comment => {
+        return <Comment data={comment} handleOatmeal={props.sendIt}/>
+    });
 
-    for (let item of props.list) {
-        console.log(item);
-        arrayOfCommentsComponents.push(
-            <Comment data={item} handleClick={props.handleClick}/>
-        )
-    }
-
-    // 4th thing
     return (
         <div>
-            {arrayOfCommentsComponents}
+            {renderComments}
         </div>
     )
 }
 
-
-
-// 3rd thing
 export default CommentList;
