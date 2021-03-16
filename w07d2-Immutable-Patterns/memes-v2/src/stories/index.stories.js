@@ -14,7 +14,7 @@ import Meme from '../components/Meme'
 
 
 storiesOf('Form', module)
-    .add('Generic Form', () => <Form/>)
+    .add('Generic Form', () => <Form handleSubmit={action('handle-submit')}/>)
 
 storiesOf('Meme', module)
     .add('Default meme', () => <Meme img="https://i.pinimg.com/originals/b8/2d/a4/b82da434ed0b91d1928e4877f4011753.jpg"/>)

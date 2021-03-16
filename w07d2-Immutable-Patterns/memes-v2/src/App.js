@@ -1,29 +1,37 @@
 import React, { useState } from 'react';
 import './App.css';
-import Form from "./components/Form";
-import Meme from './components/Meme';
+import Form from './components/Form';
 
 
 function App() {
-  const [memes, setMemes] = useState([{img: 'https://i.pinimg.com/originals/b8/2d/a4/b82da434ed0b91d1928e4877f4011753.jpg'}])
 
-  // const result = [];
-  // for (let meme of memes) {
-  //   result.push(<Meme img={meme.img}/>)
-  // }
-  const result = memes.map( meme => <Meme img={meme.img}/>);
-  const apple = 'apple';
-  const handleAddMeme = (url) => {
-    console.log("URL PASSED IN", url);
-    console.log(memes);
-    setMemes([...memes, {img: url}]);
-    console.log("IM HANDLING MY MEME SUBMISSION");
+  const [memes, setMemes] = useState([]);
+
+  const handleAddMeme = (val) => {
+    console.log('HELLO WORLD! LINE 11 APP.js')
+    console.log(val);
+    // for (const item of memes) memesCopy.push(item);
+    // memesCopy.push(val);
+    // const memesCopy = [...memes, val];
+    setMemes([...memes, val]);
+
+
+
+    // WRONG WAY
+    // memes.push(val);
+    // setMemes(memes);
+  }  
+
+  const renderMemes = [];
+  for (const item of memes) {
+    renderMemes.push(<img style={{width: '200px', objectFit:'cover'}}src={item}/>)
   }
 
   return (
     <div className="App">
-      <Form fruit={apple} handleAddMeme={handleAddMeme}/>
-      {result}
+      Hello World :)
+      <Form handleSubmit={handleAddMeme}/>
+      {renderMemes};
     </div>
   );
 }

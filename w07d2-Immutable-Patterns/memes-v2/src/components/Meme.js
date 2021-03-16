@@ -1,7 +1,11 @@
 import React from 'react';
 
 function Meme(props) {
-    return (<img src={props.img}/>);
+    return (
+        <div>
+            meme component
+        </div>
+    );
 }
 
 export default Meme;
