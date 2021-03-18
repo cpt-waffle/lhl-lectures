@@ -1,21 +1,17 @@
-import React, { useState } from 'react';
-import LoginForm from './components/LoginForm';
+import React from 'react';
+import LoginForm from './components/LoginForm'
 import RegisterForm from './components/RegisterForm';
-import Color from './components/Color';
-
-// Custom hook is basically a way to refactor/test your states
-// it also makes state re-usable...
+import ColorChanger from './components/ColorChanger';
 
 
 function App() {
 
-
-
   return (
     <div className="App">
-      <LoginForm/>
-      <RegisterForm/>
-      <Color/>
+      WTF is Oatmeal?
+      {/* <LoginForm/>
+      <RegisterForm/> */}
+      <ColorChanger/>
     </div>
   );
 }
