@@ -102,3 +102,5 @@ In a many-to-many relationshipmultiple records in a table are associated with mu
 - This will help to improve the structure of the data
 - Beware: taking this process too far can result in extremely complex queries to retrieve related data
 [Normalization](https://www.studytonight.com/dbms/database-normalization.php)
+
+

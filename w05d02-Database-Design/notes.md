@@ -13,60 +13,33 @@
 -  BREAKOUT EXCERCISE - ERD 
 
 
--- ERD 
+------------- ERD --------------
+What is ERD ?
 
-What is it?
+Entity Relationship Diagram 
 
-Entity Relationship Digram
-
-plan out your data, its relations and how it maps between itself
-
-
-Enity (user, car, school, student)
-
-Relationship
+ - establish connection between tables ( relationships )
+ - plans out your data splitting
 
 
-Question for all
+---------- Naming Conventions -------
 
-SERIAL <-----
-not int
+we must have columns (which is our data that is categorized)
+columns are nouns and usually they are singular
+table names are usually plural 
+all columns must have a type
+                 (0-255)
+first_name ---> varchar (text) (NOT NULL) (DEFAULT)
+price_cent --->  INTEGER 
+BOOLEAN    ---> TRUE and FALSE
+(SERIAL)
 
+-------------- Relationships ---------------
 
-Naming Conventions 
-
-- we are going to name our tables and fields with `snake_case`
-- name our tables in a pluralized form
-
-Data Types
-
-all attributes all must have a data type!
-
-VARCHAR(255)
-TEXT
-
-INTEGER
-BIGINT ===> price_cents
-FLOAT  --> rounds values 14.45
-BOOLEAN
-(ARRAY AND JSON)
-
-Relationship Types
-
-One to One relationship 
-
-One record from table A is related to ONE record in Table B
-
-One To Many to relationship
-
-One record from Table A is realted to ONE or MORE record in the second table
-
-THe many to Many relationship!!!!
-
-One or more records from Table A is related to One or more recorsd in Table B
-
-To fix a a many-to-many relationship we add a "bridge-table" which connect the 2 tables
-toghether and makes the following relationship
-
-TABLE A                  BRIDGE TABLE                   TABLE B
-       < ONE TO MANY ==>               <== MANY TO ONE >
+One to many relationship ( one user has many urls)
+Many to one relationship (one url has one user)
+bridge tables for a many to many relationship
+(when we have clinics and patients and a patient visits a clinic
+we want to record this without data duplication so we made a bridge table called it admissions
+and put the hospital_id and client_id into it)
+One to one relationship 
