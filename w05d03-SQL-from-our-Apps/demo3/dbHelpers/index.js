@@ -1,22 +1,19 @@
 module.exports = (pool) => {
+    console.log("INITIALIZING FUNCTIONS......");
     const getStudents = () => {
-        return pool.query('SELECT * FROM students;').then(output => {
-            console.log("INSIDE OF INDEX.JS HELPER!!");
-            return output.rows;
-          }).catch(e => {
-            console.log(e);
+        return pool.query('SELECT * FROM students;').then(response => {
+            console.log(response.rows)
+            console.log("FROM THE GET STUDENTS FUNCTION!!!!!")
+            return response.rows;
+        }).catch(e => console.log(e))
+    }
+
+
+    const getQuizes = () => {
+        return pool.query('SELECT * FROM quizes').then(response => {
+            return response.rows;
         })
     }
 
-    const getMarks = () => {
-        const q = `SELECT name, mark, total  FROM students JOIN
-        quiz_results ON quiz_results.student_id = students.id 
-        JOIN quizes
-        ON quiz_results.quiz_id = quizes.id;`;
-        return pool.query(q).then(res => {
-            return res.rows;
-        })
-    }
-
-    return { getStudents, getMarks }
+    return { getStudents, getQuizes };
 }

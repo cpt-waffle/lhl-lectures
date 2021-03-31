@@ -134,7 +134,7 @@ export.default = { getStudents }
 For this we create, a `db` file that its purpose is just to connect to our database. Then we would import it into our server.js and after pass to our helper methods that contain psql commands.
 
 ```js
-// db.js
+// dbInitializeConnection.js
 
 const { Pool } = require('pg');
 // Setup a connection to PSQL with the correct credentials.
