@@ -1,29 +1,36 @@
-// what are functions?
-// what is a function?
+// what is a function ?
+// -  reusable block of code
+// -  call it anytime you need to redo something
 
-//                         whats name?
-// you can pass functions INTO functions :O
-// greetings is a "HIGH ORDER FUNCTION" <--- a function that takes another function 
-// as a paramater
-// callback - a function that IS A paramater of another function
-// callback ---------------------------|
-const greetings = function(name, anotherParamter) {
-                           // ^--------------- parameter
-    console.log(anotherParamter);
-    anotherParamter();
-    console.log('Hello ', name, "!!!");
+
+// function declaration
+const greetings = function(name) {
+
+    const result = 'Hello World ' + name ;
+    console.log(result);
+
+    return result;
 }
 
-const goodbye = function() { // a variable that is assigned to a function
-    console.log("GoodBye~~~!");
-    return 'hi';
+// 
+const oatmeal = "Vasiliy";
+// const result = greetings(oatmeal);
+// console.log(result);
+
+// what if i create a value right inside of the function call
+
+
+// greetings('Kelly!', 'ffff');
+
+
+const myFunction = function(a) {
+    console.log("MY FUNCTION LINE 32");
+    console.log(a);
+    a();
 }
-
-const arr = [1,2,3,4,5]; // variable
-const anotherName = 'Vas'; // variable
-
-greetings(anotherName, goodbye);
-
-greetings("Sam", function() {
-    console.log("Line 25: Dont know if this is going to work!");
-})
+// a callback is a function that gets passed into 
+// another function AS A PARAMETER
+const num = 1;
+myFunction(function() {
+    console.log('ANOTHER FUNCTION LINE 35:')
+});

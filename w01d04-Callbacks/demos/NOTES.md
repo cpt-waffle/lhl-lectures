@@ -1,6 +1,7 @@
 ---- Agenda ----
+- introductions ()
 - Q and A
-- Review (what are functions?)
+- Review (what are functions? and variables?)
 - Callbacks
 - Arrow Notation Functions
 BREAK

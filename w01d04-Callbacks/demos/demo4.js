@@ -4,28 +4,46 @@
 
 const array = [1,2,3,4,6,7,8,9,10];
 
-//               es5 notation
-//               es6 notation ---> arrow notation ---> arrow functions
-// function () { ... }
-const arrLoop = (arr, callback) => {
-    for (let item of arr) {
-        callback(item);
+const ourLoop = function(arr, callback) {
+    for (let index in arr) {
+        callback(arr[index]);
     }
 }
 
-
-let sum = 0;
-
-arrLoop(array, (val) => {
-    sum+= val;
+const arr = [];
+ourLoop(array, function(elem) {
+    arr.push(elem * 3);
 })
-console.log(sum);
 
-const evenNumbers = [];
-arrLoop(array, (val) => {
-    if (val % 2 === 0) {
-        evenNumbers.push(val);
-    }
+// console.log(arr);
+const myCB = function(v,i) {
+    console.log(v);
+    console.log(i);
+}
+
+arr.forEach(myCB);
+
+array.forEach(function(a, b, c) {
+    console.log("what is a?");
+    console.log(a);
+    console.log("What is b?");
+    console.log(b);
+    console.log("what is c?");
+    console.log(c);
 })
-console.log(evenNumbers);
+
+// ES5 function
+const myFunction = function (a) {
+    console.log(this);
+}
+
+// ES6 function
+const myFunctionES6 = (a,b,c) => {
+    console.log();
+}
+
+myFunction()
+console.log("--------")
+myFunctionES6();
+
 
