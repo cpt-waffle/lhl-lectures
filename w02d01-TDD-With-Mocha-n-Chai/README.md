@@ -17,31 +17,51 @@ The TDD process follows
 
 #### The Problem:
 
-Lets write a function that takes in 2 arrays, and check if both arrays are equal, if they are return `true` else returns `false`.
+We want to write a function that checks if a a string is a palidnrome ( the same word is backwards). So we work on our code and come up with:
 
 ```js
-// Just enough to run the function
-const equalArrays = (arrOne, arrTwo) => {
-  return 0;
+const palindrome = (str) => {
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] !== str[str.length-1 - i])
+            return false;
+    }
+
+    return true;
 }
 ```
 
+This is good! And even maybe correct! buut we cannot truly know until we write some Tests. In the past, you would test this code manually, but we want to slowly make these tests automatic! We learned that javascript has a few different ways of writting some tests.
+
+
+#### `console.assert`
+```js
+  console.assert(palindrome('racecar') === true, 'FAIL: Should of returned true, but returned false')
+```
+
+#### `Built in assert library`
+
+```js
+const assert = require('assert');
+assert.strictEqual(numOfVowels('tomato'), 3, 'Tomato has 3 vowels!');
+```
+
+These are great methods, but they lack readiblity ( sometimes ), and overall they are alittle primative for what we want to do. Instead we will use 3rd party libraries like `mocha` and `chai` in helping us out!
+
+Before however, we want our files to be `modules`. We do not want to write our tests Right in the same file because it is not the clean approach. We want our tests seperated from the overal function. So here comes `module.exports`
+
 ### Module Exports
 
-You might be thinking now: "This is enough to write the tests, lets run some tests!", however lets take a quick stop and think about where should we write them. If we start looking into re-usbale code we should modularize this function. We can keep our function as one file, to keep things nice and separated, and just `require` it out to another file.
+If we start looking into re-usbale code we should modularize this function. We can keep our function as one file, to keep things nice and separated, and just `require` it out to another file.
 
 if we add to our equalArrays File:
 
 ```js
 // Just enough to run the function
-const equalArrays = (arrOne, arrTwo) => {
-  return 0;
-}
 
 console.log(module);
 ```
 
-You will get some gigantic object that looks like this
+You will get some gigantic object that looks like this:
 
 ```js
 Module {
@@ -77,49 +97,93 @@ Whatever we put into that object, (even overwritting it for any other variable) 
 
 ```js
 // Just enough to run the function
-const equalArrays = (arrOne, arrTwo) => {
-  return 0;
+const palindrome = (str) => {
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] !== str[str.length-1 - i])
+            return false;
+    }
+
+    return true;
 }
 
-module.exports = { equalArrays }
+module.exports = { palindrome }
 ```
 Our Folder structure should look like this:
 
 ```
 -test  // FOLDER
-  -> test.js // FILE WITHIN FOLDER test
--equalArrays.js  // FILE THATs ADJACENT TO test FOLDER
+  -> palindromeTest.js // FILE WITHIN FOLDER test
+-palindrome.js  // FILE THATs ADJACENT TO test FOLDER
 ```
 
 We will then make a folder called `test` and make a file in that folder called `test.js`. In that file, we will write this
 ```js
-const { equalArrays } = require('../equalArrays');
-console.log(equalArrays);
+const { palindrome } = require('../palindrome');
+console.log(palindrome);
 ```
 
 And when we run this we will get
 
 ```js
-[Function: equalArrays]
+[Function: palindrome]
 ```
 
 printed on the screen and if we run the function in console.log
 
 ```js
-console.log(equalArrays());
+console.log(palindrome());
 ```
 
-will print `0` because that we coded our function to do for now. This is the way you should start to structure your functions that you are thinking of reusing in other code. Rewritting code is never good, so re-using it just makes alot more sense.
+will print `false` because that we coded our function to do for now. This is the way you should start to structure your functions that you are thinking of reusing in other code. Rewritting code is never good, so re-using it just makes alot more sense.
 
 #### Writing some Tests
 
 In `test.js` file we will start thinking of some tests we want to write
 
 ```js
-console.log("inputs are [1,2,3,4], [1,2,3,4] ==> should return TRUE --->  ", equalArrays([1,2,3,4], [1,2,3,4]));
-console.log("inputs are ['a', 'a'], ['a', 'a'] ===> should return TRUE --->  ",  equalArrays(['a', 'a'],['a', 'a']));
-console.log("inputs are [1,2,3,4], [1] ==> should return FALSE --->  ", equalArrays([1,2,3,4], [1]));
-console.log("inputs are 'a', 23 ==> should return FALSE --->  ", equalArrays('a', 23));
+//EDGE CASES
+// if we put in a number, or array, or obj should return false
+try {
+    console.assert(palindrome(1221) === false, 'FAIL: a integer passed should return false');
+
+} catch (e) {
+    console.log(e.message);
+}
+// if string is empty, return false 
+try {
+    console.assert(palindrome('') === false, 'FAIL: empty string should return false');
+
+} catch (e) {
+    console.log(e.message);
+}
+// if undefined, return false
+try {
+    console.assert(palindrome() === false, 'FAIL: if nothing/null has been passed, return false');
+
+} catch (e) {
+    console.log(e.message);
+}
+
+// 1 word pallindrome
+console.assert(palindrome('racecar') === true, 'FAIL: racecar should return true');
+// 1 word non-pallindrome
+console.assert(palindrome('hello') === false, 'FAIL: hello should return false');
+// multi word pallindrome
+[1] === [1]
+// multi word non palindrome 
+try {
+    assert(palindrome('was it a car or a cat i saw') === true, 'FAIL: "was it a car or a cat i saw "should return true');
+} catch (e) {
+    console.log(e.message);
+}
+/// 2 ways of writting tests with nodeJS (without any libraries)
+try {
+assert(palindrome('hello world') === true, 'FAIL: "hello world" should return false');
+} catch (e) {
+    console.log(e.message);
+}
+// console.assert
+// the built in assert library
 ```
 
 Now we will finally start writing code and test each time we write to make sure each test passes.
@@ -150,41 +214,56 @@ Great!! Our Tests pass and now we have done our first trust of TDD. However, it 
 Introducing [Mocha](https://mochajs.org/)! Mocha is a `framework` That lets us write our tests alittle bit structured. We have `describe` blocks that lets us explain which tests will be running, and we have `it` blocks where we can write what each test does
 
 ```js
-describe("Tests for equalArrays Function!", () => {
-  describe("Number Tests", () => {
-    it("takes 2 arrays (numbers) that are equal and returns true", () => {
-      assert.equal(equalArrays([1,2,3,4],[1,2,3,4]), true);
+const { expect } = require('chai')
+const palindrome = require('../palindrome');
+
+describe("Edge Cases Tests for Palindrome", () => {
+    it('should return false when a number is passed', function() {
+        expect(palindrome(1221)).to.equal(false);
+    });
+    it('should return false when an empty string is passed', function() {
+        expect(palindrome("")).to.equal(false);
+    });
+
+    it('should return false when palidrome is called without any paramters', function() {
+        expect(palindrome()).to.equal(false);
+    })
+})
+
+describe('Happy Path Cases for palindrome', () => {
+    it('should return true for the word racecar', () => {
+        expect(palindrome('racecar')).to.equal(true);
     })
 
-    it("takes 2 arrays with only 1 item in, returns true", () => {
-      assert.equal(equalArrays([1],[1]), true);
+    it('should return false for hello because its not a palindrome', () => {
+        expect(palindrome('hello')).to.equal(false);
     })
 
-    it("takes 2 arrays (decimal number arrays) that are equal and returns true", () => {
-      assert.equal(equalArrays([3.14, 2.15],[3.14, 2.15]), true);
+    it('should return true for a multi word palindrome', () => {
+        expect(palindrome('was it a car or a cat i saw')).to.equal(true);
     })
-  })
 
-  describe("String Tests", () => {
-    it("takes 2 arrays (string values) that are equal and returns true", () => {
-      assert.equal(equalArrays(['a', 'b'],['a', 'b']), true);
+    it('should return false for multi word non-palindrome', () => {
+        expect(palindrome('hello world')).to.equal(false);
     })
-  })
-});
+})
+;
 ```
 
 So after installing it as a `dev-dependancy` for `mocha` we run `npm run test`
 
 ```
 
-  Tests for equalArrays Function!
-    Number Tests
-      ✓ takes 2 arrays (numbers) that are equal and returns true
-      ✓ takes 2 arrays with only 1 item in, returns true
-      ✓ takes 2 arrays (decimal number arrays) that are equal and returns true
-    String Tests
-      ✓ takes 2 arrays (string values) that are equal and returns true
+  Edge Cases Tests for Palindrome
+    ✓ should return false when a number is passed
+    ✓ should return false when an empty string is passed
+    ✓ should return false when palidrome is called without any paramters
 
+  Happy Path Cases for palindrome
+    ✓ should return true for the word racecar
+    ✓ should return false for hello because its not a palindrome
+    ✓ should return true for a multi word palindrome
+    ✓ should return false for multi word non-palindrome
 
 ```
 

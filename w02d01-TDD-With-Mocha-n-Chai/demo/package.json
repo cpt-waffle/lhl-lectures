@@ -1,0 +1,15 @@
+{
+  "name": "ptest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "numOfVowels.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2"
+  }
+}

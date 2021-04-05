@@ -1,0 +1,16 @@
+{
+  "name": "new_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "duplicateArrValues.js",
+  "scripts": {
+    "test": "mocha",
+    "runpali": "node palindrome.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2"
+  }
+}
