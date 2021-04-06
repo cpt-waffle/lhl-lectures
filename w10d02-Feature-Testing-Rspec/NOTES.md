@@ -7,20 +7,3 @@
 
 
 
-
-```ruby
-gem 'rspec-rails'
-```
-
-initialize rpsec
-
-rails g rspec:install
-
-
-migrations and app setup!
-
-make some models with migrations
-
-migrate !!
-
-

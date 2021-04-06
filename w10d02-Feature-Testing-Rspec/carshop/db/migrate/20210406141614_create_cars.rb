@@ -5,8 +5,8 @@ class CreateCars < ActiveRecord::Migration[6.0]
       t.references :model, null: false, foreign_key: true
       t.references :trim, null: false, foreign_key: true
       t.references :style, null: false, foreign_key: true
-      t.string :color
       t.integer :year
+      t.string :color
 
       t.timestamps
     end

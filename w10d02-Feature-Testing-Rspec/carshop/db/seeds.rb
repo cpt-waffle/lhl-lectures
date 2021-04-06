@@ -8,7 +8,7 @@
 
 puts "creating makes..."
 5.times do
-    Make.create(make: Faker::Vehicle.make)
+  Make.create!(make: Faker::Vehicle.make)
 end
 
 puts "creating models..."
@@ -21,7 +21,7 @@ puts "creating trims..."
   Trim.create!(trim_level: Faker::Vehicle.style)
 end
 
-puts "creating styles..."
+puts "creating styles"
 5.times do
   Style.create(body_style: Faker::Vehicle.car_type)
 end

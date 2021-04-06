@@ -1,4 +1,13 @@
+
+## Create our first feature spec
+
+
 cars_spec.rb
+
+```bash
+rails g rspec:feature cars
+```
+
 
 RSpec.feature "Cars", type: :feature, js:true do
                                           ^---------------------DO THAT 

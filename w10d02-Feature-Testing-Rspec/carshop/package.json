@@ -1,5 +1,5 @@
 {
-  "name": "carShopV2",
+  "name": "carshop",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
