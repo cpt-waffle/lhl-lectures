@@ -1,19 +1,10 @@
-Final Projects!!
+Final Projects
 
-Real Time communication --- Using Sockets (SocketIO)
+--  Advanced Topic  --
+REAL TIME COMMUNICATION (socket.io)
 
-Quick Review
-
-HTTP
-
-CLIENT                                   SERVER
-CONNECTION IS MADE
-request==================================>AWESOME GOT IT (GET/POST)
-      <==================================response
-CONNECTION IS TERMINATED
+- socket.io
+- actioncable 
 
 
-SOCKETS (WEB SOCKETS) (TCP)
-kinda snek game?
-CLIENT                                            SERVER
-<------------------CONNECTION ESTABLISHED---------------------->
+
