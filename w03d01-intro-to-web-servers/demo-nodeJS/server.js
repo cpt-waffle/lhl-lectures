@@ -1,25 +1,28 @@
-// require the server library
+// using a built in library, we will build a server
+// built in library - http
 const http = require('http');
 
-// initialize the server...         
-const server = http.createServer((request, response) => { // Request, Response
-  // Request <--- peice of paper that you(client) slide under the door
-  // response <--- peice of papaer that the server slides back to you under the door.
-  console.log(request.url);
-  console.log(request.method);
-  // TCP  <--- you kept connected and waited for messages
-  // HTTP <--- you connect, make a request, get a response, disconnect!
+// createServer method() --- this is where we write our instructions on the door ( routes )
+const server = http.createServer((request, response) => {
+  console.log("URL", request.url);
+  console.log("METHOD", request.method);
   if (request.url === '/' && request.method === 'GET') {
-    response.end('Hello world!!');
-  } else if (request.url === '/memes' && request.method === 'GET') {
-    response.end('<a href="https://i.imgflip.com/3w5th4.jpg"> some image </a>');
+    response.end('<html><body><h1>hello world!!</h1></body></html>');
+  } else if (request.url === '/first' && request.method === 'GET') {
+    response.end("first page")
+  } else if (request.url === '/second' && request.method === 'GET') {
+    response.end('second page')
   } else {
-    response.end('wrong link my dude!');
+    response.end("route does not exist :(");
   }
-
 })
 
-// we want the server to listen...
+
+// listen method() --- when we finish defining our instructions, we will listen
+// to people that come to the door with requests
 server.listen(8080, () => {
-    console.log("Server is online on port: 8080");
+  console.log("server is on!!");
 })
+
+
+console.log(" :) ");

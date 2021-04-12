@@ -7,6 +7,11 @@
 - EJS
 - Sending information from Server to EJS
 
-### What is/are Web Servers??
+## -------------- Web Servers ------------- ##
 
-Its just a program that is able to give info to other computers via a network.
+- gaming servers ()
+- program that accepts req and sends data
+
+# Building our own small web server using http
+
+
