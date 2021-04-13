@@ -3,8 +3,9 @@ import { storiesOf } from '@storybook/react';
 import { action } from "@storybook/addon-actions";
 
 
-import Comment from '../Components/Comment/';
-import CommentList from '../Components/CommentList';
+import Comment from '../Components/Comment';
+// 
+import CommentList from '../Components/CommentList'
 
 const comment = {
 	id: 1,
@@ -13,7 +14,7 @@ const comment = {
 	likes: 10,
 	dislikes: 1,
 }
-
+// (Comment(data: comment))
 storiesOf('Comments')
 	.add('A Random Comment', () => <Comment data={comment} handleClick={action('onClick')}/>)
 
@@ -35,10 +36,7 @@ const comments = [
 		dislikes: 55,
 	}
 ]
-
-// const commentList = (list, 'hello', true, [1,2,3,4]) => ....
-// commentList(comments) IF IT WAS A FUNCTION!!!
-
-
+// props
 storiesOf('Comment List')
-	.add('A list of comments', () => <CommentList list={comments}/> )
+	.add('A list of comments', () => <CommentList list={comments} />)
+

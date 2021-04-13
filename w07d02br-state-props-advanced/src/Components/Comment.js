@@ -8,11 +8,11 @@ function Comment(props) {
 	// $('#buttonCLick').on('click', (evt) => {/..})
 	const onLikeClick = () => {
 		console.log(props);
-		props.handleOatmeal('like', props.data.id);
+		props.handleClick(id, 'like');
 	}
 
 	const onDislikeClick = () => {
-		props.handleOatmeal('dislike', props.data.id);
+		props.handleClick(id, 'dislike');
 	}
 
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import CommentList from './Components/CommentList';
+import CommentList from './Components/CommentList'
 // our fake api data...
 const commentsData = [
   { 
@@ -39,59 +39,59 @@ const commentsData = [
 
 function App() {
 
-  const [commentsList, setCommentsList] = useState(commentsData)
-  const [i, setI] = useState(0);
-
-  const handleIClick = () => {
-    setI(i+1);
-    console.log(i);
-  }
-
-  const handleComment = (type, id) => {
-    console.log('Hello from Line 42 App.js');
-    console.log(type, id);
-    // // -------------- METHOD 1 -----------------
-    // // make a copy of our state
-    // const commentCopy = [...commentsList];
-    // // loop through the comments
-    // for (let comment of commentCopy) {
-    //   // if i find the correct comment
+  const handleComment = (id, type) => {
+    console.log("APP.JS line 43!!")
+    console.log(id, type);
+    // make a copy of our commentsState 
+    //////////// METHOD ONE ---------------
+    // const commentsCopy = [...commentsState];
+    // // loop through the copy
+    // for (let comment of commentsCopy) {
+    //   // find the id that was clicked and matches the curent iteration
     //   if (comment.id === id) {
-    //     // for that specific type 
+    //     // modify likes/dislikes depending on the type that was clicked
     //     if (type === 'like') {
-    //       // ++ type 
-    //       comment.likes++
+    //       comment.likes++;
     //     } else {
-    //       comment.dislikes++
+    //       comment.dislikes++;
     //     }
-    //   } 
+    //   }
     // }
-    // // console.log('---->',commentCopy);
-    // // once done set the copy to the original
-    // setCommentsList(commentCopy)
-    // ---------------- METHOD 2 -----------------
-    // make a copy of our state
-    const commentsCopy = commentsList.map(comment => {
-        if (comment.id === id) {
-          // for that specific type 
-          if (type === 'like') {
-            // ++ type 
-            comment.likes++
-          } else {
-            comment.dislikes++
-          }
-        }
-        return comment;
-    })
-    setCommentsList(commentsCopy)
-  }
+    // // set the original to the copy using the setCommentsState
+    // setCommentsState(commentsCopy);
+    //----------------------------------------
 
+    // METHOD 2------------
+    const commentsCopy = commentsState.map(comment => {
+      if (comment.id === id) {
+        // modify likes/dislikes depending on the type that was clicked
+        if (type === 'like') {
+          comment.likes++;
+        } else {
+          comment.dislikes++;
+        }
+
+      }
+      return comment;
+    })
+    setCommentsState(commentsCopy);
+  }
+  // let number = 0;
+  let [number, setNumber] = useState(0);
+  // setNumber = (arg) => number = arg; BUT ALSO TELL THE ENTIRE REACT
+  // TO RE-RENDER ANY HTML/JSX that HOLDS THAT VARIABLE
+  const [commentsState, setCommentsState] = useState(commentsData);
+
+  const addNum = () => {
+    setNumber(number+1)
+  }
 
   return (
     <div>
       <h1>Comments for Dogs</h1>
-      <button onClick={handleIClick}>{i}</button>
-      <CommentList list={commentsList} sendIt={handleComment}/>
+      <h1>{number}</h1>
+      <button onClick={addNum}> click me to add + 1</button>
+      <CommentList list={commentsState} handleComment={handleComment} />
     </div>
   );
 }
