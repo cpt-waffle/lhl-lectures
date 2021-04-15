@@ -1,23 +1,23 @@
-import React from 'react';
-import useForm from '../hooks/useForm';
+import React, { useState } from 'react';
+import useForm from '../hooks/useForm'
 
-function LoginForm(props) {
+const RegisterForm = (props) => {
+
     const email = useForm();
     const pass = useForm();
 
     const onSubmit = (evt) => {
         evt.preventDefault();
-        alert(`${email.val}   ${pass.val}`);
+        console.log(email, pass);
     }
 
-
-    return (<form onSubmit={onSubmit}>
+    return <form onSubmit={onSubmit}>
         <h1>Login Form</h1>
-        <p>username: <input type="email" name="email" value={email.val} onChange={email.onChangeVal}/></p>
-        <p>password: <input type="password" name="password" value={pass.val} onChange={pass.onChangeVal}/></p>
-        <p><button>Submit</button></p>
-    </form>)
-
+        <p>Email:<input onChange={email.onChangeVal} type='text' name='email'value={email.val}/></p>
+        <p>Password:<input onChange={pass.onChangeVal} type='password' name='pass' value={pass.val}/></p>
+        <p><button>Submit </button></p>
+    </form>
 }
 
-export default LoginForm;
+
+export default RegisterForm;

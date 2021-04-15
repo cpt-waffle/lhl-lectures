@@ -1,27 +1,28 @@
-import React from 'react';
-import useForm from '../hooks/useForm';
-// can we reuse some of the state logic somewhere else?
-// absolutely with this wierd thingy called CUSTOM HOOKS!!!
+import React, { useState } from 'react';
+import useForm from '../hooks/useForm'
 
-function RegisterForm(props) {
+const RegisterForm = (props) => {
+    const name = useForm('vas');
     const email = useForm();
     const pass = useForm();
-    const confPass = useForm();
+    const passConf = useForm('test');
+
+    console.log(name, email, pass);
 
     const onSubmit = (evt) => {
         evt.preventDefault();
-        alert(`${email}   ${pass}`);
+        console.log(name, email, pass, passConf);
     }
 
-    return (<form onSubmit={onSubmit}>
+    return <form onSubmit={onSubmit}>
         <h1>Register Form</h1>
-        <p>username: <input type="email" name="email" value={email.val} onChange={email.onChangeVal}/></p>
-        <p>password: <input type="password" name="password" value={pass.val} onChange={pass.onChangeVal}/></p>
-        <p>password: <input type="password" name="password" value={confPass.val} onChange={confPass.onChangeVal}/></p>
-
-        <p><button>Submit</button></p>
-    </form>)
-
+        <p>Name:<input onChange={name.onChangeVal} type='text' name='name' value={name.val}/></p>
+        <p>Email:<input onChange={email.onChangeVal} type='text' name='email'value={email.val}/></p>
+        <p>Password:<input onChange={pass.onChangeVal} type='password' name='pass' value={pass.val}/></p>
+        <p>PasswordConf:<input onChange={passConf.onChangeVal} type='password' name='passConf' value={passConf.val}/></p>
+        <p><button>Submit </button></p>
+    </form>
 }
+
 
 export default RegisterForm;

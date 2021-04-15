@@ -1,22 +1,22 @@
-// make a hooks folder
-// make a file with a prefix 'use____'.jsx
-// make a function called 'use___'
-import {useState, useEffect} from 'react';
+import { useState } from 'react';
 
+// STEP 1 = MAKE a use_____.js file 
+// STEP 2 = Start JUST LIKE you start with making a react component....
+// BUUUUUUUT no renders
 
-function useForm() {
-    // make your logic for state here....
-    const [val, setVal] = useState('');
+const useForm = (tempName) => {
+    console.log("useForm is running.....!")
+    const [val, setVal] = useState(tempName ? tempName : '');
 
-    const onChangeVal = (evt) => {
+    const onChangeVal = evt => {
         setVal(evt.target.value);
     }
 
-    // DO NOT RETURN JSX 
-    // return the functions and variables you will need to use in the component..
-    return {val, onChangeVal}
+    return {val, onChangeVal};
 }
 
 
-// export the function as you would do..
+
 export default useForm;
+
+// Step 3 -- import it into the correct components
