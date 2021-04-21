@@ -1,218 +1,208 @@
-// step one create a function that appends an item to our DOM 
+console.log("HELLO WORLD!!!");
 
-const dummyResult = [{
-    score: 17.38446,
-    show: {
-    id: 1715,
-    url: "http://www.tvmaze.com/shows/1715/counting-cars",
-    name: "Counting Cars",
-    type: "Reality",
-    language: "English",
-    genres: [ ],
-    status: "Running",
-    runtime: 60,
-    premiered: "2012-08-13",
-    officialSite: "http://www.history.com/shows/counting-cars",
-    schedule: {
-    time: "22:00",
-    days: [
-        "Wednesday"
+const dummyData = [
+    {
+    "score": 16.048777,
+    "show": {
+    "id": 28274,
+    "url": "https://www.tvmaze.com/shows/28274/apple-tree-house",
+    "name": "Apple Tree House",
+    "type": "Scripted",
+    "language": "English",
+    "genres": [
+    "Drama",
+    "Adventure",
+    "Children"
+    ],
+    "status": "To Be Determined",
+    "runtime": 15,
+    "premiered": "2017-05-22",
+    "officialSite": "http://www.bbc.co.uk/cbeebies/shows/apple-tree-house",
+    "schedule": {
+    "time": "17:30",
+    "days": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday"
     ]
     },
-        rating: {
-        average: 8.1
+    "rating": {
+    "average": null
     },
-    weight: 87,
-    network: {
-        id: 53,
-        name: "History",
-        country: {
-            name: "United States",
-            code: "US",
-            timezone: "America/New_York"
-        }
-    },
-    webChannel: null,
-    externals: {
-        tvrage: 32440,
-        thetvdb: 261181,
-        imdb: "tt2338096"
-    },
-    image: {
-        medium: "http://static.tvmaze.com/uploads/images/medium_portrait/9/24055.jpg",
-        original: "http://static.tvmaze.com/uploads/images/original_untouched/9/24055.jpg"
-    },
-    summary: "<p>Most people in Las Vegas bet with chips, but Danny 'The Count' Koker bets with cars. Known from his numerous appearances on Pawn Stars, this Sin City legend walks, talks and breathes classic American muscle cars. When he sees a car he wants, he will do whatever it takes to get his hands on it—including making on-the-spot cash offers to unsuspecting owners. On the HISTORY series <b>Counting Cars</b>, Danny and his team restore, customize and sell cars in a hurry, scrambling to keep their Las Vegas shop in the black. From vintage Thunderbirds to classic Corvettes, toy cars to souped-up sidecar motorcycles, Danny and the crew of Count's Kustoms will stop at nothing to find and flip the greatest rides of all time.</p>",
-    updated: 1599657730,
-    _links: {
-        self: {
-        href: "http://api.tvmaze.com/shows/1715"
-    },
-        previousepisode: {
-        href: "http://api.tvmaze.com/episodes/1896383"
-    }
-    }
-    }
-},
-{
-    score: 12.992896,
-    show: {
-    id: 7488,
-    url: "http://www.tvmaze.com/shows/7488/chasing-classic-cars",
-    name: "Chasing Classic Cars",
-    type: "Reality",
-    language: "English",
-    genres: [ ],
-    status: "Running",
-    runtime: 60,
-    premiered: "2008-06-03",
-    officialSite: "https://watch.motortrend.com/tv-shows/chasing-classic-cars/",
-    schedule: {
-    time: "22:00",
-    days: [
-    "Tuesday"
-    ]
-    },
-    rating: {
-    average: 6.2
-    },
-    weight: 93,
-    network: {
-    id: 142,
-    name: "MotorTrend",
-    country: {
-    name: "United States",
-    code: "US",
-    timezone: "America/New_York"
+    "weight": 55,
+    "network": {
+    "id": 458,
+    "name": "CBeebies",
+    "country": {
+    "name": "United Kingdom",
+    "code": "GB",
+    "timezone": "Europe/London"
     }
     },
-    webChannel: null,
-    externals: {
-    tvrage: null,
-    thetvdb: 172181,
-    imdb: "tt1357604"
+    "webChannel": null,
+    "dvdCountry": null,
+    "externals": {
+    "tvrage": null,
+    "thetvdb": 328558,
+    "imdb": "tt6896488"
     },
-    image: {
-    medium: "http://static.tvmaze.com/uploads/images/medium_portrait/205/513169.jpg",
-    original: "http://static.tvmaze.com/uploads/images/original_untouched/205/513169.jpg"
+    "image": {
+    "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/112/280637.jpg",
+    "original": "https://static.tvmaze.com/uploads/images/original_untouched/112/280637.jpg"
     },
-    summary: "<p>Hosted by renowned collector car archeologist, Wayne Carini, <b>Chasing Classic Cars</b> welcomes viewers into the elite world of high-end car collection, as Wayne finds, buys, restores and sells some of the finest and most unique vehicles ever manufactured. In <i>Chasing Classic Cars</i>, Wayne chases down original one-off cars in secret stashes around the country and meets with some of the hobby's most respected collectors, restorers, and artisans, giving viewers insight into the classic car expert's elite inner circle. Whether he is restoring a vintage ride, or searching for a hidden gem in garages around the world, Wayne's straight-shooting sensibility and passion for everything on wheels makes <i>Chasing Classic Cars</i> a must-see for car lovers everywhere.</p>",
-    updated: 1586367134,
-    _links: {
-    self: {
-    href: "http://api.tvmaze.com/shows/7488"
+    "summary": "<p><b>Apple Tree House</b> is a preschool drama series that follows Mali, an ordinary boy who has just moved on to an extraordinary inner city estate, where he meets his new best friend Sam, the daughter of the estate's caretaker. Together they solve daily problems and overcome childhood dilemmas - all within the safety net of their loving families and the inspirational Apple Tree community that surrounds them.</p>",
+    "updated": 1600966965,
+    "_links": {
+    "self": {
+    "href": "https://api.tvmaze.com/shows/28274"
     },
-    previousepisode: {
-    href: "http://api.tvmaze.com/episodes/1829849"
+    "previousepisode": {
+    "href": "https://api.tvmaze.com/episodes/1681272"
     }
     }
     }
     },
     {
-    score: 11.842384,
-    show: {
-    id: 40158,
-    url: "http://www.tvmaze.com/shows/40158/mystery-cars",
-    name: "Mystery Cars",
-    type: "Documentary",
-    language: "English",
-    genres: [ ],
-    status: "Ended",
-    runtime: 30,
-    premiered: null,
-    officialSite: null,
-    schedule: {
-    time: "",
-    days: [ ]
+    "score": 15.05731,
+    "show": {
+    "id": 17005,
+    "url": "https://www.tvmaze.com/shows/17005/apple-onion",
+    "name": "Apple & Onion",
+    "type": "Animation",
+    "language": "English",
+    "genres": [
+    "Comedy",
+    "Children"
+    ],
+    "status": "Running",
+    "runtime": 15,
+    "premiered": "2016-05-14",
+    "officialSite": "https://www.cartoonnetwork.com/video/apple-and-onion/index.html",
+    "schedule": {
+    "time": "18:00",
+    "days": [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday"
+    ]
     },
-    rating: {
-    average: null
+    "rating": {
+    "average": null
     },
-    weight: 33,
-    network: {
-    id: 66,
-    name: "Discovery Channel",
-    country: {
-    name: "United States",
-    code: "US",
-    timezone: "America/New_York"
+    "weight": 72,
+    "network": {
+    "id": 11,
+    "name": "Cartoon Network",
+    "country": {
+    "name": "United States",
+    "code": "US",
+    "timezone": "America/New_York"
     }
     },
-    webChannel: null,
-    externals: {
-    tvrage: null,
-    thetvdb: 274167,
-    imdb: "tt5050676"
+    "webChannel": null,
+    "dvdCountry": null,
+    "externals": {
+    "tvrage": null,
+    "thetvdb": 342060,
+    "imdb": "tt8019790"
     },
-    image: {
-    medium: "http://static.tvmaze.com/uploads/images/medium_portrait/220/551666.jpg",
-    original: "http://static.tvmaze.com/uploads/images/original_untouched/220/551666.jpg"
+    "image": {
+    "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/206/515287.jpg",
+    "original": "https://static.tvmaze.com/uploads/images/original_untouched/206/515287.jpg"
     },
-    summary: "<p>In the 1950's, America had broken free from the shackles of wartime economics. It was walking with the swagger of a Nation that had the world by the tail. Scientists had harnessed nuclear energy. Jetpropelled airplanes were breaking speed records... and the race to space was on! But perhaps more than anything else, one thing melded imagination and consumerism, putting this era in perfect context: The concept car. Unlike satellites, rockets, and jet planes these dream cars were accessible. People flocked to auto shows like GM's Motorama to see the concept cars in their titanium bodied glory. They were snapshots of how America perceived its future. Jaw dropping, unforgettable but what happened then? Most were destroyed. Some just plain vanished. But amazingly, some are still here and new series Mystery Cars is on a mission to find them.</p>",
-    updated: 1573326332,
-    _links: {
-    self: {
-    href: "http://api.tvmaze.com/shows/40158"
+    "summary": "<p><b>Apple &amp; Onion</b> are two best buddies who get invited to Hotdog's party, but they find they've still got some growing up to do.</p>",
+    "updated": 1617291844,
+    "_links": {
+    "self": {
+    "href": "https://api.tvmaze.com/shows/17005"
+    },
+    "previousepisode": {
+    "href": "https://api.tvmaze.com/episodes/2056041"
     }
     }
     }
     },
-
 ]
 
 
+// $.ajax({
+//     url: 'http://api.tvmaze.com/search/shows?q=toronto',
+//     success: (data) => {
+//         console.log(data);
+//     }
+// })
 
-const renderItem = (searchItem) => {
-    console.log("render item is running");
-    console.log(searchItem);
-    let img = '';
-    if (searchItem.show.image) {
-        img = searchItem.show.image.medium;
-    } else {
-        img = 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'
-    }
-    const item = `
-        <div class="item">
-            <img src="${img}"/>
-            <div>
-                <h4>${searchItem.show.name}</h4>
-                <h5>Score: ${searchItem.score}</h5>
-            </div>
-        </div>
-    `;
-    $('#results').append(item);
-}
-
-const renderItems = (results) => {
-    for (let result of results) {
-        renderItem(result);
-    }
-}
+/////////////
 
 
-$(document).ready( () => {
-    console.log('everything is loaded!');
-    // renderItems(dummyResult);
+// $.get( "http://api.tvmaze.com/search/shows?q=montreal", function(data) {
+//     console.log(data);
+// })
+///////////
 
-    // $.get('http://api.tvmaze.com/search/shows?q=boats').then( (response) => {
-    //     console.log("from the GET shorthand method")
-    //     console.log(response);
-    // })
 
-    $('form').on('submit', (evt) => {
-        evt.preventDefault();
-        searchParam = $('#searchParam').val();
-        console.log(searchParam);
-        $.ajax({url: `http://api.tvmaze.com/search/shows?q=${searchParam}`, method: 'GET'}).then( response => {
-            console.log("this is now a promise")
-            $('#results').empty();
-            renderItems(response);
-        }).catch(e => {
-            console.log("error has happened!");
-            console.log(e);
-            $('#results').append('<h1>SOMETHING WENT WRONG!!</h1>');
-        })
-        // console.log(evt.target.search.value);
+
+// we know that q="string" is the word that will be searched by the tv maze API
+// we need to concatinate a string that adds q= <--- string and then use our ajax call
+
+const getShows = (str) => {
+    const url = 'http://api.tvmaze.com/search/shows?q=';
+    
+    const searchURL = url + str;
+    console.log(searchURL);
+    $.ajax({url: searchURL}).then(data => {
+        renderItems(data);
     })
+    
+}
 
+// make a function called renderItem 
+// and it takes 1 show and renders it on our page
+
+// $.append(<h1>hello world</h1>)
+
+const renderItem = (show) => {
+    console.log(show.show);
+    const name = show.show.name;
+    const desc = show.show.summary;
+    let img = '';
+    if (show.show.image) {
+        img = show.show.image.original;
+    } else {
+        img = 'https://totimes.ca/wp-content/uploads/2017/01/kittycatcon-859x639.jpg';
+    }
+    console.log(name,desc,img);
+    $("#shows").append(`
+    <div class="item">
+        <img src="${img}"/>
+        <div>
+            <h2>${name}</h2>
+            <p>${desc}</p>
+        </div>
+    </div>
+    `);
+}
+
+
+const renderItems = (showsArr) => {
+    for (let show of showsArr) {
+        renderItem(show);
+    }
+}
+
+
+$( document ).ready(function() {
+    getShows('apple');
+    $('#search-form').on('submit', function(evt) {
+        evt.preventDefault();
+        console.log(evt.target.search.value); // you could do this with jquery $('#search-input').val()
+        $('#shows').empty();
+        getShows(evt.target.search.value);
+    })
 })
+
+

@@ -3,28 +3,31 @@
     padding: 0;
 }
 
-.header {
-    background-color: salmon;
-    padding: 20px;
+.navbar {
+    background-color: blanchedalmond;
+    padding: 15px;
+    color: darksalmon;
 }
 
 .item {
+    background-color: skyblue;
     display: flex;
-    background-color: #e97a27ad;
-    margin: 2px;
-    border: 1px solid black;
+    padding: 15px;
 }
+
 
 .item > img {
-    width: 100px;
+    width: 200px;
+    object-fit: cover;
 }
 
-.item > div h4 {
-    color: green;
-}
-
-form {
-    padding: 5px;
-    background-color: salmon;
+.form {
     text-align: center;
+    padding: 20px;
+}
+
+.form > input {
+    height: 41px;
+    width: 250px;
+    font-size: large;
 }
