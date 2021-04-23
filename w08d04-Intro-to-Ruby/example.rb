@@ -1,74 +1,73 @@
-foo = 123
+foo = 20
 PI = 3.14
 
-puts "Hello World #{PI.to_s}"
-puts "#{foo} #{PI}"
+puts "foo: " + foo.to_s
+puts "PI #{PI}"
 
-def greetings name
-    puts 'Hello There!'
-    puts "General #{name}..."
-    name
+def method(arg1, arg2=0, arg3=0, arg4=0, arg5=0, arg6=0, arg7=0)
+    puts "arg1"
+    puts arg1
 end
 
-a = greetings 'Kenobi'
-puts a
+method('hello',1,2,3,4,5,6)
 
-VAL = 10
+val = 10
 
-if VAL <= 9
-    puts 'it might be 9 o clock...'
-elsif VAL == 10
-    puts 'its 10 clock'
+if val <= 9
+    puts 'it was less than 9'
+elsif val == 10
+    puts 'val is 10 exactly!'
 else
-    puts 'its past 10....'
+    puts 'val is greater than 10!!'
 end
 
-puts "YAY!" if true
+puts 'it was 10!!' if val == 10
 
-puts 'it wasnt false' unless false
+puts 'it was not less than 4' unless val < 4
 
-if true 
-   puts "YAY"
-end
-
-unless false
-    puts "it wasnt false"
-end
-
-for counter in 0..10
-    puts counter
-end
 
 arr = [1,2,3,4,5]
 
-arr.each_with_index do |val, i|
-    puts "Val is => #{val} #{i}"
+puts arr.to_s
+
+arr.each_with_index do |elem, index|
+    puts "---> #{elem}  #{index}"
 end
 
-arr.each {|val| puts val }
 
 obj = {
-   a: [1,2],
-   b: [3,4] 
+    a: 1,
+    b: 2,
+    'hello': [1,2,3,4]
 }
+key = :hello
 
-obj_copy = obj.clone
-
-obj_copy[:a].push(3)
+a = obj[key]
+a.push(5)
 
 puts obj
-puts '---------------'
-puts obj_copy
+
+
 
 
 obj.each do |key, val|
-    puts "#{key}" + " " + "#{val}"
+    puts 'val -> '
+    puts obj[key].to_s 
 end
 
-def yield_example
-    puts "before cb"
-    yield
-    puts "after cb"
+def yield_example arr
+    puts "---- array loop -----"
+    arr.each_with_index do |elem, i|
+        yield(elem, i)
+    end
 end
 
-yield_example { puts "YIELD RUNNING!"}
+yield_example([1,2,3,4,5]) {|item, i| puts "value is #{item} at index #{i}"}
+
+
+#  start timer
+#  yield <--- run your function 
+#  stop timer
+#  check how long your function took to execute
+
+

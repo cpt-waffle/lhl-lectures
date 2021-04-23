@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <h1>Functional Demo</h1>
-      <Card name="Mr Derp" title="Senior Paradigm Specialist"/>
+      <Card name={'Wyat Bearington'} title={'Dynamic Team Representative'}/>
     </div>
   );
 }
