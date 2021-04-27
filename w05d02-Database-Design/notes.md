@@ -13,33 +13,54 @@
 -  BREAKOUT EXCERCISE - ERD 
 
 
-------------- ERD --------------
-What is ERD ?
+-------------------- ERD ------------------------
 
-Entity Relationship Diagram 
+Entity Relationship Diagram
 
- - establish connection between tables ( relationships )
- - plans out your data splitting
+diagram for sure in a database design
+visualize the flow of data and how its all connected toghether!!
+
+Entity
+
+Definable concept withing a system that will contain data
+
+Entitity Attributes
+
+Should my entities be plural or singular?
+
+Entities (tables) ---> plural 
+Entitiry Attributres (column) ----> Singular
+
+Entities (tables) ---> Singular 
+Entitiry Attributres (column) ----> Singular
 
 
----------- Naming Conventions -------
+----------------
 
-we must have columns (which is our data that is categorized)
-columns are nouns and usually they are singular
-table names are usually plural 
-all columns must have a type
-                 (0-255)
-first_name ---> varchar (text) (NOT NULL) (DEFAULT)
-price_cent --->  INTEGER 
-BOOLEAN    ---> TRUE and FALSE
-(SERIAL)
+PK - a unique identifyer for a particular record.
+- PK are always UNIQUE 
+- PK cannot be null!
 
--------------- Relationships ---------------
+FK - is an attribute that REFERENCES the PRIMARY key from another table. 
+- can be null (if you set that constraint)
+- when deleting a record that is the REFEERENCE of the FOREGIN KEY (delete user )
+database will be give you an error saying "There are references to the key you are going to delete, use CASCADE"
 
-One to many relationship ( one user has many urls)
-Many to one relationship (one url has one user)
-bridge tables for a many to many relationship
-(when we have clinics and patients and a patient visits a clinic
-we want to record this without data duplication so we made a bridge table called it admissions
-and put the hospital_id and client_id into it)
-One to one relationship 
+
+
+----- Datatypes
+
+We got VARCHAR  that goes ALL THE WAY up to  255 characters
+We got   TEXT   that goes all the way up to ... forever
+
+FLOAT   - it sometimes rounds itself (PI )
+DECIMAL - VERY persise
+
+
+
+
+---- GOODIES
+
+pgadmin4 for linux 
+
+postico for macbook 

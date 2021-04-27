@@ -49,6 +49,7 @@ Think of it as storage units for the values of that specific row. A row is a pei
 A primary key is a way to uniquely identify a particular record withing a table.  Rules of a primary key are:
 
 - must be unique
+- cannot contain NULL values
 
 We can usually set `psql` to increment it for us by using `SERIAL` word. The data type is still integer though. We can reference the primary key in other tables to link data toghether. That relation is called a `foreign key`.
 
