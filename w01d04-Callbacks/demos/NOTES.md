@@ -1,5 +1,5 @@
 ---- Agenda ----
-- introductions ()
+- introductions
 - Q and A
 - Review (what are functions? and variables?)
 - Callbacks

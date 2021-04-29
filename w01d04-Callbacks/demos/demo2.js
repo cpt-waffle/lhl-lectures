@@ -6,46 +6,31 @@
 const arr = [1,'two', 3, 'four', 5, 'six', 7, 'eight', 9, 'ten'];
 //           0   1    2    3     4
 
-// IN LOOP gives us the indexes of those values
+// loop through the array
+// i gotta only print the numbers 
+// for OF loop prints out the values of an array -- (works ONLY on arrays)
+// for IN loop prints out the indexes of that array -- (works on arrays AND objects)
 const printOnlyNumbers = function(arr) {
-    // iterate through the array
-    //.forEach
-    // for (let elem of arr) {
-    //     // console.log(typeof elem);
-    //     if (typeof elem === 'number') {
-    //         console.log(elem);
-    //     }
-    // }
-
-    // for (let index in arr) {
-    //     if (typeof arr[index] === 'number') {
-    //         console.log(arr[index]);
-    //     }
-    // }
-
-    for ( let i = 0; i  < arr.length; i++) {
-        if (typeof arr[i] === 'number') {
-            console.log(arr[i]);
+    for (let number of arr) {
+        if (  typeof number === 'number' ) {
+            console.log(number)
         }
     }
-    // logical if ( what type of element it is? Num or String?)
-    // console.log(element)
 }
 
-console.log(printOnlyNumbers(arr));
+printOnlyNumbers(arr);
 
 // write a function that takes an array as an argument.
 // then it prints out ONLY strings from this array.
-// two, four, six, eight, ten read only hi!
+// two, four, six, eight, ten
 
 // const printOnlyStrings = function() { .... }
 const printOnlyStrings = (arr) => {
-    for (let elem of arr) {
-        // console.log(typeof elem);
-        if (typeof elem === 'string') {
-            console.log(elem);
+    for (let number of arr) {
+        if (  typeof number === 'string' ) {
+            console.log(number)
         }
     }
 }
 
-console.log(printOnlyStrings(arr));
+printOnlyStrings(arr);
