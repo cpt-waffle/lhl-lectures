@@ -110,30 +110,6 @@ const forEach = function(items, action) {
 };
 ```
 
-
-### Bonus
-
-Some functions will take a long time to get information. Because js is async, we pass a callback to get the value when its ready.
-
-```js
-
-function addTwo(number, cb) {
-  let num = undefined;
-  // simulation of time
-  setTimeout(function() {
-    num = number + 2
-    cb(num);
-  },
-  3000)
-  // Will be undefined because timeout hasn't executed yet.
-  // return num
-}
-
-addTwo(6, function(number) {
-  console.log("The number is :  ", number)
-})
-```
-
 Helpful Tools
 
 If you want to track how your code executes, use this tool
