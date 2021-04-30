@@ -14,7 +14,7 @@ Fill out the correct fields.
 
 Use the "Add Column" Button to create columns
 
-![4](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/make-git-project/4.jpg?raw=true)
+![4](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/make-git-project/4.png?raw=true)
 
 Once you finished making your columns, Click the "issues" tab.
 
