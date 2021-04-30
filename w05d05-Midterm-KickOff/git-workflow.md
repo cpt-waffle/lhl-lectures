@@ -3,7 +3,7 @@
 The first we going to do is make sure we are on (main)master and that (main)master is fully 
 updated.
 
-0
+![0](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/0.gif?raw=true)
 
 ```bash
 git pull origin master
@@ -11,7 +11,7 @@ git pull origin master
 
 Then we are going to make a brand new branch and switch right to it by running the command
 
-1
+![1](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/1.gif?raw=true)
 
 ```bash
 git checkout -b ____BRANCH___NAME_____
@@ -19,7 +19,7 @@ git checkout -b ____BRANCH___NAME_____
 
 Now you will work this branch completing the feature you need to do. BE SURE TO COMMIT OFTEN.
 
-2
+![2](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/2.gif?raw=true)
 
 __FEATURE COMPLETE__ ! Now that we are satisfied with our completed work we need to get that change
 into master for all of our teammates to use.
@@ -30,7 +30,7 @@ First we will switch back to (main)master
 git checkout master
 ```
 
-3
+![3](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/3.gif?raw=true)
 
 Then we will pull (main)master to get any changes that our teammates that worked on. 
 
@@ -39,7 +39,7 @@ Then we will pull (main)master to get any changes that our teammates that worked
 git pull origin master
 ```
 
-4
+![4](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/4.gif?raw=true)
 
 Once we pulled we will switch to our feature branch and perform a `merge`. All the new work on (main)master
 will be attempted to be merged into your branch. 
@@ -49,7 +49,7 @@ git checkout ___BRANCH_NAME___
 git merge master
 ```
 
-5
+![5](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/5.gif?raw=true)
 
 #### MERGE CONFLICTS MAY OCCUR!!!
 
@@ -71,7 +71,7 @@ git checkout master
 git merge ___BRANCH_NAME___
 ```
 
-6
+![6](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/6.gif?raw=true)
 
 Everything we fixed/added to our branch should now be on master. Last thing left to do is to push this master
 into github
@@ -80,6 +80,6 @@ into github
 git push origin master
 ```
 
-7
+![7](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/7.gif?raw=true)
 
 To start a new feature, repeat the entire process from the top of the page!
