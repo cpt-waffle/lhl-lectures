@@ -3,19 +3,21 @@
 The first we going to do is make sure we are on (main)master and that (main)master is fully 
 updated.
 
-![0](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/0.gif?raw=true)
-
 ```bash
 git pull origin master
 ```
 
-Then we are going to make a brand new branch and switch right to it by running the command
+![0](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/0.gif?raw=true)
 
-![1](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/1.gif?raw=true)
+
+Then we are going to make a brand new branch and switch right to it by running the command
 
 ```bash
 git checkout -b ____BRANCH___NAME_____
 ```
+
+![1](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/1.gif?raw=true)
+
 
 Now you will work this branch completing the feature you need to do. BE SURE TO COMMIT OFTEN.
 
