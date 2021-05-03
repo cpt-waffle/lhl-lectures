@@ -1,0 +1,2 @@
+module UrlHelper
+end

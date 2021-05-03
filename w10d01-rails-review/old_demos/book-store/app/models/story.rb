@@ -1,2 +1,0 @@
-class Story < ApplicationRecord
-end
