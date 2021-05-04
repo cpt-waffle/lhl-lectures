@@ -2,8 +2,8 @@ const higherOrderFunc = function(callback) {
     const data = { initials: "YV" };
   
     console.log('BEFORE TIMEOUT CALL');
-    setTimeout(() => {
-      data.initials = "YAV";
+    setTimeout(() => { // pushed into the background queue for later checkup
+      data.initials = "YAV"; // data =  { initials: "YAV" };
       console.log(data);
       callback(data);
 
@@ -14,15 +14,19 @@ const higherOrderFunc = function(callback) {
 }
   
 console.log('BEFORE MAIN CALL');
-const result = higherOrderFunc((data) => {
+const result = higherOrderFunc((data) => { // { initials: "YV" };
     console.log('INSIDE CALLBACK');
     console.log(data);
 })
 console.log(result);
 console.log('AFTER MAIN CALL');
 
+///////////////////////////
 // BEFORE MAIN CALL
 // BEFORE TIMEOUT CALL
 // AFTER TIMEOUT CALL
+// { initials: "YV" }
 // AFTER MAIN CALL
+// { initials: "YAV" }
 // INSIDE CALLBACK
+// { initials: "YAV" }

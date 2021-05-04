@@ -3,7 +3,13 @@ const numbers =
 // not a great sort... ¯\_(ツ)_/¯
 const sleepSort = function(nums) {
   for (const num of nums) {
-    setTimeout(() => console.log(num), num);
+    setTimeout(() => {
+      process.stdout.write(`${num}`)
+      // console.log(Math.max(...nums));
+      if (num === Math.max(...nums)) {
+        process.stdout.write(`\n`);
+      }
+    }, num);
   }
 }
 
