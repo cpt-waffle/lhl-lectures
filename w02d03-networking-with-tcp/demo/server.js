@@ -1,36 +1,28 @@
-// SERVER
 const net = require('net');
 const server = net.createServer();
-const users = []; // array of all connections!!!
+const users = [];
 
-// event listeners
 server.on('connection', (client) => {
-  console.log("someone has connected!!!!");
-  client.setEncoding('utf8');
+  // console.log(client);
+  console.log("Someone has connected!");
   users.push(client);
-  client.on('data', (data) => {
-    // console.log(data);
+  client.setEncoding('utf8');
+  client.on('data', (msg) => {
+    console.log("New Message!!!");
+    console.log(JSON.parse(msg));
+    console.log("-------------------");
     for (let user of users) {
-      user.write(data);
+      user.write(msg);
     }
   })
 
-
   client.on('end', () => {
-    console.log("-- someone disconnected!");
-    users.splice(users.indexOf(client), 1)
+    users.splice(users.indexOf(client), 1);
   })
 })
 
 
 
 
-// Server can run only on a specific port. 
-//Only one server per port
-server.listen(3001, () => {
-  console.log("Server is online....");
-})
 
-// event listeners
-// an action has happened 
-//I will do a reaction to the action
+server.listen(3001, () => console.log("Server is online!"));

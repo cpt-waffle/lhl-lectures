@@ -1,24 +1,25 @@
-// CLIENT
 const net = require('net');
-// use a package from yesterdays works (stdin)
-const stdin = process.stdin;
-stdin.setEncoding('utf8');
-// let the client type the message
-// on enter send the message to the server
 const client = net.createConnection({
   host: 'localhost',
   port: 3001
 })
-client.setEncoding('utf8');
+const name = "Vas";
 
-client.on("data", (data) => {
-  console.log("data came back from server...");
-  console.log(data);
-})
+const stdin = process.stdin;
+stdin.setEncoding('utf8');
 
+client.setEncoding('utf8')
+client.write(JSON.stringify({type: 'connected', msg: `${name} has connected`}));
 
 stdin.on('data', (input) => {
-  client.write(input);
+  client.write(JSON.stringify({type: 'msg', msg: input, name: name}));
 })
-// WRITE is a way to send messages to the server
-// client.write('Whats everyone up 2?');
+
+client.on('data', (data) => {
+  const payload = JSON.parse(data);
+  if (payload.type === 'connected') {
+    console.log(payload.msg);
+  } else {
+    console.log(`${payload.name}: ${payload.msg}`);
+  }
+})

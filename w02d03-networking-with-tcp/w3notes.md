@@ -7,84 +7,64 @@
 - you are going to connect to my server !!! :) 
 
 
-Async --- 
+### What is Networking??? 
 
-- Dusting
-- laundry
-throw everything into the washing machine - async
-do it manually the tub - sync 
+- two different communicating with each other
 
-- load up the dish washer
-- mopping
-- throwing the garbage
 
-## What is Networking !!!!
+### Vasily's Tips for Networking 
 
- - communication between things
- - connecting between entities 2 more
+- Say Hello!  ( greet the person)
+- firm handshake (deprecated)
+- Say your name 
+- try not to be nervous
+- show intersted in the topic that is discussed
+- have a proper sendoff/goodbye
 
-## Tips for Networking by Vas
+### People use Different Mediums to Communicate
 
-- Say Hello!
-- Say your name
-- try to be not nervous, stay on point 
-- show interest 
-- make to say a proper goodbye
-
-## What are some of the Mediums we use to communite 
-
-- air 
-- sound waves
+- air
 - light
-- phones
-- lip reading
-- vibrations
-- telepathy
-- pen/paper writing
-- Can Phone (phone category)
-- morse code
+- pen/paper
+- type
+- computers
+- smoke signals
+- can phones 
+- carrier pigeons
 
-## Computer communication Mediums
+### Computers Communication Mediums
 
--  binary 
--  cables 
--  radio 
--  frequencies (wifi)
--  bluetooth
--  LAN
+- bluetooth
+- wifi
+- ethernet
+- NFC
+- USB
+- Radar
 
-## Lecture Rules
-
-- one person speaks 
-- everyone else listens
-- one person shares screen
-- Camera on
-- you can unmute and ask questions and/or chat in the chat window
-
-## Computer Networking Rules
-
-<!-- Another word for rules is.... -->
+### Communication Rules
+T C P
 Transmission Control Protocol
 
-- Computer A is server Computer B is Client
-- Computer A turns on and LISTENS to connections
-- Computer B can connect to computer A by knowing its "options" that need to be configured...
-( nobody ever disconnects until they have to... )
-- Computer B can send messages
-- Computer A can recieve messages
-- Computer A can send messages
-- Computer B can recieve messages
-- Both computers cant be sending messages at the same time
-- Computer B can disconnect
+Computer A is server
+Computer B is a client
+
+Computer A turns on, and waits there until anybody connects with them
+Computer B connects with Computer A
+Both are listening to each other and waiting for some sort of message
+Computer B can send messages to computer A
+Computer A can send messages back to Computer B
+
+Computer B can disconnect from computer A
+
+- Messages cannot be send to each other at the same time ? 
+
 
 HTTP
-HyperText Transfer Protocol
-- Once a client connects they are asking for a REQUEST
-- server recives a REQUEST does some logic... sends back a response
-- CONNECTION GETS TERMINATED
 
+HTTP/S
 
-### Library called net
-net is a TCP library that is built in nodeJS
+HyperText Transmission Protocol
 
-it has a bunch of methods for SERVER and CLIENT(socket)
+When you establish a connection 
+and do your exchange of request and response 
+The client disconnects....
