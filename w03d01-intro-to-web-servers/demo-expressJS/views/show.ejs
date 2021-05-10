@@ -7,14 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello Home Page :)</h1>
-    <p>This is our new home page coming from a ejs view!</p>
-    <% const arr = [1,2,3,4]; %>
-    <% for (let num of arr ) {%>
-        <li><%= num %></li>
-        <p>hello world</p>
-
-
-    <% }%>
+    <h1>SPECIFIC MEME</h1>
+    <% if (specificMeme) { %>
+        <%= specificMeme %>
+    <% } else { %>
+        <h1>Error meme does not exist!</h1>
+    <% } %>
 </body>
 </html>

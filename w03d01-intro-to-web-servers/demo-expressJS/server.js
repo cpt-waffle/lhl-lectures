@@ -1,6 +1,8 @@
-const PORT = 8080;
 const express = require('express');
-const server = express();
+
+const app = express();
+
+const PI = 3.14;
 
 const dogMemes = [
     'https://i.chzbgr.com/original/2902277/hDD87016B/these-husky-memes-are-just-what-you-need-this-sunday',
@@ -9,40 +11,35 @@ const dogMemes = [
     'https://i.imgflip.com/3w5th4.jpg',
     'https://i.chzbgr.com/full/6749445/h4EC265C3/doge-memes-of-shiba-inu-being-adorable'
 ];
-  
 
+// set the view engine to ejs
+app.set('view engine', 'ejs');
 
-server.set('view engine', 'ejs');
-
-// request ALWAYS is first
-// response ALWAYS is second
-server.get('/', (req, res) => {
-    console.log("HOME PAGE");
-    res.render('home'); // this renders the file inside ./views/home.ejs
+ // GET /
+app.get('/', (req, res) => {
+    // res.send('this is my homepage!');
+    // render(), takes in 2 parameters
+    // first parameter is the filename ( name of the EJS file)
+    // second parameter MUST BE ON OBJECT and this object
+    // contains key value pairs that are shared between server and EJS file.
+    res.render('homepage', {PI});
 })
 
-server.get('/dogmemes', (req, res) => {
-    // res.render() takes in 2 parameter
-    // parameter 1 -- the file name that will be send/rendered out to the client
-    // parameter 2 -- an OBJECT that can be passed into the file (ejs) and used to embed data on that file
-    const templateVars = {name: 'Vasiliy', fruit: 'orange', memes: dogMemes};
-    res.render('dogmemes', templateVars);
+app.get('/memes', (req,res) => {
+    const templateVars = {memes: dogMemes};
+    res.render('memes', templateVars);
 })
 
-// bonus!  if you need an example of req.params :) 
-server.get('/dogmemes/:id/', (req, res) => {
-    console.log(req.params);
-    const templateVars = {meme: dogMemes[req.params.id]}
-    res.render('dogmemes_show', templateVars);
+app.get('/memes/:id', (req, res) => {
+    console.log(dogMemes[req.params.id])
+    const templateVars = { specificMeme: dogMemes[req.params.id]}
+    if (dogMemes[req.params.id])
+        res.render('show', templateVars);
+    else {
+        res.status(400).send("ERROR MEME DOES NOT EXIST");
+    }
 })
 
-
-server.get('/name',(req,res) => {
-    const templateVars = {name: 'Vas'};
-    res.render('name', templateVars);
-})
-
-
-server.listen(PORT, () => {
+app.listen(8080, () => {
     console.log("Server is on!");
 })
