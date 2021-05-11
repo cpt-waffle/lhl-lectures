@@ -1,26 +1,37 @@
-// i need to make a basic component structure....
-
-// 1 -- import react ()
+//0)  make a file 
+//1) import react.. (optional on newer version of react)
 import React from 'react';
-import Comment from './Comment'
+import Comment from './Comment';
 
-// 2 -- define our function component
+//2) declare your function (which is your component)
 const CommentList = function(props) {
-    // 3 -- function component returns JSX
-    // --------- METHOD ONE ------------
-    // const commentsList = [];
-    // for (let comment of props.list) {
-    //     commentsList.push(<Comment key={comment.id} data={comment}/>)
+    console.log(props);
+    //4) have a return statement with JSX
+
+    //////////////////////////////////////// Make some comments from the props.list
+    // loop through the list, for every comment inside of the list, make a new comment
+    // maybe store it in an array
+
+    // const array = [];
+    // for (let item of props.list) {
+    //     console.log(item);
+    //     array.push(<Comment data={item}/>)
     // }
-    // -------- METHOD TWO --------------
-    const commentsList = props.list.map(comment => 
-        <Comment key={comment.id} data={comment} handleClick={props.handleComment}/> )
+
+    // map, forEach, reduce, filter
+
+    const array = props.list.map(item => {
+        return <Comment data={item} onClick={props.onClick}/>
+    })
+
     return (
         <div>
-            {commentsList}
+            {array}
         </div>
     )
 }
 
-// 4 -- export default
+
+
+//3) export default component
 export default CommentList;

@@ -4,8 +4,8 @@ import { action } from "@storybook/addon-actions";
 
 
 import Comment from '../Components/Comment';
-// 
-import CommentList from '../Components/CommentList'
+// import the component we want to work with...
+import CommentList from '../Components/CommentList';
 
 const comment = {
 	id: 1,
@@ -36,7 +36,8 @@ const comments = [
 		dislikes: 55,
 	}
 ]
-// props
-storiesOf('Comment List')
-	.add('A list of comments', () => <CommentList list={comments} />)
 
+// CommentList(list, number, array, obj, boolean)
+// <CommentList list={list} number={12} array={[]}/>
+storiesOf('CommentList')
+	.add('A default List of Comments', () => <CommentList list={comments} apple={'red'}/> );

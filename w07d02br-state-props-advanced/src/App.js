@@ -34,64 +34,51 @@ const commentsData = [
 ]
 
 
+// what is state?!
+// let num = 0;
+// state is just a "special" variable that stores data 
+// state tells react: "SOMETHING HAS CHANGED, PLEASE RE-RENDER THE COMPONENT!!!"
 
-
-
+// $('button').on('click', function())
 function App() {
+  // num = 
+  const [num, setNum] = useState(0);
+  // setNum => (arg) num = arg; BUT ALSO NOTIFY REACT SOMETHING HAS CHANGED!!
 
-  const handleComment = (id, type) => {
-    console.log("APP.JS line 43!!")
+  const handleSetNum = () => {
+    setNum(num + 1)
+  }
+  const [comments, setComments] = useState(commentsData);
+
+  const onClickFunction = (id, type) => {
+    console.log("THIS FIRED IN APP.JS ON LINE 38 <<<");
     console.log(id, type);
-    // make a copy of our commentsState 
-    //////////// METHOD ONE ---------------
-    // const commentsCopy = [...commentsState];
-    // // loop through the copy
-    // for (let comment of commentsCopy) {
-    //   // find the id that was clicked and matches the curent iteration
-    //   if (comment.id === id) {
-    //     // modify likes/dislikes depending on the type that was clicked
-    //     if (type === 'like') {
-    //       comment.likes++;
-    //     } else {
-    //       comment.dislikes++;
-    //     }
-    //   }
-    // }
-    // // set the original to the copy using the setCommentsState
-    // setCommentsState(commentsCopy);
-    //----------------------------------------
 
-    // METHOD 2------------
-    const commentsCopy = commentsState.map(comment => {
-      if (comment.id === id) {
-        // modify likes/dislikes depending on the type that was clicked
+
+    
+    const copyComments = comments.map(item => {
+      // find the one id that was changed
+      if (item.id === id) {
         if (type === 'like') {
-          comment.likes++;
+          item.likes++
         } else {
-          comment.dislikes++;
+          item.dislikes++;
         }
-
       }
-      return comment;
+      return item;
     })
-    setCommentsState(commentsCopy);
+    // loop through the COPY STATE array
+    // find the if it was alike or dislike
+    // CHANGE the like or dislike ++ 
+    setComments(copyComments);
   }
-  // let number = 0;
-  let [number, setNumber] = useState(0);
-  // setNumber = (arg) => number = arg; BUT ALSO TELL THE ENTIRE REACT
-  // TO RE-RENDER ANY HTML/JSX that HOLDS THAT VARIABLE
-  const [commentsState, setCommentsState] = useState(commentsData);
 
-  const addNum = () => {
-    setNumber(number+1)
-  }
 
   return (
     <div>
       <h1>Comments for Dogs</h1>
-      <h1>{number}</h1>
-      <button onClick={addNum}> click me to add + 1</button>
-      <CommentList list={commentsState} handleComment={handleComment} />
+      <p>Num is => {num} <button onClick={handleSetNum}>PRESS ME!!</button></p>
+      <CommentList list={comments} onClick={onClickFunction}/>
     </div>
   );
 }

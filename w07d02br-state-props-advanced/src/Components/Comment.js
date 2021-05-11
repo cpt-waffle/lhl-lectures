@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import './comment.css'
 
 function Comment(props) {
-	// props.id props.image,
 	const { id, image, content, likes, dislikes } = props.data;
 	console.log(props);
 	// $('#buttonCLick').on('click', (evt) => {/..})
 	const onLikeClick = () => {
-		console.log(props);
-		props.handleClick(id, 'like');
+		console.log(id, 'like')
+		props.onClick(id, 'like');
 	}
 
 	const onDislikeClick = () => {
-		props.handleClick(id, 'dislike');
+		props.onClick(id, 'dislike');
+
 	}
 
 
