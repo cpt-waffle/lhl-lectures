@@ -1,27 +1,20 @@
 import { useState } from 'react';
 
-
-const useColor = (colors) => {
-    const [curColor, setCurColor] = useState(colors[0]);
-    const historyColors = [...colors];
-    const [index, setIndex] = useState(0);
-
+function useColor(c) {
+    const colors = [...c];
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     const next = () => {
-        const newIndex = index + 1; 
-        setCurColor(historyColors[newIndex]);
-        setIndex(newIndex);
+        setCurrentIndex(prev => prev + 1);
     }
 
-    const back = () => {
-        const newIndex = index - 1; 
-        setCurColor(historyColors[newIndex]);
-        setIndex(newIndex);
+    const prev = () => {
+        if (currentIndex !== 0) {
+            setCurrentIndex(prev => prev - 1);
+        }
     }
 
-
-    return {curColor, next, back}
+    return { currentColor: colors[currentIndex], next, prev };
 }
-
 
 export default useColor;

@@ -1,23 +1,30 @@
-import React, { useState } from 'react';
-import useForm from '../hooks/useForm'
+// 1 import react (optional for newer ver of react)
+// 2 make a function that is your component
+// 3 export default the function
+// 4 make sure the function returns JSX
 
-const RegisterForm = (props) => {
+import React  from 'react'
+import useForm from '../hooks/useForm';
 
-    const email = useForm();
-    const pass = useForm();
+function LoginForm() {
 
-    const onSubmit = (evt) => {
-        evt.preventDefault();
-        console.log(email, pass);
-    }
+  const {email, pass, onChangeEmail, onChangePass} = useForm();
 
-    return <form onSubmit={onSubmit}>
-        <h1>Login Form</h1>
-        <p>Email:<input onChange={email.onChangeVal} type='text' name='email'value={email.val}/></p>
-        <p>Password:<input onChange={pass.onChangeVal} type='password' name='pass' value={pass.val}/></p>
-        <p><button>Submit </button></p>
-    </form>
+  const onSubmit = (evt) => {
+      evt.preventDefault();
+      console.log(email, pass);
+  }   
+  // $('name').on('change', () => {
+
+//   })
+  return (
+      <form onSubmit={onSubmit}>
+          <h1>LOGIN!!</h1>
+          <p>Email:<input type='text' name='email' value={email} onChange={onChangeEmail}/></p>
+          <p>Password:<input type='password' name='pass' value={pass} onChange={onChangePass}/></p>
+          <p><button>Register!!</button></p>
+      </form>
+  )
 }
 
-
-export default RegisterForm;
+export default LoginForm;
