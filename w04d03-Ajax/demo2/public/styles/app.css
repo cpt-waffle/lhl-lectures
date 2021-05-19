@@ -1,33 +1,34 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar {
-    background-color: blanchedalmond;
-    padding: 15px;
-    color: darksalmon;
+.navbar { 
+  background-color: darksalmon;
+  text-align: center;
 }
 
-.item {
-    background-color: skyblue;
+.show {
     display: flex;
-    padding: 15px;
+    background-color: dodgerblue;
 }
 
+.col-1 {
 
-.item > img {
-    width: 200px;
-    object-fit: cover;
+    width: 20%;
+}
+
+.col-2 {
+    width: 80%;
+}
+
+.img {
+    width: 150px;
+    padding: 10px;
 }
 
 .form {
     text-align: center;
-    padding: 20px;
-}
-
-.form > input {
-    height: 41px;
-    width: 250px;
-    font-size: large;
+    padding: 15px;
+    background-color: yellowgreen;
 }

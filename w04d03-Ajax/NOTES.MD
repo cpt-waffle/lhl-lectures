@@ -4,13 +4,29 @@
 - Building an App with an API 
 
 
-IE 
-Microsoft ---- Why do we always always always make users refresh websites
-Why do we always have websites with data that we cannot really re-use
 
 
+Server side rendering
 
-API 
+As a client I ask the server a certain webpage with content
+Server will look up my request, check some logic
+Server will send me back that webpage (tinyApp)
 
-Application Programming interface 
+
+---- CSS
+
+Style your page
+
+
+---- XMLHttpRequest
+
+people, have started to get really powerfull computers.....
+alot cool new applications have started to pop up.....
+
+
+----- API Servers
+
+just send/receive data
+
+
 

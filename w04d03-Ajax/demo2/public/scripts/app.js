@@ -1,102 +1,35 @@
-console.log("HELLO WORLD!!!");
+console.log("file loaded!");
 
-const dummyData = [
-    {
-    "score": 16.048777,
+const dummyData = [{
+    "score": 19.688591,
     "show": {
-    "id": 28274,
-    "url": "https://www.tvmaze.com/shows/28274/apple-tree-house",
-    "name": "Apple Tree House",
+    "id": 23346,
+    "url": "https://www.tvmaze.com/shows/23346/titanic",
+    "name": "Titanic",
     "type": "Scripted",
     "language": "English",
     "genres": [
     "Drama",
-    "Adventure",
-    "Children"
+    "Action"
     ],
-    "status": "To Be Determined",
-    "runtime": 15,
-    "premiered": "2017-05-22",
-    "officialSite": "http://www.bbc.co.uk/cbeebies/shows/apple-tree-house",
+    "status": "Ended",
+    "runtime": 120,
+    "premiered": "1996-11-17",
+    "officialSite": null,
     "schedule": {
-    "time": "17:30",
+    "time": "21:00",
     "days": [
-    "Monday",
     "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday"
+    "Sunday"
     ]
     },
     "rating": {
     "average": null
     },
-    "weight": 55,
+    "weight": 0,
     "network": {
-    "id": 458,
-    "name": "CBeebies",
-    "country": {
-    "name": "United Kingdom",
-    "code": "GB",
-    "timezone": "Europe/London"
-    }
-    },
-    "webChannel": null,
-    "dvdCountry": null,
-    "externals": {
-    "tvrage": null,
-    "thetvdb": 328558,
-    "imdb": "tt6896488"
-    },
-    "image": {
-    "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/112/280637.jpg",
-    "original": "https://static.tvmaze.com/uploads/images/original_untouched/112/280637.jpg"
-    },
-    "summary": "<p><b>Apple Tree House</b> is a preschool drama series that follows Mali, an ordinary boy who has just moved on to an extraordinary inner city estate, where he meets his new best friend Sam, the daughter of the estate's caretaker. Together they solve daily problems and overcome childhood dilemmas - all within the safety net of their loving families and the inspirational Apple Tree community that surrounds them.</p>",
-    "updated": 1600966965,
-    "_links": {
-    "self": {
-    "href": "https://api.tvmaze.com/shows/28274"
-    },
-    "previousepisode": {
-    "href": "https://api.tvmaze.com/episodes/1681272"
-    }
-    }
-    }
-    },
-    {
-    "score": 15.05731,
-    "show": {
-    "id": 17005,
-    "url": "https://www.tvmaze.com/shows/17005/apple-onion",
-    "name": "Apple & Onion",
-    "type": "Animation",
-    "language": "English",
-    "genres": [
-    "Comedy",
-    "Children"
-    ],
-    "status": "Running",
-    "runtime": 15,
-    "premiered": "2016-05-14",
-    "officialSite": "https://www.cartoonnetwork.com/video/apple-and-onion/index.html",
-    "schedule": {
-    "time": "18:00",
-    "days": [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday"
-    ]
-    },
-    "rating": {
-    "average": null
-    },
-    "weight": 72,
-    "network": {
-    "id": 11,
-    "name": "Cartoon Network",
+    "id": 2,
+    "name": "CBS",
     "country": {
     "name": "United States",
     "code": "US",
@@ -107,102 +40,134 @@ const dummyData = [
     "dvdCountry": null,
     "externals": {
     "tvrage": null,
-    "thetvdb": 342060,
-    "imdb": "tt8019790"
+    "thetvdb": 279382,
+    "imdb": null
     },
     "image": {
-    "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/206/515287.jpg",
-    "original": "https://static.tvmaze.com/uploads/images/original_untouched/206/515287.jpg"
+    "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/87/219169.jpg",
+    "original": "https://static.tvmaze.com/uploads/images/original_untouched/87/219169.jpg"
     },
-    "summary": "<p><b>Apple &amp; Onion</b> are two best buddies who get invited to Hotdog's party, but they find they've still got some growing up to do.</p>",
-    "updated": 1617291844,
+    "summary": "<p>The story of the 1912 sinking of the largest luxury liner ever built, the tragedy that befell over two thousand of the rich and famous as well as of the poor and unknown passengers aboard the doomed ship.</p>",
+    "updated": 1583634442,
     "_links": {
     "self": {
-    "href": "https://api.tvmaze.com/shows/17005"
+    "href": "https://api.tvmaze.com/shows/23346"
     },
     "previousepisode": {
-    "href": "https://api.tvmaze.com/episodes/2056041"
+    "href": "https://api.tvmaze.com/episodes/1004438"
     }
     }
     }
     },
+    {
+    "score": 18.743923,
+    "show": {
+    "id": 1060,
+    "url": "https://www.tvmaze.com/shows/1060/titanic",
+    "name": "Titanic",
+    "type": "Scripted",
+    "language": "English",
+    "genres": [
+    "Drama"
+    ],
+    "status": "Ended",
+    "runtime": 60,
+    "premiered": "2012-03-25",
+    "officialSite": "http://titanic.globaltv.com/",
+    "schedule": {
+    "time": "21:00",
+    "days": [
+    "Sunday"
+    ]
+    },
+    "rating": {
+    "average": 7
+    },
+    "weight": 84,
+    "network": {
+    "id": 35,
+    "name": "ITV",
+    "country": {
+    "name": "United Kingdom",
+    "code": "GB",
+    "timezone": "Europe/London"
+    }
+    },
+    "webChannel": null,
+    "dvdCountry": null,
+    "externals": {
+    "tvrage": 31070,
+    "thetvdb": 254112,
+    "imdb": "tt1869152"
+    },
+    "image": {
+    "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/17029.jpg",
+    "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/17029.jpg"
+    },
+    "summary": "<p><b>Titanic </b>is a four part serial created by BAFTA-winning producer Nigel Stafford-Clark and written by Oscar and Emmy winner Julian Fellowes to mark the hundredth anniversary of the world's most famous maritime disaster in April 1912. It sets out to tell the story not just of a single ship, but of an entire society--one that was heading towards its own nemesis in the shape of the First World War as carelessly as <i>Titanic </i>towards the iceberg.</p>",
+    "updated": 1617499182,
+    "_links": {
+    "self": {
+    "href": "https://api.tvmaze.com/shows/1060"
+    },
+    "previousepisode": {
+    "href": "https://api.tvmaze.com/episodes/101891"
+    }
+    }
+    }
+    }
 ]
 
-
-// $.ajax({
-//     url: 'http://api.tvmaze.com/search/shows?q=toronto',
-//     success: (data) => {
-//         console.log(data);
-//     }
-// })
-
-/////////////
-
-
-// $.get( "http://api.tvmaze.com/search/shows?q=montreal", function(data) {
-//     console.log(data);
-// })
-///////////
-
-
-
-// we know that q="string" is the word that will be searched by the tv maze API
-// we need to concatinate a string that adds q= <--- string and then use our ajax call
-
-const getShows = (str) => {
-    const url = 'http://api.tvmaze.com/search/shows?q=';
-    
-    const searchURL = url + str;
-    console.log(searchURL);
-    $.ajax({url: searchURL}).then(data => {
-        renderItems(data);
-    })
-    
-}
-
-// make a function called renderItem 
-// and it takes 1 show and renders it on our page
-
-// $.append(<h1>hello world</h1>)
-
-const renderItem = (show) => {
-    console.log(show.show);
-    const name = show.show.name;
-    const desc = show.show.summary;
-    let img = '';
-    if (show.show.image) {
-        img = show.show.image.original;
+const addShow = (item) => {
+    let image = '';
+    if (item.show.image) {
+        image = item.show.image.medium
     } else {
-        img = 'https://totimes.ca/wp-content/uploads/2017/01/kittycatcon-859x639.jpg';
+        image = 'https://res.cloudinary.com/lmn/image/upload/c_limit,h_392,w_696/e_sharpen:100/f_auto,fl_lossy,q_auto/v1/gameskinny/b9f8d1d28618c4d4f1122e4d9b4acf01.jpg'
     }
-    console.log(name,desc,img);
-    $("#shows").append(`
-    <div class="item">
-        <img src="${img}"/>
-        <div>
-            <h2>${name}</h2>
-            <p>${desc}</p>
+
+    $('#shows').append(`
+    <div class="show">
+        <div class='col-1'>
+            <img class="img" src="${image}"/>
         </div>
-    </div>
-    `);
+        <div class='col-2'>
+            <h1>${item.show.name}</h1>
+            <p>${item.show.summary}</p>
+        </div>
+    </div>`)
+}
+// ver 1
+// $.ajax({url, success: () => {
+//     // do stuff here
+// }})
+/////////////////
+//$.get( url, function( data ) {
+    // do stuff here
+// });
+
+
+const getShows = (showName) => {
+    const url = `http://api.tvmaze.com/search/shows?q=${showName}`;
+    $.ajax({url}).then((response) => {
+        console.log("response---->", response)
+        for (let item of response) {
+            addShow(item);
+        }
+        console.log('done!');
+    });
 }
 
 
-const renderItems = (showsArr) => {
-    for (let show of showsArr) {
-        renderItem(show);
-    }
-}
+$(document).ready(() => {
+    $( "#showSearch").submit(function( event ) {
+        event.preventDefault();
+        // console.log(event.target[0].value)
+        // console.log(event.target.search.value)
 
-
-$( document ).ready(function() {
-    getShows('apple');
-    $('#search-form').on('submit', function(evt) {
-        evt.preventDefault();
-        console.log(evt.target.search.value); // you could do this with jquery $('#search-input').val()
+        const show = $('#searchInput').val();
         $('#shows').empty();
-        getShows(evt.target.search.value);
-    })
-})
-
+        getShows(show);
+    });
+});
 
