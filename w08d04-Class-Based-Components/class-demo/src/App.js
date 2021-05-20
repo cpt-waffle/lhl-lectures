@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <h1>Class Demo</h1>
-      <Card name={'Wyat Bearington'} title={'Dynamic Team Representative'}/>
+      <Card name="Vas"/>
     </div>
   );
 }

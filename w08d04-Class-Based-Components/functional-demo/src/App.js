@@ -4,10 +4,11 @@ import './App.css';
 import Card from './components/Card'
 
 function App() {
+  // Card(a,b,c)
   return (
     <div className="App">
       <h1>Functional Demo</h1>
-      <Card name={'Wyat Bearington'} title={'Dynamic Team Representative'}/>
+      <Card name="Vas"/>
     </div>
   );
 }
