@@ -1,16 +1,21 @@
 const { Pool } = require('pg');
-// 2 - set PG parameters
+// to add a pass to a user... ( example )
+// ALTER USER development with PASSWORD 'development';
 const pool = new Pool({
-    host: 'localhost',
-    port: 5432,
     user: 'development',
+    host: 'localhost',
+    database: 'w05d03',
     password: 'development',
-    database: 'w05d03'
+    port: 5432,
 });
-// 3 - (optional ---> put the connect line to see any error or warnings for connecting)
-pool.connect((err) => {
-    if (err) throw new Error(err);
-    console.log('connected from the other side!');
-});
+
+
+pool.connect().then(() => {
+    console.log("We are connected :)")
+}).catch(e => {
+    console.log('--------------- ERROR -----------');
+    console.log(e);
+})
+
 
 module.exports = pool;

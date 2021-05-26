@@ -1,46 +1,47 @@
-// connecting with credentials
-// host
-// port 
-// user
-// password
-// \c w05d03 -->  connect to the database with the name w05d03
+// to connect postgres with javascript files 
+// we installed a package called pg (node-postgres) by running npm install pg
+
+// step 0 - require 
 const { Pool } = require('pg');
-
+// to add a pass to a user... ( example )
+// ALTER USER development with PASSWORD 'development';
 const pool = new Pool({
-  host: 'localhost',
-  port: 5432,
-  user: 'development',
-  password: 'development',
-  database: 'w05d03'
+    user: 'development',
+    host: 'localhost',
+    database: 'w05d03',
+    password: 'development',
+    port: 5432,
 });
 
-pool.connect((err) => {
-    if (err) throw new Error(err);
-    console.log('connected!');
-});
+// to see if we actually connected to the server
+// we are going to run an optional command called connect()
 
-// console.log(pool);
-
-// pool.query("SELECT * FROM students;", (err, res) => {
-//     console.log("COMPLETED!");
-//     // console.log(err);
-//     console.log(res.rows);
-// });
-
-
-// Client -> task --> completed --> ship | TASK | TASK | TASK | TASK |
-           // CLIENT TASK TASK
-// Pool -->  // CLIENT TASK TASK
-           // CLIENT TASK TASK
-
-const args = process.argv.slice(2);
-console.log(args[0]);
-const arguments = [1, 'Armand Hilll'];
-        
-pool.query('SELECT * FROM students WHERE id = $1 AND name = $2;', [ 1, 'Armand Hilll; DROP TABLE students CASCADE' ]).then((res) => {
-    console.log("COMPLETED! PROMISE!!!");
-    console.log(res.rows);
-}).catch((err) => {
- console.log(err);
+pool.connect().then(() => {
+    console.log("We are connected :)")
+}).catch(e => {
+    console.log('--------------- ERROR -----------');
+    console.log(e);
 })
 
+// THE WRONG WAY!!!!! ( DANGER DANGER DANGER )
+// const queryStr = `SELECT * FROM students WHERE id ${param};` // BAD DONT USE ${}
+
+// const arg = process.argv.slice(2)[0];
+// console.log("ARG WAS PASSED -->", arg);
+
+const findUserById = (id) => {
+    const queryStr = `SELECT * FROM students WHERE id = $1;`
+    // return the pool.query ( Promise )
+    return pool.query(queryStr, [id]).then(res => {
+        console.log("DONE!!!");
+        // inside return your res.rows[0] OR res.rows....
+        return res.rows[0];
+    })
+}
+// CORRECT WAY !!! USE THE Parameterized query
+
+
+findUserById(3).then(val => {
+    console.log("VAL IS on line 43!!");
+    console.log(val);
+});

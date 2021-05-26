@@ -175,11 +175,9 @@ module.exports = (db) => {
 
     const getMarks = () => {
         return db.query(`
-            SELECT name, quiz_results.mark, total  FROM students
-            JOIN quiz_results
-            ON students.id = quiz_results.student_id
-            JOIN quizes
-            ON quizes.id = quiz_results.quiz_id;`
+          SELECT name, students, mark, total FROM
+          students JOIN quiz_results ON quiz_results.student_id = students.id
+          JOIN quizes ON quiz_results.quiz_id = quizes.id;`
         ).then(response => {
             console.log(response);
             return response.rows;
