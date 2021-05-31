@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :urls
+  # rails generates you a RESTFUL convention routes, based on the the word you give
+  resources :urls, only: [:index, :new, :create, :destroy]
+  # make an abouts_page ?
+  # app.use('/about', pagesRoutes(db))
   get '/about', to: 'pages#about'
+  get '/teams', to: 'pages#teams'
+
 end

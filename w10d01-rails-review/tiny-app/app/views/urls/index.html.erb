@@ -1,5 +1,6 @@
-<h1>Urls Index Page</h1>
-
+<h1> Urls </h1>
+<ul>
 <% @urls.each do |url| %>
-    <li><b>LongURL:</b> <%= url.longURL %> <b>shortURL: </b> <%= url.shortURL %></li>
+    <li><%= url.shortURL%> <h3><%= url.longURL %></h3></li>
 <% end %>
+</ul>
