@@ -12,6 +12,7 @@ const slowTyper = (str) => {
     }
 }
 
+
 const sentance = "Awesome Possum!!!";
 slowTyper(sentance);
 // WHAT if we make slow typer as a recursive function and then add setTimeout To that?!
