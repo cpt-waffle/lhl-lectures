@@ -21,7 +21,7 @@ const result = higherOrderFunc((data) => { // { initials: "YV" };
 console.log(result);
 console.log('AFTER MAIN CALL');
 
-///////////////////////////
+//////////////////////////////////
 // BEFORE MAIN CALL
 // BEFORE TIMEOUT CALL
 // AFTER TIMEOUT CALL
@@ -30,3 +30,6 @@ console.log('AFTER MAIN CALL');
 // { initials: "YAV" }
 // INSIDE CALLBACK
 // { initials: "YAV" }
+
+
+
