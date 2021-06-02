@@ -1,70 +1,73 @@
---- w3 Agenda
+--- w2 Agenda
 
 - Q and A - 5/10 min
 - What is Networking? 
 - Networking with TCP
+ (talking about HTTP)
 - build server/build a client 
 - you are going to connect to my server !!! :) 
 
+### What is Networking 
 
-### What is Networking??? 
+Communication and exchange of info with each other (people)
 
-- two different communicating with each other
+### Vasiliy's top tips for networking
 
+- Say Hello!!!
+- Elbow Bump 
+- Say your name !
+- Try to be relaxed
+- show interest in the topic that is discussed
+- wait for a person to finish a sentance try not interupt 
+- have a proper sendoff/goodbye 
 
-### Vasily's Tips for Networking 
+### People's communication Mediums
 
-- Say Hello!  ( greet the person)
-- firm handshake (deprecated)
-- Say your name 
-- try not to be nervous
-- show intersted in the topic that is discussed
-- have a proper sendoff/goodbye
-
-### People use Different Mediums to Communicate
-
-- air
-- light
-- pen/paper
-- type
-- computers
-- smoke signals
-- can phones 
-- carrier pigeons
+- Phone
+- Air
+- Computers (Zoom, Whatsapp, Discord)
+- Carrier Pigeons 
+- Smoke Signals
+- Messages the bottle
 
 ### Computers Communication Mediums
 
-- bluetooth
-- wifi
-- ethernet
-- NFC
-- USB
-- Radar
+- Wifi 
+- Ethernet Cable 
+- Bluetooth
+- NFC's 
+- Radars 
+- SSH
 
-### Communication Rules
-T C P
+### Computer Communication (from client to server....)
+
+T C P 
 Transmission Control Protocol
 
-Computer A is server
-Computer B is a client
 
-Computer A turns on, and waits there until anybody connects with them
-Computer B connects with Computer A
-Both are listening to each other and waiting for some sort of message
-Computer B can send messages to computer A
-Computer A can send messages back to Computer B
+There is a server....
+And there is a client ( or a bunch of clients)
 
-Computer B can disconnect from computer A
+The server gets initialized, and listens to connections..
 
-- Messages cannot be send to each other at the same time ? 
+A client can connect to a server
+
+A Client can send a message to a server
+A Server can send a message to a client
+
+A client can disconnect~
+
+A server can take a clients message, send it to another client ?
+There needs a delay of some sort to make sure that client/server messages dont collide 
+ ^---- there are two different ways to send messages
+
+H T T P / H T T P S 
+
+HyperText Transfer Protocol
 
 
-HTTP
+...
+Client can REQUEST one thing from a server 
+Server must respond back with a RESPONSE
 
-HTTP/S
-
-HyperText Transmission Protocol
-
-When you establish a connection 
-and do your exchange of request and response 
-The client disconnects....
+Connection is terminated!!

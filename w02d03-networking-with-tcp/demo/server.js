@@ -1,28 +1,34 @@
+// Server
 const net = require('net');
-const server = net.createServer();
 const users = [];
 
-server.on('connection', (client) => {
-  // console.log(client);
-  console.log("Someone has connected!");
-  users.push(client);
-  client.setEncoding('utf8');
-  client.on('data', (msg) => {
-    console.log("New Message!!!");
-    console.log(JSON.parse(msg));
-    console.log("-------------------");
+// create a server with event listeners
+const server = net.createServer((connection) => {
+  users.push(connection);
+  // console.log(connection);
+  console.log('Someone has connected!!');
+  connection.setEncoding('utf8');
+  // event listener for incoming data
+  connection.on('data', (data) => {
+    // for loop to broadcast every message
+    //back to every client
     for (let user of users) {
-      user.write(msg);
+      user.write(data);
     }
+    console.log("DATA HAS COME IN!!!!!!");
+    console.log(data);
   })
 
-  client.on('end', () => {
-    users.splice(users.indexOf(client), 1);
+  // event listner for disconnects disconnects..
+  connection.on('end', () => {
+    console.log('Someone Disconnected!');
+    users.splice(users.indexOf(connection), 1);
   })
+});
+
+
+// to start the server we need to make it listen
+server.listen(3001, () => {
+  //            ^------ PORT
+  console.log("Server is listening....");
 })
-
-
-
-
-
-server.listen(3001, () => console.log("Server is online!"));

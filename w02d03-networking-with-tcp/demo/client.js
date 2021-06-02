@@ -1,25 +1,32 @@
+// Client
 const net = require('net');
-const client = net.createConnection({
-  host: 'localhost',
-  port: 3001
-})
-const name = "Vas";
-
 const stdin = process.stdin;
 stdin.setEncoding('utf8');
 
-client.setEncoding('utf8')
-client.write(JSON.stringify({type: 'connected', msg: `${name} has connected`}));
-
-stdin.on('data', (input) => {
-  client.write(JSON.stringify({type: 'msg', msg: input, name: name}));
+// to connect to the server we need
+// port and host
+const client = net.createConnection({
+  port: 3001,
+  host: 'localhost'}, () => {
+  console.log("Connection established!");
 })
 
+client.setEncoding('utf8');
+
+const name = 'Vas';
+// write() function sends data to server
+client.write(`${name} has connected!!`);
+
+client.write("Name: VAS")
+
+stdin.on('data', (whatYouTyped) => {
+  client.write(`${name}: ${whatYouTyped}`);
+})
+
+// on() function is a listener for messages that comeback
+// from the server
+// WE use the "data" event to get back messages from
+// the server
 client.on('data', (data) => {
-  const payload = JSON.parse(data);
-  if (payload.type === 'connected') {
-    console.log(payload.msg);
-  } else {
-    console.log(`${payload.name}: ${payload.msg}`);
-  }
+  console.log(data);
 })
