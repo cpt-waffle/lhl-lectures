@@ -1,45 +1,32 @@
 const express = require('express');
-
+const PORT = 8080;
 const app = express();
+const fruits = ['apple', 'mango', 'pineapple', 'grapes', 'peach'];
 
-const PI = 3.14;
-
-const dogMemes = [
-    'https://i.chzbgr.com/original/2902277/hDD87016B/these-husky-memes-are-just-what-you-need-this-sunday',
-    'https://cdn.akc.org/content/article-body-image/via_pinterest.jpg',
-    'https://i.pinimg.com/originals/7a/08/e0/7a08e0154173be47f57e97811fcb7b85.jpg',
-    'https://i.imgflip.com/3w5th4.jpg',
-    'https://i.chzbgr.com/full/6749445/h4EC265C3/doge-memes-of-shiba-inu-being-adorable'
-];
-
-// set the view engine to ejs
-app.set('view engine', 'ejs');
-
- // GET /
-app.get('/', (req, res) => {
-    // res.send('this is my homepage!');
-    // render(), takes in 2 parameters
-    // first parameter is the filename ( name of the EJS file)
-    // second parameter MUST BE ON OBJECT and this object
-    // contains key value pairs that are shared between server and EJS file.
-    res.render('homepage', {PI});
+// the order is always, request object first, response object second <---
+// view engine ---
+app.set('view engine', 'ejs')
+// you can add programmable logic to HTML
+// is a way to send html files to the client
+app.get('/apple', (req, res) => {
+    console.log('soneone hit the apple url');
+    res.send('thats a fruit!');
 })
 
-app.get('/memes', (req,res) => {
-    const templateVars = {memes: dogMemes};
-    res.render('memes', templateVars);
+app.get('/fruits', (req, res) => {
+    console.log(req.params)
+    console.log("someone is visiting /fruits!");
+    //res.render takes in 2 parameters
+    // param 1 -- filename
+    res.render('fruits_index', {fruits: fruits});
+    //                         ^  param 2 -- an object that is shared with that specific file (we call this object "templateVars");
 })
 
-app.get('/memes/:id', (req, res) => {
-    console.log(dogMemes[req.params.id])
-    const templateVars = { specificMeme: dogMemes[req.params.id]}
-    if (dogMemes[req.params.id])
-        res.render('show', templateVars);
-    else {
-        res.status(400).send("ERROR MEME DOES NOT EXIST");
-    }
+app.get('/fruits/:fruitID', (req, res) => {
+    console.log(req.params);
+    const index = req.params.fruitID;
+    res.render('fruits_show', {fruit: fruits[index]});
 })
 
-app.listen(8080, () => {
-    console.log("Server is on!");
-})
+
+app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
