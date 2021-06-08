@@ -5,23 +5,22 @@ function Comment(props) {
 	const { id, image, content, likes, dislikes } = props.data;
 	console.log(props);
 	// $('#buttonCLick').on('click', (evt) => {/..})
-	const onLikeClick = () => {
-		console.log(id, 'like')
-		props.onClick(id, 'like');
+	const onLikeClick = (evt) => {
+		console.log(evt)
+		props.handleClick(id, 'likes');
 	}
 
 	const onDislikeClick = () => {
-		props.onClick(id, 'dislike');
-
+		props.handleClick(id, 'dislikes');
 	}
 
-
+	// $('#button').on('click', (function))
 	return (
 		<div className='comment'>
 			<img className='image' src={image}/>
 			<p className="content">{content}</p>
 			<div className="buttons">
-				<button onClick={onLikeClick}>Like {likes}</button>
+				<button onClick={(evt) => onLikeClick(evt)}>Like {likes}</button>
 				<button onClick={onDislikeClick}>Dislike {dislikes}</button>
 			</div>
 		</div>

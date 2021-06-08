@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import CommentList from './Components/CommentList'
+import CommentList from './Components/CommentList';
 // our fake api data...
 const commentsData = [
   { 
@@ -34,32 +34,47 @@ const commentsData = [
 ]
 
 
-// what is state?!
-// let num = 0;
-// state is just a "special" variable that stores data 
-// state tells react: "SOMETHING HAS CHANGED, PLEASE RE-RENDER THE COMPONENT!!!"
 
-// $('button').on('click', function())
 function App() {
-  // num = 
-  const [num, setNum] = useState(0);
-  // setNum => (arg) num = arg; BUT ALSO NOTIFY REACT SOMETHING HAS CHANGED!!
-
-  const handleSetNum = () => {
-    setNum(num + 1)
+  // state is data that WILL be changed/re-rendered when the setfunction executes...
+  const [number, setNum] = useState(0);
+  // ^ first var is value
+  // ^ 2nd variable is function that sets the state BUT ALSO tells react to re-render 
+  // the component
+  const setNumber = () => {
+    setNum(number + 1);
+    // always always always always
+    // when you set a state
+    // DO NOT TOUCH THE ORIGINAL STATE
   }
-  const [comments, setComments] = useState(commentsData);
 
-  const onClickFunction = (id, type) => {
-    console.log("THIS FIRED IN APP.JS ON LINE 38 <<<");
-    console.log(id, type);
+  const [list, setList] = useState(commentsData);
 
 
-    
-    const copyComments = comments.map(item => {
+
+  const myFunction = (id, type) => {
+    // METHOD 1 -----------------
+    // // object destruct the array
+    // const listCopy = [...list];
+    // // loop through the array
+    // for (let comment of listCopy) {
+    //   // if id that was clicked matches the id that im currently looping throuhg
+    //   if (id === comment.id) {
+    //     if (type === 'likes') {
+    //       // add +1
+    //       comment.likes++;
+    //     } else {
+    //       // if displikes +1
+    //       comment.dislikes++;
+    //     }
+    //   }
+    //   // set copy to the original
+    //   setList(listCopy);
+    // METHOD 2 ------------
+    const listCopy = list.map(item => {
       // find the one id that was changed
       if (item.id === id) {
-        if (type === 'like') {
+        if (type === 'likes') {
           item.likes++
         } else {
           item.dislikes++;
@@ -67,18 +82,21 @@ function App() {
       }
       return item;
     })
-    // loop through the COPY STATE array
-    // find the if it was alike or dislike
-    // CHANGE the like or dislike ++ 
-    setComments(copyComments);
+
+    setList(listCopy);
+
   }
 
 
   return (
     <div>
       <h1>Comments for Dogs</h1>
-      <p>Num is => {num} <button onClick={handleSetNum}>PRESS ME!!</button></p>
-      <CommentList list={comments} onClick={onClickFunction}/>
+      <h1>{number}</h1>
+      <button onClick={setNumber}>add 1</button>
+      <CommentList
+        list={commentsData}
+        handleClick={myFunction}
+      />
     </div>
   );
 }

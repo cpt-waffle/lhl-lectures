@@ -4,7 +4,6 @@ import { action } from "@storybook/addon-actions";
 
 
 import Comment from '../Components/Comment';
-// import the component we want to work with...
 import CommentList from '../Components/CommentList';
 
 const comment = {
@@ -37,7 +36,17 @@ const comments = [
 	}
 ]
 
-// CommentList(list, number, array, obj, boolean)
-// <CommentList list={list} number={12} array={[]}/>
+
+//// Review 
+// make a component X
+// mock it on storybook
+// make components IN ISOLATION
+
+// props
+// const CommentList = function(number, arr, bool, user)
+const arr = [1,2,3,4]
 storiesOf('CommentList')
-	.add('A default List of Comments', () => <CommentList list={comments} apple={'red'}/> );
+	.add('A default commentList with some items', () => (<CommentList list={comments}/>) )
+
+// once we are satisfied with this component we will add it to our real application
+
