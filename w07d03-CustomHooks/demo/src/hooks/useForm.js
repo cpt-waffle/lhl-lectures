@@ -1,18 +1,31 @@
-// 1 ) make a file with the prefix "use" (useForm.js)
-// 2 )  import ONLY THE HOOKS YOU NEED !!!!
-// 3 ) create your function 
-// 4 ) export your function
+// 1) make a file WITH PREFIX "use" (useForm.js)
+// 2) import the hooks used in the logic <----
+// 3) make a function
+// 4) export default your function
 import { useState, useEffect } from 'react';
 
+// the custom hook function 
+// WILL NOT RETURN JSX ----------------
+// it WILL NOT import React from "react"
+const useForm = function(arg) {
 
-function useForm() {
-    const [val, setVal] = useState('');
-    
-    const onChangeVal = (evt) => {
+    useEffect(() => {
+        console.log("hello");
+    })
+
+
+    const [val, setVal] = useState(arg || '');
+
+    const onValChange = (evt) => {
         setVal(evt.target.value);
     }
 
-    return {val, onChangeVal};
+    const clear = () => {
+        setVal('');
+    }
+
+    return {val, onValChange, clear};
 }
+
 
 export default useForm;
