@@ -6,23 +6,12 @@ one in functional ( how you have been doing so far)
 and one in Class based components
 
 
-- Constructor
-- state
-- didMount
-- willMount
 
--- What to expect during Ruby Week!
+-----------------------------------
+Class Based Components Why ?
 
----- RUBY -----
-
-- Python, Java, (C#), (Go LANG)
-
-Ruby 
-Rails (MVC framework for web)
-A fully completed rails project
-
-( setup of project)
-( here are some features to implement --- implement them
-WITHOUT BREAKING PRODUCTION CODE)
-
+if you jump on a project
+that started at around 2018 or later chances are
+some of the code is written in classes
+some of it is written in functional
 
