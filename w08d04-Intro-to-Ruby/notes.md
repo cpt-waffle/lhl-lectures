@@ -7,24 +7,27 @@
 - yield
 - rails
 
+---------------- Comparisons ------------------
 
-Javascript/NodeJS
--------------------------
-Created in 10 days in 1995 (Brendon Eich)
-Can run both on server and client (frontend/backend)
-Highly performant (async)
-Very Flexible
-GIANT ecosystem of packages
-primative data types + objects
-JS is functional but it has OOP mix in it
+---- Javascript ----
+ - 10 days created in 1995 
+ (Java was very popular, )
+ - We can run in on the backend and the frontend
+ express is back end framework, react is a front end framework 
+ - Syntax of JS was inspired by Java and C
+ - Async (highly performant)
+ - js has one of the largest ecosystems of packages 
+ - primative data types in JS and also object
+ - JS is quite low level 
 
-Ruby/Rails
--------------------------
-was also released in 1995 became (took off) mainstream in 2005 due to a framework called Ruby on Rails
-created by Yukihiro Matsumoto (Matz) 
-ruby/rails is only ran on the backend
-syntax of ruby is "simplified" (english-y)
-High-level of abstractions (opinionated)
-Sync
-making prototypes (demo websites, or started apps ) is actually quite fast
-Fairly Big Ecosystem of packages (GEMS)
+---- Ruby ---------- 
+
+- 1995 BUT became popular in 2004-2005 (because of Ruby on Rails)
+- created by Yukihiro Matz
+- RUBY ONLY WORKS ON THE BACKEND!! 
+- Ruby syntax is "simplified" (english-y)
+- Everything in ruby is A CLASS/OBJECT
+- A High langauge with LOTS OF ABSTRACTIONS <---
+- Performance Issues :(   (sync)
+- Ruby on Rails is very good for rapid prototyping 
+- Ruby has a big ecosystem BUT NOT NEARLY AS BIG AS JS 

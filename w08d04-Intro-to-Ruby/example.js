@@ -1,67 +1,61 @@
-let foo = 20; // variable can change
-const PI = 3.14; // constant variable
 
-console.log("foo: " + foo);
-console.log(`PI ${PI}`);
 
-const method = (arg1) => {
-    console.log("arg1");
-    console.log(arg1);
+let fruit = 'apple';
+const PI = 3.14;
+console.log('Fruit ' + fruit);
+console.log(`PI  ${PI}`);
+
+const method = (arg1, arg2) => {
+    console.log("calculating...");
+    return arg1 + arg2;
 }
 
-method('hello', 1, 2, 3, 4, 5, 6);
+const answer = method(2, 2, 45, 33, false, 'hello');
+console.log(answer);
 
 const val = 10;
 
 if (val <= 9) {
-    console.log('it was less than 9');
-} else if (val === 10) {
-    console.log("val is 10 exactly!")
+    console.log("the val is less than 9")
+} else if ( val === 10) {
+    console.log("the val is exactly 10");
 } else {
-    console.log("val is greater than 10!!")
+    console.log('the val is greater than 10');
 }
 
-if (val === 10) console.log('it was 10!!');
+if (val === 10) console.log("AGAIN THE VAL IS 10");
 
-if (!(val < 4)) console.log('it was not less than 4');
+let falseyVal = false;
 
+if (!falseyVal) console.log('WTF?');
 
-const arr = [1,2,3,4,5];
+const array = [1,2,3,4,5];
 
-console.log(arr);
+console.log(array[array.length - 2]);
 
-arr.forEach((elem, index) => {
-    console.log('--->', elem, index)
+array.forEach((e, i) => {
+    console.log(e, i);
 })
 
-
 const obj = {
-    a: 1,
     b: 2,
-    'hello': [1,2,3,4]
+    a: 1,
+    c: 3,
+    "hello world": 44
 }
 
-let a = obj["hello"];
-a.push(5)
-
-console.log(obj);
-
-
-
-
+console.log(obj.a);
 
 for (let key in obj) {
-    console.log('val --> ');
-    console.log(obj[key]);
+    console.log(`${key} --> ${obj[key]}`)
 }
 
-const cbExample = (arr, cb) => {
-    console.log("---- array loop -----");
-    arr.forEach( (elem, i) => {
-        cb(elem, i)
-    })
+const cbExample = (num, cb) => {
+    console.log('----------');
+    console.log('num   ', num);
+    cb(num)
 }
 
-cbExample([1,2,3,4,5], (item, i) => {
-    console.log(`value is ${item} at index ${i}`);
+cbExample(33, (arg0) => {
+    console.log("INSIDE OF CALLBACK ", arg0);
 })

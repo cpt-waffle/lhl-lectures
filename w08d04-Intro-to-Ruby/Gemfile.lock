@@ -7,7 +7,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  byebug (~> 11.1)
+  byebug
 
 BUNDLED WITH
    2.1.4

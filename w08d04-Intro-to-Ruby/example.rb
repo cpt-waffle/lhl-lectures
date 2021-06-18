@@ -1,73 +1,66 @@
-foo = 20
+require 'byebug'
+
+fruit = 'apple'
 PI = 3.14
+puts 'Fruit ' + fruit
+puts 'PI ' + PI.to_s
 
-puts "foo: " + foo.to_s
-puts "PI #{PI}"
-
-def method(arg1, arg2=0, arg3=0, arg4=0, arg5=0, arg6=0, arg7=0)
-    puts "arg1"
-    puts arg1
+def method(arg1, arg2, arg3=0, arg4=0, arg5=false, arg6='hi')
+    puts 'calculating...'
+    arg1 + arg2
 end
 
-method('hello',1,2,3,4,5,6)
+answer = method(2, 2)
+puts answer
 
-val = 10
+val = -3
 
 if val <= 9
-    puts 'it was less than 9'
+    puts 'the val is less than 9'
 elsif val == 10
-    puts 'val is 10 exactly!'
+    puts 'the val is exactly 10'
 else
-    puts 'val is greater than 10!!'
+    puts 'the val is greater than 10'
 end
 
-puts 'it was 10!!' if val == 10
+puts 'AGAIN THE VAL IS 10' if val == 10
 
-puts 'it was not less than 4' unless val < 4
+falsey_val = false
 
+puts "WTF?" unless falsey_val
 
-arr = [1,2,3,4,5]
+array = [1,2,3,4,5]
 
-puts arr.to_s
+puts array[-2]
 
-arr.each_with_index do |elem, index|
-    puts "---> #{elem}  #{index}"
+array.each_with_index do |e, i|
+    puts "#{e} #{i}"
 end
 
-
-obj = {
-    a: 1,
+hash = {
     b: 2,
-    'hello': [1,2,3,4]
+    a: 1,
+    c: 3,
+    'hello world' => 44
 }
-key = :hello
 
-a = obj[key]
-a.push(5)
+puts hash[:a]
 
-puts obj
-
-
-
-
-obj.each do |key, val|
-    puts 'val -> '
-    puts obj[key].to_s 
+hash.each do |key, val|
+    puts "#{key} --> #{val}"
 end
 
-def yield_example arr
-    puts "---- array loop -----"
-    arr.each_with_index do |elem, i|
-        yield(elem, i)
-    end
+def yield_example num
+    puts '----------'
+    puts "num   #{num}"
+    yield(num)
+    puts 'Line 55'
 end
 
-yield_example([1,2,3,4,5]) {|item, i| puts "value is #{item} at index #{i}"}
+yield_example(33) { |arg0| puts "INSIDE OF CALLBACK  #{arg0}"}
 
 
-#  start timer
-#  yield <--- run your function 
-#  stop timer
-#  check how long your function took to execute
-
-
+# to initialize we use the command called 
+# bundle init
+# to install a gem simply put gem 'GEM_NAME' isnide of
+#  your Gemfile and run bundle install
