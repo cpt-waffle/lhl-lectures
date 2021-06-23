@@ -1,47 +1,37 @@
-// to connect postgres with javascript files 
-// we installed a package called pg (node-postgres) by running npm install pg
+console.log('hello world!');
 
-// step 0 - require 
 const { Pool } = require('pg');
-// to add a pass to a user... ( example )
-// ALTER USER development with PASSWORD 'development';
+
 const pool = new Pool({
-    user: 'development',
+    user: 'labber',
     host: 'localhost',
     database: 'w05d03',
-    password: 'development',
-    port: 5432,
-});
-
-// to see if we actually connected to the server
-// we are going to run an optional command called connect()
+    password: 'labber',
+    port: 5432
+})
 
 pool.connect().then(() => {
-    console.log("We are connected :)")
+    console.log("connected :)");
 }).catch(e => {
-    console.log('--------------- ERROR -----------');
+    console.log("-------- Error -------");
     console.log(e);
 })
 
-// THE WRONG WAY!!!!! ( DANGER DANGER DANGER )
-// const queryStr = `SELECT * FROM students WHERE id ${param};` // BAD DONT USE ${}
+const queryString = 'SELECT * FROM quizes;';
 
-// const arg = process.argv.slice(2)[0];
-// console.log("ARG WAS PASSED -->", arg);
-
-const findUserById = (id) => {
-    const queryStr = `SELECT * FROM students WHERE id = $1;`
-    // return the pool.query ( Promise )
-    return pool.query(queryStr, [id]).then(res => {
-        console.log("DONE!!!");
-        // inside return your res.rows[0] OR res.rows....
-        return res.rows[0];
-    })
-}
-// CORRECT WAY !!! USE THE Parameterized query
-
-
-findUserById(3).then(val => {
-    console.log("VAL IS on line 43!!");
-    console.log(val);
-});
+// pool.query(queryString, (err, res) => {
+//     console.log("query completed!");
+//     console.log(err);
+//     console.log(res.rows);
+// })
+// WHERE id = 3
+const id = process.argv.slice(2)[0];
+const name = '%' + process.argv.slice(2)[0] + '%';
+pool.query("SELECT * FROM students WHERE name LIKE $1", [name]).then(res => {
+    // pool.query before executing, scans through its arguments which are 
+    // denoted by $, and adds in the corresponding values from the arguments array
+    console.log("query completed!");
+    console.log(res.rows);
+}).catch(e => {
+    console.log(e);
+})

@@ -34,6 +34,7 @@ We will be using this package for the lecture to connect to the db.
 
 
 ## Basic Connection
+
 ```js
 const { Pool } = require('pg')
 const pool = new Pool({
@@ -73,6 +74,7 @@ getUserWithId(1, (rows) => {
 
 ## Arguments
 You can pass arguments inside of your queries to keep them dynamic.
+
 ```js
 client.query('SELECT * FROM students WHERE students.id = $1::integer', [id], (err, res) => {
 ```

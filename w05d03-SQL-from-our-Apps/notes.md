@@ -1,55 +1,38 @@
 -- Review -- 
 Databases Overall (why and what)
-Promises :) 
 SQL and Node 
+Promises :) 
 Refactor 
 
 
----------------------------------
+---------------------- Databases -----------------------
 
-Database
+TinyApp 
 
-- a place to store data and persist it (Also organizes )
+TinyApp has HUGE 
 
-PSQL
+9 billion users 
 
-- a service that we are using
+billions of tinyURLs
 
-SQL
+slowly by month 6, tinyApp popularity started to die again..
 
-- the language we use to interact with the data
+- favorites feature
+- data anlytics feature
 
--------------------------------------------------------------
+code code code code 
+feature complete 
 
-TINYAPP
+-------------------> DEPLOY IT
 
-Tinyapp is the facebook!!
-
-by week 2 -
-
-we got about 9 million users 
-we got about billions of tinyURLS
-
-thousands of requests to add into your app... ( new features )
-
-server is going stop and restart...
-
-ALL  OF OUR DATA ( users, tinyURLS, ) WERE STORED IN AN ARRAY INSIDE OF THE TINYAPP app
-
----- We never kept our data persistent in tinyApp
-
---------------------------------
-               HTTP
-
----------------------------------------------------------------------------->             
-CLIENT                            SERVER                                 DATABASE(PSQL)
-req ------------------------------->
-                                      <--------------------------------->
-    <------------------------------- res
+server restarts to add the features
+user database was an   []
+urls database an array []
 
 
+-- Database is a service that can store data. 
+if the server turns off, and back on, the data is persisted
 
-
-PG (npm)
-
+-- Relational Database (Tables, and relations (FK))
+-- psql
 

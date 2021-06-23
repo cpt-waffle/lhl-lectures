@@ -9,7 +9,6 @@ app.use(express.static("public"));
 
 app.get('/memes', (req, res) => {
     // some logic to be delivered as response
-
     res.send('<h1>hello world</h1>')
 })
 
