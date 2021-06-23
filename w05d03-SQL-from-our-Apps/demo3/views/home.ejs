@@ -11,7 +11,8 @@
     <title>Home Page</title>
 </head>
 <body>
-    <h1>this is my home!!</h1>
+    <h1>Hello World!</h1>
+    <%= JSON.stringify(students) %>
     <table>
         <tr>
             <th>id</th>
@@ -19,12 +20,13 @@
             <th>email</th>
         </tr>
         <% for (let student of students) { %>
-        <tr>
+            <tr>
             <td><%= student.id %></td>
             <td><%= student.name %></td>
             <td><%= student.email %></td>
-        </tr>
-        <% } %> 
+
+            </tr>
+        <% } %>
     </table>
 </body>
 </html>

@@ -1,43 +1,63 @@
 const PORT = 8080;
-const { response } = require("express");
 const express = require("express");
+const pool = require('./db/dbInitializeConnection');
+// const { Pool } = require('pg');
 const app = express();
 const morgan = require('morgan');
+
+const dbHelpers = require('./dbHelpers/index')
+
+const {getAllStudents} = dbHelpers(pool);
+console.log(getAllStudents);
+// Step 1 make a connection with the psql server
+// MODULARITY --- connection will happen in a different file...
+// we're moving pool = new Pool and then module exporting it 
+
+
+// const pool = new Pool({
+//     user: 'labber',
+//     host: 'localhost',
+//     database: 'w05d03',
+//     password: 'labber',
+//     port: 5432
+// })
+
+
 app.set("view engine", "ejs");
 app.use(express.static("public")); // with renders, also send out the public folder!
 app.use(morgan('dev'));
-// to add PG into a express server..
-// 1 require PG {POOL}
+// step 2 write quries.....
 
-const pool = require('./db/dbInitializeConnection');
+// const getAllStudents = () => {
+//     const queryString = 'SELECT * FROM students;';
+//     return pool.query(queryString).then(data => {
+//         console.log('LINE 30: ', data.rows);
+//         return data.rows;  
+//     })
+// }
 
-const helpers = require('./dbHelpers/index');
-const dbHelpers = helpers(pool);
 
-//Client side rendering example here
-app.get('/marks', (req, res) => {
-    const query = `
-    SELECT name, mark, total FROM students
-    JOIN quiz_results
-        ON students.id = quiz_results.student_id
-    JOIN quizes
-        ON quizes.id = quiz_results.quiz_id;
-    `
-    pool.query(query).then(data => {
-        res.json(data.rows);
-    })
-    // res.send('ok');
-    
-    // SELECT name, mark, total FROM students JOIN quiz_results ON students.id = quiz_results.student_id JOIN quizes ON quizes.id = quiz_results.quiz_id;
-})
 
-app.get('/:id', (req, res) => {
+app.get('/', (req, res) => {
     const templateVars = {};
-    pool.query("SELECT * FROM students WHERE id = $1;", [req.params.id]).then(data => {
-        console.log("data", data);
-        templateVars.students = data.rows;
+    // const queryString = 'SELECT * FROM students;';
+    // pool.query is an async function..
+    // render may happen before pool.query finishes...
+    // in order to make sure they happen in the correct time
+    // we will move res.render inside of .then()
+
+    // pool.query(queryString).then(data => {
+    //     console.log(data.rows);
+    //     templateVars.students = data.rows;
+    //     res.render('home', templateVars);
+    // })
+    getAllStudents().then(students => {
+        templateVars.students = students;
         res.render('home', templateVars);
+    }).catch(e => {
+        console.log(e);
     })
+
 })
 
 
