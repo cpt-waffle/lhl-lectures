@@ -1,0 +1,6 @@
+<h1>Admin Cats View</h1>
+<ul>
+    <% @cats.each do |cat| %>
+        <li><%= cat.name %>  --  <%= cat.color %> </li>
+    <% end %>
+</ul>

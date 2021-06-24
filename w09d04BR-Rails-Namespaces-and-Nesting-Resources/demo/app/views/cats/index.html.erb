@@ -1,0 +1,10 @@
+<h1>All Cats</h1>
+    <% if @name %>
+        <h1>Owner <%= @name %></h1>
+    <% end %>
+<ul>
+    # n + 1 query 
+    <% @cats.each do |cat| %>
+        <li><%= cat.name %>  --  <%= cat.color %> <h5>Owner Name: <%= cat.owner.name %> </h5> </li>
+    <% end %>
+</ul>
