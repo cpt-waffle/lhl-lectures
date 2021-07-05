@@ -1,13 +1,11 @@
 .meme {
     background-color: black;
     color: white;
-    width: 300px;
-    margin: 2px;
-    padding: 4px;
     text-align: center;
+    padding: 20px;
 }
 
-.meme > img {
-    width: 250px;
+.meme-img {
+    width: 240px;
     object-fit: cover;
 }

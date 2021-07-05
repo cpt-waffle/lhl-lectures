@@ -1,39 +1,35 @@
-// STEP #1 Import React from 'react'
+// 1# (first thing you always do when you work with react (components))
+// import React from 'react';
 import React from 'react';
-// Step #2 import storiesof from Storybook
-import { storiesOf } from '@storybook/react';
+// 2# import storiesOf from Storybook
+import {storiesOf} from '@storybook/react';
 
-// Import our component
 import Meme from '../components/Meme';
-//      ^---------------------- as a function Meme() // ---> FOR LEARNING PURPOSES ONLY
-// url = '//' Meme(url)
+import Clicker from '../components/Clicker';
 
-// <Meme  memeURL={...} id={....} apple={...}/>
-//            ^----------^----------^ ----- properties or PROPS
+// make a storiesOf followed by use the add()
 
+storiesOf('First Story Ever!')
+  .add('this is an h1 with hello world', () => <h1>Hello World</h1>)
+  .add('this is a h2 with hi', () => <h2>Hi!</h2>)
 
-import MemeList from '../components/MemeList';
+storiesOf('p tag')
+  .add('p tag with more info', () => <p>more info</p>)
 
-// STEP 3 write your stories....
-storiesOf('Basic React rendering')
-    .add('h1 with hello world', () => <h1>Hello World!</h1>)
-    .add('h2 with greetings', () => <input type='text'/>)
-    .add('image with a cat', () => <img src="https://i.imgur.com/DSCvjeO.jpg"/>)
+// <Meme/> == Meme()
+// Meme(img, title) <=== parameters
+// <Meme img={"some image"} title={"Some Title"}/> <==== properties/props
+const imgURL = 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*';
+const title  = 'Dogs need to rest to!'
 
+storiesOf('Meme')
+  .add('default meme', () => <Meme/>)
+  .add('meme with props', () => <Meme img={imgURL} title={title}/>)
+  .add('meme with props hardcoded in without variables',
+    () => <Meme img={'https://ichef.bbci.co.uk/images/ic/1920x1080/p096tdsh.jpg'} title={'You Got This!!!'}/>)
 
-
-const url = 'https://pleated-jeans.com/wp-content/uploads/2013/04/3sxnop-1.jpg';
-
-storiesOf('Meme Component')
-    .add('default meme', () => <Meme></Meme>)
-    .add("Another meme", () => <Meme memeURL={url} apple={11} title={'DRY SOUP'}/>)
-
-
-const ramseyMemes= [
-    {id: 1, url: 'https://pleated-jeans.com/wp-content/uploads/2013/04/3sxnop-1.jpg'},
-    {id: 2, url: 'https://www.shutupandtakemymoney.com/wp-content/uploads/2020/04/oscar-ramsay-gordon-ramsay-son-meme.jpg'},
-    {id: 3, url: 'https://www.memesmonkey.com/images/memesmonkey/b8/b84a1746dd6c40559f5190e6f99b2eff.jpeg'}
-]
-   
-storiesOf('meme List')
-    .add('a bunch of memes', () => <MemeList collection={ramseyMemes}/>)
+//   to make story...
+// stories off _____ <--- the name of the component
+// add() specifies what sort of story/mock are you trying to show
+storiesOf('Clicker')
+  .add('default clicker', () => <Clicker/>)

@@ -1,10 +1,12 @@
 REACT DAY 1 ----
 
 
---- Babel and Wepback --- (Fast intro)
+--- React Intro --- 
 --- Storybook ---
  - Using storybook
  - Making our first component
  ---- BREAK
  - Making component take Props
  - State
+
+ --- 
