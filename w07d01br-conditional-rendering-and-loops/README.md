@@ -59,3 +59,49 @@ Sometimes we have to make a list of same exact components.
 
 Imagine a list items from a shopping cart, they use the exact same Component called <Item/>
 
+We we can loop and create items with this sort of loop in react:
+
+```jsx
+  const App() {
+        const cart = [{item: 'Milk'}, {item: 'Cookies'}, {item: 'Chips'}];
+        const greetings = ['hi', 'hello', 'good morning', 'good bye'];
+        
+        const renderArray = [];
+
+        for (let item in cart) {
+            console.log(cart[item].item)
+            renderArray.push(<li>{cart[item].item}</li>)
+        }
+
+        return (
+            {renderArray}
+        )
+   }
+```
+
+As we can see we can make `JSX` using a loop and render it on the screen!!
+We now know that arrays in react can hold `JSX` (HTML with JS) elements.
+
+But one of the big issues is that you will not see `for` loops much in react ( or not at all)
+
+Instead we use the `map` or `forEach`:
+
+```jsx
+  const renderArray = [];
+  cart.forEach((item, index, arr) => {
+    renderArray.push(<li> ----> {item.item}</li>)
+  })
+
+  const mapArr = cart.map((item) => {
+    return <li>map way -->{item.item}</li>
+  })
+
+
+  return (
+    <div className="App">
+      {renderArray}
+      {mapArr}
+    </div>
+  );
+}
+```
