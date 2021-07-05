@@ -1,0 +1,11 @@
+.circle {
+    border: 2px solid black;
+    border-radius: 50%;
+    width:  250px;
+    height: 250px;
+    text-align: center;
+}
+
+.circle h1 {
+    padding-top: 30%;
+}

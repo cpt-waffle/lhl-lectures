@@ -1,0 +1,19 @@
+.button {
+    width: 250px;
+}
+
+.primary {
+    background-color: cornflowerblue;
+}
+
+.secondary {
+    background-color: darkgoldenrod;
+}
+
+.white {
+    color: white;
+}
+
+.green {
+    color: green;
+}
