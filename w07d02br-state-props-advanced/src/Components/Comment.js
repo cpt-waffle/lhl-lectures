@@ -6,15 +6,18 @@ function Comment(props) {
 	console.log(props);
 	// $('#buttonCLick').on('click', (evt) => {/..})
 	const onLikeClick = (evt) => {
-		console.log(evt)
+		// console.log(evt)
+		// console.log("-------------------------------------")
 		props.handleClick(id, 'likes');
+		// props.handleClick();
 	}
 
 	const onDislikeClick = () => {
 		props.handleClick(id, 'dislikes');
 	}
+	// myCbFunction = () => {////}
 
-	// $('#button').on('click', (function))
+	// $('#button').on('click', (evt) => { /////  })
 	return (
 		<div className='comment'>
 			<img className='image' src={image}/>

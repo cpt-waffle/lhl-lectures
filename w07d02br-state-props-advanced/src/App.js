@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+
 import CommentList from './Components/CommentList';
-// our fake api data...
 const commentsData = [
   { 
     id: 1,
@@ -36,67 +36,46 @@ const commentsData = [
 
 
 function App() {
-  // state is data that WILL be changed/re-rendered when the setfunction executes...
-  const [number, setNum] = useState(0);
-  // ^ first var is value
-  // ^ 2nd variable is function that sets the state BUT ALSO tells react to re-render 
-  // the component
-  const setNumber = () => {
-    setNum(number + 1);
-    // always always always always
-    // when you set a state
-    // DO NOT TOUCH THE ORIGINAL STATE
-  }
-
+  // whats the point of state?
   const [list, setList] = useState(commentsData);
 
-
-
   const myFunction = (id, type) => {
-    // METHOD 1 -----------------
-    // // object destruct the array
+    //  METHOD 1 ---------------
+    // make a copy of our state
     // const listCopy = [...list];
-    // // loop through the array
+    // // loop through it
     // for (let comment of listCopy) {
-    //   // if id that was clicked matches the id that im currently looping throuhg
+    //   // figure out which comment was clicked
     //   if (id === comment.id) {
+    //     // what type of click was it (like or dislike)
     //     if (type === 'likes') {
-    //       // add +1
+    //       // increment the like/dislike accordingly
     //       comment.likes++;
     //     } else {
-    //       // if displikes +1
     //       comment.dislikes++;
     //     }
     //   }
-    //   // set copy to the original
-    //   setList(listCopy);
-    // METHOD 2 ------------
-    const listCopy = list.map(item => {
-      // find the one id that was changed
-      if (item.id === id) {
+    // }
+    // // set the copy to the og
+    // setList(listCopy)
+    // METHOD 2 ---------------------
+    const listCopy = list.map(comment => {
+      if (id === comment.id) {
         if (type === 'likes') {
-          item.likes++
-        } else {
-          item.dislikes++;
+          comment.likes++;
+        }else {
+          comment.dislikes++;
         }
       }
-      return item;
+      return comment;
     })
-
     setList(listCopy);
-
   }
-
 
   return (
     <div>
       <h1>Comments for Dogs</h1>
-      <h1>{number}</h1>
-      <button onClick={setNumber}>add 1</button>
-      <CommentList
-        list={commentsData}
-        handleClick={myFunction}
-      />
+      <CommentList banandaData={list} myFunction={myFunction}/>
     </div>
   );
 }

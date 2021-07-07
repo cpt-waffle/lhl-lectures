@@ -7,4 +7,6 @@ Review of everything
   -- states
 -- FUNCTION PASSING !!!!
 -- immutable State
--- Draw out our app 
+-- Draw out our app
+
+-- useEffect --

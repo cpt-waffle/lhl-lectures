@@ -13,6 +13,8 @@ const comment = {
 	likes: 10,
 	dislikes: 1,
 }
+// mock functions
+// a function that does absolutely nothing but to serve a purpose of being a function
 // (Comment(data: comment))
 storiesOf('Comments')
 	.add('A Random Comment', () => <Comment data={comment} handleClick={action('onClick')}/>)
@@ -37,16 +39,5 @@ const comments = [
 ]
 
 
-//// Review 
-// make a component X
-// mock it on storybook
-// make components IN ISOLATION
-
-// props
-// const CommentList = function(number, arr, bool, user)
-const arr = [1,2,3,4]
 storiesOf('CommentList')
-	.add('A default commentList with some items', () => (<CommentList list={comments}/>) )
-
-// once we are satisfied with this component we will add it to our real application
-
+  .add('commentList with 2 items', ()=> <CommentList banandaData={comments}/>);
