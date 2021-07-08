@@ -1,21 +1,29 @@
-import React  from 'react';
-import useForm from '../hooks/useForm'
+import React from 'react';
+import useForm from '../hooks/useForm';
+
+
 
 const RegisterForm = function() {
-    // console.log(useForm);
-    const {num, addOne, name, onNameChange, email, onEmailChange, pass, onPassChange} = useForm();
-    console.log("--------- AA ------")
+    const name = useForm();
+    const email = useForm();
+    const pass = useForm();
+    const passConf = useForm();
+    console.log(name);
+    console.log(email);
+// name <input>
+// email
+// pass
+// passConf
     return (
-        <div>
-            <h3>Register Form</h3>
-            <h1>{num}</h1>
-            <button onClick={addOne}>ADD ONE </button>
-            <p>Name:<input type='text' name='name' value={name} onChange={onNameChange}/></p>
-            <p>Email:<input type='email' name='email'  value={email} onChange={onEmailChange}/></p>
-            <p>Password:<input type='password' name='pass' value={pass} onChange={onPassChange}/></p>
-            <p><button>Submit</button></p>
-        </div>
+        <form>
+            <h1>Register Form!</h1>
+            <p>Name:<input type="text" name="name" value={name.val} onChange={name.handleVal}/></p>
+            <p>Email:<input type="email" name="email" value={email.val} onChange={email.handleVal}/></p>
+            <p>Pass:<input type="password" name="pass" value={pass.val} onChange={pass.handleVal}/></p>
+            <p>Pass Conf:<input type="password" name="passConf" value={passConf.val} onChange={passConf.handleVal}/></p>
+        </form>
     )
 }
 
 export default RegisterForm;
+

@@ -1,21 +1,21 @@
-import { useState } from 'react';
+// custom hooks will have state, useEffect ( etc etc, things from react )
+import {useState} from 'react';
 
-const useColor = function(arr) {
-
-    let colors = [...arr];
+const useColor = (defaultParams) => {
     const [index, setIndex] = useState(0);
-    
+    console.log('default params', defaultParams);
+
     const next = () => {
-        setIndex(index + 1);
+        if (defaultParams.length - 1 > index)
+            setIndex(index + 1);
     }
 
     const prev = () => {
-        setIndex(index - 1);
+        if (0 !== index)
+            setIndex(index - 1);
     }
-    
-    let defaultColor = arr[index]
 
-    return {defaultColor, next, prev};
+    return {defaultColor: defaultParams[index], next, prev}
 }
 
 

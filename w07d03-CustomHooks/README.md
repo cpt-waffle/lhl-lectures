@@ -5,6 +5,7 @@ Today we talked about custom hooks.
 The idea of a custom hook is logic re-usability. Imagine you have a state, that has logic built in that you cause in a component somewhere else. Well now you can take state and refactor it into its own file. You can then pass that state into multiple files as a `new` instance, and have all the logic written.
 
 If we have a component
+
 ```jsx
 
 function Button(props) {
@@ -36,6 +37,7 @@ smaller in code.
 
 useVisualButton
 ```jsx
+
 import { useState } from 'react';
 
 
