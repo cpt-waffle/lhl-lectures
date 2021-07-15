@@ -1,66 +1,69 @@
-// import react from react
 import React, { Component } from 'react';
+import './card.css'
+// entity, template
+// methods that access data, or change something
+// within a class
 
+// class Human
+// eyes
+// hair
+// learn()
+// inheritence 
+// -> class Vas
+// eyeSight
+
+// class __classname_ extends ________
 
 class Card extends Component {
     constructor(props) {
-        super(props);
-        this.state = {
-            likes: 0,
-            dislikes: 0,
-            arr: []
-        }
-        // this.onLikeClick = this.onLikeClick.bind(this);
+       super(props); 
+       // super() runs constructor for Component
+       // that creates us all of the render(), willMount, state,..
+       // then we go back tour contructor to do extra logic that 
+       // we may embbed
+       this.state = {
+           likes: 2,
+           dislikes: 4
+       }
+    //    this.onLikesClick = this.onLikesClick.bind(this);
     }
 
-    onLikeClick = () => {
-         console.log("LINE 16: ", this);
-        this.setState(prev => ({likes: prev.likes + 1}));
+    onLikesClick = () => {
+        console.log(this);
+        this.setState({likes: this.state.likes + 1});
     }
 
     componentDidMount() {
-        console.log("Rendered once!");
-        // get data here, and set it into state
+        console.log("render!!");
+        setTimeout(() => {
+            console.log("LIKES AT THIS POINT IN TIME");
+            console.log(this.state.likes);
+        }, 5000)
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log('something has changed!');
-        console.log(prevState);
-        console.log(this.state);
+        console.log('something has changed!')
         if (prevState.likes !== this.state.likes) {
-            console.log("likes has changed!");
+            console.log('likes changed!');
         }
     }
 
-
-    // Render returns JSX and is the method that runs
-    // that outputs JSX to the DOM to be rendered/painted
     render() {
-        console.log("THIS IS THE ENTIRE CLASS in ONE VARIABLE")
-        console.log(this);
+        // you can have logic here
+        const val = 2 + 2;
+        // it needs to return JSX that 
+        // will be rendered!
+        const num = 33;
         return (
-            <div>
-                <h1>{this.props.name}</h1>
-                <h3>
-                    LIKES {this.state.likes}
-                    <button
-                     onClick={this.onLikeClick}
-                    >
-                        +1
-                    </button>
-                </h3>
-                <h3>
-                    DISLIKES {this.state.dislikes}
-                    <button
-                     onClick={() => this.setState(prev => ({dislikes: prev.dislikes + 1}))}
-                    >
-                        +1
-                    </button>
-                </h3>
+            <div className="card">
+                <h1>Hello World! From Card.js {num}</h1>
+                <img className="img" src={this.props.img}/>
+                <h3>Name: {this.props.name}</h3>
+                <button onClick={this.onLikesClick}>Likes {this.state.likes}</button>
+                <button onClick={() => this.setState({dislikes: this.state.dislikes + 1})}>Dislikes {this.state.dislikes}</button>
             </div>
         )
     }
 }
 
-// export default class
 export default Card;
