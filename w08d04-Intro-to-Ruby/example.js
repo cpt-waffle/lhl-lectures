@@ -1,61 +1,61 @@
+// JS
 
 
 let fruit = 'apple';
 const PI = 3.14;
-console.log('Fruit ' + fruit);
-console.log(`PI  ${PI}`);
 
-const method = (arg1, arg2) => {
+console.log('Fruit ', fruit);
+console.log("PI " + PI);
+console.log(`PI = ${PI}  FRUT = ${fruit}`);
+
+const method = (param1, param2, param3, param4, param5) => {
     console.log("calculating...");
-    return arg1 + arg2;
+    return param1 + param2;
 }
 
-const answer = method(2, 2, 45, 33, false, 'hello');
-console.log(answer);
+console.log(method(2, 2));
 
 const val = 10;
 
 if (val <= 9) {
-    console.log("the val is less than 9")
-} else if ( val === 10) {
-    console.log("the val is exactly 10");
+    console.log('the val is less than or equal to 9');
+} else if (val === 10) {
+    console.log("val is 10!")
 } else {
-    console.log('the val is greater than 10');
+    console.log("its greater than 10");
 }
 
-if (val === 10) console.log("AGAIN THE VAL IS 10");
+if (true) console.log("this was was true!");
 
-let falseyVal = false;
+if (!true === false) console.log("this is not true!");
 
-if (!falseyVal) console.log('WTF?');
+// for, while, forEach, map, reduce
 
-const array = [1,2,3,4,5];
-
-console.log(array[array.length - 2]);
-
-array.forEach((e, i) => {
-    console.log(e, i);
-})
-
-const obj = {
-    b: 2,
-    a: 1,
-    c: 3,
-    "hello world": 44
+const arr = [1,2,3,4,5];
+console.log(arr[2]);
+const loop = (array) => {
+    array.forEach((elem, index) => {
+        console.log(`Elem: ${elem}   at index = ${index}`);
+    })
+    return array;
 }
 
-console.log(obj.a);
+const v = loop(arr);
+console.log('------------');
+console.log(v);
 
-for (let key in obj) {
-    console.log(`${key} --> ${obj[key]}`)
+const object = {
+    a:1,
+    b:2,
+    c:3,
 }
 
-const cbExample = (num, cb) => {
-    console.log('----------');
-    console.log('num   ', num);
-    cb(num)
+console.log(object.b);
+
+const highOrder = (cb) => {
+    console.log('high order running...');
+    cb(33);
+    console.log('end');
 }
 
-cbExample(33, (arg0) => {
-    console.log("INSIDE OF CALLBACK ", arg0);
-})
+highOrder((num) => console.log('cb running!'+ num));

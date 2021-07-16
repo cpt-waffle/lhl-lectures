@@ -1,66 +1,60 @@
-require 'byebug'
+# RB
+require('byebug')
 
 fruit = 'apple'
 PI = 3.14
 puts 'Fruit ' + fruit
 puts 'PI ' + PI.to_s
+puts "PI = #{PI}  FRUIT = #{fruit}"
 
-def method(arg1, arg2, arg3=0, arg4=0, arg5=false, arg6='hi')
+def method param1, param2, param3=0, param4=true, param5='hi'
     puts 'calculating...'
-    arg1 + arg2
+    param1 + param2  # show more than 1 liner return...
 end
 
-answer = method(2, 2)
-puts answer
+puts method 2, 2
 
-val = -3
+val = 10
 
 if val <= 9
-    puts 'the val is less than 9'
-elsif val == 10
-    puts 'the val is exactly 10'
+    puts 'the val is less than or equal to 9'
+elsif val == 10 
+    puts 'val is 10!'
 else
-    puts 'the val is greater than 10'
+    puts 'its greater than 10'
 end
 
-puts 'AGAIN THE VAL IS 10' if val == 10
+puts 'this was true!' if true
 
-falsey_val = false
+puts "this is not true" unless !true
 
-puts "WTF?" unless falsey_val
 
-array = [1,2,3,4,5]
 
-puts array[-2]
+arr = [1,2,3,4,5]
+puts arr[2]
+def loop array
+    array.each_with_index do |elem, index|
+        puts "Elem: #{elem}   at index =  #{index}"
+    end
 
-array.each_with_index do |e, i|
-    puts "#{e} #{i}"
 end
+
+v = loop(arr)
+puts '------------'
+puts v.to_s
 
 hash = {
-    b: 2,
-    a: 1,
-    c: 3,
-    'hello world' => 44
+    a:1,
+    b:2,
+    c:3
 }
 
-puts hash[:a]
+puts hash[:b]
 
-hash.each do |key, val|
-    puts "#{key} --> #{val}"
+def yield_example
+    puts 'yield function running...'
+    yield(33)
+    puts 'end'
 end
 
-def yield_example num
-    puts '----------'
-    puts "num   #{num}"
-    yield(num)
-    puts 'Line 55'
-end
-
-yield_example(33) { |arg0| puts "INSIDE OF CALLBACK  #{arg0}"}
-
-
-# to initialize we use the command called 
-# bundle init
-# to install a gem simply put gem 'GEM_NAME' isnide of
-#  your Gemfile and run bundle install
+yield_example() { |param| puts 'cb running!' + param.to_s }
