@@ -1,7 +1,5 @@
-console.log('hello world!');
-
-const { Pool } = require('pg');
-
+const {Pool, Client} = require('pg');
+// CREATE user aa WITH password 'aa';
 const pool = new Pool({
     user: 'labber',
     host: 'localhost',
@@ -11,27 +9,21 @@ const pool = new Pool({
 })
 
 pool.connect().then(() => {
-    console.log("connected :)");
+    console.log("We are actually connected!");
 }).catch(e => {
-    console.log("-------- Error -------");
-    console.log(e);
+    console.log('------- ERROR --------');
+    console.log(e.message);
 })
 
-const queryString = 'SELECT * FROM quizes;';
-
-// pool.query(queryString, (err, res) => {
-//     console.log("query completed!");
-//     console.log(err);
-//     console.log(res.rows);
+// Callback example
+//         |=> your SQL command
+// pool.query('SELECT * FROM departmens;', (err, res)=> {
+//     console.log('error: ', err);
+//     console.log('res: ', res);
 // })
-// WHERE id = 3
-const id = process.argv.slice(2)[0];
-const name = '%' + process.argv.slice(2)[0] + '%';
-pool.query("SELECT * FROM students WHERE name LIKE $1", [name]).then(res => {
-    // pool.query before executing, scans through its arguments which are 
-    // denoted by $, and adds in the corresponding values from the arguments array
-    console.log("query completed!");
-    console.log(res.rows);
+
+pool.query('SELECT * FROM departments;').then(res => {
+    console.log('res:', res);
 }).catch(e => {
     console.log(e);
 })

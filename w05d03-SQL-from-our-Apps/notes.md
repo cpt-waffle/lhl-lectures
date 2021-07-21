@@ -1,38 +1,20 @@
 -- Review -- 
 Databases Overall (why and what)
-SQL and Node 
-Promises :) 
-Refactor 
+SQL and Node - (Build an App)
+(refactor of an app)
 
-
----------------------- Databases -----------------------
+Whats a database?
+- bunch of infromation that is stored to get your buisness done
+- data structure which saves data in tables and have relationship
+- PERSISTANCE
 
 TinyApp 
 
-TinyApp has HUGE 
+const users = {}
+const urlsDatabase = {}
 
-9 billion users 
+node would restart..... which lose all the data in memory....
 
-billions of tinyURLs
+fs to write into a file all the data we want to persist.
 
-slowly by month 6, tinyApp popularity started to die again..
-
-- favorites feature
-- data anlytics feature
-
-code code code code 
-feature complete 
-
--------------------> DEPLOY IT
-
-server restarts to add the features
-user database was an   []
-urls database an array []
-
-
--- Database is a service that can store data. 
-if the server turns off, and back on, the data is persisted
-
--- Relational Database (Tables, and relations (FK))
--- psql
-
+psql (sql, mariaDB, couchDB, mongoDB) can run all a different machine.

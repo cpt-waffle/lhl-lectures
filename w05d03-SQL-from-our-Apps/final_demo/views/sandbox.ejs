@@ -1,0 +1,31 @@
+<%- include('partials/_header') -%>
+<body>
+	<%- include('partials/_nav')-%>
+		<div class='tc'>
+			<h2>Sandbox</h2>
+			<form class="pa4 black-80" method="GET" action='/sandbox'>
+			  <div>
+			    <label for="command" class="f6 b db mb2">Query <span class="normal black-60">(SELECT * FROM employees;)</span></label>
+			    <input 
+			    	name="command"
+			    	class="border-box hover-black w-100 measure ba b--black-20 pa2 br2 mb2"
+			    >
+			    </input>
+			    <br/>
+			    <button class="f6 link dim br1 ph3 pv2 mb2 dib white bg-dark-gray">Submit</button>
+			  </div>
+			</form>
+			<% if (locals.result) { %>
+				<% locals.result.forEach(item => {%>
+					<li><%=JSON.stringify(item)%></li>
+				<% })%>
+			<% }%>
+
+			<% if (locals.error) { %>
+				<div class="flex items-center justify-center pa4 bg-light-red navy">
+				  <span class="lh-title ml3"><%= JSON.stringify(error)%></span>
+				</div>
+			<% }%>
+		</div>
+</body>
+<%- include('partials/_footer')-%>
