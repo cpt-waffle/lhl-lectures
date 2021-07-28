@@ -1,34 +1,28 @@
-// Server
+// Server 
 const net = require('net');
 const users = [];
-
-// create a server with event listeners
-const server = net.createServer((connection) => {
-  users.push(connection);
-  // console.log(connection);
-  console.log('Someone has connected!!');
+// We create a server (with all of the default options)
+const server = net.createServer(function(connection) {
+  console.log("Someone has connected!");
   connection.setEncoding('utf8');
-  // event listener for incoming data
-  connection.on('data', (data) => {
-    // for loop to broadcast every message
-    //back to every client
+  users.push(connection);
+  connection.on('data', function(data) {
     for (let user of users) {
-      user.write(data);
+      user.write(data)
     }
-    console.log("DATA HAS COME IN!!!!!!");
+    console.log("---------------");
     console.log(data);
+    // connection.write('Hi welcome to Vas Chat Server!!!');
   })
 
-  // event listner for disconnects disconnects..
-  connection.on('end', () => {
-    console.log('Someone Disconnected!');
+
+  connection.on("end", function() {
     users.splice(users.indexOf(connection), 1);
+    console.log("SOMEONE HAS DISCONNECTED :( ")
   })
-});
+})
 
-
-// to start the server we need to make it listen
-server.listen(3001, () => {
-  //            ^------ PORT
-  console.log("Server is listening....");
+// We make the server LISTEN to connections....
+server.listen(3001, function() { // PORT
+  console.log("Server is Listening!!!");
 })

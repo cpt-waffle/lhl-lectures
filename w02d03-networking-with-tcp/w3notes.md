@@ -7,67 +7,64 @@
 - build server/build a client 
 - you are going to connect to my server !!! :) 
 
-### What is Networking 
 
-Communication and exchange of info with each other (people)
+### What IS networking? 
 
-### Vasiliy's top tips for networking
+connectining multiple mediums
+-- Sharing informationg between this medium !
 
-- Say Hello!!!
-- Elbow Bump 
-- Say your name !
-- Try to be relaxed
-- show interest in the topic that is discussed
-- wait for a person to finish a sentance try not interupt 
-- have a proper sendoff/goodbye 
 
-### People's communication Mediums
+### People Networking
 
-- Phone
-- Air
-- Computers (Zoom, Whatsapp, Discord)
-- Carrier Pigeons 
-- Smoke Signals
-- Messages the bottle
+Meetings someone
+saying hi or having a greetings!
+elbow bump
+say your name 
+try to be calm 
+show interest in the convo's you are having
+have a proper send-off
 
-### Computers Communication Mediums
+### Mediums (forms of Communication)
 
-- Wifi 
-- Ethernet Cable 
-- Bluetooth
-- NFC's 
-- Radars 
-- SSH
+Air
+Zoom
+Phones
+Carrier Pigeons
+Message in the bottle
+letter 
+eye contact ( morse code )
 
-### Computer Communication (from client to server....)
 
-T C P 
+### Computer Mediums 
+
+Cables
+WIFI
+Internet 
+bluetooth tech
+router 
+USB
+EMV or NFC
+
+### Computer Communication (RULES of Computer communication by Vas)
+
 Transmission Control Protocol
 
+- We got a computer 
+- We got another computer
+- Computer A Connects to Computer B
+- Computer B listens to info that computer A may send
+- Computer A sends info, Computer B gets the info
+- Once computer B gets info, computer B will forward it to another computer ( maybe ?)
+- Computer A disconnects, Computer B hangs out there waiting for someone else to connect...
 
-There is a server....
-And there is a client ( or a bunch of clients)
+HTTP
 
-The server gets initialized, and listens to connections..
-
-A client can connect to a server
-
-A Client can send a message to a server
-A Server can send a message to a client
-
-A client can disconnect~
-
-A server can take a clients message, send it to another client ?
-There needs a delay of some sort to make sure that client/server messages dont collide 
- ^---- there are two different ways to send messages
-
-H T T P / H T T P S 
-
-HyperText Transfer Protocol
+- Computer A connects to Computer B
+- Computer A ASKS for a resource 
+- Computer B RESPONDS back with a resource
+- Computer A and B disconnect
 
 
-...
-Client can REQUEST one thing from a server 
-Server must respond back with a RESPONSE
-
-Connection is terminated!!
+## We are building a Chat Server!!!
+## TCP - net library
+## and hopefully you can connect!
