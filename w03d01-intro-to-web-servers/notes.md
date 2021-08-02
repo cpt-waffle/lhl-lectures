@@ -8,18 +8,13 @@
 - Sending information from Server to EJS
 --------------------------------------
 
+--- TCP ----
 
---- TCP ---
+there is a server
+there is client(s)
+and clients connect to servers
+clients exchange information between server
+client can disconnect...
 
-connection is established
-server and client can communicate
-client can disconnect
 
 --- HTTP ---
-
-connnection is established
-client REQUESTS something from server
-server RESPONDS back
-once the transaction of req/res has finished, 
-connection between server and client terminates
-
