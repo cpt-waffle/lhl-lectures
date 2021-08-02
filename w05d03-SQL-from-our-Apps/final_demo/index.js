@@ -58,8 +58,8 @@ app.get('/employees/:id', (req, res) => {
 	// req.params.id = 4 OR 1 = 1;
 	// id == 4 || 1 == 1 === TRUE
 	// WRONG WAY--- WE DID NOT SANITIZE INPUT!!
-	const query = `SELECT * FROM employees WHERE id = $1`;
-	pool.query(query, [req.params.id]).then(result => {
+	const query = `SELECT * FROM employees WHERE id = ${req.params.id}`;
+	pool.query(query).then(result => {
 		const templateVars = {employee: result.rows}
 		res.render('employees_index', templateVars);
 	}).catch( e => {

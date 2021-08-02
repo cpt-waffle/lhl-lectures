@@ -1,2 +1,0 @@
-class Cat < ApplicationRecord
-end
