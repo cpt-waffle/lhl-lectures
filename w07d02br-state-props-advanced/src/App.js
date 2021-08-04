@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import CommentsList from './Components/CommentsList';
 
-import CommentList from './Components/CommentList';
 const commentsData = [
   { 
     id: 1,
@@ -36,46 +36,43 @@ const commentsData = [
 
 
 function App() {
+  const [list, setList] = useState(commentsData)
   // whats the point of state?
-  const [list, setList] = useState(commentsData);
-
-  const myFunction = (id, type) => {
-    //  METHOD 1 ---------------
-    // make a copy of our state
-    // const listCopy = [...list];
-    // // loop through it
-    // for (let comment of listCopy) {
-    //   // figure out which comment was clicked
-    //   if (id === comment.id) {
-    //     // what type of click was it (like or dislike)
-    //     if (type === 'likes') {
-    //       // increment the like/dislike accordingly
-    //       comment.likes++;
-    //     } else {
-    //       comment.dislikes++;
-    //     }
-    //   }
-    // }
-    // // set the copy to the og
-    // setList(listCopy)
-    // METHOD 2 ---------------------
-    const listCopy = list.map(comment => {
-      if (id === comment.id) {
-        if (type === 'likes') {
-          comment.likes++;
-        }else {
-          comment.dislikes++;
-        }
+  const onClick = (id, type) => {
+    console.log("LINE 41: APP.js");
+    console.log(id, type);
+    // always use a copy or a brand new object/array 
+    const newList = list.map(item  => {
+      if (item.id === id) {
+        if (type === 'likes') item.likes++;
+        else item.dislikes++;
       }
-      return comment;
+      return item;
     })
-    setList(listCopy);
+
+    setList(newList);
   }
+  // props always go down down down down down through components
+  // but when a prop is a function, well it gets executed at up up up up where it was declared
+
+  let number = 55;
+  const addNum = () => {
+    number = number + 1;
+    console.log(number)
+  }
+  const [num, setNum] = useState(0);
+  const increment = () => {
+    setNum(num + 1);
+  }
+
 
   return (
     <div>
       <h1>Comments for Dogs</h1>
-      <CommentList banandaData={list} myFunction={myFunction}/>
+      <button onClick={addNum}>{number}</button>
+      <button onClick={increment}>{num}</button>
+
+      <CommentsList banana={list} handleClick={onClick}/>
     </div>
   );
 }

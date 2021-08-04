@@ -4,7 +4,7 @@ import { action } from "@storybook/addon-actions";
 
 
 import Comment from '../Components/Comment';
-import CommentList from '../Components/CommentList';
+import CommentsList, { Button } from '../Components/CommentsList';
 
 const comment = {
 	id: 1,
@@ -18,6 +18,9 @@ const comment = {
 // (Comment(data: comment))
 storiesOf('Comments')
 	.add('A Random Comment', () => <Comment data={comment} handleClick={action('onClick')}/>)
+	.add('TesT', () => <h1>TEST</h1>)
+	.add('TesT2', () => <h1>TEST2</h1>)
+
 
 
 
@@ -38,6 +41,11 @@ const comments = [
 	}
 ]
 
+// a CommentsList component
+// that takes in a comments array
+// and renders out Comments Components
 
-storiesOf('CommentList')
-  .add('commentList with 2 items', ()=> <CommentList banandaData={comments}/>);
+// CommentsList(comments) {....}
+storiesOf('Comment List!!!')
+	.add('TEST', () => <CommentsList banana={comments}/>)
+	.add('BTN', () => <Button/>)

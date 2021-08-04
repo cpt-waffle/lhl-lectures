@@ -6,6 +6,7 @@ function Comment(props) {
 	console.log(props);
 	// $('#buttonCLick').on('click', (evt) => {/..})
 	const onLikeClick = (evt) => {
+		console.log(id);
 		// console.log(evt)
 		// console.log("-------------------------------------")
 		props.handleClick(id, 'likes');

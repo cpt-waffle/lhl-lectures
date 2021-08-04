@@ -8,5 +8,3 @@ Review of everything
 -- FUNCTION PASSING !!!!
 -- immutable State
 -- Draw out our app
-
--- useEffect --
