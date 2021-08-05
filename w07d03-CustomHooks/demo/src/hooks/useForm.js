@@ -1,21 +1,26 @@
-import {useState} from 'react';
-// steps in making a custom hook
-// 1 - make a file with PREFIX "use_____.js"
+import {useState, useEffect} from 'react';
 
-// 2 - Make a function called use____ (kind of like your making a component)
-const useForm = function(defaultVal) {
-    // 4 - ADD all of THE LOGIC from the component ( such as state ) into this file
+const useForm = function(name, password) {
+    console.log("LINE 4 USEFORM.js")
+    const [nickname, setNickname] = useState(name || '');
+    const [pass, setPass] = useState(password || '');
 
-    const [val, setVal] = useState(defaultVal || '');
+    useEffect(() => {
+        setTimeout(() => {
+            setNickname('applesauce')
+        }, 3000)
+    }, []) 
 
-    const handleVal = (evt) => {
-        setVal(evt.target.value);
+
+    const onNickChange = (evt) => {
+        setNickname(evt.target.value)
     }
-    // this function returns ALL OF THE LOGIC that a component needs...
-    return {val, handleVal};
+
+    const onPassChange = (evt) => {
+        setPass(evt.target.value)
+    }
+
+    return {nickname, pass, onNickChange, onPassChange}
 }
 
 export default useForm;
-
-// 3 - export default useForm
-
