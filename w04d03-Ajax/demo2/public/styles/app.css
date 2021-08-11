@@ -3,32 +3,28 @@
   padding: 0;
 }
 
-.navbar { 
-  background-color: darksalmon;
-  text-align: center;
-}
-
 .show {
-    display: flex;
-    background-color: dodgerblue;
+  align-items: center;
+  display: flex;
+  background-color: coral;
+  padding: 10px;
+  border: 1px solid darksalmon;
 }
 
-.col-1 {
-
-    width: 20%;
+.show--img {
+  width: 100px;
 }
 
-.col-2 {
-    width: 80%;
+.show--summary {
+  padding-left: 10px;
 }
 
-.img {
-    width: 150px;
-    padding: 10px;
+.show:hover {
+  background-color: #8c472e;
 }
 
 .form {
-    text-align: center;
-    padding: 15px;
-    background-color: yellowgreen;
+  text-align: center;
+  background-color: lightpink;
+  padding: 30px;
 }
