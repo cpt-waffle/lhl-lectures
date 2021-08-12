@@ -1,69 +1,59 @@
+// step 1 import React from react
 import React, { Component } from 'react';
-import './card.css'
-// entity, template
-// methods that access data, or change something
-// within a class
+import './Card.css'
+// blueprint
+// Class Human -----> Vasiliy 
 
-// class Human
-// eyes
-// hair
-// learn()
-// inheritence 
-// -> class Vas
-// eyeSight
-
-// class __classname_ extends ________
-
+// step 2 make a class and make sure it extends Component ( or React.Component)
 class Card extends Component {
     constructor(props) {
-       super(props); 
-       // super() runs constructor for Component
-       // that creates us all of the render(), willMount, state,..
-       // then we go back tour contructor to do extra logic that 
-       // we may embbed
-       this.state = {
-           likes: 2,
-           dislikes: 4
-       }
-    //    this.onLikesClick = this.onLikesClick.bind(this);
+        super(props);
+        // one state ONLY
+        // its going to be an object!
+        this.state = {likes: 3, dislikes: 5};
+        this.dislikeClick = this.dislikeClick.bind(this)
     }
 
+    // anon arror function () =>
     onLikesClick = () => {
-        console.log(this);
-        this.setState({likes: this.state.likes + 1});
+        //axios.post('/likes', {likes: this.state.likes}).then( () => {
+            this.setState(prev => ({...prev, likes: prev.likes + 1}));
+        // })
+    }
+
+    dislikeClick = function() {
+        this.setState(prev => ({...prev, dislikes: prev.dislikes + 1}));
     }
 
     componentDidMount() {
-        console.log("render!!");
+        console.log('render once!');
         setTimeout(() => {
-            console.log("LIKES AT THIS POINT IN TIME");
-            console.log(this.state.likes);
+            console.log(this.state);
         }, 5000)
+        // Promise.all(axios.get('/appointments', '/interviews', 'days'))
     }
 
+
     componentDidUpdate(prevProps, prevState) {
-        console.log('something has changed!')
-        if (prevState.likes !== this.state.likes) {
-            console.log('likes changed!');
+        console.log('Always render!')
+        if (this.state.dislikes !== prevState.dislikes) {
+            console.log("Dislike state has changed!!");
         }
     }
 
+    //step 3 class needs to return JSX --- render() <--
     render() {
-        // you can have logic here
-        const val = 2 + 2;
-        // it needs to return JSX that 
-        // will be rendered!
-        const num = 33;
         return (
             <div className="card">
-                <h1>Hello World! From Card.js {num}</h1>
-                <img className="img" src={this.props.img}/>
-                <h3>Name: {this.props.name}</h3>
-                <button onClick={this.onLikesClick}>Likes {this.state.likes}</button>
-                <button onClick={() => this.setState({dislikes: this.state.dislikes + 1})}>Dislikes {this.state.dislikes}</button>
+                <img className="img" src={this.props.image}/>
+                <h1>{this.props.name}</h1>
+                <button onClick={this.onLikesClick}>Likes  {this.state.likes}</button>
+                <button onClick={this.dislikeClick}>Dislikes {this.state.dislikes}</button>
             </div>
         )
     }
+
 }
 
+// step 4 export default
 export default Card;

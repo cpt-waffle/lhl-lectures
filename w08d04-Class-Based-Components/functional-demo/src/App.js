@@ -7,10 +7,10 @@ function App() {
   return (
     <div className="App">
       <h1>Functional Demo</h1>
-      <Card img={img} name='Mr Buttons'/>
+      {/* Card(....) */}
+      <Card image={img} name="Mr Buttons"/>
     </div>
   );
 }
-// <Card/> ---> Card(...)
 
 export default App;
