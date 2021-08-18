@@ -3,8 +3,8 @@
 	<%- include('partials/_nav')-%>
 		<div class='tc'>
 			<h2>Departments</h2>
-			<% for (let item of departments) { %>
-				<li><%= item.name %></li>
+			<% for (let department of locals.departments) {%>
+				<li><%= JSON.stringify(department) %> </li>
 			<% } %>
 		</div>
 

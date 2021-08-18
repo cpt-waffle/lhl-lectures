@@ -7,14 +7,11 @@ Whats a database?
 - bunch of infromation that is stored to get your buisness done
 - data structure which saves data in tables and have relationship
 - PERSISTANCE
+- a database can be on a different computer!
+- .txt to store data, you would have to build a language to interact with data to get it from and to that file.
 
-TinyApp 
+-- TinyApp --
 
-const users = {}
-const urlsDatabase = {}
-
-node would restart..... which lose all the data in memory....
-
-fs to write into a file all the data we want to persist.
-
-psql (sql, mariaDB, couchDB, mongoDB) can run all a different machine.
+- it has become the next big tech app in the world
+- when its time to add features!!!!
+- if we refresh our app ( restart ) we will lose our data...
