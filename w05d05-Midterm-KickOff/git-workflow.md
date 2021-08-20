@@ -7,7 +7,7 @@ updated.
 git pull origin master
 ```
 
-![0](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/0.gif?raw=true)
+![0](https://raw.githubusercontent.com/vasiliy-klimkin/lhl-lectures/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/0.gif)
 
 
 Then we are going to make a brand new branch and switch right to it by running the command
@@ -16,12 +16,12 @@ Then we are going to make a brand new branch and switch right to it by running t
 git checkout -b ____BRANCH___NAME_____
 ```
 
-![1](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/1.gif?raw=true)
+![1](https://raw.githubusercontent.com/vasiliy-klimkin/lhl-lectures/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/1.gif)
 
 
 Now you will work this branch completing the feature you need to do. BE SURE TO COMMIT OFTEN.
 
-![2](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/2.gif?raw=true)
+![2](https://raw.githubusercontent.com/vasiliy-klimkin/lhl-lectures/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/2.gif)
 
 __FEATURE COMPLETE__ ! Now that we are satisfied with our completed work we need to get that change
 into master for all of our teammates to use.
@@ -32,7 +32,7 @@ First we will switch back to (main)master
 git checkout master
 ```
 
-![3](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/3.gif?raw=true)
+![3](https://raw.githubusercontent.com/vasiliy-klimkin/lhl-lectures/master/w05d05-Midterm-KickOff/GIT_workflow_gifs/3.gif)
 
 Then we will pull (main)master to get any changes that our teammates that worked on. 
 
