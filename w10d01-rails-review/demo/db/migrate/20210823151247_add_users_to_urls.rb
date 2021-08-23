@@ -1,4 +1,4 @@
-class AddUserToUrls < ActiveRecord::Migration[6.0]
+class AddUsersToUrls < ActiveRecord::Migration[6.0]
   def change
     add_reference :urls, :user, index: true
   end

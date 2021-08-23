@@ -1,0 +1,11 @@
+<h1>Make a new URL here!</h1>
+
+<form method="POST" action="/urls">
+<p>Long URL<input type='text' name="longURL"/></p>
+<p><button>Submit!</button>
+</form>
+
+<%= form_for Url.new, url: '/urls' do |f|%>
+<p> Long URL: <%= f.text_field :longURL%>
+<p> <%= f.submit 'Submit new URL!'%>
+<% end%>
