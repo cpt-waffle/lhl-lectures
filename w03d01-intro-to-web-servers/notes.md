@@ -8,13 +8,18 @@
 - Sending information from Server to EJS
 --------------------------------------
 
---- TCP ----
-
-there is a server
-there is client(s)
-and clients connect to servers
-clients exchange information between server
-client can disconnect...
 
 
---- HTTP ---
+----- Snek Game -----
+
+TCP 
+
+- when you connect, you stay connected, until you want to disconnect.
+- during the connection, you exchange information between you and the server
+
+HTTP
+
+Client makes a connection with server.
+Client REQUESTS something from the server.
+Server RESPONDS back to the client.
+Connection is terminated. ( we go away....)
