@@ -79,7 +79,6 @@ app.post('/login', (req,res) => {
 #### Security
 
 So far we figured out that cookies arent secure, but they are very useful in tracking login. So what can we use instead of them?
-https://overthewire.org/wargames/
 We can use `cookie-session` which is basically a hashed cookie. We quickly looked into how to convert our login into `cookie-session`
 
 ```jsx
