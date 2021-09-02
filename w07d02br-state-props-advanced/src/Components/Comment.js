@@ -9,12 +9,12 @@ function Comment(props) {
 		console.log(id);
 		// console.log(evt)
 		// console.log("-------------------------------------")
-		props.handleClick(id, 'likes');
+		props.onClick(id, 'likes');
 		// props.handleClick();
 	}
 
 	const onDislikeClick = () => {
-		props.handleClick(id, 'dislikes');
+		props.onClick(id, 'dislikes');
 	}
 	// myCbFunction = () => {////}
 

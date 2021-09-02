@@ -2,9 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from "@storybook/addon-actions";
 
-
+// import the component
+import CommentList from '../Components/CommentList';
 import Comment from '../Components/Comment';
-import CommentsList, { Button } from '../Components/CommentsList';
 
 const comment = {
 	id: 1,
@@ -18,8 +18,8 @@ const comment = {
 // (Comment(data: comment))
 storiesOf('Comments')
 	.add('A Random Comment', () => <Comment data={comment} handleClick={action('onClick')}/>)
-	.add('TesT', () => <h1>TEST</h1>)
-	.add('TesT2', () => <h1>TEST2</h1>)
+	.add('RANDOM STORY ?', () => <h1>Hello world!!</h1>)
+	.add('RANDOM STORY 1', () => <h1>Hello world1!!</h1>)
 
 
 
@@ -41,11 +41,8 @@ const comments = [
 	}
 ]
 
-// a CommentsList component
-// that takes in a comments array
-// and renders out Comments Components
+// make a stoiresOF and use add()
 
-// CommentsList(comments) {....}
-storiesOf('Comment List!!!')
-	.add('TEST', () => <CommentsList banana={comments}/>)
-	.add('BTN', () => <Button/>)
+// CommentList(arg=data, shoppingcart=list, num=number, val=33, fruit='apple')
+storiesOf("CommentList")
+	.add("List of Comments Default", () => <CommentList arrayOfComments={comments}/>)

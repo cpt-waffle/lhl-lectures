@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { Component } from 'react';
 import './App.css';
-import CommentsList from './Components/CommentsList';
+
+import CommentList from './Components/CommentList';
 
 const commentsData = [
   { 
@@ -34,45 +36,71 @@ const commentsData = [
 ]
 
 
-
 function App() {
-  const [list, setList] = useState(commentsData)
-  // whats the point of state?
-  const onClick = (id, type) => {
-    console.log("LINE 41: APP.js");
+
+
+
+
+  const [number, setNumber] = useState(22);
+  const [comments, setComments] = useState(commentsData);
+  
+  let num = 0;
+
+  const clicked = (id, type) => {
+    console.log("LINE 42 APP.js");
     console.log(id, type);
-    // always use a copy or a brand new object/array 
-    const newList = list.map(item  => {
-      if (item.id === id) {
-        if (type === 'likes') item.likes++;
-        else item.dislikes++;
+    // // make a copy of our comments...
+    // const commentsCopy = [...comments];
+    // // loop through the comments
+    // for (let comment of commentsCopy) {
+    //   // if id matches
+    //   if (comment.id === id ) {
+    //     // increment likes or dislikes
+    //     if (type === 'likes') {
+    //       comment.likes++;
+    //     } else {
+    //       comment.dislikes++;
+    //     }
+    //   }
+    // }
+    // // set the copy to the original
+    // setComments(commentsCopy);
+    ///////////////// VERSION NUMBER 2 --------------------------
+    const commentsCopy = comments.map(comment => {
+      if (comment.id === id) {
+        if (type === 'likes') {
+          comment.likes++;
+        } else {
+          comment.dislikes++;
+        }
       }
-      return item;
+      return comment;
     })
 
-    setList(newList);
-  }
-  // props always go down down down down down through components
-  // but when a prop is a function, well it gets executed at up up up up where it was declared
-
-  let number = 55;
-  const addNum = () => {
-    number = number + 1;
-    console.log(number)
-  }
-  const [num, setNum] = useState(0);
-  const increment = () => {
-    setNum(num + 1);
+    setComments(commentsCopy);
   }
 
+
+  const addOne = () => {
+    num = num + 1;
+    console.log(num);
+  }
+
+  const addNumber = () => {
+    // const setNumber = (val) => {
+      // number = val
+      // TELL REACT TO RE-RENDER THE APPLICATION BECAUSE SOMETHING CHANGED AND WE NEED TO SHOW TO USER
+    // } 
+    setNumber(number + 1);
+  }
 
   return (
     <div>
       <h1>Comments for Dogs</h1>
-      <button onClick={addNum}>{number}</button>
-      <button onClick={increment}>{num}</button>
+      <h2>{num}</h2><button onClick={addOne}>Add One</button>
+      <h2>{number}</h2><button onClick={addNumber}>Add One</button>
 
-      <CommentsList banana={list} handleClick={onClick}/>
+      <CommentList arrayOfComments={comments} clicked={clicked}/>
     </div>
   );
 }
