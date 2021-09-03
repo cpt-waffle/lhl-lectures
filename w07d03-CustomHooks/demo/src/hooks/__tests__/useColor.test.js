@@ -1,65 +1,60 @@
 import { renderHook, act } from '@testing-library/react-hooks'
 import useColor from '../useColor';
 
+describe('Tests for useColor customHook', () => {
+    it(' 2 + 2 is equal to 4', () => {
+        const result = 2 + 2;
+        expect(result).toBe(4);
+    })
 
-it('Checks if 2 + 2 is equal to 4', () => {
-    const result = 2 + 2;
-    expect(result).toBe(4);
-})
-
-it('Takes in an array of values, and returns us a defaultColor, being the first element of the array', () => {
-    const colors = ['red', 'green', 'blue', 'yellow', 'white', 'salmon', 'black', 'firebrick'];
-    const { result } = renderHook(() => useColor(colors));
-    expect(result.current.defaultColor).toBe('red');
-})
-
-it(`takes in an array of values and returns a 
-    default color. we then call a function next(), 
-    which switches the default color to the next color in the array`, () => {
-        const colors = ['red', 'green', 'blue', 'yellow', 'white', 'salmon', 'black', 'firebrick'];
+    it("creates a customHook useColor, and takes in an array of colors, returns us the current color(RED)", () => {
+        const colors = ['red', 'green', 'blue', 'salmon', 'lime'];
         const { result } = renderHook(() => useColor(colors));
-        expect(result.current.defaultColor).toBe('red');
-        act(() => {
-            result.current.next();
-        })
-        expect(result.current.defaultColor).toBe('green');
-})
+        expect(result.current.currentColor).toBe('red');
+    })
 
-it(`takes in an array of values and returns a 
-    default color. we then call a function next(), 
-    which switches the default color to the next color in the array. click next a few times`, () => {
-        const colors = ['red', 'green', 'blue', 'yellow', 'white', 'salmon', 'black', 'firebrick'];
+    it('creates custom Hook, sets the default, THEN we run the function NEXT(), which switches the color to green', () =>{
+        const colors = ['red', 'green', 'blue', 'salmon', 'lime'];
         const { result } = renderHook(() => useColor(colors));
-        expect(result.current.defaultColor).toBe('red');
+        expect(result.current.currentColor).toBe('red');
         act(() => {
             result.current.next();
         })
-        act(() => {
-            result.current.next();
-        })
-        act(() => {
-            result.current.next();
-        })
-        act(() => {
-            result.current.next();
-        })
-        expect(result.current.defaultColor).toBe('white');
-})
+        expect(result.current.currentColor).toBe('green');
+    })
 
-it(`takes in an array of values and returns a 
-    default color. we then call a function next(), 
-    which switches the default color to the next color in the array.
-    We then call the function prev() that switches the color back to red`, () => {
-        const colors = ['red', 'green', 'blue', 'yellow', 'white', 'salmon', 'black', 'firebrick'];
+    it('switches to next color (green) and then when we run previous() , it switches back to red', () =>{
+        const colors = ['red', 'green', 'blue', 'salmon', 'lime'];
         const { result } = renderHook(() => useColor(colors));
-        expect(result.current.defaultColor).toBe('red');
+        expect(result.current.currentColor).toBe('red');
         act(() => {
             result.current.next();
         })
-        expect(result.current.defaultColor).toBe('green');
-        console.log(result.current)
+        expect(result.current.currentColor).toBe('green');
         act(() => {
-            result.current.prev();
+            result.current.previous();
         })
-        expect(result.current.defaultColor).toBe('red');
+        expect(result.current.currentColor).toBe('red');
+    })
+
+
+    it('goes all the way to the end of list, and even through we keep clicking next(), it wont go off the last element', () => {
+        const colors = ['red', 'green', 'blue'];
+        const { result } = renderHook(() => useColor(colors));
+        expect(result.current.currentColor).toBe('red');
+        act(() => {
+            result.current.next();
+        })
+        act(() => {
+            result.current.next();
+        })
+        act(() => {
+            result.current.next();
+        })
+        act(() => {
+            result.current.next();
+        })
+        expect(result.current.currentColor).toBe('blue');
+    })
+
 })

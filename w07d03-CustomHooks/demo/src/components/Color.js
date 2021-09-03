@@ -1,16 +1,20 @@
 import React from 'react';
 import useColor from '../hooks/useColor';
 
-const colors = ['lime', 'firebrick', 'salmon', 'purple', 'green', 'red', 'black', 'pink'];
 
-const Color = function(props) { 
-    const {defaultColor, prev, next} = useColor(colors);
-    return (<div style={{backgroundColor: defaultColor}}>
-        Color changer
-        <br/>
-        <button onClick={prev}>Prev</button>
-        <button onClick={next}>Next</button>
-    </div>)
+const Color = function(props) {
+    const colors = ['green', 'cyan', 'lime', 'firebrick', 'salmon', 'blue', 'red', 'orange', 'pink'];
+    const {currentColor, next, previous} = useColor(colors);
+    return (
+        <div style={{backgroundColor: currentColor}}>
+            Color Changer!
+            <br/>
+            <button onClick={next}>Next</button>
+            <button onClick={previous}>Previous</button>
+        </div>
+    )
 }
+
+
 
 export default Color;

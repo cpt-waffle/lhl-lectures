@@ -1,26 +1,23 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 
-const useForm = function(name, password) {
-    console.log("LINE 4 USEFORM.js")
-    const [nickname, setNickname] = useState(name || '');
-    const [pass, setPass] = useState(password || '');
+// make a function
+const useForm = function() {
+    console.log("CREATING.............");
+    const [username, setUsername] = useState('');
+    const [pass, setPass] = useState('');
 
-    useEffect(() => {
-        setTimeout(() => {
-            setNickname('applesauce')
-        }, 3000)
-    }, []) 
-
-
-    const onNickChange = (evt) => {
-        setNickname(evt.target.value)
+    const onChangeUser = (evt) => {
+        setUsername(evt.target.value);
     }
 
-    const onPassChange = (evt) => {
-        setPass(evt.target.value)
+    const onChangePass = (evt) => {
+        setPass(evt.target.value);
     }
 
-    return {nickname, pass, onNickChange, onPassChange}
+    // Custom hook returns any state, and/or functions that manipulate that state 
+    // (usually the abstracted function to change state)
+    return {username, pass, onChangePass, onChangeUser};
 }
 
+// export default that function
 export default useForm;
