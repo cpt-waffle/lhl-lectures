@@ -3,28 +3,33 @@
   padding: 0;
 }
 
+
 .show {
+  padding: 15px;
   align-items: center;
   display: flex;
-  background-color: coral;
-  padding: 10px;
-  border: 1px solid darksalmon;
+  background-color: mediumslateblue;
+  border: 2px solid salmon;
 }
+
 
 .show--img {
-  width: 100px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }
 
-.show--summary {
-  padding-left: 10px;
+.show--desc {
+  padding: 20px;
 }
 
-.show:hover {
-  background-color: #8c472e;
+.show--title {
+  color: orange;
 }
 
-.form {
+#form {
   text-align: center;
-  background-color: lightpink;
-  padding: 30px;
+    padding-top: 20px;
+    background-color: cornflowerblue;
+    padding-bottom: 15px;
 }

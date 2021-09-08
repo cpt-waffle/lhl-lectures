@@ -1,105 +1,121 @@
-console.log("Line 1: app.js")
+console.log("app.js");
 
-const dummyObject = {
-    "score": 0.6695927,
+const dummyObj = {
+    "score": 0.894875,
     "show": {
-        "id": 3220,
-        "url": "https://www.tvmaze.com/shows/3220/masterchef-canada",
-        "name": "MasterChef Canada",
-        "type": "Reality",
+        "id": 52361,
+        "url": "https://www.tvmaze.com/shows/52361/cars",
+        "name": "Cars",
+        "type": "Animation",
         "language": "English",
-        "genres": ["Food"],
-        "status": "Running",
-        "runtime": 60,
-        "averageRuntime": 60,
-        "premiered": "2014-01-20",
-        "officialSite": "https://www.ctv.ca/shows/masterchef-canada",
+        "genres": [],
+        "status": "In Development",
+        "runtime": null,
+        "averageRuntime": null,
+        "premiered": null,
+        "officialSite": null,
         "schedule": {
-            "time": "21:00",
-            "days": ["Thursday"]
+            "time": "",
+            "days": []
         },
         "rating": {
-            "average": 8.3
+            "average": 4.4
         },
-        "weight": 90,
-        "network": {
-            "id": 48,
-            "name": "CTV",
-            "country": {
-                "name": "Canada",
-                "code": "CA",
-                "timezone": "America/Halifax"
-            }
+        "weight": 0,
+        "network": null,
+        "webChannel": {
+            "id": 287,
+            "name": "Disney+",
+            "country": null
         },
-        "webChannel": null,
         "dvdCountry": null,
         "externals": {
-        "tvrage": 40156,
-        "thetvdb": 273761,
-        "imdb": "tt3219166"
+            "tvrage": null,
+            "thetvdb": null,
+            "imdb": null
         },
-        "image": {
-            "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/206/515188.jpg",
-            "original": "https://static.tvmaze.com/uploads/images/original_untouched/206/515188.jpg"
-        },
-        "summary": "<p>One year after its smash-hit debut on CTV, <b>MasterChef Canada</b> is back to dish out a second helping of food-driven drama and excitement. The ultimate culinary competition offers home cooks a once-in-a-lifetime opportunity to demonstrate their skill and passion, as they compete for $100,000 and the title of Canada's next <i>MasterChef</i>.</p>",
-        "updated": 1620071773,
+        "image": null,
+        "summary": "<p>Pixar is speeding ahead with a new series following Lightning McQueen and Mater on a road trip across the country. Featuring new characters, old friends, and imaginative destinations. Coming to Disney+ in Fall 2022.</p>",
+        "updated": 1607679181,
         "_links": {
             "self": {
-            "href": "https://api.tvmaze.com/shows/3220"
-            },
-            "previousepisode": {
-            "href": "https://api.tvmaze.com/episodes/2083304"
+                "href": "https://api.tvmaze.com/shows/52361"
             }
         }
-    }   
+    }
 }
 
 
-const searchApi = function(string) {
-    const url = `http://api.tvmaze.com/search/shows?q=${string}`;
-    // $.ajax({url: url, success: (data) => {
-    //     console.log("it finished!")
-    //     console.log(data);
-    // }})
-    $('#shows').empty()//
-    $.ajax({ url: url}).then((data) => {
-        console.log('it finished!');
-        console.log(data);
+// $.ajax({
+//     url: 'https://api.tvmaze.com/search/shows?q=cars',
+//     success: function(data) {
+//         console.log("completed!");
+//         console.log(data);
+//     },
+//   });
+
+
+// this line of code, calls an api and grabs us the information we need.
+// the info comes as an array of objects....
+// $.get('https://api.tvmaze.com/search/shows?q=cars').then(data => {
+//     console.log("success");
+//     console.log(data);
+// })
+
+// we want to see a picture
+
+// name, rating/ img
+// title year
+// url
+// genre
+// streaming or playing where
+
+const addShow = (item) => {
+    console.log('-------------------');
+    console.log(item.show)
+    let rating = 0;
+    let image = "https://i.redd.it/6xvh1f7btgl31.jpg";
+
+    if (item.show.rating.average) {
+        rating = item.show.rating.average;
+    }
+
+    if (item.show.image) {
+        image = item.show.image.original;
+    }
+    $('#shows').append(`
+    <div class="show">
+        <div>
+            <h3 class="show--title">${item.show.name}</h3>
+            <img class="show--img" src="${image}"/>
+            <h4>Rating: ${rating}</h4>
+        </div>
+        <div class="show--desc">
+            ${item.show.summary}
+        </div>
+    </div>
+    `);
+}
+
+const findShow = (name) => {
+    $('#shows').empty();
+    $.get(`https://api.tvmaze.com/search/shows?q=${name}`).then(data => {
+        console.log("success");
         for (let item of data) {
-            createShowItem(item);
+            addShow(item);
         }
     })
 }
 
-const createShowItem = function(item) {
-    const defaultImg = 'https://pbs.twimg.com/profile_images/946816739752464385/EGmXd7wt.jpg';
-    const img = item.show.image ? item.show.image.original : defaultImg;
-    
-    console.log("item!!!!", item)
-    const showItem = `
-    <div class="show">
-        <div>
-            <h3>${item.show.name}</h3>
-            <img class="show--img" src="${img}"/>
-            <h3>${item.show.rating.average}</h3>
-            <span>${item.show.genres}</span>
-        </div>
-        <div>
-            <p class="show--summary">
-                ${item.show.summary}
-            </p>
-        </div>
-    </div>
-    `
-    $('#shows').append(showItem);
-}
 
 $( document ).ready(function() {
-    // createShowItem(dummyObject);
-    $('#searchForm').on('submit', (evt) => {
+    // findShow('dogs')
+    $('#form').on('submit', (evt) => {
         evt.preventDefault();
-        const userInput = $('#search-field').val();
-        searchApi(userInput);
+        const name = evt.target.searchShow.value;
+        // console.log($('#searchShow').val());
+        findShow(name);
     })
 });
+
+
