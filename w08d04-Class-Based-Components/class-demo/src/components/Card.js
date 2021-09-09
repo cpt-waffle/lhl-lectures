@@ -1,59 +1,66 @@
-// step 1 import React from react
+// We are going to still import React 
 import React, { Component } from 'react';
 import './Card.css'
-// blueprint
-// Class Human -----> Vasiliy 
+// Class Human
+// every human class has nails
+// every human class has travel()
 
-// step 2 make a class and make sure it extends Component ( or React.Component)
 class Card extends Component {
     constructor(props) {
         super(props);
-        // one state ONLY
-        // its going to be an object!
-        this.state = {likes: 3, dislikes: 5};
-        this.dislikeClick = this.dislikeClick.bind(this)
+        this.state = {
+            likes: 11,
+            dislikes: 5
+        }
+        this.handleDislikeClick = this.handleDislikeClick.bind(this);
     }
 
-    // anon arror function () =>
-    onLikesClick = () => {
-        //axios.post('/likes', {likes: this.state.likes}).then( () => {
-            this.setState(prev => ({...prev, likes: prev.likes + 1}));
-        // })
+    handleLikesClick = () => {
+        this.setState(prev => 
+            ({...prev, likes: prev.likes + 1}
+        ))
     }
 
-    dislikeClick = function() {
-        this.setState(prev => ({...prev, dislikes: prev.dislikes + 1}));
+    handleDislikeClick = function () {
+        this.setState(prev => 
+            ({...prev, dislikes: prev.dislikes + 1}
+        ))
     }
 
     componentDidMount() {
-        console.log('render once!');
+        console.log('Component finished mounting!');
         setTimeout(() => {
+            console.log("THIS IS STATE --------");
             console.log(this.state);
-        }, 5000)
-        // Promise.all(axios.get('/appointments', '/interviews', 'days'))
+        }, 4000)
     }
 
-
     componentDidUpdate(prevProps, prevState) {
-        console.log('Always render!')
-        if (this.state.dislikes !== prevState.dislikes) {
-            console.log("Dislike state has changed!!");
+        console.log("Render EVERY SINGLE TIME!!!!!");
+        if (prevState.likes !== this.state.likes) {
+            console.log("Render on likes!!");
         }
     }
 
-    //step 3 class needs to return JSX --- render() <--
+
     render() {
+        // this -- refers to THIS CLASS
+        const {image, name} = this.props;
         return (
-            <div className="card">
-                <img className="img" src={this.props.image}/>
-                <h1>{this.props.name}</h1>
-                <button onClick={this.onLikesClick}>Likes  {this.state.likes}</button>
-                <button onClick={this.dislikeClick}>Dislikes {this.state.dislikes}</button>
+            <div>
+                <img className="img" src={image}/>
+                <h1>{name}</h1>
+                <button onClick={this.handleLikesClick}>
+                    Likes {this.state.likes}
+                </button>
+                <button onClick={this.handleDislikeClick}>
+                    Dislikes {this.state.dislikes}
+                </button>
+
             </div>
         )
     }
-
 }
 
-// step 4 export default
+
 export default Card;
