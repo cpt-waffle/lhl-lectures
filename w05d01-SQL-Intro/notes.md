@@ -10,104 +10,83 @@
 
 ------------------------
 
-TinyApp !!!
+W4 TinyApp
 
-7 Million Users added+
+you have deployed TinyApp......
+TinyApp has become the next biggest app in the world
+14 million users + 
+petabytes off tinyUrls
+$$$$$
 
- - people be sharing all of the URLS
+there's a few lack of features
 
---- People are Demanding Features ----
-
-- likes features 
-- favorites features
-- twitter integrations
-- img integration
+- friends groups
+- private/public URLS
 - analytics
-- revenue tracking
 
-== LETS WORK ==
+we try to add a feature....
 
-analytics, likes, favorites
+- server gets refreshed and that feature is added....
+- BUT WE LOST ALL THE DATA!!!!!!
 
-git add .
-git commit -m "New features added"
-git push 
-
--- REDEPLOYING PROCESS ENABLED
--- IT HAPPENS 
-
-your data gets reset (wiped, cleaned....)
-lost 7 million users !!!
-
--- Data is new oil --
-
-to collect data 
-we must be able to:
-
-- store it 
-- co-relate it
-- retrieve it
+^ VERY BAD
 
 
-require (fs)
-users.txt
-name,    email,        passwordHash,      id
-vasily,  vas@gmail.com, aSd43f46sdf4f5f, 245,
+why not store it into files?
 
-urls.txt
-short_url, long_url, user_id
+users.txt  <----
+urls.txt   <----
 
+if and when we will need to grab data out of a file
+we will need to make scripts/commands to do this.
 
---------- server failure (physical/software) -----------
+Organized way to store data --- CSV Comma Seperated Values
 
-Seperation of Concerns
+Seperation of Concerns 
 
-  NASA BASE                                   AW3
-Backend Server <--------------------------> Data Sever  <----> data files
-                                           /addUrl
+One Server Running the ExpressJS
+another server to run this Data 
 
-Database Services
-SQ
-PSQL <---- relationsional ----->
-
-id
-245 Vasiliy Klimkin v@k.ca
-
-user_id   long_url
-245       www.google.ca
+From a service --> So will need build a program that is able to host our data,
+and we are able to connect to it, and we are to save/read data from it.....
 
 
-non-relational database
+Relational Database -----
+-- postgresql SQL 
 
 
-users: {
-   1: ..
-   ....
-   245: {name: Vasily, email: v@k.ca, urls: {
-       0: {longURL: google.ca}
-   }}
-}
+How Do I enter Postgresql?
+-- psql
+
+How Do I exist postgresql?
+\q
+
+How Do I see All my databases inside of postgres?
+\l
+
+How do I CONNECT/GO INTO these databases?
+\c DATABASE_NAME
+
+How do I see ALL OF MY TABLES in my DATABASE?
+\dt
+
+How to connect right away to a specific database
+psql -d DATABASE_NAME
 
 
--- PSQL ---
-
-port # 5432
-
--- DATABASES are globally installed, as long they are ON, you can get in one from anywhere
-
-to get into postgreql -- "psql" in terminal
-to quit psql --          "\q"   in terminal
-
-List all the database  -- "\l" 
-list all the users     -- "\du"
-connected to a specific database  -- "\c _DATABASE_NAME_"
-display some sort of data in it   -- "\dt" - display tables
+Creating a database ?
+CREATE DATABASE database_name;
 
 
-to DELETE the DATABASE -- SQL Command
-DROP _DATABASE_NAME_; <===== dont forget the semi-colon
-CREATE A database
-CREATE DATABASE _DATABASE_NAME_;
+Adding data like tables and seeds (we are going to touch surface level of this)
 
-Seeding --- the act of putting data into your database
-command to run a file externally from psql - "\i"
+
+Creating Tables
+
+CREATE TABLE fruits (
+  name TEXT,
+  num INTEGER
+);
+
+Insert data into the Table
+INSERT INTO fruits (name, num) VALUES ('coconut', 3);
