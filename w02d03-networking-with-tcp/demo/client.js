@@ -1,27 +1,32 @@
 // Client
+
+// localhost <--- my address
+// port <----- 3001
 const net = require('net');
 const stdin = process.stdin;
-stdin.setEncoding('utf8');
-
-const client = net.createConnection({
-  port: 3001,
-  host: 'localhost' // my global ip here...
-}, function() {
-  console.log("We have connected!!");
+const client = net.createConnection({ 
+    port: 3001, 
+    host: 'localhost'
+}, () => {
+    console.log("General Kanobi!")
 })
+const name = 'VAS';
 
 client.setEncoding('utf8');
+stdin.setEncoding('utf8');
+// sends a message to the server
+// these messages can be interpreted as commands...
+client.write(`${name} has connected!!!`);
 
-
-const name = 'Vas';
-// to send messages to the server, we use .write() command!
-client.write(`${name} has connected!!`);
-
-client.on('data', function(data) {
-  console.log(data);
+stdin.on('data', (input) => {
+    client.write(`${name}: ${input}`)
 })
 
-stdin.on('data', function(whatYouEntered) {
-  client.write(`${name} says:  ${whatYouEntered}`);
+client.on('data', (data) => {
+    console.log("DATA CAME IN!!!!!");
+    console.log(data);
 })
 
+// Change your snek credentials somehow....
+.write("Name: dfsf")
+.write("Move: Up")

@@ -1,28 +1,35 @@
-// Server 
+// Server
+const { connect } = require('http2');
 const net = require('net');
 const users = [];
-// We create a server (with all of the default options)
-const server = net.createServer(function(connection) {
-  console.log("Someone has connected!");
-  connection.setEncoding('utf8');
-  users.push(connection);
-  connection.on('data', function(data) {
-    for (let user of users) {
-      user.write(data)
-    }
-    console.log("---------------");
-    console.log(data);
-    // connection.write('Hi welcome to Vas Chat Server!!!');
-  })
 
+//const test =  () => {....}
+// function test() {.....}
+const server = net.createServer((user) => {
+    console.log("User has connected!");
+    // console.log(user);
+    
+    user.write('General Grevious');
+    user.setEncoding('utf8');
+    users.push(user);
+    // add listner for data...
+    user.on('data', (data) => {
+        // console.log(data);
+        for (let user of users) {
+            user.write(data)
+        }
+    })
 
-  connection.on("end", function() {
-    users.splice(users.indexOf(connection), 1);
-    console.log("SOMEONE HAS DISCONNECTED :( ")
-  })
+    user.on('end', () => {
+        users.splice(users.indexOf(user, 1));
+        console.log("someone has disconnected!!");
+    })
+
 })
 
-// We make the server LISTEN to connections....
-server.listen(3001, function() { // PORT
-  console.log("Server is Listening!!!");
+// global IP -----------> Router ------------> Computer -----------> PORTS
+//                        City  -------------> Building -----------> room number
+//            PORT
+server.listen(3001, () => {
+    console.log("Server is Listening on PORT 3001");
 })
