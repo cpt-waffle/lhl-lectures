@@ -9,17 +9,14 @@
 --------------------------------------
 
 
+TCP
 
------ Snek Game -----
-
-TCP 
-
-- when you connect, you stay connected, until you want to disconnect.
-- during the connection, you exchange information between you and the server
+- Snek game, the chat server, 
+- client(s) connect to server, listen, and send information, and disconnect when they want
 
 HTTP
 
-Client makes a connection with server.
-Client REQUESTS something from the server.
-Server RESPONDS back to the client.
-Connection is terminated. ( we go away....)
+- Server goes online and LISTENS to requests
+- Client connects, and makes a request
+- Server gets the request, DOES SOMETHING 
+- Server always responds back

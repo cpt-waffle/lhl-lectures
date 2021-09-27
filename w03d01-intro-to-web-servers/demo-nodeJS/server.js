@@ -1,23 +1,23 @@
 const http = require('http');
 
 const server = http.createServer((req, res) => {
-    console.log("WHAT IS HAPPENING?!!??");
     console.log(req.url);
-    if (req.url === '/') {
-        res.end('<h1>welcome to my home page!!!</h1>')
-    } else if (req.url === '/cats') {
-        res.end('Welcome to cats! Im alergic to cats')
-    } else if (req.url === '/dogs') {
-        res.end("I used to have a dog!")
+    if (req.url === '/camelcase') {
+        res.end("the best way to name your variables in javascript ")
+    } else if (req.url === '/inuyasha') {
+        res.end("<h1>I want to change the world~</h1>");
+    } else if (req.url === '/jedi') {
+        res.end("Hello there! General Kanobi!");
     } else {
-        res.end('generic response');
+        res.end("HELLO WORLD!")
     }
 })
 
 
 
-// Server starts listening to connections....
-server.listen(8080, function() {
-    console.log("Server is on!!!");
-});
-console.log("hello world?");
+
+// lets the server to go online on the specific port
+// and listen for REQUESTS
+server.listen(8080, () => {
+    console.log("server is on!");
+})

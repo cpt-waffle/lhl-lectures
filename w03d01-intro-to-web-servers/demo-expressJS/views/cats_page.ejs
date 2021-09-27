@@ -7,9 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Cats!!!!!</h1>
-    <p>My friend Susan has 2 cats and their names are:</p>
-    <% for (let cat of locals.cats) { %>
+    <h1>Cats!!</h1>
+    <h2>these are the cats I do not have and their names are:</h2>
+    <%= 2 + 2 %> 
+    <% for (let cat of cats) {%>
         <li><%= cat %></li>
     <% } %>
 </body>
