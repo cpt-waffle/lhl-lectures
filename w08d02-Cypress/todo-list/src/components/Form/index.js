@@ -1,27 +1,31 @@
 import React, { useState } from 'react';
 
+
+
 const Form = ({handleAdd}) => {
 
-  const [error, setError] = useState(false);
+  const [val, setVal] = useState('');
+  const [err, toggleErr] = useState(false);
 
   const onSubmit = evt => {
     evt.preventDefault();
-    const value = evt.target.newItem.value;
-    if (value.length > 0) {
-      handleAdd(value);
-      setError(false);
-
+    // const value = evt.target.newItem.value;
+    if (val.length) {
+      handleAdd(val);
+      setVal('');
+      if (err) {
+        toggleErr(false);
+      }
     } else {
-      setError(true);
+      toggleErr(true);
     }
-    
   }
 
   return (
     <form onSubmit={onSubmit}>
-      <input name="newItem" type="text"/>
+      <input name="newItem" type="text" value={val} onChange={evt => setVal(evt.target.value)}/>
       <button id="submit">Submit</button>
-      {error && <h2>Error! Form Cannot Be Blank!</h2>}
+      {err && <h2>Error!, Input cant be blank!</h2>}
     </form>
   );
 }
