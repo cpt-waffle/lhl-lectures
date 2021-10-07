@@ -1,4 +1,4 @@
--------- Agenda
+-------- Agenda ------------
 Talk about Class Based Components
 
 We going to write 2 apps, side by side

@@ -1,66 +1,64 @@
-// We are going to still import React 
-import React, { Component } from 'react';
-import './Card.css'
-// Class Human
-// every human class has nails
-// every human class has travel()
+// 1
+import React, { Component } from 'react'
+import './card.css'
 
+// 2
 class Card extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            likes: 11,
-            dislikes: 5
+            likes: 10,
+            dislikes: 2
         }
-        this.handleDislikeClick = this.handleDislikeClick.bind(this);
+        // this.handleLikeClick = this.handleLikeClick.bind(this);
+
     }
 
-    handleLikesClick = () => {
-        this.setState(prev => 
-            ({...prev, likes: prev.likes + 1}
-        ))
-    }
-
-    handleDislikeClick = function () {
-        this.setState(prev => 
-            ({...prev, dislikes: prev.dislikes + 1}
+    handleLikeClick = () => {
+        this.setState(prev => (
+            {...prev, likes: prev.likes+1}
         ))
     }
 
     componentDidMount() {
-        console.log('Component finished mounting!');
         setTimeout(() => {
-            console.log("THIS IS STATE --------");
-            console.log(this.state);
-        }, 4000)
+            console.log(this.state.likes);
+            console.log(this.state.dislikes);
+        },4000)
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log("Render EVERY SINGLE TIME!!!!!");
-        if (prevState.likes !== this.state.likes) {
-            console.log("Render on likes!!");
-        }
+        // console.log("render forever!");
+        // if (this.state.likes !== prevState.likes) {
+        //     console.log("Likes has changed!");
+        // }
     }
 
-
+    // 4
     render() {
-        // this -- refers to THIS CLASS
-        const {image, name} = this.props;
+        const {img, name} = this.props;
         return (
             <div>
-                <img className="img" src={image}/>
-                <h1>{name}</h1>
-                <button onClick={this.handleLikesClick}>
+                <img
+                    className="cat--img"
+                    alt="catface" 
+                    src={img}
+                />
+                <h2>{name}</h2>
+                <button onClick={this.handleLikeClick}>
                     Likes {this.state.likes}
                 </button>
-                <button onClick={this.handleDislikeClick}>
+                <button 
+                    onClick={() => 
+                        this.setState(prev =>
+                        ({...prev, dislikes: prev.dislikes + 1}))}>
                     Dislikes {this.state.dislikes}
                 </button>
-
             </div>
         )
     }
+
 }
 
-
+// 3
 export default Card;
