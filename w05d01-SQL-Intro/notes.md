@@ -3,6 +3,7 @@
  - SQL intro (databases in general)
  - Why SQL  ( what is the point?)
  - psql ( and different commands that we can do)
+ - We will look into inserts/seeds
  - first query 
  BREAK 
  - more queries 
@@ -10,83 +11,130 @@
 
 ------------------------
 
-W4 TinyApp
+W4 - TinyApp!!!!
 
-you have deployed TinyApp......
-TinyApp has become the next biggest app in the world
-14 million users + 
-petabytes off tinyUrls
-$$$$$
+- urls
+- users
+- users can create urls
+- users can create an account
 
-there's a few lack of features
+---------- TinyApp got leaked
+TinyApp is the biggest app out there
 
-- friends groups
-- private/public URLS
-- analytics
+Hosted it
+16+ million users
+$$$$$$$$$$$$$
 
-we try to add a feature....
+people want features
+ - dark mode
+ - organizations
+ - public/private urls
 
-- server gets refreshed and that feature is added....
-- BUT WE LOST ALL THE DATA!!!!!!
+--- PUSH YOUR NEW FEATURES TO THE HOSTED WEBSITE
 
-^ VERY BAD
+- server will restart
 
+--- the data lived on the server while it was running....
 
-why not store it into files?
+IN THE CURRENT VER OF TINY APP
+DATA DOES NOT PERSIST (AFTER RESTART)
 
-users.txt  <----
-urls.txt   <----
-
-if and when we will need to grab data out of a file
-we will need to make scripts/commands to do this.
-
-Organized way to store data --- CSV Comma Seperated Values
-
-Seperation of Concerns 
-
-One Server Running the ExpressJS
-another server to run this Data 
-
-From a service --> So will need build a program that is able to host our data,
-and we are able to connect to it, and we are to save/read data from it.....
+--- Tinyapp 
+-- Hacker Group <---- NodeJS server Destroyed, Views Destroyed, BUT DATA IS FINE
+   <---- Data is Destroyed.....
 
 
-Relational Database -----
--- postgresql SQL 
+Tinyapp Needs to persist data --> (When server goes offline, data is still kept alive somewhere)
+
+How Can we Keep Data?
+
+lets make a file (.txt) and fsWrite into that file all that data.
+
+.csv
+
+```
+users
+id,email,password
 
 
-How Do I enter Postgresql?
--- psql
+---------- Seperation of Concerns ------------------------
 
-How Do I exist postgresql?
+We need move the file to another machine, (AWS)
+Can We write to a file thats on a different machine?
+fs.write()? NO
+
+-- connect to this machine 
+-- and have controlls to add to the file, or remove from that file ( server/service )
+
+
+------- DATABASES
+
+its a service that is able to persist data.
+It has controlls to connect/add/remove/organize the data
+( the language of the database )
+can be accessed by multiple of people for a extented period of time !!!
+
+Databases can be on a different server 
+
+------------------- 
+
+Relational Database 
+postgres
+postgresql
+
+to connected to postgresql
+you will write in terminal `psql`
+
+to exit
 \q
 
-How Do I see All my databases inside of postgres?
-\l
+- The service for postgres can be opened while you are in ANY FOLDER on your computer
 
-How do I CONNECT/GO INTO these databases?
+DATABASES 
+TinyApp <--SHARING---> Facebook
+\l <--- LIST all the databases
+
+To connect to a database ( SPEFICICALLY )
 \c DATABASE_NAME
 
-How do I see ALL OF MY TABLES in my DATABASE?
+psql -d DATABASE_NAME <--- To specifically connect to a database from terminal
+
+to look into the database and see all of the "tables"
 \dt
+/////////////////////////////////////////////////////
+to DELETE a database
+DROP DATABASE database_name;
 
-How to connect right away to a specific database
-psql -d DATABASE_NAME
+Create a database
 
-
-Creating a database ?
 CREATE DATABASE database_name;
 
 
-Adding data like tables and seeds (we are going to touch surface level of this)
+Create a table
 
+CREATE TABLE Table_name (
+  row_name1 row_type,
 
-Creating Tables
+)
 
 CREATE TABLE fruits (
-  name TEXT,
-  num INTEGER
+  name varchar(255),
+  favorite boolean
 );
 
-Insert data into the Table
-INSERT INTO fruits (name, num) VALUES ('coconut', 3);
+// inserts 
+INSERT INTO table_name (row_nam1, row_name2)
+VALUES (val1, val2);
+
+INSERT INTO fruits (name, favorite)
+VALUES ('kiwi', true);
+
+DELETE 
+
+DELETE FROM table_name
+WHERE condition
+
+PSQL is case insensitive
+
+\i <---- to run a specific file in your postgres
+NOTE: be close the the file so you dont have to write the absolute path to it
