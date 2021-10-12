@@ -10,8 +10,34 @@ M - 4
 V - 2
 C - 6
 
-config/routes.rb
+------------------------- routes.rb
+app.js <--- app.use('/users', )
 
-^--- config creates you the routes, and IT decided WHICH CONTROLLER will be used for each route
+/config/routes.rb
 
-Controller/ == routes/ from ExpressJS midterm
+
+Controllers 
+
+they controller the logic of what happens on a specific route
+app/controllers
+
+Views
+
+The UI for the user. Specifically for each route
+
+Model
+
+-- Data Layer
+  |--> class 
+
+Is a blueprint with a bunch of methods 
+and these methods can be used to acess data from the database
+
+ActiveRecord (monday)
+
+
+--------- Midterms
+
+-- i've just added 2 - 3 tables to our database and some seeds
+-- add the feature and push it out !
+-- npm db:reset
