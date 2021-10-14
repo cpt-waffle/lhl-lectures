@@ -4,5 +4,9 @@
 - Routes and Nested resources
 - Active Record 
 - Params (sessions)
+- QA
 
-Rails Magic 
+
+------------ Rails Most important file
+
+Routes.rb
