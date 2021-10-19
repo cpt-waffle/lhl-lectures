@@ -1,0 +1,11 @@
+.card--img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid green;
+}
+
+.card {
+    background-color: gainsboro;
+}
