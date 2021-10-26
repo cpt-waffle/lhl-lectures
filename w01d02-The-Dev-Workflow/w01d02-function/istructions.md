@@ -1,17 +1,22 @@
-// command line arguments?
-// how do i remove the first 2 arguments of an array?
-// numbers
-// add numbers toghether 
-// return sum
+To start a repo
 
+- make a repo on github and follow the instructions
+----------------
 
-// starting the repo
-// git init
-// git remote add
-// git push
-//////////////////
-// work work work
-// git add
-// git commit
-// git push
-// REPEAT lines 17-20
+To keep adding commits to it
+
+WORK WORK WORK WORK
+git add .
+git commit -m "did work"
+(OPTIONAL git push origin master/main)
+WORK WORK
+git add .
+git commit -m "did more work"
+(OPTIONAL git push origin master/main)
+REFACTOR
+git add .
+git commit -m " refactor "
+(OPTIONAL git push origin master/main)
+etc etc etc...
+# Once done all the work 
+git push origin master/main
