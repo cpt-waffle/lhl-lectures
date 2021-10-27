@@ -7,23 +7,8 @@
 -- practice ^
 
 
---- QA ---
+------------------------------
+React
 
-prop drilling!
-
-actions - passing functions as props
-
-state -- WTF useState? 
-
-can i props with state?
-
-what is storybook?
-
-architecture part -- how do i organize my stuff
-
-
----- state, props, useEffect 
-      ^        ^        ^
-      |        |        |
-
-      
+-- How you doing with it?
+-- What are some confusing points?
