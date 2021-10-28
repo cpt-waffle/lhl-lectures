@@ -1,20 +1,50 @@
-// map // forEach // Filter // 
+// // map // forEach // Filter // 
 
-const array = [1, 'two', 3, 'four', 5];
+// // for c style loops
+// // for in loops
+// // for of loops
+
+// const arr = [1,2,3,4,5,6,7,8,9,10];
+
+// // for (let val of arr) {
+// //     console.log(val);
+// // }
+// // console.log('------------------');
+// const looper = function(val, index, ar3) {
+//     console.log("val --->", val);
+//     console.log(index);
+// }
+// const nestedArr = [[1,2,3], [2,3,4]];
+
+// nestedArr.forEach((elem) =>{
+//     elem.forEach(v => {
+
+//     })
+// })
 
 
-// array.forEach((element, index) => {
-//     console.log('element =>', element);
-//     console.log('index   =>', index);
+
+// arr.forEach(looper)
+
+// // es6 arrow function convention
+
+// // function(val, index ) {
+// //     return val > 6;
+// // })
+// const answer = arr.map(elem => {
+//     console.log(this);
+//     return elem;
 // });
+// console.log(answer);
 
-// how many times have you looped through an array
-// while making a new array, and pushing some values into the new array
-const arr2 = [1,2,3,4,5]
 
-const newArr = arr2.map((elem) => {
-    console.log(elem);
-    return elem * 2;
+// // const filtered = arr.filter( val => val > 6 )
+
+// // console.log(filtered);
+
+
+const obj = {a:1, b:2, c:3};
+
+obj.forEach((val) => {
+
 })
-
-console.log(newArr);
