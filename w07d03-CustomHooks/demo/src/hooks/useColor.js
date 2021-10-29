@@ -1,26 +1,29 @@
-import { useState } from "react";
+// import the things we need
+import {useState} from 'react';
 
-const useColor = function(arg) {
-    const [index, setIndex] = useState(0);
-    const currentColor = arg[index];
+// make a file with use____ prefix
+// make a function called the same name as file (convention)
+// export that function out
 
-    const next = function() {
-        if (index < arg.length - 1){
-            setIndex((prev) => {
-                return prev + 1;
-            })
+// TESTING!!!!
+const useColor = (arrOfColors) => {
+    const [colorIndex, setColorIndex] = useState(0);
+    const defaultColor = arrOfColors[colorIndex];
+
+    const next = () => {
+        if (arrOfColors.length -1 > colorIndex) {
+            setColorIndex(prev => prev + 1);
         }
     }
 
-    const previous = function() {
-        if (index !== 0){
-            setIndex((prev) => {
-                return prev - 1;
-            })
+    const prevColor = () => {
+        if (colorIndex > 0) {
+            setColorIndex(prev => prev - 1);
         }
     }
 
-    return {currentColor, next, previous}
+    return {defaultColor, next, prevColor}
 }
+
 
 export default useColor;

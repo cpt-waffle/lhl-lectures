@@ -1,18 +1,18 @@
 import React, {useState, useEffect} from 'react';
-import Color from './components/Color'
-
+import Color from './components/Color';
 
 function App() {
-  // A Component that we pass an array of colors to 
-  // IT will set a the first color 
-  // and then if you click the "next" button it will change color to the next color
-  // and if you click "previous" button it will change back to the previous color
+  const [num, setNum] = useState(0);
 
+// We need make a component called "Color"
+// The color component will have a div 
+// and 2 buttons within this div
+// The color Component will take in as props an array of colors
+// you should be able to switch between the colors by using the two buttons (next and previous color)
 
   return (
     <div className="App">
-      <h1>Hello ! 11</h1>
-      <Color/>
+      <Color colors={['red', 'blue', 'pink', 'firebrick', 'lime', 'hotpick', 'salmon', 'rebeccapurple']}/>
     </div>
   );
 }
