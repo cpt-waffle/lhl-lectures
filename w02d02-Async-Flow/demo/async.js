@@ -1,31 +1,33 @@
+setTimeout(function() {
+    console.log("1");
+}, 1000);
 
-const arr = [2,4,6,8];
+setTimeout(function() {
+    console.log("2");
+}, 50);
 
-const arrLength = (arr, cb) => {
-    setTimeout(() => {
-        cb(arr.length);
-    }, 1000)
-    
-}
+setTimeout(function() {
+    console.log("3");
+}, 2000);
 
-const sum = (arr) => {
-    let result = 0;
-    for (let elem of arr) {
-        result += elem; // result = result + elem;
-    }
-    return result;
-}
+setTimeout(function() {
+    console.log("4");
+}, 3);
+// async
 
-const mean = (arr) => {
-    console.log("RUNNING~~");
-    arrLength(arr, (val) => {
-        console.log("inside callback line 22:");
-        console.log(val);
-        console.log(sum(arr)/ val);
-    })
-    // console.log(sum(arr) / arrLength(arr));
+// takes 1 second...
+// START
+// ASYNC FUNCTIONS ARE FUN..
+// console.log("Async functions are fun!!!");
+// console.log("Confusing");
+// console.log('wierd');
 
-}
+// cleaning
 
-
-console.log(mean(arr));
+// -- put dirty clothes in laundry, and wash cycle   <-------- DO YOU STARE AT THE LAUNDRY UNTIL ITS DONE?
+    // -- imma fold the laundry since its done now
+// -- put dirty dishes into the dishwasher, and wash cycle <----- 
+    // -- imma put clean dishes into the cubbies
+// -- vaccum <---
+// -- wash floors <--- 
+// -- changed birdcage <----

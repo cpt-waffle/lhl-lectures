@@ -1,18 +1,56 @@
-// whats a function ?
-// a block of code that runs some logic may return something 
-// input ---> Transformation ---> Output 
+// const a = 'foo'; // <--------- value;
+// //    ^variable name
 
-// const printArray = function() {}
+// const fun = function(a,b,c,d,e) {
+//     console.log("foo!!!");
+//     console.log(a,b,c,d);
+// }
 
-//callbacks --- a function that we pass to another function  !!
-const printArray = (arr, cb) => {
-    for (let i of arr) {
-        cb(i);
-    }
-}
-// forEach() , map(), filter(), reduce()
+// fun(1,2, a);
+// ////////////////////////////////////////
 
-printArray([1,2,3,4,5,6], (elem) => {
-    console.log("Elem is :", elem);
-});
+// // callbacks!!!
 
+// const highOrder = function(name, cb) {
+//     console.log("Name is :", name);
+//     console.log('cb is ',cb); // <--- by reference
+//     cb(22,33,44);
+// }
+
+// highOrder('Vas', fun)
+
+const arr = [1,2,3,4,5];
+
+// const newArr = [];
+// for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] % 2 === 0)
+//         newArr.push(arr[i]);
+//         newArr.push(cb(arr[i]))
+// }
+console.log(arr);
+const fileterdArray = arr.filter((element) => {
+    return element % 2 === 0
+})
+console.log(fileterdArray);
+
+const multipleThree = arr.map((element) => {
+    return element * 3;
+})
+console.log(multipleThree)
+
+
+
+// for (let val of arr) {  // let index in array
+
+// }
+
+// arr.forEach((val, index, ) => {
+
+// })
+
+
+
+// forEach
+// map
+// filter
+// reduce <--- 
