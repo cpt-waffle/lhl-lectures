@@ -7,83 +7,83 @@
 - you are going to connect to my server !!! :) 
 
 
-### What Is Networking!!!
+### What is Networking
 
-- connecting computers!
 - connecting
-- connecting two or more things!!
-- information exchange
-- when two or more computers are connected and can communicate 
+- communicating
+- exchanging info
 
-### People
 
-Figure out where to meet a person/Reach out
-On the meetup, Say HI!
-elbow bump / handshake
-say out name
-introduce ourselves
-listen to the other person/people
-have a proper good bye
-and then we leave
+### Networking with People 
 
-### Mediums 
+- be aproachable
+- speak same language
+- introduce yourself (say Hi my name is)
+- identify the person you are talking to ( ask them their name ) 
+- talk
+- establish a good relationship 
+- listen
+- give contact info
+- Say a proper goodbye and leave the convo
 
-- Air
-- phone call
-- text/whatsapp/telegram
-- email
-- carrier pigeons
-- can phone
-- smoke signals 
-- zoom
-- morse code
+### Mediums
+
+- Air ( in person )
+- text
+- voice 
+- symbols
+- sign language
+- screen share !!
+- video
 
 ### Computer Networking
 
-### Mediums for Computers
+### Mediums
 
-- cables (ethernet cables)
-- wifi
-- fiber optics
-- NFC
-- blutooth
+- Wifi
+- cables
+- bluetooth
+- radio signals
+- electromagnic waves
+- fiber optic
 
-### Set of Rules for Computer Communication
+### Rules of Networking 
+--- TCP  Transmission Control  Protocol 
 
-- where is the other computer located? address? IP addresses <------- Unique address 
-
-Global Address                             Router                         Local Address
-
-what is my ip?                                                             phones, computers, tvs
-
-# set of Rules for Computer communication
-TCP -  Transmission Control Protocol
-
-- Computer A wants to connected With Computer B (computer A NEEDS TO KNOW THE ADDRESS of B)
-- Computer A KNOWS the Global IP of computer A
-- Computer B SHOULD accept connection from Computer A
-- Computer A attempts to connect with Computer B ( request/connection )
-- if Connection gets established, Computer A sends its credentials to Computer B
-- Computer A will listen to any messages that might come in....
-- Computer B will listen to any messages that might come in....
-- Computer A has an option to disconnect anytime..
-- Computer B is a server therfore it will be always online, and it will always listen to connections
+- Computer A wants to Connect with Computer B
+- As Computer A I want to know where is Computer B
+- As Computer A i want to show my credentials to Computer B
+- As Computer A I can send messages to Computer B
+- As Computer A I want to recieve messages from Computer B  ( I can listen to messages )
+- As COmputer A certain messages from Computer B will make me do specific operations 
+- As Computer A I want to be able to disconnect...
 
 
-HTTP 
+--- HTTP  Hyper Text Transmission Protocol 
 
-- Computer A wants to connected With Computer B (computer A NEEDS TO KNOW THE ADDRESS of B)
-- Computer A KNOWS the Global IP(but also could be a URL) of computer A
-- Computer A attempts to connect with Computer B
-- Computer A sends a REQUEST 
-- Computer B gets REQUEST and RESPONDS back
-- Once the response is finished, Both computers disconnect from each other....
-
+- Computer A wants to Connect with Computer B
+- Computer A knows the credentials to connect to Computer B
+- COmputer A sends a REQUEST ( a single message )
+- Computer B sends a RESPONSE ( a single message back)
+- COmputers Disconnected
 
 
+### IP (Global and Local)
+IP - are addresses,
 
+Local IP is an address that is used on YOUR OWN network
+its a way the router knows who you are on the netowrk
+and will send you information accordingly
 
+Global IP - your actual address of your household
+ (VPN) <----->
 
+### (routers)
 
+### (PORTS)
+
+if local IP are your buildings
+
+PORTS are your unit numbers
 
 

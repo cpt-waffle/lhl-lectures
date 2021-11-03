@@ -1,32 +1,22 @@
-// Client
+// Client <------------
+// Chat app, where you can talk to me not using zoom, or slack 
+// but YOUR OWN TERMINAL
 
-// localhost <--- my address
-// port <----- 3001
 const net = require('net');
 const stdin = process.stdin;
-const client = net.createConnection({ 
-    port: 3001, 
-    host: 'localhost'
-}, () => {
-    console.log("General Kanobi!")
-})
-const name = 'VAS';
-
-client.setEncoding('utf8');
+                                            //127.0.0.1
+const name = 'Vas';
+const client = net.createConnection({host: 'localhost', port: 3001});
 stdin.setEncoding('utf8');
-// sends a message to the server
-// these messages can be interpreted as commands...
+client.setEncoding('utf8');
+
 client.write(`${name} has connected!!!`);
-
-stdin.on('data', (input) => {
-    client.write(`${name}: ${input}`)
-})
-
+// client.write('Move: Up')
+// client.write('Name: ABC')
 client.on('data', (data) => {
-    console.log("DATA CAME IN!!!!!");
     console.log(data);
 })
 
-// Change your snek credentials somehow....
-.write("Name: dfsf")
-.write("Move: Up")
+stdin.on('data', (input) => {
+    client.write(`${name}: ${input}`);
+})
