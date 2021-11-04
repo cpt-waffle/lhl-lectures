@@ -1,60 +1,65 @@
-// 1 
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import './card.css'
-// 2
+
+
+
+
+
+
+
 const Card = function(props) {
-    const {img, name} = props;
-    const [likes, setLikes] = useState(10);
-    const [dislikes, setDislikes] = useState(2);
-    // 4 
-
-    const handleLikeClick = function() {
-        // prev ---> batching
-        // whenever you replace a state  setState(var)
-        // whenever you are ALTERING a state, use prev
-        setLikes(prev => prev + 1); 
+    // When is it a good time combine state?
+    const [likes, setLikes] = useState(25);
+    const [dislikes, setDislikes] = useState(3);
+    const {img,name,title} = props;
+    
+    const onLikesClick = () => {
+        setLikes(prev => prev + 1);
     }
-    // useEffect vs LifeCycle
-    useEffect(() => {
-        // console.log("render FOREVER!");
-    })
-    // dependancy array
-    // -- if something changes in this array,
-    // this useEffect will run
+
+    // useEffect(() => {
+    //     Promise.all([axios.get('/'),]).then((data) =>{
+    //         setState(prev => ({...prev, a: data[0]}))
+    //     })
+    // },[state]) 
 
     useEffect(() => {
-        // console.log("likes has changed!");
+        console.log("Render EveryTime Anything Changes!!!");
+        setTimeout(() => {
+            console.log('likes ==>', likes);
+        }, 5000)
     }, [likes])
 
     useEffect(() => {
-        // console.log("One time!");
-        setTimeout(() => {
-            console.log(likes);
-            console.log(dislikes);
-        },4000)
-    }, []);
+        console.log("Render Only once Because 0 dependancies in that array")
+    }, [])
 
+    useEffect(() => {
+        console.log("Likes changed, and re-render happened!");
+    }, [likes])
+
+    // 
     return (
-        <div>
-            <img 
-                className="cat--img"
-                alt="catface" 
-                src={img}
-            />
+        <>
+            <img className="cat--img" src={img} alt='cat-pic'/>
             <h2>{name}</h2>
-            {props.children}
-            <button 
-                onClick={handleLikeClick}>
-                Likes {likes}
+            <h3>{title}</h3>
+            <button
+                onClick={onLikesClick}>
+                <h3>Likes    {likes}
+                </h3>
             </button>
-            <button 
+            <button
                 onClick={() => setDislikes(prev => prev + 1)}>
-                Dislikes {dislikes}
+                <h3>Dislikes {dislikes}</h3>
             </button>
 
-        </div>
+        </>
     )
 }
 
-// 3
+
+
+
+
 export default Card;

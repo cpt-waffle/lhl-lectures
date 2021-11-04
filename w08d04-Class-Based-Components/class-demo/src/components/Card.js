@@ -1,64 +1,79 @@
 // 1
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import './card.css'
+// class ?
+// Blueprints
+/// Car -----> Toyota ---> Nissan ---> etc
+// Nissan <>
 
-// 2
+// extends Component (first difference!!)
 class Card extends Component {
     constructor(props) {
         super(props);
+        //..
+        // STATE HERE
         this.state = {
-            likes: 10,
-            dislikes: 2
+            likes: 25,
+            dislikes: 3
         }
-        // this.handleLikeClick = this.handleLikeClick.bind(this);
-
+    }
+    onLikesClick = () => {
+        this.setState(prev => {
+            return {
+                ...prev,
+                likes: prev.likes + 1
+            }
+        })
     }
 
-    handleLikeClick = () => {
-        this.setState(prev => (
-            {...prev, likes: prev.likes+1}
-        ))
+
+
+    onDisikesClick = () => {
+        this.setState(prev => {
+            return {
+                ...prev,
+                dislikes: prev.dislikes + 1
+            }
+        })
     }
+
 
     componentDidMount() {
+        // axios here 
+        console.log("Render Only once!")
         setTimeout(() => {
-            console.log(this.state.likes);
-            console.log(this.state.dislikes);
-        },4000)
-    }
-
+            console.log("likes ===>,", this.state.likes);
+        }, 5000)
+    }    
     componentDidUpdate(prevProps, prevState) {
-        // console.log("render forever!");
-        // if (this.state.likes !== prevState.likes) {
-        //     console.log("Likes has changed!");
-        // }
+        console.log("Render on every single time");
+        if (prevState.likes !== this.state.likes ) {
+            console.log("Likes Changed!");
+        }
     }
 
-    // 4
+
     render() {
-        const {img, name} = this.props;
+        // some logic area abouve
+        // return JSX
+        /// THIS
+        // WHat is this?
+        // this is that
+        const {img,name,title} = this.props;
         return (
-            <div>
-                <img
-                    className="cat--img"
-                    alt="catface" 
-                    src={img}
-                />
+            <>
+                <img src={img} className="cat--img" alt="cat-pic"/>
                 <h2>{name}</h2>
-                <button onClick={this.handleLikeClick}>
-                    Likes {this.state.likes}
+                <h3>{title}</h3>
+                <button onClick={this.onLikesClick}>
+                    <h3>Likes {this.state.likes}</h3>
                 </button>
-                <button 
-                    onClick={() => 
-                        this.setState(prev =>
-                        ({...prev, dislikes: prev.dislikes + 1}))}>
-                    Dislikes {this.state.dislikes}
+                <button onClick={this.onDisikesClick}>
+                    <h3>Dislikes {this.state.dislikes}</h3>
                 </button>
-            </div>
+            </>
         )
     }
-
 }
 
-// 3
 export default Card;
