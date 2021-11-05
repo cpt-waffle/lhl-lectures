@@ -1,69 +1,85 @@
+# variables
+
 fruit = 'apple'
-num = 44
+num = 12
 PI = 3.14
 
-# puts fruit, num, PI
-# creating a function
-def add_three arg0, arg1, arg2, arg3=0, arg4=0, arg5=0
-    puts 'Calculating....'
-    # in ruby, the last line, will be returned automatically -- implict return
-    arg0 + arg1 + arg2
+puts fruit, num, PI
+
+
+
+def addFour arg0, arg1, arg2, arg3
+    puts 'Calculating...'
+    puts arg0 + arg1 + arg2 + arg3
+    # ruby implicit returns....
+    arg0 + arg1 + arg2 + arg3
 end
 
-# puts add_three 5, 5, 5, 5, 5, 5
-
-
-# val = 10
-
-# if val < 9
-#     puts "value is less than 9"
-# elsif val == 10
-#     puts "value is 10"
-# else
-#     puts "value is greater than 10"
-# end
-
-# puts "this is true!!" if true
-# # unless = if !
-# puts "NOT TRUE" unless !true 
-
-# template literals
-number = 3
-name = "Paul"
-
-# puts "#{name} - #{number.to_s}"
-
-arr = [1,2,3,4,5,6,7,8,9,10]
-
-# puts arr[3]
+value = addFour 2, 2, 2, 2
+puts "Value---  #{value}"
 
 
 
-# arr.each_with_index do |e, i|
-#     puts "Index at ==>" + i.to_s
-#     puts "Elem is -> " + e.to_s
-# end
+val = 10
+
+if val < 9
+    puts 'Value is less than 9'
+elsif val == 10
+    puts 'Value is exactly 10'
+else
+    puts 'Value is greater than 10'
+end
+
+puts 'true' if true
+
+puts 'value is false' unless !true
+
+
+# arrays
+
+arr = [1,2,3,4]
+
+puts arr.to_s
+
+
+
+arr.each_with_index do |val, index|
+    puts "index is #{index}, val => #{val}"
+end
+
+# Objects ( but not really because its called
+#  something else)
 
 obj = {
     a:1,
     b:2,
     c:3,
-    "hello world" => 33
+    'D is': 4
 }
 
 # puts obj
-# puts obj[:a]
-# puts obj[:b]
-# puts obj['hello world']
 
-# obj.each do |aa, vv|
-#     puts "#{aa} ===#{vv}"
-# end
+#  only way to access value of a hash
+puts obj[:a]
+# no such thing as dot notation
+# --
+
+obj.each do |key, val|
+    puts "key is #{key}"
+    puts "val is #{val}"
+    puts "-------------"
+end
+
+#  Yield ( sort of like a cb )
 
 def high_order
     puts "START"
-    yield
+    yield 33
     puts "END"
 end
 
-high_order() {|a| puts "CALLBACK RUNS!!"}
+high_order {|a| puts "~~~ CALLBACK RUNS~~~#{a}"}
+
+# Activity to Benchmark the Fibonacci
+# function
+

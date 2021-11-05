@@ -1,71 +1,83 @@
+// variables 
+
 let fruit = 'apple';
-var num = 44;
+var num = 12;
 const PI = 3.14;
 
-// console.log(fruit, num, PI);
+console.log(fruit, num, PI);
 
-const addThree = (arg0, arg1, arg2) =>{
-    console.log("Calculating....");
+// functions, block of code that can be executed
 
-    return arg0 + arg1 + arg2;
+const addFour = (arg0, arg1, arg2, arg3) => {
+    console.log("Calculating...");
+    console.log(arg0 + arg1 + arg2 + arg3);
+    return arg0 + arg1 + arg2 + arg3;
 }
 
-// console.log(addThree(5, 5, 5, 5, 5, 5));
+
+const value = addFour(2,2,2,2,5,5,5,5);
+console.log(`Value---  + ${value}`);
+
+// If statements in JS
+
+const val = 10;
+
+if (val < 9) {
+    console.log('Value is less than 9');
+} else if ( val === 10) {
+    console.log('Value is exactly 10');
+} else {
+    console.log('Value is greater than 10');
+}
+
+if (true) console.log('true');
+
+if (!true === false) console.log('value is false');
 
 
-// const val = 10;
+// arrays 
 
-// if (val < 9) {
-//     console.log("value is less than 9");
-// } else if (val == 10) {
-//     console.log("value is 10");
-// } else {
-//     console.log("value is greater than 10");
-// }
+const arr = [1,2,3,4]
 
-// if (true) console.log("this is true!!");
+console.log(arr);
 
-// if (!true == false) console.log("NOT TRUE");
+// for, forEach, while
+//   for in, for Of
+arr.forEach((val, index) => {
+    console.log(`index is ${index}, val => ${val}`);
+})
 
-//template literals
-let number = 3;
-let name = "Paul";
+// Objects
 
-// console.log(`${name} - ${number}`);
-
-const arr = [1,2,3,4,5,6,7,8,9,10];
-
-// console.log(arr[3]);
-
-// // while, for, forEach
-
-// arr.forEach((element, index, currArr) => {
-//     console.log("Index at ==>", index);
-//     console.log("elem is -> ", element);
-// })
 
 const obj = {
-    a: 1,
-    b: 2,
-    c: 3,
-    "hello world": 33
+    a:1,
+    b:2,
+    c:3,
+    'D is': 4
 }
 
-// console.log(obj);
-// console.log(obj.a);
-// console.log(obj["b"]);
-// console.log(obj["hello world"]);
+console.log(obj);
 
-// Object.keys(obj).forEach((key) => {
-//     console.log(`${key} ===${obj[key]}`);
-// })
+// square bracket notation
+console.log(obj['a']);
+// // dot notation
+console.log(obj.a);
+
+Object.keys(obj).forEach((key) => {
+    console.log("key is -->", key);
+    console.log("val is -->", obj[key]);
+    console.log('-------------');
+})
+
+// Callbacks
 
 const highOrder = (cb) => {
     console.log("START");
-    cb(4);
+    cb(33);
     console.log("END");
 }
 
 highOrder((a) => {
-    console.log("CALLBACK RUNS!!");
+    console.log("~~~CALLBACK RUNS~~~", a)
 })

@@ -7,42 +7,31 @@
 - yield
 - rails
 
+##  ---------------------- Javascript Facts --------------------------
+
+- 10 days to create js --- 1995
+- Java -----> Javascript ( not the same thing, )
+- js was a front-end language, it also became a back-end language (node)
+- javascript is a functional language
+- NPM --- Node Package Manager,  there are 1.3 million packages 
+- node_modules <--- get created for every single project (good/bad)
+- async
+- high performant
+- expressJS for  backend very popular, and front-end we got 3-5 frameworks 
+   - that are dominatinating the field (ReactJS, Vue, Angular, Svelete, JQuery)
+
+## ----------------------- RUBY Facts -------------------------------
+
+- it was invented in 1995, by Matsumoto Yukihiro (Matz)
+- (Matz) ruby took off at around 2004 - 05 because of a framework called Rails
+- Rails Framework ---> the creator of rails, is now racing cars
+- is strictly a BACKEND language
+- Ruby is OOP
+- packages in ruby are called "gems" install em with command "gem install _"
+- there is no gem_modules.... Ruby packages are global
+- Ruby is a synch language 
+- Ruby syntax is "symplified" ( pythonic )
+- not so performant :(
 
 
-
---------------- Javascript ---------------------
-10 days to create js -- 1995
-Java so popular, Javascript
-both can run in front-end and back-end
-syntax is "borrowed" from and java
-javascript is functional --- (classes, but they are syntatic sugar)
-NPM --- 1.3 mill
-js - has primative types -- boolean, string, int, double, float
-ASYNC --- (callbacks, promises, async/await)
-perfomant
-express is quite a popular web framework
-
-
---------------- RUBY -----------------------------
-1995 - Matsumoto (Matz) but it became very popular
-at aroound 2004-05 because of Rails
-Ruby CAN ONLY RUN in the backend
-Ruby syntax is "simplified" ("pythonic")
-Ruby is Class based ( OOP )
-There are no primative variables
-Ruby is SYNC 
-less performant :(
-ruby has a GEM library
-
-
----------  Ruby on Rails
-is a MVC framework, and it is very well built 
-configuration vs convention 
-
-
-PERFORMANCE 
-
-
-
-
-
+---------------------------------------------------
