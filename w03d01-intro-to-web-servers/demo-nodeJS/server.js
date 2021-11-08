@@ -1,23 +1,20 @@
+// vanilla server
+
 const http = require('http');
 
-const server = http.createServer((req, res) => {
-    console.log(req.url);
-    if (req.url === '/camelcase') {
-        res.end("the best way to name your variables in javascript ")
-    } else if (req.url === '/inuyasha') {
-        res.end("<h1>I want to change the world~</h1>");
-    } else if (req.url === '/jedi') {
-        res.end("Hello there! General Kanobi!");
+const server = http.createServer((request, response) => {
+    console.log("Request:", request.url);
+    if (request.url === '/eth') {
+        response.end("Buy ETH");
+    } else if (request.url === '/dogs') {
+        response.end("Woof!");
+    } else if (request.url === '/money') {
+        response.end("here's $20!")
     } else {
-        res.end("HELLO WORLD!")
+        response.end('hello world!!');
     }
 })
 
-
-
-
-// lets the server to go online on the specific port
-// and listen for REQUESTS
 server.listen(8080, () => {
-    console.log("server is on!");
+    console.log(`Server is on and listening on port 8080`);
 })

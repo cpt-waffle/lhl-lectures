@@ -1,74 +1,66 @@
-const e = require('express');
+// 0 - since we are using an NPM library/framework
+//    we want to npm initialize...
+// 1 - make a file called index/server.js
+// 2 - follow the docs!!
+
+///////////////////////////////
+/// installing EJS
+// 1 - npm install ejs
+// 2 - set 'view engine' to ejs
+// 3 - you are REQUIRED to make a 'views/' folder
+
+
 const express = require('express');
-const app = express();
-const port = 8080;
-const array = ['mr buttons', 'rosy', 'puma', 'pikachu'];
-const catDescriptions = [{
-    weight: '5lb',
-    color: 'red'
-},
-{
-    weight: '7lb',
-    color: 'black'
-},
-{
-    weight: '7lb',
-    color: 'black'
-},
-{
-    weight: '4lb',
-    color: 'orange'
-}
-];
-// view engine installation
-// npm install ejs
-// app.set
-// make a folder called views
+const app = express(); // createServer equivalent 
+
+const cats = ['Puma', 'Rosy', 'Mr Buttons', 'Bob', 'Hannah'];
+
+// set engine AFTER app was created
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-    console.log("home page hit!");
-    // res.send('<h1>Welcome to my homepage!!</h1>');
-    res.render('home')
-    // /views/home
+app.get('/', (request, response) => {
+    console.log("/ has been hit!");
+    // response.send('Welcome to homepage!');
+    response.render('homepage');
 })
 
-// how to make a route in express
-// 1 - create an app.get route
-// 2 - fill out the first argument with the route name ie: "/cats"
-// 3 - make sure 2nd argument has a callback with the req,res in it 
-// 4 - add logic to route, like send information back to client
+// ITS ALWAYS REQ FIRST , RES SECOND
+app.get('/eth', (req, res) => {
+    console.log("/eth has been hit!");
+    // HTML
 
-// to add a view for cats
-// in the views folder, make a file and name it...
-// add html into that file
-// on server instead of res.send use res.render('file_name')
-app.get('/cats', (req, res) => {
-    console.log("cat route hit!");
-    // res.send('<h2>Here is my cats</h2>');
-
-    res.render('cats_page', {cats: array});
-    // res.render ( file_name, {object} )
+    // res.send('<body><h2>BUY</h2><h3>ETH!!</h3><span><i>:)</i></span></body>');
+    // res.send command gets changed when using EJS
+    // to the command called: "res.render('filename')  <--- without the .ejs"
+    res.render('eth');
 })
-// express js is doing with this route
-// whenever someone hits /cats/????
-// the ??? gets parsed into an :id or :whateverYouNameIt 
-// and we can access that parsed value inside of, req.params
-app.get('/cats/:id', (req, res) => {
-    console.log("specific cat route hit!!");
+// How do you list a bunch of items on a page?
+app.get('/cats', (req,res) => {
+    console.log("/cats has been hit!");
+
+    // res.render() takes 2 parameters!!!
+    // parameter 1 ---> filename that will be sent out to the client as request
+    // parameter 2 ---> OBJECT {}, is SHARED/PASSED between server.js and
+    //                     filename.ejs
+    const obj = {fruit: 'apple', cats: cats};
+    res.render('cats', obj);
+})
+///       
+app.get('/cats/:cat_id', (req,res) => {
     console.log(req.params);
-    const specificCat = array[req.params.id];
-    const desc = catDescriptions[req.params.id];
-    const templateVars = {name: specificCat, desc: desc};
-    if ( desc ) {
-        return res.render('cats_show', templateVars);
-    }
-    
-    return res.send("CAT DOES NOT EXIST :(");
-
+    // req.params.id is a number
+    // i will find the value responsible for the id/index of my array
+    // and send it to view using our object
+    const obj = {cat: cats[req.params.cat_id]}
+    res.render('cats_show', obj);
 })
 
 
-app.listen(port, () => {
-    console.log("Server is listening on port ", port)
-});
+// if I have a route that is able to display more information about that item
+// how do i re-use the logic for all the other items?
+
+
+
+app.listen(8080, () => {
+    console.log(`Server is listening on port 8080`);
+})
