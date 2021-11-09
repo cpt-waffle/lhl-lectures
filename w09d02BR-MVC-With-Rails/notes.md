@@ -5,39 +5,37 @@
 - look into jungle-rails as an example ? ( if we got time )
 
 
+---------------- 
+
+MVC Pattern
+
+
+M - model, models   ----- databases (connections, and quaries, etc)
+V - views,          ----- what does the user see? (html, css, emails)
+C - controller      ----- logic of what happens during the req (app.get())
 
 M - 4
-V - 2
-C - 6
-
-------------------------- routes.rb
-app.js <--- app.use('/users', )
-
-/config/routes.rb
+V - 5
+C - 8
 
 
-Controllers 
+Why this split? Why do we have these 3 letters?
 
-they controller the logic of what happens on a specific route
-app/controllers
+ - seperation of concerns
+ - its faster (for rails, rapid deployment)
+ - it makes your life harder (in the beginning)
+ - modular reasonings
 
-Views
+ ActiveRecord
 
-The UI for the user. Specifically for each route
+pg  npm
 
-Model
+pg.query("SELECT * FROM users JOIN pets ON pets.user_id = user.id WHERE user_id = 3")
 
--- Data Layer
-  |--> class 
-
-Is a blueprint with a bunch of methods 
-and these methods can be used to acess data from the database
-
-ActiveRecord (monday)
+ ActiveRecord
+  - Models
+      ^-- a blueprint of a table that you have in your database
 
 
---------- Midterms
 
--- i've just added 2 - 3 tables to our database and some seeds
--- add the feature and push it out !
--- npm db:reset
+User.find(3).pets()
