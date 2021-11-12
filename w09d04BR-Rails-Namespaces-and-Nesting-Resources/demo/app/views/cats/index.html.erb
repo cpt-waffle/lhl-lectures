@@ -1,0 +1,8 @@
+<h1>Cats Page!!!</h1>
+    <h2><%= @greetings%></h2>
+<ul>
+<% @cats.each do |cat|%>
+    <%= cat.owner.inspect %>
+    <li><%= cat.name %>   --- <%= cat.color %> </li>
+<% end %>
+</ul>

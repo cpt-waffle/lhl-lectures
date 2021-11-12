@@ -1,9 +1,10 @@
 # --------- Agenda -------------
 
 - Rails setup
+- Active Record
+- Eager Loading
+- File/Controller Structure~
 - Routes and Nested resources
-- Active Record 
-- Params (sessions)
 - QA
 
 
