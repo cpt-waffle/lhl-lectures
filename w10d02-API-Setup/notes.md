@@ -11,32 +11,49 @@ and backend(s)
 
 -------------
 
-Backend
+
+Server Side 
+^-- EJS, ERB, PUG, etc
+
+Client Side <--- API, frontend server
 
 
-- Rails 
+------------------
 
-What do we not need from rails if we're building our own front-end
-  Views
-  forms
-  links
-  tables
-  ERB <%= %>
-<-- 
+Repository Setup !!
 
+1 - 2 repo option. One repository for frontend, one forback 
+ - clever divison
 
-rails new rails_backend_api --api
+Restaraunt APP
+ Show all the items for a specific restaraunt
 
-
-<------------ WHATS BETTER ?>
-
-1 repo (front + back)
-( commits !)
-
-OR
-2 repos ( front repo + back repo)
+- route (api)
+ --4556 add route for items
+- frontend page
+ --4556 add page for items
 
 
+2 - 1 repo option, where you just a folder for frontend a folder for backend
+- seems cheaper ( easier to maintain )
+- controller changes (GIT)
 
----------- WHAT IS A DIFFERENCE BETWEEN AN APP AND A WEBSITE ----------------
 
+Start a project
+- make a folder
+- generate backend in rails
+rails new rails-api --api --database=postgresql
+- made a route 
+- made a controller
+- made a model with migration
+- added my columns into the migration
+- added some seeds
+- then in the controller, i made an "index" route
+ - that sends out a bunch of data to the client 
+
+-- For Rails
+- gem 'rack-cors'
+- bundle install
+- uncomment out the chunk of code in 
+# config/initializers/cors.rb
+- change origin to your domain!
