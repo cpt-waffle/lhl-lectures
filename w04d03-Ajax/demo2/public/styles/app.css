@@ -3,33 +3,33 @@
   padding: 0;
 }
 
-
-.show {
-  padding: 15px;
-  align-items: center;
-  display: flex;
-  background-color: mediumslateblue;
+.movie {
   border: 2px solid salmon;
+  display: flex;
+  align-items: center;
+  background-color: cyan;
+  color: darkmagenta;
 }
 
+.movie:hover {
+  background-color: #BADA55;
+}
 
-.show--img {
+.movie--img {
   width: 150px;
-  height: 150px;
-  object-fit: cover;
 }
 
-.show--desc {
-  padding: 20px;
+.movie--desc {
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
-.show--title {
-  color: orange;
+.movie--summary {
+  border: 2px solid crimson;
 }
 
-#form {
+#search {
   text-align: center;
-    padding-top: 20px;
-    background-color: cornflowerblue;
-    padding-bottom: 15px;
+  background-color: skyblue;
+  padding: 24px;
 }
