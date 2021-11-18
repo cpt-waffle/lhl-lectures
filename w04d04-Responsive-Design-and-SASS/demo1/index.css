@@ -1,39 +1,40 @@
 * {
     margin: 0;
     padding: 0;
-}
-
-body {
-    padding: 2px;
     font-size: 16px;
 }
 
 .box-a {
     border: 2px dashed lightgreen;
-    font-size: 2em; /* 32 */
+    font-size: 2em;  /* 16 * 2  = 32*/
 }
 
 .box-b {
     border: 2px dashed salmon;
-    font-size: 2em; /* 64 */
+    font-size: 2em;  /*  32 * 2 = 64 */
 }
 
 .box-c {
-    border: 2px solid purple;
+    border: 2px dashed goldenrod;
     font-size: 2em;
 }
 
 .box-d {
     border: 2px dashed lightgreen;
-    font-size: 2rem; /* 32 */
+    font-size: 2rem;
 }
 
 .box-e {
     border: 2px dashed salmon;
-    font-size: 2rem; /* 64 */
+    font-size: 2rem;
 }
 
 .box-f {
-    border: 2px solid purple;
+    border: 2px dashed goldenrod;
     font-size: 2rem;
+}
+
+
+@media only screen and (max-width:400px) {
+
 }

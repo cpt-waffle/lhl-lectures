@@ -2,44 +2,45 @@
     margin: 0;
     padding: 0;
 }
-
-.layout {
+.profile {
     text-align: center;
+    margin-top: 20px;
 }
 
-.profile-img {
-    margin-top: 12px;
+.profile-pic {
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
     object-fit: cover;
 }
 
-.content-1 {
-  background-color: yellow;
+
+.content-a {
+    background-color: skyblue;
 }
 
-.content-2 {
-  background-color: red;
+.content-b {
+    background-color:  salmon;
 }
 
-.content-3 {
-  background-color: yellowgreen;
+.content-c {
+    background-color: slateblue;
 }
 
-@media only screen and (min-width: 750px) {
-    .profile-img {
+@media only screen and (min-width: 800px) {
+    .profile-pic {
+        width:100%;
+        height: auto;
         border-radius: 0;
-        width: 100%;
-        height: 285px;
+        object-fit: contain;
     }
 
-    .content-layout {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-
-    .sub-content {
+    .content-container {
         display:flex;
+    }
+
+    .layout {
+        display:flex;
+        flex-direction: column-reverse;
     }
 }
