@@ -1,40 +1,32 @@
-const {Pool} = require('pg');
-// A Client is a worker that runs your SQL queries and gives you back output
+const {Pool, Client} = require('pg');
 
-// Pool -- a pool is a BUNCH OF CLIENTS referenced as 1 big obj.
-// 
-
-
-// psql command with the flags
-// but now we can do it programatically and withing the JS file...
 const pool = new Pool({
     user: 'labber',
     password: 'labber',
+    port: '5432',
     host: 'localhost',
-    database: 'w05d03',
-    port: 5432
-})
+    database: 'w05d03'
+});
+
+// a client, is a single connection/worker that is able to run queries for your database
+// 
+
+// a pool, is a collection of connections/workers that is able to run queries for your database
+
 
 pool.connect().then(() => {
-    console.log("We have connected :)");
+    console.log("We have connected to our database :)");
 }).catch(e => {
-    console.log("------- Error ------");
-    console.log(e);
-})
+    console.log('----------- Error -----------');
+    console.log(e.message);
+});
 
-
-
-// pool.query('SELECT * FROM departments;', (err, res) => {
-//     if (err) {
-//         throw new Error(err);
-//     } else {
-//         console.log(res.rows);
-//     }
-// })
-
-
-pool.query('SELECT * FROM departments;').then(res => {
-    console.log(res.rows);
+pool.query('SELECT * FROM employees;').then( data => {
+    console.log("QUERY FINISHED!!");
+    // console.log(data.rows);
+    console.log("First entry is-----");
+    console.log(data.rows);
 }).catch(err => {
-    console.log(err);
+    console.log("ERROR HAS HAPPENED!!");
+    console.log(err.message);
 })
