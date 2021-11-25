@@ -1,30 +1,42 @@
-// Write a function called printOnly
-// where it takes an array and a callback
+// Write a function called printOnly      x
+// where it takes an array and a callback x
 // the callback will determine which elements to print
-const arr = [1,'two', 3, 'four', 5, 'six', 7, 'eight', 9, 'ten'];
 
-const printOnly = function(array, callback) {
-    console.log(callback);
-    for (let val of array) {
-        if (callback(val)) {
-            console.log(val);
-        }
+
+// a callback is a function that gets passed into another function
+// we pass as parameters
+const printOnly = function(array, callback) { // high order function
+    for (let element of array) {
+        if (callback(element))
+        console.log(' element ---> ', element);
     }
 }
 
-
-
-const checkIfString = function(val) {
-    if (typeof val === 'string') {
-        return true
-    } 
-    return false;
-
+const isNumber = function(value) {
+    if (typeof value === 'number') {
+        return true;
+    } else {
+        return false;
+    }
 }
-// console.log(checkIfNumber('five'));
+// variables have values
+// in functions we can pass variables
+// or we can hardcode the values
 
-printOnly(arr, function(val) {
-    return typeof val === 'number'
+
+// 6 falsey values in js
+// false, 0, NaN, undefined, null, ''
+
+const arr = [1,'two', 3, 'four', 5, 'six', 7, 'eight', 9, 'ten'];
+printOnly(arr, (value) => {
+    if (typeof value === 'number') {
+        return true;
+    } else {
+        return false;
+    }
 });
 
-printOnly(arr, checkIfString);
+// if your function is a 1 liner, you dont need brackets
+// if your function is a 1 liner, and it RETURNS something, you dont need to put a return
+// if your function HAS ONLY 1 PARAMETER, the () are optional
+// scope .... 

@@ -1,50 +1,56 @@
 // // map // forEach // Filter // 
 
-// // for c style loops
-// // for in loops
-// // for of loops
+const generalLoop = function(arr, callback) {
+    for (let i in arr) {
+        callback(arr[i], i);
+    }
+}
 
-// const arr = [1,2,3,4,5,6,7,8,9,10];
 
-// // for (let val of arr) {
-// //     console.log(val);
-// // }
-// // console.log('------------------');
-// const looper = function(val, index, ar3) {
-//     console.log("val --->", val);
+const array = [23, 54, 12, 24, 11];
+//             0    1   2   3   4
+
+// for c style
+// for in
+// for of
+// while
+
+const users = [{name: 'vas', id: 3}, {name: 'jim', id: 2}, {name: 'tracey', id: 1}];
+const object = {name: 'toyota', make: 'GR86', year: 2022, color: 'Track BRed'};
+
+Object.keys(object).forEach((property) => {
+    // console.log('property:', property);
+    // if i have a variable with a name of key, how do i get the value from the object?
+    // square bracket notation
+    // console.log(object[property]);
+})
+
+
+// users.forEach(function(user, index, arr) {
+//     console.log('what is element ?');
+//     console.log(user.name);
 //     console.log(index);
-// }
-// const nestedArr = [[1,2,3], [2,3,4]];
-
-// nestedArr.forEach((elem) =>{
-//     elem.forEach(v => {
-
-//     })
 // })
 
+// 
+
+const isNumber2 = (val) => {
+    if (typeof val === 'number') {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
-// arr.forEach(looper)
-
-// // es6 arrow function convention
-
-// // function(val, index ) {
-// //     return val > 6;
-// // })
-// const answer = arr.map(elem => {
-//     console.log(this);
-//     return elem;
-// });
-// console.log(answer);
+const isNumber = (val) => typeof val === 'number';
 
 
-// // const filtered = arr.filter( val => val > 6 )
 
-// // console.log(filtered);
+const names = ['Harry', 'James', "Waldo", "Cerci"];
 
-
-const obj = {a:1, b:2, c:3};
-
-obj.forEach((val) => {
-
-})
+const findWaldo = (names, cb) => {
+    // loop through your names array
+    // if the name is currently Waldo 
+    cb(index)
+}

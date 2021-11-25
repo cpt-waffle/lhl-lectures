@@ -2,29 +2,37 @@
 // then it prints out ONLY numbers from this array.
 const arr = [1,'two', 3, 'four', 5, 'six', 7, 'eight', 9, 'ten'];
 
-
-const printOnlyNumbers = function(arr) {
-    // loop through this arr
-    for (let val of arr) {
-        if (typeof val === 'number') {
-            console.log(val);
+const printNumbers = function(arr) {
+    const result = [];
+    // for (let i = 0; i < arr.length - 1; i++)
+    // for of    [44,23,54,73,32] ===> 44, 23, 54, 73 ..
+    // for in    [44,23,54,73,32] ===> 0, 1, 2, 3, 4, 5,
+    for (let element of arr) {
+        if (typeof element === 'number') {
+            result.push(element);
         }
     }
-    // and if i see a number i will print it
-
+    console.log(result);
 }
 
-printOnlyNumbers(arr);
+printNumbers(arr);
+
+
+
 
 // write a function that takes an array as an argument.
 // then it prints out ONLY strings from this array.
 // two, four, six, eight, ten
 
-const printOnlyStrings = (arr) => {
-    for (let val of arr) {
-        if (typeof val === 'string') {
-            console.log(val);
+
+const printStrings = function(arr) {
+    const result = [];
+    for (let element of arr) {
+        if (typeof element === 'string') {
+            result.push(element);
         }
     }
+    console.log(result);
 }
-printOnlyStrings(arr);
+
+printStrings(arr);

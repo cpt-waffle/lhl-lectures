@@ -1,23 +1,23 @@
-// Variables :)
+// review!!
 
-
-const fruit = 'banana';
+// variables
+// a storage for various things.....
 const PI = 3.14;
-const ateLunch = false;
+const fruit = 'banana';
+const ateBreakfast = false;
 
-////////////
-// we can call this variable AS a function
-const greetings = function(person) { // callback
-    console.log("line 11");
-    console.log(person);
-    console.log("line 13");
-    person();
-    // console.log(`Hello ${person}`);
+// what are functions?
+// a block of code, that is re-usable <----
+const greetings = function(name) {
+    console.log("hello ", name);
+    name();
 }
-const goodbye = function() {
-    console.log(`GoodBye :)`)
-}
-// to run/execute the function we use the () notation
-greetings(goodbye);
 
-// 
+// we can pass parameter into a function as a raw value 'declaration'
+// greetings('vas');
+// we can pass parameter into a function from a variable
+// greetings(fruit);
+///////////////////////////////////
+greetings(function() {
+    console.log("GOODBYE!!! :(");
+});
