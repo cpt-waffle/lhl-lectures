@@ -1,27 +1,24 @@
  ---- Agenda ----
 
 - TDD Talk
-- TTD built in methods
-- Mocha and Chai talk
 - module exports
+- TTD built in methods (console.assert)
+- Mocha and Chai talk
 - Testing With Mocha Chai
+---------------------------------------
 
----- Why would we ever write Tests for Code we have Written? 
+-- Testing 
 
- - to see if it actually works!!
- - to see what isnt working! ( EDGE CASES )
- - can help with documentation ( you can read tests, to see how something works )
- - saves time (LONG RUN)
- - saves money!!!
- - try to never have deployment on a friday  (plz) 
-
-
-
-TDD --- Test Driven Development
+-- Why do we test?
+----- test to make sure code will work!
+----- once that test is written, it can be always reused
+----- 60 file = 10 test
+----- it not only saves you time, but it saves you weekends !! (do not do deploys on friday)
 
 
+Test Driven Development 
+
+-- We write tests first, and then we write the code after.
 
 
-Mocha and Chai
 
-firstly if we did not intialize we want to intialize npm 

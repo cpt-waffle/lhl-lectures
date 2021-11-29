@@ -2,15 +2,14 @@
   "name": "new_demo",
   "version": "1.0.0",
   "description": "",
-  "main": "duplicateArrValues.js",
+  "main": "main.js",
   "scripts": {
-    "test": "mocha",
-    "runpali": "node palindrome.js"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "chai": "^4.3.4",
-    "mocha": "^8.3.2"
+    "mocha": "^9.1.3"
   }
 }
