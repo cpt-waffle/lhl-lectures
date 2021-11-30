@@ -1,16 +1,17 @@
-// Given a string , Print each letter with a delay..
-// so it looks like someone is typing the string slowly.
-// hello!
-// print letter by letter 
-const string = 'Hello World of Async !!!!\n';
-let delay = 300;
-// for (const letter of string) {
-// ['H', 'e', 'l', 'l', 'o'] join('')
-string.split('').forEach((letter) => {
-    setTimeout(() => {
-        process.stdout.write(letter);
-    }, delay);
-    delay += 300;
-})
+const str = "Hello World of Async !!~~\n";
 
-// with a delay 
+let delay = 0;
+const increment = 400;
+console.log("test")
+for (let i of str) {
+    setTimeout(() => {
+        process.stdout.write(i);
+    }, delay);
+    delay += increment;
+}
+
+// 0
+// 400
+// 800
+// 1200
+// 1600 

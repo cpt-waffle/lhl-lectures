@@ -4,9 +4,10 @@
 // What is Error?, Response?, Body?
 
 const request = require('request');
-let content = '';
-request('http://example.edu/', function(err, res, body) {
-    // console.log('body *****', body);
-    content = body;
+console.log("START--------------------");
+request('http://example.edu/', (err, res, body) => {
+    console.log("body", body);
+
 })
-// DONT EVER DO THIS AND IF U SEE THIS RUN AWAY FROM WORK!!!
+
+console.log("END--------------------");
