@@ -24,14 +24,12 @@ pool.query('SELECT * FROM employees', (err, res) => {
     console.log(err);
 })
 
+pool.query('SELECT * FROM employees WHERE id = 2').then((res) => {
+    console.log(res.rows);
+}).catch(err => {
+    console.log('err', err);
+})
 
-const getEmployees = () => {
-    return pool.query('SELECT * FROM employees WHERE id = 2').then((res) => {
-        return res.rows;
-    }).catch(err => {
-        console.log('err', err);
-    })
-}
 
 
 console.log("USING FUNCTION ------");
