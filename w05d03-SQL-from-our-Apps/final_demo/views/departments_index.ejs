@@ -3,19 +3,7 @@
 	<%- include('partials/_nav')-%>
 		<div class='tc'>
 			<%= JSON.stringify(locals.result) %>
-			<table style="border: 1px solid black;">
-				<tr>
-					<% for (field of locals.fields) { %>
-						<th><%= field.name%></th>
-					<% } %>
-				</tr>
-				<% for (row of locals.result) { %>
-					<tr>
-						<td><%= row.id %></td>
-						<td><%= row.name %> </td>
-					</tr>
-				<% } %>
-			</table>
+			
 		</div>
 </body>
 <%- include('partials/_footer') -%>
