@@ -1,36 +1,56 @@
--- Review -- 
-Databases Overall (why and what)
-SQL and Node - (Build an App)
+## --------- Agenda ----------
+
+- bonus/cheat FROM yesterday
+
+
+- Databases Overall (why and what)
+- SQL and Node - (Build an App)
 (refactor of an app)
 add to a Express Server, postgres
 
------------------- 2 weeks ago
+-- TinyApp --
 
-- TinyApp  (url shortner)
-- number one app in the world!!!
-- you go to one of the most strongest hosting services
--  2 million users per month
-- millionare :) 
---- people want features :|
- ---- favorite urls
- ---- analytics ( how many times has someone used this tinyUrl)
- ---- DARK MODE 
+Express + Node
 
+----- EXPLODED IN POPULARITY -----
 
-- you made all of these featuers
-- you push your code into production
--------------------------------------
-DATA GETS REMOVED FROM SERVER ON RESTART ( in memory..... )
+- users +
+- urls  +
 
+----------------------------------
 
------- Made a txt file and stored it in...
- -- the file must exist on the same place as the server...
- -- made another web server that is soley responsible for adding/deleteing data
+Demand from the users....
 
--------- Databases
+They want more features...
 
-- a place to store data in a order fashion
-
-NodeJS and SQL together 
+- dark mode
+- user accounts (visit profiles)
+- favorites
+- analytics
+- SEO compatability
 
 
+---- 1 week you finished all of your features....
+
+time to add them into prod....
+
+--- restart the server....
+
+usersDatabase = {}
+urlsDatabase {}
+
+----------------------
+
+Databases ---- a way to persist data....
+data is still there...
+
+postgres - psql
+
+---- what if we want to connect PSQL with Express?  ---
+
+User                          Server                                  DATABASE
+
+
+A Library to help us out!!
+
+pg-node

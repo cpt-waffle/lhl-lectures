@@ -3,30 +3,39 @@ const {Pool, Client} = require('pg');
 const pool = new Pool({
     user: 'labber',
     password: 'labber',
-    port: '5432',
     host: 'localhost',
-    database: 'w05d03'
+    database: 'w05d03',
+    port: '5432'
 });
 
-// a client, is a single connection/worker that is able to run queries for your database
-// 
-
-// a pool, is a collection of connections/workers that is able to run queries for your database
-
-
+// Client
+// - worker that is able to do query calls
+// Pool 
+// - a bunch of workers that are able to do query calls....
 pool.connect().then(() => {
-    console.log("We have connected to our database :)");
+    console.log('We have Connected successefully');
 }).catch(e => {
-    console.log('----------- Error -----------');
-    console.log(e.message);
-});
+    console.log(e);
+})
 
-pool.query('SELECT * FROM employees;').then( data => {
-    console.log("QUERY FINISHED!!");
-    // console.log(data.rows);
-    console.log("First entry is-----");
-    console.log(data.rows);
-}).catch(err => {
-    console.log("ERROR HAS HAPPENED!!");
-    console.log(err.message);
+
+pool.query('SELECT * FROM employees', (err, res) => {
+    console.log('res ===> ', res.rows);
+    console.log(err);
+})
+
+
+const getEmployees = () => {
+    return pool.query('SELECT * FROM employees WHERE id = 2').then((res) => {
+        return res.rows;
+    }).catch(err => {
+        console.log('err', err);
+    })
+}
+
+
+console.log("USING FUNCTION ------");
+getEmployees().then((allMyEmployees) => {
+    console.log('all my employees');
+    console.log(allMyEmployees);
 })
