@@ -10,53 +10,71 @@
 - forms 
 
 
------
+--- Rails versions very very dependant 
 
-Javascript 
-Worked in Ruby
+
+==- Routes.rb --- most important file. This is where routes reside (RESTFUL)
+routes also picks the controller#action for each route. Whenever that route has been called, THEN the controller we be called with the corresponding method!
+
+
+Controller -- Logic of request. This is where all of your logic goes in, for specific requests.
+
+
+Models --- 
+
+ - the connection to the database 
+ - tables to the database (not all tables but definetly alot of them)
+ - the data of the application
+ - Classes
+
+ Active Record
+They blueprints of tables. IT has some cookie cutter methods that you will find
+very useful.
+
+
+
+
+Scenario 
+
+- I have added 2 migrations, BUT i forgot to add a foreign key to the mix.
+
+I have 2 options 
+
+
+--------------------
+
+-- Rollback
+
+rolling back, deleted the tables, and lets me alter the database
+ |
+ |
+ ---> When you are working on your own branch, and NOTHING has been merged into 
+ prod (master/main/release)
+
+
+-------------------
+
+-- Make a new migration
+
+make a migration that adds a foreign key to the needed table
+| 
 |
---> how to approach a new language
- - python
- - go lang
- - java
-
--------------- Rails Review
-
-- routes.rb <-- the most important file of Ruby!!
-
-Routes.rb -- the file that determines where does the request go
-(in what controller)
-
-Controllers -- the logic of what happens when a route gets hits by
-a request
-
-Views --- the UI that is sent out to the client 
-
-Models --- Blueprint of a table(s) in your database
-        -- Class/Object with many many cookie cutter SQL methods built in
-   ^---- how many SQL commands did you write ?
-                    ^--- why tho?
-
-^---- SQL is alot faster
-ORMS (Activte Record) can be AS fast as SQL
-
--- maintainability
+---> When something HAS been merged to prod, and you need to keep the data that has been populated by the clients...
 
 
-Orders.incldues(:line_items).line_items.incldues(:products)
-                     
+
+Assosiations
+
+belongs_to
+has_many
+
+through
+
+Table A ---------------<   Mid table >------------- Table B
+
+Authors                     author_books              Books  
+id                            author_id               id
+                              book_id
 
 
-^-- what is a migration ?
 
-A history of all your tables/column addtions/column removals/ in the database
-
-- if you ever need to rollback, you the option to
-- schema.rb gets auto generated... 
-
-
-# should you rollback when making a mistake on your table
-# OR make new migrations
-
-- if your tables havent been added to prod, you can rollback to fix
-- otherwise ALWAYS new migration!!!
