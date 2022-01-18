@@ -1,12 +1,16 @@
 REACT DAY 1 ----
 
 
---- React Intro --- 
---- Storybook ---
- - Using storybook
- - Making our first component
- ---- BREAK
- - Making component take Props
- - State
+### React Intro ### 
 
- --- 
+-- Comparisons  ..
+-- Building Components ..
+-- Re-use of Components  ..
+-- Props ..
+-- storybook
+-- state ..
+
+
+--- Apps vs Website
+
+
