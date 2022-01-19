@@ -1,14 +1,14 @@
+## AGENDA
 
--- Review
+- Q and A from yesterday
+- changing states the wrong way
+- intro to immutability
+- immutability in objects
+- immutability in arrays
+- spread operators ...
+- refactors
+- Q and A
 
--- state What is it? what is the point?
--- immutability
--- props
--- practice ^
+----------- Storybook -----------
 
-
-------------------------------
-React
-
--- How you doing with it?
--- What are some confusing points?
+React itself is an application ( single page )
