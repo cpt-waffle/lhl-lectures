@@ -1,10 +1,14 @@
 ---------- AGENDA ------------
 
-- State + Props
-- useEffect 
+
+- Q/A
+ --- useState
+ --- props
+ --- Components
+
+
+
+---- Data Fetching and Side-Effects
+- UseEffect
 - axios
 - proxy
-- UseEffect (more)
-BREAK
-- useEffect (EVEN MORE WITH MORE AXIOS)
-- Quick review of the activities in compass for today 

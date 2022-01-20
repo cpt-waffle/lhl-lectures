@@ -1,0 +1,17 @@
+.item {
+    background-color: #FF5959;
+    width: 250px;
+}
+
+.item--img {
+    padding-top: 5px;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.item--desc-container {
+    display: flex;
+    justify-content: space-between;
+}
+
