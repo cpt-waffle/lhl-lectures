@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { action } from "@storybook/addon-actions";
 
 // import the component
-import CommentList from '../Components/CommentList';
 import Comment from '../Components/Comment';
+import CommentList from '../Components/CommentList';
 
 const comment = {
 	id: 1,
@@ -18,8 +18,6 @@ const comment = {
 // (Comment(data: comment))
 storiesOf('Comments')
 	.add('A Random Comment', () => <Comment data={comment} handleClick={action('onClick')}/>)
-	.add('RANDOM STORY ?', () => <h1>Hello world!!</h1>)
-	.add('RANDOM STORY 1', () => <h1>Hello world1!!</h1>)
 
 
 
@@ -43,6 +41,8 @@ const comments = [
 
 // make a stoiresOF and use add()
 
-// CommentList(arg=data, shoppingcart=list, num=number, val=33, fruit='apple')
-storiesOf("CommentList")
-	.add("List of Comments Default", () => <CommentList arrayOfComments={comments}/>)
+// what is props or properties?
+// CommentList(name, list, val, isFalse, )
+//  const CommentList = ( props ) => {... }
+storiesOf('CommentList Component')
+  .add('default', () => <CommentList comments={comments} />)

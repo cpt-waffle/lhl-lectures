@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import CommentList from './Components/CommentList';
 import './App.css';
 
-import CommentList from './Components/CommentList';
-
+// API
 const commentsData = [
   { 
     id: 1,
@@ -37,70 +36,40 @@ const commentsData = [
 
 
 function App() {
+  debugger;
+  const [list, setList] = useState([]);
+  useEffect(() => {
+    // axios.get('/comments', (data) => )
+    setTimeout(() => {
+      setList([...commentsData])
+    },2000)
+  }, [])
 
 
-
-
-  const [number, setNumber] = useState(22);
-  const [comments, setComments] = useState(commentsData);
-  
-  let num = 0;
-
-  const clicked = (id, type) => {
-    console.log("LINE 42 APP.js");
+  const banana = (id, type) => {
+    console.log("BANANA in App.js at Line 42.!")
     console.log(id, type);
-    // // make a copy of our comments...
-    // const commentsCopy = [...comments];
-    // // loop through the comments
-    // for (let comment of commentsCopy) {
-    //   // if id matches
-    //   if (comment.id === id ) {
-    //     // increment likes or dislikes
-    //     if (type === 'likes') {
-    //       comment.likes++;
-    //     } else {
-    //       comment.dislikes++;
-    //     }
-    //   }
-    // }
-    // // set the copy to the original
-    // setComments(commentsCopy);
-    ///////////////// VERSION NUMBER 2 --------------------------
-    const commentsCopy = comments.map(comment => {
-      if (comment.id === id) {
+    // immutability will awlays be
+    // copy OG , change something in it, set the copy to the OG
+    const listCopy = list.map((item) => {
+      if (item.id === id ) {
         if (type === 'likes') {
-          comment.likes++;
+          item.likes++;
         } else {
-          comment.dislikes++;
+          item.dislikes++;
         }
       }
-      return comment;
+      return item;
     })
-
-    setComments(commentsCopy);
+    setList(listCopy);
   }
 
-
-  const addOne = () => {
-    num = num + 1;
-    console.log(num);
-  }
-
-  const addNumber = () => {
-    // const setNumber = (val) => {
-      // number = val
-      // TELL REACT TO RE-RENDER THE APPLICATION BECAUSE SOMETHING CHANGED AND WE NEED TO SHOW TO USER
-    // } 
-    setNumber(number + 1);
-  }
 
   return (
     <div>
       <h1>Comments for Dogs</h1>
-      <h2>{num}</h2><button onClick={addOne}>Add One</button>
-      <h2>{number}</h2><button onClick={addNumber}>Add One</button>
-
-      <CommentList arrayOfComments={comments} clicked={clicked}/>
+      {list.length ?  <CommentList comments={list} banana={banana}/> : <h1>LOADING....</h1>}
+     
     </div>
   );
 }
