@@ -18,7 +18,7 @@ function Form(props) {
     return (
         <div>
             <form className="addForm" onSubmit={handleSubmit}>
-                <input placeholder={'enter todo'} className="addForm-input" type="text" name="newItem" value={val} onChange={evt => changeVal(evt.target.value)}/>
+                <input data-testid="form-input" placeholder={'enter todo'} className="addForm-input" type="text" name="newItem" value={val} onChange={evt => changeVal(evt.target.value)}/>
                 <button className="submit-btn">Add</button>
             </form>
             {err && <p>Cannot Be Blank</p>}

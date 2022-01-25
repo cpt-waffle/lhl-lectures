@@ -13,7 +13,6 @@ const list = [
   {item: 'Finish watching HMYM', done: false},
 ]
 
-// useContext <-----------
 export default () => {
 
   const [todoList, modifyList] = useState(list);
@@ -32,7 +31,7 @@ export default () => {
 
   return (
     <div className="App">
-      <h1>ToDo List</h1>
+      <h1 className="todo" data-testid="header" >To Do List!</h1>
       <List items={todoList} toggleDone={toggleDone}/>
       <Form addItem={addItem}/>
     </div>
