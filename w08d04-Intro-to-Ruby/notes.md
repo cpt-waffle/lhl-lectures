@@ -7,31 +7,37 @@
 - yield
 - rails
 
-##  ---------------------- Javascript Facts --------------------------
+#################################
 
-- 10 days to create js --- 1995
-- Java -----> Javascript ( not the same thing, )
-- js was a front-end language, it also became a back-end language (node)
-- javascript is a functional language
-- NPM --- Node Package Manager,  there are 1.3 million packages 
-- node_modules <--- get created for every single project (good/bad)
-- async
-- high performant
-- expressJS for  backend very popular, and front-end we got 3-5 frameworks 
-   - that are dominatinating the field (ReactJS, Vue, Angular, Svelete, JQuery)
+-------------- Javascript -----------------
 
-## ----------------------- RUBY Facts -------------------------------
+- single thread ( v8 compiler is multithreated )
+- super popular 
+- NPM 1.3 million
+- async  (callbacks, promises, async/await)
+- runs in BROWSER AND on the backend
+- highly performant
+- 6-10 days 
+- JAVA was popular,  javascript 
+- javascript is functional ( class based syntax )
+- 1995
 
-- it was invented in 1995, by Matsumoto Yukihiro (Matz)
-- (Matz) ruby took off at around 2004 - 05 because of a framework called Rails
-- Rails Framework ---> the creator of rails, is now racing cars
-- is strictly a BACKEND language
-- Ruby is OOP
-- packages in ruby are called "gems" install em with command "gem install _"
-- there is no gem_modules.... Ruby packages are global
-- Ruby is a synch language 
-- Ruby syntax is "symplified" ( pythonic )
+
+------------- Ruby  ---------------------------
+- Matsumoto Yukihiro ( matz )
+- 1995
+- 2005 - where it took off because of a framework called RAILS
+- it is a backend langauge only
+- OOP 
+- has a decent package library ( gems )
+- synchronous language
+- Ruby syntax is "simplified" 
 - not so performant :(
 
+----- Ruby/Ruby on Rails is used in: GITHUB, Shopify
 
----------------------------------------------------
+WHY ?
+
+its slow
+its old
+there is no point in learning it, lets just go with another one 

@@ -1,85 +1,65 @@
-# variables
+require 'byebug'
 
 fruit = 'apple'
-num = 12
 PI = 3.14
+num = 12
 
-puts fruit, num, PI
+puts "#{fruit}, #{PI}, #{num}"
+puts fruit + ' ' + PI.to_s
 
-
-
-def addFour arg0, arg1, arg2, arg3
-    puts 'Calculating...'
-    puts arg0 + arg1 + arg2 + arg3
-    # ruby implicit returns....
-    arg0 + arg1 + arg2 + arg3
+def add num_one=0, num_two=0
+    num_one + num_two
 end
 
-value = addFour 2, 2, 2, 2
-puts "Value---  #{value}"
+puts add(2, 4) 
 
-
+# if statements ------
 
 val = 10
 
 if val < 9
     puts 'Value is less than 9'
 elsif val == 10
-    puts 'Value is exactly 10'
+    puts 'Value is 10'
 else
-    puts 'Value is greater than 10'
+    puts 'Val is greater than 10'
 end
 
-puts 'true' if true
+puts 'if true' if true
+puts "hello world :)" unless false
 
-puts 'value is false' unless !true
-
-
-# arrays
-
-arr = [1,2,3,4]
-
+arr = [1,2,3,4,5,6, 'seven', 8.5, false]
 puts arr.to_s
 
+# # there are for, while, .each methods
+# #  but mostly used is the .each
 
-
-arr.each_with_index do |val, index|
-    puts "index is #{index}, val => #{val}"
+arr.each_with_index do |item, index| 
+    puts "#{item} -- #{index}"
 end
 
-# Objects ( but not really because its called
-#  something else)
+puts arr[3]
+
+# ------ Objects
 
 obj = {
-    a:1,
-    b:2,
-    c:3,
-    'D is': 4
+    a: 1, 
+    b: 2,
+    c: 3
 }
 
-# puts obj
-
-#  only way to access value of a hash
-puts obj[:a]
-# no such thing as dot notation
-# --
+puts obj
+puts obj[:b]
 
 obj.each do |key, val|
-    puts "key is #{key}"
-    puts "val is #{val}"
-    puts "-------------"
+    puts "#{key} --  #{val}"
 end
 
-#  Yield ( sort of like a cb )
-
-def high_order
+#  Rails equivalent of callbacks YIELD
+def foo
     puts "START"
-    yield 33
+    yield 33, 22
     puts "END"
 end
 
-high_order {|a| puts "~~~ CALLBACK RUNS~~~#{a}"}
-
-# Activity to Benchmark the Fibonacci
-# function
-
+foo { |num, num2| puts "CALLBACK RUNS " + num.to_s + num2.to_s }

@@ -1,83 +1,67 @@
-// variables 
-
 let fruit = 'apple';
+const PI  = 3.14;
 var num = 12;
-const PI = 3.14;
 
-console.log(fruit, num, PI);
 
-// functions, block of code that can be executed
+console.log(`${fruit}, ${PI}, ${num}`);
+console.log(fruit + ' ' + PI);
 
-const addFour = (arg0, arg1, arg2, arg3) => {
-    console.log("Calculating...");
-    console.log(arg0 + arg1 + arg2 + arg3);
-    return arg0 + arg1 + arg2 + arg3;
+const add = (numOne=0, numTwo=0) => {
+   return numOne + numTwo;
 }
 
+console.log(add(2, 4));
 
-const value = addFour(2,2,2,2,5,5,5,5);
-console.log(`Value---  + ${value}`);
 
-// If statements in JS
+// if statements ------
 
 const val = 10;
 
 if (val < 9) {
     console.log('Value is less than 9');
 } else if ( val === 10) {
-    console.log('Value is exactly 10');
+    console.log('Value is 10');
 } else {
-    console.log('Value is greater than 10');
+    console.log('Val is greater than 10');
 }
 
-if (true) console.log('true');
+if (true) console.log('if true');
+if (!false) console.log("hello world :)");
 
-if (!true === false) console.log('value is false');
-
-
-// arrays 
-
-const arr = [1,2,3,4]
-
+const arr = [1,2,3,4,5,6, 'seven', 8.5, false];
 console.log(arr);
 
-// for, forEach, while
-//   for in, for Of
-arr.forEach((val, index) => {
-    console.log(`index is ${index}, val => ${val}`);
+// for, while, forEach
+// for in for off
+
+arr.forEach((item, index) => {
+    console.log(`${index} -- ${item}`);
 })
 
-// Objects
+console.log(arr[3]);
 
+// -------- Objects
 
 const obj = {
-    a:1,
-    b:2,
-    c:3,
-    'D is': 4
+    a: 1,
+    b: 2,
+    c: 3
 }
 
 console.log(obj);
+console.log(obj.b);
 
-// square bracket notation
-console.log(obj['a']);
-// // dot notation
-console.log(obj.a);
-
-Object.keys(obj).forEach((key) => {
-    console.log("key is -->", key);
-    console.log("val is -->", obj[key]);
-    console.log('-------------');
+Object.entries(obj).forEach(entry => {
+    console.log(`${entry[0]} --  ${entry[1]}`);
 })
 
-// Callbacks
 
-const highOrder = (cb) => {
+// Js CALLBACKS 
+const foo = (fn) => {
     console.log("START");
-    cb(33);
+    fn(33);
     console.log("END");
 }
-
-highOrder((a) => {
-    console.log("~~~CALLBACK RUNS~~~", a)
+foo((num) => {
+    console.log("CALLBACK RUNS " + num);
 })
