@@ -1,5 +1,5 @@
 {
-  "name": "cats_server",
+  "name": "cats_api_server",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
@@ -10,6 +10,6 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^4.7.2"
+    "webpack-dev-server": "^4.7.3"
   }
 }
