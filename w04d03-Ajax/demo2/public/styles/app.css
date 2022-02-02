@@ -4,32 +4,27 @@
 }
 
 .movie {
-  border: 2px solid salmon;
+  background-color: darksalmon;
   display: flex;
-  align-items: center;
-  background-color: cyan;
-  color: darkmagenta;
+  padding: 12px;
+  margin: 15px;
 }
 
 .movie:hover {
-  background-color: #BADA55;
+  background-color: salmon;
 }
 
 .movie--img {
-  width: 150px;
+  width: 110px;
 }
 
-.movie--desc {
-  margin-left: 15px;
-  margin-right: 15px;
+.movie--info {
+  padding-left: 15px;
 }
 
-.movie--summary {
-  border: 2px solid crimson;
-}
 
-#search {
+#movie--search {
   text-align: center;
-  background-color: skyblue;
-  padding: 24px;
+  background-color: cadetblue;
+  padding: 30px;
 }

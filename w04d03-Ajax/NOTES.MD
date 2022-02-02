@@ -1,30 +1,49 @@
-------------------- AGENDA ---------------------
+# ------------------- AGENDA ---------------------
 
 - AJAX (What is it and why)
 - Building an App with an API 
 
+## -------- To learn about 
 
-Tinyapp ----->
-Req ==================>
-<---------------------RES
+- how to use AJAX to work with single page app or a hybrid app
 
-Whenever there is a GET request, server ALWAYS responded back with a view
-
-Views
-
-EJS -----------> to render
-to embbed logic..
+TinyApp 
+Give me the webpage, and CSS, JS 
+Server  <------------------------------> Client
 
 
-Single Page Applications  ----------
+Tweeter 
+on load, get everything
+on a specific action (click,scroll, hover) get more data <--- AJAX
+ SPA ( Single Page Application )
 
-Uses an API server 
 
-- it is basically JUST regular web server 
-but it sends either XML or JSON data to the client.
+AJAX
+ - To ask the server for data
+ req/res 
+ - no reloading the page.... ( don't need ask for extra )
 
-The client then, decides what it needs to do with that data, 
-and either populates on the webpage for the users to see, or
-keeps it stored in a variable, or ....
+Microsoft
+ Ask data from the server, without any refresh
+ and make the clients PC/Computer/Device do the heavy lifting of rendering
 
+ Food Application
+ - finding out the recipies 
+
+Show memes on the page
+- reddit has an api
+
+
+## How do we use THESE API's ?
+
+- how do we get data from server to client ?
+- what tool do we use?
+
+fetch() / $.get $.ajax / axios 
+
+```js
+fetch('https://api.tvmaze.com/search/shows?q=tiger')
+  .then(response => response.json())
+  .then(data => console.log(data));
+```
 
