@@ -72,20 +72,80 @@ Namespacing gives us a way to define a bunch of routes that should be followed b
 The example above will generate a bunch of /dashboard/authors/... routes, and point them to particular actions in the relevant controllers. Remeber that these said controllers now live in a folder called `dashboard` ( Kinda what you have on jungle where there is an `admin` folder and some controllers live in there )
 
 
+## Working with Rspec
+
+Add Rspect to dev and test
+
 ```ruby
-# controllers/dashboard/authors_controller.rb
-class Dashboard::AuthorsController < ApplicationController
-  # . . . . .
-end
+group :test do
+  # Adds support for Capybara system testing and selenium driver
+  gem 'rspec-rails'
+
+...
+
+group :development do
+  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'rspec-rails'
+
 ```
 
-#### Final Project - How to use Rails and React
 
-Setup rails as an api with: `rails new blog --api`
-And have react fetch or axios call the rails routes.
+Run this command to generate rspec setup/helper files.
 
-[Tutorial for this.](https://medium.com/@pamit/todo-list-building-a-react-app-with-rails-api-7a3027907665)
+```sh
+rails generate rspec:install
+```
 
-You can also use rails gems to render server-side react.
+To generate a new rspec file you will write:
+
+```sh
+rails generate rspec:model url
+```
+
+
+To run the tests you will do either
+
+```sh
+bundle exec rspec
+
+# OR
+
+rspec
+```
+
+Write your model tests to see if any validations flags may pass through.
+Check to make sure you cannot save something without dependancies:
+
+here are some sample tests:
+
+```ruby
+require 'rails_helper'
+
+RSpec.describe Url, type: :model do
+  describe 'model: url validations' do
+    it 'tries to save a url normally' do
+      User.create(email: 'v@g.ca', password: '1234')
+      url = Url.new
+      url.longURL = 'www.google.ca'
+      url.shortURL = 'asd234'
+      url.user_id = 1;
+      url.save
+      expect(url.valid?).to be true
+    end
+
+    it 'tries to save a url with no shortURL and fails' do
+      url = Url.new
+      url.longURL = 'www.google.ca'
+      url.save
+      expect(url.valid?).to be false
+      expect(url.errors.messages[:shortURL]).to include "can't be blank"
+    end
+  end
+end
+
+```
+
+
+```ruby
 
 

@@ -1,0 +1,7 @@
+<h1>List of URLS</h1>
+
+<%= @greetings %>
+
+<% @urls.each do |url| %>
+    <li><%= url.longURL %>  <b><%= url.shortURL %></b> </li>
+<% end %>
