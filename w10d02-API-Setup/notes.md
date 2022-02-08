@@ -9,51 +9,35 @@ and backend(s)
 - Pitfalls( mainly cors)
 - Organization of Code ( alittle bit of Architecture )
 
--------------
+----------------------------------------------
+Tinyapp
+Midterms 
+
+ server side rendering application (hybrid)
 
 
-Server Side 
-^-- EJS, ERB, PUG, etc
+ ------------------------------------------
 
-Client Side <--- API, frontend server
-
-
-------------------
-
-Repository Setup !!
-
-1 - 2 repo option. One repository for frontend, one forback 
- - clever divison
-
-Restaraunt APP
- Show all the items for a specific restaraunt
-
-- route (api)
- --4556 add route for items
-- frontend page
- --4556 add page for items
+ 2 Repos (front-end, back-end)
+--------------------
+Feature -- Add books to one of the pages (display em)
+ ---> backend route for books
+ ---> frontend page for books
 
 
-2 - 1 repo option, where you just a folder for frontend a folder for backend
-- seems cheaper ( easier to maintain )
-- controller changes (GIT)
+ 1 Repo  ( 2 folders )
+ --> Easier to keep commits
+
+ ### Build it Yourself (backend)
+
+    npm init
+    touch app.js
+    npm install __packages__
+    express
+    body-parser
+    morgan
+    nodemon
+    cookie-parser
 
 
-Start a project
-- make a folder
-- generate backend in rails
-rails new rails-api --api --database=postgresql
-- made a route 
-- made a controller
-- made a model with migration
-- added my columns into the migration
-- added some seeds
-- then in the controller, i made an "index" route
- - that sends out a bunch of data to the client 
-
--- For Rails
-- gem 'rack-cors'
-- bundle install
-- uncomment out the chunk of code in 
-# config/initializers/cors.rb
-- change origin to your domain!
+ ### Use a generator   
