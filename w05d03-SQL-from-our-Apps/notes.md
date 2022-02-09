@@ -1,56 +1,75 @@
 ## --------- Agenda ----------
 
-- bonus/cheat FROM yesterday
-
-
-- Databases Overall (why and what)
-- SQL and Node - (Build an App)
-(refactor of an app)
-add to a Express Server, postgres
-
--- TinyApp --
-
-Express + Node
-
------ EXPLODED IN POPULARITY -----
-
-- users +
-- urls  +
+- Databases Conceptual Review
+- How to make SQL commands from .js file
+- How to make SQL commands from server
+- common pitfalls
+- How to make functions for helper methods -- (tomorrow's activities)
+- Q and A
 
 ----------------------------------
 
-Demand from the users....
+Database Review 
+---------------
 
-They want more features...
+Tinyapp
+   ^---- a big billion dollar application
 
-- dark mode
-- user accounts (visit profiles)
-- favorites
-- analytics
-- SEO compatability
+People want more features!!
+
+- analytics <---> how many times have users clicked/used your tinyURL
+- dark mode 
+- share links
+- users accounts
+- friends 
+- organizations 
+
+-------------------------------
+
+Deployment.....
+
+RESTART <---
+
+DATA IS LOST APP IS DEAD X_X
+
+Data is new resource
+
+___ a way to keep our data persisted __
+
+well we'll will build a file. 
+
+.comma seperated values
+
+user,password
 
 
----- 1 week you finished all of your features....
+build another web server to write to this file
+and read specific items from the file....
 
-time to add them into prod....
+SQL -- POSTGRES
 
---- restart the server....
-
-usersDatabase = {}
-urlsDatabase {}
-
-----------------------
-
-Databases ---- a way to persist data....
-data is still there...
-
-postgres - psql
-
----- what if we want to connect PSQL with Express?  ---
-
-User                          Server                                  DATABASE
+DATABASE          user
+  <=================
 
 
-A Library to help us out!!
 
-pg-node
+DABASE                  SERVER                         CLIENT
+                              <----------REQ------------
+   <----------------------
+   ----------------------->                     
+                              -----------RES----------->
+
+
+## How to connect to the database via single JS file?
+
+- pg (npm)
+
+TinyApp
+       <--------------REQ 
+    POOL -------->RES
+      <--------------REQ
+      <--------------REQ
+      <--------------REQ
+  CLIENT
+
+

@@ -1,39 +1,48 @@
-const {Pool, Client} = require('pg');
-
+// get pool and client ?
+const { Pool, Client } = require('pg');
 const pool = new Pool({
     user: 'labber',
     password: 'labber',
     host: 'localhost',
     database: 'w05d03',
-    port: '5432'
+    port: 5432
 });
 
-// Client
-// - worker that is able to do query calls
-// Pool 
-// - a bunch of workers that are able to do query calls....
-pool.connect().then(() => {
-    console.log('We have Connected successefully');
-}).catch(e => {
-    console.log(e);
-})
+// optional
+pool.connect(() => {
+    console.log("Connected to database!");
+});
+// Client and Pool 
+// Client -- means 1 worker that's able to make query commands
+// Pool   -- means alot of works that are able to make query commands
+
+// You cannot ever RUN queries from the front-end
+// pool.query('SELECT * FROM employees;', (err, res) => {
+//     console.log("SOMETHING RAN!");
+//     console.log(res.rows[0]);
+//     // console.log(res);
+// })
+////////////////////////////// PROMISES
+//  i need to make this into a function 
+//  How do i do it?
+const getEmployees = () => {
+    return pool.query('SELECT * FROM employees;').then((res) => {
+        console.log("SOMETHING RAN!");
+        return res.rows;
+    }).catch(err => {
+        console.log('ERROR!!');
+        console.log(err.message);
+    })
+}
+getEmployees().then(data => {
+    console.log("GOT DATA BACK!!");
+    console.log(data);
+});
+
+// TINYAPP
+
+// 
 
 
-pool.query('SELECT * FROM employees', (err, res) => {
-    console.log('res ===> ', res.rows);
-    console.log(err);
-})
 
-pool.query('SELECT * FROM employees WHERE id = 2').then((res) => {
-    console.log(res.rows);
-}).catch(err => {
-    console.log('err', err);
-})
-
-
-
-console.log("USING FUNCTION ------");
-getEmployees().then((allMyEmployees) => {
-    console.log('all my employees');
-    console.log(allMyEmployees);
-})
+console.log("SQL from NodeJS file!");

@@ -1,39 +1,26 @@
 const PORT = 8080;
-
-//    STEPS TO CONNECT PG (psql) into express server
-
-// require(pg) - use Pool
-
-// new Pool({})
-
-// connect() <---- optional
-
-// pool.query()--->
-
-
-
-
-const {Pool, Client} = require('pg');
-const bodyParser	= require('body-parser');
-const express			= require('express');
-const morgan			= require('morgan');
-const app = express();
-
-// pool credentials <----
+// step 0            -- npm i pg
+// step 1            -- require PG
+const { Pool } = require('pg');
+// step 2            -- new Pool
 const pool = new Pool({
     user: 'labber',
     password: 'labber',
     host: 'localhost',
     database: 'w05d03',
-    port: '5432'
+    port: 5432
 });
-
-// show me if connects....
-pool.connect().then(() => {
-    console.log('DATABASE STATUS: Connected :)');
-}).catch(e => {
-    console.log(e);
+// step 3 (OPTIONAL) -- pool.connect()
+pool.connect(() => {
+	console.log("You have connected!");
 })
+// step 4 (and on..) -- pool.query(....)
+
+
+const bodyParser	= require('body-parser');
+const express			= require('express');
+const morgan			= require('morgan');
+const app = express();
 
 
 
@@ -42,86 +29,71 @@ app.use(morgan('dev'));
 app.set('view engine', 'ejs');
 
 
-let people = 1;
-
-app.get('/cats', (req, res) => {
-	people++;
-	const templateVars = {name: 'Vas', count: people};
-	const command = 'SELECT * FROM addresses WHERE id = $1';
-	const values = [ 3 ];
-	pool.query(command, values).then(data => {
-		console.log(data);
-		templateVars.addresses = data.rows;
-		res.render('cats', templateVars);
-	})
-})
-
-
-
-
-
-
-
-
 app.get('/', (req, res) => {
 	res.render('home');
 })
 // app.get('/sandbox/:id')
 
 app.get('/sandbox', (req, res) => {
-	console.log('req.params', req.params);
-	console.log('req.body', req.body);
-	console.log('req.query', req.query);
+	// I just want the TEXT from the form
+	// which then I WILL USE in my query...
+	console.log("req.params", req.params);
+	console.log("req.body", req.body);
+	console.log("req.query", req.query);
 	const templateVars = {};
 	if (!req.query.command) {
 		return res.render('sandbox', templateVars);
 	}
-
 	pool.query(req.query.command).then(data => {
+		console.log(data.rows);
 		templateVars.result = data.rows;
 		res.render('sandbox', templateVars);
-	}).catch(err => {
-		templateVars.error = err.message;
+	}).catch( e => {
+		templateVars.error = e.message;
 		res.render('sandbox', templateVars);
 	})
 })
 
+// SELECTIVE Commands
 app.get('/employees/:id', (req, res) => {
-	const templateVars = {};
+	// how to get this ID from url 
 	console.log('req.params', req.params);
-	console.log('req.body', req.body);
-	console.log('req.query', req.query);
-	// SELECT * FROM employees where employees.id = 3;
-	// const values = [];
-	// values.push(req.params.id);
+	const templateVars = {};
+	// write our query
+	const command = `
+	SELECT first_name, last_name, email 
+	FROM employees WHERE id = $1`;
 
+	const parameters = [ req.params.id ];
 
-	pool.query('SELECT * FROM employees where employees.id = $1', [req.params.id]).then(data => {
+	pool.query(command, parameters).then(data => {
 		templateVars.employee = data.rows;
 		res.render('employees_index', templateVars);
 	}).catch(e => {
-		console.log(e.message);
-		res.send("Invalid parameters");
+		console.log("ERRORS");
+		console.log(e);
+		res.send("BAD :(");
 	})
-
 })
 
 app.get('/departments', (req, res) => {
 	const templateVars = {};
-	const command = "SELECT * FROM departments WHERE id = $1;";
-	const values = [ 2 ];
-	pool.query(command, values).then(data => {
-		templateVars.rows = data.rows;
+	// async
+	pool.query(`SELECT * FROM departments`).then(data => {
+		templateVars.result = data.rows;
+		console.log(data.rows);
 		res.render('departments_index', templateVars);
 	})
-
 })
 
 app.get('/api/departments', (req, res) => {
-	const command = "SELECT * FROM departments;";
+	const templateVars = {};
 
-	pool.query(command).then(data => {
-		res.json(data.rows);
+	pool.query(`SELECT * FROM departments`).then(data => {
+		templateVars.result = data.rows;
+		console.log(data.rows);
+		// res.render('departments_index', templateVars);
+		res.json(templateVars)
 	})
 })
 
