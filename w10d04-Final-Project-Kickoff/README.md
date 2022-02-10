@@ -1,6 +1,6 @@
 ## Final Project Kickoff
 
-[slides](https://docs.google.com/presentation/d/1ysah_FAJBYSORvZlTSNRfZgxcV5ntqOa0PzHXQI8CWU/edit)
+[slides](https://docs.google.com/presentation/d/13LWoqYw_8lR6yXfW6-qUjCsn3DRt4a3Hjq1Xkd8iz9k/)
 
 This will be alot of reviews from midterms.
 
@@ -186,3 +186,14 @@ Todo | High Priority(Core) | Stretch | In Progress | Done
 [Make Express API FROM SCRATCH ](https://github.com/cpt-waffle/lhl-lectures/tree/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs)
 
 [Make Express API with EXPRESS-GENERATOR ](https://github.com/cpt-waffle/lhl-lectures/tree/master/w10d04-Final-Project-Kickoff/express-generator-setup)
+
+[Make Rails API ](https://github.com/cpt-waffle/lhl-lectures/tree/master/w10d04-Final-Project-Kickoff/rails-api)
+
+After this You will need to add react:
+
+[Add React ](https://github.com/cpt-waffle/lhl-lectures/tree/master/w10d04-Final-Project-Kickoff/add-react)
+
+
+You will also need to fix the `cors` problem when you start doing API requests:
+
+[How to Fix Cores (API Setup Lecture Notes)](https://github.com/cpt-waffle/lhl-lectures/tree/master/w10d02-API-Setup)

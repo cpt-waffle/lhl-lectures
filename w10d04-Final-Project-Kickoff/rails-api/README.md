@@ -145,3 +145,5 @@ end
 ```
 
 ![3-rails-done](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/rails-api/screenshots/3-rails-done.gif)
+
+Run the server and visit `/users` to see an array of users.
