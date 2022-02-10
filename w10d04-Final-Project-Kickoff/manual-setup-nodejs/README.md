@@ -191,6 +191,8 @@ module.exports = () => {
     const cats = ['Rosey', 'Puma', 'Mr Buttons', 'Aya'];
     res.json(cats);
   });
+  
+  return router;
 }
 ```
 
