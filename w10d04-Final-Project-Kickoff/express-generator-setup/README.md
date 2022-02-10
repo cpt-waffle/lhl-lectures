@@ -32,7 +32,7 @@ In your terminal run the command:
 npx express-generator --no-view server
 ```
 
-## 1-express-generator.png
+![1-express-generator](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/express-generator-setup/screenshots/1-express-generator.png)
 
 `cd` inside of `server` directory and run:
 
@@ -57,7 +57,7 @@ node_modules/
 ```
 Your folder should look like this:
 
-## 2-express-structure-start.png
+![2-express-structure-start](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/express-generator-setup/screenshots/2-express-structure-start.png)
 
 ### Refactoring -- ENV Variables
 
@@ -98,7 +98,7 @@ Now we need to declare the `env` so that our server can use it. Go into `server/
 require('dotenv').config()
 ```
 
-## 3-dotenv-added.gif
+![3-dotenv-added](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/express-generator-setup/screenshots/3-dotenv-added.gif)
 
 ### Refactoring -- Multi Routing 
 
@@ -141,7 +141,7 @@ INTO:
 app.use('/users', usersRouter());
 ```
 
-## 4-refactored-routing.gif
+![4-refactored-routing.gif](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/express-generator-setup/screenshots/4-refactored-routing.gif)
 
 Try running the server with `npm run start` and visiting `/users` to see the users array.
 
@@ -165,7 +165,7 @@ mkdir configs
 
 Within this folder we will make a file called `db.config.js`
 
-## 5-db-configs.png
+![5-db-configs.png](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/express-generator-setup/screenshots/5-db-configs.png)
 
 This file will help us connect to our database, so we are able to do
 queries.
@@ -211,7 +211,7 @@ pool.connect().then(() => {
 module.exports = pool;
 ```
 
-## 6-db-config-conn.png
+![6-db-config-conn](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/express-generator-setup/screenshots/6-db-config-conn.png)
 
 We will also need to add the code to `app.js` so that it gets 
 imported in and we can use the `db` object to do queries.
@@ -237,13 +237,14 @@ const db = require('./configs/db.config'); //<--------- ADD
 
 Now try running the application (`npm run start`) and you should see that the database connection has been established. 
 
-## 7-db-conn-established.png
+![7-db-conn-established](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/express-generator-setup/screenshots/7-db-conn-established.png)
+
 
 ###  Adding Postgres -- Database File structure (Schema and Seeds)
 
 We now need to store files for `schema` and `seeds`. In the `server/` folder, we will make a new folder called `db` and inside of the `db/` folder we make 2 new folders called `seeds` and `schema`.
 
-## 8-migrations-and-seeds.png
+![8-migrations-and-seeds](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/express-generator-setup/screenshots/8-migrations-and-seeds.png)
 
 
 We will keep `migrations` files inside of the `schema/` folder.
@@ -327,7 +328,7 @@ INSERT INTO urls (id, user_id, long_url, short_url, favorite) VALUES (19, 4, 'ww
 INSERT INTO urls (id, user_id, long_url, short_url, favorite) VALUES (20, 5, 'www.heroacademia.jp', 'KcF43', true);
 ```
 
-## 9-seeds-migrations.gif
+![9-seeds-migrations](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/express-generator-setup/screenshots/9-seeds-migrations.gif)
 
 Keep the migrations and seeds `sequencial` (meaning have the ordered alphabetically). A better way of naming these files with `timestamps`, or even using an `npm` package that help up is with migrations and seeds such as: 
 
@@ -420,7 +421,7 @@ And finally add at this script to the `package.json` file:
 
 Final Result should look like this:
 
-## 10-final-seeds-migrations.gif
+![10-final-seeds-migrations](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/express-generator-setup/screenshots/10-final-seeds-migrations.gif)
 
 ### Adding Postgres -- Passing DB into routes
 
@@ -459,4 +460,4 @@ module.exports = (db) => {
 
 Restart the server and if you go to `/users` you should be able to see all the users we seeded into the database:
 
-## 11-db-in-routes.gif
+![11-db-in-routes](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/express-generator-setup/screenshots/11-db-in-routes.gif)
