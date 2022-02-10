@@ -30,8 +30,8 @@ mkdir server
 
 Your folder should look like the screenshot: 
 
-## 1-folders
-
+## 1-folders.png
+![1-folders](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/1-folders.png)
 
 ### Setting up Express
 
@@ -65,11 +65,13 @@ npm i express morgan body-parser
 npm i -D nodemon
 ```
 
-## 2-installed-packges.gif
+![2-installed-packges](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/2-installed-packges.gif)
+
 
 Now lets make a file, called `app.js`: 
 
-## 3-appjs-and-folders.png
+![3-appjs-and-folders](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/3-appjs-and-folders.png)
+
 
 We will add some code to make sure everything works for a rudementary server.
 
@@ -99,7 +101,7 @@ app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
 
 Try running the server with `node app.js` and see if you can visit the home page.
 
-## 4-server-first-boot.png
+![4-server-first-boot](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/4-server-first-boot.png)
 
 ### Refactoring -- ENV Variables
 
@@ -162,11 +164,11 @@ app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
 ```
 App JS should look like:
 
-## 5-env-setup1-app.js.png
+![5-env-setup1-app.js](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/5-env-setup1-app.js.png)
 
 And .env:
 
-## 5.1-env-setu-env2.png
+![5.1-env-setu-env2](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/5.1-env-setu-env2.png)
 
 ### Refactoring -- Multi Routing 
 
@@ -174,7 +176,7 @@ Now we make routes so everything is not in one file. Make a `routes` folder insi
 
 In the `routes/` folder we will make a file called `catsRoutes.js`.
 
-## 6-cat-routes-splitting.png
+![6-cat-routes-splitting](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/6-cat-routes-splitting.png)
 
 We will now add add `express.router`, add a basic route, and `module.exports` it so that this can be used 
 inside of our `app.js`.
@@ -195,7 +197,8 @@ module.exports = () => {
 Then inside of our `app.js` we will add the `require` and `app.use` so that we tell express whenever someone 
 requests any request with `/cats` we will use `catsRoutes` file.
 
-## 7-cats-routes-added.png
+![7-cats-routes-added](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/7-cats-routes-added.png)
+
 
 restart your server, and try going to `/cats` you should be able to see the `json` array of cats.
 
@@ -219,7 +222,7 @@ mkdir configs
 
 Within this folder we will make a file called `db.config.js`
 
-## 8-db-config-js.png
+![8-db-config-js](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/8-db-config-js.png)
 
 This file will help us connect to our database, so we are able to do
 queries.
@@ -277,17 +280,18 @@ const db = require('./configs/db.config');
 ```
 to your `app.js`.
 
-## 9-db-config-js.png
+![9-db-config-js](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/9-db-config-js.png)
 
 Now try running the application (`node app.js`) and you should see that the database connection has been established. 
 
-## 10-server-db.png
+![10-server-db](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/10-server-db.png)
 
 ###  Adding Postgres -- Database File structure (Schema and Seeds)
 
 We now need to store files for `schema` and `seeds`. In the `server/` folder, we will make a new folder called `db` and inside of the `db/` folder we make 2 new folders called `seeds` and `schema`.
 
-## 11-migrations-and-seeds.png
+![11-migrations-and-seeds](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/11-migrations-and-seeds.png)
+
 
 We will keep `migrations` files inside of the `schema/` folder.
 For example lets make 2 files inside of `schema/`:
@@ -370,7 +374,7 @@ INSERT INTO urls (id, user_id, long_url, short_url, favorite) VALUES (19, 4, 'ww
 INSERT INTO urls (id, user_id, long_url, short_url, favorite) VALUES (20, 5, 'www.heroacademia.jp', 'KcF43', true);
 ```
 
-## 12-migrations-seeds-folder-structure.gif
+![12-migrations-seeds-folder-structure](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/12-migrations-seeds-folder-structure.gif)
 
 Keep the migrations and seeds `sequencial` (meaning have the ordered alphabetically). A better way of naming these files with `timestamps`, or even using an `npm` package that help up is with migrations and seeds such as: 
 
@@ -464,7 +468,7 @@ And finally add at this script to the `package.json` file:
 
 Final Result should look like this:
 
-## 13-db-reset.gif
+![13-db-reset](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/13-db-reset.gif)
 
 ### Adding Postgres -- Passing DB into routes
 
@@ -472,7 +476,6 @@ Now that we have data and a `db` connection, we should look into passing it into
 routes so that we can call database queries within them.
 
 Go into `app.js` and pass the `db` object down into `catRoutes())` like this:
-
 
 ```js
 // ... app.js top
@@ -504,5 +507,4 @@ module.exports = (db) => {
 
 Restart the server and if you go to `/cats` you should be able to see all the users we seeded into the database:
 
-
-## 14-db-in-routes.gif
+![14-db-in-routes](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/14-db-in-routes.gif)
