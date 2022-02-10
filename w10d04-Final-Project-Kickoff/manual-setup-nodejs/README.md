@@ -29,7 +29,6 @@ mkdir server
 
 Your folder should look like the screenshot: 
 
-## 1-folders.png
 ![1-folders](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/1-folders.png)
 
 ### Setting up Express

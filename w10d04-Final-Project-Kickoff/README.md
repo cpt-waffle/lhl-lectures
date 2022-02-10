@@ -183,3 +183,6 @@ Todo | High Priority(Core) | Stretch | In Progress | Done
 ```
 ### Project Setup and Creation
 
+[Make Express API FROM SCRATCH ](https://github.com/cpt-waffle/lhl-lectures/tree/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs)
+
+[Make Express API with EXPRESS-GENERATOR ](https://github.com/cpt-waffle/lhl-lectures/tree/master/w10d04-Final-Project-Kickoff/express-generator-setup)
