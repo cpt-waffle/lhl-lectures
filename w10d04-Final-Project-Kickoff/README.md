@@ -158,7 +158,7 @@ Find inspiration online from one of these websites or do your own research:
 This is the example I have used for midterms: 
 [Here's an example of how to do a git workflow here.](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/git-workflow.md)
 
-Here is a new way which is more to the industry standard called `pull requests`: 
+[Here is a new way which is more to the industry standard called `pull requests`](https://github.com/cpt-waffle/lhl-lectures/tree/master/w10d04-Final-Project-Kickoff/github-PR) 
 
 ### What Now?
 
