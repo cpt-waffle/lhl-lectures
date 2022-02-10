@@ -271,7 +271,9 @@ pool.connect().then(() => {
 module.exports = pool;
 ```
 
-We will aslo need to add the code to `app.js` so that it gets 
+![9-db-config-js](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/9-db-config-js.png)
+
+We will also need to add the code to `app.js` so that it gets 
 imported in and we can use the `db` object to do queries.
 
 add this line:
@@ -282,7 +284,29 @@ const db = require('./configs/db.config');
 ```
 to your `app.js`.
 
-![9-db-config-js](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/9-db-config-js.png)
+```js
+// declarations
+require('dotenv').config()
+const {ENVIROMENT, PORT} = process.env;
+const express = require('express');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+
+// db connection
+const db = require('./configs/db.config'); // <---------
+
+// routes import
+const catsRoutes = require('./routes/catsRoutes');
+
+
+const app = express();
+
+// middleware setup
+app.use(morgan(ENVIROMENT));
+app.use(bodyParser.json());
+//REST of APP.js............
+```
+
 
 Now try running the application (`node app.js`) and you should see that the database connection has been established. 
 
