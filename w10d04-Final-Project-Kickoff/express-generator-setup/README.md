@@ -1,6 +1,6 @@
-### How to Manually Create a A NodeJS backend 
+### How to use an express generator to setup Backend
 
-This step by step guide is to help you configure ExpressJS API server.
+This step by step guide is to help you configure express generator api.
 
 ### Setting up Repo
 
@@ -20,21 +20,27 @@ In the project folder run the command:
 git init
 ```
 
-We will make a folder called `server` in this folder by running:
+### Setup Express Generator
+
+We will now use `express-generator` to create us a working template for our backend.
+
+https://expressjs.com/en/starter/generator.html
+
+In your terminal run the command: 
 
 ```sh
-# while inside __project_name__
-mkdir server
+npx express-generator --no-view server
 ```
 
-Your folder should look like the screenshot: 
+## 1-express-generator.png
 
-## 1-folders.png
-![1-folders](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/1-folders.png)
+`cd` inside of `server` directory and run:
 
-### Setting up Express
+```sh
+npm i
+```
 
-cd into the `server` and run `npm init --yes` no initialize a `package.json`
+This will get all the `node_modules/`.
 
 We will then create `.gitignore` and make sure that it does not track `node_modules`
 
@@ -49,65 +55,14 @@ Open this file in your `editor` and add the following line of code:
 ```
 node_modules/
 ```
+Your folder should look like this:
 
-We will install the following packages:
-
- - express
- - morgan
- - body-parser
- - nodemon
-
- in your `terminal` inside of your `server` folder run the following command:
-
-```sh
-npm i express morgan body-parser
-npm i -D nodemon
-```
-
-![2-installed-packges](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/2-installed-packges.gif)
-
-
-Now lets make a file, called `app.js`: 
-
-![3-appjs-and-folders](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/3-appjs-and-folders.png)
-
-
-We will add some code to make sure everything works for a rudementary server.
-
-
-```js
-//  ---------------------------- server/app.js
-// declarations
-const express = require('express');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-const PORT = 8080;
-const enviroment = 'dev';
-
-const app = express();
-
-// middleware setup
-app.use(morgan(enviroment));
-app.use(bodyParser.json());
-
-
-app.get('/', (req, res) => {
-	res.json({greetings: 'hello world'});
-})
-
-app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
-```
-
-Try running the server with `node app.js` and see if you can visit the home page.
-
-![4-server-first-boot](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/4-server-first-boot.png)
+## 2-express-structure-start.png
 
 ### Refactoring -- ENV Variables
 
-Although this is enough to get a server running, we will make it in a cleaner and more efficient way 
-of managing routes and variables.
+We should add `.env` files so that we can control which port our app is running. 
 
-we will now `npm install` a package called `dotenv` to keep track of our preset enviroment variables.
 
 https://www.npmjs.com/package/dotenv
 
@@ -117,7 +72,7 @@ Install `dotenv` with command:
 npm i dotenv
 ```
 
-Make `two` file inside of your `server/` folder called `.env` and `.env.example`.
+Make `two` file inside of your `server/` folder  called `.env` and `.env.example`.
 Add `.env` to be ignored by your `.gitignore` BUT DO NOT DO THE SAME FOR `.env.example`. The example file will be there, 
 to act as guideline of what variables you will need to get the server to run.
 
@@ -134,74 +89,61 @@ Inside your `.env` AND `env.example` add the appropriate variables that will be 
 
 
 ```
-ENVIROMENT='dev'
 PORT=8080
 ```
 
-We will now remove the lines from `app.js` that we hardcoded to use the env. 
+Now we need to declare the `env` so that our server can use it. Go into `server/bin/www` and add this line to the top of the file:
 
 ```js
-// declarations
 require('dotenv').config()
-const {ENVIROMENT, PORT} = process.env;
-const express = require('express');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-
-const app = express();
-
-// middleware setup
-app.use(morgan(ENVIROMENT));
-app.use(bodyParser.json());
-
-
-app.get('/', (req, res) => {
-	res.json({greetings: 'hello world'});
-})
-
-app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
 ```
-App JS should look like:
 
-![5-env-setup1-app.js](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/5-env-setup1-app.js.png)
-
-And .env:
-
-![5.1-env-setu-env2](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/5.1-env-setu-env2.png)
+## 3-dotenv-added.gif
 
 ### Refactoring -- Multi Routing 
 
-Now we make routes so everything is not in one file. Make a `routes` folder inside of `/server`.
-
-In the `routes/` folder we will make a file called `catsRoutes.js`.
-
-![6-cat-routes-splitting](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/6-cat-routes-splitting.png)
-
-We will now add add `express.router`, add a basic route, and `module.exports` it so that this can be used 
-inside of our `app.js`.
+Have a look inside `app.js` and notice the line that says:
 
 ```js
-/////////// catsRoutes.js
+app.use('/users', usersRouter);
+```
+
+`express-generator` has already made us routing so we can us their example, however we will need to refactor it, for our `pg` to work correctly.
+
+Next lets refactor the code in `users.js`.
+
+Go to `/routes/users.js` and replace the code that is there with this:
+
+```js
 const router = require('express').Router();
 
-module.exports = () => {
+const users = ['Bob', 'Alex', 'Will', 'Tristan'];
+
+module.exports = (db) => {
   // all routes will go here 
   router.get('/', (req, res) => {
-    const cats = ['Rosey', 'Puma', 'Mr Buttons', 'Aya'];
-    res.json(cats);
+      res.json(users);
   });
-  
+
   return router;
 }
 ```
 
-Then inside of our `app.js` we will add the `require` and `app.use` so that we tell express whenever someone 
-requests any request with `/cats` we will use `catsRoutes` file.
+and in `app.js`  __change__ the line that says:
 
-![7-cats-routes-added](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/7-cats-routes-added.png)
+```js
+app.use('/users', usersRouter);
+```
 
+INTO:
 
-restart your server, and try going to `/cats` you should be able to see the `json` array of cats.
+```js
+app.use('/users', usersRouter());
+```
+
+## 4-refactored-routing.gif
+
+Try running the server with `npm run start` and visiting `/users` to see the users array.
 
 ### Adding Postgres -- Connection
 
@@ -223,7 +165,7 @@ mkdir configs
 
 Within this folder we will make a file called `db.config.js`
 
-![8-db-config-js](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/8-db-config-js.png)
+## 5-db-configs.png
 
 This file will help us connect to our database, so we are able to do
 queries.
@@ -233,7 +175,6 @@ Next we will add the approriate database `env` variables to both
 
 ```
 <!-- .env and/or .env.example should look like this now -->
-ENVIROMENT='dev'
 PORT=8080
 <!-- add these new variables below... -->
 DB_HOST=localhost
@@ -270,7 +211,7 @@ pool.connect().then(() => {
 module.exports = pool;
 ```
 
-![9-db-config-js](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/9-db-config-js.png)
+## 6-db-config-conn.png
 
 We will also need to add the code to `app.js` so that it gets 
 imported in and we can use the `db` object to do queries.
@@ -284,38 +225,25 @@ const db = require('./configs/db.config');
 to your `app.js`.
 
 ```js
-// declarations
-require('dotenv').config()
-const {ENVIROMENT, PORT} = process.env;
-const express = require('express');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
-// db connection
-const db = require('./configs/db.config'); // <---------
+const db = require('./configs/db.config'); //<--------- ADD
 
-// routes import
-const catsRoutes = require('./routes/catsRoutes');
-
-
-const app = express();
-
-// middleware setup
-app.use(morgan(ENVIROMENT));
-app.use(bodyParser.json());
-//REST of APP.js............
+// ---  test of app.js.................
 ```
 
+Now try running the application (`npm run start`) and you should see that the database connection has been established. 
 
-Now try running the application (`node app.js`) and you should see that the database connection has been established. 
-
-![10-server-db](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/10-server-db.png)
+## 7-db-conn-established.png
 
 ###  Adding Postgres -- Database File structure (Schema and Seeds)
 
 We now need to store files for `schema` and `seeds`. In the `server/` folder, we will make a new folder called `db` and inside of the `db/` folder we make 2 new folders called `seeds` and `schema`.
 
-![11-migrations-and-seeds](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/11-migrations-and-seeds.png)
+## 8-migrations-and-seeds.png
 
 
 We will keep `migrations` files inside of the `schema/` folder.
@@ -399,7 +327,7 @@ INSERT INTO urls (id, user_id, long_url, short_url, favorite) VALUES (19, 4, 'ww
 INSERT INTO urls (id, user_id, long_url, short_url, favorite) VALUES (20, 5, 'www.heroacademia.jp', 'KcF43', true);
 ```
 
-![12-migrations-seeds-folder-structure](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/12-migrations-seeds-folder-structure.gif)
+## 9-seeds-migrations.gif
 
 Keep the migrations and seeds `sequencial` (meaning have the ordered alphabetically). A better way of naming these files with `timestamps`, or even using an `npm` package that help up is with migrations and seeds such as: 
 
@@ -442,7 +370,6 @@ const connObj = {
 }
 
 const runMigrations = async db => {
-
 	const migrations = await fs.readdir(SCHEMA_PATH);
 	for (migration of migrations) {
 		const sql = await fs.readFile(`${SCHEMA_PATH}/${migration}`, 'utf8');
@@ -493,25 +420,25 @@ And finally add at this script to the `package.json` file:
 
 Final Result should look like this:
 
-![13-db-reset](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/13-db-reset.gif)
+## 10-final-seeds-migrations.gif
 
 ### Adding Postgres -- Passing DB into routes
 
 Now that we have data and a `db` connection, we should look into passing it into different
 routes so that we can call database queries within them.
 
-Go into `app.js` and pass the `db` object down into `catRoutes())` like this:
+Go into `app.js` and pass the `db` object down into `usersRouter())` like this:
 
 ```js
 // ... app.js top
 
 // routes
-app.use('/cats', catsRoutes(db));
+app.use('/cats', usersRouter(db));
 
 // ... app.js bottom
 ```
 
-Now that we passed `db` into  `catRoutes`, go into `routes/catRoutes.js` and lets make sure we get that parameter, followed by try running a query: 
+Now that we passed `db` into  `users`, go into `routes/users.js` and lets make sure we get that parameter, followed by try running a query: 
 
 ```js
 // -- routes/catRoutes.js
@@ -530,6 +457,6 @@ module.exports = (db) => {
 }
 ```
 
-Restart the server and if you go to `/cats` you should be able to see all the users we seeded into the database:
+Restart the server and if you go to `/users` you should be able to see all the users we seeded into the database:
 
-![14-db-in-routes](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/14-db-in-routes.gif)
+## 11-db-in-routes.gif
