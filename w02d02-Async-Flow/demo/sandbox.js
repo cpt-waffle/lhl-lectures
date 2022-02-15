@@ -1,25 +1,34 @@
-console.log("First");
-setTimeout(() => {
-    console.log("a");
-}, 2000)
+// review
+const PI = 3.14;
+// functions
+const greetings = function() {
+    console.log("hello world!");
+}
 
-setTimeout(() => {
-    console.log("b")
-}, 1000)
+const greetings2 = (name) => { // parameters
+    console.log("hello ", name);
+    return 1;
+}
 
-setTimeout(() => {
-    console.log("c");
+const array = [1,2,3,4]
+
+const arrayLooper = (array, cb) => {
+    for (let element of array) {
+        cb(element);
+    }
+}
+
+arrayLooper(array, (num) => { 
+    console.log("The current element is ", num);
 })
-console.log("Last");
+
+// CALLBACKS!!!!!
+// a function that you pass into the another function
+
+//  flexibility 
 
 
-//  Sweep
-// Wash Dishes <-- hand
-// Shovel Snow
-// vaccum <-- ( ROOMBA )
-// laundry <-- ( Laudry machine )
-   // ^-- Fold
-// cook food <-- ( slowcooker )
-  // ^-- eat 
-// microwave dinner
-   // ^-- eat
+
+console.log(PI);
+const a = greetings2('Alex');
+console.log(a);

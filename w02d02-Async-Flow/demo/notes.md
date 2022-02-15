@@ -1,5 +1,6 @@
 ------------ Agenda -----------
-review ( functions, callbacks) <----
+- Q and A 
+review ( functions, callbacks) 
 Asynchronous Control Flow
 setTimeouts
 BREAK

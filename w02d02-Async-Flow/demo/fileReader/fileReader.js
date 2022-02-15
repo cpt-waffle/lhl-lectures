@@ -4,21 +4,22 @@
 // and print out the sum of all the numbers.
 
 const fs = require('fs');
+let data1 = 0;
+let data2 = 0;
+let data3 = 0;
 
-// you have functions that are built
-// and they all get exported out
-//       module.exports ()
-//        require()
-//  16x  export default / export 
-//        import 
-
-fs.readFile('./data1.txt', 'utf8', (err, data1) => {
+fs.readFile('./data1.txt', 'utf8', (err, data) => {
     if (err) throw err;
-    fs.readFile('./data2.txt', 'utf8', (err, data2) => {
+    console.log(data);
+    data1 = data;
+    fs.readFile('./data2.txt', 'utf8', (err, data) => {
         if (err) throw err;
-        fs.readFile('./data3.txt', 'utf8', (err, data3) => {
+        console.log(data);
+        data2 = data;
+        fs.readFile('./data3.txt', 'utf8', (err, data) => {
             if (err) throw err;
-            console.log(Number(data1) + Number(data2) + Number(data3));
+            console.log(data);
+            data3 = data;
         })
     })
 })

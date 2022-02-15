@@ -1,33 +1,32 @@
-setTimeout(function() {
-    console.log("1");
-}, 1000);
+// async sandbox 
 
-setTimeout(function() {
-    console.log("2");
-}, 50);
 
-setTimeout(function() {
-    console.log("3");
-}, 2000);
+// -- Todo List: House Chores
 
-setTimeout(function() {
-    console.log("4");
-}, 3);
-// async
+// Keep Wood Stove running
+// Make Coffee
+// Vaccum
+// Take the dog out 
+// Run a dishwasher
+// Eat 
+// Clean the kitchen 
+// use the dishwasher
+// Gargbage Cans out the street
 
-// takes 1 second...
-// START
-// ASYNC FUNCTIONS ARE FUN..
-// console.log("Async functions are fun!!!");
-// console.log("Confusing");
-// console.log('wierd');
+setTimeout(() => {
+    console.log('Hello World!');
+}, 3000)
 
-// cleaning
+setTimeout(() => {
+    console.log('Goodbye')
+}, 0)
 
-// -- put dirty clothes in laundry, and wash cycle   <-------- DO YOU STARE AT THE LAUNDRY UNTIL ITS DONE?
-    // -- imma fold the laundry since its done now
-// -- put dirty dishes into the dishwasher, and wash cycle <----- 
-    // -- imma put clean dishes into the cubbies
-// -- vaccum <---
-// -- wash floors <--- 
-// -- changed birdcage <----
+
+setTimeout(() => {
+    console.log('ready!!')
+}, 2000)
+
+
+setTimeout(() => {
+    console.log('777')
+}, 1000)
