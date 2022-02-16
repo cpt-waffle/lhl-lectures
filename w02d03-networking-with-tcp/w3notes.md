@@ -6,84 +6,85 @@
 - build server/build a client 
 - you are going to connect to my server !!! :) 
 
+### Networking WITH People
 
-### What is Networking
+- find whos available
+- we are in the same room as the people/person we want to network with
+- intiate convo say Hi
+- we wait for a response (listen)
+- we respond with conversation
+- take contact info 
+- say goodbye
+- leave
 
-- connecting
-- communicating
-- exchanging info
+### Mediums <--- (things we use to communicate)
 
-
-### Networking with People 
-
-- be aproachable
-- speak same language
-- introduce yourself (say Hi my name is)
-- identify the person you are talking to ( ask them their name ) 
-- talk
-- establish a good relationship 
-- listen
-- give contact info
-- Say a proper goodbye and leave the convo
-
-### Mediums
-
-- Air ( in person )
+- Air
 - text
-- voice 
-- symbols
-- sign language
-- screen share !!
-- video
+- zoom
+- sign language 
+- white board
+- smoke signals
+- cell phones
 
 ### Computer Networking
 
-### Mediums
+### Mediums <--- (what do computers use )
 
-- Wifi
-- cables
+- wifi
+- LAN <-- cables 
+- cell phone towers 
+- fiber optic 
 - bluetooth
-- radio signals
-- electromagnic waves
-- fiber optic
 
-### Rules of Networking 
---- TCP  Transmission Control  Protocol 
+### Scenario for Networking with 2 Computers
 
-- Computer A wants to Connect with Computer B
-- As Computer A I want to know where is Computer B
-- As Computer A i want to show my credentials to Computer B
-- As Computer A I can send messages to Computer B
-- As Computer A I want to recieve messages from Computer B  ( I can listen to messages )
-- As COmputer A certain messages from Computer B will make me do specific operations 
-- As Computer A I want to be able to disconnect...
+Computer A <-- looking to connect
+Computer B <-- waiting for someone to connect 
+
+Computer A enters credentials of computer B
+Computer attempts to connect with computer B
+2 COMPUTERS connected!!!
+Computer A sends a message ------------> 
+Computer B recieves a message 
+Computer B sends a message back 
+Computer A recieves that message
+Once we are done...
+Computer A disconnects
+Computer B waits for others to connect.....
+
+These are our Rules of Networking for computers
+
+### TCP <-- Transmission Control Protocol
+
+You connect
+You stay connected
+You do operations
+You disconnect! 
+
+### HTTP <-- https://www.google.ca
+
+Hyper Text Transfer Protocol
+
+Computer A connects with Computer B
+Computer A sends 1 MESSAGE (REQUEST)
+Computer B sends 1 MESSAGE back (RESPONSE)
+Computer A disconnects!
+
+### Credentials 
+
+IP -->  what is my ip 
+182.123.415.32
+
+Modem <>
+
+Global IP < your address of the household  (address of the server)
+Local IP 
+PORT 
 
 
---- HTTP  Hyper Text Transmission Protocol 
+2 Apps a server and a client !!!!
 
-- Computer A wants to Connect with Computer B
-- Computer A knows the credentials to connect to Computer B
-- COmputer A sends a REQUEST ( a single message )
-- Computer B sends a RESPONSE ( a single message back)
-- COmputers Disconnected
-
-
-### IP (Global and Local)
-IP - are addresses,
-
-Local IP is an address that is used on YOUR OWN network
-its a way the router knows who you are on the netowrk
-and will send you information accordingly
-
-Global IP - your actual address of your household
- (VPN) <----->
-
-### (routers)
-
-### (PORTS)
-
-if local IP are your buildings
-
-PORTS are your unit numbers
-
-
+Server will listen
+ 
+Client will connect!

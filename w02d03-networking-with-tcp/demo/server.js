@@ -1,23 +1,27 @@
-// Server
+// You will not have to build the SERVER
+
 const net = require('net');
 const users = [];
 
-const server = net.createServer((connection) => {
-    console.log("Someone has connected!");
-    // event listeners
-    users.push(connection);
-    connection.setEncoding('utf8');
-    connection.on('data', (data) => {
-        console.log(data);
-        // fs.writeFile(data);
-        // database.saveConvoMeessage(data)
+const server = net.createServer((user) => {
+    console.log("Someone has Connected!");
+    users.push(user);
+    user.setEncoding('utf8');
+    user.on('data', (data) => {
         users.forEach(user => {
             user.write(data);
         })
+        // console.log('data has come!');
+        // console.log(data);
+        // user.write('Someone has ');
     })
-})
 
-// listening for connections!!!!
+    user.on('end', ()=> {
+        users.forEach(user => user.write("someone has disconnected!"));
+    })
+});
+
+
 server.listen(3001, () => {
-    console.log("Server is listening!!!");
-})
+    console.log("Server is on!");
+});
