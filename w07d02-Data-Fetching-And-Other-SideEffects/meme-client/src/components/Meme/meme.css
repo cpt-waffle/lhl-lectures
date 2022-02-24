@@ -1,0 +1,16 @@
+.meme {
+    background-color: black;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.meme--img {
+    width: 300px;
+
+}
+
+.meme--title {
+    margin: 0;
+    padding: 0;
+}
