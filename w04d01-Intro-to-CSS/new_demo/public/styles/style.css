@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.heading {
+    background-color: #3fccf7;
+    text-align: center;
+}
+
+#unordered-list {
+    color: rebeccapurple;
+}
+

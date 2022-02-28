@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "morgan": "^1.10.0"
+  },
+  "name": "new_demo",
+  "version": "1.0.0",
+  "main": "express_server.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node express_server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
