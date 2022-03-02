@@ -7,31 +7,27 @@
    - one for an app
 - Q&A
 
-Jest  vs Cypress
 
-## Jest
+### ------------------ 
+Different types of testing (so far)
 
-- the better chai
-- unit testing
-- simple test tool 
-- terminal 
-- quick --- cheap!
-- boring
+- unit testing --- cheap (terminal, and enviroment) 0.5 secodns (1 second)
+- integration testing --- cheap (terminal, and enviroment) 0.5 secodns (1 second)
+- manual testing -- 
 
-## Cypress
+- static testing
+- error driven testing 
+- accessiblity testing
 
-- end to end testing 
-  |
-  ---> "We get to code an actual user (user actions)"
-   a) see the frontend
-   b) have the backend running
-   c) have the user perform specific tasks to complete
-   that action
-   - tests are browser based ( ran in a browser )
-   - expensive $$$ 
-   - SUPER FUN THO!!
+- end 2 end testing ----( expensive )
+  -- coding a person, to do a user story 
+  -- cypress (USES THE BROWSER)
+  -- its super fun!!! 
+
+------- CYPRESS
+
+
+-- installing cypress
 
 
 
-
-ALIAS
