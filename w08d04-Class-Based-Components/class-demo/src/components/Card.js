@@ -1,79 +1,59 @@
-// 1
-import React, { Component } from 'react';
+// import React
+import React, { Component, useState } from 'react';
 import './card.css'
-// class ?
-// Blueprints
-/// Car -----> Toyota ---> Nissan ---> etc
-// Nissan <>
+// Class <----
+// class Person {eyes, nose, mouth, eyeColor...}
+// ^-- inheritence (extends)
+// Class Vas extends Person {eyes, nose, mouth, eyeColor, hobbies, bornIn, shoeSize}
 
-// extends Component (first difference!!)
+// Component (Parent)
+//    |
+//   Card (child)
+
 class Card extends Component {
     constructor(props) {
         super(props);
-        //..
-        // STATE HERE
-        this.state = {
-            likes: 25,
-            dislikes: 3
-        }
+        this.state = {likes: 0, disLikes: 0};
+        this.onDislikesClick = this.onDislikesClick.bind(this);
     }
+
     onLikesClick = () => {
-        this.setState(prev => {
-            return {
-                ...prev,
-                likes: prev.likes + 1
-            }
-        })
+        this.setState(prev => ({...prev, likes: prev.likes + 1}));
     }
 
-
-
-    onDisikesClick = () => {
-        this.setState(prev => {
-            return {
-                ...prev,
-                dislikes: prev.dislikes + 1
-            }
-        })
+    onDislikesClick = function() {
+        this.setState(prev => ({...prev, disLikes: prev.disLikes + 1}));
     }
-
 
     componentDidMount() {
-        // axios here 
-        console.log("Render Only once!")
-        setTimeout(() => {
-            console.log("likes ===>,", this.state.likes);
-        }, 5000)
-    }    
-    componentDidUpdate(prevProps, prevState) {
-        console.log("Render on every single time");
-        if (prevState.likes !== this.state.likes ) {
-            console.log("Likes Changed!");
-        }
+
+        console.log("one time!");
     }
+
+
+    componentDidUpdate() {
+        console.log("something changed!");
+    }
+
 
 
     render() {
-        // some logic area abouve
-        // return JSX
-        /// THIS
-        // WHat is this?
-        // this is that
-        const {img,name,title} = this.props;
+        // this.props.foo();
+        const {img, title} = this.props; // PROPS :D
         return (
-            <>
-                <img src={img} className="cat--img" alt="cat-pic"/>
-                <h2>{name}</h2>
-                <h3>{title}</h3>
-                <button onClick={this.onLikesClick}>
-                    <h3>Likes {this.state.likes}</h3>
-                </button>
-                <button onClick={this.onDisikesClick}>
-                    <h3>Dislikes {this.state.dislikes}</h3>
-                </button>
-            </>
+            <div>
+                <img 
+                    className="card--img"
+                    src={img}
+                />
+                <h1>{title}</h1>
+                <button onClick={this.onLikesClick}>Likes {this.state.likes}</button>
+                <button onClick={this.onDislikesClick}>DisLikes {this.state.disLikes}</button>
+            
+            </div>
         )
     }
 }
+
 
 export default Card;

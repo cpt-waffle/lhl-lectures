@@ -6,13 +6,18 @@ const img = 'https://i.kym-cdn.com/photos/images/facebook/001/394/314/c62.jpg';
 
 
 function App() {
+
+  const foo = () => {
+    alert("FUNCTION!!!");
+  }
+
   return (
     <div className="App">
       <h1>Class Demo</h1>
       <Card
-        name={'Mr Buttons'}
         img={img}
-        title={'Chief Operations Specialist'}
+        title={'Senior Factors Technician'}
+        foo={foo}
       />
     </div>
   );
