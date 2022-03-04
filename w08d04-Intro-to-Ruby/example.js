@@ -1,67 +1,52 @@
 let fruit = 'apple';
-const PI  = 3.14;
-var num = 12;
+const PI = 3.14;
 
-
-console.log(`${fruit}, ${PI}, ${num}`);
+console.log(fruit);
+console.log(PI);
+/*  */
 console.log(fruit + ' ' + PI);
+console.log(`${fruit}  --- ${PI}`);
 
-const add = (numOne=0, numTwo=0) => {
-   return numOne + numTwo;
+const foo = (arg) => {
+    console.log("BAR!", arg);
+
+    return 22;
 }
 
-console.log(add(2, 4));
+const val = foo(10);
+console.log(val);
 
+const result = 10;
 
-// if statements ------
-
-const val = 10;
-
-if (val < 9) {
-    console.log('Value is less than 9');
-} else if ( val === 10) {
-    console.log('Value is 10');
+if (result < 10) {
+    console.log("result is less than 10");
+} else if (result === 10) {
+    console.log("result is 10");
 } else {
-    console.log('Val is greater than 10');
+    console.log("result is greater than 10")
 }
 
-if (true) console.log('if true');
-if (!false) console.log("hello world :)");
+if (result === 10) console.log("ONE LINE TRUE!");
+if (!false) console.log("IT WORKS!");
 
-const arr = [1,2,3,4,5,6, 'seven', 8.5, false];
-console.log(arr);
+const arr = [1,2,3,4, 'five', 'six', 7.5, false];
 
-// for, while, forEach
-// for in for off
-
-arr.forEach((item, index) => {
-    console.log(`${index} -- ${item}`);
+arr.forEach((num, index) => {
+    console.log('Value is ==', num);
 })
 
-console.log(arr[3]);
-
-// -------- Objects
-
-const obj = {
-    a: 1,
-    b: 2,
-    c: 3
-}
-
-console.log(obj);
+const obj = {a:1, b:2, c:3};
 console.log(obj.b);
-
-Object.entries(obj).forEach(entry => {
-    console.log(`${entry[0]} --  ${entry[1]}`);
+Object.keys(obj).forEach((key) => {
+    console.log(`${key} ==> ${obj[key]}`);
 })
 
-
-// Js CALLBACKS 
-const foo = (fn) => {
+const highOrder = fn => {
     console.log("START");
-    fn(33);
+    fn(25);
     console.log("END");
 }
-foo((num) => {
-    console.log("CALLBACK RUNS " + num);
+
+highOrder((num) => {
+    console.log(`CALLBACK RAN!! ${num}`);
 })

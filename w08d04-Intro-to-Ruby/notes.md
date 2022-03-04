@@ -5,39 +5,39 @@
 - BREAK - 
 - More Comparisons
 - yield
-- rails
+- rails ( the project you will be working on from tue - next week tue-wed?)
 
-#################################
+##################################
 
--------------- Javascript -----------------
-
-- single thread ( v8 compiler is multithreated )
-- super popular 
-- NPM 1.3 million
-- async  (callbacks, promises, async/await)
-- runs in BROWSER AND on the backend
-- highly performant
-- 6-10 days 
-- JAVA was popular,  javascript 
-- javascript is functional ( class based syntax )
-- 1995
+What are your thoughts on this new language called Ruby?
 
 
-------------- Ruby  ---------------------------
-- Matsumoto Yukihiro ( matz )
-- 1995
-- 2005 - where it took off because of a framework called RAILS
-- it is a backend langauge only
-- OOP 
-- has a decent package library ( gems )
-- synchronous language
-- Ruby syntax is "simplified" 
-- not so performant :(
+# ------------- Javascript ---------------
 
------ Ruby/Ruby on Rails is used in: GITHUB, Shopify
+-- super POPULAR (NPM)
+-- async language (single thread, callbacks, promises, async/await)
+-- runs in browser AND BACKEND 
+-- highly performant 
+-- Java/CSS esque syntax
+-------------------------------------------
+-- took to made 6 - 10  created at 1995
+-- JAVAscript <--- Java was popular (Confuses the crap out of recruiters/HR's)
 
-WHY ?
 
-its slow
-its old
-there is no point in learning it, lets just go with another one 
+#  ----------- Ruby -------------------------
+-- midly popular  (GEMS)
+-- sync language 
+-- ONLY runs in the backend!
+-- not great at performance
+-- syntax is more simplified ( PERL LANG )
+-------------------------------------------
+-- Matz (Yukihiro Matsumoto) 
+-- 1995
+-- went in popularity in 2005 (ish) <-- Ruby on Rails
+
+-- Compass
+-- Github
+-- Shopify
+-- AirBnB
+
+
