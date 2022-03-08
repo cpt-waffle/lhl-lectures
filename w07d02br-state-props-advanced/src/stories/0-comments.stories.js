@@ -39,10 +39,12 @@ const comments = [
 	}
 ]
 
-// make a stoiresOF and use add()
+// I want to display MULTIPLE comments on a page
+// Item <--- ItemList
 
-// what is props or properties?
-// CommentList(name, list, val, isFalse, )
-//  const CommentList = ( props ) => {... }
-storiesOf('CommentList Component')
-  .add('default', () => <CommentList comments={comments} />)
+// We want to make an ItemList component (to work in storybook first)
+//  and then figure it out on our APPLICATION...
+
+storiesOf('CommentList component')
+  .add('Default list of comments', () => <CommentList jazzHands={comments}/>)
+

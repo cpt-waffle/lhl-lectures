@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import CommentList from './Components/CommentList';
 import './App.css';
+import CommentList from './Components/CommentList';
 
 // API
 const commentsData = [
@@ -33,42 +33,93 @@ const commentsData = [
     dislikes: 1,
   },
 ]
+// PROPERTIES CAN ONLY
+// GO DOWN LEVELS
+
+// WHAT IF ...
+// I send a function
+// down down down INTO Comment Component(s)
+
+
+// <div>
+//   <p>
+    
+//   </p>
+//     {number <---}
+//   <p>
+    
+//   </p>
+// <div/>
+
+// VIRTUAL DOM
+
+// {
+//   elementDivNumber21314: {
+//     elementPNumber1: {
+      
+//     }
+//     elementPNumber2: {
+
+//     }
+//     elementPNumber3: {
+
+//     }
+//   }
+// }
+
 
 
 function App() {
-  debugger;
-  const [list, setList] = useState([]);
-  useEffect(() => {
-    // axios.get('/comments', (data) => )
-    setTimeout(() => {
-      setList([...commentsData])
-    },2000)
-  }, [])
+
+  const [comments, setComments] = useState([...commentsData]);
+  // STATE is a variable 
+  // THAT WHEN IT CHANGES
+  // react RE-RENDERS the UI for the user
 
 
-  const banana = (id, type) => {
-    console.log("BANANA in App.js at Line 42.!")
-    console.log(id, type);
-    // immutability will awlays be
-    // copy OG , change something in it, set the copy to the OG
-    const listCopy = list.map((item) => {
-      if (item.id === id ) {
-        if (type === 'likes') {
-          item.likes++;
+  const plzBox = (id, type) => {
+    // console.log("LINE 44: App.js ");
+    // console.log(id, type);
+    // // make a copy 
+    // const copyComments = [...comments];
+    // for (let comment of copyComments) {
+    //   // on a SPECIFIC item that was clicked
+    //   if (comment.id === id) {
+    //     // change likes or dislike counter
+    //     if (type === 'like') {
+    //       comment.likes++;
+    //     } else {
+    //       comment.dislikes++;
+    //     }
+    //   }
+    //   // set the copy that altered to the ORIGINAL
+    //   setComments(copyComments);
+    // }
+////////////////////////////////////////////////////////////
+    const copyComments = comments.map((comment) => {
+      if (comment.id === id) {
+        if (type === 'like') {
+          comment.likes++;
         } else {
-          item.dislikes++;
+          comment.dislikes++;
         }
       }
-      return item;
+      return comment;
     })
-    setList(listCopy);
-  }
+    setComments(copyComments);
 
+
+  }
+  
+  axios.get('http://localhost:8080/api/days').then(() => {
+
+  })
+  
 
   return (
     <div>
       <h1>Comments for Dogs</h1>
-      {list.length ?  <CommentList comments={list} banana={banana}/> : <h1>LOADING....</h1>}
+      <CommentList jazzHands={comments} batarang={plzBox}/>
      
     </div>
   );
