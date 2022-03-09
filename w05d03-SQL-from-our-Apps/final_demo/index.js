@@ -1,28 +1,28 @@
 const PORT = 8080;
-// step 0            -- npm i pg
-// step 1            -- require PG
+// step 0  -- npm install pg
+// step 1  -- require PG
 const { Pool } = require('pg');
-// step 2            -- new Pool
+// step 2 -- new Pool!
 const pool = new Pool({
     user: 'labber',
     password: 'labber',
     host: 'localhost',
     database: 'w05d03',
     port: 5432
-});
-// step 3 (OPTIONAL) -- pool.connect()
-pool.connect(() => {
-	console.log("You have connected!");
 })
-// step 4 (and on..) -- pool.query(....)
-
+// step 3 -- optional pool.connect!
+pool.connect().then(() => {
+    console.log("We have connected!");
+}).catch(e => {
+    console.log("ERROR :(");
+    console.log(e.message);
+})
+// step 4 -- use pool.query for your queries 
 
 const bodyParser	= require('body-parser');
 const express			= require('express');
 const morgan			= require('morgan');
 const app = express();
-
-
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
@@ -54,46 +54,42 @@ app.get('/sandbox', (req, res) => {
 	})
 })
 
-// SELECTIVE Commands
 app.get('/employees/:id', (req, res) => {
-	// how to get this ID from url 
-	console.log('req.params', req.params);
+	console.log(req.params.id);
 	const templateVars = {};
-	// write our query
-	const command = `
-	SELECT first_name, last_name, email 
-	FROM employees WHERE id = $1`;
-
-	const parameters = [ req.params.id ];
-
-	pool.query(command, parameters).then(data => {
-		templateVars.employee = data.rows;
+	// CALL A QUERY for a sepcific employee
+	// ASYNC
+	pool.query(`SELECT * FROM employees WHERE id = $1`, [ req.params.id ]).then((data) => {
+		console.log("RESPONSE HERE!!!!");
+		templateVars.employee = data.rows
+		// console.log(res.rows);
 		res.render('employees_index', templateVars);
-	}).catch(e => {
-		console.log("ERRORS");
-		console.log(e);
-		res.send("BAD :(");
 	})
+	// send that employee down into templatevars
+	// render the information on the page
 })
+
+
+
 
 app.get('/departments', (req, res) => {
 	const templateVars = {};
-	// async
-	pool.query(`SELECT * FROM departments`).then(data => {
-		templateVars.result = data.rows;
+	const command = "SELECT * FROM departments;";
+	pool.query(command).then(data => {
 		console.log(data.rows);
+		templateVars.departments = data.rows;
 		res.render('departments_index', templateVars);
 	})
+
 })
 
 app.get('/api/departments', (req, res) => {
 	const templateVars = {};
-
-	pool.query(`SELECT * FROM departments`).then(data => {
-		templateVars.result = data.rows;
+	const command = "SELECT * FROM departments;";
+	pool.query(command).then(data => {
 		console.log(data.rows);
-		// res.render('departments_index', templateVars);
-		res.json(templateVars)
+		templateVars.departments = data.rows;
+		res.json(templateVars);
 	})
 })
 

@@ -7,69 +7,41 @@
 - How to make functions for helper methods -- (tomorrow's activities)
 - Q and A
 
-----------------------------------
-
-Database Review 
----------------
-
-Tinyapp
-   ^---- a big billion dollar application
-
-People want more features!!
-
-- analytics <---> how many times have users clicked/used your tinyURL
-- dark mode 
-- share links
-- users accounts
-- friends 
-- organizations 
-
--------------------------------
-
-Deployment.....
-
-RESTART <---
-
-DATA IS LOST APP IS DEAD X_X
-
-Data is new resource
-
-___ a way to keep our data persisted __
-
-well we'll will build a file. 
-
-.comma seperated values
-
-user,password
-
-
-build another web server to write to this file
-and read specific items from the file....
-
-SQL -- POSTGRES
-
-DATABASE          user
-  <=================
-
-
-
-DABASE                  SERVER                         CLIENT
-                              <----------REQ------------
-   <----------------------
-   ----------------------->                     
-                              -----------RES----------->
-
-
-## How to connect to the database via single JS file?
-
-- pg (npm)
+# -----------------------------
 
 TinyApp
-       <--------------REQ 
-    POOL -------->RES
-      <--------------REQ
-      <--------------REQ
-      <--------------REQ
-  CLIENT
+
+you have deployed tiny app from amazon servers
+
+- tiny app has 8 million users
+- you buy an island
+- 2 weeks 
+-  ADD MORE FEATURES ()
+ -- analytics
+ -- dark mode
+ -- friends 
+ -- organizations
+
+-------- DEPLOYMENT ----------
+
+--- restart the server ---
+-- DATA GOES BYE
 
 
+-------------------------------
+We need data persistance 
+
+-- file, read, written 
+name,
+
+------- Data services (SQL)
+
+psql
+
+
+Web
+User                     SERVER                      DATABASE
+---------REQ------------> 
+                            ----------------------->
+                            <----------------------  
+<--------RES-------------
