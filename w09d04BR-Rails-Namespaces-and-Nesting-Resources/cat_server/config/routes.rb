@@ -1,31 +1,41 @@
 Rails.application.routes.draw do
   get 'cats/index'
+  get 'cats/new'
   get 'cats/show'
+  get 'pages/abouts'
+  get 'pages/teams'
+  get 'pages/testimonials'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  # a resources thats actually a collection
   resources :cats
-  # a single resource
-  resource :dashboard
 
-  resources :owners do
-    resources :cats
-  end
+# IF I Have Owners...
+#  and cats...
+# what would be the route
+# to see all the cats for a specific Owner?
 
-  namespace :admin do
-    resources :cats
-  end
+#  owners/:id/cats
+#  WhAT WOULD BE THE CONTROLLER FOR THAT??!
+ resources :owners do
+  resources :cats
+ end
 
-  # Feature - Abouts Page!!!!!
-  # resources :abouts, only: [:index]
-  # resources :teams, only: [:index]
-  # resources :testimonials, only: [:index]
-  # resources :mission, only: [:index]
-  #  CUSTOM ROUTING
+ namespace :admins do
+  resources :cats
+ end
+
+  #  Create an abouts page
+  #  generate a controller called Abouts
+  #  made an index --- 
+  #  index.html.erb
+
+  # Create a Teams Page     --- Teams Controller
+  # Create a Product Desc Page   -- Product Controller
+  # Create a testimonials       -
+  # Create a about_us page
+
+  # Custom ROUTING
   get '/abouts', to: 'pages#abouts'
-  get '/teams', to:  'pages#teams'
-
-#  I want a route where i pick a user, and it gives all the cats they own...
-#  /cats
-#  /cats/:id
+  get '/teams', to: 'pages#teams'
+  get '/testimonials', to: 'pages#testimonials'
 
 end

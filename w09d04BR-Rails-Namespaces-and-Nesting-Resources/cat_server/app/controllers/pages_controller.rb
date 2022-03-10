@@ -1,8 +1,10 @@
 class PagesController < ApplicationController
-    # index, delete, update, new, create
-    def abouts
-    end
+  def abouts
+  end
 
-    def teams
-    end
+  def teams
+  end
+
+  def testimonials
+  end
 end
