@@ -1,14 +1,14 @@
-const palidrome = (string) => {
-    const arr = string.trim().toLowerCase().split('');
-    // abba <--- 4  0
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] !==  arr[arr.length-1 - i]) {
-            return false;
-        }
+const palindrome = (string) => {
+    if (!string || typeof string !== 'string') return false;
+    const sanitizedString = string.split(' ').join('').toLowerCase();
+    const sanitizedStringReverse = sanitizedString.split('').reverse().join('').toLowerCase();
+
+    if (sanitizedString === sanitizedStringReverse) {
+        return true;
     }
 
-    return true;
+    return false;
 }
 
-// module
-module.exports = palidrome;
+module.exports = palindrome;
+
