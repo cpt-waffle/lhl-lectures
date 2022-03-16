@@ -1,16 +1,15 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import socketIOClient from 'socket.io-client';
-// My backend URL
 const END_POINT = 'http://localhost:8080';
+const connection = socketIOClient(END_POINT);
+// My backend URL
 function App() {
 
-  const [conn, setConn] = useState(undefined);
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     // make a connection (SOCKET) with my backend.
-    const connection = socketIOClient(END_POINT);
     connection.on('initial', msg => {
       console.log("something came back!");
       console.log(msg);
@@ -25,9 +24,10 @@ function App() {
 
     connection.on('DISCONNECTED_USER', msg => {
       console.log("DISCONNECTED!!");
+      setUsers(prev => prev.filter(user => user !== msg.user))
       console.log(msg);
     })
-  }, [])
+  }, [connection])
 
   return (
     <div className="App">
