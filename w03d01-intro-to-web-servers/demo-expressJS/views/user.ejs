@@ -7,12 +7,11 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Visitor <%= visitsToHomepage %> </h1> 
-  <h3><%= PI %></h3> 
-  <ul>
-  <% for (let user of users) { %>
-    <li><%= user.name %></li>
+  <h1>User!</h1>
+  <% if ( name ) { %>
+    <h1>Hello <%= name  %> </h1> 
+  <% } else { %>
+    <h1>No user found!</h1>
   <% } %>
-  </ul>
 </body>
 </html>

@@ -1,20 +1,22 @@
-// vanilla server
-
-const http = require('http');
+const http = require("http");
 
 const server = http.createServer((request, response) => {
-    console.log("Request:", request.url);
-    if (request.url === '/eth') {
-        response.end("Buy ETH");
-    } else if (request.url === '/dogs') {
-        response.end("Woof!");
-    } else if (request.url === '/money') {
-        response.end("here's $20!")
-    } else {
-        response.end('hello world!!');
-    }
+  console.log(request.url);
+  if (request.url === '/helpimstuck') {
+    response.end("Now you are free!");
+  }
+  else if (request.url === '/moo') {
+    response.end("find the cow!");
+  }
+  else if (request.url === '/formula1') {
+    response.end('Formula Dank!');
+  } else {
+    response.end('every other URL that i have not figured out yet!!');
+  }
 })
+// every server needs to listen to connections once all the logic has been initialized
 
 server.listen(8080, () => {
-    console.log(`Server is on and listening on port 8080`);
+  console.log("server is up and running!");
 })
+// Express JS
