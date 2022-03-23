@@ -1,83 +1,91 @@
 import './App.css';
-import React, { useState } from 'react';
-// import componnent
-import Item from './components/Item';
-import ItemList from './components/ItemList';
+import { useState } from 'react';
 
-const array = [
-  'strawberry jam', 'Milk', 'Oat Milk', 'coffee beans', 'potato'
-]
+// a function that returns JSX
+// reason to make components?
+// re-usable UI elements 
+// tinyapp templates are very close to components
+
+// $(document).on('ready', () => {
+  // $('#id').on('click') 
+// })
+//
+
+
+// state is JUST a variable
+// BUT it does a secondary operation OTHER than changing a value..
+
 
 function App() {
+  // let number = 23;
+  const [number, setNumber] = useState(23);
+  const [cats, setCats] = useState(['puma', 'rosy', 'mr buttons']);
 
-  // What is state?
-  // a special variable
-  // it stores values ( just like a regular variable) 
-  // and ONCE this value changes ( in a specific way...)
-  // the react component will RE-render!
-  const [a, setA] = useState(102);
-  const [list, setList] = useState([...array]);
-// 887345: list <---- push()
-
-// setList = (arg) => {
-//   list = arg;
-//   // MAKE REACT re-render()
-// }
-
-
-
-  const clickedFunc = () => {
-    console.log('this has been clicked!');
-    // WRONG WAY OF CHANGING THE VARIABLE
-    
-    // Alright im going to setA and attempt to re-render
-    // a++ it was 102 becomes 103
-    // let me check if prev a and new a match
-    // no re-render!!
-
-    // IMMUTABILITY 
-    // Make copy, change the copy, set that to the state
-    // TLDR a copy (shallow-ish copy.?) of your state
-
-
-    // Spread Operator
-    // a way to copy the contents of an object/array to another obj/array
-    // this is a shallow copy
-////////////////////////////////////////////////// 
-    // const newList = [];
-    // for (let item of list) {
-    //   newList.push(item);
-    // }
-    // console.log("BEFORE PUSH ", newList);
-    // newList.push('beets')
-    // setList(newList);
-    // console.log("AFTER setList()", newList);
-
-///////////////////////////////////////////
-    setList([...list, 'beets']);
-
-    // VirtualDOM
-
+  const addOne = () => {
+    // Never change state directly
+    setNumber(number + 1);
+    // number = argument
+    // RE-RENDER THE ENTIRE COMPONENT FROM TOP TO BOTTOM;
   }
-// How are your maps and filter ? 
-/////////////////////////////////////////////////
-// const htmlList = [];
-// for (const item of list) {
-//   htmlList.push(<li>{item}</li>)
+
+
+
+  const addANewCat = () => {
+    const name = 'Alan';
+    // everything should be a new instance 
+    // everything should be a modified copy
+    // and whenever we need re-place the original..
+    // we make a copy of the original and then alter it
+    //  AND THEN REPLACE IT...
+    
+    // to make a copy of an array, loop and push everything into a new array..
+    // for (let cat of cats) {
+    //   catsCopy.push(cat);
+    // }
+    catsArr = [ ['vixen'], ['alie'], ['rudolph']]
+    const catsCopy = [...cats, name];
+    setCats(catsCopy);
+  }
+
+
+
+// Virtual DOM
+//   |------>
+
+// state i have right now is EQUAL to the state that is being passed through to change?
+// setCats = (newState) => {
+//   if (newState === oldState)
+//   // do nothing
+//   else {
+//     change state
+//     re-render
+//     do everything else...
+//   }
 // }
-/////////////////////////////////////////////////
-  /// jsx
-  // you are able to store HTML in a js array, or object or variable
-  // and you render it out same way..
+// ////////////////////////////////
+// {
+//   'div-app': {
+//     'h1-basic1': { value: 'hello world'}
+//     'h2-basic1': { value: 'Number is {state.number}'}
+
+//     'li-basic1': {value: state.cats[0]}
+//     'li-basic1': {value: state.cats[1]}
+//   }
+// }
+
+
 
   return (
     <div className="App">
-      <h1>Shopping List</h1>
-      <ItemList list={list}/>
-      <button onClick={clickedFunc}>Click Me</button>
+      <h1>Hello React!@</h1>
+      <h2>Number is {number}</h2>
+      <button onClick={addOne}>Add One</button>
+      ------------------------------------------
+      {cats.map(e => <li>{e}</li>)}
+      <button onClick={addANewCat}>ADD ONE MORE CAT</button>
+
     </div>
   );
 }
-
 
 export default App;

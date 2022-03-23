@@ -2,6 +2,7 @@
 
 - Q and A from yesterday
 - changing states the wrong way
+- STATE
 - intro to immutability
 - immutability in objects
 - immutability in arrays
@@ -9,6 +10,11 @@
 - refactors
 - Q and A
 
------------ Storybook -----------
 
-React itself is an application ( single page )
+## ------ Hows react?
+
+<Component id={3} func={myFunction}/>
+<Component func={(id) => { setId(id)}}/>
+state 
+
+
