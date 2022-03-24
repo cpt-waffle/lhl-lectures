@@ -1,27 +1,32 @@
+// old ver or react 
 import React from 'react';
-import Comment from '../Components/Comment';
+import Comment from './Comment';
 
-//            props.jazzHands
-//            props.batarang
+// make a function
 const CommentList = (props) => {
-    // props.jazzHands // ITS ACTUALLY a comments ==> [{}, {}, {}]
+  // function returns JSX
+  // props.dogs[]
 
-    // Tweeters
-    // $tweet = `<article>...</article>`
-    // const commentsHTML = [];
-    // for (let item of props.jazzHands) {
-    //     commentsHTML.push(<Comment data={item}/>)
-    // }
+  // <Comment data={comment} handleClick={action('onClick')}/>
+  // an array of comments 
+  // array of HTML
+  // a comment is component that is built out of html
 
-    const commentsHTML2 = props.jazzHands.map((item) => {
-        return <Comment key={item.id} data={item} batarang={props.batarang}/>
-    }) 
+  //////////////////
+  // const arr =  [];
+  // for (let dogComment of props.dogs) {
+  //   arr.push(<Comment data={dogComment}/>)
+  // }
+  const arr = props.dogs.map(dogComment => {
+    return <Comment data={dogComment} onClick={props.onChange}/>
+  })
 
-    return (
-        <div>
-            {commentsHTML2}
-        </div>
-    ) 
+  return (
+    <div>
+      {arr}
+    </div>
+  )
 }
 
+// export the function
 export default CommentList;

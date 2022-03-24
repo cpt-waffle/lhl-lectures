@@ -5,13 +5,12 @@ function Comment(props) {
 	const { id, image, content, likes, dislikes } = props.data;
 	// $('#buttonCLick').on('click', (evt) => {/..})
 	const onLikeClick = () => {
-		console.log("LIKE CLICK");
-		props.batarang(id, 'like');
+		props.onClick('like', id);
 	}
 
 	const onDislikeClick = () => {
-		console.log("DISLIKE CLICK");
-		props.batarang(id, 'dislike');
+		props.onClick('dislike', id);
+
 	}
 	// myCbFunction = () => {////}
 

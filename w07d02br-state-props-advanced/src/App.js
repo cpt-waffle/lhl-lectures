@@ -33,71 +33,21 @@ const commentsData = [
     dislikes: 1,
   },
 ]
-// PROPERTIES CAN ONLY
-// GO DOWN LEVELS
-
-// WHAT IF ...
-// I send a function
-// down down down INTO Comment Component(s)
-
-
-// <div>
-//   <p>
-    
-//   </p>
-//     {number <---}
-//   <p>
-    
-//   </p>
-// <div/>
-
-// VIRTUAL DOM
-
-// {
-//   elementDivNumber21314: {
-//     elementPNumber1: {
-      
-//     }
-//     elementPNumber2: {
-
-//     }
-//     elementPNumber3: {
-
-//     }
-//   }
-// }
 
 
 
 function App() {
-
-  const [comments, setComments] = useState([...commentsData]);
-  // STATE is a variable 
-  // THAT WHEN IT CHANGES
-  // react RE-RENDERS the UI for the user
-
-
-  const plzBox = (id, type) => {
-    // console.log("LINE 44: App.js ");
-    // console.log(id, type);
-    // // make a copy 
-    // const copyComments = [...comments];
-    // for (let comment of copyComments) {
-    //   // on a SPECIFIC item that was clicked
-    //   if (comment.id === id) {
-    //     // change likes or dislike counter
-    //     if (type === 'like') {
-    //       comment.likes++;
-    //     } else {
-    //       comment.dislikes++;
-    //     }
-    //   }
-    //   // set the copy that altered to the ORIGINAL
-    //   setComments(copyComments);
-    // }
-////////////////////////////////////////////////////////////
-    const copyComments = comments.map((comment) => {
-      if (comment.id === id) {
+  const [comments, setComments] = useState(commentsData);
+  const handleCommentsChange = (type, id) => {
+    console.log("CONSOLE<LOG LINE 42: APP.JS!");
+    console.log("LINE 43", type, id);
+    // make a copy for comments
+    const copyComments = comments.map(comment => {
+      // loop through the comments
+      // find the the one comment that was clicked (id)
+      if (comment.id === id ) {
+        // find the button that clicked (type)
+        // alter the comment like or dislike 
         if (type === 'like') {
           comment.likes++;
         } else {
@@ -106,21 +56,18 @@ function App() {
       }
       return comment;
     })
+    // set the state with the new alterned copy
     setComments(copyComments);
-
-
   }
-  
-  axios.get('http://localhost:8080/api/days').then(() => {
-
-  })
   
 
   return (
     <div>
       <h1>Comments for Dogs</h1>
-      <CommentList jazzHands={comments} batarang={plzBox}/>
-     
+      <CommentList
+      dogs={comments} 
+      onChange={handleCommentsChange}
+      />
     </div>
   );
 }
