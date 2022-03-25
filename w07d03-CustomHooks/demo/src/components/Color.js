@@ -1,19 +1,18 @@
 import React from 'react';
-// import your custom hook!
 import useColor from '../hooks/useColor';
 
 
 const Color = (props) => {
-    console.log(props.colors)
-    const {defaultColor, next, prevColor} = useColor(props.colors);
-    return (
-        <div style={{backgroundColor: defaultColor}}>
-            <h3>Color Component :)</h3>
-            <button onClick={prevColor}>Previous Color</button>
-            <button onClick={next}>Next Color</button>
-        </div>
-    )
-
+  const {currentColor, next, prev} = useColor(['rebeccapurple', 'goldenrod', 'firebrick', 'blue', 'salmon', 'skyblue', 'green']);
+  return (
+    <div style={{backgroundColor: currentColor}}>
+      Color Component!
+      <div>
+        <button onClick={prev}>Prev</button>
+        <button onClick={next}>Next</button>
+      </div>
+    </div>
+  )
 }
 
 

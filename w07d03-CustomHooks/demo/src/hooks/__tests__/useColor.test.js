@@ -1,64 +1,52 @@
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react-hooks'
 import useColor from '../useColor';
 
-describe('Tests for useColor', () => {
-    xit(' check if 2 + 2 is equal to 4', () => {
-        expect(2+2).toBe(4);
-    })
+describe('useColor tests', () => {
+  it('checks if 2 + 2 is equal to 4', () => {
+    expect(2+2).toBe(4);
+  })
 
-    it( 'takes in an array of colors, and uses 1 of those colors as the defaultColor', () => {
-        const arrayOfColors = ['red', 'green', 'blue', 'white', 'gray', 'black'];
-        const { result } = renderHook(() => useColor(arrayOfColors)); // <---- HOW DO I GET ARRAY OF COLORS 
-        // INTO MY useColor
-        // result.current <---- is the return value  that comes from our custom hook!
-        expect(result.current.defaultColor).toBe('red');
-    })
+  // only runs this test, and skips everything else
+  // it.only
+  test('for an array of colors, and returns a currentColor to be equal to "red"', () => {
+    const colorsArr = ['red', 'rebeccapurple', 'goldenrod', 'firebrick', 'blue'];
+    const { result } = renderHook(() => useColor(colorsArr));
+    expect(result.current.currentColor).toBe('red');
+  })
 
-    it('switches between the colors using the next() function, and the currentColor changes to green', () => {
-        const arrayOfColors = ['red', 'green', 'blue', 'white', 'gray', 'black'];
-        const { result } = renderHook(() => useColor(arrayOfColors)); // <---- HOW DO I GET ARRAY OF COLORS 
-        expect(result.current.defaultColor).toBe('red'); 
-        act(() => {
-            result.current.next();
-        })
-        expect(result.current.defaultColor).toBe('green');
+  // skips this specific test
+  // xit
+  it('takes in an array of colors, then runs the next() function and the color changes from red, to rebecca purple', () => {
+    const colorsArr = ['red', 'rebeccapurple', 'goldenrod', 'firebrick', 'blue'];
+    const { result } = renderHook(() => useColor(colorsArr));
+    expect(result.current.currentColor).toBe('red');
+    act(() => {
+      result.current.next();
     })
-    it('clicks next() twice, AND the current is now blue', () => {
-        const arrayOfColors = ['red', 'green', 'blue', 'white', 'gray', 'black'];
-        const { result } = renderHook(() => useColor(arrayOfColors)); // <---- HOW DO I GET ARRAY OF COLORS 
-        expect(result.current.defaultColor).toBe('red'); 
-        act(() => {
-            result.current.next();
-        })
-        act(() => {
-            result.current.next();
-        })
-        expect(result.current.defaultColor).toBe('blue');
-    })
+    expect(result.current.currentColor).toBe('rebeccapurple');
+  })
 
-    it('clicks next(), twice, then clicks prev() once, and the current color is now green', () => {
-        const arrayOfColors = ['red', 'green', 'blue', 'white', 'gray', 'black'];
-        const { result } = renderHook(() => useColor(arrayOfColors)); // <---- HOW DO I GET ARRAY OF COLORS 
-        act(() => {
-            result.current.next();
-        })
-        act(() => {
-            result.current.next();
-        })
-        expect(result.current.defaultColor).toBe('blue');
-        act(() => {
-            result.current.prevColor();
-        })
-        expect(result.current.defaultColor).toBe('green');
+  it('takes in an array of colors, then runs the next() function and the color changes from red, to rebecca purple, then clicks back and the color should be red', () => {
+    const colorsArr = ['red', 'rebeccapurple', 'goldenrod', 'firebrick', 'blue'];
+    const { result } = renderHook(() => useColor(colorsArr));
+    expect(result.current.currentColor).toBe('red');
+    act(() => {
+      result.current.next();
     })
+    expect(result.current.currentColor).toBe('rebeccapurple');
+    act(() => {
+      result.current.prev();
+    })
+    expect(result.current.currentColor).toBe('red');
+  })
 
-    it('tries to go back while at the begging of the list, but stay on red', () => {
-        const arrayOfColors = ['red', 'green', 'blue', 'white', 'gray', 'black'];
-        const { result } = renderHook(() => useColor(arrayOfColors)); // <---- HOW DO I GET ARRAY OF COLORS 
-        act(() => {
-            result.current.prevColor();
-        })
-        expect(result.current.defaultColor).toBe('red');
+  it('takes in array of colors, goes back(), but the default color stays the same due to being the first element', () => {
+    const colorsArr = ['red', 'rebeccapurple', 'goldenrod', 'firebrick', 'blue'];
+    const { result } = renderHook(() => useColor(colorsArr));
+    act(() => {
+      result.current.prev();
     })
+    expect(result.current.currentColor).toBe('red');
+  })
 
 })

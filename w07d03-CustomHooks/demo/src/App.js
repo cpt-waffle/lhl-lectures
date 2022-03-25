@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
+import LoginForm from './components/LoginForm';
+import RegisterForm from './components/RegisterForm';
 import Color from './components/Color';
 
 function App() {
-  const [num, setNum] = useState(0);
 
 // We need make a component called "Color"
 // The color component will have a div 
@@ -12,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      <Color colors={['red', 'blue', 'pink', 'firebrick', 'lime', 'hotpick', 'salmon', 'rebeccapurple']}/>
+      <Color/>
     </div>
   );
 }

@@ -1,30 +1,33 @@
-// import everything need from react but not React itself (UseState, useEffect) !!
-import {useState, useEffect} from 'react';
-
-//make a function
-// useForm();
-const useForm = (inputEmail) => {
-    const [email, setEmail] = useState(inputEmail || '');
-    const [pass, setPass] = useState('');
-
-    useEffect(() => {
-        console.log("HELLO WORLD!")
-    }, [])
+import { useState, useEffect } from "react";
 
 
-    const onChangeEmail = (evt) => {
-        setEmail(evt.target.value);
-    }
+// making a custom hook steps:
+// 1 make a file "use____.js"
+// 2 make a function with the same name as file
+// 3 export default the function
+const useForm = (defaultVal) => {
 
-    const onChangePass = (evt) => {
-        setPass(evt.target.value);
-    }
+  useEffect(() => {
+    setTimeout(() => {
+      console.log("use Effect after 1 sec");
+    }, 1000)
+  },[])
 
-    // this function will RETURN the methods, and/or variables that your component will need!
-    return {email, pass, onChangePass, onChangeEmail, setPass}
+  const [val, setVal] = useState(defaultVal || '');
+
+  const onChangeVal = (evt) => {
+    setVal(evt.target.value);
+  }
+
+  // we return any variables, states, and/or methods, that a component will use
+  // return an object that contains these ^
+
+  return {val, onChangeVal};
+
 }
-
 
 export default useForm;
 
-// you export the function
+/// state, setState = {day, days, appointments, interviews, interviewrs}
+//  setDay
+// move all the logic for state/ useEffec into a different file
