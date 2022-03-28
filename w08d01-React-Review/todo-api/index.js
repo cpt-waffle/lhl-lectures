@@ -1,7 +1,7 @@
 const PORT = 8080;
 const express = require('express');
 const uniqid = require('uniqid');
-const cors = require('cors');
+const cors = require('cors'); // 
 const bodyParser = require('body-parser')
 
 const app = express();
@@ -28,7 +28,7 @@ app.get('/todos', (req, res) => {
 app.post('/todos', (req, res) => {
     console.log(req.body);
     data = [...data, {...req.body.newTask, id: uniqid()}];
-    res.send('ok');
+    res.json({...req.body.newTask, id: uniqid()});
 })
 
 
