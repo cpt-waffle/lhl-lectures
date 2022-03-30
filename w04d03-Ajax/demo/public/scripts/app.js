@@ -1,92 +1,85 @@
-let apple = 'apple';
+// Figure out if this file is being sent out to the client!
+console.log("Do I work!?");
+const PI = 3.14;
 
-const defaultShow = {
-    score: 19.047897,
-    show: {
-        id: 39407,
-        url: "http://www.tvmaze.com/shows/39407/dogs",
-        name: "Dogs",
-        type: "Documentary",
-        language: "English",
-        genres: [],
-        status: "Running",
-        runtime: 50,
-        premiered: "2018-11-16",
-        officialSite: "https://www.netflix.com/title/80191036",
-        schedule: {
-            time: "",
-            days: [
-                "Friday"
-            ]
-        },
-        rating: {
-            average: null
-        },
-        weight: 33,
-        network: null,
-        webChannel: {
-            id: 1,
-            name: "Netflix",
-            country: null
-        },
-        externals: {
-            tvrage: null,
-            thetvdb: null,
-            imdb: null
-        },
-        image: {
-            medium: "http://static.tvmaze.com/uploads/images/medium_portrait/173/433043.jpg",
-            original: "http://static.tvmaze.com/uploads/images/original_untouched/173/433043.jpg"
-        },
-        summary: "<p><b>Dogs</b> tracks six incredible stories from across the globe including Syria, Japan, Costa Rica, Italy and the US—each proving that the unconditional love one feels for their dog is a beautiful universal truth.</p>",
-        updated: 1570380266,
-        _links: {
-            self: {
-                href: "http://api.tvmaze.com/shows/39407"
-            },
-            previousepisode: {
-                href: "http://api.tvmaze.com/episodes/1555622"
-            }
-        }
-    }
-}
+// Figure out if we have JQUERY inabled on this file!
+const greetings = () => console.log("Hello World!");
 
-const createItem = function(data) {
-    console.log("DATA IS INSIDE");
-    console.log(data)
-    const item = `
-    <div class="item">
-        <img src="${data.show.image.medium}" />
-        <h2>${data.show.name}</h2>
-        <h4>${data.show.type}</h4>
+// we are going to attempt to do a AJAX request to the TVMaze API to get info
+const APIURL = 'https://api.tvmaze.com/search/shows?q=';
+
+// VanillaJS ( regular JS)
+// JQuery    <--- can do everything that regular js can do on the browser
+// GERANTREE that our methods will work on all different browsers, (IE5, Firefox, Chrome, Netscape, Opera, Safari, etc)
+// IE5  <--- firefox, rebuild for IE5 so it would work there as well.
+
+// $.get(APIURL, (data) => {
+//   console.log('data', data);
+// })
+
+// 1 - decide on the layout / design 
+// BUILD It DIRECTLY IN THE HTML!
+// 2 - build 1 mock up
+
+
+
+// 3 - try to build the same mockup in the JS file so it appends 
+const createMovieHTML = (data) => {
+  // 4 - insert the data into the mockup from an object
+  let defaultImg = 'https://i.pinimg.com/originals/59/54/b4/5954b408c66525ad932faa693a647e3f.jpg';
+  if (data.show.image?.original) {
+    defaultImg = data.show.image.original;
+  }
+  const movieHTML = `
+  <div class="movie">
+      <img class="movie--img" src="${defaultImg}"/>
+      <div class="movie--content">
+        <h1>${data.show.name}</h1>
+        <p><span>Type: ${data.show.type}</span> <span>Rating: ${data.show.rating.average}</span></p>
+        <a href="${data.show.url}">A LINK</a>
+        <p>
+          ${data.show.summary}
+        </p>
+      </div>
     </div>
     `
-
-    return item;
-}
-
-const createItems = (arr) => {
-    for (let item of arr) {
-        $('#results').append(createItem(item));
-    }
+    $('#movies-list').append(movieHTML);
 }
 
 
-$(document).ready(() => {
-    console.log("ready!");
-    $('form').on('submit', (evt) => {
-        evt.preventDefault();
-        // How do I get the value of what i typed INTO my search URL?
-        // How do i bundle the data i need to send to the user  ( hint hint serilize? )
-        $.ajax({
-            url: `http://api.tvmaze.com/search/shows?q=${evt.target.search.value}`,
-            method: 'GET',
-            dataType: 'JSON'
-        }).then(function(response) {
-            console.log(response);
-            // const item = createItem(response[0])
-            $('#results').empty();
-            createItems(response);
-        })
+console.log("APPENDING NOW!");
+
+// document on ready 
+$(() => {
+  // 5 - implement the AJAX call with the mock up
+
+
+    /// Add an event listerner to form
+    $('#movie-search').on('submit', (evt) => {
+      evt.preventDefault();
+      $('#movies-list').empty()
+      // collect what the user has written
+      // and send to to the api, and then render the result
+      $.get(APIURL+evt.target.search.value).then( data => {
+        console.log(' PROMISES data', data);
+        // LOOP through the data
+        // and for every object, create a movie HTML
+        for (let movie of data) {
+          createMovieHTML(movie);
+        }
     })
+  })
 })
+
+
+
+
+
+
+
+
+
+
+
+// tweeter
+//  localhost:8080/tweets
