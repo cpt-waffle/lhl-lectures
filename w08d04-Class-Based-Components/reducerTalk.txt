@@ -1,0 +1,14 @@
+action ={
+  type: 'addLikes'
+  num: 3
+}
+
+reducer( state, action) {
+  switch 'addLIkes'
+     return {...state, likes: state.likes + action.num}
+}
+
+
+const [state, dispatch] = useReducer(reducer, initialState)
+
+dispatch({type: 'addlikes', num: 22})

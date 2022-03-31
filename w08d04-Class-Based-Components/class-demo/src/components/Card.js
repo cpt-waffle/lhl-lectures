@@ -1,59 +1,61 @@
-// import React
-import React, { Component, useState } from 'react';
-import './card.css'
-// Class <----
-// class Person {eyes, nose, mouth, eyeColor...}
-// ^-- inheritence (extends)
-// Class Vas extends Person {eyes, nose, mouth, eyeColor, hobbies, bornIn, shoeSize}
-
-// Component (Parent)
-//    |
-//   Card (child)
-
+import React, {Component} from 'react'; // newer ver doesnt need this
+import './card.css';
+// what is a class?
+// Class Person 
+// grow()
+// eye_color
+// hair_color
+// name
+// iheritence
+// Class Person > Vas
+// 4 wheels
+// steering wheel
+// airbags
+// Vehicle > Corolla
+//    Child         Parent
 class Card extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {likes: 0, disLikes: 0};
-        this.onDislikesClick = this.onDislikesClick.bind(this);
+// how do we render JSX?
+  constructor(props) {
+    super(props);
+    this.state = {likes: 2, dislikes: 4};
+    this.onDislikesClick = this.onDislikesClick.bind(this);
+  }
+  // state = {likes: 2, dislikes: 4}
+  // class property proposal! 
+  onLikesClick = () => {
+    this.setState(prev => ({likes: prev.likes + 1}));
+  }
+
+  onDislikesClick = function() {
+    this.setState(prev => ({dislikes: prev.dislikes + 1}));
+  }
+
+  componentDidMount() {
+    console.log('render once.');
+    setTimeout(() => {
+      console.log(this.state.likes);
+    }, 3000)
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("render everytime anything changes!");
+    if (prevState.likes !== this.state.likes) {
+      console.log("likes changed, useEffect tracks it..")
     }
+  }
 
-    onLikesClick = () => {
-        this.setState(prev => ({...prev, likes: prev.likes + 1}));
-    }
+  render() {
+    //
+    return (<div>
+      <img className='card--img' src={this.props.img}/>
+      <h3>{this.props.name}</h3>
+      <button onClick={this.onLikesClick}>Likes {this.state.likes}</button>
+      <button onClick={this.onDislikesClick} >Dislikes {this.state.dislikes}</button>
 
-    onDislikesClick = function() {
-        this.setState(prev => ({...prev, disLikes: prev.disLikes + 1}));
-    }
-
-    componentDidMount() {
-
-        console.log("one time!");
-    }
-
-
-    componentDidUpdate() {
-        console.log("something changed!");
-    }
-
-
-
-    render() {
-        // this.props.foo();
-        const {img, title} = this.props; // PROPS :D
-        return (
-            <div>
-                <img 
-                    className="card--img"
-                    src={img}
-                />
-                <h1>{title}</h1>
-                <button onClick={this.onLikesClick}>Likes {this.state.likes}</button>
-                <button onClick={this.onDislikesClick}>DisLikes {this.state.disLikes}</button>
-            
-            </div>
-        )
-    }
+    </div>
+    )
+  }
 }
 
-
 export default Card;
+
