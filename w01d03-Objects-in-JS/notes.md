@@ -1,7 +1,7 @@
 -- Agenda--
 
 -- Intros
--- Review, Different Data types 
--- Objects ( and comparing them to arrays)
+-- Review (arr, func, vars)
+-- Objects ( why ?)
 -- BREAK ---
 -- A few examples objects
