@@ -1,5 +1,6 @@
+const palindrome = require('./palindrome');
 
-// new demo
-const cowsay = require('cowsay');
-
-console.log(cowsay);
+console.log("FROM LINE 3:", palindrome);
+console.log(palindrome());
+console.log(palindrome('nurses run'));
+// lotide, eqArrays, assertEq, assertEqArray, 

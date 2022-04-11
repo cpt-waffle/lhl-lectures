@@ -4,17 +4,12 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "mocha": "./node_modules/mocha/bin/mocha"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "chai": "^4.3.6",
     "mocha": "^9.2.2"
-  },
-  "dependencies": {
-    "cowsay": "^1.5.0"
   }
 }
