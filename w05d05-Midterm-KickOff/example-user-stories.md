@@ -2,8 +2,7 @@ Here are some examples that we can use from tiny app:
 
 
 ```
-As a user I want to be able to create short urls
-by adding long url and app generating a short url
+As a user I want to be able to create short urls by adding long url and app generating a short url
 ```
 
 ```
