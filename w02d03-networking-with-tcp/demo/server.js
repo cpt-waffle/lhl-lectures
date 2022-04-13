@@ -1,27 +1,26 @@
-// You will not have to build the SERVER
-
+// create a server 
+// and make sure that server listens to other computers connections
 const net = require('net');
 const users = [];
 
-const server = net.createServer((user) => {
-    console.log("Someone has Connected!");
-    users.push(user);
-    user.setEncoding('utf8');
-    user.on('data', (data) => {
-        users.forEach(user => {
-            user.write(data);
-        })
-        // console.log('data has come!');
-        // console.log(data);
-        // user.write('Someone has ');
+let num = 0;
+//                              
+const server = net.createServer((connection) => {
+  connection.setEncoding('utf8');
+  users.push(connection);
+  num++;
+  console.log("someone has connected!", num);
+  connection.write(`You are ${num}!`);
+  
+  connection.on('data', (data) => {
+    users.forEach(user => {
+        console.log('data', data);
+        user.write(data);
     })
+  })
 
-    user.on('end', ()=> {
-        users.forEach(user => user.write("someone has disconnected!"));
-    })
-});
-
+})
 
 server.listen(3001, () => {
-    console.log("Server is on!");
-});
+  console.log('Server just turned on!');
+})

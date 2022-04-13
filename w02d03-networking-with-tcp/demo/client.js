@@ -2,30 +2,31 @@ const net = require('net');
 const stdin = process.stdin;
 
 const credentials = {
-    port: 3001,
-    host: "localhost"    
+    host: 'localhost', // url, or ip
+    port: 3001
 }
 
-const name = "Vas";
+const name = 'Vas';
 
-const client = net.createConnection(credentials, () => {
-    console.log("We have connected!!");
-});
 
+const client = net.createConnection(credentials, () => {}) // client.connect()
+console.log(client);
 client.setEncoding('utf8');
-stdin.setEncoding('utf8');
-// to say something to the server use client.write()
-client.write(`${name} has connected!`);
-
 client.on('data', (data) => {
+    console.log('server just sent you a message!');
     console.log(data);
 })
 
+client.write('This is Fine!!!');
+
 stdin.on('data', (input) => {
-    client.write(`${name}:  ${input}`);
+    client.write(`${name}: ${input}`);
 })
 
-// add a name to your snake:
-// client.write('Name: WAFLE')
-// client.write('Move: Up')
-// client.write('Move: Down')
+// CLient for a snek game
+//  zoom + 
+
+// make a connection
+// build commands to go up down left right using your keyboard
+// client.write('Name: vas')
+// whenever you click w ===> client.write("Move: up");
