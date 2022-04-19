@@ -1,0 +1,6 @@
+.newnav {
+  background-color: rebeccapurple;
+  font-size: large;
+  display: flex;
+  justify-content: space-between;
+}

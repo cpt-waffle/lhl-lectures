@@ -1,27 +1,31 @@
-// import React
+// Step 1: import React from 'react';
+
 import React from 'react';
+import NewNavBar from '../components/NewNavBar';
+
+// Step 2: import storiesOf
 
 import { storiesOf } from '@storybook/react';
 
-import ColorBox from '../components/ColorBox';
+// write stories...
 
-// TO ADD a story
-// you will use the "storiesOf function"
+// to write a story..
 
-storiesOf('Title Component')
-    .add('Default Title', () => <h1>Hello World</h1>);
+// Step 1: you will use the storiesOf function to give a title of the story
+
+// Step 2: you will use the function .add() to add a story to the title
+storiesOf('My first Component')
+  .add('Default first component', () => <h2>Default First Component</h2>)
+  .add('2nd default component', () => <h2>second</h2>)
+
+  
+const dummyMenuItems = ['Home', 'Login', 'Register'];
+const dummyMenuItems2 = ['Home', 'Login', 'Register', 'Home', 'Login', 'Register', 'Home', 'Login', 'Register'];
 
 
-// Color box 
-// -- pass in a a prop color, and a title 
-//  -- render out a box with that title and the backgroun of it will be 
-// -- the color you passed in
-const foo = () => {
-    console.log('bar');
-}
-// step 1 writting a story  --- storiesOf
-// step 2 .add()
-// Step 3 -- CREATE A COMPONENT!!!
-storiesOf('Color Box Component')
-    .add('box with blue color and title="WELCOME"', () => <ColorBox title="WELCOME" color={"blue"}/> )
-    .add('box with red and title "CSS MANIPULATION"', () => <ColorBox title="CSS MANIPULATION" color="red"/>)
+storiesOf('My New Navbar')
+.add('default navbar', () => <NewNavBar menuItems={dummyMenuItems}/>)
+.add('MANY ITEMS', () => <NewNavBar menuItems={dummyMenuItems2}/>)
+.add('no items', () => <NewNavBar menuItems={[]}/>)
+
+

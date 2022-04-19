@@ -1,0 +1,12 @@
+.profile {
+  background-color: grey;
+  width: 300px;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.profile--img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
