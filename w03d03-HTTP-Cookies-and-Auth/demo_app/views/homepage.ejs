@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomePage!!</title>
+</head>
+<body>
+  <% if (user) { %>
+    <h1>You are logged in as <%= user.email%></h1>
+  <% } else { %>
+    <h1>You are not logged in!</h1>
+  <% } %>
+  <h4>Hello, happy wed and welcome to my homepage for our cookies demo!</h4>
+  <p>you will see that the web, is stateless, but somehow we have to keep track of all of you!</p>
+</body>
+</html>
