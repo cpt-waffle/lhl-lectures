@@ -1,15 +1,17 @@
 import React from 'react';
-import Meme from '../components/Meme';
 
 import { storiesOf } from '@storybook/react';
+import MemeCard from '../components/MemeCard'
+
+storiesOf('random story').add('Test', () => <h1>Hello world!</h1>)
 
 
-storiesOf("RANDOM COMPONENT")
-  .add('dasdasd', () => <h1>HELLO WORLD</h1>);
 
+// WHat props should i pass into this meme card??
 
-const fakeTitle = "Moon moon!";
-const fakeImgURL = "https://external-preview.redd.it/ksfpBn1fKSP_1uPE1BG8BvWQgMG8sxASI9HSR4H2k-s.jpg?auto=webp&s=41e009bceb608d2d1c7d3f76d8bbdba09f4ceb26";
+// img prop
+// title prop
+const dummyImg = 'https://hips.hearstapps.com/hmg-prod/images/womanyellingcat-1573233850.jpg';
 
-storiesOf("MEME Component", module)
-  .add('Meme', () =>  <Meme name={fakeTitle} imgURL={fakeImgURL}/>);
+storiesOf('MemeCard')
+  .add('Default memecard', () => <MemeCard img={dummyImg} title="Mr Buttons!"/>)

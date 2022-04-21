@@ -1,0 +1,11 @@
+.meme-card {
+  background-color: black;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  width: 500px;
+}
+
+.meme-card--img {
+  width: 350px;
+}
