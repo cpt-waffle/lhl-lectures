@@ -9,7 +9,7 @@ For the last week you were working on an app called `TinyApp`. It was an app tha
 From the start until now you have been using something called `node`, which is a javascript engine which runs on the `backend`. You were able to make a server that serves up HTML files.
 
 Just like your machine that has node, a javascript engine ( not always the
-same one ), your `browser` has on as well. Infact all browsers (Chrome,
+same one ), your `browser` has one as well. Infact all browsers (Chrome,
 Firefox, Edge, Safari, etc) has a built in javascript engine to interpret js
 that is embedded in a HTML page.
 
