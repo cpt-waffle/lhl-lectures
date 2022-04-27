@@ -7,27 +7,40 @@
    - one for an app
 - Q&A
 
+## --------------------
 
-### ------------------ 
-Different types of testing (so far)
+Why We Test 
 
-- unit testing --- cheap (terminal, and enviroment) 0.5 secodns (1 second)
-- integration testing --- cheap (terminal, and enviroment) 0.5 secodns (1 second)
-- manual testing -- 
+- having less downtime
+- keeping your server running as long as possible
+- releasing less bugs into prod
+- $$ 
 
-- static testing
-- error driven testing 
-- accessiblity testing
+Kind of Tests
 
-- end 2 end testing ----( expensive )
-  -- coding a person, to do a user story 
-  -- cypress (USES THE BROWSER)
-  -- its super fun!!! 
+- unit  <-- quick, cheap
+- integration <-- quick, cheap
+- feature <--
+- End to End <--- a server, a client, the tests themselves
+time consuming, fun (the entire user story)
 
-------- CYPRESS
+As a user, i want to be able to add an item to my todo list
+  -> user goes on the webpage/app
+  -> user focuses on the input field
+  -> user writes down the item 
+  -> user presses enter
+  -> user sees that an item has been added to the list
 
+## Cypress 
 
--- installing cypress
+to install cypress:
 
+npm install cypress --save-dev # in your frontend folder
 
+add `"cypress": ./node_modules/.bin/cypress open` to your package.json
 
+## How to Work with Cypress On Your own Project (Scheduler etc)
+
+terminal 1 - frontend
+terminal 2 - backend
+terminal 3 - cypress
