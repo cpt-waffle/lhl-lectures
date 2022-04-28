@@ -2,40 +2,57 @@
     margin: 0;
     padding: 0;
 }
-
+/* % percents */
+/* em */
+/* rems */
+/* vw */
+/* vh */
+/* ex, ch, vmin, vmax */
+.layout {
+    display: flex;
+}
 
 .item1 {
-    background-color: crimson;
-    width: 75%;
+    background-color: cornflowerblue;
+    width: 100%;
 }
 
 .item2 {
-    background-color: cornflowerblue;
-    width: 50%;
+    background-color: darkslateblue;
+    width: 90%;
 }
 
 .item3 {
+    background-color: firebrick;
+    width: 50%;
+}
+
+.item4 {
     background-color: salmon;
     width: 25%;
 }
 
-@media only screen and (max-width:600px) {
+@media only screen and (max-width: 500px) {
+    .layout {
+        flex-direction: column-reverse;
+    }
 
     .item1 {
-        background-color: limegreen;
-        width: 100%;
+        background-color: chartreuse;
     }
-
     .item2 {
-        background-color: cornflowerblue;
         width: 100%;
-        height: 500px;
     }
-
     .item3 {
-        background-color: skyblue;
-        width: 50%;
-        text-align: center;
+        width: 100%;
     }
-    
+    .item4 {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .layout {
+        flex-direction: row-reverse;
+    }
 }

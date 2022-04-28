@@ -1,8 +1,11 @@
 .test {
-  text-align: center;
-  background-color: skyblue;
+  background-color: red;
+}
+
+.test div {
+  background-color: blue;
 }
 
 .test h1 {
-  border: 2px dotted green;
+  background-color: green;
 }
