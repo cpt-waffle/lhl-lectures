@@ -43,6 +43,7 @@ app.get('/sandbox', (req, res) => {
 		pool.query(command).then(result => {
 			templateVars.result = result.rows;
 			templateVars.fields = result.fields;
+			console.log(templateVars.fields)
 			res.render('sandbox', templateVars);
 		}).catch(e => {
 			templateVars.error = e.message;

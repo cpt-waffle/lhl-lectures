@@ -16,9 +16,28 @@
 			  </div>
 			</form>
 			<% if (locals.result) { %>
-				<% locals.result.forEach(item => {%>
-					<li><%=JSON.stringify(item)%></li>
-				<% })%>
+				<table class="w-100 mw8 center" cellspacing="0">
+					<thead>
+						<tr>
+							<% locals.fields.forEach(item => {%>
+								<th class="fw6 bb b--black-20pb3 pr3 bg-white">
+									<%= item.name %>
+								</th>
+							<% })%>
+						</tr>
+					</thead>
+						<tbody class="lh-copy">
+							<% locals.result.forEach(row => {%>
+								<tr>
+								<% locals.fields.forEach(item => {%>
+									<td class="pv3 pr3 bb b--black-20">
+										<%= row[item.name] %>
+									</td>
+								<% })%>
+								</tr>
+							<% })%>
+						</tbody>
+				</table>
 			<% }%>
 
 			<% if (locals.error) { %>
