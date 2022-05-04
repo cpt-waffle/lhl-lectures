@@ -1,31 +1,51 @@
 const { Pool, Client } = require('pg');
 
-// credentials of connecting
+console.log("hello !");
+
 const pool = new Pool({
     user: 'labber',
-    password: 'labber',
     host: 'localhost',
     database: 'w05d03',
+    password: 'labber',
     port: 5432
 })
+// new Pool() command
+// Connects me to the database with 
+// my credentials
 
-pool.connect().then(() => {
-    console.log("We have connected!");
-}).catch(e => {
-    console.log("ERROR :(");
-    console.log(e.message);
+
+
+pool.query('SELECT * FROM employees;', (err, res) => {
+    console.log("TEST!!");
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(res.rows);
+    }
 })
 
-const getEmployees = () => {
-    const command = 'SELECT * FROM employees';
-    return pool.query(command).then(data => {
-        console.log("FINISHED!!");
-        return data.rows;
-    })
-}
+pool.query('SELECT * FROM employees;').then( res => {
+  console.log('TEST!!! PROMISES!!!');
+  console.log(res.rows);
+}).catch( err => {
 
-//
-getEmployees().then(list => {
-    console.log("LIST IS HERE!!!");
-    console.log(list);
-});
+})
+
+
+// pool.query() command
+// is able to do SELECT quaries 
+// on my database!!
+
+// port 
+// username
+// password
+// host
+// database
+
+// client  = 1 connection = worker
+// A client is a connection
+// to a database. INSERT, SELECT, DROP, etc
+// (in the realm of the client permissions)
+
+
+// pool  = 1 connection = MANY workers (8 - 10)
