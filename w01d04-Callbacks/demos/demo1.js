@@ -1,23 +1,34 @@
-// review!!
+// REVIEW!!!!!
 
-// variables
-// a storage for various things.....
-const PI = 3.14;
-const fruit = 'banana';
-const ateBreakfast = false;
+// variables are there to store data
+const PI = 3.14; // number
+let fruit = 'apple'; // string
+const ateBreakfest = false; // boolean
 
-// what are functions?
-// a block of code, that is re-usable <----
-const greetings = function(name) {
-    console.log("hello ", name);
-    name();
+// Functions?
+// execute an action (multiple times)
+
+// function definition!
+const greetings = function(nameOfDay, isNight, func) {
+  console.log(func());
+  func();
+  if (isNight === true) {
+    console.log('Happy ' + nameOfDay + ' evening!');
+  } else {
+    console.log("Happy ", nameOfDay);
+  }
+  return 'hello'
+}
+// return type!
+const somePrintFunction = function() {
+  console.log("LINE 24: I AM PRINTING!!!!");
+  console.log("LINE 25: FUNCTION END");
 }
 
-// we can pass parameter into a function as a raw value 'declaration'
-// greetings('vas');
-// we can pass parameter into a function from a variable
-// greetings(fruit);
-///////////////////////////////////
-greetings(function() {
-    console.log("GOODBYE!!! :(");
-});
+// call the function 
+const response = 'almost FridaY!!!!!';
+const bb = true;
+greetings('almost FridaY!!!!!', true, somePrintFunction);
+// console.log("FUNCTION RETURNED ==", returnType);
+
+// console.log(PI, fruit);
