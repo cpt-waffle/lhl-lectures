@@ -1,10 +1,9 @@
 # --------- Agenda -------------
 
-- File/Controller Structure~
-- Active Record
-
-- Routes and Nested resources
-- QA
+- advanced routing
+- active record
+- Abouts controller ?
+- BONUS: maybe will talk about the private part of controller
 
 
 --- 
