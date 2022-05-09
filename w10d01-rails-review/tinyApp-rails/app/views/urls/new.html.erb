@@ -1,0 +1,7 @@
+<h1>Add New URL</h1>
+
+<%= form_for Url.new do |form| %>
+  <p>Long URL: <%= form.text_field :longURL %> </p>
+  <%= form.submit 'Submit!' %>
+<% end %>
+
