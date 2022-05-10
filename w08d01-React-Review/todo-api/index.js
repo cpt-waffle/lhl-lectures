@@ -27,8 +27,8 @@ app.get('/todos', (req, res) => {
 
 app.post('/todos', (req, res) => {
     console.log(req.body);
-    data = [...data, {...req.body.newTask, id: uniqid()}];
-    res.json({...req.body.newTask, id: uniqid()});
+    data = [...data, {...req.body, id: uniqid()}];
+    res.json({...req.body, id: uniqid()});
 })
 
 

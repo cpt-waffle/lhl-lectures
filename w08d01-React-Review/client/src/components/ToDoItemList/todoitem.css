@@ -1,0 +1,16 @@
+.todoitem {
+  padding: 20px;
+  margin-bottom: 2px;
+  display: flex;
+  justify-content: space-between;
+  background-color: dodgerblue;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-family: 'Courier New', Courier, monospace;
+  align-items: center;
+}
+
+.todoitem--button {
+  background-color: crimson;
+  border: none;
+}

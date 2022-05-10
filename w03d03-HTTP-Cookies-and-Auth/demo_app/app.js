@@ -39,6 +39,7 @@ app.get('/', (req, res) => {
   console.log("----> cookies here ---->", req.cookies);
   const user = users[req.cookies.user_id]; // cookie is nulll user = null
   templateVars.user = user;
+  res.status(404)
   res.render('homepage', templateVars);
 })
 // get 
