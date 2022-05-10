@@ -1,34 +1,24 @@
 // review
 const PI = 3.14;
-// functions
-const greetings = function() {
-    console.log("hello world!");
+
+const greetings = (name) => {
+  console.log(`hello ${name}`);
+}
+// arrow functions
+const greetings2 = name => console.log(`hello ${name}`);
+
+
+// greetings('vas');
+// greetings2('vas');
+
+//// CALLBACKS !!!!
+
+const highOrder = (callback) => {
+  console.log("start");
+  callback();
+  console.log("end");
 }
 
-const greetings2 = (name) => { // parameters
-    console.log("hello ", name);
-    return 1;
-}
-
-const array = [1,2,3,4]
-
-const arrayLooper = (array, cb) => {
-    for (let element of array) {
-        cb(element);
-    }
-}
-
-arrayLooper(array, (num) => { 
-    console.log("The current element is ", num);
+highOrder(() => {
+  console.log("this was defined in the parameter, when we called highOrder()")
 })
-
-// CALLBACKS!!!!!
-// a function that you pass into the another function
-
-//  flexibility 
-
-
-
-console.log(PI);
-const a = greetings2('Alex');
-console.log(a);
