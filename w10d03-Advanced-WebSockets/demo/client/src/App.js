@@ -1,62 +1,55 @@
-import React, {useState, useEffect } from 'react';
 import './App.css';
-import socketIOClient from 'socket.io-client';
+import { useEffect, useState } from 'react';
+// all we need to do is CONNECT to the backend socket server!
+// Step 0: Install socket.io-client <-- THE VER OF SERVER SOCKET.IO MUST MATCH 
+// Step 1: import socket.io-client
+import socketIoClient from 'socket.io-client';
+// Step 2: make the connection
+const connection = socketIoClient('http://localhost:8080');
 
-const ENDPOINT = 'http://localhost:3001';
-
+// all listeners of socketIO we build, will be 
+// inside of the useEffect 
+// useEffect() => [], [val], 
+// React 18 has a bug! useEffect runs twice at start because of strict mode!!
+// either 
+// -- remove strict mode (no more errors tho)
+// -- use the hook example from this blog post --> https://blog.ag-grid.com/avoiding-react-18-double-mount/
+// -- use older ver of react
 function App() {
+  const [user, setUser] = useState('');
   const [users, setUsers] = useState([]);
-  const [user, setUser] = useState({});
-  const [connection, setConnection] = useState({});
-  const [messages, setMessages] = useState([]);
-
 
   useEffect(() => {
-    console.log("Load once!!");
-    const conn = socketIOClient(ENDPOINT);
-    setConnection(conn);
-    // connection.on('connect', () => {
-    //   console.log("i have connected")
-    //   connection.emit('foo', 'bar');
-    // })
-    conn.on('intial', data => {
-      console.log("ON INITIAL");
+    connection.on('INITIAL_CONNECTION', data => {
+      console.log("DATA HAS COME IN FROM THE SERVER!");
       console.log(data);
-      setUser(data.user);
-      setUsers([...data.users]);
-    })
-    conn.on('users', data => {
-      console.log("ON USERS");
-      setUsers([...data.users]);
-    })
-    
-    conn.on('message', (data) => {
-      setMessages(prev => [...prev, data]);
-      console.log(messages);
-      console.log("MESSAGE HAS COME");
-      console.log(data);
+      setUser(prev => data.name);
+      setUsers(prev => data.usersList);
     })
 
-  }, [])
+    connection.on('NEW_USER', data => {
+      console.log("NEW USER MESSAGE!");
+      console.log('users --> ', users)
+      setUsers(prev =>  {
+        return [...prev, data.name]
+      });
+    })
 
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    console.log(connection);
-    console.log(evt.target.message.value);
-    connection.emit('message', {user, message: evt.target.message.value})
-  }
-
-
+    connection.on('DISCONNECTED_USER', data => {
+      console.log("DISCONNECTED!", data);
+      console.log(users);
+      console.log("-----------------");
+      setUsers(prev => prev.filter(user => user !== data.name));
+    })
+  }, [connection])
 
   return (
     <div className="App">
-        {users.map(u => <li>{u.username}</li>)}
-        {messages.map(msg => <li><b>{msg.user.username}:</b>{msg.message}</li>)}
-        <form onSubmit={handleSubmit}>
-          <input type='text' name='message'/>
-          <button>Submit</button>
-        </form>
+      <h2>Chat App!</h2>
+      {user ? <h2>User: {user}</h2> : <h3>Loading....</h3>}
+      <ul>
+        {users.map(user => <li>{user}</li>)}
+      </ul>
     </div>
   );
 }

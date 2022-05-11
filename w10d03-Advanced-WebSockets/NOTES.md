@@ -4,36 +4,40 @@ Final Projects
 REAL TIME COMMUNICATION (socket.io)
 
 - socket.io
-- folder structure talk
+- 
 
-HTTP 
-
-Req --------------------------> Server
-<--------------------------------RES
-
- Communication ends!
- Req --------------------------> Server
-<--------------------------------RES
-Communication ends!
-
-Req --------------------------> Server
-<--------------------------------RES
-
-Snek <----- net
+# -------
+ Snek Game 
+ Terminal using `net`
 
 
-WebRTC   ----- sound and video
-WSS - Web Socket Server  --- a low level socket library
-Socket.io ---- prod level solution for real time communication 
+ You connect and STAY connected!!!
+
+ Client                            SErver
+ ------------CONNECTION MADE ---------------
+ -------------------messages ---------->
+ <-------------------messages ------------
+  -------------------messages ---------->
+   -------------------messages ---------->
+    -------------------messages ---------->
+     -------------------messages ---------->
+ <-------------------messages ------------
+  <-------------------messages ------------
+  DISCONNECT 
+  TIMEOUT
+
+  Client (web browser)                        Server (NodeJS)
+
+Chat application that sends messages back and forth
+also gives a random name to the user,
 
 
--------------------------------
+## Finals 
 
-1 Repo
-client/ // frontend
-server/ // backend
--------------------------------
-2 Repos
-- 1 repo client
-- 1 repo server
-------------------------------
+1 repo
+ - server
+ - client
+
+2 repo 
+- 1 repo for server
+- 1 repo for client
