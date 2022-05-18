@@ -1,5 +1,5 @@
 ---AGENDA---
 
-- building a server with login (maybe register)
-   ^ the wrong way
-   ^ the right-ish way -- Cookies
+- bulding a server with a login ( the wrong way )
+- refactoring the right way
+- Bonus: Adding a 2nd set of data
