@@ -1,81 +1,84 @@
 import './App.css';
-import React, {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import MemeCard from './components/MemeCard';
-
-// How to get data, from a server to a client?
-// Tweeter <--- 
-// backend-server, that contains the tweets
-// front-end -- asks for the tweets, using ajax jquery/fetch and renders it on
-// the screen
-// axios <-- fetch()
-
+import MemeMachineList from './components/MemeMachineList';
 
 function App() {
-  // when state changes, the component RE-RENDERS <------------
-  const [memes, setMemes] = useState([]);
   const [num, setNum] = useState(1);
-  const [num2, setNum2] = useState(33);
+  const [num2, setNum2] = useState(2);
+  const [memes, setMemes] = useState([]);
 
-  // how do we write useEffect
+  console.log("Hello !!");
+  const addOne = () => {
+    setNum(num + 1); // all state changes are async
+  }
 
-  // 1st param --- a callback function
-  // 2st param --- an array that may contain dependencies 
+
+  // useEffect(() => {
+  //   console.log('we have rendered!');
+  //   console.log('-----');
+  //   axios.get('/memes').then(res => {
+  //     console.log('data');
+  //     console.log(res.data);
+  //     // setMemes(res.data);
+  //   })
+
+  // }) 
   useEffect(() => {
-    console.log('Hello world')
-
-  });
-
-
-// /api/days         --> give me all the days and spots and 
-// /api/appointmnets --> give me all appointmnets
-// /api/interviewers --> give me a list of interviewers
-
-// snake game //http server <--
-// socket, web-socket, (TCP -- (net))
-
-// VIRTUAL DOM!!!!!
-// 
- 
-//  DOM getElementById().values9
-
-// Virtual DOM
-// {
-//   divElement0420221223: {
-//     className: 'App'
-//     children: {
-//       memeCardElement0420221224-0: {}
-//       memeCardElement0420221224-1: {}
-//       memeCardElement0420221224-2: {}
-//       memeCardElement0420221224-3: {}
-
-//     }
-//   }
-// }
-
-
-  useEffect(() => {
-    // socket declration goes here
-    // and of my events go here as well
     axios.get('/memes').then(res => {
+      console.log('data');
+      console.log(res.data);
       setMemes(res.data);
     })
-    console.log('render only once');
-  }, []);
+  }, [])
+
+
 
   useEffect(() => {
-    console.log("memes has changed")
-  }, [memes])
-     
+    // axios.get('/memes').then(res => {
+    //   console.log('data');
+    //   console.log(res.data);
+    //   setMemes(res.data);
+    // })
+  }, []) // <------------- the dependancy array
+  // put variable(s) into array, if variable(s) change, run the useEffect
+  // if array is empty, only run it once on the initial app render
+  // useEffect(() => {
+  //   axios.get('/memes').then(res => {
+  //     console.log('data');
+  //     console.log(res.data);
+  //     // setMemes(res.data);
+  //   })
+  // }, [memes])
+
+
+
+  // AJAX
+  // $.get() // AJAX
+  // fetch()
+  // axios
+  // proxy applies to development and assuming that server/client are on the same
+  // host
+  // axios.get('/memes').then(data => {
+  //   console.log('data');
+  //   console.log(data);
+  //   // setNum(num + 1);
+  // })
+  // const arr = [];
+  // for (let meme of memes) {
+  //   arr.push(<MemeMachine title={meme.name} img={meme.url}/>)
+  // }
+  
 
   return (
     <div className="App">
-      <h1>Hello World :)</h1>
-      {memes.map(meme => <MemeCard key={meme.id} img={meme.url} title={meme.name}/>)}
-      Number is <h1>{num}</h1>
-      <button onClick={() => setNum(num + 1)}>CLICK ME</button>
-      Number is <h1>{num2}</h1>
-      <button onClick={() => setNum2(num2 + 1)}>CLICK ME</button>
+      <h1>hello World!</h1>
+      <h1>Number is {num}</h1>
+      <h1>Number2 is {num2}</h1>
+
+      <button onClick={addOne}>Click me!</button>
+      <button onClick={() => setNum2(num2 + 2)}>Click me2!</button>
+      <MemeMachineList memes={memes}/>
     </div>
   );
 }
