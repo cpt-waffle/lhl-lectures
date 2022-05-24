@@ -1,4 +1,4 @@
-#### W8D1 - Integration Testing
+#### W8D2 - Integration Testing
 
 **Unit testing** means testing individual modules of an application in isolation (without any interaction with dependencies) to confirm that the code is doing things right.
 

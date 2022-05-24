@@ -1,24 +1,28 @@
 import React from 'react';
-
-import {render} from '@testing-library/react';
+import { render, prettyDOM } from '@testing-library/react';
 import '@testing-library/jest-dom';
+
 import Item from '../Item';
 
-describe('Item Tests', () => {
-    it('renders the item component', () => {
-        const {debug} = render(<Item item="Buy Milk"/>);
-    })
+describe('Item component Tests', () => {
+  it('renders the Item component', () => {
+    const { debug, getByTestId } = render(<Item item="Buy Milk"/>);
+    // console.log(debug());
+    const title = getByTestId('title');
+    // console.log(prettyDOM(title));
+    expect(title).toHaveTextContent(/Buy Milk/i);
+    // i need to select the specific HTML element where "Buy Milk" lives
+    // write an expect()
+  })
 
-    it('renders the item component and checks if item has class todo-item', () =>{
-        const { getByTestId } = render(<Item item="buy milk"/>);
-        const itemHTML = getByTestId('item');
-        expect(itemHTML).toHaveClass('todo-item');
-    })
-    
+  it('renders the Item component and everything lowercased', () => {
+    const { debug, getByTestId } = render(<Item item="WaLk The DoG"/>);
+    console.log(debug());
+    const title = getByTestId('title');
+    console.log(prettyDOM(title));
+    expect(title).toHaveTextContent('walk the dog');
+    // i need to select the specific HTML element where "Buy Milk" lives
+    // write an expect()
+  })
 
-    // PULL REQUSEST --->
-    // you push a branch to github and you say 
-    // that you want to merge all the commits in that 
-    // branch into master/main/etc
-    // AN ACTUAL PERSON CHECKS YOUR WORK
 })
