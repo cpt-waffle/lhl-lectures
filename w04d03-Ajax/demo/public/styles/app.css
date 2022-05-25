@@ -3,24 +3,37 @@
   padding: 0;
 }
 
-.movie {
-  background-color: orange;
-  display:flex;
-  color: #7815dc;
-  margin: 10px;
-  padding: 10px;
-  gap: 15px;
+.show {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  background-color: #c0ffee;
 }
-/* BEM */
 
-.movie--img {
-  width: 195px;
-  height: 195px;
+.show--img {
+  width: 150px;
   object-fit: cover;
-  border-radius: 50%;
+  height: 150px;
 }
 
-#movie-search {
-  padding: 30px;
-  background-color: cornflowerblue;
+.show--left-col {
+  text-align: center;
+}
+
+.show-right-col {
+  margin-left: 15px;
+  width: 100%;
+
+}
+
+.show--desc {
+  margin-top: 20px;
+}
+
+form {
+  height: 300px;
+  background-color: salmon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
