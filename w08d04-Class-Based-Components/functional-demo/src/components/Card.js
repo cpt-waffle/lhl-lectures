@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import './card.css'
+import './Card.css';
+
 
 
 
@@ -18,45 +19,62 @@ import './card.css'
 
 
 const Card = (props) => {
-  const [likes, setLikes] = useState(2);
-  const [dislikes, setDislikes] = useState(4);
+  const [likes, setLikes] = useState(10);
+  const [dislikes, setDisLikes] = useState(4);
 
-  // const [state, setState] = useState({likes: 2, dislikes: 4});
   useEffect(() => {
-    console.log('render everytime anything changes!');
+    console.log("Everytime!!")
   })
 
   useEffect(() => {
-    console.log("renders once.")
-    setTimeout(() => {
-      console.log(likes);
-    }, 3000)
-  }, []);
+    console.log("one Time!");
+    // Promise.all([axios, axios, axios]).then(res => {
+      // setState(...)
+    // })
+    console.log("One time!");
+    // setTimeout(() => {
+    //   console.log('likes', likes);
+    // }, 5000)
+  }, [])
 
   useEffect(() => {
-    console.log("likes changed, useEffect tracks it..")
+    console.log('when likes Changes!');
     setTimeout(() => {
-      console.log(likes);
-    }, 1000)
-  }, [likes]);
-
-  // No days...
-  // Monday Tues Wed
-
+      console.log('likes', likes);
+    }, 5000)
+  }, [likes])
 
   const onLikesClick = () => {
-    setLikes(prev => prev + 1); // async
+    setLikes(prev => prev + 1);
   }
 
 
-  return (<div className="card">
-    <img className="card--img" src={props.img} alt="profile-pic"/>
-    <h3>{props.name}</h3>
-    <button onClick={onLikesClick}>Likes {likes}</button>
-    <button onClick={() => setDislikes(prev => prev + 1)}>Dislikes {dislikes}</button>
+  const {img, name, title} = props;
+  return (<div className='card'>
+    <img 
+    className='card--img'
+    src={img}/>
+    <h3>{name}</h3>
+    <h4>{title}</h4>
+    <button 
+    onClick={onLikesClick}>
+      Likes {likes}
+    </button>
+    <button 
+      onClick={() => setDisLikes(prev => prev + 1)
+      }>Dislikes {dislikes}
+    </button>
 
-  </div>
-  )
+
+  </div>)
+
 }
+
+
+
+
+
+
+
 
 export default Card;

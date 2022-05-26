@@ -1,61 +1,78 @@
-import React, {Component} from 'react'; // newer ver doesnt need this
-import './card.css';
-// what is a class?
-// Class Person 
-// grow()
-// eye_color
-// hair_color
-// name
-// iheritence
-// Class Person > Vas
-// 4 wheels
-// steering wheel
-// airbags
-// Vehicle > Corolla
-//    Child         Parent
+import React, {Component,} from 'react';
+import './Card.css'
+// What is a Class?
+// is a blueprint, 
+//that has properties and methods
+
+// Class Vehicle
+// color:
+// numOfDoors:
+// numOfSeats;
+// drive();
+// iginiton();
+///// INHERITENCE //////
+// Class Toyota extends Vehicle\
+// Constructor () CREATES ALL OF THE DEFAULT VARIABLES
+// isHybrid: t/f
+// toleranceLevels
+// We extended because we want the methods, and properties
+// of Component Class
 class Card extends Component {
-// how do we render JSX?
   constructor(props) {
-    super(props);
-    this.state = {likes: 2, dislikes: 4};
+    super(props) // Component, execute your constructor() { ... }
+    this.state = {likes: 10, dislikes: 4};
     this.onDislikesClick = this.onDislikesClick.bind(this);
+
   }
-  // state = {likes: 2, dislikes: 4}
-  // class property proposal! 
   onLikesClick = () => {
-    this.setState(prev => ({likes: prev.likes + 1}));
+    this.setState(prev => ({...prev, likes: prev.likes+1}))
   }
 
   onDislikesClick = function() {
-    this.setState(prev => ({dislikes: prev.dislikes + 1}));
+    this.setState(prev => ({...prev, dislikes: prev.dislikes+1}))
   }
 
   componentDidMount() {
-    console.log('render once.');
+    console.log("One time!");
     setTimeout(() => {
-      console.log(this.state.likes);
-    }, 3000)
+      console.log('likes', this.state.likes);
+    }, 5000)
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("render everytime anything changes!");
-    if (prevState.likes !== this.state.likes) {
-      console.log("likes changed, useEffect tracks it..")
+    console.log("everytime!, EXCEPT THE FIRST initial render!");
+    if (prevState.likes !== this.state.likes ) {
+      console.log('likes has changed');
     }
   }
 
-  render() {
-    //
-    return (<div>
-      <img className='card--img' src={this.props.img}/>
-      <h3>{this.props.name}</h3>
-      <button onClick={this.onLikesClick}>Likes {this.state.likes}</button>
-      <button onClick={this.onDislikesClick} >Dislikes {this.state.dislikes}</button>
 
-    </div>
-    )
+
+  render() {
+    // set variables (not set State)
+    // do logic
+
+    const {img, name, title} = this.props;
+    return (<div className='card'>
+    <img 
+      className='card--img'
+      src={img}/>
+    <h3>{name}</h3>
+    <h4>{title}</h4>
+    <button
+     onClick={this.onLikesClick}
+    >Likes {this.state.likes}</button>
+    <button
+      onClick={this.onDislikesClick}
+    >Dislikes {this.state.dislikes}</button>
+  </div>)
   }
 }
 
-export default Card;
 
+
+
+
+
+
+export default Card;
