@@ -1,6 +1,7 @@
 -- Agenda--
 
--- Intros
+-- Intro's
+
 -- Review (arr, func, vars)
 -- Objects ( why ?)
 -- BREAK ---

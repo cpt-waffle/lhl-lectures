@@ -7,28 +7,24 @@ const list = {
     itemThree: 'bananas',
     i8: 'apples'
 }
+// in an array, when we use the for in loop, I is your indexes
+// for in in an object, I is your key(s)
+for (let i in list) {
+    console.log("what is i? ", i);
+    list[i];
+}
 
+// for of DOES NOT WORK IN OBJECTS!!!!!!!!!!!!!!!!!
+// for (let j of list) {
+//     console.log("what is j?", j);
+// }
+///////////////////////////////////////////////////
 
-console.log(list);
-
-/// How do We loop through an object?
-
-// many ways
-
-// get all the keys, (as an array,) loop through them, and use square bracket notation to get val
-
-// Object.values()
 const keys = Object.keys(list);
+console.log(keys);
 for (let key of keys) {
-    console.log("Value is:", list[key]);
+    list[key];
 }
 
-// for in
-for (let k in list) {
-    console.log(k);
-    console.log("Value is:", list[k]);
-}
-
-
-
-///... more coplex ways later...
+const values = Object.values(list);
+console.log(values);
