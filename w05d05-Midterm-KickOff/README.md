@@ -8,8 +8,6 @@ on the setup and workflow.
 
 ### User Stories
 
-![user stories](https://cdn.tiempodev.com/wp-content/uploads/2020/07/21110014/writing-a-good-user-story-01.jpg)
-
 First thing you will do is write a a few user stories for your project following these formats:
 
 ```

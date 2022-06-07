@@ -3,18 +3,20 @@ import './comment.css'
 
 function Comment(props) {
 	const { id, image, content, likes, dislikes } = props.data;
-	// $('#buttonCLick').on('click', (evt) => {/..})
 	const onLikeClick = () => {
-		props.onClick('like', id);
+		// props.handleClick('like', id);
+		console.log('Likes click line 8');
+		console.log(props.plantains);
+		props.plantains('likes', id) // f();
 	}
 
 	const onDislikeClick = () => {
-		props.onClick('dislike', id);
+		// props.handleClick('dislike', id);
+		console.log('Dislikes click line 13');
+		props.plantains('dislikes', id) // f();
 
 	}
-	// myCbFunction = () => {////}
 
-	// $('#button').on('click', (evt) => { /////  })
 	return (
 		<div className='comment'>
 			<img className='image' src={image}/>

@@ -12,8 +12,6 @@ Component ---> Component ---> Component
 -- immutable State
 -- Draw out our app
 
-localhost
--- PROXY --
 
-Load up a bunch of Comments on the MAIN application 
- --> storybook
+
+///// Build a forum with a few buttons

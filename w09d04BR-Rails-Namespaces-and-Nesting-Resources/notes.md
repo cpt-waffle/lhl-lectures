@@ -1,15 +1,18 @@
 # --------- Agenda -------------
 
 - advanced routing
-- active record
+- active record  -- ( migrations )
 - Abouts controller ?
 - BONUS: maybe will talk about the private part of controller
 
 
---- 
 
-Model -- A blueprint for databases to do queries without writting queries
-View --- UI for the client
-Controller --- route logic
+#---------------------- 
 
-routes.rb -- 
+M
+V
+C - Controllers are the logic part of this 
+
+
+Routes more imporant
+

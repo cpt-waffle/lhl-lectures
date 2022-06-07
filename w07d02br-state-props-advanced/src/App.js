@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+
 import CommentList from './Components/CommentList';
 
 // API
@@ -35,20 +36,22 @@ const commentsData = [
 ]
 
 
-
 function App() {
-  const [comments, setComments] = useState(commentsData);
-  const handleCommentsChange = (type, id) => {
-    console.log("CONSOLE<LOG LINE 42: APP.JS!");
-    console.log("LINE 43", type, id);
-    // make a copy for comments
-    const copyComments = comments.map(comment => {
-      // loop through the comments
-      // find the the one comment that was clicked (id)
-      if (comment.id === id ) {
-        // find the button that clicked (type)
-        // alter the comment like or dislike 
-        if (type === 'like') {
+
+  const [commentsInfo, setcommentsInfo] = useState(commentsData);
+
+  
+  
+  
+  // WHAT if we pass a function??
+  const onCommentClick = (type, id) => {
+    console.log('LINE 43');
+    console.log(type, id);
+
+    const copyComments = commentsInfo.map(comment => {
+      // find the comment that was clicked
+      if (id === comment.id) {
+        if (type === 'likes') {
           comment.likes++;
         } else {
           comment.dislikes++;
@@ -56,18 +59,16 @@ function App() {
       }
       return comment;
     })
-    // set the state with the new alterned copy
-    setComments(copyComments);
+
+    setcommentsInfo(copyComments);
+
+
   }
-  
 
   return (
     <div>
       <h1>Comments for Dogs</h1>
-      <CommentList
-      dogs={comments} 
-      onChange={handleCommentsChange}
-      />
+      <CommentList bananas={commentsData} acorns={onCommentClick}/>
     </div>
   );
 }

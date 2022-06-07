@@ -1,11 +1,11 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 // all we need to do is CONNECT to the backend socket server!
 // Step 0: Install socket.io-client <-- THE VER OF SERVER SOCKET.IO MUST MATCH 
 // Step 1: import socket.io-client
 import socketIoClient from 'socket.io-client';
 // Step 2: make the connection
-const connection = socketIoClient('http://localhost:8080');
+
 
 // all listeners of socketIO we build, will be 
 // inside of the useEffect 
@@ -18,30 +18,55 @@ const connection = socketIoClient('http://localhost:8080');
 function App() {
   const [user, setUser] = useState('');
   const [users, setUsers] = useState([]);
+  const [conn, setConn] = useState(null);
+
+  const usersRef = useRef(users);
+  const userRef = useRef(user);
+
 
   useEffect(() => {
-    connection.on('INITIAL_CONNECTION', data => {
-      console.log("DATA HAS COME IN FROM THE SERVER!");
-      console.log(data);
-      setUser(prev => data.name);
-      setUsers(prev => data.usersList);
-    })
+    console.log('USE EFFECT!');
+  },[])
 
-    connection.on('NEW_USER', data => {
-      console.log("NEW USER MESSAGE!");
-      console.log('users --> ', users)
-      setUsers(prev =>  {
-        return [...prev, data.name]
-      });
-    })
+  useEffect(() => {
+    const connection = socketIoClient('http://localhost:8080');
+    setConn(connection);
+  },[])
 
-    connection.on('DISCONNECTED_USER', data => {
-      console.log("DISCONNECTED!", data);
-      console.log(users);
-      console.log("-----------------");
-      setUsers(prev => prev.filter(user => user !== data.name));
-    })
-  }, [connection])
+  useEffect(() => {
+    if (conn) {
+      conn.on('INITIAL_CONNECTION', data => {
+        console.log("DATA HAS COME IN FROM THE SERVER!");
+        console.log(data);
+        setUser(prev => data.name);
+        setUsers(prev => data.usersList);
+      })
+
+      conn.on('NEW_USER', data => {
+        console.log("NEW USER MESSAGE!");
+        console.log('user --> ', user);
+        console.log('users --> ', users);
+        console.log("-----------------");
+        setUsers(prev =>  {
+          return [...prev, data.name]
+        });
+      })
+
+      conn.on('DISCONNECTED_USER', data => {
+        console.log("DISCONNECTED!", data);
+        console.log('user --> ', user)
+        console.log('users --> ', JSON.stringify(users));
+        console.log('users.length --> ', users.length);
+
+        console.log("-----------------");
+        
+        setUsers(prev => {
+          console.log("PREV", prev);
+          return prev.filter(user => user !== data.name)
+        });
+      })
+    }
+  }, [conn])
 
   return (
     <div className="App">

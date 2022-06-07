@@ -1,9 +1,0 @@
-<% if @owner %>
-  <h1>Owner of the following Cats is <%= @owner.name %> </h1>
-<% else %>
-  <h1>Show All Cats Cats</h1>
-<% end %>
-
-<% @cats.each do |cat| %>
-  <li><%= cat.name %> </li>
-<% end %>

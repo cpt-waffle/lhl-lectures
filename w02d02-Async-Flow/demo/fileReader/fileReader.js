@@ -5,11 +5,9 @@
 
 const fs = require('fs');
 
-
+// CALLBACK HELL
 fs.readFile('./data1.txt', 'utf8', (err, data1) => { // start washing machine
-
   fs.readFile('./data2.txt', 'utf8', (err, data2) => { // put in dryer
-
     fs.readFile('./data3.txt', 'utf8', (err, data3) => { // fold clothes
       console.log(`${data1} - (${data2} + ${data3}) = ${Number(data1) - (Number(data2) + Number(data3))}`);
     })

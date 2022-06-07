@@ -35,4 +35,5 @@ storiesOf('Comments')
 	]
 
 storiesOf('Comment List')
-.add('A bunch of comments', () => <CommentList dogs={comments}/>)
+	.add('a list with 2 items', () => <CommentList bananas={comments}/>)
+	.add('a list of no comments', () =>  <CommentList/>)
