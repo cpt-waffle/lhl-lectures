@@ -1,6 +1,5 @@
 ------------ Agenda -----------
 - Q and A 
-arrow functions =>
 review ( functions, callbacks) 
 Asynchronous Control Flow
 setTimeouts
