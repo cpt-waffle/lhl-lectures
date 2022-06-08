@@ -1,32 +1,28 @@
-const net = require('net');
+// Client - the computer that connects to a server
 const stdin = process.stdin;
 
-const credentials = {
-    host: 'localhost', // url, or ip
-    port: 3001
-}
+const net = require('net');
 
-const name = 'Vas';
+const credentials = { host: 'localhost', port: 3001 }
+
+const client = net.createConnection(credentials, () => {
+    console.log("connected to server!!");
+})
+
+const username = 'Anon';
+client.write(`User ${username} has connected!`);
+stdin.setEncoding('utf8');
 
 
-const client = net.createConnection(credentials, () => {}) // client.connect()
-console.log(client);
-client.setEncoding('utf8');
+stdin.on('data', (input) => {
+    client.write(`${username}: ${input}`);
+})
+
+client.setEncoding('utf8')
 client.on('data', (data) => {
-    console.log('server just sent you a message!');
+    // console.log("server has sent you data !!!");
     console.log(data);
 })
 
-client.write('This is Fine!!!');
-
-stdin.on('data', (input) => {
-    client.write(`${name}: ${input}`);
-})
-
-// CLient for a snek game
-//  zoom + 
-
-// make a connection
-// build commands to go up down left right using your keyboard
-// client.write('Name: vas')
-// whenever you click w ===> client.write("Move: up");
+// to send data ( message ) back to the server you will use a function
+// called client.write()
