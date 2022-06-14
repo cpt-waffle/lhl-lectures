@@ -1,0 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.footer {
+  background-color: blueviolet;
+  padding: 20px;
+}
