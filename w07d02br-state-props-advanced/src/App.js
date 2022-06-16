@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
-
 import CommentList from './Components/CommentList';
 
 // API
@@ -38,37 +37,34 @@ const commentsData = [
 
 function App() {
 
-  const [commentsInfo, setcommentsInfo] = useState(commentsData);
+  const [comments, setComments] = useState([...commentsData]);
 
-  
-  
-  
-  // WHAT if we pass a function??
-  const onCommentClick = (type, id) => {
-    console.log('LINE 43');
+  const watercup = (type, id) => {
+    console.log('Line 41!!!');
+    // found which comment was clicked
     console.log(type, id);
-
-    const copyComments = commentsInfo.map(comment => {
-      // find the comment that was clicked
-      if (id === comment.id) {
-        if (type === 'likes') {
-          comment.likes++;
+    // loop through all my comments
+    const commentsCopy = comments.map(comment => {
+      // find the the one id that matches the id that i clicked on
+      if (comment.id === id) {
+        // figure out if i clicked Likes or Dislikes  
+        if (type === 'like') {
+          comment.likes = comment.likes + 1;
         } else {
-          comment.dislikes++;
+          comment.dislikes = comment.dislikes + 1;
         }
       }
       return comment;
     })
-
-    setcommentsInfo(copyComments);
-
-
+    // increment either likes or dislikes
+    // set the state
+    setComments(commentsCopy);
   }
 
   return (
     <div>
       <h1>Comments for Dogs</h1>
-      <CommentList bananas={commentsData} acorns={onCommentClick}/>
+      <CommentList commentsArr={comments} overwatch={watercup}/>
     </div>
   );
 }

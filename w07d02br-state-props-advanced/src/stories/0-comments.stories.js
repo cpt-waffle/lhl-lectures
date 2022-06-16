@@ -13,7 +13,7 @@ const comment = {
 	dislikes: 1,
 }
 
-storiesOf('Comments')
+storiesOf('Comments', module)
 	.add('A Random Comment', () => <Comment data={comment} handleClick={action('onClick')}/>)
 
 
@@ -34,6 +34,6 @@ storiesOf('Comments')
 		}
 	]
 
-storiesOf('Comment List')
-	.add('a list with 2 items', () => <CommentList bananas={comments}/>)
-	.add('a list of no comments', () =>  <CommentList/>)
+
+storiesOf('CommentList', module)
+	.add("default list", () => <CommentList commentsArr={comments} overwatch={action('onClick')}/>)

@@ -6,14 +6,14 @@ function Comment(props) {
 	const onLikeClick = () => {
 		// props.handleClick('like', id);
 		console.log('Likes click line 8');
-		console.log(props.plantains);
-		props.plantains('likes', id) // f();
+		// how do i tell App.js, WHICH comment component was clicked?
+		props.melon('like', id);
 	}
 
 	const onDislikeClick = () => {
 		// props.handleClick('dislike', id);
-		console.log('Dislikes click line 13');
-		props.plantains('dislikes', id) // f();
+		console.log('Dislikes click line 14');
+		props.melon('dislike', id);
 
 	}
 
