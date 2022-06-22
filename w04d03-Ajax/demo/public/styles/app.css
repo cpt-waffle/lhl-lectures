@@ -1,39 +1,19 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .show {
   display: flex;
-  justify-content: center;
-  padding-top: 10px;
-  background-color: #c0ffee;
+  background-color: bisque;
+  padding: 12px;
 }
 
-.show--img {
-  width: 150px;
+.show:hover {
+  background-color: chocolate;
+}
+
+.show--cover {
+  width: 140px;
+  height: 200px;
   object-fit: cover;
-  height: 150px;
 }
 
-.show--left-col {
-  text-align: center;
-}
-
-.show-right-col {
+.show--info {
   margin-left: 15px;
-  width: 100%;
-
-}
-
-.show--desc {
-  margin-top: 20px;
-}
-
-form {
-  height: 300px;
-  background-color: salmon;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

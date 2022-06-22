@@ -6,34 +6,33 @@
 
 # -----------------  
 
-TinyApp
+TinyApp 
 
-EJS <-- View Engine --->
-
-Browser can only work/use 2 types of files (HTML, JS)
-
-SERVER                                                 CLIENT
-      <--------------------REQ-------------------------
-EJS (COMPILE IT TO HTML) -------------RES ------------->
+Server <----------------------> EJS <-------------> HTML
+                  SErver Side Rendering Application
 
 
-SERVER SIDE RENDERING 
 
+Client Side Rending App
+Tweeter
+Server <-------------------> HTML & JS 
+                                we do some operations to get the content and load to the page!
 
-Microsoft ---- send alittle bit of data 
-(no html
-(no css)
-(just data)
+AJAX
 
-JSON 
+Microsoft 
 
-APIs 
+"everyone at home, have these powerful computers, why cant we utelize their performance
+"to render some pages?"
 
--- PAID API's 
--- FREE API's 
+"why cant our servers send not the layout, but just the data? "
 
+Servers that send out ONLY information: (No layout, no css, nothing pretty, just RAW INFO/CONTENT)
+API's
 
-XML 
+I want to build an app that shows me recipies
 
-and then we make the client do anything with that data?
-AJAX is a way to ask a server for JUST the data, and retreive it ( for HTML no refresh is nessesary )
+-- i will sit with a cooking book, and enter all of the recipies manually
+-- use an api ()
+
+## Now We know APIs and We heard about AJAX, How do we actually GET THIS DATA INTO OUR APPS?

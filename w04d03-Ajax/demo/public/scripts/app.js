@@ -1,48 +1,92 @@
-// Jquery is easier to write...
-// Internet Explorer 6-7, Chrome, Firefox, Netscape, Safari,  Opera
-// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-// Jquery -- you use us, everything will work on all browsers ( 95% true )
-
-// grab data from the server ?
-
-
-// populate that data onto page
-//  [{movies/shows}, {}]
-//  decide on the layout
-//  on load call the API server
-//  get the data 
-// append the data with the new layout to DOM so the client can see it 
-
-
-// (make a form for the user to search the shows themseves TBD)
-// ^^^^^^^^^^^^^^^^^^^^^^
-const dummyData = [
+const dummyMockData = [
   {
-    "score": 0.7008333,
+    "score": 0.684417,
     "show": {
-      "id": 29895,
-      "url": "https://www.tvmaze.com/shows/29895/everything-sucks",
-      "name": "Everything Sucks!",
+      "id": 5982,
+      "url": "https://www.tvmaze.com/shows/5982/cats-eyes",
+      "name": "C.A.T.S. Eyes",
       "type": "Scripted",
       "language": "English",
       "genres": [
         "Drama",
-        "Comedy"
+        "Crime"
       ],
       "status": "Ended",
+      "runtime": 50,
+      "averageRuntime": 50,
+      "premiered": "1985-04-12",
+      "ended": "1987-06-06",
+      "officialSite": null,
+      "schedule": {
+        "time": "21:00",
+        "days": [
+          "Saturday"
+        ]
+      },
+      "rating": {
+        "average": null
+      },
+      "weight": 64,
+      "network": {
+        "id": 35,
+        "name": "ITV",
+        "country": {
+          "name": "United Kingdom",
+          "code": "GB",
+          "timezone": "Europe/London"
+        },
+        "officialSite": "https://www.itv.com/"
+      },
+      "webChannel": null,
+      "dvdCountry": null,
+      "externals": {
+        "tvrage": 2949,
+        "thetvdb": 253591,
+        "imdb": "tt0149427"
+      },
+      "image": {
+        "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/23/58739.jpg",
+        "original": "https://static.tvmaze.com/uploads/images/original_untouched/23/58739.jpg"
+      },
+      "summary": "<p>An all-female detective agency, the 'Eyes Enquiry Agency', is formed as a front for the Home Office's new security operation, the 'Covert Activities Thames Section' or C.A.T.S. for short. Initially lead by ex-Oxford University President Pru Standfast, she was in charge of the unit that exeprienced ex-cop Maggie Forbes, computer geek Fredrica Smith, and from series two, Tessa Robinson who replaced Pru. Their contact with the Ministry was Nigel Beaumont. Made by Television South (TVS) for the ITV Network. Currently copies exist at ITV Archive, notably Maidstone Studios or at Leeds Archive and Disney own the actual rights through company acquisition although the paperwork is missing.</p>",
+      "updated": 1626425100,
+      "_links": {
+        "self": {
+          "href": "https://api.tvmaze.com/shows/5982"
+        },
+        "previousepisode": {
+          "href": "https://api.tvmaze.com/episodes/356188"
+        }
+      }
+    }
+  },
+  {
+    "score": 0.67094594,
+    "show": {
+      "id": 58020,
+      "url": "https://www.tvmaze.com/shows/58020/scaredy-cats",
+      "name": "Scaredy Cats",
+      "type": "Scripted",
+      "language": "English",
+      "genres": [
+        "Comedy",
+        "Family",
+        "Fantasy"
+      ],
+      "status": "To Be Determined",
       "runtime": null,
-      "averageRuntime": 24,
-      "premiered": "2018-02-16",
-      "ended": "2018-02-16",
-      "officialSite": "https://www.netflix.com/title/80117551",
+      "averageRuntime": 28,
+      "premiered": "2021-10-01",
+      "ended": null,
+      "officialSite": "https://www.netflix.com/title/81329721",
       "schedule": {
         "time": "",
         "days": []
       },
       "rating": {
-        "average": 7.5
+        "average": null
       },
-      "weight": 94,
+      "weight": 50,
       "network": null,
       "webChannel": {
         "id": 1,
@@ -53,138 +97,108 @@ const dummyData = [
       "dvdCountry": null,
       "externals": {
         "tvrage": null,
-        "thetvdb": 341282,
-        "imdb": "tt7078710"
-      },
-      "image": {
-        "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/142/356594.jpg",
-        "original": "https://static.tvmaze.com/uploads/images/original_untouched/142/356594.jpg"
-      },
-      "summary": "<p>It's 1996 in a town called Boring, where high school misfits in the AV and drama clubs brave the ups and downs of teenage life in the VHS era.</p>",
-      "updated": 1648466163,
-      "_links": {
-        "self": {
-          "href": "https://api.tvmaze.com/shows/29895"
-        },
-        "previousepisode": {
-          "href": "https://api.tvmaze.com/episodes/1411922"
-        }
-      }
-    }
-  },
-  {
-    "score": 0.66473985,
-    "show": {
-      "id": 56901,
-      "url": "https://www.tvmaze.com/shows/56901/question-everything",
-      "name": "Question Everything",
-      "type": "Talk Show",
-      "language": "English",
-      "genres": [],
-      "status": "Ended",
-      "runtime": 30,
-      "averageRuntime": 30,
-      "premiered": "2021-08-18",
-      "ended": "2021-10-06",
-      "officialSite": "https://iview.abc.net.au/show/question-everything",
-      "schedule": {
-        "time": "20:30",
-        "days": [
-          "Wednesday"
-        ]
-      },
-      "rating": {
-        "average": null
-      },
-      "weight": 34,
-      "network": {
-        "id": 114,
-        "name": "ABC",
-        "country": {
-          "name": "Australia",
-          "code": "AU",
-          "timezone": "Australia/Sydney"
-        },
-        "officialSite": null
-      },
-      "webChannel": null,
-      "dvdCountry": null,
-      "externals": {
-        "tvrage": null,
-        "thetvdb": 408625,
+        "thetvdb": null,
         "imdb": null
       },
       "image": {
-        "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/349/874390.jpg",
-        "original": "https://static.tvmaze.com/uploads/images/original_untouched/349/874390.jpg"
+        "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/362/906042.jpg",
+        "original": "https://static.tvmaze.com/uploads/images/original_untouched/362/906042.jpg"
       },
-      "summary": "<p>In a world dominated by fake stories, false claims, scams, frauds and outright lies, Question Everything will dissect the news, sort the real from the rumours, separate fact from fiction and flatten conspiracy theories back down to Earth. Helping Jan and Wil question everything each week will be a revolving panel of up-and-coming comedians with the occasional big name thrown in too.</p>",
-      "updated": 1642693794,
+      "summary": "<p>A beautiful surprise leads to a paws-itively peculiar adventure for Willa, Lucy, and Scout. Can they handle the mischief - and outwit a talking rat?</p>",
+      "updated": 1633267338,
       "_links": {
         "self": {
-          "href": "https://api.tvmaze.com/shows/56901"
+          "href": "https://api.tvmaze.com/shows/58020"
         },
         "previousepisode": {
-          "href": "https://api.tvmaze.com/episodes/2150145"
+          "href": "https://api.tvmaze.com/episodes/2184562"
         }
       }
     }
   },
 ]
 
-const addShow = (item) => {
-  console.log("SHOW!");
-  let img = 'https://i.pinimg.com/originals/59/54/b4/5954b408c66525ad932faa693a647e3f.jpg';
-  console.log(item);
-  if (item.show.image) {
-    img = item.show.image.medium;
-  }
-  const showTemplate = `
-  <div class="show">
-  <div class="show--left-col">
-    <img class="show--img" src="${img}"/>
-    <h1>${item.show.rating.average}</h1>
-  </div>
 
-  <div class="show-right-col">
-    <h2>${item.show.name}</h2>
-    <h2>${item.show.genres}</h2>
-    <h3>${item.show.officialSite}</h3>
-    <h3>${item.show.premiered}</h3>
-    <p class="show--desc">${item.show.summary}</p>
-  </div>
-</div>`;
-$('#shows-list').append(showTemplate);
-// How do we append THIS template to our DOM of index.html?
+
+// 1 -- Can we get the data from the server of TV maze to client?
+const banana = () => {
+  // $.get( "https://api.tvmaze.com/search/shows?q=cats?", function( data ) {
+  //   console.log(data)
+  // });
+  $.get("https://api.tvmaze.com/search/shows?q=cats?").then(data => {
+    console.log(data);
+  });
 }
 
+
+
+// 2 -- Mock the data out, and build a way to embed a HTML layout
+// FROM app.js to index.html
+
+// 2.1 -- consider our layout 
+// 2.2 -- build our layout
+// 2.3 -- move the built layout into app.js
 const loadShows = (str) => {
-  $('#shows-list').empty()
-  $.get(`https://api.tvmaze.com/search/shows?q=${str}`, (res) => {
-    console.log("callback is running");
-    for (let item of res) {
-      console.log("LOOPING!");
-      addShow(item);
-    }
+  $.get(`https://api.tvmaze.com/search/shows?q=${str}`).then(data => {
+    $('#shows').empty()
+    addShows(data);
+  });
+}
+
+
+const addShows = (arr) => {
+  arr.forEach(show => {
+    addShow(show)
   })
 }
 
 
-$(() => {
-  loadShows('everything');
+const addShow = (show) => {
+  console.log("A SHOW WAS PASSED!");
+  console.log(show.show.name);
+  const defaultIMG = "https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?auto=compress&fit=scale&fm=pjpg&h=350&w=700";
+  
+  const showHTML = `
+    <article class="show">
+      <img class="show--cover" src="${show.show.image.medium}"/>
+      <div class="show--info">
+        <h3>${show.show.name}</h3>
+        <h3>rating: ${show.score}</h3>
+        <h3>genre: ${show.show.genres}</h3>
+        <h3>runtime: ${show.show.runtime}</h3>
+      </div>
+      <p>${show.show.summary}</p>
+    </article>
+    `;
+  $('#shows').append(showHTML);
+}
+
+$(document).ready(() => {
+  loadShows('cats');
   $('form').on('submit', (evt) => {
-    console.log("EVENT TRIGGERED!!");
-    console.log(evt.target.show.value);
-    loadShows(evt.target.show.value);
+    console.log(evt.target.search.value);
     evt.preventDefault();
+
+    loadShows(evt.target.search.value);
   })
 })
 
+// IE5, Chrome, Opera, Safari, Netscape, Firefox
 
-/////////////////////////////////////////////////////////////////////////
-// $.get('https://api.tvmaze.com/search/shows?q=everything', (res) => {
-//   console.log("callback is running");
-//   console.log(res);
-// })
-/////////////////////////////////////////////////////////////////////////
-// const PI = 3.14;
+// JQUERY --- Use us, and you will have exact same behaviour on all browsers
+// 2022     Chrome, MS Edge (Chrome), Opera Gaming (Chrome?) Firefox, Brave (Firefox)
+//  
+
+
+  // 2.4 -- find a way to put it on the page of html
+
+
+// 3 -- we use the ajax method to grab the data and show all of the shows
+// on our page(without refresh)
+
+
+
+//4 -- build a search bar to search for shows and show them on the page (without refresh)
+
+
+//5 -- fix some bugs that may appear
