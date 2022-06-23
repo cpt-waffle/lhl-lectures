@@ -1,80 +1,58 @@
-import React, {useState, useEffect} from 'react';
-import './Card.css';
 
+import React, { useState, useEffect } from 'react';
+import './Card.css'
 
+const Card = props => {
 
+  const [likes, setLikes] = useState(5);
+  const [dislikes, setDislikes] = useState(5);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const Card = (props) => {
-  const [likes, setLikes] = useState(10);
-  const [dislikes, setDisLikes] = useState(4);
+  // useEffect(() => {
+  //   console.log("Run everytime anything changes!");
+  // })
 
   useEffect(() => {
-    console.log("Everytime!!")
-  })
-
-  useEffect(() => {
-    console.log("one Time!");
-    // Promise.all([axios, axios, axios]).then(res => {
-      // setState(...)
-    // })
-    console.log("One time!");
-    // setTimeout(() => {
-    //   console.log('likes', likes);
-    // }, 5000)
+    console.log("Run one time, and never again")
+    setTimeout(() => {
+      console.log(likes);
+    }, 10000);
   }, [])
 
-  useEffect(() => {
-    console.log('when likes Changes!');
-    setTimeout(() => {
-      console.log('likes', likes);
-    }, 5000)
-  }, [likes])
+  // useEffect(() => {
+  //   console.log("Run first time and then anytime something in the array changes value");
+  // }, [likes])
+  // useEffect runs after the HTML gets added to the webpage... (after the paint has been commited)
 
-  const onLikesClick = () => {
+  const onLikesClick = function() {
     setLikes(prev => prev + 1);
   }
 
-
-  const {img, name, title} = props;
-  return (<div className='card'>
-    <img 
-    className='card--img'
-    src={img}/>
-    <h3>{name}</h3>
-    <h4>{title}</h4>
-    <button 
-    onClick={onLikesClick}>
-      Likes {likes}
-    </button>
-    <button 
-      onClick={() => setDisLikes(prev => prev + 1)
-      }>Dislikes {dislikes}
-    </button>
+  //useEffect very simular to lifecycle
+  // but not actually the same thing
 
 
-  </div>)
+
+  const {name, title, img} = props;
+  return (
+    <article className='card'>
+      <img 
+        src={img}
+        className='card--img'
+      />
+      <h2>{name}</h2>
+      <h3>{title}</h3>
+      <button onClick={onLikesClick}>
+        Likes {likes}
+      </button>
+      <button 
+        onClick={() => setDislikes(prev => prev + 1)}
+      >
+        Dislikes {dislikes}
+      </button>
+
+    </article>
+  )
 
 }
-
-
-
-
-
-
-
 
 export default Card;

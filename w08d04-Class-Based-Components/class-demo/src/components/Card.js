@@ -1,71 +1,68 @@
-import React, {Component,} from 'react';
+// import React from React
+import React, {Component, useState} from 'react';
 import './Card.css'
-// What is a Class?
-// is a blueprint, 
-//that has properties and methods
-
-// Class Vehicle
-// color:
-// numOfDoors:
-// numOfSeats;
-// drive();
-// iginiton();
-///// INHERITENCE //////
-// Class Toyota extends Vehicle\
-// Constructor () CREATES ALL OF THE DEFAULT VARIABLES
-// isHybrid: t/f
-// toleranceLevels
-// We extended because we want the methods, and properties
-// of Component Class
+// make sure to extend Coponent 
 class Card extends Component {
+  // the constructor method runs first
+  // when creating a class
   constructor(props) {
-    super(props) // Component, execute your constructor() { ... }
-    this.state = {likes: 10, dislikes: 4};
-    this.onDislikesClick = this.onDislikesClick.bind(this);
-
+    super(props)
+    console.log(this);
+    //...
+    //state will be setup here.....
+    this.state = {likes: 5, dislikes: 5};
+    // this.onLikesClick = this.onLikesClick.bind(this);
   }
+  // ALWAYS TRY TO WRITE ES6 arrow functions in react classes!
   onLikesClick = () => {
-    this.setState(prev => ({...prev, likes: prev.likes+1}))
+    this.setState({likes: this.state.likes + 1})
   }
 
-  onDislikesClick = function() {
-    this.setState(prev => ({...prev, dislikes: prev.dislikes+1}))
-  }
+  //to render something in class 
+  // we dont return, we have a specific
+  // method.
+ ///////////// LIFE CYCLE METHODS
+ // Constructor
+ // componentDidMount
+ // render()
+ // ComponentDidUpdate
+ componentDidMount() {
+   console.log("Run Once")
+   setTimeout(() => {
+    console.log(this.state.likes);
+  }, 10000);
+ }
+ // componentDidMount runs 
+ //before HTML gets added to the page
 
-  componentDidMount() {
-    console.log("One time!");
-    setTimeout(() => {
-      console.log('likes', this.state.likes);
-    }, 5000)
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log("everytime!, EXCEPT THE FIRST initial render!");
-    if (prevState.likes !== this.state.likes ) {
-      console.log('likes has changed');
-    }
-  }
+ componentDidUpdate(prevProps, prevState) {
+   console.log("runs everytime BUT NOT the first time the component renders!")
+   if (prevState.likes !== this.state.likes) {
+     console.log("Likes has Changed!");
+   }
+ }
 
 
 
   render() {
-    // set variables (not set State)
-    // do logic
-
-    const {img, name, title} = this.props;
-    return (<div className='card'>
-    <img 
-      className='card--img'
-      src={img}/>
-    <h3>{name}</h3>
-    <h4>{title}</h4>
-    <button
-     onClick={this.onLikesClick}
-    >Likes {this.state.likes}</button>
-    <button
-      onClick={this.onDislikesClick}
-    >Dislikes {this.state.dislikes}</button>
-  </div>)
+    const {name, title, img} = this.props;
+    return (
+      <article className='card'>
+        <img
+          alt="img"
+          src={img}
+          className='card--img'
+          />
+        <h2>{name}</h2>
+        <h3>{title}</h3>
+        <button onClick={this.onLikesClick}>
+          Likes {this.state.likes}
+        </button>
+        <button onClick={() => this.setState({dislikes: this.state.dislikes + 1})}>
+          Dislikes {this.state.dislikes}
+        </button>
+      </article>
+    )
   }
 }
 
@@ -74,5 +71,25 @@ class Card extends Component {
 
 
 
-
 export default Card;
+
+
+
+
+
+// what is a Class in JS?
+ // -- template
+ // -- something that holds objects
+ // -- blueprint
+
+// Class Vehicle
+// 4wheels
+// doors
+// drive()
+// iginition()
+//// Inheritence
+
+// Class Corolla extends Vehicle
+// color
+// automatic
+// driveType

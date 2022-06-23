@@ -1,6 +1,7 @@
 .card {
-  padding: 20px;
   background-color: grey;
+  width: 400px;
+  padding: 20px;
 }
 
 .card--img {
