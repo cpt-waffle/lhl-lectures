@@ -7,37 +7,36 @@
 - yield
 - rails ( the project you will be working on from tue - next week tue-wed?)
 
-##################################
 
-What are your thoughts on this new language called Ruby?
+##########################################################
 
+### Javascript 
 
-# ------------- Javascript ---------------
+-- popular language both on the front and the backend
+-- async language (single threaded, but background functions run pararel)
+-- highly performant ( quite quick )
+-- JAVA was popular and javascript wanted to ride the popularity train
+-- 6 - 10 days in 1995
+-- NPM 1.6 million packages~
 
--- super POPULAR (NPM)
--- async language (single thread, callbacks, promises, async/await)
--- runs in browser AND BACKEND 
--- highly performant 
--- Java/CSS esque syntax
--------------------------------------------
--- took to made 6 - 10  created at 1995
--- JAVAscript <--- Java was popular (Confuses the crap out of recruiters/HR's)
+### Ruby
+sync language (single threadedamount of package
 
-
-#  ----------- Ruby -------------------------
--- midly popular  (GEMS)
--- sync language 
--- ONLY runs in the backend!
--- not great at performance
--- syntax is more simplified ( PERL LANG )
--------------------------------------------
--- Matz (Yukihiro Matsumoto) 
--- 1995
--- went in popularity in 2005 (ish) <-- Ruby on Rails
-
--- Compass
 -- Github
 -- Shopify
 -- AirBnB
+-- Compass 
 
+## Speed vs Popularity vs Maintance 
+
+
+### Whats happening for next week ( week 9) ??
+
+-- no lectures
+-- breakouts (mini lectures) tues and thurs
+-- Today: starting ruby
+-- Monday: Active Record
+-- Tuesday -- Friday: Ruby on Rails
+-- Given a Project that is basically 99% completed!!
+-- you will need some features for this project ( WITHOUT BREAKING THE ENTIRE PROJECT! )
 

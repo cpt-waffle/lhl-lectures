@@ -1,20 +1,20 @@
 fruit = 'apple'
 PI = 3.14
 
-puts fruit
+puts fruit 
 puts PI
 
-puts fruit + ' ' + PI.to_s
-puts "#{fruit}  --- #{PI}"
+puts fruit + PI.to_s
+puts "#{fruit} #{PI}"
 
-def foo arg
-    puts "BAR! #{arg}" 
-    # implicit return 
-    22
+def foo bar
+    puts "BAR #{bar}"
+    22 # implicit return --> last line of code in a block, gets returned
 end
 
-val = foo 10
-puts val
+foo
+result1 = foo ':)'
+puts result1
 
 result = 10
 
@@ -22,23 +22,33 @@ if result < 10
     puts "result is less than 10"
 elsif result == 10 
     puts "result is 10"
-else 
+else
     puts "result is greater than 10"
 end
 
-puts "one line true!" if result == 10
-puts "IT WORKS!" unless false # if ! 
+puts ":)" if result == 10
+puts "it wasn't false" unless false
 
-arr = [1,2,3,4, 'five', 'six', 7.5, false];
+arr = [1,2,3,4,'five', 'six', true, false]
+puts arr.inspect
 
-arr.each do |num|
-    puts "Value is ==#{num}"
+
+
+
+
+
+arr.each_with_index do |elem, index|
+    puts "elem #{elem} #{index}"
 end
+# hashes
+obj = {a: 1, b:2, c: 3}
+puts obj
+puts obj[:a]
 
-obj = {a:1, b:2, c:3}
-puts obj[:b]
+
+
 obj.each do |k,v|
-    puts "#{k} ==> #{v}"
+    puts "symbol: #{k}, value: #{v}"
 end
 
 def high_order

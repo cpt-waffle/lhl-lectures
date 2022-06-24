@@ -3,18 +3,18 @@ const PI = 3.14;
 
 console.log(fruit);
 console.log(PI);
-/*  */
-console.log(fruit + ' ' + PI);
-console.log(`${fruit}  --- ${PI}`);
 
-const foo = (arg) => {
-    console.log("BAR!", arg);
+console.log(fruit + PI);
+console.log(`${fruit} ${PI}`);
 
+const foo = (bar) => {
+    console.log("BAR",  bar);
     return 22;
 }
 
-const val = foo(10);
-console.log(val);
+foo();
+const result1 = foo(':)');
+console.log(result1);
 
 const result = 10;
 
@@ -23,30 +23,41 @@ if (result < 10) {
 } else if (result === 10) {
     console.log("result is 10");
 } else {
-    console.log("result is greater than 10")
+    console.log("result is greater than 10");
 }
 
-if (result === 10) console.log("ONE LINE TRUE!");
-if (!false) console.log("IT WORKS!");
+if (result == 10) console.log(":)");
+if (!false) console.log("it wasn't false");
 
-const arr = [1,2,3,4, 'five', 'six', 7.5, false];
+const arr = [1,2,3,4,'five', 'six', true, false];
+console.log(arr);
 
-arr.forEach((num, index) => {
-    console.log('Value is ==', num);
+// while
+// for C style
+// for in, for of
+// .forEach, .map, .reduce, .filter
+
+arr.forEach((elem, index, currentArr) => {
+    console.log("elem", elem, index)
 })
 
 const obj = {a:1, b:2, c:3};
-console.log(obj.b);
-Object.keys(obj).forEach((key) => {
-    console.log(`${key} ==> ${obj[key]}`);
+console.log(obj);
+console.log(obj.a);
+
+// for in
+// Object.keys(obj).forEach
+Object.keys(obj).forEach(k => {
+    console.log(`key: ${k} value: ${obj[k]}`);
 })
 
-const highOrder = fn => {
+const highOrder = cb => {
     console.log("START");
-    fn(25);
+    cb(25);
     console.log("END");
 }
 
 highOrder((num) => {
-    console.log(`CALLBACK RAN!! ${num}`);
-})
+    console.log("CALLBACK RAN!!", num);
+});
+
