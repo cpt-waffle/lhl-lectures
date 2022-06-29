@@ -1,77 +1,59 @@
-/// let
+// Any questions so far on actvites or concepts you have done?
 
-// boxes that hold info
-let num = 6;
+// variables 
+
+let fruit = 'apple';
+fruit = 'balana';
 const PI = 3.14;
-let name = 'Vas';
-
-// functions
-// a piece of code that we can re-run over and over and over again
-// re-usable
-
-// const printStuff = function() {
-//   console.log('Num:', num);
-//   console.log('PI:', PI);
-//   console.log('Name: ', name);
-// }
-
-// printStuff();
-
-// function printStuff() { // it gets hoisted
-//   console.log("IM RUNNING!!");
-// }
-
-// function printStuff() { // it gets hoisted
-//   console.log("IM RUNNING!!2");
-// }
 
 // arrays
+// collect multiple types of data ( context )
+const arr1 = [1,2,3,4,5,6];
+// console.log(arr1);
+const arr2 = ['hello', 1, false, [1,2,3]];
+// console.log(arr2);
 
-// a collection of data (order) // we use square brackets
 
-// context
-//            make       model     year  seats seat type  transmission-type, engine-displacement, etc
-const car =  [ 'corolla', 2014, 4,'toyota',  'automatic','leather',  1.4, '4cylinder', false];
-const car2 = ['honda', 'civic', 2020, 2, 'leather', false, 'manual', 'v6', 2.4,]
-//              0        1        2   3     4          5      6          
-// console.log(car);
-// Square bracket to access a specific element in our array
-// console.log(car[0]);
+// Objects
+//           0 'make'   1 'model' 
+const car1 = ['toyota', 'corolla', 2014, 4, 4, 'white', 'automatic', 'leather-seats'];
+// index         0         1        2    3  4     5          6              7
+const car2 = ['honda',  'civic',   2019, 2, 4, 'red', 'manual', 'leather-seats'];
+const car3 = ['honda',  'CRV',  2, 4, 2020, 'automtic', 'manual', 'leather-seats'];
 
-// What if we had a way to store data, in a collection, BUT WE CAN GIVE IT SOME CONTEXT OF WHAT THAT 
-// DATA IS!!!!!!!!!!!
+// in arrays ORDER MATTERS;
 
-// Objects!!!
+// OBJECTS 
+// a way to collect data (just like an array)
+// you can give context to every data value <-------
 
-// a way to collect data, we give context to that data ( the order never matters !)
-
-const carObj = {
-  year: 2014,
-  model: 'corolla',
+// an object starts with the CURLY BRACKETS {}
+// keys are labels for our values 
+// key: value
+const carObj1 = {
+  transmission: 'automatic',
   make: 'toyota',
+  model: 'corolla',
+  year: 2014,
+  doors: 4,
+  seats: 4,
+  color: 'white',
   seatType: 'leather',
-  numOfSeats: 4,
-  aa: '',
-  driver: {}
-};
-//  keys:  a string that gives context to the value
-// console.log(carObj);
-
-// to grab out a specific VALUE from an object, all we need to do tell the key name
-// (if i KNOW the name of the key....)
-// we use the DOT notation
-
-// console.log(carObj.make);
-
-const printCarDetails = function(car) {
-  console.log('------------------');
-  console.log(`Car Make: ${car.make}`);
-  console.log(`Year: ${car.year}`);
-  console.log(car.driver.name);
-  console.log(car.banana.fruit);
-  console.log(car.akjdkajsdklasdjl);
-
+  driver: {
+    name: 'Vasily',
+    clothes: ['shoes', 'shirt', 'pants']
+  }
 }
 
 
-printCarDetails(carObj);
+
+const printCar = function(obj) {
+  console.log('------------ Car Details ------------');
+  console.log(`Make: ${obj.make}`);
+  console.log(`Model: ${obj.model}`);
+  console.log(`Year: ${obj.year}`);
+  console.log(obj.driver.clothes[1]);
+}
+
+
+printCar(carObj1);
