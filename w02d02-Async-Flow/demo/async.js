@@ -1,27 +1,26 @@
-// // async 
-console.log('START'); // x
-// WASHIGN MACHINE
-setTimeout(() => {  // x // <--- Async functions 
-  console.log("1  :)");
-}, 3000)
-setTimeout(() => {  // x // <--- Async functions 
-  console.log("2  :)");
-}, 1000)
-setTimeout(() => {  // x // <--- Async functions 
-  console.log("3  :)");
-}, 50)  
-console.log('1'); // x
-console.log('2'); // x
-console.log('3'); // x 
-console.log('END');  // x
+console.log("START");
+setTimeout(() => {
+  console.log("1")
+}, 3000);
+setTimeout(() => {
+  console.log("2");
+}, 2000);
+setTimeout(() => {
+  console.log("3");
+}, 3000);
+console.log("END");
 
 
-//////////////////////////////////////////
 
-// SWEEP
-// MOP
-// DO DISHES
-  // ^-- put dishes away
-// DO LAUNDRY
-// CLEAN BATHROOM
-// DUSTING  
+
+/////////// Its Chore day!
+// What Chores do you do around your place?
+
+// Vaccum
+// Open a beer ()
+// throw garbage out
+// Laundry
+// dishwasher
+// clean the washroom
+// mop with pine sol
+// make the bed

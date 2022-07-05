@@ -1,18 +1,19 @@
 // slow type some messages //
-// we want to make the program type info out, but in a very slow way...
+// we want to make the program type a string out, but in a very slow way...
+// letter by letter, on the same line
 
-//process
+// i have a string
 const str = 'Hello\n';
-// H --> 1000 > run callback
-// E --> 2000 > run callback
-
 let time = 1000;
-// i want to print each letter after a certain time
-for (let letter of str) {
-  setTimeout(() => {
-    process.stdout.write(letter);
-  }, time)
-  time += 1000;
-}
-
-// i want to print each letter on the same line ( no new lines until the end... )
+// i want to print it letter by letter BUT on the same line
+  // -- how do i loop through a string letter by letter?
+  for (let letter of str) {
+    // -- how do i print every letter on the same line?
+    // process.stdout.write()
+    setTimeout(() => {
+      process.stdout.write(letter);
+    }, time);
+    // time = time + 1000
+    time += 1000;
+    //how do i delay every single print????
+  }

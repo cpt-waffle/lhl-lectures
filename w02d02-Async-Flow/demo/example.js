@@ -17,12 +17,13 @@ const result = higherOrderFunc(() => {
   console.log('INSIDE CALLBACK');
 })
 console.log('AFTER MAIN CALL');
+// ALWAYS FOLLOW MAIN FIRST, THEN DEAL ASYNC FUNCTIONS AFTER
 
 
 // BEFORE MAIN CALL
 // BEFORE TIMEOUT CALL
-// { initials: YV }
+// {initials "YV"}
 // AFTER TIMEOUT CALL
 // AFTER MAIN CALL
 // INSIDE CALLBACK
-// { intials: YAV}
+// initials "YAV"
