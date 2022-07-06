@@ -1,31 +1,24 @@
-// Server -- the computer that waits for something/someone to connect
-// Node Net package
-
 const net = require('net');
-const sockets = [];
+                               // user 
+// our messages are totally ENCRYPTED
+// nobody else can read them
 
+const users = [];
 const server = net.createServer((socket) => {
+  users.push(socket);
+  console.log("Someone has Connected!");
   socket.setEncoding('utf8');
-  sockets.push(socket);
+  socket.write('Welcome to the Chat Server!!!');
   socket.on('data', (data) => {
-    console.log(data);
-    sockets.forEach(socket => {
-      socket.write(data);
+    console.log("data has come in from our users!");
+    // console.log(data);
+    // 
+    users.forEach(user => {
+      user.write(data);
     })
-    // loop through all of my connections (users/sockets)
-    // and im going to fire back all the messages to you all (users)
   })
-
-  // client.write('Name: waffle')
-  // client.write('Move: Up')
-  // client.write('Move: Down')
 })
-
-
-// Server is now LISTENING for things to connect
-
-// 1 -server/program == 1 port 
-// 2 servers/programs != 1 port
+//            PORT
 server.listen(3001, () => {
-  console.log("Server is listening on port 3001 :)");
+  console.log("server is bound!");
 })

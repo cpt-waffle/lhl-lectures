@@ -4,65 +4,75 @@
 - Networking with TCP
  (talking about HTTP)
 - build server/build a client 
+- (BONUS: you should be able to connect to my computer :) )
 - demo
 
+### Networking with People 
 
-## Networking WITH People
-
-- approach the person that i want to talk to 
-- introduce yourself
-- ask them their name
-- talk to them 
-- wait for a response
-- pause when the other person is speaking
-- listen back for their response
-- wait for them to finish to start talking about things again
-- say your goodbye
+- find the person to talk to
+- approach them
+- initiate convo (hello my name is _______)
+- You should probably listen to the other person what they are saying
+- Ask the questions about themselves
+- finish the convo, by saying: "well thank you for talking me, have a nice day"
 - leave
 
-### Mediums of Communication
+### What things(mediums) we use to Communicate?
 
 - voice
 - gestures
-- zoom
+- eye contact
 - text messages
-- white board
+- emoji
+- zoom(any other platform online)
+- making acknowledgment
 
-## Computer Networking Rules
 
-##  Transmission Control  Protocol (TCP)
-
-- Computer A 
+### Rules for Computer Communication Networking
+###      Transmission Control ^Protocol -----> TCP
+- Computer A
 - Computer B
 
--- Computer A needs to know where Computer B lives (exists)
--- Computer A goes to that location in the attempt to connect with Computer B
--- Computer B accept the connection 
--- Computer A sends a message
--- Computer B receives a message
--- Computer B sends a message
--- Computer A receives a message
--- Computer A disconnects!
+- Computer A wants to connect with Computer B
+- Computer A needs to know where Computer B is (lives at, stays at, etc)
+- Computer A goes to the location to initiate contact with Computer B 
+- Computer B accepts to talk to Computer A
+-- TALK TO EACH OTHER
+- computer A sends a message
+- Computer B receives the message
+- COmputer B sends a message
+- COmputer A receives a message
+- Computer A decides to disconnect, and disconnects 
 
+## Mediums
 
-## Mediums 
-
--- wifi
--- blutooth
--- cables
--- usb
--- fibreoptic
--- cell phone towers
--- modem
+- cables!
+- light (LiFi)
+- wifi
+- blutooth
+- fiberoptics
+- cell towers
+- modem 
 
 
 ### HTTP
+HyperText Transfer Protocol
 
-### HyperText Transfer Protocol
+- Comptuer A wants to talk to computer B and get some info
+- Computer A goes to that location and attemps to connect with Computer B
+- Computer B accepts the connection
+- Computer A CAN ONLY SEND 1 REQUEST message
+- Computer B CAN ONLY SEND 1 RESPONSE message
+- disconnect
 
--- Computer A needs to know where Computer B lives (exists)
--- Computer A goes to that location in the attempt to connect with Computer B
--- Computer B accept the connection 
--- Computer A sends 1 REQUEST Message
--- Computer B sends 1 RESPONSE Message
--- Disconnect happens
+####
+
+ network
+ ## ip 
+ your address (your computer, or phone, or, smart tv, ) 
+  # local IP
+  
+
+  # Global IP
+ internet
+modem and router

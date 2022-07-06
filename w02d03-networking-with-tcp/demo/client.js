@@ -1,28 +1,28 @@
-// Client - the computer that connects to a server
+// we need to make a connection
+// a connects needs 2 things
+// ip, port 
+const net = require('net');
+// process.stdin
 const stdin = process.stdin;
 
-const net = require('net');
-
-const credentials = { host: 'localhost', port: 3001 }
+const credentials = { host: 'localhost', port: 3001};
 
 const client = net.createConnection(credentials, () => {
-    console.log("connected to server!!");
+    console.log("You have Connected!");
 })
 
-const username = 'Anon';
-client.write(`User ${username} has connected!`);
-stdin.setEncoding('utf8');
+const name = 'CPT-WAFFLE';
 
-
-stdin.on('data', (input) => {
-    client.write(`${username}: ${input}`);
-})
-
-client.setEncoding('utf8')
+client.setEncoding('utf8');
 client.on('data', (data) => {
-    // console.log("server has sent you data !!!");
     console.log(data);
 })
 
-// to send data ( message ) back to the server you will use a function
-// called client.write()
+stdin.on('data', (message) => {
+    client.write(`${name}: ${message}`);
+})
+
+// Snek game ^
+// client.write("Move: Up")
+// client.write("Move: Down")
+// client.write("Name: ____") <----------------------
