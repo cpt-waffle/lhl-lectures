@@ -1,0 +1,15 @@
+.card {
+  text-align: center;
+  background-color: grey;
+  width: 200px;
+}
+
+
+.card--img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+  
