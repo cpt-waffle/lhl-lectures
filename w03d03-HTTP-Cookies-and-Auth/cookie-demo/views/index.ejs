@@ -7,10 +7,13 @@
   <title>Document</title>
 </head>
 <body>
-    <form method="POST" action="/login">
-        <input type="email" name="email"/>
-        <input type="password" name="password"/>
-        <button>Login!</button>
+  <% if (email) { %> 
+    <h1>You are logged in as <%= email %> </h1>
+    <form method="POST" action="/logout">
+      <button>Logout</button>
     </form>
+  <% } else { %>
+    <h1>Welcome to My Home Page!!</h1>
+  <% } %>
 </body>
 </html>
