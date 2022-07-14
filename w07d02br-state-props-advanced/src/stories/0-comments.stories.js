@@ -34,6 +34,7 @@ storiesOf('Comments', module)
 		}
 	]
 
-
-storiesOf('CommentList', module)
-	.add("default list", () => <CommentList commentsArr={comments} overwatch={action('onClick')}/>)
+storiesOf('CommentList Component', module)
+	.add('default commentList', () => <CommentList comments={comments}/>)
+// CommentList(propName=Value)
+// CommentList(comments)

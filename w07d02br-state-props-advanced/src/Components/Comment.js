@@ -2,19 +2,19 @@ import React from 'react';
 import './comment.css'
 
 function Comment(props) {
+	// props.onClick();
 	const { id, image, content, likes, dislikes } = props.data;
 	const onLikeClick = () => {
 		// props.handleClick('like', id);
 		console.log('Likes click line 8');
 		// how do i tell App.js, WHICH comment component was clicked?
-		props.melon('like', id);
+		props.onClick(id, 'like');
 	}
 
 	const onDislikeClick = () => {
 		// props.handleClick('dislike', id);
 		console.log('Dislikes click line 14');
-		props.melon('dislike', id);
-
+		props.onClick(id, 'dislike');
 	}
 
 	return (

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import CommentList from './Components/CommentList';
 
+// useEffect that gets this data from a server...
 // API
 const commentsData = [
   { 
@@ -36,35 +37,39 @@ const commentsData = [
 
 
 function App() {
-
   const [comments, setComments] = useState([...commentsData]);
 
-  const watercup = (type, id) => {
-    console.log('Line 41!!!');
-    // found which comment was clicked
-    console.log(type, id);
-    // loop through all my comments
-    const commentsCopy = comments.map(comment => {
-      // find the the one id that matches the id that i clicked on
-      if (comment.id === id) {
-        // figure out if i clicked Likes or Dislikes  
+  const commentsFunction = (id, type) => {
+    console.log("App.js Line 42 :)")
+    console.log(id, type);
+    //if i know the id, and the type of click 
+    // i should go through my comments state, (loop)
+    const commentsCopy = comments.map( comment => {
+      // find the comment that was clicked ( id == current.id )
+      if (id === comment.id) {
+        // increment either the likes or dislikes
         if (type === 'like') {
           comment.likes = comment.likes + 1;
         } else {
           comment.dislikes = comment.dislikes + 1;
         }
       }
+
+
       return comment;
     })
-    // increment either likes or dislikes
-    // set the state
+    // set the copy to the original ( immutable patterns)
     setComments(commentsCopy);
   }
+
 
   return (
     <div>
       <h1>Comments for Dogs</h1>
-      <CommentList commentsArr={comments} overwatch={watercup}/>
+      <CommentList
+        comments={commentsData}
+        getMemes={commentsFunction}
+      />
     </div>
   );
 }
