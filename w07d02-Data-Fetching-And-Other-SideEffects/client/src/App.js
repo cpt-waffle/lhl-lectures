@@ -1,93 +1,57 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+// import axios
 import axios from 'axios';
-
-import MemeList from './components/MemeList';
-import Form from './components/Form';
+import Poster from './components/Poster';
 
 
 function App() {
+  // What if we can do an operation, after everything has finished rendering?
+  // What if we can do an operation, on the "side"?
 
-  // State //
-  // is a special variable, that when changed, the component also re-renders !!
-  const [num, setNum] = useState(0);
-  const [num2, setNum2] = useState(0);
+
   const [memes, setMemes] = useState([]);
+  const [num, setNum] = useState(1);
+  const [num2, setNum2] = useState(1);
 
-  // UseEffect //
+  // const [arr, setArr] = useState([{a: 1}, {a: 2}, {a: 3}]);
 
-  // this use effect will run once, on first render
-  // and again anytime whenever something gets re-rendered
-
-  // useEffects are used for, side-effect
-  // -- fetching data from the server
-  // -- grabbing a specific html element and changing its value
-  // -- setting up event listeners for a specific html/js value
-  // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  // you can have as many useEffects as you wish 
+  // you make useEffects after your states have been declared
   useEffect(() => {
-    console.log("Line 15 ?!?!!?");
-  });
-
-  // useEffect actually takes 2 parameters
-  // -- callback
-  // -- an array ( depedancy )
-  /// JQuery 
-  // document.on('ready' () => {
-      // $.ajax('/tweets')
-  // })
-  useEffect(() => {
-    console.log("USE EFFECT HAS NOTHING IN IT!!");
-    // proxy <==
-    // -- turn off client
-    // -- go to package.json
-    // -- add "proxy": "", key/val pair
-    // -- add the base url to val of proxy ^
-    axios.get('/memes').then(res => {
-      console.log("data has come back!");
-      setMemes(res.data);
-      console.log(res);
+    axios.get('/memes')
+    .then(resp => {
+      console.log(resp);
+      setMemes(resp.data);
     })
-  }, []) // <--- depedancy array 
-  // dependancy array [] <-- values inside, are being watched by the use Effect
-  // whenever, any value changes within that useEffect, the useEffect will run
-
-  useEffect(() => {
-    console.log("NUM 2 HAS CHANGEDD!!!!!!!");
-  }, [num2]) 
-
-
-  // How do we work with rendering cycles?
-  // how do we do things once before the render and not again?
-  // how can we control things to happen once something rendered?
-  //////////////// useEffect ///////////////////////////////////
-  // a hook that deals with side-effects of react (and rendering)
-
-
-  // JQUERY - Ajax 
-  // if I wanted to make a get request
-  // $.get('http://localhost:8080/memes', (data) => {
-    // $('article').append(data)
+  }, [])
+  //  ^--- the dependancy array
+  // 
+  // const arrHTML = [];
+  // for (let obj of arr) {
+  //   arrHTML.push(<h1>{obj.a}</h1>)
+  // }
+  ///////////////map()//////////////////
+  // const arrHTML2 = arr.map((obj) => {
+  //   return <h1>{obj.a}</h1>
   // })
 
-  // fetch -- not going to use it because tiny bit complex
-  // axios -- 
-  /////////////////////////////////////////////////////////////
 
-  ////////////////////////////////////////////////////////////
+  console.log("we are running again!!");
 
+  const memesList = memes.map(meme => {
+    return <Poster key={meme.id} name={meme.name} imgURL={meme.url}/>
+  })
 
-  const onNumClick = () => {
-    setNum(num + 1);
-  }
 
 
   return (
     <div className="App">
-      <h1>Hello World!</h1>
-      <MemeList list={memes} />
-      <p><button onClick={onNumClick}>The value of Num is == { num }</button></p>
-      <p><button onClick={() => setNum2(num2 + 2)}>NUM2 == { num2 }</button></p>
-      <Form/>
+      <h1>The Page of Memes!</h1>
+      {memesList}
+      <button onClick={() => setNum(num + 1)}>{num}</button>
+      <button onClick={() => setNum2(num2 + 1)}>{num2}</button>
+
     </div>
   );
 }

@@ -4,7 +4,7 @@ const cors = require('cors');
 
 let num = 0;
 // ??
-app.use(cors());
+// app.use(cors());
 
 
 const memeList = [

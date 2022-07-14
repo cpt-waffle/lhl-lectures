@@ -1,42 +1,25 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import {storiesOf} from '@storybook/react';
+import Poster from '../components/Poster';
 
-/// components
-import Meme from '../components/Meme';
-import MemeList from '../components/MemeList';
 
-storiesOf('Test Story', module)
-  .add('Hello world', () => <h1>Hello World</h1>);
+storiesOf('Test', module)
+  .add('Test Story', () => <h1>Hello World</h1>);
 
-// Meme
 
-// props
-const dummyMemeData = {
+
+
+const exampleData = {
   id: 1,
-  name: "Adrian's fresh meme",
-  url: "https://preview.redd.it/ff3hhsds9ks41.jpg?width=960&crop=smart&auto=webp&s=bf75658ce17a530f610fdc49b772254e6356f145"
+  name: 'Mr Meows, Lead Team Designer',
+  url: 'https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?auto=compress&fit=scale&fm=pjpg&h=350&w=700'
 }
 
 
-storiesOf('Meme', module)
-  .add('default meme', () => <Meme data={dummyMemeData}/>);
+storiesOf("Poster Component", module)
+  .add('Default Poster with default data', () => <Poster name={exampleData.name} imgURL={exampleData.url}/>)
 
-
-const dummyArrayMemeData = [
-  {
-    id: 1,
-    name: "Adrian's fresh meme",
-    url: "https://preview.redd.it/ff3hhsds9ks41.jpg?width=960&crop=smart&auto=webp&s=bf75658ce17a530f610fdc49b772254e6356f145"
-  },
-  {
-    id: 1,
-    name: "Adrian's fresh meme",
-    url: "https://preview.redd.it/ff3hhsds9ks41.jpg?width=960&crop=smart&auto=webp&s=bf75658ce17a530f610fdc49b772254e6356f145"
-  }
-]
-// MemeList
-storiesOf('MemeList', module)
-  .add('default list', () => <MemeList list={dummyArrayMemeData}/>);
-
-
-  storiesOf("DayListItem", module) 
+  // when you have a big component to build...
+  // and it consists of other smaller components that you need to build...
+  // its better to make a folder that is called "component_name" and put all
+  // the small components within it
