@@ -1,21 +1,20 @@
-import { useEffect, useState } from 'react';
 import './App.css';
-import axios from 'axios';
-// equivalent to require
-import Navbar from './components/Navbar';
-import ToDoItemList from './components/ToDoItemList';
+import Memelist from './components/Memelist';
 import Form from './components/Form';
 import useApp from './hooks/useApp';
 
 
+// state (useState)
+// useEffect (sideeffects)
+// axios (fetch but not really...)
+
 function App() {
-  const {list, handleAddItem} = useApp();
+  const {memes, onSubmit} = useApp();
 
   return (
     <div className="App">
-      <Navbar/>
-      {list.length > 0 ? <ToDoItemList list={list}/> : <h1>Loading...</h1>}
-      <Form handleAddItem={handleAddItem}/>
+      <Form onSubmit={onSubmit}/>
+      <Memelist list={memes}/>
     </div>
   );
 }
