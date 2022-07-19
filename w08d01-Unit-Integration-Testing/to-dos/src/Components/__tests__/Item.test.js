@@ -1,28 +1,20 @@
 import React from 'react';
-import { render, prettyDOM } from '@testing-library/react';
+import {render, debug} from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import Item from '../Item';
 
-describe('Item component Tests', () => {
-  it('renders the Item component', () => {
-    const { debug, getByTestId } = render(<Item item="Buy Milk"/>);
-    // console.log(debug());
-    const title = getByTestId('title');
-    // console.log(prettyDOM(title));
-    expect(title).toHaveTextContent(/Buy Milk/i);
-    // i need to select the specific HTML element where "Buy Milk" lives
-    // write an expect()
-  })
-
-  it('renders the Item component and everything lowercased', () => {
-    const { debug, getByTestId } = render(<Item item="WaLk The DoG"/>);
+describe('Item Component', () => {
+  it('tries to render an item component', () => {
+    const { container, debug } = render(<Item item='Buy Milk' done={false}/>)
     console.log(debug());
-    const title = getByTestId('title');
-    console.log(prettyDOM(title));
-    expect(title).toHaveTextContent('walk the dog');
-    // i need to select the specific HTML element where "Buy Milk" lives
-    // write an expect()
   })
 
+  it('renders the component with title Buy Milk', () => {
+    const { debug, getByText, getByTestId } = render(<Item item='Buy Milk' done={false}/>)
+    //we can select text by regular expression, ignorning upper or lowercase
+    const title = getByText(/buy milk/i);
+    const title2 = getByTestId('banana');
+    expect(title2).toHaveClass('todo-title');
+  })
 })

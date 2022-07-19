@@ -1,36 +1,39 @@
 import React from 'react';
-import { render, prettyDOM, fireEvent } from '@testing-library/react';
+import {render, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import Form from '../Form';
 
-describe('Form Tests', () => {
-  it('renders the form', () => {
-    const result = render(<Form/>)
-  })
+describe("Form Tests", () => {
+  it('renders the Form component, and clicks add on an empty item', () => {
+    const fn = jest.fn();
 
-  it('tries to click a button to submit into the form, the entry is empty!', () => {
-    // mock up function
-    const addItemMock = jest.fn();
-    const {getByText} = render(<Form addItem={addItemMock}/>);
-    const button = getByText('Add');
-    console.log(prettyDOM(button));
-    // How do i Click the add button in JEST?
+    const {debug, getByText} = render(<Form addItem={fn}/>);
+    const button = getByText(/Add/i);
+    // how to click a button in JEST?
     fireEvent.click(button);
-    console.log(addItemMock)
-    expect(addItemMock).not.toHaveBeenCalled();
-    const err = getByText('Cannot Be Blank');
+    expect(fn).not.toHaveBeenCalled();
+    // console.log(debug(button));
+    // how to click a button in JEST?
+    // what is a mock function?
   })
 
-  it('tries to add a valid item into the list!', () => {
-    const addItemMock = jest.fn();
-    const {getByText, getByPlaceholderText} = render(<Form addItem={addItemMock}/>);
-    const button = getByText('Add');
+
+
+  it('renders the Form component, and clicks add on the correct item', () => {
+    const fn = jest.fn();
+    const {debug, getByText, getByPlaceholderText} = render(<Form addItem={fn}/>);
+    const button = getByText(/Add/i);
     const input = getByPlaceholderText('enter todo');
-    // I need to type out an item to be added in!
-    fireEvent.change(input, {target: { value: 'Buy Milk'}});
-    console.log(prettyDOM(input));
+    fireEvent.change(input, { target: { value: 'write a test'}})
+    console.log(debug(input));
     fireEvent.click(button);
-    expect(addItemMock).toHaveBeenCalledTimes(1);
-  }) 
+    expect(fn).toHaveBeenCalled();
+    // if i pass a function, and it runs, i assume the the item was 
+    // being added to the state
+
+    // if i pass a function and it does not run, i assume that the parameters
+    // for the form were not correct
+    // what is a mock function?
+  })
 })

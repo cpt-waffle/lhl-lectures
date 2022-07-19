@@ -56,31 +56,25 @@ describe( "items", () => {
     // Container has alot of methods that gives us ways to traverse the Item DOM
     const { container } = render(<Item item={'buy apples'} done={false}/>)
     // our item should have a className todo-item which we can get out firstChild
-    expect(container.firstChild.className).toBe('todo-item')
+    expect(container).toHaveClass('todo-item')
   })
 
   it('should have be className "todo-item"', () => {
     // Container has alot of methods that gives us ways to traverse the Item DOM
     const { container } = render(<Item item={'buy apples'} done={false}/>)
     // our item should have a className todo-item which we can get out firstChild
-    expect(container.firstChild.className).toBe('todo-item')
-  })
-
-  it('It should be unchecked"', () => {
-    // Container has alot of methods that gives us ways to traverse the Item DOM
-    const { container } = render(<Item item={'buy apples'} done={false}/>)
-    // our item should have a className todo-item which we can get out firstChild
-    expect(container.firstChild.children[0].checked).toBe(false)
+     expect(container).toHaveClass('todo-item')
   })
 
   it('Clicked! Should be checked now', () => {
     //  but more of show you how to click an event
     let status = false;
     const toggleClick = jest.fn();
-    const { container } = render(<Item item={'buy apples'} done={status} toggleDone={toggleClick}/>)
-    fireEvent.click(container.firstChild.children[0])
-    expect(toggleClick)..toHaveBeenCalled();
-    expect(toggleClick)..toHaveBeenCalledTimes(1);
+    const { container, getByTestId } = render(<Item item={'buy apples'} done={status} toggleDone={toggleClick}/>)
+    const checkbox = getByTestId('checkbox');
+    fireEvent.click(checkbox)
+    expect(toggleClick).toHaveBeenCalled();
+    expect(toggleClick).toHaveBeenCalledTimes(1);
   })
 
 
