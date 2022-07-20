@@ -1,19 +1,18 @@
-.show {
+/* Styling goes here... */
+
+.movie {
   display: flex;
-  background-color: bisque;
-  padding: 12px;
+  padding: 20px;
+  background-color: #BADA55;
+  margin-top: 10px;
 }
 
-.show:hover {
-  background-color: chocolate;
+.movie--info {
+  margin: 20px;
 }
 
-.show--cover {
-  width: 140px;
-  height: 200px;
+.movie--img {
+  width: 250px;
+  height: 300px;
   object-fit: cover;
-}
-
-.show--info {
-  margin-left: 15px;
 }

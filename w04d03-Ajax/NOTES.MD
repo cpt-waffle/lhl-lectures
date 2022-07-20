@@ -3,36 +3,36 @@
 - AJAX (What is it and why)
 - Building an App with an API 
 
+#  -----------------------
+# Client side rendering
+^---------- gets the data from an external server
+and uses your own computer to render the data
+# Server side rendering application
+^--------- Everything happens on the server
 
-# -----------------  
+## Server Side App that you have built
 
-TinyApp 
+-TinyApp 
 
-Server <----------------------> EJS <-------------> HTML
-                  SErver Side Rendering Application
+Server                                   CLIENT
+              <----------_REQ--------------
+do the route logic
+take the EJS
+compile into HTML
+       -----------------RES---------------->
 
 
+## Client side application Tweeter
 
-Client Side Rending App
-Tweeter
-Server <-------------------> HTML & JS 
-                                we do some operations to get the content and load to the page!
+A client side app, that will ask for the data from a server
 
-AJAX
+## APIs 
+
+its just a server, that serves ONLY DATA
+
+## AJAX
 
 Microsoft 
-
-"everyone at home, have these powerful computers, why cant we utelize their performance
-"to render some pages?"
-
-"why cant our servers send not the layout, but just the data? "
-
-Servers that send out ONLY information: (No layout, no css, nothing pretty, just RAW INFO/CONTENT)
-API's
-
-I want to build an app that shows me recipies
-
--- i will sit with a cooking book, and enter all of the recipies manually
--- use an api ()
-
-## Now We know APIs and We heard about AJAX, How do we actually GET THIS DATA INTO OUR APPS?
+AJAX -- Async Js XML Request 
+you ask for data from another server WITHOUT REFRESHING your page....
+you can ask for data, from your browser anytime...
