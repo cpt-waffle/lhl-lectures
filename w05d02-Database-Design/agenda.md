@@ -11,152 +11,168 @@
 - Breakout Exercise
 - Another Practice
 
-## How do we Come up with a Database?
+## How Do you come up with Tables?
 
-A user registers
-A user enters a phone number
-a user enters their friends info
-the app later sends pictuers of lammas to their phone
 
-## User Stories
+## User Story 
 
-As a _____ user I want to do __________________
-because _______________________________________ 
+an explanation of a feature
 
-As a user I want to save a story that I'm reading
-to my favorites, because I want to read it more later.
+As a ________ I want to do _________________
+because ____________________________________
 
-## What is a Table ?
+In user stories, Tables are NOUNS.
+As a user, I want to create urls to save them for later.
 
-A collection of data 
-^ categorized data
-kind of like an object with key/vals
+data.csv // comma, seperated, values
 
-Tables for TinyApp
+### Tables 
 
-- AS a user i want to be able to create shortURLS
-based on the longURLS 
+#### What is a table? 
 
-# Naming Conventions for Tables
-(In LHL)
-- tables are pluralized, and if more than one word, they are snake_cased
+- a collection of data
+- categorized data
 
+Database
+
+username, password, shortUrl, longURl
+username, password, shortUrl, longURl
+
+v@k.ca, 1234,  9wsfs5, www.google.ca
+v@k.ca, 1234,  sfs923, www.reddit.com
 
 Users
-username, password
-username, password
-username, password
-username, password
-username, password
+v@k.ca, 1234,
+
 
 Urls
-longURL, shortURL
-longURL, shortURL
-longURL, shortURL
-longURL, shortURL
-longURL, shortURL
+9wsfs5, www.google.ca
+sfs923, www.reddit.com
+
+### Table Conventions
+(In LHL*)
+- tables are pluralized, and if more than one word we use `snake_cased`
 
 
-# Primary Keys
+## Primary Keys (PK)
 
-- Unique Identifier of a record
-- (INTEGERS)
-- any data type (we usually 99% use INTEGER that is A SERIAL)
-if a primary key changes (at one point) then all instances of that primary key
-that was passed around as a FK will have to change 
+- "~unique~" Identifer of a record 
+- 95% the Primary key is a SERIAL INTEGER 
+- any DATA TYPE can be used to set a primary key
 
-A SERIAL is a SEQUENCE that keeps track of a number
-an AUTO INCREMENTING integer
-INSERT INTO users VALUES (name, password, email)
-i = 1;
-i++;
+URLS 
+{
+  {user_id: vas@k.ca, shortURL: 4sadfw4, longURL: 'www.google.ca'}
+  {user_id: vas@k.ca, shortURL: adsasd, longURL: 'www.a.ca'}
+  {user_id: vas@k.ca, shortURL: 45424, longURL: 'www.b.ca'}
+  {user_id: vas@k.ca, shortURL: 4sfdgdg, longURL: 'www.c.ca'}
+  {user_id: vas@k.ca, shortURL: 4sdfgg4, longURL: 'www.d.ca'}
 
-### Pitfalls with Serial Datatype
+}
 
-INSERT INTO users (id, name, password, email)
-VALUES (1, 'vas', '1234', 'v@k.ca);
+### Datatypes
 
-We specified it without couting on serial
+TEXT( UNLIMITED NUMBER OF TEXT) 16mb 
+VARCHAR (0 -255 characters MAX) 255b
+
+Back in the older days, we REALLY CARED ABOUT DATA SIZE
+
+VARCHAR (1-255) (phone numbers, emails, etc )
+TEXT ()
+BOOLEAN
+INTEGERS
+DECIMALS/CURRENCY
+TIMESTAMPS
+
+### Serial Integer
+
+It is an AUTOINCREMENTING, ONLY POSITIVE INTEGER
+
+Whenever you insert into a table (without specifying the serial integer (AKA primary key)), the system will use a stored value as tha that integer ( sequence ) and increment that number for the next time use
+
 1
+2
 3
-4
 5
 6
 7
 8
+9
 
-Whenever you do a insert without specifying ID
-
-INSERT into users (name, password, email) 
-
-you will get error: PRIMARY KEY TAKEN
-
-ALTER TABLE command
-ALTER SEQUENCE 1000;
-
-## Datatypes
-
-SELECT * FROM users where email LIKE '';
-space used to be an issue
-- VARCHAR (1-255) 
-- TEXT (ulimited characters)
-- BOOLEAN (true or falses)
-- INTEGERS ( usually the 4bytes unless you need more)
-- DECIMALS/CURRENCY ( money envolved or needs a prescion)
-- TIMESTAMPS
-
-## Foreign Keys
-
-A key that is a referenced in another table
-- HAS TO BE THE SAME DATA TYPE AS THE KEY YOU ARE REFRENCING
-
-DATA
-email, password, age longURL, shorURL,
-v@k.com 12345    30    google.ca 23sf5w
-v@k.com 12345    30  apple.ca 2fsdf
-v@k.com 12345    30  reddit.com 111sda
-
-Users
-id, email, password, age
-1   v@k.com 12345    30
-
-Urls
-longURL, shorURL, user_id
- google.ca 23sf5w    1
- apple.ca 2fsdf      1
- reddit.com 111sda   1
-
- by convention FK, are named: Singular of the table reference snake case + id
- ie: user_id
- ie: product_id
-
- ## ON DELETE CASCADE
-
-SQL database have rules.
-
-## Relationships 
-- One to one: one record in Table A is Related TO ONLY ONE record in table B
-#############################################
-Users 
-1 million+ users
-some of those users are admins (9-10 people)
-Admins
-id user_id
-#########################################
-- One to many: one record in table A is realted to many records in table B
-#########################################
-A user can make many URLS
-#########################################
+### Pitfall
+1
+2
 
 
-- many to many: one or more records in Table A are related to one or more records
-in table B
+INSERT into (id, name, password, email)
+VALUES (3, 'vas', '123', 'v@k.ca');
 
-As a user, I want to be able to add a story to my favorites
-As a user, i can create a story
+### Foreign Keys
 
-Users                   Favorites                       Stories
-                        story_id
-                        user_id
+its a key THAT IS REFERENCE in another table
+- HAS TO BE THE SAME DATATYPE AS THE KEY YOU ARE REFERENCING 
 
-##################################################################
+Database
+v@k.ca, 1234,  9wsfs5, www.google.ca
+v@k.ca, 1234,  sfs923, www.reddit.com
+a@b.ca, 1234,  43255, www.facebook.com
+a@b.ca, 1234,  43255, www.twitter.com
+
+
+---- Users ----
+id,     user     password
+1       v@k.ca,   1234,  
+2        a@b.ca,   1234,  
+---------------
+
+--- Url ------
+shortURL, longURL               user_id
+9wsfs5,   www.google.ca           1
+sfs923,   www.reddit.com          1
+43255,    www.facebook.com        2
+34635,    www.twitter.com         2
+
+### Conventions
+
+Singular, snaked_cased with the reference to the referenced table
+
+### Rules of Foreign keys
+You are not allowed to delete a row, referenced in another table...
+
+### ON DELETE CASCADE 
+
+### Relationships
+One to One
+###########################
+Users have an isAdmin column ( by default FALSE )
+50+ million users database
+20 admins total 
+---------------
+Create table called Admins 
+### Admins ####
+PK id 
+FK user_id 
+#############################
+One to Many ( many to one)
+One record in table A is related to MANY records in table B
+
+Many to Many 
+This relationship cannot exist in PSQL !!!!!
+Add a bridge table in between(name of the bridge table, could be both tables names in snake case, or related to a context), where all the foreign keys will be on 
+
+
+
+### Genaral Concepts
+
+- NOT NULL Columns, ---> email, passowrd, profile-pic, address (DEFAULT state)
+- Calculated Fields ( DONT STORE THEM!!!! ) (aggregate functions to calcualte those on the fly, SUM, COUNT, MAX, MIN, AVG, etc)
+
+- Try not to DELETE rows (IRL)
+(soft delete)
+'discontinued (true/false)
+
+```sql
+SelecT * FrOm uSeRs;
+```
+No meme case
+Dont do this ^^

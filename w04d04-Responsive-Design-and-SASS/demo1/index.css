@@ -1,9 +1,8 @@
 * {
     margin: 0;
     padding: 0;
-    font-size: 16px;
+    /* font-size: 16px; */
 }
-
 
 .box-a {
     border: 2px dashed lightgreen;
@@ -11,16 +10,14 @@
 }
 
 .box-b {
-    border: 2px dashed firebrick;
+    border: 2px dashed lightcoral;
     font-size: 2em;
 }
 
 .box-c {
-    border: 2px dashed darkblue;
+    border: 2px dashed lightskyblue;
     font-size: 2em;
 }
-
-
 
 .box-d {
     border: 2px dashed lightgreen;
@@ -28,11 +25,11 @@
 }
 
 .box-e {
-    border: 2px dashed firebrick;
+    border: 2px dashed lightcoral;
     font-size: 2rem;
 }
 
 .box-f {
-    border: 2px dashed darkblue;
+    border: 2px dashed lightskyblue;
     font-size: 2rem;
 }

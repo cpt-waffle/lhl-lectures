@@ -1,9 +1,11 @@
-.test {
-  background-color: red;
-  div {
-    background-color: blue;
-  }
+.tweet {
+  background-color: crimson;
   h1 {
-    background-color: green;
+    padding: 25px;
+    color: yellow;
+    &:hover {
+      background-color: darkred;
+    }
   }
+
 }
