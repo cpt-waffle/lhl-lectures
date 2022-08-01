@@ -1,15 +1,8 @@
-
-
-const palindrome = (str) => {
-    for (let i = 0; i < str.length; i++) {
-        if (str[i] !== str[str.length-1 - i])
-            return false;
-    }
-
-    return true;
+// write some code so the tests will pass
+const palindrome = function(str) {
+  const noSpacesStr = str.split(' ').join('');
+  // const noSpacesStr = str.replace(/\s+/g, "");
+  const reversedStr = noSpacesStr.split('').reverse().join('');
+  return reversedStr === noSpacesStr;
 }
-
-module.exports =  palindrome;
-
-
-// console.assert(palindrome('racecaf') === true, 'racecar');
+module.exports = palindrome;
