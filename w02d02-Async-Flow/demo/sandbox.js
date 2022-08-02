@@ -1,44 +1,26 @@
-// Review!!!!!
+// Review!
 
-const PI = 3.14;
-let fruit = 'banana';
-
-// Functions
-
-// es5 functions
-const greetings = function() {
-  console.log(this);
-  return 3;
-  //...
+// functions!
+// its a block of code that you can re-use!
+//                   parameters
+const foo = function(num1, num2) {
+  let sum = num1 + num2;
+  console.log(`${num1} + ${num2} = ${sum}`);
+  // return
+  return sum;
 }
 
-// es6 function
-const greetings2 = () => 3;
+// const returnValue = foo(3,2);
+// console.log("RETURN VAL:", returnValue);
 
-const greetings3 = () => {
-  console.log(this);
-  return 3;
-};
-
-// greetings();
-// greetings3();
-
-////////////////////////////////////////////////
-
-
-// CALLBACKS !!!!!!!!!~~~~~~~~
-
-// using a function in another function
-// function A was PASSED as a parameter in function B
-
-const customMessage = (cb) => {
-  console.log(cb);
-  console.log("-------------------");
-  cb();
-  console.log("-------------------");
+//callbacks!
+// its a way to pass a function (as a param) into another function
+const customGreetings = function(cb) {
+  console.log("CB =", cb)
+  cb(3,3)
 }
 
-
-customMessage(() => {
-  console.log("Welcome to W2D2 Async Functions!");
+let x = 4;
+customGreetings(function(num1, num2) {
+  console.log(`${num1} + ${num2} = ${num1 + num2}`)
 })

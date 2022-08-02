@@ -4,19 +4,23 @@
 // Subtract data2 and data3 numbers from data1 number
 
 const fs = require('fs');
-fs.readFile('./data1.txt', 'utf8', (err, num1) => {
+
+fs.readFile('./data1.txt', 'utf8', function(err, data1) {
   if (err) throw err;
-  fs.readFile('./data2.txt', 'utf8', (err, num2) => {
+  console.log("first async callback!")
+  fs.readFile('./data2.txt', 'utf8', function(err, data2) {
+
     if (err) throw err;
-    fs.readFile('./data3.txt', 'utf8', (err, num3) => {
+  console.log("second async callback!")
+    fs.readFile('./data3.txt', 'utf8', function(err, data3) {
       if (err) throw err;
-      console.log('DATA!!!! (Correctly got)');
-      console.log(num1, num2, num3);
-      console.log(`${num1} - ${num2} - ${num3} = `, Number(num1) - Number(num2) - Number(num3));
+      console.log("third async callback!")
+      console.log("last readfile finished!");
+      console.log(data1, data2, data3);
+      console.log(Number(data1) - Number(data2) - Number(data3));
     })
   })
 })
 
-
-
-
+// Promises (w2d4)
+// async / await

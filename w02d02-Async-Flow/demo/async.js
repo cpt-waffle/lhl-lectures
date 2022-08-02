@@ -1,26 +1,29 @@
-console.log("START");
+// Async Example
+
+/// some functions are synch
+
+const greetings = function() {
+  console.log("HELLO WORLD!");
+}
+
+
+console.log('START');
+// timeout is an async function.
 setTimeout(() => {
-  console.log("1")
-}, 3000);
-setTimeout(() => {
-  console.log("2");
-}, 2000);
-setTimeout(() => {
-  console.log("3");
-}, 3000);
-console.log("END");
+  console.log("HELLO WORLD")
+})
+console.log('END');
 
 
 
+// HOW DO YOU CLEAN YOUR PLACE ?
 
-/////////// Its Chore day!
-// What Chores do you do around your place?
-
-// Vaccum
-// Open a beer ()
-// throw garbage out
-// Laundry
-// dishwasher
-// clean the washroom
-// mop with pine sol
-// make the bed
+// clean the bathroom
+// put everything away
+// run dishwasher 
+// vaccum
+// mop
+// laundry
+// clean the counter
+// take out the trash
+// reorganize
