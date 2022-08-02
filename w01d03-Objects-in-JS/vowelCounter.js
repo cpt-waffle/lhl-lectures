@@ -6,129 +6,90 @@ And sing our whaling tune.`;
 
 // how many letter 'A's are in this sentance
 
-const countLetterA = function(str) {
-  // how to loop through a string?
-   // Note: if its an array of characters I should be able to use a for loop
-  // how to loop through every letter of a string?
+// when encountering the letter A we need to record a number ( increment it )
+// after we went through everything, return the result.
 
-  // C Style --- for (let i = 0; i< arr.length; i++)
-  // for (let i = 0; i < str.length; i++) {
-  //   console.log(str[i]);
-  // }
-  // // For in ---- for (let i in arr)
-  // console.log("////////////// in loop")
-  // for (let i in str) { // in -- index, goes through every index until the end
-  //   console.log(str[i]);
-  // }
-  // console.log("///////////// of loop")
-  let a = 0;
-  for (let val of str) { // of -- will loop through EVERY VALUE of the array
-    // console.log(val);
-    if (val === 'a') {
-      a++;
+const countLetterA = function(str) {
+  let aCount = 0;
+  const lowerCaseStr = str.toLowerCase();
+  // how to go through the string, letter by letter ( loop )
+  for (let letter of lowerCaseStr) {
+    if (letter === 'a') {
+      aCount++;
     }
   }
-  return a;
-
-  // For of ---- for (let i of arr)
-
-  // how to check if current interation is the letter 'a'?
-  // how to return the value that made for how many letter A's are in the string?
+  return aCount;
 }
 
 const result = countLetterA(string);
-// console.log("Number of lowercase letter 'a': ", result);
+// console.log(`There are ${result} A letters in the sentance`);
 
-
-//// a function that counts ALL OF THE VOWELS in a string 
-// a collection needs to be returned 
-// [ 3, 2, 6, 9, 0] or {a: 9, e: 3, i: 6, o: 0, }
 
 const countVowels = function(str) {
-  // refactored
-  const resultObj = {
-    a:0,
-    e:0,
-    i:0,
-    o:0,
-    u:0,
-    y:0
+  // define an object with all the vowels
+  const vowels = {
+    a: 0,
+    e: 0,
+    i: 0,
+    o: 0,
+    u: 0,
+    y: 0
   }
-  const strLowerCase = str.toLowerCase();
-  for (let val of strLowerCase) {
-    if (val === 'a') {
-      resultObj.a++
+  const lowerCaseStr = str.toLowerCase();
+  for (let letter of lowerCaseStr) {
+    if (letter === 'a') {
+      vowels.a++;
     }
-    if (val === 'e') {
-      resultObj.e++
+    if (letter === 'e') {
+      vowels.e++;
     }
-    if (val === 'i') {
-      resultObj.i++
+    if (letter === 'i') {
+      vowels.i++;
     }
-    if (val === 'o') {
-      resultObj.o++
+    if (letter === 'o') {
+      vowels.o++;
     }
-    if (val === 'u') {
-      resultObj.u++
+    if (letter === 'u') {
+      vowels.u++;
     }
-    if (val === 'y') {
-      resultObj.y++
+    if (letter === 'y') {
+      vowels.y++;
     }
   }
-  return resultObj;
+  return vowels;
 }
 
-// const result2 = countVowels(string);
-// console.log(result2);
+const vowelsResult = countVowels(string);
+// console.log(vowelsResult);
 
-// Count EVERY SINGLE LETTER that you encounter (with spaces, and symbols included)
-// in the string!
 
-// if the letter does not exist I dont want to see the value: 0
-///////////////////////////
-// We have been working with objects where we KNOW they key
+const countLetters = function(str) {
+  // do not show me the letters that don't exist in my string
+  const result = {};
+  // when a variable contains the KEY NAME
+  // we will use the square bracket notation
+  // let num = 0;
+  //arr[num] arr[1]
+  const lowerCaseStr = str.toLowerCase();
+  for (let letter of lowerCaseStr) {
+    // if the key doesnt exist in my object, set it 1
+    // 6 values that are falsey
+    // undefined, false, 0, NaN, null, ''
+    if (!result[letter]) { 
+      result[letter] = 1;
+    } else {
+      result[letter]++;
+    }
+    //               Expression      ? if true : if false 
+    result[letter] = !result[letter] ? 1 : result[letter] + 1 ;
 
-///////// Objects
-// How do we create new keys after an object was created?
-// How do I access something that I dont know exists in an object?
+    // turniary operator: if else.. in a one line statement
 
-const key = 'transmission';
-const randObj = {a: 33, b: 3, transmission: 6, v: 0, z: -2};
-const array = [1,2,3,4,5];
-//           0,1,2,3,4
 
-console.log(randObj.key);
-// when you have a key_name in a variable YOU CANNOT USE the Dot notation
-// you have to use the SQUARE BRACKET NOTATION INSTEAD 
-// console.log(randObj[key]);
-// console.log(randObj['transmission']);
-
-// //// Key/Value Creation 
-
-// randObj.fruit = 'banana';
-// console.log(randObj);
-// /////////////////////////
-// randObj['vegetable'] = 'pickle';
-// console.log(randObj);
-
-////////////////////////////////////////////////////////////////
-// In an object KEYS are UNIQUE
-// you cannot have THE SAME KEY TWICE in an object ( only once )
-const countEveryLetter = function(str) {
-  const resultObj = {};
-  const strLowerCase = str.toLowerCase();
-  for (let val of strLowerCase) {
-    // when the KEY does not exist set it to = 1
-    // if they KEY DOES EXIST = ++
-    // false, undefined, null, ' ', 0, NaN
-    // !resultObj[val] ? resultObj[val] = 1 : resultObj[val]++;
-    if (!resultObj[val])
-      resultObj[val] = 1;
-    else 
-      resultObj[val]++;
+    // if the key DOES exist in my object, ++
   }
-  return resultObj
+  return result
 }
 
-const result3 = countEveryLetter(string);
-console.log(result3);
+const letters = countLetters(string);
+console.log(letters);
