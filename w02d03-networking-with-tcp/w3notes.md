@@ -7,72 +7,73 @@
 - (BONUS: you should be able to connect to my computer :) )
 - demo
 
-### Networking with People 
+### Networking with People
 
-- find the person to talk to
-- approach them
-- initiate convo (hello my name is _______)
-- You should probably listen to the other person what they are saying
-- Ask the questions about themselves
-- finish the convo, by saying: "well thank you for talking me, have a nice day"
-- leave
+- Find a person 
+- Approach the person 
+- Say Hello! 
+---- Person says Hi/Hello back :)
+---- run away!!~~~ :(
 
-### What things(mediums) we use to Communicate?
+- one person talks 
+- the other listens
+- the other person talks
+- we listen
+- finish the convo: "Thanks for talking, I gotta go"
 
-- voice
-- gestures
-- eye contact
-- text messages
-- emoji
-- zoom(any other platform online)
-- making acknowledgment
+## Mediums of Communication
+
+-- voice 
+-- gestures
+-- text messages
+-- emoji
+-- zoom 
+-- can phone
 
 
-### Rules for Computer Communication Networking
-###      Transmission Control ^Protocol -----> TCP
-- Computer A
-- Computer B
+## Rules of Computer Networking
+##   Transmission  Control  Protocol
 
-- Computer A wants to connect with Computer B
-- Computer A needs to know where Computer B is (lives at, stays at, etc)
-- Computer A goes to the location to initiate contact with Computer B 
-- Computer B accepts to talk to Computer A
--- TALK TO EACH OTHER
-- computer A sends a message
-- Computer B receives the message
-- COmputer B sends a message
-- COmputer A receives a message
-- Computer A decides to disconnect, and disconnects 
+Computer A wants to Connect with Computer B
 
-## Mediums
+- We need to find Where computer B lives 
+- We'll approach computer B
+- Computer A attempts to connect with Computer B
+-- we connect :)
+-- we do not :(
+- Computer A sends messages to Computer B
+- Computer B sends messages to computer A
+- we notify computer B that we are leaving/leave and we disconnect
 
-- cables!
-- light (LiFi)
+## Computer Communication Mediums
+
+- cables 
 - wifi
 - blutooth
-- fiberoptics
 - cell towers
-- modem 
+- routers
+- modems 
+- satelites
 
 
-### HTTP
-HyperText Transfer Protocol
+## HTTP
+Hyper Text Transfer Protocol
 
-- Comptuer A wants to talk to computer B and get some info
-- Computer A goes to that location and attemps to connect with Computer B
-- Computer B accepts the connection
-- Computer A CAN ONLY SEND 1 REQUEST message
-- Computer B CAN ONLY SEND 1 RESPONSE message
-- disconnect
+- Computer A finds where computer B is
+- Computer A attempts to connect
+- Computer A sends a request ( a single message )
+- Computer B responds back with a single message ( RESPONSE )
+- DISCONNECT
 
-####
+### Network
+ a bunch of computers, connected together
+ wires, wifi, bluetooth, 
 
- network
- ## ip 
- your address (your computer, or phone, or, smart tv, ) 
-  # local IP
-  
+## IPs
+ -- local
+ -- global
 
-  # Global IP
- internet
-modem and router
+
+### Routers
+
+### Modems

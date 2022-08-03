@@ -1,28 +1,18 @@
-// we need to make a connection
-// a connects needs 2 things
-// ip, port 
+//client
+// socket.io // 
 const net = require('net');
-// process.stdin
+// process.stdin ???
 const stdin = process.stdin;
-
-const credentials = { host: 'localhost', port: 3001};
-
-const client = net.createConnection(credentials, () => {
-    console.log("You have Connected!");
-})
-
-const name = 'CPT-WAFFLE';
+const name = 'Anon';
+const client = net.createConnection({host: 'localhost', port: 3001});
 
 client.setEncoding('utf8');
+// client.write(`${name}: Hello Wolrd!`);
+
+stdin.on('data', (data) => {
+  client.write(`${name}: ${data}`);
+})
+
 client.on('data', (data) => {
-    console.log(data);
+  console.log(data);
 })
-
-stdin.on('data', (message) => {
-    client.write(`${name}: ${message}`);
-})
-
-// Snek game ^
-// client.write("Move: Up")
-// client.write("Move: Down")
-// client.write("Name: ____") <----------------------
