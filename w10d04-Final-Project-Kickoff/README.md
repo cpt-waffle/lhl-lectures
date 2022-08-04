@@ -169,12 +169,6 @@ For this we can use
 
 [Trello](https://trello.com/en)
 
-OR
-
-[Github Pages](https://github.com/vasiliy-klimkin/midterm-demo/projects/1)
-
-[Instructions how to setup Github Pages/Projects](https://github.com/vasiliy-klimkin/lhl-lectures/blob/master/w05d05-Midterm-KickOff/setup-github-project.md)
-
 These columns should get you started, but feel free to add others 
 for a custom workflow (For example "Waiting for a code review")
 
