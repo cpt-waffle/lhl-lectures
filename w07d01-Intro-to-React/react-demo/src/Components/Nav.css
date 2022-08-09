@@ -1,0 +1,14 @@
+.nav {
+  background-color: darkblue;
+  color: white;
+  padding: 10px;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu li {
+  padding-left: 10px;
+  list-style-type: none;
+}
