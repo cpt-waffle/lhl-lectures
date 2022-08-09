@@ -1,6 +1,7 @@
 import React from 'react';
 import './Card.css';
 import Navbar from './Navbar';
+import Status from './Status';
 //           properties
 // its an object that contains,
 // EVERY SINGLE key/val pair passed in
@@ -23,6 +24,8 @@ const Card = (props) => {
       <div className="card--desc">
         {props.children}
       </div>
+      <h1>Num {props.num}</h1>
+      <Status/>
     </article>
   )
 }

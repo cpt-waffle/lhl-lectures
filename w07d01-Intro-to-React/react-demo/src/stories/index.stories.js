@@ -3,6 +3,7 @@ import React from 'react';
 
 import Navbar from '../Components/Navbar';
 import Card from '../Components/Card';
+import Status from '../Components/Status';
 
 // Step 2
 import { storiesOf } from '@storybook/react';
@@ -49,3 +50,6 @@ storiesOf('Card', module)
 //can render it
 
 //build the component while working in storybook
+
+storiesOf('Likes/Dislikes Buttons', module)
+  .add('default', () => <Status/>)
