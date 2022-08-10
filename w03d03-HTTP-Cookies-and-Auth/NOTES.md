@@ -5,13 +5,14 @@
 - Bonus: Adding a 2nd set of data
 
 
-### Build a Server Review
+## Building an Express Server 
 
-- make a folder to keep my server in
-- get inside it, npm init, git init, git ignore 
-- install some packages: 
+- packages
+  -- express
+  -- cookie-parser ()
+  -- morgan
+  -- body-parser (optional)
 
+- a folder
 
-
-
-- check if server works
+- gitignore 
