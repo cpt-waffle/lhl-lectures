@@ -1,19 +1,14 @@
 import React from 'react';
 
-import { render, getByText } from '@testing-library/react'; // this is to render
-import '@testing-library/jest-dom'; // this is to have HTML expects/matchers
-// import the component that i want to test...
+import '@testing-library/jest-dom'
+import { render, getByText } from '@testing-library/react';
 import App from '../App';
 
-describe('App tests', () => {
-  it('checks if 2 + 2 is equal to 4', () => {
-    expect(2+2).toBe(4);
-  })
-
-  it('Renders the App', () => {
-    const { debug, container } = render(<App/>);
+describe("Random Test", () => {
+  it ('does nothing ', () => {
+    const  {container, debug} = render(<App/>); // returns a container 
     const title = getByText(container, 'All Items to Be Done!');
-    expect(title).toBeInTheDocument();
-    // console.log(debug());
+    console.log(debug(title));
+    expect(title).toBeInTheDocument()
   })
 })

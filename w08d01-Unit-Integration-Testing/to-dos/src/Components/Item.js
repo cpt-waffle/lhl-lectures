@@ -2,9 +2,9 @@ import React from 'react';
 
 export default (props) => {
   return (
-    <li className="todo-item" data-testid="item" key={props.index} >
+    <li className="todo-item" key={props.index} >
       
-      <p className="todo-title" data-testid="banana">{props.item}</p>
+      <p className="todo-title"  data-testid="todo-title" >{props.item}</p>
       <input
         id="check"
         className="checkbox"
