@@ -83,19 +83,33 @@ Now Nothing has happened so far so we will go into our `react app` and install a
 
 ``` npm i socket.io-client ```
 
-Now we have a way to connect to our server with this package. The problem is where to define our connections. We cant define them right in our function, because when the function re-renders, we will lose the connections. So we will do in the `useEffect() []` that will only make a connection once everything renders, and due to the fact that we have the `[]` param, we will NOT be re-running that `use-effect` again.
+Now we have a way to connect to our server with this package. The problem is where to define our connections. We define our socket outside of the component, however, we track connection with a state, and keep all the listeners inside of the `useEffect`. Note that we will have to clean up every event listener with the `return` from use effect so it does not create multiple event registrations.
 
 ```jsx
- useEffect(() => {
-    console.log("TEST")
-    const socket = socketIOClient(ENDPOINT);
+const socket = io();
 
+
+function App() {
+
+  const [isConnected, setIsConnected] = useState(socket.connected);
+
+
+  useEffect(() => {
     socket.on('connect', () => {
-      console.log("we have connected!");
-
-      })
+      setIsConnected(true);
     })
+
+    socket.on('disconnect', () => {
+      setIsConnected(false);
+    });
+
+
+    return () => {
+      socket.off('connect');
+      socket.off('disconnect');
+    }
   }, [])
+
 ```
 
 The rest, is adding listeners, and sending in data. Refer to the repo link for the code written.
