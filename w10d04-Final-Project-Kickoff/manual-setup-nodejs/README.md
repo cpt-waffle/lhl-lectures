@@ -183,15 +183,14 @@ inside of our `app.js`.
 /////////// catsRoutes.js
 const router = require('express').Router();
 
-module.exports = () => {
-  // all routes will go here 
-  router.get('/', (req, res) => {
-    const cats = ['Rosey', 'Puma', 'Mr Buttons', 'Aya'];
-    res.json(cats);
-  });
+router.get('/', (req, res) => {
+  const cats = ['Rosey', 'Puma', 'Mr Buttons', 'Aya'];
+  res.json(cats);
+});
   
-  return router;
-}
+
+module.exports = router;
+
 ```
 
 Then inside of our `app.js` we will add the `require` and `app.use` so that we tell express whenever someone 
@@ -271,48 +270,14 @@ module.exports = pool;
 
 ![9-db-config-js](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/9-db-config-js.png)
 
-We will also need to add the code to `app.js` so that it gets 
-imported in and we can use the `db` object to do queries.
+#### We will now use this connection, in any database helper/query file. 
+This is done so we can seperate are quaries into different files. ( just like in the midterm !)
 
-add this line:
-
-```js
-// db connection
-const db = require('./configs/db.config');
-```
-to your `app.js`.
-
-```js
-// declarations
-require('dotenv').config()
-const {ENVIROMENT, PORT} = process.env;
-const express = require('express');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-
-// db connection
-const db = require('./configs/db.config'); // <---------
-
-// routes import
-const catsRoutes = require('./routes/catsRoutes');
-
-
-const app = express();
-
-// middleware setup
-app.use(morgan(ENVIROMENT));
-app.use(bodyParser.json());
-//REST of APP.js............
-```
-
-
-Now try running the application (`node app.js`) and you should see that the database connection has been established. 
-
-![10-server-db](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/10-server-db.png)
+Lets create a file that will be responsible for all `database queries` for our cats table.
 
 ###  Adding Postgres -- Database File structure (Schema and Seeds)
 
-We now need to store files for `schema` and `seeds`. In the `server/` folder, we will make a new folder called `db` and inside of the `db/` folder we make 2 new folders called `seeds` and `schema`.
+We now need to store files for `queries`, `schema` and `seeds`. In the `server/` folder, we will make a new folder called `db` and inside of the `db/` folder we make 2 new folders called `seeds` and `schema`.
 
 ![11-migrations-and-seeds](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/11-migrations-and-seeds.png)
 
@@ -397,6 +362,7 @@ INSERT INTO urls (id, user_id, long_url, short_url, favorite) VALUES (19, 4, 'ww
 -- Seed Almight
 INSERT INTO urls (id, user_id, long_url, short_url, favorite) VALUES (20, 5, 'www.heroacademia.jp', 'KcF43', true);
 ```
+
 
 ![12-migrations-seeds-folder-structure](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/manual-setup-nodejs/screenshots/12-migrations-seeds-folder-structure.gif)
 
@@ -496,37 +462,50 @@ Final Result should look like this:
 
 ### Adding Postgres -- Passing DB into routes
 
-Now that we have data and a `db` connection, we should look into passing it into different
-routes so that we can call database queries within them.
+Now that we have data and a `db` connection. We should make `query` file to have each file responsible for one specific table entity (like `models` from rails!)
 
-Go into `app.js` and pass the `db` object down into `catRoutes())` like this:
+Go into `/queries` folder, and make a file called, `users.js`.
+This file will require the `db` connection from, `configs/db.config.js`
+
+The `db/queries/users.js` will look like this:
 
 ```js
-// ... app.js top
+// db/queries/users.js
 
-// routes
-app.use('/cats', catsRoutes(db));
+const db = require('../../configs/db.config');
 
-// ... app.js bottom
+const getAllUsers = () => {
+	return db.query("SELECT * FROM users;").then(data => {
+		return data.rows;
+	})
+}
+
+const getUserById = id => {
+	return db.query("SELECT * FROM users; WHERE id = $1", [id]).then(data => {
+		return data.rows;
+	})
+}
+
+module.exports = {getAllUsers, getUserById}
 ```
 
-Now that we passed `db` into  `catRoutes`, go into `routes/catRoutes.js` and lets make sure we get that parameter, followed by try running a query: 
+Now that `db/queries/users.js` is created, all we have need to do is `require` it in ANY route file, 
+and use the methods we have created:
 
 ```js
 // -- routes/catRoutes.js
 const router = require('express').Router();
+const users = require('../db/queries/users');
 
-module.exports = (db) => {
-  // all routes will go here 
-  router.get('/', (req, res) => {
-    const command = "SELECT * FROM users";
-    db.query(command).then(data => {
-      res.json(data.rows);
-    })
-  });
+router.get('/', (req, res) => {
+  users.getAllUsers().then(data => {
+    console.log(data);
+    res.json({users: data});
+  })
+});
+  
+module.exports = router;
 
-  return router;
-}
 ```
 
 Restart the server and if you go to `/cats` you should be able to see all the users we seeded into the database:
