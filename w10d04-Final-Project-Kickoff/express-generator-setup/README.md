@@ -108,9 +108,7 @@ Have a look inside `app.js` and notice the line that says:
 app.use('/users', usersRouter);
 ```
 
-`express-generator` has already made us routing so we can us their example, however we will need to refactor it, for our `pg` to work correctly.
-
-Next lets refactor the code in `users.js`.
+`express-generator` has already made us routing so we can us their example. We'll add, dummy data for now so it will be sent out until we add `pg`..
 
 Go to `/routes/users.js` and replace the code that is there with this:
 
@@ -129,17 +127,8 @@ module.exports = (db) => {
 }
 ```
 
-and in `app.js`  __change__ the line that says:
+At this stage, files should looks like this:
 
-```js
-app.use('/users', usersRouter);
-```
-
-INTO:
-
-```js
-app.use('/users', usersRouter());
-```
 
 ![4-refactored-routing.gif](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/express-generator-setup/screenshots/4-refactored-routing.gif)
 
@@ -213,32 +202,7 @@ module.exports = pool;
 
 ![6-db-config-conn](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/express-generator-setup/screenshots/6-db-config-conn.png)
 
-We will also need to add the code to `app.js` so that it gets 
-imported in and we can use the `db` object to do queries.
-
-add this line:
-
-```js
-// db connection
-const db = require('./configs/db.config');
-```
-to your `app.js`.
-
-```js
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-
-const db = require('./configs/db.config'); //<--------- ADD
-
-// ---  test of app.js.................
-```
-
-Now try running the application (`npm run start`) and you should see that the database connection has been established. 
-
-![7-db-conn-established](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/express-generator-setup/screenshots/7-db-conn-established.png)
-
+We have made a connection `config` file, and we will use it various places in the code to get our database system up and running. 
 
 ###  Adding Postgres -- Database File structure (Schema and Seeds)
 
@@ -425,39 +389,56 @@ Final Result should look like this:
 
 ### Adding Postgres -- Passing DB into routes
 
-Now that we have data and a `db` connection, we should look into passing it into different
-routes so that we can call database queries within them.
+From here, we will make a folder called `/queries`, inside of the `/db` folder
 
-Go into `app.js` and pass the `db` object down into `usersRouter())` like this:
+Folder Path: `/db/queries`.
 
-```js
-// ... app.js top
+Then we will make a file inside of `/queries` folder, called `users.js`. This file will contain EVERY database function for the `users` table. For the future, we will use this pattern for any other table entities ( make a file, and make functions for a specific table, very close to `ruby on rails` active record.)
 
-// routes
-app.use('/cats', usersRouter(db));
-
-// ... app.js bottom
-```
-
-Now that we passed `db` into  `users`, go into `routes/users.js` and lets make sure we get that parameter, followed by try running a query: 
+the file, `db/queries/users.js` will look like this:
 
 ```js
-// -- routes/catRoutes.js
-const router = require('express').Router();
+// db/queries/users.js
 
-module.exports = (db) => {
-  // all routes will go here 
-  router.get('/', (req, res) => {
-    const command = "SELECT * FROM users";
-    db.query(command).then(data => {
-      res.json(data.rows);
-    })
-  });
+const db = require('../../configs/db.config');
 
-  return router;
+const getAllUsers = () => {
+	return db.query("SELECT * FROM users;").then(data => {
+		return data.rows;
+	})
 }
+
+const getUserById = id => {
+	return db.query("SELECT * FROM users; WHERE id = $1", [id]).then(data => {
+		return data.rows;
+	})
+}
+
+module.exports = {getAllUsers, getUserById}
+
 ```
 
-Restart the server and if you go to `/users` you should be able to see all the users we seeded into the database:
+Now, all we have to do is require the `db/queries/users.js` file into any route file, that we want to call the database methods. We will add it the `routes/users.js` for example:
+
+```js
+// routes/users.js
+const express = require('express');
+const router = express.Router();
+const users = require('../db/queries/users');
+
+
+/* GET users listing. */
+router.get('/', (req, res) => {
+  users.getAllUsers().then(data => {
+    console.log(data);
+    res.json({users: data});
+  })
+});
+
+module.exports = router;
+
+```
+
+Now as you can see in the `gif` bellow, you have a file `db/queries/users.js` responsible for all database calls, that gets imported into `routes/users.js` to be used for the functions we built.
 
 ![11-db-in-routes](https://raw.githubusercontent.com/cpt-waffle/lhl-lectures/master/w10d04-Final-Project-Kickoff/express-generator-setup/screenshots/11-db-in-routes.gif)
