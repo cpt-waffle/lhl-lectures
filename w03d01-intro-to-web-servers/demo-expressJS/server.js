@@ -1,59 +1,52 @@
 const express = require('express');
 const app = express();
 const PORT = 8080;
-// template engine 
-// it can send out dynamic webpages to the client
-// and it can keep your server architecture clean
-///////////// template installation
-// npm install ejs
-// add this line: 
+
+// HTML
+
+// routes + 
+// views  + 
 app.set('view engine', 'ejs');
-// make a folder called views/
+// create a views/ folder inside of your server directory
 
-/// to send ejs templates to the client:
-// make a file with ".ejs" at the end of it
-const users = [
-  {name: 'Vas'},
-  {name: 'Gonzo'},
-  {name: 'Julia'},
-  {name: 'Trishna'},
-  {name: 'Christian'}
-]
+// view engine 
 
-let visitsToHomepage = 0;
+// dynamic views
+// and sending information from server to client
 
-
+const catsArray = ['Mr Meows', 'Mr Buttons', 'Rosy', 'Puma'];
+//                    0             1            2     3
 app.get('/', (req, res) => {
-  visitsToHomepage++;
-  console.log('home page has been hit!');
-  const templateVar = { users, PI: 3.14, visitsToHomepage };
-  //  INSTEAD of saying res.send()
-  // res.send("<h1>welcome to my home page!</h1>");
-  // res.render("filename")
-  res.render("homepage", templateVar);
-  // res.render("_FILE_NAME_", {OBJECT})
+  console.log("someone is coming to the home page!");
+  // res.send('hello World!');
+  res.render('home')
+
 })
 
-app.get('/users/:id', (req,res) => {
-  console.log(req.url);
-  const templateVars = {name: users[req.params.id]?.name } ;
-
-  console.log("params--->", req.params);
-  res.render('user', templateVars);
+app.get('/cats', (req, res) => {
+  console.log('/cats page has been visited!');
+  // res.send('<h1>Rosy, Puma, Mr Meows, Mr Buttons, Cliff</h1>');
+  // first param of res.render() is the file that will be rendered
+  // second param of res.render(), is an OBJECT, that will be SHARED with the view file.
+  const obj = {cats: catsArray};
+  res.render('cats', obj);
 })
 
+// /urls/:shortURL
 
 
-app.get('/helpimstuck', (req, res) => {
-  res.send('Now you are free!');
+app.get('/cats/:catsId', (req, res) => {
+  console.log(req.params.catsId);
+  if (!isNaN(req.params.catsId)) {
+    const templateVars = {cat: catsArray[req.params.catsId]}
+    res.render('cats_show', templateVars);
+  } else {
+    res.send('invalid id :(');
+  }
 })
 
-app.get('/moo', (req, res) => {
-  res.send('find the cow!!');
-})
+// for shopping sites, like amazon, canadianire, canadacomputers, lulu
 
-app.get('/formula1', (req, res) => {
-  res.send('Formula Dank!');
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
 })
-
-app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
