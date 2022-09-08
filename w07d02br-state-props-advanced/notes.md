@@ -13,5 +13,3 @@ Component ---> Component ---> Component
 -- Draw out our app
 
 
-
-///// Build a forum with a few buttons

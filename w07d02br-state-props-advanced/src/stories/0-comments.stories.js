@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from "@storybook/addon-actions";
 
 import Comment from '../Components/Comment';
-import CommentList from '../Components/CommentList';
+import CommentList from '../Components/CommentsList';
 
 const comment = {
 	id: 1,
@@ -14,7 +14,7 @@ const comment = {
 }
 
 storiesOf('Comments', module)
-	.add('A Random Comment', () => <Comment data={comment} handleClick={action('onClick')}/>)
+	.add('A Random Comment', () => <Comment data={comment}/>)
 
 
 	const comments = [
@@ -34,7 +34,6 @@ storiesOf('Comments', module)
 		}
 	]
 
-storiesOf('CommentList Component', module)
-	.add('default commentList', () => <CommentList comments={comments}/>)
-// CommentList(propName=Value)
-// CommentList(comments)
+// story for comment list component
+storiesOf('CommentList', module)
+.add('Default CommentList', () => <CommentList comments={comments}/>)

@@ -1,75 +1,41 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import CommentList from './Components/CommentList';
+import CommentList from './Components/CommentsList';
 
 // useEffect that gets this data from a server...
 // API
-const commentsData = [
-  { 
-    id: 1,
-    image: 'https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    content: 'This is a great comment!!! ',
-    likes: 10,
-    dislikes: 1,
-  },
-  {
-    id: 2,
-    image: 'https://www.rover.com/blog/wp-content/uploads/2019/05/dog-versus-bumblebee-600x340.jpg',
-    content: 'Balanced Comments INCOMING',
-    likes: 5,
-    dislikes: 5,
-  },
-  {
-    id: 3,
-    image: 'https://barkpost.com/wp-content/uploads/2016/04/Derp3.jpg',
-    content: 'rawr',
-    likes: 0,
-    dislikes: 10,
-  },
-  {
-    id: 4,
-    image: 'https://static.boredpanda.com/blog/wp-content/uploads/2017/02/cute-derpy-dog-fb.png',
-    content: 'I have no idea what im doing ',
-    likes: 2,
-    dislikes: 1,
-  },
-]
-
 
 function App() {
-  const [comments, setComments] = useState([...commentsData]);
-
-  const commentsFunction = (id, type) => {
-    console.log("App.js Line 42 :)")
-    console.log(id, type);
-    //if i know the id, and the type of click 
-    // i should go through my comments state, (loop)
-    const commentsCopy = comments.map( comment => {
-      // find the comment that was clicked ( id == current.id )
-      if (id === comment.id) {
-        // increment either the likes or dislikes
-        if (type === 'like') {
-          comment.likes = comment.likes + 1;
-        } else {
-          comment.dislikes = comment.dislikes + 1;
-        }
-      }
-
-
-      return comment;
+  const [comments, setComments] = useState([]); // []
+  // the secondary function changes state value
+  // and tells the function to Re-render ( re-run)
+  
+  useEffect(() => {
+    axios.get('/comments').then(res => {
+      setComments(res.data.comments);
     })
-    // set the copy to the original ( immutable patterns)
-    setComments(commentsCopy);
-  }
+  }, [])
 
+  const isEven = (type, id) => {
+    setComments(prev => {
+      return prev.map(comment => {
+        if (id === comment.id){
+          if (type === 'likes') {
+            return {...comment, likes: comment.likes + 1}
+          } else {
+            return {...comment, dislikes: comment.dislikes + 1}
+          }
+        } 
+        return comment;
+      })
+    })
+  }
 
   return (
     <div>
       <h1>Comments for Dogs</h1>
-      <CommentList
-        comments={commentsData}
-        getMemes={commentsFunction}
-      />
+      <CommentList comments={comments} onClick={isEven}/>
     </div>
   );
 }

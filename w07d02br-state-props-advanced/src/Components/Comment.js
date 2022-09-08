@@ -5,16 +5,11 @@ function Comment(props) {
 	// props.onClick();
 	const { id, image, content, likes, dislikes } = props.data;
 	const onLikeClick = () => {
-		// props.handleClick('like', id);
-		console.log('Likes click line 8');
-		// how do i tell App.js, WHICH comment component was clicked?
-		props.onClick(id, 'like');
+		props.anythingYouWish('likes', id);
 	}
 
 	const onDislikeClick = () => {
-		// props.handleClick('dislike', id);
-		console.log('Dislikes click line 14');
-		props.onClick(id, 'dislike');
+		props.anythingYouWish('dislikes', id);
 	}
 
 	return (
