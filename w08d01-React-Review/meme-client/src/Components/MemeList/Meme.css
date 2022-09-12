@@ -1,6 +1,9 @@
 .meme {
   background-color: black;
-  color: white;
+  padding: 20px;
   text-align: center;
-  padding: 35px;
+}
+
+.meme--img {
+  width: 400px;
 }
