@@ -1,30 +1,15 @@
-// console.log('hello world');
+// NO JQUERY
+console.log("Hi im app.js line 1 :)");
+const PI = 3.14;
+
+const helloWorld = () => console.log("hello World!");
 
 
-// const foo = () => {
-//   console.log('incoming popup in 3 seconds!');
-//   setTimeout(() => {
-//     console.log('open popup now!');
-//     window.open();
-//     window.navigator.getBattery().then((b) => console.log(b));
-//     window.document.querySelector('h1').innerText = 'We have changed our title!';
-//   }, 3000)
-// }
-
-// foo();
-
-///////////////////////////////////////////////////////////////////////////
-
-// WE cant use $(document).ready() just yet? Why ? SOON!
-let clicked = 0;
-window.document.addEventListener('DOMContentLoaded', () => {
-  window.document.querySelector('button').addEventListener('click', () => {
-    console.log("button has been clicked")
-    clicked++;
-    window.document.querySelector('span').innerHTML = clicked;
-  })
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementsByClassName('button')[0];
+  btn.addEventListener('click', (evt) => {
+    navigator.geolocation.getCurrentPosition(data => console.log(data));
+  });
 })
 
-// Form 
-// count how many characters are in that form that the
-// user has typed ( on every keyboard click)
+//
