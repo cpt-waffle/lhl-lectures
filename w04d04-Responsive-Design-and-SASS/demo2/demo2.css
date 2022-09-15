@@ -5,51 +5,50 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.tc {
-    text-align: center;
-}
 
-.margin5r {
-    margin-bottom: 5rem;
+.item1 {
+    background-color: firebrick;
+    width: 100%;
 }
-
-.profile--img {
-    width: 230px;
-    height: 230px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.about-me {
-    background-color: darkgray;
-}
-
-.exp {
+  
+.item2 {
+    background-color: goldenrod;
+    width: 50%;
 
 }
-
-.skills {
-
+  
+.item3 {
+    background-color: lightskyblue;
+    width: 25%;
+}
+  
+@media screen and (min-width: 600px) {
+.item1 {
+    width: 50%;
+    background-color: rebeccapurple;
+}
 }
 
-
-@media screen and (min-width: 520px) {
-    .profile--img {
-        width: 100vw;
-        height: 100vh;
-        border-radius: 0;
-        /* object-fit: cover; */
-    }
-
-    .about-me {
-        margin-top: 10px;
-        margin-left: 10%;
-        margin-right: 10%;
-        background-color: transparent;
-    }
-
-    .layout {
+@media screen and (max-width: 500px) {
+    body {
         display: flex;
-        flex-direction: row-reverse;
+    }
+
+    .item1 {
+        width: 100%;
+    }
+
+    .item2 {
+        width: 100%;
+    }
+
+    .item3 {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) and (min-width: 200px) {
+    .item1 {
+        background-color: darkblue;
     }
 }

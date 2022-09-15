@@ -1,11 +1,10 @@
 * {
     margin: 0;
     padding: 0;
-    /* font-size: 16px; */
 }
 
 .box-a {
-    border: 2px dashed lightgreen;
+    border: 2px dashed limegreen;
     font-size: 2em;
 }
 
@@ -15,12 +14,12 @@
 }
 
 .box-c {
-    border: 2px dashed lightskyblue;
+    border: 2px dashed rebeccapurple;
     font-size: 2em;
 }
 
 .box-d {
-    border: 2px dashed lightgreen;
+    border: 2px dashed limegreen;
     font-size: 2rem;
 }
 
@@ -30,6 +29,7 @@
 }
 
 .box-f {
-    border: 2px dashed lightskyblue;
+    border: 2px dashed rebeccapurple;
     font-size: 2rem;
+
 }

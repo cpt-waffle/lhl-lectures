@@ -1,19 +1,23 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
-/* percents */
+
+
 .item1 {
-    background-color: blueviolet;
-    width: 80%;
+  background-color: cornflowerblue;
+  height: 200px;
+  width: 100%;
 }
 
 .item2 {
-    background-color: cornflowerblue;
-    width: 50%;
+  background-color: firebrick;
+  height: 300px;
+  width: 50%;
 }
 
 .item3 {
-    background-color: salmon;
-    width: 25%;
-} 
+  background-color: rebeccapurple;
+  height: 300px;
+  width: 35%;
+}

@@ -1,11 +1,8 @@
 .tweet {
-  background-color: crimson;
-  h1 {
-    padding: 25px;
-    color: yellow;
+  p {
+    background-color: rebeccapurple;
     &:hover {
-      background-color: darkred;
+      background-color: darkmagenta;
     }
   }
-
 }

@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-align: center;
+}
+
+.profile--img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+.profile--p1 {
+  margin: 5%;
+}
+
+.profile--p2 {
+  color: coral;
+  padding-bottom: 20px;
+}
+
+.profile--p3 {
+  color: rebeccapurple;
+}
+
+@media screen and (min-width: 500px) {
+  body {
+    background-color: #14274700;
+  }
+
+  .profile--img {
+    width:100%;
+    height: auto;
+    border-radius: 0;
+  }
+
+  .bottom-container {
+    display: flex;
+  }
+}

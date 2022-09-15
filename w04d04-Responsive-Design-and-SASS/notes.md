@@ -3,7 +3,6 @@
 
 What that means ?  How far have we come!
 
-
 ---- Viewport 
 ---- rem em pixel percentages
 ---- breakpoints/media queries
@@ -11,23 +10,24 @@ What that means ?  How far have we come!
 ---- sass (bonus)
 
 
-## The old Days 
+
+### Back in the Day.....
+
+Computers with various different screens 
+
+square blocks
+
+2003-05
+
+Iphone 1 
+Android 1
+
+--- When a client asks for a request....
+--- figure out what device they are using, if its a phone 
+--- send them a phone layout
+--- if its not
+--- send them desktop layout
 
 
-- 2000 - 2010 
-- CRTC Monitors, LCD square moniotrs would come out
-- 24 inch  average 20 inch or lower 
 
-## IPhone 1 Came out 
 
-- We need run on a phone!?!
-
-How can we get around this at the time....
-
-What if... we detect the screensize on request
-and respond back with a different webpage....
-
-(req,res) => {
-  sizeOfScreen,
-  device, 
-}

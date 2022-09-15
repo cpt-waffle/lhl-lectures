@@ -17,11 +17,10 @@ app.use(sassMiddleware({
 // not work.
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-const port = 3000
-
+const port = 8080;
 app.get('/', function(req, res) { 
   res.json({
-    message: ' GO TO ---> http://localhost:3000/public/index.html'
+    message: ' GO TO ---> http://localhost:8080/public/index.html'
   })
 })
 

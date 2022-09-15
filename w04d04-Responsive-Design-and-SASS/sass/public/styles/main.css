@@ -1,12 +1,7 @@
-.tweet {
-  background-color: crimson;
+.tweet p {
+  background-color: rebeccapurple;
 }
 
-.tweet h1 {
-  padding: 25px;
-  color: yellow;
-}
-
-.tweet h1:hover {
-  background-color: darkred;
+.tweet p:hover {
+  background-color: darkmagenta;
 }
