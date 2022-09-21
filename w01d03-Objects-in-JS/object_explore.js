@@ -50,3 +50,5 @@ const tvShow = {
             }
         }
 }
+
+console.log(tvShow.favorite.id)
