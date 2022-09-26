@@ -1,0 +1,11 @@
+<% if @user %>
+  <h1> <%= @user.email %> </h1>
+<% else %>
+  <h1>Urls</h1>
+<% end %>
+
+  <ol>
+  <% @urls.each do |url| %>
+    <li> <%= url.longURL%> <b><%= url.shortURL %></b> </li>
+  <% end %>
+  </ol>
