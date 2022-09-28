@@ -3,41 +3,51 @@ Final Projects
 --  Advanced Topic  --
 REAL TIME COMMUNICATION (socket.io)
 
-- socket.io
-- 
-
-# -------
- Snek Game 
- Terminal using `net`
 
 
- You connect and STAY connected!!!
+### HTTP
 
- Client                            SErver
- ------------CONNECTION MADE ---------------
- -------------------messages ---------->
- <-------------------messages ------------
-  -------------------messages ---------->
-   -------------------messages ---------->
-    -------------------messages ---------->
-     -------------------messages ---------->
- <-------------------messages ------------
-  <-------------------messages ------------
-  DISCONNECT 
-  TIMEOUT
+Client                                     Server
+REQ -------------------------------------------->
+ <---------------------------------------------RES
 
-  Client (web browser)                        Server (NodeJS)
+### TCP
 
-Chat application that sends messages back and forth
-also gives a random name to the user,
+Connect
+You stay connected (until otherwise...)
+Client                                       Server
+----------------------------->messages ----------->
+<-----------------------messages------------------<
+----------------------------->messages ----------->
+----------------------------->messages ----------->
+----------------------------->messages ----------->
+----------------------------->messages ----------->
+<-----------------------messages------------------<
+<-----------------------messages------------------<
 
+### WEBRTC
 
-## Finals 
+- for video and audio ( not part of this lecture!)
 
-1 repo
- - server
- - client
+SOmeone has liked your photo!
 
-2 repo 
-- 1 repo for server
-- 1 repo for client
+### Packages
+
+- wss + ws -- its very low level, (http-server)
+- socket.io -- it has alot of things done for you, and its easier to setup
+
+### for Rails...
+
+- Rails (main app)
+- NodeJS Socket Server (chat, notifications)
+- React (client)
+
+### ActionCable
+
+- docs arent the best 
+
+### Make 1 repo
+
+- client folder
+- server folder 
+
