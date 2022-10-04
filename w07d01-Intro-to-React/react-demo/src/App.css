@@ -1,11 +1,4 @@
-* {
+.App {
   margin: 0;
   padding: 0;
-  text-align: center;
-}
-
-.btn {
-  background-color: red;
-  color: white;
-  width: 80px;
 }

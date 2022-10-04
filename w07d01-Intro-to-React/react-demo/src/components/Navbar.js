@@ -1,24 +1,28 @@
-// Optional ()
+// 0 (optional step)
+// import React from 'react';
 import React from 'react';
 import './Navbar.css';
 
-//Mandatory
 
-// 1 - Create a function, with the SAME NAME
-// as your component/file
+//make function, SAME NAME as the file
+// of your component
 
+const Navbar = (props) => {
+  console.log(props.title);
+  // make sure your function returns
+  // some JSX
+  const fruit = 'banana';
 
-const Navbar = () => {
-  // 3 - your Component MUST return HTML
   return (
     <nav className="navbar">
-      <h1>Some navbar</h1>
+      <h1>{props.title}</h1>
+      {fruit}
     </nav>
   )
-  
 }
+// <%= %>
 
-// 2 - Function must be exported!!!
 
-// module.exports = {default: Navbar};
+// export default the function
+
 export default Navbar;

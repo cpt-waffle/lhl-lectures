@@ -8,13 +8,19 @@ REACT DAY 2
 -- storybook
 -- Re-use of Components  
 -- Props
-
-### Breakout Today 
-
--- React State
+-- State
 
 
-## React
+### Client side Rendering
 
-Single Page apps, using JS
-(PWA) - progressive web apps
+- the app renders everything on the client
+- data gets delivered via server API ( usually in JSON, XML)
+- the server doesn't have to build the HTML/CSS, which makes it run faster! :) 
+
+## React is a Client Side Rendering Library
+
+
+-- Webpack
+-- Babel 
+(Vite)
+

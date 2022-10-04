@@ -1,0 +1,13 @@
+.profile {
+  text-align: center;
+  background-color: rgb(52, 54, 56);
+  padding: 10px;
+  width: 400px;
+}
+
+.profile--img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+}
