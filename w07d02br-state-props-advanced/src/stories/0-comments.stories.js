@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from "@storybook/addon-actions";
 
 import Comment from '../Components/Comment';
-import CommentList from '../Components/CommentsList';
+import CommentList from '../Components/CommentList';
 
 const comment = {
 	id: 1,
@@ -34,6 +34,10 @@ storiesOf('Comments', module)
 		}
 	]
 
-// story for comment list component
-storiesOf('CommentList', module)
-.add('Default CommentList', () => <CommentList comments={comments}/>)
+	// make story,
+storiesOf('Comment List', module)
+	.add('default CommentList', () => <CommentList giraffe={comments}/>)
+
+	// make component 
+	// render it on the page 
+

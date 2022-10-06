@@ -5,11 +5,11 @@ function Comment(props) {
 	// props.onClick();
 	const { id, image, content, likes, dislikes } = props.data;
 	const onLikeClick = () => {
-		props.anythingYouWish('likes', id);
+		props.primerib(id, 'like')
 	}
 
 	const onDislikeClick = () => {
-		props.anythingYouWish('dislikes', id);
+		props.primerib(id, 'dislike')
 	}
 
 	return (
