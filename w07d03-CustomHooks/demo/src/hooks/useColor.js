@@ -1,17 +1,20 @@
 import { useState } from "react";
 
-const useColor = (colors) => {
+const useColor = (array) => {
   const [index, setIndex] = useState(0);
 
+  console.log("AM I RUNNING!?");
+  console.log(array);
+
   const next = () => {
-    if (index !== colors.length - 1 ) setIndex(index + 1);
+    setIndex(prev => prev + 1);
   }
 
   const prev = () => {
-    if (index !== 0) setIndex(index - 1);
+    setIndex(prev => prev - 1);
   }
 
-  return {currentColor: colors[index], next, prev}
+  return {currentColor: array[index], next, prev}
 }
 
 export default useColor;

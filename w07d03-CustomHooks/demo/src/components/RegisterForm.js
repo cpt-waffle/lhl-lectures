@@ -1,23 +1,62 @@
 import React, {useState} from 'react';
 import useForm from '../hooks/useForm';
 
-
-const RegisterForm = (props) => {
+const RegisterForm = props => {
+  // console.log(useForm);
   const email = useForm();
   const pass = useForm();
   const passConf = useForm();
+  const name = useForm();
 
 
-  return (
-    <form>
-      <h1>Register Form</h1>
-      <p>Email:<input type='email' name='email' value={email.val} onChange={email.onChangeVal}/></p>
-      <p>Pass:<input type='password' name='password' value={pass.val} onChange={pass.onChangeVal}/></p>
-      <p>Pass Conf:<input type='password' name='password' value={passConf.val} onChange={passConf.onChangeVal}/></p>
-      <p><button>Sign in!</button></p>
-    </form>
-  )
-} 
+  return (<form>
+    <h1>Registration Form</h1>
+    <p>Email: 
+        <input 
+          type="email"
+          name="email"
+          value={email.val}
+          onChange={email.onValChange}
+        />
+    </p>
+    <p>Name: 
+      <input 
+        type="text" 
+        name="name"
+        value={name.val}
+
+        onChange={name.onValChange}
+
+        />
+      </p>
+    <p>Password: 
+      <input 
+      type="password" 
+      name="pass"
+      value={pass.val}
+      onChange={pass.onValChange}
+      />
+      </p>
+    <p>Password Conf: 
+      <input 
+        type="password" 
+        name="passconf"
+        value={passConf.val}
+        onChange={passConf.onValChange}
+      />
+    </p>
+
+
+  </form>);
+}
 
 
 export default RegisterForm;
+
+
+// Custom hooks
+
+// re-use, all of your state logic in other components
+
+// you can make as many custom hooks
+// as you want, in any component

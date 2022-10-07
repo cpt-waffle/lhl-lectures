@@ -1,19 +1,20 @@
 import React from 'react';
+import './Color.css';
 import useColor from '../hooks/useColor';
 
-
 const Color = (props) => {
-  const {currentColor, next, prev} = useColor(['rebeccapurple', 'goldenrod', 'firebrick', 'blue', 'salmon', 'skyblue', 'green']);
-  return (
-    <div style={{backgroundColor: currentColor}}>
-      Color Component!
-      <div>
-        <button onClick={prev}>Prev</button>
-        <button onClick={next}>Next</button>
-      </div>
-    </div>
-  )
-}
+  // i want to pass an array of colors into use color
+  // it returns me an object, with current color selected
+  // [red, blue, green, purple]
+  // red
+  const color = useColor(['goldenrod', 'rebeccapurple', 'limegreen', 'firebrick'])
 
+  return (<div style={{backgroundColor: color.currentColor}} className='color'>
+    Color Box
+    <button onClick={color.prev}>Prev</button>
+    <button onClick={color.next}>Next</button>
+
+  </div>)
+}
 
 export default Color;
