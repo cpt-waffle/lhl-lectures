@@ -1,11 +1,6 @@
+const PORT = 8080;
 const express = require('express');
 const app = express();
-const cors = require('cors');
-
-let num = 0;
-// ??
-// app.use(cors());
-
 
 const memeList = [
   {id:1, name: "Adrian's fresh meme", url: 'https://preview.redd.it/ff3hhsds9ks41.jpg?width=960&crop=smart&auto=webp&s=bf75658ce17a530f610fdc49b772254e6356f145'},
@@ -15,17 +10,14 @@ const memeList = [
   {id:5, name: "meirl", url: "https://i.redd.it/lz77ubqd9vu81.jpg"}
 ];
 
+let i = 0;
 
-app.get('/memes', (req,res) => {
-  num++;
-  console.log("HIT! ", num);
+app.get('/memes', (req, res) => {
+  i++;
+  console.log("/memes has been hit ", i);
+  setTimeout(() => {
     res.json(memeList);
+  }, 700)
 })
 
-app.get('/favorite', (req,res) => {
-  res.json({name: 'me today', url: 'https://i.pinimg.com/originals/1a/4c/bb/1a4cbbb5d5f996ebc93a18a8c4c9f8f3.jpg'})
-})
-
-
-
-app.listen(8080, () => console.log('server is listening 8080!'));
+app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
