@@ -1,10 +1,9 @@
 #### React Review
 
 - Components
-- API
 - storybook
+- API
 - State
 - Props
 - useEffect
-- Patterns (immutable and otherwise react components)
 - Custom Hooks

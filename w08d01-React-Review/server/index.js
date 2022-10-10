@@ -1,6 +1,9 @@
 const express = require('express');
 
+
 const app = express();
+
+let i = 6;
 
 const memeList = [
   {id:1, title: "Adrian's fresh meme", img: 'https://preview.redd.it/ff3hhsds9ks41.jpg?width=960&crop=smart&auto=webp&s=bf75658ce17a530f610fdc49b772254e6356f145'},
@@ -10,12 +13,19 @@ const memeList = [
   {id:5, title: "meirl", img: "https://i.redd.it/lz77ubqd9vu81.jpg"}
 ];
 
-let num = 0;
+
 app.get('/memes', (req,res) => {
-  num++;
-  console.log(num);
-  return res.json(memeList);
+  setTimeout(() => {
+    // db.query(***).then( )
+    res.json(memeList)
+  }, 1000);
+  console.log(i++);
 })
 
+// app.post('/memes', (req,res) => {
+  // db.query(***).then( )
+// })
 
-app.listen(8080, () => console.log("Server is online on port 8080"));
+
+
+app.listen(8080, () => console.log("Server is on"));
