@@ -4,33 +4,37 @@ import '@testing-library/jest-dom';
 
 import Form from '../Form';
 
-
-describe('Form Tests', () => {
-  it("tries to render the form",  () => {
-    const {container, debug} = render(<Form/>);
+describe('form tests', () => {
+  it(' renders', () => {
+    const {container} = render(<Form/>);
     expect(container).toBeInTheDocument();
-    console.log(debug());
   })
+  // how do we track state, or if something ran
+  // -- nope, we cant track state
 
-  it("renders form, presses add on empty item, and does not add",  () => {
-    const mockAddItem = jest.fn();
-
-    // expect(mockAddItem).toHaveBeenCalled();
+  // how to trigger events?
+  it (' clicks the button of the form', () => {
+    const mockAddItem = jest.fn()
     const {container, debug, getByTestId} = render(<Form addItem={mockAddItem}/>);
-    const btn = getByTestId('add-btn');
-    fireEvent.click(btn);
+    const button = getByTestId('form-button');
+
+    fireEvent.click(button);
     expect(mockAddItem).not.toHaveBeenCalled();
+    // 
   })
 
-  it("renders form, types an item, presses add, and adds to list",  () => {
-    const mockAddItem = jest.fn();
-
-    // expect(mockAddItem).toHaveBeenCalled();
+  it (' fills out the form then clicks the button', () => {
+    const mockAddItem = jest.fn()
     const {container, debug, getByTestId} = render(<Form addItem={mockAddItem}/>);
-    const btn = getByTestId('add-btn');
-    const input = getByTestId('item-add')
-    fireEvent.change(input, {target: {value: 'buy milk'}})
-    fireEvent.click(btn);
+    // fill out the form....
+    const input = getByTestId('input');
+    fireEvent.change(input, {target:{ value: 'buy milk'}})
+    ///////////////////////
+    const button = getByTestId('form-button');
+    fireEvent.click(button);
     expect(mockAddItem).toHaveBeenCalled();
+
   })
+
+
 })
