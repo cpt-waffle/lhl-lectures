@@ -4,32 +4,31 @@
 }
 
 .box-a {
-    border: 2px dashed limegreen;
+    border: 2px dashed red;
     font-size: 2em;
 }
 
 .box-b {
-    border: 2px dashed lightcoral;
+    border: 2px dashed green;
     font-size: 2em;
 }
 
 .box-c {
-    border: 2px dashed rebeccapurple;
+    border: 2px dashed blue;
     font-size: 2em;
 }
 
 .box-d {
-    border: 2px dashed limegreen;
+    border: 2px dashed goldenrod;
     font-size: 2rem;
 }
 
 .box-e {
-    border: 2px dashed lightcoral;
+    border: 2px dashed rebeccapurple;
     font-size: 2rem;
 }
 
 .box-f {
-    border: 2px dashed rebeccapurple;
+    border: 2px dashed firebrick;
     font-size: 2rem;
-
 }

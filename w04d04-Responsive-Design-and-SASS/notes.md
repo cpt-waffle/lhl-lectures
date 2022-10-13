@@ -10,24 +10,19 @@ What that means ?  How far have we come!
 ---- sass (bonus)
 
 
+#### Back in the day.....
 
-### Back in the Day.....
+2003-2008 
 
-Computers with various different screens 
-
-square blocks
-
-2003-05
-
-Iphone 1 
-Android 1
-
---- When a client asks for a request....
---- figure out what device they are using, if its a phone 
---- send them a phone layout
---- if its not
---- send them desktop layout
+-- iphone 1 comes out...
+-- build a new layout, for smaller, bigger, etc, devices 
+DETECT them with our backend, and then send them that layout for the page...
 
 
+### Viewport!!
 
+visible area of a webpage
 
+viewport varies with device
+
+viewport scales the ui based on what settings are being passed in

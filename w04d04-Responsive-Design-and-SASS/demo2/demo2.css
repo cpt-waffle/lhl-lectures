@@ -6,49 +6,50 @@
 }
 
 
-.item1 {
-    background-color: firebrick;
-    width: 100%;
+.layout {
+    display: flex;
 }
-  
+
+.item1 {
+    background-color: coral;
+    width: 20%;
+}
+
+
 .item2 {
-    background-color: goldenrod;
-    width: 50%;
+    background-color: blueviolet;
+    width: 100%;
 
 }
-  
+
 .item3 {
-    background-color: lightskyblue;
-    width: 25%;
-}
-  
-@media screen and (min-width: 600px) {
-.item1 {
-    width: 50%;
-    background-color: rebeccapurple;
-}
+    background-color: green;
+    width: 100%;
+
 }
 
-@media screen and (max-width: 500px) {
-    body {
-        display: flex;
+@media screen and (max-width: 700px){
+    * {
+        font-size: 32px;
     }
 
     .item1 {
-        width: 100%;
+        background-color: purple;
     }
 
-    .item2 {
-        width: 100%;
-    }
-
-    .item3 {
-        width: 100%;
+    .layout {
+        display: block;
     }
 }
 
-@media screen and (max-width: 400px) and (min-width: 200px) {
+@media screen and (min-width: 1000px) {
     .item1 {
-        background-color: darkblue;
+        width: 100%;
+        background-color: red;
+        border-radius: 50%;
     }
 }
+
+
+
+
