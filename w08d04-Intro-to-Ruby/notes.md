@@ -5,38 +5,45 @@
 - BREAK - 
 - More Comparisons
 - yield
-- rails ( the project you will be working on from tue - next week tue-wed?)
+- rails talk ( the project you will be working on from tue - next week tue-wed?)
 
 
 ##########################################################
 
-### Javascript 
+### Ruby vs JS
 
--- popular language both on the front and the backend
--- async language (single threaded, but background functions run pararel)
--- highly performant ( quite quick )
--- JAVA was popular and javascript wanted to ride the popularity train
--- 6 - 10 days in 1995
--- NPM 1.6 million packages~
+### JS
+
+- 10 days in 1995
+- JavaScript --- JAVA -- still confuses recruiters to this day :) 
+- can both run in the front-end and back-end 
+- the library for JS, is absolutely massive (1.4mill + )
+- asynchronous (callbacks, promises, async/await)
+- syntax inspired by C and Java
+- Very active Communities!
+- very easy(ish) and fun to learn
 
 ### Ruby
-sync language (single threadedamount of package
 
--- Github
--- Shopify
--- AirBnB
--- Compass 
+- created in 1995 
+- Yukihiro Matsumoto (Matz)
+- got popular in 2008 because of a framework ( Ruby on Rails )
+- "simplified" and "unclutered" 
+- synchronous (lacks performance)
+- (rails) very good for making things quick ( rapid prototyping)
+- fairly big package libraries 
+- established 
 
-## Speed vs Popularity vs Maintance 
 
 
-### Whats happening for next week ( week 9) ??
+##### Next Week!
 
--- no lectures
--- breakouts (mini lectures) tues and thurs
--- Today: starting ruby
--- Monday: Active Record
--- Tuesday -- Friday: Ruby on Rails
--- Given a Project that is basically 99% completed!!
--- you will need some features for this project ( WITHOUT BREAKING THE ENTIRE PROJECT! )
+-- no lectures (hands off week)
+-- 1 - 2 breakouts on ruby on rails 
+-- you will be given a repo, that is a completed project ( store ) written in ruby on rails
+-- you will be asked to add more features to this completed project
+
+-- d1 Active Record (replacing SQL )
+-- d2 Rails tutorial
+-- d3 Welcome to Jungle Repo
 
