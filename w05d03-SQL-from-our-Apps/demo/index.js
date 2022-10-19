@@ -1,51 +1,52 @@
-const { Pool, Client } = require('pg');
+const {Pool, Client} = require('pg');
 
-console.log("hello !");
+console.log('Hello world!');
+// add PG to this file....
+// need to install it
 
 const pool = new Pool({
     user: 'labber',
-    host: 'localhost',
-    database: 'w05d03',
     password: 'labber',
+    database: 'w05d03',
+    host: 'localhost',
     port: 5432
 })
-// new Pool() command
-// Connects me to the database with 
-// my credentials
+
+
+// pool.query("SELECT * FROM employees;", (err, res) => {
+//     if (err) throw new Error(err);
+//     console.log("CALLBACK WAY@@")
+//     console.log(res.rows);
+// })
+
+// const id = 3;
+
+// pool.query(`SELECT * FROM employees WHERE id=$1 and first_name=$2;`, [id]).then(res => {
+//     console.log("PROMISE WAY!!!")
+//     console.log(res.rows);
+// }).catch(err => {
+//     console.log(err)
+// })
+
+
+getEmployee = (id) => {
+//....
+return data.rows[0]
+}
 
 
 
-pool.query('SELECT * FROM employees;', (err, res) => {
-    console.log("TEST!!");
-    if (err) {
-        console.log(err);
-    } else {
-        console.log(res.rows);
-    }
-})
-
-pool.query('SELECT * FROM employees;').then( res => {
-  console.log('TEST!!! PROMISES!!!');
-  console.log(res.rows);
-}).catch( err => {
-
-})
 
 
-// pool.query() command
-// is able to do SELECT quaries 
-// on my database!!
 
-// port 
-// username
-// password
-// host
-// database
+const getEmployees = () => {
+    let command = 'SELECT * FROM employees'
+    return pool.query(command).then(data => {
+        return data.rows;
+    })
+}
 
-// client  = 1 connection = worker
-// A client is a connection
-// to a database. INSERT, SELECT, DROP, etc
-// (in the realm of the client permissions)
-
-
-// pool  = 1 connection = MANY workers (8 - 10)
+getEmployees(null, 10).then(employees => {
+    console.log("IN MY PROMISE.then");
+    console.log(employees);
+});

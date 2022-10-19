@@ -7,41 +7,37 @@
 - How to make functions for helper methods -- (tomorrow's activities)
 - Q and A
 
-# -----------------------------
+#### HTTP
 
-TinyApp
+- w3d1 - d5
+- d4d1 - d5
 
-you have deployed tiny app from amazon servers
+DATABASES 
 
-- tiny app has 8 million users
-- you buy an island
-- 2 weeks 
--  ADD MORE FEATURES ()
- -- analytics
- -- dark mode
- -- friends 
- -- organizations
-
--------- DEPLOYMENT ----------
-
---- restart the server ---
--- DATA GOES BYE
+- persisted, organized, data 
+- PSQL
+- sequel language 
 
 
--------------------------------
-We need data persistance 
 
--- file, read, written 
-name,
+Web 
 
-------- Data services (SQL)
+Client                                Server                               DATABASE
+-----------------REQ-------------------->
+                                SERVER LOGIC ------------------------------->
+                                <---------------DATA 0-----------------------
+<----------------RES--------------------
 
-psql
+
+#### Make a single JS file, interact with our database
+
+node `pg`
+
+so when i write `psql`, it has alot of presets that we do not know about at all....
 
 
-Web
-User                     SERVER                      DATABASE
----------REQ------------> 
-                            ----------------------->
-                            <----------------------  
-<--------RES-------------
+host:
+user:
+password:
+port:
+dabasename:
