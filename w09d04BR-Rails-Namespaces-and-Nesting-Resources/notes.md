@@ -5,13 +5,29 @@
 - Static Pages/Pages Controller
 
 
-### MVC
 
-Rails/Ruby Magic 
+## Ruby and Rails
 
-M - Model
-V - View
-C - Controller
+### MVC -- SailsJS, Django, ASP.net (Core), Rails, Laravel, etc
 
-`routes.rb`
 
+M     ---    interaction with dabase (pg --- db.query())
+Views ---    show UI 
+Controllers --- all routing logic goes here....
+
+## Routes
+
+routes.rb
+
+
+
+## Midterms
+
+schema/
+   01_schema.sql
+   01_create_users.sql
+   02_create_widgets.sql
+   ....
+
+
+## Migrations -- as the GIT of Databases

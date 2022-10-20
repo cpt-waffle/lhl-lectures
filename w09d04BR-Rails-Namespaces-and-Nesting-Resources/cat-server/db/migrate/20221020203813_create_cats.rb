@@ -10,13 +10,13 @@ class CreateCats < ActiveRecord::Migration[6.0]
 end
 
 
-#-------------
-#1) rollback 
-#2) add a fk 
-#3) re-migrate
+# ----------
+# 1) rollback rails db:rollback
+# 2) add the foreign key reference
+# 3) re-migrate
 
 
-#-------------
-#1) make a new migration
-#2) add fk
-#3) migrate
+#------------
+# 1) make a new migration
+# 2) add foreign key
+# 3) run the migration
