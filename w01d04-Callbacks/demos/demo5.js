@@ -1,27 +1,23 @@
-// // map // forEach // Filter // 
+// // map // forEach // Filter // reduce
 
-// c style for loop = index, arr[index]
-// for of = only gets us the value
-// for in = only gets us the index
-// const array = ['purple', 'green', 'blue', 'salmon', 'firebrick', 'rebecca purple'];
-// //                 0       1        2        3           4              5
-// array.forEach((b, index, a) => {
-//   console.log("what is B?? ", b);
-//   console.log("what is index??/", index);
-//   console.log(a);
-// })
+const array = [1,2,3,4,5]
+//   output => 2,4,6,8,10
 
-// const result = [];
-// for (let num of numbers ) {
-    // result.push(num * 5);
-  // }
-  
-  // console.log(result);
-  
-  // map
-  const numbers = [1,2,3,4,5];
-const result = numbers.map((elem) => {
-  return elem * 5;
+const arr = [];
+for (let num of array) {
+  arr.push(num * 2)
+}
+
+console.log(arr);
+
+
+const result = array.map((element, index, array) => {
+  return element * 2;
 })
-
 console.log(result);
+
+
+array.forEach(function(element, index) {
+  console.log('element', element);
+  console.log('index', index);
+})

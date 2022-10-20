@@ -1,34 +1,59 @@
 // REVIEW!!!!!
 
-// variables are there to store data
-const PI = 3.14; // number
-let fruit = 'apple'; // string
-const ateBreakfest = false; // boolean
+// arrays
+// 0 - first name
+// 1 - last name
+// 2 - age
+const arr = [1,2,3,4,5,6];
+// index     0,1,2,3,4,5
 
-// Functions?
-// execute an action (multiple times)
+// objects
+const obj = {a: 1, banana: 2, c: 3, imruningoutofwords: 5, e:4}
+//keys
+const user = {first_name: 'vas', last_name: 'klimkin'};
 
-// function definition!
-const greetings = function(nameOfDay, isNight, func) {
-  console.log(func());
-  func();
-  if (isNight === true) {
-    console.log('Happy ' + nameOfDay + ' evening!');
-  } else {
-    console.log("Happy ", nameOfDay);
-  }
-  return 'hello'
-}
-// return type!
-const somePrintFunction = function() {
-  console.log("LINE 24: I AM PRINTING!!!!");
-  console.log("LINE 25: FUNCTION END");
+
+// console.log(arr);
+// console.log(obj.e);
+
+///////////////////////////////////////////////////////
+
+
+const greetings = function(val) {
+  console.log("Hello ", val);
 }
 
-// call the function 
-const response = 'almost FridaY!!!!!';
-const bb = true;
-greetings('almost FridaY!!!!!', true, somePrintFunction);
-// console.log("FUNCTION RETURNED ==", returnType);
+// greetings('cheever');
+// greetings('vas');
+// greetings('david');
 
-// console.log(PI, fruit);
+const foo = function(a,b) {
+  console.log(a + b);
+}
+
+// let val1 = 9;
+// let val2 = 6;
+
+// foo(val1, val2);
+
+
+
+// foo(2,2);
+// foo('a','b');
+// foo(true,false); // 1  0 
+// foo([1,2,3], [1,2,3])
+// foo({a:1, b:2}, {a:1, b:2})
+
+
+// callbacks --- are parameters in a function that are functions themselves
+const firstFunction = function(a) {
+  a();
+}
+
+const b = function() {
+  console.log('im b from line 53');
+};
+
+
+firstFunction(b);
+

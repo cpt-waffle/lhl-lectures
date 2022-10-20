@@ -3,34 +3,26 @@
 // the callback will determine which elements to print
 
 const arr = [1,'two', 3, 'four', 5, 'six', 7, 'eight', 9, 'ten'];
-//           0   1    2    3     4    5    6    7      8    9
 
-const isNumber = function(val) {
-  if (typeof val === 'number') {
-    return true;
-  } else {
-    return false;
-  } 
+
+const isNumber = (val) => {
+  return typeof val === 'number';
 }
-// ['Alice', 'Ray', 'Prince', 'Waldo', 'Courtney']
 
 
-const printOnly = function(arr, callback) {
-  for (let element of arr) {
-    // if true PRINT , if false DONT PRINT
-    if (callback(element) === true)
-      console.log(element);
+const printOnly = function(array, callback) {
+  console.log(callback);
+  for (let num of array) {
+    if (callback(num)) {
+      console.log(num);
+    }
   }
 }
 
-// printOnly(arr, cb)
 
-// console.log(isNumber('three'));
-
-// arrow notation functions 
+printOnly(arr, isNumber);
 
 
-printOnly(arr, isNumber)
-printOnly(arr, (val) => {
-  return typeof val === 'string' ? true : false;
+printOnly([1, 'two', 3, 'four'], function(val) {
+  return typeof val === 'string'
 })
