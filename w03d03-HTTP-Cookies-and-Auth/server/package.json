@@ -1,10 +1,9 @@
 {
-  "name": "express-server",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,7 +12,7 @@
   "dependencies": {
     "cookie-parser": "^1.4.6",
     "ejs": "^3.1.8",
-    "express": "^4.18.1",
+    "express": "^4.18.2",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
