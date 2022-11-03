@@ -2,9 +2,13 @@
 
 Security :)
 
-- Cookies vs ??? Cookie-Session
-- Bcrypt
-- Q and A about project :)
+- hashing passwords
+- bcryptJS (bcrypt)
+- middleware (bonus)
+- encrypted cookies (cookie-session)
+- HTTPS
+- cleaning up server.js (bonus)
+
 
 
 
