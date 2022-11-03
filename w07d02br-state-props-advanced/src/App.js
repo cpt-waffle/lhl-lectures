@@ -7,45 +7,64 @@ import CommentList from './Components/CommentList';
 // API
 
 function App() {
-  const [burger, setBurger] = useState([]);
-  const [num, setNum] = useState(3);
-
+  const [bark, setBark] = useState([]);
+  // no second param --> run anytime anything changes
+  // 2nd param = []  --> run once on the first render
+  // 2nd param = [val1, val2] --> run anytime when the values in the array change
   useEffect(() => {
-    console.log("test");
-    axios.get('/comments').then(response => {
-      console.log(response);
-      setBurger(response.data.comments);
+    axios.get('/comments').then(res => {
+      console.log(res);
+      //res.data.comments
+      setBark(res.data.comments);
     })
-  }, [])
 
-  const onClick = (id, type) => {
-    console.log(id, type);
-    console.log("App.js Line 21 <------ :)");
-    setBurger(prev => {
-      // loop through my comments
+  }, []) 
+
+  // VIRTUAL DOM
+
+
+  // bark = [3, 2, 1,];
+  // {
+  //   h16567573: {value: 'Comments for dogs', class: '', }
+  //   CList23452w5: {
+  //     Comment3-32525: {value: }
+  //     Comment2-32525: {value: }
+  //     Comment1-32525: {value: }
+
+  //   }
+  // }
+
+
+
+
+  const onWoof = (type, id) => {
+    console.log("woof line 24 app.js");
+    console.log(type, id);
+    // change my state
+    setBark(prev => {
+      // by looping through the old state...
       return prev.map(comment => {
-        // find the one that was clicked ( id  match with id loop)
-        if (id === comment.id) {
-          if (type === 'like') {
+        // find the one that was clicked (by id)
+        if (comment.id === id ) {
+          // find which action happen ( like or dislike == type)
+          if (type === 'like'){
+            // CREATE A NEW COMMENT OBJECT... with the comment, BUT likes or dislikes will be changed
             return {...comment, likes: comment.likes + 1}
           } else {
             return {...comment, dislikes: comment.dislikes + 1}
           }
+
         }
         return comment;
       })
     })
-
-    // find out which button was clicked (type like or dislike)
-    // increment the like/dislike counter
-    // re-render!
   }
-
-
+  
+  
   return (
     <div>
       <h1>Comments for Dogs</h1>
-      <CommentList giraffe={burger} taromilktea={onClick}/>
+      <CommentList comments={bark} waffle={onWoof}/>
     </div>
   );
 }

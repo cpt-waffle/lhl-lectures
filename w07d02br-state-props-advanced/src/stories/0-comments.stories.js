@@ -34,10 +34,7 @@ storiesOf('Comments', module)
 		}
 	]
 
-	// make story,
-storiesOf('Comment List', module)
-	.add('default CommentList', () => <CommentList giraffe={comments}/>)
-
-	// make component 
-	// render it on the page 
-
+	// CommentList({a:1, b:2...})
+	// <CommentList a={1} b={2} />
+storiesOf('CommentList', module)
+	.add('default comments list', () => <CommentList comments={comments}/>);

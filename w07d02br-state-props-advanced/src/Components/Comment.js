@@ -5,11 +5,13 @@ function Comment(props) {
 	// props.onClick();
 	const { id, image, content, likes, dislikes } = props.data;
 	const onLikeClick = () => {
-		props.primerib(id, 'like')
+		console.log("Like!")
+		props.woofWaffle('like', id);
 	}
 
 	const onDislikeClick = () => {
-		props.primerib(id, 'dislike')
+		console.log("Dislike!");
+		props.woofWaffle('dislike', id);
 	}
 
 	return (

@@ -5,6 +5,7 @@ Review of everything
 -- Advanced Prop and State Passing in React
   -- storybook
   -- states
+  -- useEffect
 -- FUNCTION PASSING !!!!
 -- immutable State
 -- Draw out our app
