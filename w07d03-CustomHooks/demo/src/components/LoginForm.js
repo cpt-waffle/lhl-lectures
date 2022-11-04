@@ -5,7 +5,7 @@ import useForm from '../hooks/useForm';
 const LoginForm = props => {
 
   const email = useForm();
-  const pass = useForm();
+  const pass = useForm(); // {val,}
 
   return (<form>
     <h1>Login Form</h1>
@@ -28,5 +28,4 @@ const LoginForm = props => {
   </form>)
 }
 
-
-export default LoginForm;
+export default LoginForm

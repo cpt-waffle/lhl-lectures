@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import useForm from '../hooks/useForm';
 
 const RegisterForm = props => {
@@ -52,11 +52,3 @@ const RegisterForm = props => {
 
 
 export default RegisterForm;
-
-
-// Custom hooks
-
-// re-use, all of your state logic in other components
-
-// you can make as many custom hooks
-// as you want, in any component
