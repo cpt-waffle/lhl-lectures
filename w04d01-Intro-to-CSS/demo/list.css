@@ -1,0 +1,11 @@
+.hobbies {
+  text-align: center;
+}
+
+.hobbies > li {
+  background-color: red;
+}
+
+.hobbies  .fav {
+  background-color: orange;
+}

@@ -1,0 +1,11 @@
+.profile--img {
+  width: 400px;
+  border: 2px solid lime;
+}
+
+
+.profile {
+  background-color: green;
+  font-weight: bolder;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
