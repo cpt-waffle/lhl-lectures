@@ -7,73 +7,54 @@
 - (BONUS: you should be able to connect to my computer :) )
 - demo
 
-### Networking with People
+## Networking
 
-- Find a person 
-- Approach the person 
-- Say Hello! 
----- Person says Hi/Hello back :)
----- run away!!~~~ :(
-
-- one person talks 
-- the other listens
-- the other person talks
-- we listen
-- finish the convo: "Thanks for talking, I gotta go"
+ - get their attention ( approach)
+ - do a greetings ( hi, hello )
+ - speak, talk, exchange messages 
+ - one person talks, other listens (vice versa)
+ - say goodbye
+ - and leave
 
 ## Mediums of Communication
 
--- voice 
--- gestures
--- text messages
--- emoji
--- zoom 
--- can phone
+- voice
+- gestures
+- emojis, text
+- zoom
+- phone, 
+- mail 
+ 
+## Rules for Communication for Computers
+## Transmission Control Protocol  TCP
 
+- we need to know where computer that i want to communicate with lives!
+- try to connect with them, by sending a first message ( greetings )
+// SERVER NEEDS TO LISTEN TO CONNECTIONS!!!
+-- ( the other computer can say yes, or no )
+- if connection has been established, we can talk!
+- computer A (us) sends a message  
+- computer B (them) recieves a message
+- computer B (them) sends a message
+- computer B (them) sends a message
+- computer B (them) sends a message
+- computer B (them) sends a message
+- computer A (us) recieves a message
+- until you decide to disconnect ( or you are made to disconnect )
+- when you disconnect, no more messages come in  
 
-## Rules of Computer Networking
-##   Transmission  Control  Protocol
+## HTTP 
 
-Computer A wants to Connect with Computer B
-
-- We need to find Where computer B lives 
-- We'll approach computer B
-- Computer A attempts to connect with Computer B
--- we connect :)
--- we do not :(
-- Computer A sends messages to Computer B
-- Computer B sends messages to computer A
-- we notify computer B that we are leaving/leave and we disconnect
-
-## Computer Communication Mediums
-
-- cables 
-- wifi
-- blutooth
-- cell towers
-- routers
-- modems 
-- satelites
-
-
-## HTTP
-Hyper Text Transfer Protocol
-
-- Computer A finds where computer B is
-- Computer A attempts to connect
-- Computer A sends a request ( a single message )
-- Computer B responds back with a single message ( RESPONSE )
+- we need to know where computer that i want to communicate with lives!
+- try to connect with them, by sending a first message ( greetings )
+- if connection has been established
+- YOU can sends one MESSAGE (Request)
+- THE OTHER COMPUTER can send ONE MESSAGE BACK (Response)
 - DISCONNECT
 
-### Network
- a bunch of computers, connected together
- wires, wifi, bluetooth, 
 
-## IPs
- -- local
- -- global
-
-
-### Routers
-
-### Modems
+## IP 
+Global and Local
+Network
+Routers
+Modems

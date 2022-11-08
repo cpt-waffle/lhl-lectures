@@ -1,41 +1,25 @@
-// server
-const PORT = 3001;
+// SERVER!!!
+
 const net = require('net');
 
 
 const users = [];
 const server = net.createServer((user) => {
-  user.write('Hello From the server!!!!');
-  user.setEncoding('utf8');
+  console.log("someone has connected!!!");
   users.push(user);
-  user.on('data', (data) => {
-    // console.log(data);
-    users.forEach(user => {
-      user.write(data);
-    })
+  user.write('Welcome to my Server!');
+  // setInterval(() => {
+  //   user.write('are you still there?');
+  // }, 400)
+  user.setEncoding('utf8');
+  user.on('data', (msg) => {
+    // console.log(msg);
+    users.forEach(user => user.write(msg));
   })
 
-  console.log("Someone has connected!");
 })
 
 
-server.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
+server.listen(3001, () => {
+  console.log("server is on!");
 })
-
-// servers WAIT for things to happen
-// servers LISTEN for actions
-
-// one server per one port
-
-
-// Snek Game
-
-/// You are given a server
-// you are building the client
-
-// connect to the snake server
-// give the snake a name conn.write('Name: WAFFLE')
-// connect movement commands to a way to pass them to server
-//         conn.write('Move: Up')
-//         conn.write('Move: Down')

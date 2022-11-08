@@ -1,4 +1,4 @@
-props, state, components, useEffect, 
+props, state, components, 
 
 ------------ Agenda --------------
 What is Custom Hook?

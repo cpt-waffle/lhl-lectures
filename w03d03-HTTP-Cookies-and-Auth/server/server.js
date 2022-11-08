@@ -10,6 +10,15 @@ const users = {
   3: {id: 3, email: 'a@b.com',           password: '123'},
 };
 
+const urlsDatabase = {
+  d32f: {shortURL: 'd32f', longURL: 'www.google.ca', user_id: 1}
+}
+// GET /urls
+// POST /urls
+// POST /urls/:shortURL
+// GET /urls/:shortURL/edit
+// GET /u/:shortURL
+
 const app = express();
 
 app.set('view engine', 'ejs');
