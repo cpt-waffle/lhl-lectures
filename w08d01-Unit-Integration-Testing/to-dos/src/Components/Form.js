@@ -3,18 +3,24 @@ import React, { useState } from 'react';
 
 function Form(props) {
     const [val, changeVal] = useState('');
+    const [error, setError] = useState(false);
+
     const handleSubmit = evt => {
         evt.preventDefault();
-        if (val.length) {
+        if (val !== '') {
+            setError(false);
             return props.addItem(val);
+        } else {
+            setError(true);
         }
     }
 
     return (
         <div>
             <form className="addForm" onSubmit={handleSubmit}>
+                {error && <h4>Item cannot be Blank</h4>}
                 <input
-                    data-testid="input"
+                    data-testid="form-input"
                     placeholder={'enter todo'}
                     className="addForm-input"
                     type="text"

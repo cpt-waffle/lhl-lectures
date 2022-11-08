@@ -31,7 +31,7 @@ export default () => {
 
   return (
     <div className="App">
-      <h1 className="todo" data-testid="header" >All Items to Be Done!</h1>
+      <h1 className="todo" >All Items to Be Done!</h1>
       <List items={todoList} toggleDone={toggleDone}/>
       <Form addItem={addItem}/>
     </div>  
