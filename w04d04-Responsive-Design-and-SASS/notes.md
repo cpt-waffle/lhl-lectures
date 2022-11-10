@@ -10,19 +10,30 @@ What that means ?  How far have we come!
 ---- sass (bonus)
 
 
-#### Back in the day.....
+### Back in the Day....
 
-2003-2008 
+2003 - 2008 
 
--- iphone 1 comes out...
--- build a new layout, for smaller, bigger, etc, devices 
-DETECT them with our backend, and then send them that layout for the page...
+CRT Monitors
+19 - 23 inch
+LCD technology (square monitors, roughly at 19 inches)
+
+Iphone 1 
+
+3 - 6 iphones in circulation 
+
+you can browse the web!
+watch youtube!
+Pinch to zoom 
+
+4inches?
+
+-- make 2 layouts
+
+req ------> detect the size of the screen 
+ <-------- res back with an appropriate webpage
+
+ 
 
 
-### Viewport!!
 
-visible area of a webpage
-
-viewport varies with device
-
-viewport scales the ui based on what settings are being passed in

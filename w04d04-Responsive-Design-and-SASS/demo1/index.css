@@ -3,32 +3,38 @@
     padding: 0;
 }
 
+html {
+    font-size: 20px;
+}
+
 .box-a {
-    border: 2px dashed red;
+    border: 3px dashed red;
     font-size: 2em;
 }
 
 .box-b {
-    border: 2px dashed green;
+    border: 3px dashed green;
     font-size: 2em;
 }
 
 .box-c {
-    border: 2px dashed blue;
+    border: 3px dashed yellow;
     font-size: 2em;
 }
 
 .box-d {
-    border: 2px dashed goldenrod;
+    border: 3px dashed firebrick;
     font-size: 2rem;
 }
 
 .box-e {
-    border: 2px dashed rebeccapurple;
+    border: 3px dashed limegreen;
     font-size: 2rem;
+
 }
 
 .box-f {
-    border: 2px dashed firebrick;
+    border: 3px dashed skyblue;
     font-size: 2rem;
 }
+

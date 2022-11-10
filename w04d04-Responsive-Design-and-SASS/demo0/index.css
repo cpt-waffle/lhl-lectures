@@ -5,13 +5,19 @@
 
 .item1 {
   background-color: goldenrod;
-  width: 100%;
+  height: 100px;
+  width: 80%;
 }
+
 .item2 {
   background-color: rebeccapurple;
+  height: 100px;
   width: 50%;
+
 }
+
 .item3 {
-  background-color: lawngreen;
-  width: 35%;
+  background-color: firebrick;
+  height: 100px;
+  width: 25%;
 }

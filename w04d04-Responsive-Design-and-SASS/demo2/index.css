@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.box {
+
+}
+
+.box:hover {
+    background-color: blue;
+}
+
+.box-a {
+    background-color: rebeccapurple;
+    height: 35px;
+    flex-grow: 1;
+}
+
+.box-b {
+    background-color: royalblue;
+    flex-grow: 1;
+
+}
+
+.box-c {
+    background-color: gainsboro;
+    flex-grow: 1;
+
+}
+
+.navbar {
+    display: flex;
+}
+
+/* if sizeofscreen <= 500 */
+@media screen and (max-width: 500px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+    }
+}
+/* if sizeofScreen >= 1000px */
+@media screen and (min-width: 1000px) {
+    .navbar {
+        margin: 20px;
+    }
+}
+
+/* what layout do we start designing first? */
