@@ -1,0 +1,3 @@
+email,  pass,  id,  shortURL, longURL
+a@b.ca, purpleElephant, 1, F45f5, www.google.ca
+a@b.ca, purpleElephant, 1, fse52, www.reddit.ca
