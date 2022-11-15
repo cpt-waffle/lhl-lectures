@@ -1,75 +1,74 @@
+// variables
+
 let fruit = 'apple';
+fruit = 'banana';
 const PI = 3.14;
 
-// PI = 4;
-// console.log(fruit);
-// console.log(PI);
+console.log(fruit);
+console.log(PI);
 
-const foo = (bar) => {
-    console.log(`BAR ${bar}`);
-    return 3 + 3;
+// Functions
+
+const foo = (bar, a, b, c) => {
+    console.log("hello world");
+    return 20;
 }
 
+const result = foo();
 
+ console.log(`result is ${result}`);
 
+// If statements
 
-// let x = foo(':)');
-// console.log(x);
+const result = 10;
 
-////////////////////////////////
+if (result < 10) {
+    console.log("result is less than 10");
+} else if (result === 10) {
+    console.log("result is 10");
+} else {
+    console.log("result is greater than 10");
+}
 
-// console.log(fruit + PI);
+if (true) console.log(":)");
+if (!false) console.log(":(");
 
-/////////////////////////////////
+// Arrays and For loops
 
-// const result = 10;
+const arr = [1,2,3, 'hello', false, [1,2]];
 
-// if (result < 10 ) {
-//     console.log("result is less than 10");
-// } else if (result === 10) {
-//     console.log("result is 10");
-// } else {
-//     console.log("result is more than 10");
-// }
+console.log(arr[0]);
+console.log(arr);
 
-// if (true) console.log(":)");
-// if (!false) console.log("run if false!");
+// Looping through arrays
 
-//////////////////////////////////////////
+// for, while, forEach, 
 
-// const arr = [1,2,3,4,'five', 'six', true, false, ['h','e']];
-
-// console.log(arr);
-
-// while
-// c style for loop
-// for, in of
-// forEach, map, reduce, filter, 
-
-arr.forEach((val, index, thisArr) => {
-    console.log(index)
-    console.log(val)
+arr.forEach((val, index) => {
+    console.log("Val is ", val);
+    console.log("Index is ", index);
+    console.log('------------');
 })
 
-///////////////////////////////////////
+// Objects
 
-const obj = {a:1, b:2, c:3};
+const obj = {a:1, b:2, c:3}
+
 
 console.log(obj);
-console.log(obj.b);
+console.log(obj.a);
+console.log(obj["b"]);
 
-Object.keys(obj).forEach(k => {
-    console.log(`k=${k}     v=${obj[k]}`);
+Object.keys(obj).forEach(key => {
+    console.log(`key=${key}     val=${obj[key]}`)
 })
 
-//////////////////////////////////////
-
 const highOrder = cb => {
-    console.log("START");
-    cb(25);
-    console.log("END");
+    console.log('start');
+    cb(4);
+    console.log('end');
 }
 
-highOrder((v) => {
-    console.log("MIDDLE - v is =", v);
+highOrder((num) => {
+    console.log("Middle!", num);
 })

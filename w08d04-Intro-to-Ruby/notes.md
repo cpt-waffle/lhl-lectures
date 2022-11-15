@@ -7,43 +7,34 @@
 - yield
 - rails talk ( the project you will be working on from tue - next week tue-wed?)
 
+##### Workplace
 
-##########################################################
+-- react 
+-- Python
 
-### Ruby vs JS
+-- I got a job, with a stack im not familuar with? How do i become useful to the workplace, and start getting work done?
 
-### JS
+## Comparisons
 
-- 10 days in 1995
-- JavaScript --- JAVA -- still confuses recruiters to this day :) 
-- can both run in the front-end and back-end 
-- the library for JS, is absolutely massive (1.4mill + )
-- asynchronous (callbacks, promises, async/await)
-- syntax inspired by C and Java
-- Very active Communities!
-- very easy(ish) and fun to learn
+### JS - Javascript
 
-### Ruby
+- invented in 1995- 96 
+- 10 days 
+-  JavaSCRIPT, to piggy pack of java, (there isn't much simularity between JS and Java)
+- async (callbacks, promises, async/await)
+^ PERFORMANCE
+- library in JS is HUUUUUUUUUUGE, (1.3 - 1.4 mill packages)
+- very active communities 
+- js is kinda easy to learn
 
-- created in 1995 
+### Ruby 
+
+- invented in 1995
 - Yukihiro Matsumoto (Matz)
-- got popular in 2008 because of a framework ( Ruby on Rails )
-- "simplified" and "unclutered" 
-- synchronous (lacks performance)
-- (rails) very good for making things quick ( rapid prototyping)
-- fairly big package libraries 
-- established 
-
-
-
-##### Next Week!
-
--- no lectures (hands off week)
--- 1 - 2 breakouts on ruby on rails 
--- you will be given a repo, that is a completed project ( store ) written in ruby on rails
--- you will be asked to add more features to this completed project
-
--- d1 Active Record (replacing SQL )
--- d2 Rails tutorial
--- d3 Welcome to Jungle Repo
-
+- 2008 -- Ruby on Rails 
+- "simplified" and "unclutered"
+- sync ( things that you see happen, in sequence )
+LACKS PERFORMANCE ^ 
+- (rails) its very good for making things quick (... as long as you follow its rules)
+- big library (but 1.3 mil big....)
+- established
