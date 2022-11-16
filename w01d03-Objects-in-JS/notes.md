@@ -1,4 +1,4 @@
--- Agenda--
+## -- Agenda--
 
 -- Intro's
 
@@ -6,3 +6,4 @@
 -- Objects ( why ?)
 -- BREAK ---
 -- A few examples objects
+-- Q and A

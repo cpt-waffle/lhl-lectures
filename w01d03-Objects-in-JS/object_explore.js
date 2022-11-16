@@ -51,4 +51,5 @@ const tvShow = {
         }
 }
 
-console.log(tvShow.favorite.id)
+
+console.log(tvShow.show.schedule.days[0]);

@@ -6,34 +6,29 @@ And sing our whaling tune.`;
 
 // how many letter 'A's are in this sentance
 
-const countA = function(string) {
-  // for (let i = 0; i < string.length; i++) {
-  //   console.log(i);
-  //   console.log(string[i]);
-  // }
-
-  // index 
-  // for (let i in string) {
-  //   console.log(i);
-  //   console.log(string[i]);
-  // }
-
-  // of is for values 
-  const lowercaseString = string.toLowerCase();
+const countA = function(str) {
+  // convert the str into a lowercase
+  lowercaseStr = str.toLowerCase();
   let aCounter = 0;
-  for (let c of lowercaseString) {
-    if (c === 'a') {
+  // loop through the string
+  for (letter of lowercaseStr) {
+    // console.log(letter);
+    // if we see a letter A then count it 
+    if (letter === 'a') {
       aCounter++;
     }
   }
-  return aCounter;
+  // return the counted number
+  return aCounter
 }
 
-// console.log('counter letter A = ',countA(string));
+// console.log(countA(string));
 
-// write a function that counts all vowels in a string
 
-const counterVowels = function(string) {
+// write a functions that counts all the vowels in a string
+
+const countVowels = function(str) {
+  lowercaseStr = str.toLowerCase();
   const vowels = {
     a: 0,
     e: 0,
@@ -42,61 +37,43 @@ const counterVowels = function(string) {
     u: 0,
     y: 0
   }
-  const lowercaseString = string.toLowerCase();
-  for (let c of lowercaseString) {
-    if (c === 'a') {
-      vowels.a++;
-    }
-     if (c === 'e') {
-      vowels.e++;
-    }
-     if (c === 'i') {
-      vowels.i++;
-    }
-     if (c === 'o') {
-      vowels.o++;
-    }
-     if (c === 'u') {
-      vowels.u++;
-    }
-     if (c === 'y') {
-      vowels.y++;
+
+  for (letter of lowercaseStr) {
+    if (['a','e','i','o','u','y'].includes(letter)) {
+      vowels[letter]++;
     }
   }
-
   return vowels;
 }
 
-console.log(counterVowels(string));
 
-// Count me every letter, in a string,
-//if a letter does not exist I do not want to see it
+console.log(countVowels(string));
 
-const countLetters = function(string) {
-  const obj = {};
-  const lowercaseString = string.toLowerCase();
-  for (let c of lowercaseString) {
-    // let c = 'w';
-    // how do i make a key with the value of c?
-    ////////// if key DOES NOT exist, create it with value of 1
 
-    // false, 0, undefined, null, NAN, ''
-    if (!obj[c]) {
-      obj[c] = 0;
+// Count Every letter of a string...
+
+const countLetters = function(str) {
+  lowercaseStr = str.toLowerCase();
+
+  // if we see the same letter again we increment that letteer +1 ++
+  const result = {};
+  for (letter of lowercaseStr) {
+    // if we see a letter we make a key with the same letter and val = 1
+    if (!result[letter]) { // hey! result at key 'w' has anything? FALSE
+
+      // result['w'] = 1
+      // {w: 1}
+      result[letter] = 1;
+    } else {
+      //                    1
+      // result['w'] = result['w'] + 1
+      // result['w'] = 2
+      result[letter]++;
     }
-    obj[c]++;
-    
-    ///////// if key DOES exist, increment it by ++
-
-
-    // how do i assign a value to the key ?
-    // Objects KEYS are UNIQUE
-    // you CANNOT have duplicates of same KEY name
-
   }
 
-  return obj;
+  return result;
 }
 
 
-console.log(countLetters(string));
+console.table(countLetters(string));

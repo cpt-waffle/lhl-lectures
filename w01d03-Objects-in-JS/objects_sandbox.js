@@ -1,75 +1,57 @@
 // Variables
 
 const PI = 3.14;
-let fruit = 'apple';
+let fruit = 'banana';
 
-// arrays
-const basket = ['banana', fruit, false, 2.2, 1]
-//                 0        1      2     3   4 
-// console.log(basket);
-basket.push('grapes');
-// console.log(basket);
+// console.log(PI, fruit);
 
-// console.log(basket[2]);
 
-///////// information about cars
+// Arrays
 
-const car_one = [2007, 'toyota', 'corolla', 'halo-white', 4, 'leather', 'sun-roof'];
-//                0,      1          2          3         4     5            6 
-//               context?
-// What happens if add a new item to this array?
-// How would our data change, and what would be break?
-const carDetails = function(car) {
-  console.log("Make:", car[1]);
-  console.log("Model:", car[2]);
-  console.log("Year:",car[0]);
-  console.log("Seats:", car[4]);
-}
-// carDetails(car_one);
+const randomArr = [1,2,3,4, true, false, 'Hello', 'world', [1,2,3], function() {
+  console.log('hello world');
+}];
 
-// Objects
-// a collection of data
-// in objects, the ORDER DOES NOT MATTER!!!!!!!!!!!!!!!!!!!!!!!
-const car_obj = {
-  model: 'corolla',
-  seats: 4,
-  material:'leather',
-  year: 2007,
-  make: 'toyota',
-  color: 'halo-white',
-  optional: ['sun roof', 'AUX cable', 'heater seats'],
+// console.log(randomArr);
+
+//
+const carArr = ['automatic' ,2013, 'toyota', 'corolla', 4, 'halo-white', 'leather', false];
+//               0        1         2      3       4           5          6 
+//    0: year,   1: make, 2: model
+const nextCar = [ 2022, 'toyota', 'rav4 electric', 4, 'orange', 'leather', true];
+console.table(carArr);
+
+//  to grab a specific value from an array, 
+// square bracket notation
+// to specify the index, of the value that we want
+// ORDER MATTERS IN AN ARRAY !!!!!!!!!!!
+console.log(carArr[1], carArr[2]);
+
+// OBJECTS --------------------------------------------------
+// a way to store many data (contextually)
+
+// Object Keys HAVE TO BE UNIQUE
+const carsObj = {
+  color: 'baby blue',
+  year:2020,
+  make: 'Honda',
+  model: 'Civic Type R',
+  doors: {a:1, b:2},
+  interor: 'leather',
+  
 };
-
-car_obj.driver = {
-  name: 'Vas',
-  bloodType: 'O-',
-
-};
+// Order will not matter ( and sometimes even change )
+// lexical order
 
 
-const carDetailsObj = function(carObj) {
-  console.log('Make', carObj.make);
-  console.log('Model', carObj.model);
-  console.log('Year', carObj.year);
-  console.log('Seats', carObj.seats);
+console.table(carsObj);
+const key = 'seats';
+//     ^-----       doors:      4
+carsObj['seats'] = 4;
+carsObj.user = 'Vas';
 
-}
-// console.log(car_one);
-// console.log(car_obj.optional[1]);
-
-// carDetailsObj(car_obj);
+console.table(carsObj);
 
 
-
-const letter = 'q';
-const obj = {};
-
-////
-// obj.letter = 11;
-//// -- arrays use the square bracket notation arr[0], arr[1], etc
-//// -- objects use the dot notation AND the square bracket notation 
-obj[letter] = 11;
-///
-
-console.log(obj)
-// {w: 11};
+// carsObj.model = 'CIVIC SI'
+// console.log(carsObj.model)
