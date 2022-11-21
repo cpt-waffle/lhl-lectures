@@ -15,24 +15,31 @@
 
 ### Express vs Rails
 
-Express
-Configuration 
- - make routes, give them names, specify what you have to render
- - download db packages, connect them yourselves, figure out file structure for database files
- 
+## Express 
 
-Rails
-Convention
- - generators, 
- - please follow my convention.... (OR ELSE!!)
+Configuration
+ - make routes
+ - gave routes names ( any name you wanted )
+ - specified what you wanted to render
+ - you made logic files, helpers, with any name, with an folder structure
+ - you added PG node_module, you installed, and configured it
+
+ ## Rails
+
+ Convention
+ - used generators
+ - follow name convention
+ - follow folder convention
+ - follow views convention 
+ - etc 
+ - rails does alot of work behind the scenes
 
 
-## M V C 
 
-- Model
-- View
-- Controller
+### MVC
+used by rails, laravelPHP, Asp.net CORE (C++ MS), SailsJS (JS)
+Express(JS)  Sinattra(Ruby)
 
-### Which one of these is the most important in ruby on rails? 
+## Routes 
 
-`/config/routes.rb`
+
