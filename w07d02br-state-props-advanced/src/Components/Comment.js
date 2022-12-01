@@ -6,12 +6,12 @@ function Comment(props) {
 	const { id, image, content, likes, dislikes } = props.data;
 	const onLikeClick = () => {
 		console.log("Like!")
-		props.woofWaffle('like', id);
+		props.mouse(id, 'like');
 	}
 
 	const onDislikeClick = () => {
 		console.log("Dislike!");
-		props.woofWaffle('dislike', id);
+		props.mouse(id, 'dislike');
 	}
 
 	return (

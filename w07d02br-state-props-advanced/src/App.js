@@ -7,64 +7,50 @@ import CommentList from './Components/CommentList';
 // API
 
 function App() {
-  const [bark, setBark] = useState([]);
-  // no second param --> run anytime anything changes
-  // 2nd param = []  --> run once on the first render
-  // 2nd param = [val1, val2] --> run anytime when the values in the array change
+  const [num, setNum] = useState(1);
+  const [penguin, setPenguin] = useState([]);
+
   useEffect(() => {
     axios.get('/comments').then(res => {
-      console.log(res);
-      //res.data.comments
-      setBark(res.data.comments);
+      console.log('data', res.data.comments);
+      setPenguin(res.data.comments)
     })
+  }, [])
 
-  }, []) 
-
-  // VIRTUAL DOM
-
-
-  // bark = [3, 2, 1,];
-  // {
-  //   h16567573: {value: 'Comments for dogs', class: '', }
-  //   CList23452w5: {
-  //     Comment3-32525: {value: }
-  //     Comment2-32525: {value: }
-  //     Comment1-32525: {value: }
-
-  //   }
-  // }
-
-
-
-
-  const onWoof = (type, id) => {
-    console.log("woof line 24 app.js");
-    console.log(type, id);
+  const pizza = (id, type) => {
+    console.log("Line 21: Pizza Function!");
+    console.log(id, type);
     // change my state
-    setBark(prev => {
-      // by looping through the old state...
+    setPenguin(prev => {
       return prev.map(comment => {
-        // find the one that was clicked (by id)
-        if (comment.id === id ) {
-          // find which action happen ( like or dislike == type)
-          if (type === 'like'){
-            // CREATE A NEW COMMENT OBJECT... with the comment, BUT likes or dislikes will be changed
-            return {...comment, likes: comment.likes + 1}
+        if (comment.id === id) {
+          if (type === 'like') {
+            return {...comment, likes: comment.likes + 1 }
           } else {
-            return {...comment, dislikes: comment.dislikes + 1}
+            return {...comment, dislikes: comment.dislikes + 1 }
           }
-
         }
         return comment;
       })
     })
+
+
+
+    // NOT THE ORIGINAL <---
+    // loop through my "state"
+    // find the one state item that was clicked based on the id
+    // find the type of click (like/dislike)
+    // create a new comment object, with the comment, but likes or dislikes were incremented
+
+    // set the new state
   }
-  
-  
+
+
   return (
     <div>
       <h1>Comments for Dogs</h1>
-      <CommentList comments={bark} waffle={onWoof}/>
+      <button onClick={() => setNum(prev => prev + 1)}>{num}</button>
+      <CommentList commentsArr={penguin} cat={pizza}/>
     </div>
   );
 }
