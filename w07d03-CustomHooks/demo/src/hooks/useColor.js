@@ -1,21 +1,18 @@
 import { useState } from "react";
 
-const useColor = (arr) => {
-  const [ index, setIndex] = useState(0);
+const useColor = (colorsArr) => {
+  const colors = [...colorsArr];
+  const [index, setIndex] = useState(0);
 
   const next = () => {
-    if (arr.length - 1 > index) 
     setIndex(prev => prev + 1);
   }
 
   const prev = () => {
-    if ( 0 < index)
-      setIndex(prev => prev - 1);
+    setIndex(prev => prev - 1);
   }
 
-
-  return {currColor: arr[index], next, prev}
+  return {currColor: colors[index], next, prev}
 }
-
 
 export default useColor;

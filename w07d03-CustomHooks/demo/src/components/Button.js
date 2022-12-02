@@ -1,17 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import useButton from '../hooks/useButton';
 
 
 const Button = () => {
-  // useButon() --> an object {light, click}
-  const btn = useButton();
-
+  const {toggle, onSwitch} = useButton();
   return (
     <div>
-      <button onClick={btn.click}>Toggle On/off</button>
-      {btn.light ? 'ON' : 'OFF'}
+      <button onClick={onSwitch}>Toggle</button>
+      <h3>{toggle ? 'ON' : 'OFF'}</h3>
     </div>
   )
 }
+
 
 export default Button;

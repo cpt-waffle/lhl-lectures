@@ -1,14 +1,15 @@
-import React from 'react';
-import useForm from '../hooks/useForm';
 
-const RegisterForm = props => {
-  // console.log(useForm);
+import React, { useState } from "react";
+import useForm from "../hooks/useForm";
+
+const Register = () => {
+  // val, onValChange
   const email = useForm();
+  const name = useForm();
   const pass = useForm();
   const passConf = useForm();
-  const name = useForm();
 
-
+  
   return (<form>
     <h1>Registration Form</h1>
     <p>Email: 
@@ -24,7 +25,6 @@ const RegisterForm = props => {
         type="text" 
         name="name"
         value={name.val}
-
         onChange={name.onValChange}
 
         />
@@ -51,4 +51,4 @@ const RegisterForm = props => {
 }
 
 
-export default RegisterForm;
+export default Register;
