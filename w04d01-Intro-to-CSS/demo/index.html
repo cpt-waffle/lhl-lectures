@@ -2,94 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="reset.css"/>
-    <link rel="stylesheet" href="profile.css"/>
-    <link rel="stylesheet" href="list.css"/>
-
-
-    <style>
-
-      nav {      
-        background-color: cornflowerblue; 
-        font-size: 40px;
-      }
-
-      .desc-header {
-        border: 1px dotted rebeccapurple;
-        padding: 20px;
-      }
-
-      .bg-red {
-        background-color: red;
-      }
-
-      .orange {
-        color: orange;
-      }
-
-      .blue {
-        color: blue;
-      }
-
-      .t1 {
-        background-color: red;
-      }
-
-      .t1 {
-        background-color: blue;
-      }
-      
-      #t3 {
-        background-color: aquamarine;
-      }
-
-
-    </style>
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="hobbies.css"/>
   </head> 
   <body>
-    <!-- siblings -->
-    <nav>
-      navbar
-    </nav>
-    <header>This is my sentance!</header>
-    <p class="desc-header orange">this has information in it. Paragraphs are great!</p>
-    <figure class="profile">
+      <h1 class="page-header bg-indigo">This is A Resume page for my cat... </h1>
+      <!-- TEST TEST TEST TEST TEST -->
+      <figure>
+        <img 
+          src="https://wallpaperaccess.com/full/3010132.jpg"
+          alt="space cat"
+          class="profile-img"
+        />
+        <figcaption id="page-header">he name is Mr Meows</figcaption>
+      </figure>
 
-      <img 
-        src="https://wallpaperaccess.com/full/3010132.jpg"
-        alt="space cat"
-        class="profile--img"
-      />
-      <div>
-        <div>
-          <div>
-            <figcaption class="orange">Mr Meows!</figcaption>
-          </div>
-        </div>
+      <h2 class="page-header">the cat loves to:</h2>
+      <div class="hobbies">
+        <p class="box">This is my p tag</p>
+        <ul>
+          <li>sleep</li>
+          <li>eat</li>
+          <li><p>attack</p></li>
+        </ul>
       </div>
-      <p>Mr meows is a decorated astronaut</p>
-    </figure>
-    <div>
-      <ul class="orange">
-        <!-- children -->
-        <li class="blue">a</li>
-        <li>b</li>
-        <li>c</li>
-  
-      </ul>
-
-      <ul class="hobbies">
-        <li>snowboarding</li>
-        <li>
-          <h1 class="fav">running</h1>
-        </li>
-        <li>sleeping</li>
-      </ul>
-    </div>
-
-
+      <footer class="footer f2">
+        This page has been created in 2022 Dec 5
+      </footer>
   </body>
+  
 </html>

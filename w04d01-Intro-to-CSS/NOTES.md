@@ -6,31 +6,27 @@
  - Semantic Tags
  - Intro to CSS
  - Inline Styles
+ - Selectors & Specificity
  - Devtools
  - Style elements
- - Selectors & Specificity
  - Box Model and Box Sizing
  - External Stylesheets
  - CSS Resets
 
 ## --------------------------------------- ##
 
+### Browser
+
+HTML - the skeleton of your website, (semantics for your infomation displayed on site)
+CSS  - Cascading Style Sheets, styling your page ( styling your elements on the page..)
+JS   - functionality (datafetching, event listenings, logic, etc)
 
 
-### The Browser
-
-HTML -- basic semantics, it has NOTHING TO DO on how your page looks!
-CSS  -- Cascading Style Sheets, styling your elements 
-JS   -- functionality (datafetching, event listeners, logic, math, etc)
 
 ### HTML
 
-Any HTML element can have an UNLIMITED number of children
-Any HTML element can have an UNLIMITED number of siblings
-ONLY one parent
-
-
-
-
+Any HTML element can have unlimited number of children
+ANY html element can have unlmited number of siblings
+any html Element can only HAVE 1 parent
 
 
