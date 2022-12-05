@@ -1,17 +1,27 @@
-//es lint --- sort of important
-/// eslint filname.js 
-//  eslint --fix filename.js
+// Review from yesterday!!
 
-// check both arrays if they are equal
-// loop through one array and checking if 
-//the index value of both arrays is equal to each othe
 
-const arr = [1,2,3];
-const obj = {a:1}
+const arr = [1,2,3,4,5];
+// index     0 1 2 3 4 
+const obj = {a:1, b:2, c:3};
+//  keys     a    b    c
 
-// use the dot notation IF I KNOW EXACLTY WHAT WILL BE THE NAME OF THEY KEY
-obj.b = arr
-// someone gives you the key name in a variable
-const key = 'banana';
-obj[key] = arr;
-console.log(obj);
+
+// c style for loop <--- arrays
+for (let i =0; i < arr.length-1; i++) {
+  console.log(arr[i]);
+}
+// for in loop <------ arrays , objects
+for (let i in arr) {
+  console.log(arr[i]);
+}
+
+for (let k in obj) {
+  console.log(obj[k])
+}
+
+/// for in loop <------- arrays
+
+for (let v of arr) {
+  console.log(v);
+}

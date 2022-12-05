@@ -1,23 +1,27 @@
 // // map // forEach // Filter // reduce
 
-const array = [1,2,3,4,5]
-//   output => 2,4,6,8,10
+const array = ['zebra', 'dog', 'cat', 'hippo', 'elephant', 'cheetah'];
 
-const arr = [];
-for (let num of array) {
-  arr.push(num * 2)
+for (let animal of array) {
+  console.log(animal);
 }
 
-console.log(arr);
+for (let index in array) {
+  console.log(index);
+}
 
+console.log("---------forEach------------");
 
-const result = array.map((element, index, array) => {
-  return element * 2;
-})
-console.log(result);
+// loops through an array, and then runs your callback on each element
 
+const printAnimals = (animal, i) => {
+  console.log(animal)
+  console.log(i);
+}
 
-array.forEach(function(element, index) {
-  console.log('element', element);
-  console.log('index', index);
-})
+array.forEach(printAnimals);
+
+array.forEach((animal, i) => {
+  console.log(animal)
+  console.log(i);
+});

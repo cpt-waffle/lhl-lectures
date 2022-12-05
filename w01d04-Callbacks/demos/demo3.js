@@ -1,28 +1,43 @@
-// Write a function called printOnly X     
-// where it takes an array and a callback  X
+// Write a function called printOnly      X
+// where it takes an array and a callback X  
 // the callback will determine which elements to print
 
 const arr = [1,'two', 3, 'four', 5, 'six', 7, 'eight', 9, 'ten'];
 
 
-const isNumber = (val) => {
-  return typeof val === 'number';
-}
-
-
-const printOnly = function(array, callback) {
-  console.log(callback);
-  for (let num of array) {
-    if (callback(num)) {
-      console.log(num);
+const printOnly = function(array, cb) {
+  for (let val of array) {
+    if (cb(val)) {  // what does cb(val) return ?
+      console.log(val);
     }
+    
   }
 }
 
+// arrow notation syntax 
 
-printOnly(arr, isNumber);
+// const alwaysTrue = function() {...}
+// anon functions --> functions that have no name...
+const alwaysTrue = () => {
+  return true;
+}
 
 
-printOnly([1, 'two', 3, 'four'], function(val) {
-  return typeof val === 'string'
-})
+
+const alwaysFalse = () => false;
+
+
+const checkIfNumber = val => {
+  if (typeof val === 'number') {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+printOnly(arr, alwaysTrue);
+console.log('----------');
+printOnly(arr, () => false);
+console.log('----------');
+printOnly(arr, checkIfNumber);
+

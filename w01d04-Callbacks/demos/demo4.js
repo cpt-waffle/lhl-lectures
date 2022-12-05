@@ -2,30 +2,28 @@
 // and also takes a callback for the user to do anything with
 // each value of the array.
 
-const banana = function(arr, cb) {
-  for (let val of arr) {
-    cb(val);
+// const bestLoop = function () { ... }
+
+const bestLoop = (array, cb) => {
+  for (let val of array) {
+    cb(val)
   }
 }
 
-const a1 = [];
-banana(['apple', '', 'coconut', 'pair', 'grapes'], function(val) {
-  a1.push(val);
-});
 
-console.log(a1);
+const multiTwo = [];
 
-let i = 0;
-banana(['apple', 'coconut', 'pair', 'grapes'], function(val) {
-  if (val) {
-    i++;
-  }
-});
+const addToArray = function(val) {
+  multiTwo.push(val * 2);
+}
 
-banana(['apple', 'coconut', 'pair', 'grapes'], function(val) {
-  if (val === 'coconut') {
-    console.log("there is coconut in here!");
-  }
-});
 
-console.log(i);
+bestLoop([1,2,3,4], (val) => {
+  multiTwo.push(val * 2);
+})
+
+console.log(multiTwo);
+
+bestLoop([1,2,3,4], val => {
+  console.log("value is", val);
+})

@@ -1,59 +1,45 @@
 // REVIEW!!!!!
 
-// arrays
-// 0 - first name
-// 1 - last name
-// 2 - age
-const arr = [1,2,3,4,5,6];
-// index     0,1,2,3,4,5
-
-// objects
-const obj = {a: 1, banana: 2, c: 3, imruningoutofwords: 5, e:4}
-//keys
-const user = {first_name: 'vas', last_name: 'klimkin'};
+// a function, is just a block of code, that you can over and over 
+// and over again....
 
 
-// console.log(arr);
-// console.log(obj.e);
+// functions can take values
+const sum = function(num1, num2, num3, num4, num5) { // paramaters?
+  console.log("start of function");
 
-///////////////////////////////////////////////////////
-
-
-const greetings = function(val) {
-  console.log("Hello ", val);
+  console.log(`${num1} + ${num2} =` , num1 + num2);
+  console.log("end of function");
+  // functions can return values back
 }
 
-// greetings('cheever');
-// greetings('vas');
-// greetings('david');
+// arguments ?
+sum(2,3,5);
+sum(3,4);
 
-const foo = function(a,b) {
-  console.log(a + b);
+/// how many parameters can a function have?
+//  types of parameters and arguments 
+
+// high order function
+const foo = function(a,b,c,cb) {
+  console.log(a);
+  console.log(b);
+  console.log(c);
+  console.log(cb);
+  cb();
 }
 
-// let val1 = 9;
-// let val2 = 6;
+const n = 1;
+const string = 'strings';
 
-// foo(val1, val2);
+// foo(n, string, [1,2,3,4], {a:1, b:2});
 
-
-
-// foo(2,2);
-// foo('a','b');
-// foo(true,false); // 1  0 
-// foo([1,2,3], [1,2,3])
-// foo({a:1, b:2}, {a:1, b:2})
-
-
-// callbacks --- are parameters in a function that are functions themselves
-const firstFunction = function(a) {
-  a();
+const bar = function() {
+  console.log("this is bar function: line 34");
+  return;
 }
 
-const b = function() {
-  console.log('im b from line 53');
-};
 
+foo(1,2,3, bar)
 
-firstFunction(b);
 
