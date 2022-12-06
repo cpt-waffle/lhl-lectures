@@ -8,20 +8,33 @@
 - JQUERY
 - example with JQUERY
 
+
 ### TinyApp
 
-- display all shortURLS and longURLS for the user that is logged in
-- the app build all of the ejs/css on the server, then compiled, into HTML then sent out back to you.
+Display all shortURLS and LongURLS  for the user that is logged in
+
+EJS <-- nodeJS(Javascript logic) to generate you dynamic pages
+
+Server EJS ------> HTML -----> client
+
+HTML
+CSS
+JS
+
+### Client Side apps/pages
+
+(Tweeter)
+- nothing refreshes (ever)
+- all the actions, (loading, and posting) happen on the same page
 
 
-### JQuery
 
-- framework, that is fast, and is able to change the HTML DOM with ease!!
+## NodeJS
 
-back in the day, we had MANY different browsers 
+- process.argv
+- module
 
-internet explorer, chrome, firefox, netscape, opera, safari
 
-Nowdays
+#### Jquery
 
-everything is Chromium
+## Browser War (IE Lost :( ) 

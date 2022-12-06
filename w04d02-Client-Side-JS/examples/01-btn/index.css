@@ -1,0 +1,13 @@
+
+.food {
+  color: firebrick;
+  border: 2px dashed rebeccapurple;
+  background-color: coral;
+}
+
+#btn {
+  width: 100px;
+  height: 100px;
+  background-color: cornflowerblue;
+  border-radius: 50%;
+}
