@@ -1,7 +1,5 @@
 ## Client Side JavaScript & jQuery
 
-[Repo Link](https://github.com/vasiliy-klimkin/w04d02-jquery)
-
 For the last week you were working on an app called `TinyApp`. It was an app that would store urls and shorten them for people to reuse. The biggest that was missing in it was the asthetic and feel. The app felt a tad bit `1999-2002` .
 
 ### Introducing Javascript ( on the front end )
