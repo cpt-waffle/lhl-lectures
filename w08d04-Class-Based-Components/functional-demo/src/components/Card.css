@@ -1,12 +1,11 @@
 .card {
-  background-color: grey;
-  width: 400px;
-  padding: 20px;
+  background-color: cornflowerblue;
+  padding: 25px;
 }
 
 .card--img {
   width: 250px;
   height: 250px;
-  object-fit: cover;
   border-radius: 50%;
+  object-fit: cover;
 }

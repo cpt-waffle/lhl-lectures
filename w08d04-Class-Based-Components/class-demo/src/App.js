@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Card from './components/Card'
+import Card from './components/Card';
 
 function App() {
 
@@ -8,15 +8,13 @@ function App() {
   const name = "Mr Meows";
   const title = "Senior Nap Engineer";
 
-
-
   return (
     <div className="App">
       <h1>Class Demo</h1>
       <Card
-        img={img} 
+        image={img}
         name={name}
-        title={title}      
+        title={title}
       />
     </div>
   );

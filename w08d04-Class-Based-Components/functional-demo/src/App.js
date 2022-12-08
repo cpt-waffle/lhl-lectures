@@ -12,10 +12,11 @@ function App() {
     <div className="App">
       <h1>Functional Demo</h1>
       <Card 
-        img={img} 
+        image={img}
         name={name}
         title={title}
       />
+      {/* Card({image: img .......}) */}
     </div>
   );
 }
