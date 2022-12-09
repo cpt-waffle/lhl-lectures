@@ -1,30 +1,33 @@
 # variables
 
+a = 'letter'
 fruit = 'apple'
 fruit = 'banana'
 PI = 3.14
+PI = 4
 
+puts a
 puts fruit
 puts PI
 
 # Functions
 
-def foo bar, a, b, c
-  puts "hello world" 
-  10 + 10
+def foo a,b,c,d,e
+  puts "foo!"
+  result = a+b+c+d+e
 end
 
-result = foo 1,2,3,4
 
-puts "result is #{result}"
+val = foo 1,2,3,4,5
+puts "value is, #{val}"
 
-# if statements
+if statements
 
-result = 10
+value = 10
 
-if result < 10
+if value < 10 
   puts "result is less than 10"
-elsif result == 10 
+elsif value == 10 
   puts "result is 10"
 else
   puts "result is greater than 10"
@@ -33,57 +36,46 @@ end
 puts ":)" if true
 puts ":(" unless false
 
-# Arrays and For loops
+# Arrays
 
 arr = [1,2,3, 'hello', false, [1,2]]
 
-puts arr[0]
 puts arr.to_s
 
-#  Looping through arrays
 
-#  .each is the most common loop
 
-arr.each_with_index do |val, index|
-  puts "Val is #{val}"
-  puts "Index is #{index}"
-  puts "---------------"
+arr.each_with_index do |elem, index|
+  puts "elem => #{elem}"
+  puts "index => #{index}"
 end
 
-# Hashes
+Objects// HASHES
 
-obj = {a: 1, b:2, c:3}
-obj["b"] = 'test'
+obj = {a:1, b:2, c:3}
+obj["c"] = 44
 
 puts obj
-puts obj[:a]
-puts obj["b"]
+puts obj[:b]
+puts obj["c"]
 
-obj.each do |key, val|
-  puts "key=#{key}    val=#{val}"
+obj.each do |k, v|
+  puts "key: #{k}  val:=#{v}"
 end
+
+# Yield
 
 def high_order
-  puts "start"
-  yield 4 
+  puts Time.now
   yield 5
-  puts "end"
+  puts Time.now
 end
 
+high_order {|num| puts"MIDDLE #{num}"}
 
-high_order {|num| puts "Middle! #{num}"}
+#  Why are we learning Ruby?
 
-# next week its all ruby and ruby on rails
-# rails review, adv topic , adv topic, final pj
-#              rails testing rails testing
-# 1.3
+# Friday - Monday 
 
-# ActiveRecord
-# a way to do SQL (just like PG), in ruby
-# but without writting ANY SQL code...
-
-# Tue - Wed
-# - learn basics of Ruby on Rails
-
-# Jungle (ruby on rails)
-# -- how to be a jr dev!
+# Monday (Active Record) -- SQL (pg)
+# Tuesday ( Intro to Rails)
+#  Wed (Jungle Rails Project)

@@ -1,74 +1,75 @@
 // variables
 
+var a = 'letter';
 let fruit = 'apple';
 fruit = 'banana';
 const PI = 3.14;
+PI = 4 // error 
 
+console.log(a);
 console.log(fruit);
 console.log(PI);
 
 // Functions
 
-const foo = (bar, a, b, c) => {
-    console.log("hello world");
-    return 20;
+const foo = (a,b,c,d,e) => {
+    console.log("foo!");
+    const result = a+b+c+d+e;
+    return result;
 }
 
-const result = foo();
+const val = foo(1,2,3,4,5);
+console.log(`value is,  ${val}`);
 
- console.log(`result is ${result}`);
+// if statements
 
-// If statements
+const value = 10;
 
-const result = 10;
-
-if (result < 10) {
-    console.log("result is less than 10");
-} else if (result === 10) {
+if (value < 10) {
+    console.log("result is less than 10")
+} else if (value === 10) {
     console.log("result is 10");
 } else {
-    console.log("result is greater than 10");
+    console.log("value is greater than 10");
 }
 
 if (true) console.log(":)");
 if (!false) console.log(":(");
 
-// Arrays and For loops
+// Arrays
 
 const arr = [1,2,3, 'hello', false, [1,2]];
 
-console.log(arr[0]);
 console.log(arr);
 
-// Looping through arrays
+// for, while, forEach, map, reduce, filter..
 
-// for, while, forEach, 
-
-arr.forEach((val, index) => {
-    console.log("Val is ", val);
-    console.log("Index is ", index);
-    console.log('------------');
+arr.forEach((elem, i, arr) => {
+    console.log(`elem => ${elem}`);
+    console.log(`index => ${i}`)
 })
 
 // Objects
 
-const obj = {a:1, b:2, c:3}
+const obj = {a:1, b:2, c:3};
 
 
 console.log(obj);
-console.log(obj.a);
-console.log(obj["b"]);
+console.log(obj.b);
+console.log(obj['c']);
 
-Object.keys(obj).forEach(key => {
-    console.log(`key=${key}     val=${obj[key]}`)
+Object.keys(obj).forEach(k => {
+    console.log(`key: ${k}  val:= ${obj[k]}`)
 })
 
+// Callbacks
+
 const highOrder = cb => {
-    console.log('start');
-    cb(4);
-    console.log('end');
+    console.log("start");
+    cb(5);
+    console.log("end");
 }
 
 highOrder((num) => {
-    console.log("Middle!", num);
-})
+    console.log("CALLBACK!!", num);
+});
