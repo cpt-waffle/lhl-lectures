@@ -40,6 +40,9 @@ app.get('/sandbox', (req, res) => {
 	const templateVars = {};
 	const command = req.query.command;
 	if (req.query.command) {
+		if (command.toLowerCase().includes('drop') || command.toLowerCase().includes('delete')) {
+			return res.redirect("https://www.joeydevilla.com/wp-content/uploads/2020/04/grumpy-cat-no.jpg");
+		}
 		pool.query(command).then(result => {
 			templateVars.result = result.rows;
 			templateVars.fields = result.fields;

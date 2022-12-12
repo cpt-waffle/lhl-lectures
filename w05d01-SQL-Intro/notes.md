@@ -7,73 +7,114 @@
  - first query 
  BREAK 
  - more queries 
- - more db talks 
+ - BONUS -- IDE for Databases 
 
-## Theory!!
+### Theory
 
+## --------------- The Story of You and TinyApp --------------------- #
 
-## --------------- TinyApp -------------
+- you have finished tinyapp!
+- you have gotten it marked, you passed it!
+- you decided to deploy it
+- TINY APP HAS BLEW UP IN POPULARITY !!!!!!!!!!!!!!!!!!!!!!!!!!!
+- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+- bye bootcamp!, going go buy island!
+- 2 months pass, and we see a drop in users :(
+- users want more features 
+- take your laptop, and you start coding your features!
+-- DARK MODE!!!!
+-- analytics
+-- admin/ number of users
+-- admin/ most popular URL
+-- friend groups/groups  
 
-*** add a feature to make data persist ***
--- Tinyapp, has become the next Instagram!
--- 1 mill users per month!
--- people are sharing thier urls, pictures, 
--- $$$$$$$$$$$$$$$$$$$$$$$
+- you need to deploy, these features.....
+- you will push your features to github, some automation will happen,  prod server
+---- THE SERVER WILL RESTART TO TAKE THE NEW CHANGES x_x
 
--- 2 - 3 months -- lose users... 
--- people want features!!
--- DARK MODE, analytics, favorites, user groups, friends, etc 
-*** FEATURES COMPLETED ***
+### We destroy the codebase of TinyApp
 
-DEPLOY YOUR FEATURES !!!
-* restart your server *
-LOST ALL OF THE DATA 
-we kept all data in memory ( really fast )
+-- you can rebuild it BETTER
 
-Destroy an app == remove the database 
-
--- offline time :(
--- we can "rebuild" it 
-
-I destroy your data 
-
------- Data Persistence ----------
-
-I want a file to keep information, and thats all. 
-
-Need a build a way to add data in, and read the data (fs.read/write)
--- Storing data --
-
-we will move the database.txt file somewhere else and we'll need a way to access it
-
-### Database Services
-
-- PSQL (postgresql)
-- Oracle (java)
-- mysql 
-- couchDB
-- mongoDB <-- nonrelational database
-- MariaDB
-- .....
+### If you lose your data..... you app is dead forever... :(
 
 
-### How do we, use PSQL (database)
+### Data Persistence ###
 
-To get into psql
+I want to be able to turn off my server, and turn it on, and have all my users, urls, etc. still be there...
+
+Lets use a file (.txt) to store users, and urls, and anything else we wish to keep persisted.
+
+How would we start storing data?
+
+we can use `csv` format!!
+
+
+Maybe our database file shouldnt even be on the same computer (server) as your server for tinyApp !
+
+
+|tinyappy server|     <------------->     |database.txt server|
+
+*You* will need to build server interaction, between 2 servers
+
+`express` server, /save {}
+
+
+## Databases (Relational)
+
+- place where you can keep, organize, retrieve, data (service)
+
+- PSQL Postgresql
+
+-- The tools (how to, create, store, organize, access this data)
+
+-- PSQL
+-- Oracle
+-- mysql
+-- CouchDB
+-- MongoDB
+-- MariaDB
+-- CassandraDB
+-- etc
+
+### PSQL (Postgres!)
 
 ```sh
-psql #to get inside
-\q   #to quit
-\l   # list all of your databases on your system
-\c _database_name # connect to _database name_
+psql  # to get into postgres
+psql -h localhost -U labber -d w05d01 # to specifically connect as a different user!
+\q    # to quit out of postgres
+\l    # to see all database on the system
+\du   # to see all the users that have access to your postgres
+\c _database_name # to connect to a specific database
+\dt   # display all the tables in the database
+\i    # run the sql commands in the file given
+```
+
+## SQL
+
+a language to interact with the data inside of your database <-- YOU WILL USE THIS FROM TODAY UNTIL THE END OF BOOTCAMP
+
+### Create a database;
+
+```sql
+CREATE DATABASE _database_name;
 ```
 
 
 ```sql
-CREATE DATABASE __database_name;
+DROP DATABASE _database_name; # SCARY COMMAND!
 ```
 
-To Create a table....
+
+### To create a table 
+
+INTEGER
+TEXT
+VARCHAR
+TIMESTAMP
+DATE
+BOOLEAN
+
 
 ```sql
 CREATE TABLE table_name (
@@ -81,22 +122,43 @@ CREATE TABLE table_name (
   column_name column_type,
   column_name column_type,
   column_name column_type,
-  column_name column_type,
-  column_name column_type,
-  column_name column_type,
-  etc.
+  ...
 )
 ```
 
-Adding data to a table....
-
-
 ```sql
-INSERT INTO table_name (column_name, column_name) VALUES (val1, val2);
+
+CREATE TABLE fruits (
+  name VARCHAR(50),
+  seeded BOOLEAN
+);
 ```
 
-## How to Grab Data from the database
+
+### To add infomation into the tables 
 
 ```sql
+INSERT INTO table_name (column_name, column_name, column_name,) VALUES (val1, val2);
+```
 
-`SELECT * FROM table_name;`
+
+```sql
+INSERT INTO fruits (name, seeded) VALUES ('apple', true);
+```
+
+```sql
+UPDATE table_name
+SET column_name = val1,
+column_name1 = val2,
+column_name2 = val3,
+
+WHERE condition
+
+```
+
+
+### GRABBING DATA OUT for us to See!
+
+```sql
+SELECT column_name, column_name, etc FROM table_name; 
+```
