@@ -1,7 +1,7 @@
 # Agenda 
 
-- Tables
 - How to think of tables
+- Tables
 - Primary Keys
 - Foreign Keys
 - Naming Conventions
@@ -11,168 +11,142 @@
 - Breakout Exercise
 - Another Practice
 
-## How Do you come up with Tables?
+### You have learned how to:
+
+- get data out of a database
+- SELECT queries 
+- joins (we tried :)  )
+- creating tables
+- inserting data
 
 
-## User Story 
+### How to think of tables
+
+## User Stories
 
 an explanation of a feature
 
-As a ________ I want to do _________________
-because ____________________________________
 
-In user stories, Tables are NOUNS.
-As a user, I want to create urls to save them for later.
+```
+As a _______________ I want to do ________________________
+because __________________________________________________
 
-data.csv // comma, seperated, values
 
-### Tables 
+As a user, I want to be able to add URLs (long) and the app makes a shortURL
+because, I want to shorten the size of my urls, and make them shareable
+```
 
-#### What is a table? 
+### Tables
 
-- a collection of data
-- categorized data
+#### What is a Table
 
-Database
+- a collection of data 
+- categorized
 
-username, password, shortUrl, longURl
-username, password, shortUrl, longURl
+### ERD 
 
-v@k.ca, 1234,  9wsfs5, www.google.ca
-v@k.ca, 1234,  sfs923, www.reddit.com
+-- Entity Relation Diagram
+
+## Table Conventions 
+(in LHL*)
+
+- table names, are pluralized and if more than one word is in a table, we use snake_cased
+DATABASE
+
+1 v@k.ca    1234 r23rs5    www.google.ca
+1 v@k.ca    1234 1234af    www.reddit.com 
+2 a@b.com   4567 34ffs5    www.facebook.com
+
 
 Users
-v@k.ca, 1234,
+PK
+1   v@k.ca    1234
+2   a@b.com   4567
 
 
 Urls
-9wsfs5, www.google.ca
-sfs923, www.reddit.com
+r23rs5    www.google.ca
+1234af    www.reddit.com
+34ffs5    www.facebook.com
 
-### Table Conventions
-(In LHL*)
-- tables are pluralized, and if more than one word we use `snake_cased`
+#------------URLs----------------
+                                 FK
+r23rs5    www.google.ca          1
+1234af    www.reddit.com         1
+34ffs5    www.facebook.com       2
 
 
-## Primary Keys (PK)
+## PK (Primary Keys)
 
-- "~unique~" Identifer of a record 
-- 95% the Primary key is a SERIAL INTEGER 
-- any DATA TYPE can be used to set a primary key
+- "unique" identfier of a record, (UNIQUE TO THE TABLE)
+- 95% the primary key is an INTEGER (SERIAL INTEGER)
+- any DATA TYPE can be used to set a primary key!
 
-URLS 
-{
-  {user_id: vas@k.ca, shortURL: 4sadfw4, longURL: 'www.google.ca'}
-  {user_id: vas@k.ca, shortURL: adsasd, longURL: 'www.a.ca'}
-  {user_id: vas@k.ca, shortURL: 45424, longURL: 'www.b.ca'}
-  {user_id: vas@k.ca, shortURL: 4sfdgdg, longURL: 'www.c.ca'}
-  {user_id: vas@k.ca, shortURL: 4sdfgg4, longURL: 'www.d.ca'}
 
-}
+## FK (Foreign Keys)
+
+- its a key that is a REREFENCE in another table
+- HAS TO BE THE SAME DATATYPE AS THE KEY YOU ARE REFERENCING
+
+## Rules of Foreign Keys
+
+You are not allowed to delete a row, referenced in another table (unless cascade is applied)
+
+You can still join on anything (doesnt need to be a FK PK relation), but INSERT and DELETE may have a FK constraint where the FK must exist.
+
 
 ### Datatypes
 
-TEXT( UNLIMITED NUMBER OF TEXT) 16mb 
-VARCHAR (0 -255 characters MAX) 255b
+- TEXT(unlimited) 16mb (comments, messages, manuals, descriptions.)
+- VARCHAR(255)    5b    255b    100b   (phone numbers, emails, names, etc )
+- INTEGER (serial, unsigned, double int, etc)
+- BOOLEAN (T or F)
+- DATE
+- DECIMALS/CURRENCY 
+- TIMESTAMPS
 
-Back in the older days, we REALLY CARED ABOUT DATA SIZE
+Back in the old days........
 
-VARCHAR (1-255) (phone numbers, emails, etc )
-TEXT ()
-BOOLEAN
-INTEGERS
-DECIMALS/CURRENCY
-TIMESTAMPS
 
-### Serial Integer
-
-It is an AUTOINCREMENTING, ONLY POSITIVE INTEGER
-
-Whenever you insert into a table (without specifying the serial integer (AKA primary key)), the system will use a stored value as tha that integer ( sequence ) and increment that number for the next time use
+### Serial 
+let i = 1;
+i++;
+it is an autoincrementing only positive integer
 
 1
 2
 3
-5
+4
+
 6
 7
 8
 9
-
-### Pitfall
-1
-2
-
-
-INSERT into (id, name, password, email)
-VALUES (3, 'vas', '123', 'v@k.ca');
-
-### Foreign Keys
-
-its a key THAT IS REFERENCE in another table
-- HAS TO BE THE SAME DATATYPE AS THE KEY YOU ARE REFERENCING 
-
-Database
-v@k.ca, 1234,  9wsfs5, www.google.ca
-v@k.ca, 1234,  sfs923, www.reddit.com
-a@b.ca, 1234,  43255, www.facebook.com
-a@b.ca, 1234,  43255, www.twitter.com
-
-
----- Users ----
-id,     user     password
-1       v@k.ca,   1234,  
-2        a@b.ca,   1234,  
----------------
-
---- Url ------
-shortURL, longURL               user_id
-9wsfs5,   www.google.ca           1
-sfs923,   www.reddit.com          1
-43255,    www.facebook.com        2
-34635,    www.twitter.com         2
-
-### Conventions
-
-Singular, snaked_cased with the reference to the referenced table
-
-### Rules of Foreign keys
-You are not allowed to delete a row, referenced in another table...
-
-### ON DELETE CASCADE 
-
-### Relationships
-One to One
-###########################
-Users have an isAdmin column ( by default FALSE )
-50+ million users database
-20 admins total 
----------------
-Create table called Admins 
-### Admins ####
-PK id 
-FK user_id 
-#############################
-One to Many ( many to one)
-One record in table A is related to MANY records in table B
-
-Many to Many 
-This relationship cannot exist in PSQL !!!!!
-Add a bridge table in between(name of the bridge table, could be both tables names in snake case, or related to a context), where all the foreign keys will be on 
-
-
-
-### Genaral Concepts
-
-- NOT NULL Columns, ---> email, passowrd, profile-pic, address (DEFAULT state)
-- Calculated Fields ( DONT STORE THEM!!!! ) (aggregate functions to calcualte those on the fly, SUM, COUNT, MAX, MIN, AVG, etc)
-
-- Try not to DELETE rows (IRL)
-(soft delete)
-'discontinued (true/false)
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+ ---------> 23
+24
 
 ```sql
-SelecT * FrOm uSeRs;
+INSERT into (email, password) 
+VALUES ('b@c.ca', '1234567');
 ```
-No meme case
-Dont do this ^^
+
+### Relationships 
+
+one to one
+one to many -- many to one
+
+-- cannot exist --
+many to many
