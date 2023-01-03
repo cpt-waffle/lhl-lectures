@@ -1,47 +1,37 @@
-const PORT = 8080;
+const express = require('express');
 const http = require('http');
-const express = require("express");
-/// require socket.io
-const socketio = require('socket.io');
+const { Server } = require('socket.io');
 const ikea = require('ikea-name-generator');
 
-
 const app = express();
-//////////////
 const server = http.createServer(app);
-const io = socketio(server);
+const io = new Server(server);
+
 const users = [];
 
-/// server listeners
+// io
 io.on('connection', (socket) => {
-  console.log("someone has connected!!");
+  console.log("Someone has connected!");
+  // send a message back out to the connection
+  // emit takes 2 parameters
+  // type -> "string", message -> {object}
   const name = ikea.getName();
   users.push(name);
-  socket.user = name;
-  socket.emit('INITIAL_CONN', {name, users});
-  socket.broadcast.emit('NEW_USER', {name});
+  socket.emit("INITIAL_CONN", {name: name, users});
+  socket.broadcast.emit("NEW_USER", {name});
 
-  socket.on('SEND_MSG', (data) => {
-    console.log("message was sent!");
+  socket.on('SEND_MSG', data => {
+    console.log("message has come in from client!");
     console.log(data);
-    io.emit('SEND_MSG', data);
+    io.emit('SEND_MSG',data);
   })
 
-  // socket.on('disconnecting', () => {
-  //   console.log("someone has disconnected");
-  //   console.log(`it was ${socket.name}`);
-  // })
-  
 })
 
-// client connection
-
-
-
-
-app.get('/', (req, res) => {
-  return res.json({greetings: 'hello world'});
+// HTTP 
+app.get('/test', (req, res) => {
+  res.json({message: 'hello world'});
 })
 
-////////////?
-server.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
+
+server.listen(8080, () => console.log("Server is listening on port 8080"));

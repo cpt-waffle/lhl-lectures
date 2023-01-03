@@ -1,42 +1,41 @@
-import { useEffect, useState } from 'react';
+import logo from './logo.svg';
 import './App.css';
+import { io } from 'socket.io-client';
+import { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// you will need to isntall the client side of socket.io onto react app 
-import { io } from 'socket.io-client';
+
+// double check that socket.io-client ver
+// and socket.io (server) ver match (ie: 4.5.4)
+
+// connecting...
 const socket = io();
 
 function App() {
-
   const [user, setUser] = useState('');
   const [users, setUsers] = useState([]);
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    console.log("MOUNTING...");
     socket.on('connect', () => {
-      console.log("we have connected");
+      console.log('connected! :)');
     })
 
-    socket.on('disconnect', () => {
-      console.log("disconnected");
-    })
-
-    socket.on('INITIAL_CONN', data => {
-      console.log("Initial connection event!!!");
+    socket.on("INITIAL_CONN", (data) => {
       console.log(data);
       setUser(data.name);
       setUsers(data.users);
     })
 
-    socket.on('SEND_MSG', data => {
-      console.log("Message has come back!");
+    socket.on('SEND_MSG', (data) => {
+      console.log("new message has come!");
       console.log(data);
       setMessages(prev => [...prev, data]);
     })
 
-    socket.on('NEW_USER', data => {
-      toast.info(`${data.name} has CONNECTED!!!! 🦄`, {
+    socket.on("NEW_USER", data => {
+      console.log(data);
+      toast(`New user: ${data.name} has connected!`,  {
         position: "top-right",
         autoClose: 1000,
         hideProgressBar: false,
@@ -44,43 +43,44 @@ function App() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
+        theme: "dark",
         });
       setUsers(prev => [...prev, data.name]);
     })
 
     return () => {
-      console.log("UNMONTING.....");
+      console.log("unmounting...");
       socket.off('connect');
-      socket.off('disconnect');
       socket.off('INITIAL_CONN');
       socket.off('NEW_USER');
       socket.off('SEND_MSG');
     }
-  }, []);
-  console.log('tet');
 
-  const onMessageSent = evt => {
+  }, [])
+
+  const onSubmit = evt => {
     evt.preventDefault();
-    const message = evt.target.text.value;
-    console.log("message", message);
-    socket.emit('SEND_MSG', {user, message});
+    const msg = evt.target.message.value;
+    console.log(msg);
+    socket.emit("SEND_MSG", {user, msg});
   }
 
   return (
     <div className="App">
-      <h1>Connected: {user}</h1>
+      <h1>Chat App</h1>
+      <h3>current user: {user}</h3>
       <ul>
         {users.map(user => <li>{user}</li>)}
       </ul>
 
-      <form onSubmit={onMessageSent}>
-        <input type='text' name="text"/>
-        <button>send!</button>
-      </form>
-
+      <h2>Messages</h2>
       <ul>
-        {messages.map(message => <li><b>{message.user}</b>: {message.message}</li>)}
+        {messages.map(msg => <li><b>{msg.user}:</b>{msg.msg}</li>)}
       </ul>
+      <form onSubmit={onSubmit}>
+        <input type="text" name="message"/>
+        <button>Send</button>
+      </form>
       <ToastContainer />
     </div>
   );
