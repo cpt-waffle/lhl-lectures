@@ -8,50 +8,26 @@ const list = {
     i8: 'apples'
 }
 
-// const a = 1
-// const arr = [] //
-// arr = 3; //X
-// const obj = {} //
+// for of;  // array: values
+// for of;  // object: BIG ERROR :(
 
-list.itemOne = [list.itemOne, 'chocolate']
-// object/array destruction 
-// const copyList = {...list}
-
+// for in;  // array: index
 for (let key in list) {
-    console.log("what is this?", key);
-    console.log("val", list[key]);
-    console.log("-------------------");
+    console.log('key:   ',key);
+    console.log('val:   ',list[key]);
+    console.log('--------------');
 }
+//////////////////////////////////////////
 
-//  no for of loop on OBJECTS!!!! :(
-
-
-// you can get the keys or the values, or BOTH, as an array ( converted )
-
-
-delete list['i8'];
-
-console.table(list);
-
-
-
-
-
-
-
-
-
-
-
-
-// const arr = [1,2,3,4,5];
-// //           0 1 2 3 4 
-
-
-// for (let index in arr) {
-//     console.log("index is", index);
+console.log(Object.keys(list));
+// for (let k of Object.keys(list)) {
+//     console.log(k);
+//     console.log(list[k]);
 // }
 
-// for (let value of arr) {
-//     console.log('value is ', value);
-// }
+console.log(Object.values(list));
+console.log(Object.entries(list));
+
+
+// for i = 0; // array: index but you set everything up 
+// for i = 0; // object: NO METHOD :(

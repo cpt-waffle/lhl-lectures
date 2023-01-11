@@ -1,57 +1,91 @@
+//  Review!
+
 // Variables
 
 const PI = 3.14;
 let fruit = 'banana';
 
-// console.log(PI, fruit);
-
+// console.log(PI);
+// console.log(fruit);
 
 // Arrays
 
-const randomArr = [1,2,3,4, true, false, 'Hello', 'world', [1,2,3], function() {
-  console.log('hello world');
-}];
+//           defined with square brackets!
+const randomArray = [1,2,3,4, 'five', 'six', 'seven', true, false, ['yes', 'no']];
+// index:            0,1,2,3     4      5       6       7     8       9 => [0,1]
+// console.log(randomArray);
+// accessing the array
+// console.log(randomArray[7]);
+// ORDER MATTERS IN AN ARRAY!
 
-// console.log(randomArr);
 
-//
-const carArr = ['automatic' ,2013, 'toyota', 'corolla', 4, 'halo-white', 'leather', false];
-//               0        1         2      3       4           5          6 
-//    0: year,   1: make, 2: model
-const nextCar = [ 2022, 'toyota', 'rav4 electric', 4, 'orange', 'leather', true];
-console.table(carArr);
+//  Context ??
 
-//  to grab a specific value from an array, 
-// square bracket notation
-// to specify the index, of the value that we want
-// ORDER MATTERS IN AN ARRAY !!!!!!!!!!!
-console.log(carArr[1], carArr[2]);
+const carArr = ['toyota', 'corolla', 2012, 'halo white', 'automatic', 4, 1.2, 'leather', false, 97453, 'reg'];
+//              0: make    1: model  2:year, 3:color,     4: transmission, 5 doors,   6: engine ,  
+const carArr2 = ['manual', 'honda',  'civic', 2008, 'red'] 
+// console.log(carArr);
 
-// OBJECTS --------------------------------------------------
-// a way to store many data (contextually)
+const printCarInfo = function(car) {
+  console.log("------ Car Details --------");
+  console.log("year:  ", car[2]);
+  console.log("Make:  ", car[0]);
+  console.log("Model: ", car[1]);
+}
 
-// Object Keys HAVE TO BE UNIQUE
-const carsObj = {
-  color: 'baby blue',
-  year:2020,
-  make: 'Honda',
-  model: 'Civic Type R',
-  doors: {a:1, b:2},
-  interor: 'leather',
-  
+// printCarInfo(carArr);
+// printCarInfo(carArr2);
+
+// OBJECTS !
+
+// a way store multiple data
+
+const carObj = {
+  color: 'halo white',
+  seats: 4,
+  model: 'corolla',
+  year: 2012,
+  transmission: 'auto',
+  make: 'toyota',
+  trunk: ['spare wheel', 'car jack', 'extra battery pack', 'water'],
+  gloveBox: {
+    itemOne: '',
+    itemTwo: ''
+  }
 };
-// Order will not matter ( and sometimes even change )
-// lexical order
+// key: value
+// console.log(carObj);
+
+//  METHOD #1 
+// how do i grab values out of on object???
+// console.log(carObj.year);
+// console.log(carObj.color);
+// console.log(carObj.make);
+// in objects, the order DOES NOT MATTER!!!
 
 
-console.table(carsObj);
-const key = 'seats';
-//     ^-----       doors:      4
-carsObj['seats'] = 4;
-carsObj.user = 'Vas';
 
-console.table(carsObj);
+////////////// adding keys to an object
 
 
-// carsObj.model = 'CIVIC SI'
-// console.log(carsObj.model)
+const newObj = {};
+
+console.log(newObj);
+
+// 2 ways 
+
+
+// 1 -- the dot notation
+newObj.shoe = 'nike';
+
+console.log(newObj);
+
+//////////////////////////////////////////////////////
+
+const variable = 'fruit';
+
+newObj[variable] = 'banana';
+
+
+console.log(newObj);
+// output = {shoe: 'nike', fruit: 'banana'}
