@@ -2,10 +2,10 @@
 
 
 - Data Fetching and Side-Effects
-- UseEffect
-- folder as component !
 - axios
 - proxy
+- UseEffect
+- folder as component !
 
 
 # Today's Activity

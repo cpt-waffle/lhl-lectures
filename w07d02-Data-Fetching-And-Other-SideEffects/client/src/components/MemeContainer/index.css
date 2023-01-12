@@ -1,0 +1,11 @@
+.meme {
+  background-color: black;
+  padding: 20px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: center;
+}
+
+.meme--img {
+  width: 300px;
+  object-fit: cover;
+}

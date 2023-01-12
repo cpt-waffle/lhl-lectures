@@ -15,9 +15,7 @@ let i = 0;
 app.get('/memes', (req, res) => {
   i++;
   console.log("/memes has been hit ", i);
-  setTimeout(() => {
-    res.json(memeList);
-  }, 700)
+  res.json(memeList);
 })
 
 app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
