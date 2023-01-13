@@ -1,33 +1,19 @@
 import React, { useState } from "react";
+import useForm from "../hooks/useForm";
 
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-
-  const onEmailChange = (evt) => {
-    setEmail(evt.target.value);
-  }
-
+  // re-usability
+  console.log(useForm());
+  const email = useForm(); // {val, onValChange}
+  const pass = useForm();  // {val, onValChange}
 
   return (<form>
-    <h1>Login Form</h1>
-    <p>Email: 
-        <input 
-          type="email"
-          name="email"
-          value={email}
-          onChange={onEmailChange}  
-        />
-    </p>
-    <p>Password: 
-      <input 
-      type="password" 
-      name="pass"
-      />
-      </p>
-  </form>)
+    <h1>Login</h1>
+    <p>email: <input type="email" name="email" value={email.val} onChange={email.onValChange}/></p>
+    <p>password: <input type="password" name="pass" value={pass.val} onChange={pass.onValChange}/></p>
+    <button>Login!</button>
+  </form>);
 }
-
-
 
 export default Login;

@@ -1,54 +1,20 @@
-
 import React, { useState } from "react";
 import useForm from "../hooks/useForm";
 
+
 const Register = () => {
-  // val, onValChange
   const email = useForm();
-  const name = useForm();
   const pass = useForm();
-  const passConf = useForm();
+  const first_name = useForm();
+  const last_name = useForm();
 
-  
   return (<form>
-    <h1>Registration Form</h1>
-    <p>Email: 
-        <input 
-          type="email"
-          name="email"
-          value={email.val}
-          onChange={email.onValChange}
-        />
-    </p>
-    <p>Name: 
-      <input 
-        type="text" 
-        name="name"
-        value={name.val}
-        onChange={name.onValChange}
-
-        />
-      </p>
-    <p>Password: 
-      <input 
-      type="password" 
-      name="pass"
-      value={pass.val}
-      onChange={pass.onValChange}
-      />
-      </p>
-    <p>Password Conf: 
-      <input 
-        type="password" 
-        name="passconf"
-        value={passConf.val}
-        onChange={passConf.onValChange}
-      />
-    </p>
-
-
+    <h1>Register</h1>
+    <p>email: <input type="email" name="email" value={email.val} onChange={email.onValChange}/></p>
+    <p>password: <input type="password" name="pass" value={pass.val} onChange={pass.onValChange}/></p>
+    <p>first Name <input type="text" name="fname" value={first_name.val} onChange={first_name.onValChange}/></p>
+    <button>Register!</button>
   </form>);
 }
-
 
 export default Register;

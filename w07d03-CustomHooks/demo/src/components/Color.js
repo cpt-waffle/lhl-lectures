@@ -1,21 +1,19 @@
-import React from "react";
-import useColor from "../hooks/useColor";
-// a component that we give an array of colors
-// red green blue purple
-// with 2 buttons that can go through the colors
+import React from 'react';
+import useColor from '../hooks/useColor';
 
 
-const Color = () => {
-  const colors = ['goldenrod', 'firebrick', 'lime', 'gray', 'green', 'yellow', 'lightblue']
-  const {currColor, next, prev} = useColor(colors);
+
+const Color = props => {
+  const {currColor, next, prev} = useColor(['firebrick', 'rebeccapurple', 'cornflowerblue', 'lime', 'pink', 'floralwhite']);
 
   return (
     <div style={{backgroundColor: currColor}}>
-      Color!
-      <button onClick={prev}>Prev</button>
+      <br/>
+      <button onClick={prev}>Previous</button>
       <button onClick={next}>Next</button>
     </div>
   )
 }
+
 
 export default Color;

@@ -1,17 +1,13 @@
 import { useState } from "react";
+import useToggle from "./useToggle";
 
 
 const useForm = () => {
-
   const [val, setVal] = useState('');
 
-
   const onValChange = (evt) => {
-    console.log(evt);
     setVal(evt.target.value);
   }
-
-
 
   return {val, onValChange};
 }
