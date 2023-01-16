@@ -1,28 +1,32 @@
  ---- Agenda ----
 
 - TDD Talk
-- module exports
 - TTD built in methods (console.assert)
+- module exports
 - Mocha and Chai talk
 - Testing With Mocha Chai
+
 ---------------------------------------
 
-## Why would you write Tests for Coding?
 
-- find bugs
-- to save time 
-- avoid as many updates after the program has been released as possible
-- so others can test if their changes break the code
+### --------- Why Write Tests ? -------------
+
+
+-- save us time debugging
+-- everything works as expected
+-- prevent errors 
+-- prevent edge cases!
+-- to save time*
 
 ## Test Driven Development (TDD)
 
-- you write your test first* (and alittle code so that the tests run)
-- they all fail 
-- and you write code, slowly, to pass every single test you wrote 
-- move on to the next task, feature, fix, etc
 
-### Palindrome
+- you write your tests first* (alittle bit of code so that the tests run)
+- all the tests fail :(
+- write more code to pass each test
+- all tests pass :)
+- move on to the next feature
 
-it takes a string, and checks if the string is the same thing backwards
-Write a function that checks if a string is a palindrome but we we will 
-TDD for this approach.
+### Palindrome !!!
+
+write a function that takes in a string, checks if the string is the same string backwards, if it is, return `true`, if it's not return `false`.
