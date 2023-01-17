@@ -5,22 +5,24 @@
 
 const fs = require('fs');
 
-fs.readFile('./data1.txt', 'utf8', function(err, data1) {
-  if (err) throw err;
-  console.log("first async callback!")
-  fs.readFile('./data2.txt', 'utf8', function(err, data2) {
+const readThreeFiles = (cb) => {
+  fs.readFile('./data1.txt', 'utf8', (err, data1) => {
+    if (err) throw err
+    fs.readFile('./data2.txt', 'utf8', (err, data2) => {
+      if (err) throw err
+      fs.readFile('./data3.txt', 'utf8', (err, data3) => {
+        if (err) throw err
 
-    if (err) throw err;
-  console.log("second async callback!")
-    fs.readFile('./data3.txt', 'utf8', function(err, data3) {
-      if (err) throw err;
-      console.log("third async callback!")
-      console.log("last readfile finished!");
-      console.log(data1, data2, data3);
-      console.log(Number(data1) - Number(data2) - Number(data3));
+        cb(data1, data2, data3);
+      })
+    
     })
+  
   })
-})
+}
 
-// Promises (w2d4)
-// async / await
+
+readThreeFiles((r1, r2, r3) => {
+  console.log('Subtracting the results');
+  console.log(`${r1} - ${r2} - ${r3} = ${r1-r2-r3}`);
+})

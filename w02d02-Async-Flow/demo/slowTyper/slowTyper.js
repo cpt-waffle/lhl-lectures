@@ -2,16 +2,27 @@
 // we want to make the program type a string out, but in a very slow way...
 // letter by letter, on the same line
 
-//make a string
-const string = 'Hello World\n';
-//loop the string
-let time = 1000;
-for (let letter of string) {
-  // and print it letter by letter
-  // - every letter gets printed on the same line
+
+const str = 'Hello World\n';
+
+// loop every letter
+for (let index in str) {
+  // print every letter on the same line
+  // delay print??
+  setTimeout(() => {
+    process.stdout.write(str[index]);
+  }, 1000 * index);
+}
+
+let delay = 1000;
+
+for (let letter of str) {
+  // print every letter on the same line
+  // delay print??
   setTimeout(() => {
     process.stdout.write(letter);
-  }, time);
-  time = time + 1000;
+  }, delay+=200);
 }
- // - how to delay the print?
+
+
+

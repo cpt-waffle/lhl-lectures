@@ -1,26 +1,27 @@
 // Review!
 
 // functions!
-// its a block of code that you can re-use!
-//                   parameters
-const foo = function(num1, num2) {
-  let sum = num1 + num2;
-  console.log(`${num1} + ${num2} = ${sum}`);
-  // return
-  return sum;
+                     // params
+                     // no limit to how many parameters go into a function
+const greetings = function(name) {
+  console.log("Hello ", name);
+}
+          // argument
+// greetings('Charlie');
+
+//////////// callbacks!
+
+// a parameter that happens to be a function
+
+const foo = function(callback) {
+  console.log(callback);
+  callback('Vas');
 }
 
-// const returnValue = foo(3,2);
-// console.log("RETURN VAL:", returnValue);
+greetings('Test')
 
-//callbacks!
-// its a way to pass a function (as a param) into another function
-const customGreetings = function(cb) {
-  console.log("CB =", cb)
-  cb(3,3)
-}
+foo(function() {
+  console.log("annon function!");
+});
 
-let x = 4;
-customGreetings(function(num1, num2) {
-  console.log(`${num1} + ${num2} = ${num1 + num2}`)
-})
+// forEach, map, filter, 
