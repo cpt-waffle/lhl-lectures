@@ -1,66 +1,64 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import './Card.css';
 
 
 
-const Card = props => {
 
+const Card = props => {
   const [likes, setLikes] = useState(4);
-  const [dislikes, setDislikes] = useState(1);
+  const [dislikes, setDislikes] = useState(4);
+
+  // days         => spotsRemaining - 1
+  // appointments =>
+  // interviewers
+
+
+  const onLikesButtonClick = () => {
+    setLikes(prev => prev + 1);
+  }
+
+  const onDislikeButtonClick = () => {
+    setDislikes(prev => prev + 1);
+  }
 
   // useEffect(() => {
-  //   // console.log("Runs EveryTime!");
-
+  //   console.log("everytime any state changes!")
   // })
 
   useEffect(() => {
     setTimeout(() => {
-      console.log("LIKES", likes);
-      console.log("DISLIKES", dislikes);
-    }, 10000)
-    console.log("Runs once, and never again");
+      console.log("likes", likes);
+      console.log("dislikes", dislikes);
+      setLikes(prev => {
+        console.log("PREV likes", prev);
+        return prev + 5;
+      });
+    }, 10000);
+    console.log("once")
   }, [])
 
-  useEffect(() => {
-    console.log("runs when dislikes has changed");
-    console.log("dislikes",dislikes);
-    console.log(likes);
-  
-  }, [dislikes])
+  // useEffect(() => {
+  //   console.log(`when the value in 
+  //   dependancy array changes`);
+  // }, [dislikes])
 
-  const onLikesClick = () => {
-    setLikes(prev => prev + 1);
-  }
-
-
-  const {image, name, title} = props;
   return (
-  <article className="card">
-    <img
-      src={image}
-      className="card--img"
-    />
-    <h2>{name}</h2>
-    <h3>{title}</h3>
-
-    <div>
-      <button 
-      onClick={onLikesClick}>
-        {likes} Likes
+    <article className="card">
+      <img 
+        className="card--img"
+        src={props.image}
+      />
+      <h2>{props.name}</h2>
+      <h3>{props.title}</h3>
+      <button onClick={onLikesButtonClick}>
+        Likes {likes}
       </button>
-
-      <button 
-      onClick={() => setDislikes(prev => prev + 1)}>
-        {dislikes} Dislikes
+      <button onClick={onDislikeButtonClick}>
+        Dislikes {dislikes}
       </button>
-    </div>
-  </article>)
+    </article>
+  )
+
 }
-
-
-
-
-
-
 
 export default Card;

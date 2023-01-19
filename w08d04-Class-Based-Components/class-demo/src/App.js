@@ -5,8 +5,8 @@ import Card from './components/Card';
 function App() {
 
   const img = "https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?auto=compress&fit=scale&fm=pjpg&h=350&w=700"
-  const name = "Mr Meows";
-  const title = "Senior Nap Engineer";
+  const name = 'Mr Meows';
+  const title = 'Senior Nap Engineer';
 
   return (
     <div className="App">
