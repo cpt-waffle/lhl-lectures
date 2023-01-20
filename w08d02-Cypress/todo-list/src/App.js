@@ -29,7 +29,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Get Things Done!</h1>
+      <h1 a={undefined}>Get Things Done!</h1>
       <div className='center'>
         <List list={list} handleComplete={handleComplete}/>
       </div>

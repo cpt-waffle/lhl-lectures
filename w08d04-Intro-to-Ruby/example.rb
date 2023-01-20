@@ -1,81 +1,90 @@
-# variables
+# Variables
 
 a = 'letter'
 fruit = 'apple'
-fruit = 'banana'
 PI = 3.14
-PI = 4
+# PI = 4
 
-puts a
-puts fruit
-puts PI
+puts a, fruit, PI
 
 # Functions
 
-def foo a,b,c,d,e
-  puts "foo!"
-  result = a+b+c+d+e
+def foo a=0,b=0,c=0
+  puts "a,b,c"
+  
+  # implicit return
+  a + b + c
 end
 
+puts foo 
 
-val = foo 1,2,3,4,5
-puts "value is, #{val}"
+# if statements...
 
-if statements
+v = 10
 
-value = 10
-
-if value < 10 
-  puts "result is less than 10"
-elsif value == 10 
-  puts "result is 10"
+if v < 10
+  puts "v is less than 10"
+elsif v == 10 
+  puts "v is 10"
 else
-  puts "result is greater than 10"
+  puts "v is greater than 10"
 end
+
+# one liner if statements
 
 puts ":)" if true
-puts ":(" unless false
+puts ":(" unless false # if !false
+
 
 # Arrays
 
-arr = [1,2,3, 'hello', false, [1,2]]
+arr = [1,2,3, 'hello', true, [1,2]]
 
-puts arr.to_s
+puts arr[3]
 
-
-
-arr.each_with_index do |elem, index|
-  puts "elem => #{elem}"
-  puts "index => #{index}"
+arr.each_with_index do |v, i|
+  puts "#{i} -- #{v}"
+  puts i.to_s + ' -- ' + v.to_s
 end
 
-Objects// HASHES
 
-obj = {a:1, b:2, c:3}
-obj["c"] = 44
+
+# Objects
+
+obj = {a:1, b:2, c:3} #hashes
+obj[:d] = 4
+obj["e"] = 5
 
 puts obj
-puts obj[:b]
-puts obj["c"]
+puts obj["e"]
 
 obj.each do |k, v|
-  puts "key: #{k}  val:=#{v}"
+  puts "key #{k}, val=#{v}"
 end
 
-# Yield
+# Yield (or callbacks )
 
-def high_order
-  puts Time.now
-  yield 5
-  puts Time.now
+def high_order 
+  puts "start"
+  yield(5)
+  puts "end"
 end
 
-high_order {|num| puts"MIDDLE #{num}"}
 
-#  Why are we learning Ruby?
+high_order {|num| puts "callback #{num}"}
 
-# Friday - Monday 
+# You "are" learning ruby
+# learning a new language
 
-# Monday (Active Record) -- SQL (pg)
-# Tuesday ( Intro to Rails)
-#  Wed (Jungle Rails Project)
+#  simulation of your first week on the job
+# 
+#  Tue,wed,thurs,friday 
+#  we are giving you a repo/finished project
+# Ruby on Rails
+# App -- Store, sell items 
+#  -- store page
+#  -- css
+#  payment system
+#  database
+#  categories
+#  
