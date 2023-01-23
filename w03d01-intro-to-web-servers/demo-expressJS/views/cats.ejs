@@ -7,11 +7,10 @@
   <title>Cats</title>
 </head>
 <body>
-  <h2>Cats list</h2>
-  <ul>
-  <% for (let i in cats) { %>
-    <li><a href="/cats/<%= i %> "><%= cats[i] %></a></li>
+  <h1>Cats Page!</h1>
+  <% for (cat in cats) { %>
+   <img src="<%= cats[cat] %>" />
+   <p><%= cats[cat]%> </p>
   <% } %>
-  </ul>
 </body>
 </html>

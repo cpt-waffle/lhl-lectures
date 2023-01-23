@@ -8,25 +8,40 @@
 - EJS
 - server side rendering (dynamic pages)
 
-## -------------------------------------
 
-### Servers 
+### Servers
 
-TCP Servers (snek game)
+TCP Server
 
-You needed adress of the server ( and the port )
-you were able to connect to the server
-once you are connected, you can send many messages, to the server
-the server can send you many messages back to you
-you stay connected unless, you want to disconnected, or server
-removes/kicks you out
+- snake game
 
+- address (IP)
+- PORT
+- attempted to connect
 
-HTTP Servers
+Client                                         Snake Server
+---------------------CONNECT--------------------->
+                CONNECTION ESTABLISHED
+-----------------------MSG----------------------->
+-----------------------MSG----------------------->
+-----------------------MSG----------------------->
+<----------------------REPLY----------------------
+-----------------------MSG----------------------->
+<----------------------REPLY----------------------
+<----------------------REPLY----------------------
+<----------------------REPLY----------------------
+-----------------------MSG----------------------->
+-----------------------MSG----------------------->
+-----------------------MSG----------------------->
 
-You needed adress of the server ( and the port )
-once you are connected, you can a SINGLE message to the server
-the server MUST reply back to you with SINGLE message
-you then disconnect
+## HTTP Servers
 
-
+- need address/port
+- you are able to attempt a connection....
+ Client                                          Server
+---------------------CONNECT--------------------->
+                CONNECTION ESTABLISHED
+---------------------REQUEST--------------------->
+<--------------------RESPONSE---------------------
+                   CONNECTION ENDS
+  
