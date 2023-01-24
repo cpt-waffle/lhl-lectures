@@ -1,22 +1,25 @@
 class CatsController < ApplicationController
+  # an action, is a a method in the class
+  # ExpressJS
+  # // cats.js
 
+  # const router = express.Router();
 
-  
-  # expressJS
-  # const db = require("db/connection") // pg npm package
+  # const index = (req, res) => {
+      # db.query("SELCT * FROM cats;").then(data => {
+        # const templateVars = {cats: data.rows};
+        # res.render('catsMainPage', templateVars);
+      # })
+  # }  
 
-  # const index = (req, res) =>{
-    # ....
-    # const templateVars = {};
-    # db.query("SELECT * FROM cats;").then(data => {
-      # templateVars.cats = data.rows;
-      # return res.render('/banana', templateVars)
-    # })
-  # }
+  # router.get('/', index)
 
-  # app.get('/cats', index)
   def index
+    # all the logic will go here!
+    # 90% of the time when working with rails
+    # you will NOT see a render method
     @cats = Cat.all
+    @greetings = "hello"
   end
-
+  
 end

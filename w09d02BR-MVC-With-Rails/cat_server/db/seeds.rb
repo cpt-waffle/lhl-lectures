@@ -6,10 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 puts "Destroying Cats"
 Cat.destroy_all
-puts 'Creating cats!'
-Cat.create(name: "Mr Buttons", age: 3)
-Cat.create(name: "Rosy", age: 1)
-Cat.create(name: "Fluffy", age: 4)
-Cat.create(name: "Bob", age: 1)
+puts "Creating Cats"
+Cat.create(name: 'Mr Buttons', age: 5)
+Cat.create(name: 'Rosy', age: 1)
+Cat.create(name: 'Puma', age: 1)
+Cat.create(name: 'Garfield', age: 50)
+
