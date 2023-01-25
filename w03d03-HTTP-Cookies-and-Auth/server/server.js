@@ -1,9 +1,8 @@
 const PORT = 8080;
-const express = require("express");
+const express = require('express');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 
-// database of users
 const users = {
   1: {id: 1, email: 'obiwan@gmail.com',  password: 'helloThere'},
   2: {id: 2, email: 'gimli@gmail.com',   password: 'andMyAxe'},
@@ -11,57 +10,94 @@ const users = {
 };
 
 const urlsDatabase = {
-  d32f: {shortURL: 'd32f', longURL: 'www.google.ca', user_id: 1}
+  BvnX6: {longUrl: 'www.google.ca', shortUrl: 'BvnX6'},
+  XnF5f: {longUrl: 'https://www.old.reddit.com', shortUrl: 'XnF5f'}
 }
-// GET /urls
-// POST /urls
-// POST /urls/:shortURL
-// GET /urls/:shortURL/edit
-// GET /u/:shortURL
+
+// GET  /urls   edit urls_index.ejs  loop through url.longURL
+// POST /urls  
+// POST /urls/:id
+// GET /urls/u/:id
+// etc...
+
 
 const app = express();
 
 app.set('view engine', 'ejs');
 
-// middleware
+// middlware
+// ----> req ---> MIDDLEWARE ---> route  
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
-//   morgan
-// 
-// REQ -----------/-------------->  SERVER  ===> {MIDDLEWARE} ===> app.get('/') 
 
-app.get('/login', (req, res) => {
-  return res.render('login');
+
+app.get('/test', (req,res) => {
+  res.send("ok!");
 })
 
+app.get('/', (req,res) => {
+  // res.cookie('weather', "snow");
+  // res.cookie('a', "1");
+  // res.cookie('b', "2");
+  // res.cookie('c', "3");
+
+  // How do i get the cookie out of the request?
+  // find the user for the user_id, stored in the cookie
+  // and show that you are logged in?
+  
+  console.log('Cookies: ', req.cookies)
+  const templateVars = {user: null};
+  const user = users[req.cookies.user_id];
+  templateVars.user = user;
+  // const templateVars = {user}; // {user: user}
+  res.render('home', templateVars);
+})
+
+//////////////  A page to let the user login
+
+app.get('/login', (req, res) => {
+  // Login needs to be a form, because we need information from the users
+  // the form will need to make a request (POST) to another route, to validate that user
+  // if user credentials are correct, "authenticate" them
+  res.render('login');
+})
+//// POST requests, are here for anytime we want to change/create something on the server
 app.post('/login', (req, res) => {
-  // credentials 
-  // how do i get what the user has written in the form???
-  console.log(req.body);
-  // we have to get user credentials that the client wrote (form)
-  // "verify" those credentials
-//  ---------------- LOOP through our "database"
-  for (let key in users) {
-    //  ---------------- for every iteration, we need to check IF 
-    //  IF user were looping through matches req.body info
-    if (users[key].email === req.body.email) {
-      //   IF does, then check passwords
-      if (users[key].password === req.body.pass) {
-        //  IF email and pass match = login!
-        // return res.send(":) you match! we will log you in");
-        /// SET A COOKIE !!!!
-        res.cookie('user_id', users[key].id)
-        return res.redirect(`/`);
+  // req.params    GET/POST    app.get('/:id')
+  // req.body      POST    FORM
+  // req.query      GET    ?a=3&b=4
+
+  // grab the data that the user entered in the form (email, password)
+  console.log('req.body =', req.body);
+
+  console.log('--Loop through database');
+  for (let id in users) {
+    console.log("id: ", id);
+    console.log("user =", users[id]);
+    // check if any email exists in my "database"
+    // if email exists, check if that password matches, 
+    if (req.body.email === users[id].email) {
+      console.log("found email that matches!!");
+      // if email exists, and password matches, "login them in"
+      if (req.body.pass === users[id].password) {
+        console.log("email and password has matched!");
+        // redirect the user to /auth/:id/_______________
+        // res.cookie('fruit', 'banana');
+        res.cookie('user_id', id);
+        return res.redirect(`/`)
+        // return res.send("YAY you are loggedn in :)")
+      // if not, send them an error :(
       } else {
-        //IF it doesnt send error
-        return res.send("error: user or pass incorrect");
+        console.log("email matched, but password did not :(");
+        return res.send('Error, pass/email doesnt match');
       }
     }
   }
-  // IF we finish loop and no match was found, send error
-  return res.send("error: user or pass incorrect");
+  console.log('--end loop')
 
+  // one request - one response  x
+  return res.send('email and pass dont match');
 })
 
 app.post('/logout', (req, res) => {
@@ -70,31 +106,16 @@ app.post('/logout', (req, res) => {
 })
 
 
-app.get('/', (req,res) => {
-  console.log("someone visits home page!");
-  // i have to figure out who is currently logged in and visiting this page....
+///////////////////////////AUTHENTICATED ROUTES /////////////////////
 
-  console.log(req.headers.cookie);
-  console.log('user_id ==?>   ',req.cookies.user_id);
-  const user = users[req.cookies.user_id];
-  const templateVars = {user};
-  return res.render('home', templateVars);
-})
+//  WRONG WAY OF DOING AUTHENTICATION 
 
-// // ---------- LOGGED IN ROUTES GO HERE!!!~
-// app.get('/:id/', (req,res) => {
-//   console.log(req.params);
-//   const user = users[req.params.id];
-//   console.log(user);
-//   const templateVars = {user};
+// app.get('/auth/:id/', (req,res) => {
+//   const templateVars = {user: users[req.params.id].email};
 //   return res.render('auth_home', templateVars);
 // })
 
-// //.... 
 
-app.get('/test', (req, res) => {
-  return res.send(":)");
-})
 
 
 
