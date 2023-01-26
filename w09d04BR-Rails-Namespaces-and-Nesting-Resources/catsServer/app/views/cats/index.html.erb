@@ -1,0 +1,12 @@
+<% if @user %>
+  <h1><%= @user.name %></h1>
+<% else %>
+  <h1>Cats</h1>
+<% end %>
+
+
+<ul>
+  <% @cats.each do |cat| %>
+    <li><%= cat.name %></li>
+  <% end %>
+</ul>
