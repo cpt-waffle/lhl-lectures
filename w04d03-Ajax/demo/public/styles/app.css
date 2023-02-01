@@ -1,18 +1,25 @@
-/* Styling goes here... */
-
-.movie {
-  display: flex;
-  padding: 20px;
-  background-color: #BADA55;
-  margin-top: 10px;
+.movie-container {
+  width: 400px;
+  background-color: cadetblue;
+  text-align: center;
+  padding: 15px;
+  margin: 0;
+  border: 10px dashed mediumaquamarine;
 }
 
-.movie--info {
-  margin: 20px;
+.movie-container:hover {
+  box-shadow: 10px 10px 8px -10px rgba(0, 0, 0, 0.8);
+  -webkit-transform: scale(1.01);
+  transform: scale(1.01);
 }
 
-.movie--img {
-  width: 250px;
-  height: 300px;
+.movie-container-image {
+  width: 400px;
+  height: 400px;
   object-fit: cover;
+}
+
+#movies {
+  flex-wrap: wrap;
+  display: flex;
 }
