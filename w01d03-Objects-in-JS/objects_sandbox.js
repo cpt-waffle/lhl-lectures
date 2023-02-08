@@ -1,91 +1,93 @@
 //  Review!
 
-// Variables
-
 const PI = 3.14;
 let fruit = 'banana';
-
-// console.log(PI);
+fruit = 'apple';
 // console.log(fruit);
 
-// Arrays
+// Array 
+// a way to store multiple data, as a collection
 
-//           defined with square brackets!
-const randomArray = [1,2,3,4, 'five', 'six', 'seven', true, false, ['yes', 'no']];
-// index:            0,1,2,3     4      5       6       7     8       9 => [0,1]
-// console.log(randomArray);
-// accessing the array
-// console.log(randomArray[7]);
-// ORDER MATTERS IN AN ARRAY!
+const array = [1,2,3,4, 'five', 'six', 'seven', false, true, [1,2,3]];
+// console.log(array);
 
+// array.push('this is a new element');
+// console.log(array);
 
-//  Context ??
+//// Functions
 
-const carArr = ['toyota', 'corolla', 2012, 'halo white', 'automatic', 4, 1.2, 'leather', false, 97453, 'reg'];
-//              0: make    1: model  2:year, 3:color,     4: transmission, 5 doors,   6: engine ,  
-const carArr2 = ['manual', 'honda',  'civic', 2008, 'red'] 
-// console.log(carArr);
+// ---------------------------> parameters
+const randomFunction = function(a, b) {
+  //...
+  console.log("hello!");
 
-const printCarInfo = function(car) {
-  console.log("------ Car Details --------");
-  console.log("year:  ", car[2]);
-  console.log("Make:  ", car[0]);
+  console.log(a + b);
+}
+// arguments
+// randomFunction(3,2);
+// randomFunction(5,3);
+// randomFunction(5,5);
+
+// storing information (context)
+
+const car = ['toyota', 'corolla', 2012, 'white', 'automatic', 4, 1.2, 'cloth'];
+//              0          1       2       3          4       5   6      7
+//////////
+const car2 = ['civic', 'honda', 2019, 'manual', 2.0, 'leather', 'red'];
+//              0         1      2       3        4      5        6 
+
+const arr = [24.5, 11.4, 54.3, 88.5];
+
+const printDetails = function(car) {
+  console.log("Make: ", car[0]);
   console.log("Model: ", car[1]);
+  console.log("Number of seats", car[5]);
 }
 
-// printCarInfo(carArr);
-// printCarInfo(carArr2);
+// printDetails(car);
+// printDetails(car2);
 
-// OBJECTS !
 
-// a way store multiple data
+// OBJECTS -----------------------------------
+
+// an object is a way to store information 
+// an object can store multiple data points (just like an array)
+// an object can provide a context for every value
+// an object order of values DOES NOT MATTER
+
+const carArr = ['toyota', 'corolla', 2012, 'white', 'automatic', 4, 1.2, 'cloth'];
+//              0          1       2       3          4       5   6      7
 
 const carObj = {
-  color: 'halo white',
-  seats: 4,
-  model: 'corolla',
-  year: 2012,
-  transmission: 'auto',
-  make: 'toyota',
-  trunk: ['spare wheel', 'car jack', 'extra battery pack', 'water'],
-  gloveBox: {
-    itemOne: '',
-    itemTwo: ''
-  }
+  seats: 2,
+  model: 'civic',
+  engine: 2.0,
+  make: 'honda',
+  drivers: [{name: 'vas', lname: 'klimkin', }]
+
 };
-// key: value
+// keys -- a string that the user defines 
+
+
+const carDetails2 = function(carObj) {
+ console.log("make:", carObj.make);
+ console.log("model:", carObj.model); 
+}
+
+// carDetails2(carObj);
+
 // console.log(carObj);
 
-//  METHOD #1 
-// how do i grab values out of on object???
-// console.log(carObj.year);
-// console.log(carObj.color);
-// console.log(carObj.make);
-// in objects, the order DOES NOT MATTER!!!
+/////////// setting keys
+// arr['0'];
+// arr['1'];
+const objFinal = {};
+objFinal.a = 3;  ////// arr.push()
+objFinal.banana = 3;
+//////// ^ but this only works when you know the key name ///////////////
 
-
-
-////////////// adding keys to an object
-
-
-const newObj = {};
-
-console.log(newObj);
-
-// 2 ways 
-
-
-// 1 -- the dot notation
-newObj.shoe = 'nike';
-
-console.log(newObj);
-
-//////////////////////////////////////////////////////
-
-const variable = 'fruit';
-
-newObj[variable] = 'banana';
-
-
-console.log(newObj);
-// output = {shoe: 'nike', fruit: 'banana'}
+// SQUARE BRACKET NOTATION
+let keyName = 'flavor';
+objFinal[keyName] = 'chocolate';
+// object = {flavor: 'chocolate'};
+console.log("objFinal", objFinal);
