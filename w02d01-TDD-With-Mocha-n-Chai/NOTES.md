@@ -8,25 +8,37 @@
 
 ---------------------------------------
 
+## Why Do we Write/Need/Want Tests in Code???
 
-### --------- Why Write Tests ? -------------
-
-
--- save us time debugging
--- everything works as expected
--- prevent errors 
--- prevent edge cases!
--- to save time*
-
-## Test Driven Development (TDD)
+- saves us a ton of time!
+- to ensure our code is working 
+- expectations (working code must do some functionality)
+- edge cases testing 
+- to catch bugs early 
+- code complexity, easier tests
 
 
-- you write your tests first* (alittle bit of code so that the tests run)
-- all the tests fail :(
-- write more code to pass each test
-- all tests pass :)
-- move on to the next feature
+`2 x amount of code = more time used we waste more time writting tests?`
 
-### Palindrome !!!
+-- Even thought it takes more time to write tests, 
+eventually, you will be able to run all the tests on all the features
+in a few seconds, which will save you ALOT of time!!!
 
-write a function that takes in a string, checks if the string is the same string backwards, if it is, return `true`, if it's not return `false`.
+
+## TDD -- Test Driven Development
+
+- you think of/ write the tests first*  (alittle of code so taht the tests run)
+- run em, make sure they all fail :(
+- write code to pass the tests
+- once all the tests pass, == feature is complete
+
+
+## Coding Time!
+
+# Palindrome
+
+any text/string is the same exact string backwards is a palindrome
+
+`kayak` --
+`level` --
+`racecar` --

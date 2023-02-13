@@ -1,23 +1,27 @@
-const assert = require('chai').assert
 const palindrome = require('./palindrome');
+const assert = require('chai').assert;
 
+// console.log(assert);
 
-// kayak
-console.log(" Expected Tests!")
+////////////// Tests //////////////////////
 
-assert.isTrue(palindrome('kayak'), 'kayak IS a palindrome');
-console.assert(palindrome('racecar'), 'racecar IS a palindrome');
-// madam
-console.assert(palindrome('madam'), 'madam IS a palindrome');
-// civic
-console.assert(palindrome('civic'), 'civic IS a palindrome');
+console.log("-----------   Regular Tests ----------------------");
+assert.isBoolean(palindrome('test'), 'returns back a boolean');
 // level
-console.assert(palindrome('level'), 'level IS a palindrome');
+assert.isTrue(palindrome('level'), "FAIL: level is a PALINDROME and should return TRUE");
+// kayak
+assert.isTrue(palindrome('kayak'), 'FAIL: kayak is a PALINDROME and should return TRUE');
+// racecar
+assert.isTrue(palindrome('racecar'), "FAIL: racecar is a PALINDROME and should return TRUE");
+
+// noon
+assert.isTrue(palindrome('noon'), "FAIL: noon is a PALINDROME and should return TRUE");
 
 
-// // edge cases
+/////////////// EDGE CASE ////////////////
+console.log("------------- Edge Cases Tests ----------------");
 // my gym
-console.log("Edge Case Tests!")
-console.assert(palindrome('"my gym"'), '"my gym" IS a palindrome');
+assert.isTrue(palindrome('my gym'), "FAIL: 'my gym' is a PALINDROME and should return TRUE");
+
 // a man a plan a canal panama
-console.assert(palindrome('"a man a plan a canal panama"'), '"a man a plan a canal panama" IS a palindrome');
+assert.isTrue(palindrome('a man a plan a canal panama'), "FAIL: 'a man a plan a canal panama' is a PALINDROME and should return TRUE");

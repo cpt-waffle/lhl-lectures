@@ -1,14 +1,12 @@
-// import 
-const palindrome = require('./palindrome');
-console
-console.log("Is racecar a palindrome?");
-const str = 'racecar';
-const result = palindrome(str);
-if (result) {
-  console.log("racecar is a palindrome");
-} else {
-  console.log("racecar is not a palindrome");
-}
-// 
+const palindrome = require('./palindrome'); // {palindrome: f(), PI: 3.14};
+// console.log(helper);
+console.log('----------------- main.js -------------');
+// console.log("palindrome app!");
 
-// console.log(module);
+if (palindrome('racecar')) {
+  console.log("yes racecar is palindrome!");
+} else {
+  console.log("no racecar is not!");
+}
+
+

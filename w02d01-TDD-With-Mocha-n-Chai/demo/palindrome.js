@@ -2,38 +2,22 @@
 // checks if the string is the same string 
 // backwards, if it is, return `true`, 
 // if it's not return `false`.
-                          "kayak"
-const palindrome = function(string) {
-  // remove the space from string!
-  const noSpaceStr = string.replace(/ /g,''); "kayak"
-  // how do i remove all the spaces from a string??
-  // use reverse() to switch the string backwards
-  const reverseArr = noSpaceStr.split('').reverse();
-                        ['k', 'a', 'y', 'a', 'k']
-  const reverseStr = reverseArr.join('');
-                         'kayak'
-  // check if reversedStr is equal to string!
+//                   my gym
+const palindrome = (string) => {
+  // code goes here
+  // remove the spaces from the string and store in a variable
+  //                       ['my', 'gym']    'mygym'
+  const noSpaceStr = string.split(' ').join(''); // mygym
+  // reverse() only works on arrays, so we will convert our string into an array first
+  // reverse the string and store it in another variable
+  const arr = noSpaceStr.split(''); // ['m', 'y', 'g', 'y', 'm'];
+  const reverseArr = arr.reverse(); // reverse the array 
+  const reverseStr = reverseArr.join(''); // make it back into a string "mygym"
+  // check if no space string == reverse no space string
   return noSpaceStr === reverseStr;
-          'kayak'   === 'kayal'
+  // check if reverse string === the regular string ( no spaces )
+
 }
+// module.exports = {}
 
-// kayak
-console.log(" Expected Tests!")
-console.assert(palindrome('kayak'), 'kayak IS a palindrome');
-
-// // // racecar
-console.assert(palindrome('racecar'), 'racecar IS a palindrome');
-// madam
-console.assert(palindrome('madam'), 'madam IS a palindrome');
-// civic
-console.assert(palindrome('civic'), 'civic IS a palindrome');
-// level
-console.assert(palindrome('level'), 'level IS a palindrome');
-
-
-// // edge cases
-// my gym
-console.log("Edge Case Tests!")
-console.assert(palindrome('"my gym"'), '"my gym" IS a palindrome');
-// a man a plan a canal panama
-console.assert(palindrome('"a man a plan a canal panama"'), '"a man a plan a canal panama" IS a palindrome');
+module.exports = palindrome;
