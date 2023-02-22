@@ -1,89 +1,102 @@
+import logo from './logo.svg';
 import './App.css';
+import Item from './components/Item';
 import { useState } from 'react';
 
-// a function that returns JSX
-// reason to make components?
-// re-usable UI elements 
-// tinyapp templates are very close to components
-
-// $(document).on('ready', () => {
-  // $('#id').on('click') 
-// })
-//
-
-
-// state is JUST a variable
-// BUT it does a secondary operation OTHER than changing a value..
-
-
+// RENDER CYCLE
 function App() {
-  // let number = 23;
-  const [number, setNumber] = useState(23);
-  const [cats, setCats] = useState(['puma', 'rosy', 'mr buttons']);
+  // [a,b]
+  // a ---> the state value
+  // b ---> the state function to change the value
+  //                                         |
+  //                                     and re-render the component
+  // STATE
+  const [num, setNum] = useState(4);
+  const [items, setItems] = useState([
+    {task: 'Shovel the snow!'},
+    {task: 'Do the dishes'},
+    {task: 'do react d3 work'},
+    {task: 'walk the dog'},
+  ]);
 
-  const addOne = () => {
-    // Never change state directly
-    setNumber(number + 1);
-    // number = argument
-    // RE-RENDER THE ENTIRE COMPONENT FROM TOP TO BOTTOM;
+  let obj = {a:1, b:2, c:3}
+  let objCopy = {...obj, d:4};
+
+  let number = 0;
+  const onBtnClick = () => {
+    // your setState() takes in a value
+    // it can ALSO TAKE A CALLBACK!
+    // batching -- previous value of the state, batched up together
+    setNum((prev) => {
+      return prev + 1;
+    });
   }
-
-
-
-  const addANewCat = () => {
-    const name = 'Alan';
-    // everything should be a new instance 
-    // everything should be a modified copy
-    // and whenever we need re-place the original..
-    // we make a copy of the original and then alter it
-    //  AND THEN REPLACE IT...
-    
-    // to make a copy of an array, loop and push everything into a new array..
-    // for (let cat of cats) {
-    //   catsCopy.push(cat);
+  const onReset = () => {
+    setNum(0);
+  }
+  // <li>Buy Milk <button>Finished?</button></li>,
+    // const arr = [];
+    // for (let item of items) {
+    //   arr.push(<li>{item.task}<button>Finished?</button></li>)
     // }
-    catsArr = [ ['vixen'], ['alie'], ['rudolph']]
-    const catsCopy = [...cats, name];
-    setCats(catsCopy);
-  }
+
+    const arrMap = items.map((item) => {
+      // Item({task: item.task})
+      // return Item({task: item.task})
+      return <Item task={item.task} a={1} b={2}/>
+    })
+
+    const onTaskClick = () => {
+      // the WRONG way
+      // items.push({task: 'work out!'});
+      // react determines when to re-render
+      // by checking the prev value and current value
+      // if values are the same, DONT re-render
+
+      //  items --------------------------> 65747 [, , , , , {}]
+      //  line 46: items.push()
+      //  line 54: setItem() prev 65747   curr 65747
+      //  NO RE-RENDER
+
+      // VIRTUAL DOM 
+
+      // {
+      //    h15423sf5324: {
+              // value: "Todo List :)"
+              // children: 
+              // ...
+          // }
+
+          // li34525432: {
+              // value: itemState[0] 
+          // }
+          
+      // }
+      // make a carbon copy of our state, then alter it,
+      // THEN set it to the original
+////////////////////////////////////////////////////////////////////////
+      const newTask = {task: 'work out!'};
+      // for (let item of items) {
+      //   itemsCopy.push({...item});
+      // }
+      // itemsCopy.push(newTask);
+      const itemsCopy = [...items, newTask];
 
 
+      // setItems(prev => {
+        // return [...prev, newTask]
+      // })
+      setItems(itemsCopy);
+      console.log(items);
+    }
 
-// Virtual DOM
-//   |------>
-
-// state i have right now is EQUAL to the state that is being passed through to change?
-// setCats = (newState) => {
-//   if (newState === oldState)
-//   // do nothing
-//   else {
-//     change state
-//     re-render
-//     do everything else...
-//   }
-// }
-// ////////////////////////////////
-// {
-//   'div-app': {
-//     'h1-basic1': { value: 'hello world'}
-//     'h2-basic1': { value: 'Number is {state.number}'}
-
-//     'li-basic1': {value: state.cats[0]}
-//     'li-basic1': {value: state.cats[1]}
-//   }
-// }
-
-
+    console.log(arrMap)
 
   return (
     <div className="App">
-      <h1>Hello React!@</h1>
-      <h2>Number is {number}</h2>
-      <button onClick={addOne}>Add One</button>
-      ------------------------------------------
-      {cats.map(e => <li>{e}</li>)}
-      <button onClick={addANewCat}>ADD ONE MORE CAT</button>
-
+      <h1>Todo List :)</h1>
+      {arrMap}
+      <button onClick={onTaskClick}>ADD A NEW TASK</button>
     </div>
   );
 }

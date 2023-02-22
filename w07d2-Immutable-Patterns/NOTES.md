@@ -11,10 +11,8 @@
 - Q and A
 
 
-## ------ Hows react?
+### How's React So Far?
 
-<Component id={3} func={myFunction}/>
-<Component func={(id) => { setId(id)}}/>
-state 
-
-
+- its great!
+- passing variables (props/properties)
+- storybook!
