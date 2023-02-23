@@ -11,25 +11,26 @@ Security :)
 - cleanup of server.js
 
 
+## Security Part 1
 
-## Security!!
+### Passwords
 
-keeping plain text passwords is bad!
-
-malicious hackers, can get a hold of our system, and use the credentials to log in
-and break stuff
-
-gets sold on the internet, 
-
+NEVER EVER EVER keep passwords as plain text passwords,
+they can be read by anyone, they can be stolen and re-used in other apps
+people don't really changer their passwords.
 
 ### Hashing
 
-* one way process 
-* plaintextpassword (password) =>  algo (hashing) => hashsdjf0w5u280395uw809ru809345u89
+plaintext ----------> algoThatHashes(plainText) -------->hash3w450jse0fj0j450sjfopi5jo3toe6dfgdg
 
-### Bcrypt
+Hashing is *one way* process
 
-####  to encrypt 
+To De-Hash a password, a hacker needs to try out different passwords
+until the hash matches the other hash
+
+password123!
+
+### to Encrypt
 
 ```js
 const plaintextPass = 'secret';
@@ -52,8 +53,12 @@ const result = bcrypt.compareSync('test', hash);
 console.log(result); // true or false?
 ```
 
+## Cookies/Encryption
 
+Hashing is a one way process, but we need cookie values, so we can't simply hash and never get back the original value again.
 
+### Encryption
 
-
-
+* two way process
+VALUE ----------> ENCRYPT ----------> 043-90p9sgfjiop6
+043-90p9sgfjiop6->DECRYPT ----------> VALUE
