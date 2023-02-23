@@ -43,7 +43,6 @@ storiesOf('Comments', module)
 		}
 	]
 
-
-storiesOf('Comment List', module)
-.add("Default Comment List", () => <CommentList commentsArr={comments}/>)
-//                                  CommentList({commentsArr: comments})
+	// CommentList({ ???:comments})
+	storiesOf('CommentList', module)
+	.add("Default CommentList", () => <CommentList pineapple={comments}/>)

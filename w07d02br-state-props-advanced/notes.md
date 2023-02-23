@@ -1,4 +1,4 @@
-Lecture Today was on State
+# Lecture Today was on State
 Immutable Patterns
 Review of everything
 
@@ -9,5 +9,6 @@ Review of everything
 -- FUNCTION PASSING !!!!
 -- immutable State
 -- Draw out our app
+
 
 
