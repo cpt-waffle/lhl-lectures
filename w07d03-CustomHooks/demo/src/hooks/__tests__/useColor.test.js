@@ -1,56 +1,43 @@
 import useColor from "../useColor";
 import { renderHook, act } from '@testing-library/react-hooks';
 
-describe('first test ever!', () => {
-  test(' if 2 + 2 ie equal to 4', () => {
-    expect(2+2).toBe(4);
+describe('useColor Tests', () => {
+  it(' runs useColor and passes an array of colors, the useColor() returns us the current selectedColor [red, green, blue, lime, yellow]  red', () => {
+    const array = ['red', 'green', 'blue', 'lime', 'yellow'];
+    const { result } = renderHook(() => useColor(array));
+    // result.current -- returns us what the custom hook returns
+    expect(result.current.currentColor).toBe('red');
   })
 
-  it(' tests for 2 + 2 is equal to 4', () => {
-    expect(2+2).toBe(4);
-  })
-})
+  it(' takes an array of colors, starts with red, then we run the next() function, the color changes to green', () => {
+    const array = ['red', 'green', 'blue', 'lime', 'yellow'];
+    const { result } = renderHook(() => useColor(array));
+    expect(result.current.currentColor).toBe('red');
 
-
-describe('useColor tests', () => {
-  it('takes in an array of colors, and returns the current color', () => {
-    const colors = ['green', 'red', 'blue', 'purple', 'white', 'lime'];
-    const {result} = renderHook(() => useColor(colors));
-    expect(result.current.currColor).toBe('green');
-  })
-
-  it('takes in an array of colors, and runs the next() function which switches the color to RED', () => {
-    const colors = ['green', 'red', 'blue', 'purple', 'white', 'lime'];
-    const {result} = renderHook(() => useColor(colors));
-    expect(result.current.currColor).toBe('green');
     act(() => {
       result.current.next();
     })
-    expect(result.current.currColor).toBe('red');
-    console.log(result.current);
+
+    expect(result.current.currentColor).toBe('green');
   })
 
-  it('takes in an array of colors, and runs the next() then runs prev() and color is back to GREEN', () => {
-    const colors = ['green', 'red', 'blue', 'purple', 'white', 'lime'];
-    const {result} = renderHook(() => useColor(colors));
-    expect(result.current.currColor).toBe('green');
+  it(' takes an array of colors, starts with red, then we run the next() function, the color changes to green, then runs the prev() function, changes back to red', () => {
+    const array = ['red', 'green', 'blue', 'lime', 'yellow'];
+    const { result } = renderHook(() => useColor(array));
+    expect(result.current.currentColor).toBe('red');
+    
     act(() => {
       result.current.next();
     })
-    expect(result.current.currColor).toBe('red');
+
+    expect(result.current.currentColor).toBe('green');
+
     act(() => {
       result.current.prev();
     })
-    expect(result.current.currColor).toBe('green');
 
-    console.log(result.current);
+    expect(result.current.currentColor).toBe('red');
+
   })
+
 })
-
-
-// [state, setState] = useState({...})
-
-// setDay
-// setDays
-
-// useApplication.js
