@@ -1,0 +1,11 @@
+.demoPoster {
+  background-color: black;
+  padding: 35px;
+  text-align: center;
+}
+
+.demoPoster--img {
+  width: 650px;
+  height: 350px;
+  /* object-fit: cover; */
+}

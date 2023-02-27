@@ -2,26 +2,26 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 
 const useApplication = () => {
-  const [memes, setMemes] = useState([]);
+  const [demoPosters, setDemoPosters] = useState([]);
 
   useEffect(() => {
-    axios.get('/memes').then(res => {
+    axios.get('/demoposters').then(res => {
       console.log(res);
-      setMemes(res.data);
+      setDemoPosters(res.data);
     })
-
   }, [])
 
-  const addMeme = (title, img) => {
-    console.log("line 19, app.js");
-    // axios.post('/memes/', {title, img}).then(data => {
-      setMemes(prev => {
-        return [{title, img}, ...prev]
+  const addPoster = (image, title, caption) => {
+    console.log("app js line 19:", image, title, caption);
+    // axios.post(/).then(res => {
+      setDemoPosters(prev => {
+        return [{image, title, caption},...prev];
       })
-    // })
+    // }).catch(e => {...})
   }
+  return {demoPosters, addPoster}
 
-  return {memes, addMeme};
 }
+
 
 export default useApplication;
