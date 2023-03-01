@@ -8,56 +8,52 @@
    - one for an app
 - Q&A
 
-##############################
 
-##  Why We Test
 
-- time ( when writting first tests, its slow, but eventually things get much quicker)
-- stability of your app 
-- saves a bit of $
+#### Why we Test
 
-## Different Tests
+- time (when writing first tests, its slow on time, but eventually testing app vs writings tests, makes it faster to test the entire app)
+- stability for the app 
+- less downtime/bugs
+- saves a bit $$
 
-- unit testing -- quick, cheap
-- integration tests -- quick, cheap
-- End to End testing -- time consuming
+#### Different Types of Tests
 
-## End to End Testing
+- Unit Tests -- quick, cheap
+- Integration Tests -- quick, and cheap
+- End to End Tests -- time consuming
 
-You get to test your app, as it runs ( just like in prod)
-getting the data, showing the data, user clicking on things, user typing things
-, etc
+### End to End Testing
 
-### Installing Cypress
+You get test every aspect of your app, as an end user (backend/frontend/database)
 
-1) In your `client` (scheduler) install cypress
-*IN COMPASS IT WILL ASK YOU TO INSTALL IT GLOBALLY `npm i -g cypress@9.7.0`
-`npm i -D cypress@9.7.0`
 
-2)
+### Cypress!
 
-add in `package.json` the command script to run cypress:
+Installing cypress
 
+```sh
+npm i -D cypress@9.7.0
+# add into package.json the following scripct command 
+# "cypress": "./node_modules/.bin/cypress open"
 ```
-"scripts": {
-   "cypress":"./node_modules/.bin/cypress open",
-   ....
-}
-```
+Run Cypress in terminal with
 
-**WSL2 and anyone using firewalls 
+`npm run cypress`
 
-^ disable your firewall!!
+#### For Windows Users
 
-3) 
-
-you will run `3 terminals` 
-
-terminal 1 -- frontend 'npm start'
-terminal 2 -- backend (but in test/error mode) 
-(scheduler-api)
-"test:server": "NODE_ENV=test npm start"
-// visit http://localhost:8001/api/debug/reset
-terminal 3 -- runs cypress
+WSL2 -- Is your firewall on? (windows defender, mccaffee)
+TURN IT OFF
+xcv screen  X Server 
 
 
+### How to start writting and running tests for your app
+
+- 3 terminals 
+ - term 1 runs your scheduler/react app
+ - term 2 runs your backend (ran in development mode) (be sure to visis /api/debug/reset)
+ - term 3 runs your cypress framework
+
+
+ 

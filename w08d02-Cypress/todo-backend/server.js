@@ -13,7 +13,7 @@ const data = [
 
 app.use(cors());
 
-app.get('/', (req,res) => {
+app.get('/items', (req,res) => {
     setTimeout( () => {
         res.json(data);
     }, 500)

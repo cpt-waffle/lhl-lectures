@@ -9,7 +9,7 @@ const App = () => {
   const [error, toggleError] = useState(false);
 
   useEffect( () => {
-    axios.get('http://localhost:8080/')
+    axios.get('/items')
     .then(res => setList(prev => [...res.data, ...prev]))
     .catch(e => toggleError(true))
   }, []);

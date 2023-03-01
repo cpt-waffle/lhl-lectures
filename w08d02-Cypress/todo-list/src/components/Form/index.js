@@ -10,10 +10,12 @@ const Form = ({handleAdd}) => {
 
   const onSubmit = evt => {
     evt.preventDefault();
-    if( val !== '') {
+    if (val) {
       handleAdd(val);
-      setErr(false);
       setVal('');
+      if (err) {
+        setErr(false);
+      }
     } else {
       setErr(true);
     }
@@ -23,7 +25,7 @@ const Form = ({handleAdd}) => {
     <form onSubmit={onSubmit}>
       <input name="newItem" type="text" value={val} onChange={evt => setVal(evt.target.value)}/>
       <button id="submit">Submit</button>
-      {err && <h1>task cannot be blank!</h1>}
+      {err && <h1>Task Cannot Be Blank!</h1>}
     </form>
   );
 }
