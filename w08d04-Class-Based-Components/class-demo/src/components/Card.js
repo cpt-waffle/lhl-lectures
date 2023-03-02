@@ -1,67 +1,70 @@
-// import React
-import React, { Component } from 'react';
-import './Card.css'
+import React, { Component, useState } from 'react';
+import './Card.css';
 
-// a react class
-// a react component
-class Card extends Component {
-  
+// is a blueprint
+// class car
+// windows,doors=2, engine=12, fueltype=97, 4wheels
+// constructor()
+// a constructor is a method
+// that builds you an instance of that class
+
+
+class Card extends Component{
   constructor(props) {
-    super(props); // --> Component.Constructor()
-    //...
-    this.state = {likes: 4, dislikes: 4};
-    this.onDislikeButtonClick = this.onDislikeButtonClick.bind(this);
+    super(props);
+    this.state = {likes: 0, dislikes: 44};
+    this.onDislikes = this.onDislikes.bind(this);
   }
 
-  onLikesButtonClick = () => {
-    this.setState(
-      prev => ({likes: prev.likes + 1})
-    )
+
+  onLikesClick = () => {
+    this.setState(prev => ({...prev, likes: prev.likes + 1}));
   }
 
-  onDislikeButtonClick() {
-    this.setState(
-      prev => ({dislikes: prev.dislikes + 1})
-    )
+  onDislikes = function() {
+    this.setState(prev => ({...prev, dislikes: prev.dislikes + 1}));
   }
-
+  // this runs before
   componentDidMount() {
+    console.log("on render, and never again");
     setTimeout(() => {
       console.log("likes", this.state.likes);
       console.log("dislikes", this.state.dislikes);
     }, 10000)
-    console.log("once!");
+
   }
 
   // componentDidUpdate(prevProps, prevState) {
-  //   console.log("everytime, EXCEPT THE FIRST MOUNT");
-  //   if (this.state.dislikes !== prevState.dislikes) {
-  //     console.log("dislikes have changed!");
+  //   console.log("runs everytime. EXCEPT THE FIRST RENDER(mount)");
+
+  //   if (prevState.dislikes !== this.state.dislikes) {
+  //     console.log("on whenever dislikes changes");
   //   }
   // }
 
 
-  render() { 
-
+  render() {
     return (
-      <article className='card'>
+      <article className="card">
         <img 
           className="card--img"
           src={this.props.image}
-        />
+          />
         <h2>{this.props.name}</h2>
         <h3>{this.props.title}</h3>
-        <button onClick={this.onLikesButtonClick}>
-          Likes {this.state.likes}
-        </button>
-        <button onClick={this.onDislikeButtonClick}>
-          Dislikes {this.state.dislikes}
+        <button onClick={this.onLikesClick} >
+        Likes {this.state.likes}
+      </button>
+      <button 
+        onClick={this.onDislikes}
+      >
+        Dislikes{this.state.dislikes}
         </button>
       </article>
-    )
+    );
   }
-
 }
+
 
 
 export default Card;

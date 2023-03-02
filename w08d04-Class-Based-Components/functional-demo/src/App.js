@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Card from './components/Card'
+import Card from './components/Card';
 
 function App() {
 
@@ -8,16 +8,15 @@ function App() {
   const name = 'Mr Meows';
   const title = 'Senior Nap Engineer';
 
-
   return (
     <div className="App">
       <h1>Functional Demo</h1>
       <Card 
-        image={img}
-        name={name}
+        image={img} 
+        name={name} 
         title={title}
       />
-      {/* Card({...}) */}
+      {/* Card({img, name, title}) */}
     </div>
   );
 }
