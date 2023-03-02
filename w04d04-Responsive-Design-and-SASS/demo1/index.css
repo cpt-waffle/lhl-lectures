@@ -3,38 +3,34 @@
     padding: 0;
 }
 
-html {
-    font-size: 20px;
-}
 
 .box-a {
-    border: 3px dashed red;
-    font-size: 2em;
+    border: 2px dashed green;
+    font-size: 2em;  /* 2 * 16 = 32 */
 }
 
 .box-b {
-    border: 3px dashed green;
+    border: 2px dashed red;
     font-size: 2em;
 }
 
 .box-c {
-    border: 3px dashed yellow;
+    border: 2px dashed teal;
     font-size: 2em;
 }
 
+
 .box-d {
-    border: 3px dashed firebrick;
+    border: 2px dashed cornflowerblue;
     font-size: 2rem;
 }
 
 .box-e {
-    border: 3px dashed limegreen;
+    border: 2px dashed lime;
     font-size: 2rem;
-
 }
 
 .box-f {
-    border: 3px dashed skyblue;
+    border: 2px dashed yellow;
     font-size: 2rem;
 }
-

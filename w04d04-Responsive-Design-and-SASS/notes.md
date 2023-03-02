@@ -10,30 +10,25 @@ What that means ?  How far have we come!
 ---- sass (bonus)
 
 
-### Back in the Day....
+### Back in the Day...
 
-2003 - 2008 
+smart phones did not exist (not yet)
+LCD or CRT 15 - 20 inch max 
 
-CRT Monitors
-19 - 23 inch
-LCD technology (square monitors, roughly at 19 inches)
+2007-2008
 
-Iphone 1 
+Iphone 1 was released!
 
-3 - 6 iphones in circulation 
-
-you can browse the web!
-watch youtube!
-Pinch to zoom 
-
-4inches?
-
--- make 2 layouts
-
-req ------> detect the size of the screen 
- <-------- res back with an appropriate webpage
-
- 
+- you can browse the web, on your phone!
+- 4inch phone ^
+- pinch to zoom!
+- watch youtube
 
 
+HOW DO WE, SUPPORT DEVICES THIS SMALL!?!?
+
+Req ---------------------------> the backend detects (or asks, what device size are you you using?)
+
+            A different HTML (layout) page that would fit EXACTLY to the device width
+<----------------------------RES
 

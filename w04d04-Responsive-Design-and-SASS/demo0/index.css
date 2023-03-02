@@ -3,21 +3,17 @@
   padding: 0;
 }
 
-.item1 {
-  background-color: goldenrod;
-  height: 100px;
-  width: 80%;
-}
-
-.item2 {
-  background-color: rebeccapurple;
-  height: 100px;
+.box1 {
+  background-color: blueviolet;
   width: 50%;
-
 }
 
-.item3 {
-  background-color: firebrick;
-  height: 100px;
-  width: 25%;
+.box2 {
+  background-color: cornflowerblue;
+  width: 75%;
+}
+
+.box3 {
+  background-color: brown;
+  width: 35%;
 }

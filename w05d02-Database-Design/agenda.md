@@ -9,144 +9,140 @@
 - Relationships
 - General Design Concepts
 - Breakout Exercise
-- Another Practice
+- Take up Exercise ^
 
-### You have learned how to:
+## What you have learned so far!:
 
-- get data out of a database
+- DATA in our database
 - SELECT queries 
-- joins (we tried :)  )
+- JOINs
 - creating tables
 - inserting data
 
+## How to think of tables ?
 
-### How to think of tables
-
-## User Stories
-
-an explanation of a feature
-
-
+### A User story
 ```
-As a _______________ I want to do ________________________
-because __________________________________________________
-
-
-As a user, I want to be able to add URLs (long) and the app makes a shortURL
-because, I want to shorten the size of my urls, and make them shareable
+As a _____________________
+I want to be able to ____________________________________
+_________________________________________________________
+because _________________________________________________
 ```
+
+- As a user, I want to save a long url, to my app, by adding a short url to it.
+- As a user, I want to share my shortURL with people so they can visit the long url site.
+- As a user, I want to be able to see only my urls, when i'm logged in.
+
+**Tables are NOUNS in my user stories**
 
 ### Tables
 
-#### What is a Table
+structure 
+organized collection of data
+series of rows and columns
 
-- a collection of data 
-- categorized
+### ERD - Entity Relation Diagram
 
-### ERD 
+- a way to visiually show you how your database is shaped
 
--- Entity Relation Diagram
+## Table conventions
 
-## Table Conventions 
-(in LHL*)
+-- pluralized the table name!
+-- tables with multiple words, we use snake_case
+`order_items`, `line_items` 
 
-- table names, are pluralized and if more than one word is in a table, we use snake_cased
-DATABASE
-
-1 v@k.ca    1234 r23rs5    www.google.ca
-1 v@k.ca    1234 1234af    www.reddit.com 
-2 a@b.com   4567 34ffs5    www.facebook.com
+Tables Users
+PK(email)    first_name  last_name 
 
 
-Users
-PK
-1   v@k.ca    1234
-2   a@b.com   4567
 
 
-Urls
-r23rs5    www.google.ca
-1234af    www.reddit.com
-34ffs5    www.facebook.com
 
-#------------URLs----------------
-                                 FK
-r23rs5    www.google.ca          1
-1234af    www.reddit.com         1
-34ffs5    www.facebook.com       2
+----------------Table Urls
+(PK)id        longURL             shortURL      user_id
+1       www.google.ca           fs5f55             1
+2       www.reddit.com          sd9455             1
+3       www.lighthouselabs.ca    5dfg6             2
+4
 
-
-## PK (Primary Keys)
-
-- "unique" identfier of a record, (UNIQUE TO THE TABLE)
-- 95% the primary key is an INTEGER (SERIAL INTEGER)
-- any DATA TYPE can be used to set a primary key!
-
-
-## FK (Foreign Keys)
-
-- its a key that is a REREFENCE in another table
-- HAS TO BE THE SAME DATATYPE AS THE KEY YOU ARE REFERENCING
-
-## Rules of Foreign Keys
-
-You are not allowed to delete a row, referenced in another table (unless cascade is applied)
-
-You can still join on anything (doesnt need to be a FK PK relation), but INSERT and DELETE may have a FK constraint where the FK must exist.
-
+-----------------Table Users
+id      user_email     first_name    last_name
+1         vas@k.ca          vas           klim 
+2         lhl@gmail.com     lhl           lhl
 
 ### Datatypes
 
-- TEXT(unlimited) 16mb (comments, messages, manuals, descriptions.)
-- VARCHAR(255)    5b    255b    100b   (phone numbers, emails, names, etc )
-- INTEGER (serial, unsigned, double int, etc)
-- BOOLEAN (T or F)
-- DATE
-- DECIMALS/CURRENCY 
-- TIMESTAMPS
+INTEGER  <---SERIAL
+TEXT(unlimited)
+VARCHAR(255)
+DATE
+BOOLEAN
+TIMESTAMP
 
-Back in the old days........
+### Back in the old days.......
+
+VARCHAR --- (1-255) 1b-255b
+TEXT    --- 1000mb - 
+INTEGER --- SERIAL ---> id ----> positive integers
+
+INSERT INTO urls (long, shortURL) VALUES ('', '')
+
+#  PK --- Primary Key
+Unique identifier of a record (UNIQUE TO THE TABLE) no repeats of same
+95% of the primary keys are INTEGERS SERIAL (but... by definition, a primary key can be anything)
+
+#  FK --- Foreign Key
+
+A key that is a REFERENCE in another table
+Foreign Key HAS TO BE THE SAME DATATYPE AS THE KEY YOU ARE REFERENCING
 
 
-### Serial 
-let i = 1;
-i++;
-it is an autoincrementing only positive integer
 
-1
-2
-3
-4
+## Relationship
 
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
- ---------> 23
-24
+- One to Many  
 
-```sql
-INSERT into (email, password) 
-VALUES ('b@c.ca', '1234567');
-```
+One X has many Y
+One Y has one  X
 
-### Relationships 
+- One to One
 
-one to one
-one to many -- many to one
+One X has One Y
+One Y has One X
 
--- cannot exist --
-many to many
+- Many to many
+
+One X has Many Y
+one Y has Many X
+
+CANNOT BE MADE IN POSTGRES
+CANNOT EXIST in a database 
+
+To fix many to many we introduce a bridge table
+
+-- As A User I want to be able to favorite a URL
+
+
+##  General Concepts + Tips
+
+Calculated Fields should be calculated with AGGREGATE FUNCTIONS 
+(SUM, AVG, COUNT, etc)
+Do not store an aggregate value into a table....!
+
+NOT NULL fields 
+
+first_name DEFAULT John
+last_name DEFAULT Doe
+email     NOT NULL
+picture_profile DEFAULT default_pic.jpeg
+phone_number DEFAULT 00000000000
+
+
+TRY NOT TO DELETE ROWS
+(soft delete)
+
+----------------Table Urls
+(PK)id        longURL             shortURL      user_email  isDeleted
+1       www.google.ca           fs5f55             1           FALSE
+2       www.reddit.com          sd9455             1           FALSE
+3       www.lighthouselabs.ca    5dfg6             2           TRUE

@@ -5,48 +5,34 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.box {
 
-}
-
-.box:hover {
-    background-color: blue;
-}
-
-.box-a {
-    background-color: rebeccapurple;
-    height: 35px;
-    flex-grow: 1;
-}
-
-.box-b {
-    background-color: royalblue;
-    flex-grow: 1;
-
-}
-
-.box-c {
-    background-color: gainsboro;
-    flex-grow: 1;
-
-}
-
-.navbar {
+.nav {
     display: flex;
+    justify-content: space-between;
 }
 
-/* if sizeofscreen <= 500 */
-@media screen and (max-width: 500px) {
-    .navbar {
-        display: flex;
-        flex-direction: column;
-    }
-}
-/* if sizeofScreen >= 1000px */
-@media screen and (min-width: 1000px) {
-    .navbar {
-        margin: 20px;
-    }
+.nav-item {
+    text-align: center;
+    background-color: cornflowerblue;
+    flex-grow: 1;
 }
 
-/* what layout do we start designing first? */
+/* media queries/ breakpoints  */
+/* if sizeofscreen <= 400px  OVERWRITE every class with the class inside of these brackets*/
+@media screen and (max-width: 400px) {
+    .nav {
+        display: block;
+    }
+
+    .nav-item {
+        background-color: blueviolet;
+        font-size: 2rem;
+    }
+}
+/* if sizeofscreen >= 800px OVERWRITE every class with class inside of these brackets*/
+@media screen and (min-width: 800px) {
+    .nav-item {
+        background-color: crimson;
+        padding: 10px;
+    }
+}
