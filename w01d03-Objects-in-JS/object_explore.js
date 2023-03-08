@@ -52,4 +52,4 @@ const tvShow = {
 }
 
 
-console.log(tvShow.show.network.country.code);
+console.log(tvShow.show.schedule.days[0]);

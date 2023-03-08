@@ -1,17 +1,21 @@
-// loop through my string (letter by letter)
-// c style
-console.log("---------------C STYLE-----------------");
-
+// cStyle
 for (let i = 0; i < str.length; i++) {
-  console.log(str[i]);
+  console.log("i", i );
+  console.log(string[i]);
 }
-console.log("---------------FOR IN-----------------");
+
+
 // for in
+// loops through keys, or index
 for (let i in str) {
-  console.log(str[i]);
+  console.log("i", i );
+  console.log(string[i]);
 }
-// for of 
-console.log("---------------FOR OF-----------------");
-for (let v of str) {
-console.log(v);
-}
+
+
+
+  // for of
+  // -- loops through values
+  for (let i of str) {
+    console.log(i);
+  }

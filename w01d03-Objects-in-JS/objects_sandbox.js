@@ -1,93 +1,97 @@
 //  Review!
 
-const PI = 3.14;
+////// variables -- place to hold values
+
 let fruit = 'banana';
+const PI = 3.14;
+
 fruit = 'apple';
+
 // console.log(fruit);
+// console.log(PI);
 
-// Array 
-// a way to store multiple data, as a collection
+///// Arrays ------------ a container/list/collection that can hold MULTIPLE values
 
-const array = [1,2,3,4, 'five', 'six', 'seven', false, true, [1,2,3]];
-// console.log(array);
+const arrays = [1,2,3,4, 'five', 'six', 'seven', 22.3, false, true];
+//              0 1 2 3     4      5       6      7      8      9
+// console.log(arrays);
+arrays.push(99.99999);
+// console.log(arrays);
 
-// array.push('this is a new element');
-// console.log(array);
+/// individual values
 
-//// Functions
+// console.log(arrays[4]);
+arrays[4] = 'not five anymore :(';
+// console.log(arrays);
 
-// ---------------------------> parameters
-const randomFunction = function(a, b) {
+/////////////////////////////////????/////////////////////////
+
+//                make       model    engine type     year     color seats  isracingcar?
+const firstCar = ['toyota', 'rav4', 'hybrid electrics', 2027, 'red', 4, false, function() { console.log("ON!")}];
+//                   0        1          2               3       4   5     6
+// 7 months later...
+// In arrays, order MATTERS
+const secondCar = ['v4', 'civic', 'honda', 'white', 2022];
+
+// function review --
+
+// console.log(firstCar);
+const printCarDetails = function(car) {
   //...
-  console.log("hello!");
+  console.log("Make:", car[0]);
+  console.log("Model:", car[1]);
+  console.log("Year:", car[3]);
 
-  console.log(a + b);
-}
-// arguments
-// randomFunction(3,2);
-// randomFunction(5,3);
-// randomFunction(5,5);
-
-// storing information (context)
-
-const car = ['toyota', 'corolla', 2012, 'white', 'automatic', 4, 1.2, 'cloth'];
-//              0          1       2       3          4       5   6      7
-//////////
-const car2 = ['civic', 'honda', 2019, 'manual', 2.0, 'leather', 'red'];
-//              0         1      2       3        4      5        6 
-
-const arr = [24.5, 11.4, 54.3, 88.5];
-
-const printDetails = function(car) {
-  console.log("Make: ", car[0]);
-  console.log("Model: ", car[1]);
-  console.log("Number of seats", car[5]);
 }
 
-// printDetails(car);
-// printDetails(car2);
+// printCarDetails(firstCar);
+// printCarDetails(secondCar);
 
+/////////////////////// OBJECTS //////////////////////////////
 
-// OBJECTS -----------------------------------
-
-// an object is a way to store information 
-// an object can store multiple data points (just like an array)
-// an object can provide a context for every value
-// an object order of values DOES NOT MATTER
-
-const carArr = ['toyota', 'corolla', 2012, 'white', 'automatic', 4, 1.2, 'cloth'];
-//              0          1       2       3          4       5   6      7
-
-const carObj = {
+// a collection of data (just like an array...)
+// to denote an object we use CURLY brackets.
+// key: value pairs
+// THE ORDER OF VALUES, DOES NOT MATTER
+const firstCarObj = {
+  model: 'm2',
+  features: ["GPS", "rear camera", "8-track with a tape stuck inside it"],
+  isSportsCar: true,
   seats: 2,
-  model: 'civic',
-  engine: 2.0,
-  make: 'honda',
-  drivers: [{name: 'vas', lname: 'klimkin', }]
-
+  year: 2023,
+  make: 'bmw',
 };
-// keys -- a string that the user defines 
+// console.log(firstCarObj);
+// we can add/remove values in an object...
+
+// console.log(firstCarObj);
+
+firstCarObj.transmission = 'manual';
+// console.log(firstCarObj);
 
 
-const carDetails2 = function(carObj) {
- console.log("make:", carObj.make);
- console.log("model:", carObj.model); 
+const printCarDetailsObj = function(car) {
+  console.log('Make: ', car.make);
+  console.log('Model: ', car.model);
+  console.log('Year: ', car.year);
+  console.log('feature: ', car.features[2])
+
 }
 
-// carDetails2(carObj);
 
-// console.log(carObj);
 
-/////////// setting keys
-// arr['0'];
-// arr['1'];
-const objFinal = {};
-objFinal.a = 3;  ////// arr.push()
-objFinal.banana = 3;
-//////// ^ but this only works when you know the key name ///////////////
+const letter = 'c';
 
-// SQUARE BRACKET NOTATION
-let keyName = 'flavor';
-objFinal[keyName] = 'chocolate';
-// object = {flavor: 'chocolate'};
-console.log("objFinal", objFinal);
+const result = {};
+// = 5
+
+// dot notation...
+result.letter = 5;
+// square bracket notation.. (just like in an array but not an array)
+// keys are strings
+//        c
+result[letter] = 9;
+
+
+console.log(result['car']);
+// {c: 5}
