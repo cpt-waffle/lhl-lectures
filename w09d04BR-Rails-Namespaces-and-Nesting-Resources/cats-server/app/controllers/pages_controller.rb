@@ -4,7 +4,4 @@ class PagesController < ApplicationController
 
   def banana
   end
-
-  def apple
-  end
 end

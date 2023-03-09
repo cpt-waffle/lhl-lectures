@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+
 puts "Purging Database..."
 Cat.destroy_all
 User.destroy_all
@@ -22,4 +23,3 @@ Cat.create(name: 'Rosey', color: 'black', user_id: user_one.id);
 Cat.create(name: 'Puma',   color: 'black', user_id: user_one.id);
 Cat.create(name: 'Mr Meows',  color: 'cinnamon', user_id: user_two.id);
 Cat.create(name: 'Amber',   color: 'amber', user_id: user_three.id);
-puts "Cat creation complete!"
