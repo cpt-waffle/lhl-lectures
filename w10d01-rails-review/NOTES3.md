@@ -13,33 +13,48 @@
 - API (if lets say you have a frontend already built)
 
 
-### Express vs Rails
+## Rails vs Express
 
-## Express 
+## Convention vs Configuration
 
-Configuration
- - make routes
- - gave routes names ( any name you wanted )
- - specified what you wanted to render
- - you made logic files, helpers, with any name, with an folder structure
- - you added PG node_module, you installed, and configured it
-
- ## Rails
-
- Convention
- - used generators
- - follow name convention
- - follow folder convention
- - follow views convention 
- - etc 
- - rails does alot of work behind the scenes
+- Rules that you have to follow
+- Config things, 
 
 
+### Express
 
-### MVC
-used by rails, laravelPHP, Asp.net CORE (C++ MS), SailsJS (JS)
-Express(JS)  Sinattra(Ruby)
-
-## Routes 
+- you configure EVERYTHING
+- making routes, adding database, creating anyfilename as a helper, requiring it in specific files, adding services (twillio). 
 
 
+### Rails 
+
+- will make you ALOT of the things, already configured, but you have to use its, generator
+- naming conventions for files 
+- naming conventions for views
+- naming conventions for folders
+- rails does alot of work, behind the scenes.......
+
+
+### MVC 
+
+ - rails
+ - SailsJS
+ - asp.net core 
+ - laravel
+ - Django
+
+----
+
+- ExpressJS
+- Sinattra
+- Flask
+
+
+## Rails Review 
+
+`config/Routes.rb` --
+
+M
+V
+C
