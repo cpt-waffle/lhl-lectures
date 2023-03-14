@@ -1,27 +1,31 @@
 // Review!
 
-// functions!
-                     // params
-                     // no limit to how many parameters go into a function
-const greetings = function(name) {
-  console.log("Hello ", name);
-}
-          // argument
-// greetings('Charlie');
+// Functions
 
-//////////// callbacks!
+  // -- params, arguments
+  // -- returns
 
-// a parameter that happens to be a function
-
-const foo = function(callback) {
-  console.log(callback);
-  callback('Vas');
+  // ----------------      params
+const greetings = function(a,b,c) {
+  console.log("Hello World!");
+  return 3.14;
 }
 
-greetings('Test')
 
-foo(function() {
-  console.log("annon function!");
-});
+// const result = greetings(1,'two', false) // <----- arguments
+// console.log(result);
 
-// forEach, map, filter, 
+
+// Callbacks  <------- ??
+// 
+
+const highOrderFunction = function(a,b,callback) {
+  console.log(a);
+  console.log(b);
+  console.log(callback());
+
+}
+
+const value = 2;
+
+highOrderFunction(1,value, greetings);
