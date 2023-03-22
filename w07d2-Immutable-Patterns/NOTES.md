@@ -13,6 +13,3 @@
 
 ### How's React So Far?
 
-- its great!
-- passing variables (props/properties)
-- storybook!
