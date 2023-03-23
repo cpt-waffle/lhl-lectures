@@ -1,75 +1,54 @@
 import './App.css';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
-import MemeContainer from './components/MemeContainer';
-
+import {useState, useEffect} from 'react';
+import MemeList from './components/MemeList';
 
 function App() {
 
-  const [num, setNum] = useState(0);
-  const [num1, setNum1] = useState(0);
-
+  // RENDERING CYLCE OF REACT ---
   const [memes, setMemes] = useState([]);
 
-  // 
+  const [num, setNum] = useState(1);
 
-  // useEffect deals with side-effects
-  // side-effects are functions: data fetching functions, event listener functions
-  // that need to be declared/ran as soon as the FIRST render happens!
-
-  // useEffect, takes a callback, AND an ARRAY that will run just after the component has rendered
-  // and appeared on the page
-  // -- ANY use effect will run atleast ONCE when declared
+  // this specific one useEffect Runs EVERYTIME the app re-renders....
   useEffect(() => {
-    console.log("our basic use-effect")
+
   })
 
-
-  // this is the useEffect type you will work with throught scheduler!
+  // this runs once, (on first render) and never again
   useEffect(() => {
-    console.log("Ony ONCE!!!");
     axios.get('/memes').then(res => {
-      console.log(res);
+      console.log('response', res);
       setMemes(res.data);
     })
-  }, []) // <--- the dependancy ARRAY
+  }, []) // <--- dependancy array
 
   useEffect(() => {
-    console.log("only change when the depedancy changes!");
+    console.log("number has changed!");
   }, [num])
 
+  const onClick = (num) => {
+    console.log("Line 31: App.js");
+    console.log(num);
+    setMemes([]);
+  }
 
-
-
-  // const array = [];
-
-  // for (let meme of memes) {
-  //   array.push(<h1>{meme.name}</h1>)
-  // }
-  // [1,2,3,4]  map ( x 2 )===>  [2,4,6,8]
-  // [{}, {}]  map (<h1>...</h1>) ===> [<h1>...</h1>, <h1>...</h1>] 
-  const array = memes.map(meme => {
-    return <MemeContainer key={meme.id} id={meme.id} name={meme.name} url={meme.url}/>
-  })
-
+  // ----- Side Effect -----
+  // $.ajax()
+  // $.get('/memes', (data) => { ... })
   // axios.get('/memes').then(res => {
-  //   console.log(res);
+  //   console.log('response', res);
   //   // setMemes(res.data);
   // })
-  // const array = [<h1>Hello World</h1>, <h2>Hi</h2>, <h4>test</h4>]
+
+  const memelist = memes.map( meme => {
+    return {id: meme.id, img: meme.url, title: meme.name};
+  })
 
   return (
     <div className="App">
-      <h1>Hello World!</h1>
-      <h3>NUM {num}</h3>
-      <h3>NUM1 {num1}</h3>
-
-      {array}
-
-      <button onClick={() => setNum(prev => prev + 1)}>Click me</button>
-      <button onClick={() => setNum1(prev => prev + 1)}>Click me</button>
-
-
+      <h1>W7d4 - Data Fetching in React</h1>
+      <MemeList list={memelist} banana={onClick}/>
     </div>
   );
 }

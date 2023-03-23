@@ -1,0 +1,10 @@
+.meme {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+
+.meme--img {
+  width: 500px;
+}
