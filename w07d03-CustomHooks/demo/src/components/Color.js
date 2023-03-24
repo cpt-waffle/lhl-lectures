@@ -1,32 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import useColor from '../hooks/useColor';
 
 
-const Color = (props) => {
-  const array = ['cornflowerblue', 'firebrick', 'lime', 'rebeccapurple', 'goldenrod'];
-  const {currentColor, next, prev} = useColor(array);
-  console.log(currentColor);
+const Color = () => {
+  const colorArray = ['firebrick', 'rebeccapurple', 'cornflowerblue', 'lime'];
+  const {currentColor, next, back} = useColor(colorArray)
+
   return (
     <div style={{backgroundColor: currentColor}}>
-      The color Component
-      <button onClick={prev}>Previous</button>
+      <br/>
+      <button onClick={back}>Previous</button>
       <button onClick={next}>Next</button>
-
     </div>
   );
 }
 
 export default Color;
-
-
-
-// Building a Hook
-
-// useVisualMode
-
-// FIRST 
-// transition
-// SECOND
-// transition
-// FIRST
-///////////////////// EMPTY, SHOW, FORM, etc

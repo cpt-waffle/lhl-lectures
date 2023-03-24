@@ -1,32 +1,23 @@
-
-// 1 - make a function same name as a file
-// 2 - export that function
-// 3 - move all the logic from a component into this file 
-// (state, useEffects, other hooks, etc)
-// 4 - import any reactHooks (dependancies) that you may need
 import { useState } from "react";
 
+// create a folder called hooks
+// create a file with a prefix use_____.js
 
-const useToggle = () => {
+// make a function, with exact name as a file
+// make sure that function gets export default out
+// copy the logic from component to hook (or write new logic)
+// import the things you need...
 
-  // custom hooks
-  // DO NOT RETURN ANY JSX to render
-  const [toggle, setToggle] = useState(false);
-  
-  // make a customHook, called useApplication
-  // and simply MOVE all the logic from Application.js to useApplication
-  // then import the custom hook, and pass the values down like they were before
+// Rule: hooks will never RENDER anything, its only going to contain LOGIC
+const useToggle = (param) => {
+  const [toggle, setToggle] = useState(param);
 
-
-  const onClick = () => {
-    //  
-    setToggle(prev => {
-      return !prev;
-    })
+  const onToggle = () => {
+    setToggle(prev => !prev)
   }
+  
+  return {toggle, onToggle};
 
-  return {toggle, onClick}
 }
-
 
 export default useToggle;

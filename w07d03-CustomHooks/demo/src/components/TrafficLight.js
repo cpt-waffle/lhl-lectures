@@ -1,23 +1,48 @@
-import React, {useState} from 'react';
+import React from 'react';
+import './TrafficLight.css';
+// import your custom hook!
 import useToggle from '../hooks/useToggle';
 
-// What if i told you, you can move
-// -- state
-// -- functions that change state
-// into its own file....
-// and re-use that file multiple times in other components
 
-// Custom Hooks -- re-use of state logic
+const TrafficLight = () => {
+const tl1 = useToggle(false); // brand new instance
+const tl2 = useToggle(false);// brand new instance
+const tl3 = useToggle(false); // brand new instance
 
-const TrafficLight = (props) => {
-  const {toggle, onClick} = useToggle();
+
+  // {toggle: true/false, onToggle: f()}
 
   return (
     <div>
-      <button onClick={onClick}>WALK/DON'T WALK</button>
-      {toggle ? <h1>WALK</h1> : <h1>DON'T WALK</h1>}
+      Traffic Light!
+      {tl1.toggle ? 
+        <div className='green'>Walk</div> : 
+        <div className='red'>Don't Walk</div> 
+      }
+      <button onClick={tl1.onToggle}>Click</button>
+      Traffic Light!
+      {tl2.toggle ? 
+        <div className='green'>Walk</div> : 
+        <div className='red'>Don't Walk</div> 
+      }
+      <button onClick={tl2.onToggle}>Click</button>
+      Traffic Light!
+      {tl3.toggle ? 
+        <div className='green'>Walk</div> : 
+        <div className='red'>Don't Walk</div> 
+      }
+      <button onClick={tl3.onToggle}>Click</button>
     </div>
-  );
+  )
 }
 
 export default TrafficLight;
+
+
+// -- Application/App.js
+
+// state, useState = {appointements, interviewers, days}
+
+//  setDay
+//  setDays
+// 

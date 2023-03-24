@@ -1,43 +1,56 @@
-import useColor from "../useColor";
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react-hooks'
+import useColor from "../useColor"
 
-describe('useColor Tests', () => {
-  it(' runs useColor and passes an array of colors, the useColor() returns us the current selectedColor [red, green, blue, lime, yellow]  red', () => {
-    const array = ['red', 'green', 'blue', 'lime', 'yellow'];
-    const { result } = renderHook(() => useColor(array));
-    // result.current -- returns us what the custom hook returns
+describe('useColor Tests!', () => {
+  it.only('takes in array of colors, returns us an object with a key called currentColor that is set to be the first color of the array', () => {
+    const array = ['red', 'blue', 'green', 'yellow', 'purple'];
+    const { result } =renderHook(() => useColor(array)); 
     expect(result.current.currentColor).toBe('red');
   })
 
-  it(' takes an array of colors, starts with red, then we run the next() function, the color changes to green', () => {
-    const array = ['red', 'green', 'blue', 'lime', 'yellow'];
-    const { result } = renderHook(() => useColor(array));
+  it.only('takes in an array of colors, starts with red, fire a function called next(), switches to the next color, which should be blue', () => {
+    const array = ['red', 'blue', 'green', 'yellow', 'purple'];
+    const { result } =renderHook(() => useColor(array)); 
     expect(result.current.currentColor).toBe('red');
-
+    console.log(result.current);
     act(() => {
       result.current.next();
     })
 
-    expect(result.current.currentColor).toBe('green');
+    expect(result.current.currentColor).toBe('blue');
+
   })
 
-  it(' takes an array of colors, starts with red, then we run the next() function, the color changes to green, then runs the prev() function, changes back to red', () => {
-    const array = ['red', 'green', 'blue', 'lime', 'yellow'];
-    const { result } = renderHook(() => useColor(array));
+  it('takes in an array of colors, starts with red, fire a function called next(), switches to the next color, then run function back(), and go back to red', () => {
+    const array = ['red', 'blue', 'green', 'yellow', 'purple'];
+    const { result } =renderHook(() => useColor(array)); 
     expect(result.current.currentColor).toBe('red');
-    
+    console.log(result.current);
     act(() => {
       result.current.next();
     })
-
-    expect(result.current.currentColor).toBe('green');
-
+    expect(result.current.currentColor).toBe('blue');
     act(() => {
-      result.current.prev();
+      result.current.back();
     })
+    expect(result.current.currentColor).toBe('red');
+  })
+})
 
+describe("EDGE CASES", () => {
+  it('tries to go back farther than the first element, should return first element', () => {
+    const array = ['red', 'blue', 'green', 'yellow', 'purple'];
+    const { result } =renderHook(() => useColor(array)); 
+    act(() => {
+      result.current.back();
+    })
+    act(() => {
+      result.current.back();
+    })
+    act(() => {
+      result.current.back();
+    })
     expect(result.current.currentColor).toBe('red');
 
   })
-
 })
