@@ -1,19 +1,45 @@
 import './App.css';
-// Demotivational Posters Meme App
-import DemoPosterList from './components/DemoPosterList';
+import TodoList from './components/TodoList';
+
 import Form from './components/Form';
-import useApplication from './hooks/useApplication';
+import useApp from './hooks/useApp';
+
 
 function App() {
-  const {demoPosters, addPoster} = useApplication();
+  const {todos, addItem} = useApp();
+
 
   return (
     <div className="App">
-      <h1>Meme Demo App!</h1>
-      <Form addPoster={addPoster}/>
-      <DemoPosterList list={demoPosters}/>
+      <h1>Todo List!</h1>
+      <TodoList list={todos}/>
+      <Form addItem={addItem}/>
     </div>
   );
 }
 
 export default App;
+
+
+//   Clothing Store app
+
+
+
+
+
+
+
+
+
+
+
+
+// App.js
+// [{id: 43, name: 'shirt'}]
+// <ClothesList list={list}/>
+// /items/:id  --------> {id: 43, name: shirt, descr, availSizes, colors: ....}
+
+
+// <MoreInfo id={currentItem.id}/>
+
+// useEffect(() =>  {...axios}, [props.id])
