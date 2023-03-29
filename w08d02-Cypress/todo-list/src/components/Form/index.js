@@ -13,20 +13,20 @@ const Form = ({handleAdd}) => {
     if (val) {
       handleAdd(val);
       setVal('');
-      if (err) {
-        setErr(false);
-      }
+      setErr(false);
     } else {
       setErr(true);
     }
+
   }
 
   return (
     <form onSubmit={onSubmit}>
       <input name="newItem" type="text" value={val} onChange={evt => setVal(evt.target.value)}/>
       <button id="submit">Submit</button>
-      {err && <h1>Task Cannot Be Blank!</h1>}
+      {err && <h1>Cannot be Blank!</h1>}
     </form>
+  
   );
 }
 
