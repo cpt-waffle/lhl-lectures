@@ -1,13 +1,11 @@
 <%- include('partials/_header') -%>
 <body>
 	<%- include('partials/_nav')-%>
-		<div class='tc'>
-			<%= JSON.stringify(result) %>
-			<ul>
-				<% for (dep of result) { %>
-					<li><%= dep.name %> </li>
-				<% } %>
-			</ul>
-		</div>
+	<h1>Deparments</h1>
+	<ul>
+		<% for (let department of departments) {%>
+			<li><%= department.name %></li>
+		<% } %>
+	</ul>
 </body>
 <%- include('partials/_footer') -%>

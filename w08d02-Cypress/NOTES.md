@@ -10,50 +10,46 @@
 
 
 
-#### Why we Test
+## Different Types of Testing
 
-- time (when writing first tests, its slow on time, but eventually testing app vs writings tests, makes it faster to test the entire app)
-- stability for the app 
-- less downtime/bugs
-- saves a bit $$
+- Unit Tests
+- Integration Tests
+- Function Tests
+- static Tests
+- E2E  -- End to End
+-  How the backend works, how the frontwords, how the frontend interacts with the user
+-- (User Story Testing (A Vasiliy Term***))
 
-#### Different Types of Tests
+## Cypress
 
-- Unit Tests -- quick, cheap
-- Integration Tests -- quick, and cheap
-- End to End Tests -- time consuming
+Installation of Cypress
 
-### End to End Testing
+### FRONTEND
 
-You get test every aspect of your app, as an end user (backend/frontend/database)
+`npm install -D cypress@9.7.0` -- 
+-- add to package.json (scheduler)
+`"cypress": "./node_modules/.bin/cypress open"`
 
+### Backend setup
 
-### Cypress!
+-- in scheduler_api 
+-- `env.development`
+--  ^--- copy that file and paste/rename `env.test`
+-- DATABASE=scheduler_developement --- scheduler_test (REPLACE WIHT SCHEDULER_TEST)
+   --- psql (logged in as development:development)
+   --- create database scheduler_test
+   --- \q
+-- `NODE_ENV=TEST npm start` <-- the command to start everything
 
-Installing cypress
+-- `localhost:8080/api/debug/reset`
 
-```sh
-npm i -D cypress@9.7.0
-# add into package.json the following scripct command 
-# "cypress": "./node_modules/.bin/cypress open"
-```
-Run Cypress in terminal with
+### For the windows users ( The ones that are running WSL2/VM)
 
-`npm run cypress`
+-- needs to install XCV Server (X server)
+-- link in compass
 
-#### For Windows Users
-
-WSL2 -- Is your firewall on? (windows defender, mccaffee)
-TURN IT OFF
-xcv screen  X Server 
-
-
-### How to start writting and running tests for your app
-
-- 3 terminals 
- - term 1 runs your scheduler/react app
- - term 2 runs your backend (ran in development mode) (be sure to visis /api/debug/reset)
- - term 3 runs your cypress framework
+-- IF IT DOES NOT WORK --- that means you have a firewall issue
+-- TURN OFF YOUR FIREWALL FOR A BIT
+-- (make a rule in the firewall to allow internal connections to X server)
 
 
- 

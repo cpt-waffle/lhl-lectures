@@ -1,36 +1,42 @@
 const {Pool, Client} = require('pg');
 
-console.log("PG Practice!!");
+console.log("Datbase from JS Practice");
 
-
+// Credentials 
 const pool = new Pool({
-    user: 'labber',
-    host: 'localhost',
-    database: 'w05d03',
-    password: 'labber',
-    port: 5432
-});
+  user: 'labber',
+  host: 'localhost',
+  database: 'w05d03',
+  port: 5432,
+  password: 'labber'
+})
+//         SQL QUERY
+// pool.query('SELECT * FROM employees;', (err, res) => {
+//     if (err) {
+//         throw err;
+//     }
+//     console.log("yay")
+//     for (let row of res.rows) {
+//         console.log(row.email);
+//     }
+// })
 
-pool.query('SELECT * FROM employees;', (err, res) => {
-    if (err) {
-        throw err
-    }
+const getEmployees = () => {
+    // make sure your helper method returns POOL.QUERY
+    return pool.query('SELECT * FROM employees;').then(res => {
+        console.log("PROMISE WAY!")
+        // .then from pool.query returns the data you want pass
+        return res.rows;
+    }).catch(e => {
+        console.log('ERROR: ', e );
+    })
+}
 
-    const data = res.rows;
+getEmployees().then((data) => {
+    console.log("line 35");
     console.log(data);
-    for (let user of data) {
-        console.log(user.first_name);
-    }
 })
 
-// getEmployees ==> res.rows ALL OF THE ROWS
+// POOL vs CLIENT ?
 
-// getEmployee  ==> one Row, first row => res.rows[0]
-const getEmployees = () => {
-    return pool.query('SELECT * FROM employees WHERE id = $1', [4]).then( res =>{
-       return res.rows;
-    }).catch(e => {
-        console.log(e);
-    })
-
-}
+// Client --
