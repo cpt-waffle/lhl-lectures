@@ -9,8 +9,5 @@ class CreateCats < ActiveRecord::Migration[7.0]
   end
 end
 
-#  Cats belong to users
-#  a user has many cats
-
-#  1 -- do a rollback and re-add the fk, and re-migrate
-#  2 -- make a new migration and add fk there
+#  1 -- do a rollback and re-add and then re-migrate
+#  2 -- make a new migration and add 

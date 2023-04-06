@@ -7,19 +7,16 @@
 
 
 
-## Convention VS Configuration
+## Convention vs Configuration 
 
-- Express
--- CONFIG
+- follow the rules 
+          vs
+- make everything from scratch
 
-- rails MVC
--- Convention
+### MVC 
 
-## 
+- Model
+- View
+- Controller
 
-Model
-View
-Controller
-
-routes.rb
-
+Routes.rb
