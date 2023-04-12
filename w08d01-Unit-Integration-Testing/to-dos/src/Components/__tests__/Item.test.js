@@ -1,23 +1,13 @@
 import React from 'react';
-import { render, prettyDOM } from '@testing-library/react';
+import { render, prettyDOM, getByText, getByTestId } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Item from '../Item'
 
-describe('Item tests', () => {
-  it('renders item component', () => {
-    const {container} = render(<Item/>)
-    expect(container).toBeInTheDocument();
+import Item from '../Item';
+
+describe("Item Tests", () => {
+  it('renders', () => {
+    const { container } = render(<Item item="Buy Milk"/>);
+    const text = getByText(container, 'Buy Milk');
+    expect(getByTestId(container, 'todo-name')).toHaveTextContent('Buy Milk');
   })
-
-  it('renders the buy milk component', () =>{
-    const {container, getByTestId} = render(<Item item="Buy Milk"/>);
-    const title = getByTestId('todo-name');
-    console.log(prettyDOM(title));
-    expect(title).toHaveTextContent('Buy Milk');
-    expect(title).toHaveClass('todo-title');
-  });
-
 })
-
-// getByText
-// getByTestId

@@ -5,11 +5,14 @@ function Form(props) {
     const [val, changeVal] = useState('');
     const [error, setError] = useState(false);
 
+
     const handleSubmit = evt => {
         evt.preventDefault();
-        if (val !== '') {
+        if (val.length !== 0) {
+            props.addItem(val);
+            changeVal('');
             setError(false);
-            return props.addItem(val);
+
         } else {
             setError(true);
         }
@@ -18,7 +21,7 @@ function Form(props) {
     return (
         <div>
             <form className="addForm" onSubmit={handleSubmit}>
-                {error && <h4>Item cannot be Blank</h4>}
+        
                 <input
                     data-testid="form-input"
                     placeholder={'enter todo'}
@@ -29,6 +32,7 @@ function Form(props) {
                     onChange={evt => changeVal(evt.target.value)}
                 />
                 <button data-testid="form-button" className="submit-btn" >Add</button>
+                {error && <h2>Task Cannot be Blank!!</h2>}
             </form>
         </div>
     )

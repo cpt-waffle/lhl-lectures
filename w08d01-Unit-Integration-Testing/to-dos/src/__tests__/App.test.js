@@ -1,11 +1,12 @@
 import React from 'react';
 import App from '../App';
-import { render, getByText, prettyDOM} from '@testing-library/react'
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom'
 
-describe('App Tests,', () => {
-  it('renders', () => {
-    const { container, debug } = render(<App/>);
-    const title = getByText( container, /ALL items to be done!/i);
-    console.log(prettyDOM(title));
+describe('App Tests', () => {
+  it(' renders', () => {
+    const { debug, getByText } = render(<App/>);
+    
+    expect(getByText(/All items to be Done!/i)).toHaveClass('todo');
   })
 })

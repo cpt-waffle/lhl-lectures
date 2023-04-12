@@ -6,12 +6,13 @@ function Comment(props) {
 	const { id, image, content, likes, dislikes } = props.data;
 	const onLikeClick = () => {
 		console.log("Like!")
-		props.apple('likes', id);
+		props.banana('like', id);
 	}
 
 	const onDislikeClick = () => {
 		console.log("Dislike!");
-		props.apple('dislikes', id);
+		props.banana('dislike', id);
+
 	}
 
 	return (

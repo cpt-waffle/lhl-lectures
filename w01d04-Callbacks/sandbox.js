@@ -1,27 +1,24 @@
 // Review from yesterday!!
 
 
-const arr = [1,2,3,4,5];
-// index     0 1 2 3 4 
-const obj = {a:1, b:2, c:3};
-//  keys     a    b    c
+  // c loop
+  for (let i = 0; i < array.length; i++) {
+    console.log(i);
+    console.log(array[i]);
+    console.log('----------');
+  }
+  console.log('for in-----------------')
+  // for in  // {objects}  in loops through the keys
+  for (let i in array) {
+    console.log(i);
+    console.log(array[i]);
+    console.log('----------');
+  }
+  // for of 
+  console.log('for of-----------------')
 
+  for (let v of array) {
+    console.log(v);
+    console.log('----------');
 
-// c style for loop <--- arrays
-for (let i =0; i < arr.length-1; i++) {
-  console.log(arr[i]);
-}
-// for in loop <------ arrays , objects
-for (let i in arr) {
-  console.log(arr[i]);
-}
-
-for (let k in obj) {
-  console.log(obj[k])
-}
-
-/// for in loop <------- arrays
-
-for (let v of arr) {
-  console.log(v);
-}
+  } 

@@ -8,6 +8,7 @@ https://reactjs.org/docs/create-a-new-react-app.html#create-react-app
 
 Go inside your project directory, and right beside `server/` (or any backend folder you have set up) run the approriate command that applies to what you need:
 
+
 ```sh
 # Standard
 npx create-react-app client
@@ -33,3 +34,12 @@ project_name
 ```
 
 From here everything has been setup, and you can start working on adding other packages like `axios` and other things to the front-end.
+
+
+## Add Proxy
+
+Remember, just like in scheduler, if you do not want to whitelist, your IP on the backend with cors(`express`) or rack-cors(`rails`), you need to add a proxy to your `package.json`
+
+```
+proxy: http://localhost:8080,
+```

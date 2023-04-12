@@ -11,189 +11,140 @@
 - Breakout Exercise
 - Take up Exercise ^
 
-## An App Idea Comes to Mind!
+
+## When we thing of on app, we make up stories, of how the app is going to be used...
 
 
 ### User Stories
 
-a description of a feature that you may build.
+a describition of a feature that you "may" want to build for your app.
 
-As a __________________________________
-I want to be able to __________________
-_______________________________________
-because _______________________________
-_______________________________________
+As a ________________________
+I want to be able to/I should be able to ________________________________
+because _________________________________________________________________
 
+As a user, I want to be able to create a shortURL for aLongURL i am going to submit.
 
-As a user I want to save a URL into my app,
-where it will create me a shortURL for the longURL
-i want to save, because I want to keep a list of all
-the URLS that I'm trying to record.
-
-**Tables Are Nouns!**
-
--- Url
--- User 
-
+** Tables are Nouns **
 
 ### Tables, What are they?
 
--- could be excel tables
-- store collected data
-- organized collection of data
+- a set of values linked to ID
+- rows and columns 
+- organized data
 
 ### ERD - Entity Relationship Diagram
 
-- a way to visually show you how your database looks like
+- a way to visually show how your database(tables) look like
 
--- Database 
-LongURL,     ShortURL(255 BYTES),      user_email,     first_name,     last_name,    password
-google.ca     awd325f        v@k.ca            vas             klim          1234
-reddit.ca     453fgyt        v@k.ca            vas             klim          1234
-facebook.ca   g63gdgy        v@k.ca            vas             klim          1234
-amazon.ca     bbby547y       v@k.ca            vas             klim          1234
+### Table Conventions
 
+- pluralize our table names 
+- singular table convention 
 
-`information duplication`
+- tables with multiple words we use snake_case and we pluralize the last word!
 
 
-### Table Conventions!
-
-- pluralized table name (do not mix the 2 conventions singluar/plural only use one convention per database)
-- user_restaurants  --- tables with multiple words, we use snake_case, and we pluralize the last word
+## TinyApp Database
+THE DATABASE
 
 
------------------ Urls ------------
-longURL,      shortURL      FK
-google.ca     awd325f       1    
-reddit.ca     453fgyt       1
-facebook.ca   g63gdgy       1  
-amazon.ca     bbby547y      1 
+`urls`
+id      longURL,       shortURL       user_id
+ 1        google.ca       f435s5         1
+ 2        reddit.com      d9255f         2
+ 3        facebook.com    f69dfg         1
+ 4        amazon.ca       xxxasr         1
 
-canadiantire.ca 6545g5f     2
-
----------------- Users -------------
-email   first_name,     last_name,     password    ID
-vas@k.ca     vas             klim          1234     1
-a@b.com       a            b             efff       2
+`users`
+id          email            password                     first_name,    last_name
+1            v@k.ca            gj034u0wruf05u023u50259032480
+2            a@b.com           950-250250w0ru0wur0su085u02u5
+3...
 
 ## Datatypes
 
-INTEGERS (PK, Serial, FK)
-TEXT(unlimited)
-VARCHAR(255)
-DATE
-BOOLEAN
-
-## Back in the old days...
-
-data was expensive
-
-2003-2004 
-
-How much RAM and hard-drive space did you have?
-
-
-*Then*
-50gb harddrive 
-Cds - 4gb capacity 
-Floppy Disks -- 1gb - 500 mb
--- 512mb RAM 
-
-**Now** 
-4.5 TB of space (ssd)
-RAM 16-32gb
-
-For every row you insert, the database, allocates space even if NOTHING was stored in the specific column
-
-
-## VARCHAR vs TEXT
-
-VARCHAR can store up to 255bytes in its row
-you can specify the VARCHAR column (12)
-
+INTEGERS (PK, FK, SERIAL)
+CHAR(VARCHAR)
 TEXT
-has an unlimited amount 
+BOOLEAN
+DATE
 
-Searching 
+### Performance and Storage
 
-would you like to search through 255 characters MAX or 65k?
+- data is cheap!
 
+-- year 2000 ---> How much GB of HHD and how much ram did your computers have?
+--   120gb THIS IS GOING TO BE ENOUGH FOR A LIFETIME!
+--   512mb
 
------------------------------------
+VARCHAR and TEXT
 
-## INTEGERS (serial, pk, id, fk)
+TEXT(unlimited CHAR) 
+VARCHAR (0-255 CHAR) 9 - characters
 
-Primary Keys
+### Integers (serial, pk, id, fk)
 
-IDs -- almost EVERY table has a `unique` identifier 
-any column can be a UNIQUE identifier
+`Primary Key - PK`
+-- Any column (string, boolean, int, etc) CAN BE primary key
 
-- volatility
-
--- although emails, are unique to each person, they maybe changed by the user
-
-
-Foreign Keys 
-
-A REFERENCE in another table
-Freign key HAS TO BE THE SAME DATATYPE AS THE KEY YOU ARE REFERENCING
+Integer, unique, serial (auto increments upwards, 1,2,3....)
 
 
-## Relationship
+`Foreign Key - FK`
 
-- one to one (rare)
-Table A has Table B
-Table B has Table A
+A REFERENCE IN ANOTHER TABLE
+Foreign key has to be THE SAME DATATYPE as THE KEY that is being refenced
 
--- Performance and size of the database
+### Relationships
 
-- one to many (very common)
+#### -- one to one (rare)
+One X has One Y
+One Y has One X
+
+#### -- one to many (very common)
 One X has Many Y
-One Y has one  X
+One Y has One X
 
-- many to many (common-ish)
-`THIS RELATIONSHIP CANNOT TRULY EXIST`
+#### -- many to many (common) 
+
 One X has Many Y
 One Y has Many X
+THIS RELATIONSHIP CANNOT TRULY EXIST (In psql)
 
-A bridge table to fix the Many to Many
-is a 3rd table between the 2 tables that have a many to many relationship
-The bridge table TAKES ALL THE FOREIGN on it to complete the connection
+A bridge table will fix the Many to Many relationship
+its a 3rd table between the 2 tables that hav ethe many to many relationship
+3rd table will take EVERY FOREIGN key that needs to be assigned to perform the many to many relationship
+
+One to many   <  >      Many to one
 
 
-### General Concepts (pt2) and Tips
+### General Concepts
 
-- (user stories) start with your CORE user stories 
-^-- No database EVER is ever completed, and every database was never created in 1 day
+-- start with your CORE stories ( )
+    ^--- Create the tables only for your core stories first, eventually add more tables after you create the core features.
 
-AGGREGATE FUNCTIONs
+#### AGGREGATE FUNCTIONS
+
 (SUM, AVG, COUNT, etc)
 
-Do not store aggreagte values (any value that can be calcuated) into a table
+Do not store, aggregate values into columns
 
-### NOT NULL FIELDS
+#### NOT NULL FIELDS
 
-Dating App Register Form
+first_name   NOT NULL
+last_name    NOT NULL
+picture      DEFAULT (default.img)
+phonenumber  DEFAULT (000-000-0000)
+ 
+--- Tinder ---
+email (phone number)
 
-first_name -- NOT NULL
-last_name  -- NOT NULL
-email      -- NOT NULL
-picture    -- NOT NULL
-etc...
+#### Try not to HARD DELETE Rows
 
-
-first_name   last_name ---> John Doe
-email   --- NOT NULL
-picture ---- DEFAULT ---> default_img.png
-phonenumber ----> DEFAULT   000000000000000000000
-
-### TRY NOT TO DELETE ROWS
-(soft delete)
-
------------------ Urls ------------
-longURL,      shortURL      FK                  isDeleted
-google.ca     awd325f       1                      FALSE
-reddit.ca     453fgyt       1                      TRUE
-facebook.ca   g63gdgy       1                      FALSE
-amazon.ca     bbby547y      1                      FALSE
+`urls`
+id      longURL,       shortURL       user_id     deleted(FALSE)
+ 1        google.ca       f435s5         1           TRUE
+ 2        reddit.com      d9255f         2           fALSE
+ 3        facebook.com    f69dfg         1           FALSE
+ 4        amazon.ca       xxxasr         1           FALSE

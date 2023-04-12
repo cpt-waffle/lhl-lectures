@@ -1,18 +1,22 @@
 import React from 'react';
 import Comment from '../Comment';
 
+//                  {}
+const CommentList = props => {
 
-const CommentList = (props) => {
-  //props.pineapple = comments[]
-  // const commentsList = [];
-  // for (let comment of props.pineapple) {
-      // commentsList.push(<Comment data={comment}/>)
+  const commentsHTML = [];
+
+  // for (let comment of props.monkeyfuzz) {
+  //   commentsHTML.push(<Comment data={comment}/>)
   // }
-  return (
-    <div>
-      {props.pineapple.map(comment => <Comment data={comment} apple={props.onBark}/>)}
-    </div>
-  )
+
+  const commentsHTML2 = props.monkeyfuzz.map(comment => {
+    return <Comment data={comment} banana={props.toaster}/>
+  })
+
+  return (<div>
+    {commentsHTML2}
+  </div>)
 }
 
 export default CommentList;
