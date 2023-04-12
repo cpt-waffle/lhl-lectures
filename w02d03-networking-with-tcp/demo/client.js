@@ -1,28 +1,28 @@
 const net = require('net');
-const client = net.createConnection({host: 'localhost', port: 3001});
-const stdin = process.stdin;
+// stdin -- to collect what you type on your terminal
 
-const name = "Vasiliy";
+// keyboard controlls, this will track keystrokes and when press enter will send message
+const keyboard = require('./controls');
 
+// creates a connection to the server
+const client = net.createConnection({host: 'localhost', port: '3001'});
+
+// sets encoding for incoming messages ( so we as a user can undertand them)
 client.setEncoding('utf8');
-// event listener
 
-// is a function that waits for something to happenen
-// and when it happens.... it runs a callback 
 
-stdin.on('data', (data) => {
-  client.write(`${name}: ${data}`);
+const name = 'Anon';
+
+// whenever the messages come in from the server, THIS callback runs
+client.on('data', (data) => {
+  // console.log('data has come in!');
+  // we print the message that came in (data is the message)
+  console.log(data);
 })
 
-client.on('data', (msg) => {
-  console.log(msg);
-})
+// we initialzed keyboard here so we can write messages to the server
+keyboard.startKeyboard(client, name);
 
-/////////// There will be a snake server hosted by LHL 
-// you will need to connect to the snake server
-// make the snake move based on the keys you press...
-// Name your snake:
-// ----------------> client.write("Name: VAS")
-// if W move up ---> client.write("Move: Up");
-// if S move down
-// ....
+
+// initial hello the server
+client.write(`${name}:  hello there!`);

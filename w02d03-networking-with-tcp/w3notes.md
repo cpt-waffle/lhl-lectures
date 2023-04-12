@@ -7,54 +7,67 @@
 - (BONUS: you should be able to connect to my computer :) )
 - demo
 
-## Networking
 
- - get their attention ( approach)
- - do a greetings ( hi, hello )
- - speak, talk, exchange messages 
- - one person talks, other listens (vice versa)
- - say goodbye
- - and leave
+## What is Networking??
 
-## Mediums of Communication
+- connecting with people 
+- connecting with anything 
+- connection between clients 
 
-- voice
-- gestures
-- emojis, text
-- zoom
-- phone, 
-- mail 
- 
-## Rules for Communication for Computers
-## Transmission Control Protocol  TCP
+## Rules for Networking 
 
-- we need to know where computer that i want to communicate with lives!
-- try to connect with them, by sending a first message ( greetings )
-// SERVER NEEDS TO LISTEN TO CONNECTIONS!!!
--- ( the other computer can say yes, or no )
-- if connection has been established, we can talk!
-- computer A (us) sends a message  
-- computer B (them) recieves a message
-- computer B (them) sends a message
-- computer B (them) sends a message
-- computer B (them) sends a message
-- computer B (them) sends a message
-- computer A (us) recieves a message
-- until you decide to disconnect ( or you are made to disconnect )
-- when you disconnect, no more messages come in  
+- walk up to them/call em  
+- introduce myself
+- handshake/elbow bump
+- share names
+- start a convo 
+  ^- dont talk over the other person
+   - listen for one convo, then you are allowed to talk
+   -
+- conclusion
+- say goodbye 
+- leave 
 
-## HTTP 
+### Rules for Communcation for Computers
+### Transmission Control Protocol (TCP)
 
-- we need to know where computer that i want to communicate with lives!
-- try to connect with them, by sending a first message ( greetings )
-- if connection has been established
-- YOU can sends one MESSAGE (Request)
-- THE OTHER COMPUTER can send ONE MESSAGE BACK (Response)
-- DISCONNECT
+- we need to know where the computer that I want to interact with is: (address)
+- we need to approach the computer (connection)
+- we connect to this computer (introductions -- hello, my name is, i come from ____, do you want to talk?)
+-  start interacting 
+  - Computer A sends a message 
+  - Computer B recieves a message
+  - Computer A sends a message 
+  - Computer A sends a message 
+  - Computer A sends a message
+  - Computer B recieves a message
+  - Computer B sends a message a back
+  - Computer B sends a message a back
+  - Computer B sends a message a back
+  - Computer B sends a message a back
+  - Computer B sends a message a back
+- Computer A Disconnects 
+- **Interaction Over**
 
 
-## IP 
-Global and Local
-Network
+### HTTP
+
+- we need to know where the computer that I want to interact with is: (address)
+- we need to approach the computer (connection)
+- we connect to this computer (introductions -- hello, my name is, i come from ____, do you want to talk?)
+
+- Computer A sends a REQUEST (one message )    ------------------>
+- Computer B sends a RESPONSE (one message)    <------------------
+**DISCONNECT**
+
+
+### Computer Mediums
+
+Networks
+  ^--->  Global and Local (networks)
+
+
+  
 Routers
 Modems
+
