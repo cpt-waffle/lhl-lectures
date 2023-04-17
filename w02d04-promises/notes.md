@@ -1,10 +1,27 @@
------- AGENDA ------
+# ------ AGENDA ------
 
--- Intro
--- Review -- Callbacks!!
--- Promises intro ( and maybe how they are written under the hood, AKA MAKING PROMISE)
- --> Bonus --> how do you build a promise
+- Review: Async Functions
+- Review: Async Callbacks
+- Promises: Theory -- how they work
+-- 10 Min Break --
+- Promises: Using Promise functions
+- Promises: Building Your Own promise function 
 
-COFFEE BREAK!!
 
--- Using promises from another library and comparing with a callback example
+
+## Async Functions
+
+- vaccum
+- do laundry
+- walk the dog
+- dusting 
+
+```js
+vaccum();
+doLaundry((clothes) => {
+  foldTheLaundry(clothes);
+}); // async
+walkTheDog();
+dusting();
+
+```
