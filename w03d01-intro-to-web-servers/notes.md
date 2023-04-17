@@ -8,40 +8,41 @@
 - EJS
 - server side rendering (dynamic pages)
 
+- BONUS
 
-### Servers
+- POST requests
+- saving data to your server
 
-TCP Server
 
-- snake game
+### TCP
 
-- address (IP)
-- PORT
-- attempted to connect
+Client                                     Server
+------------------connect --------------------
+--------------connection established ---------
+---------------------- message ------------->
+---------------------- message ------------->
+<--------------------- message --------------
+---------------------- message ------------->
+---------------------- message ------------->
+---------------------- message ------------->
+<--------------------- message --------------
+<--------------------- message --------------
+<--------------------- message --------------
 
-Client                                         Snake Server
----------------------CONNECT--------------------->
-                CONNECTION ESTABLISHED
------------------------MSG----------------------->
------------------------MSG----------------------->
------------------------MSG----------------------->
-<----------------------REPLY----------------------
------------------------MSG----------------------->
-<----------------------REPLY----------------------
-<----------------------REPLY----------------------
-<----------------------REPLY----------------------
------------------------MSG----------------------->
------------------------MSG----------------------->
------------------------MSG----------------------->
+### HTTP
 
-## HTTP Servers
+Client                                    Server
+----------------- connect --------------------
+-----------------connection established ------
+--------------------REQUEST MESSSAGE -------->
+                  - GET
+                  - POST
+                  - url
+                  - headers
+                   ^- information about your browser
+<-------------------RESPONSE MESSAGE ---------
+                  - data/body
+                  - status code
+                  
 
-- need address/port
-- you are able to attempt a connection....
- Client                                          Server
----------------------CONNECT--------------------->
-                CONNECTION ESTABLISHED
----------------------REQUEST--------------------->
-<--------------------RESPONSE---------------------
-                   CONNECTION ENDS
-  
+------------------- disconnect ---------------

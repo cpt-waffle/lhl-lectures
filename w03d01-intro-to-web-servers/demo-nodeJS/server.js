@@ -1,21 +1,22 @@
 const http = require('http');
 
 const server = http.createServer((request, response) => {
-  // what should i do now?
+  console.log("someone has connected!");
   console.log(request.url);
   if (request.url === '/') {
-    response.end('Welcome to my home page!');
-  } else if (request.url === '/hi') {
-    response.end('hello !')
+    response.end('welcome to my homepage')
+  } else if (request.url === '/helloworld') {
+    response.end("hello back!");
   } else if (request.url === '/help') {
-    response.end("help is on its way!")
+    response.end("coffee break soon!~");
   } else {
-    response.end('Hello There!');
+    response.end('i got nothing for this :(');
   }
 })
 
 
-// listen
+
+
 server.listen(8080, () => {
-  console.log(`Server is on!`);
+  console.log("Server is on!");
 })
