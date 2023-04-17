@@ -1,7 +1,9 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const PORT = 8080;
 
+// objects, arrays 
 const catsDatabase = {
   1: 'https://i.kym-cdn.com/photos/images/newsfeed/001/394/314/c62.jpg' ,
   2: 'https://i.cbc.ca/1.5359228.1577206958!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_620/smudge-the-viral-cat.jpg',
@@ -9,50 +11,51 @@ const catsDatabase = {
   4: 'https://i.imgur.com/drvA0ew.jpg'
 }
 
-// views
-// UI for the client
-//  step 1  -- install ejs  -- npm install ejs
-//  step 2  -- set the view engine to EJS
+let key = 5; 
+
+// EJS
 app.set('view engine', 'ejs');
-//  step 3  -- make a folder called "views" (plural)
-//  step 4  -- anytime you want send a view to the client
-// use the command called `res.render('view_name');
+
+// to parse the body of your POST requests
+// app.use(express.bodyParser.urlencoded({extends: false}));
+app.use(express.urlencoded({extended: true}));
 
 
-// <%= .... %> <--- embed something into HTML 
-// <%  .... %> <--- JS logic goes here
-
-let homePageCounter = 1;
-
-app.get('/', (req, res) => {
-  // I want to add, a tracker, of how many times, my home page was visited
-  // I will add a variable, with a counter 1, and anytime someone visits the 
-  // home page, i will increment the counter
-  console.log("home page /", homePageCounter);
-  homePageCounter++;
-  // res.send('hello world!');
-
-  // res.render('viewName', object:{})
-  //                           ^--- template variables or templateVars
-  // templateVars ---> an object that has key/val pairs, that shares those 
-  // key/vals, WITH THE EJS VIEW
-  const templateVars = {};
-  templateVars.counter = homePageCounter;
-  // {counter: homePageCounter}
-  res.render('home', templateVars);
+// GET / (home)
+app.get('/', (req, res)=> {
+  console.log("someone is trying to visit our home page!");
+  // return res.send(''); // not being used because of the EJS view engine
+  return res.render('home');
 })
+//     request             response
 
+// your browser can only read, HTML, JS, CSS 
 app.get('/cats', (req, res) => {
-  console.log("/cats page");
-  // res.send('Cats!!!!');
+  console.log('someone is trying to visit GET /cats');
+  // return res.send('(^-_-^)~');
+
+  //             ''   {}   <--- js object, shares its key/val pairs with the view thats being rendered 
+  // res.render(___, ___)
+  // const obj = {a: [0,1,2,3], b: 'butter', c: true, d: undefined}
   const templateVars = {cats: catsDatabase};
-  console.log('templateVars = ',templateVars);
-  res.render('cats', templateVars);
+  // templateVars = {};
+  // templateVars.cats = catsDatabase;
+  return res.render('cats', templateVars);
 })
 
-app.get('/food', (req, res) => {
-  console.log("/food page");
-  res.send("get a burrito for lunch");
+app.get('/cats/new', (req, res) => {
+  console.log("someone is visiting GET /cats/new page");
+  return res.render('cats_new');
 })
 
-app.listen(PORT, () => console.log(`Server is on ${PORT}`));
+app.post('/cats', (req, res) => {
+  console.log("someone is trying to save a cat");
+  console.log(req.body); // cat_img
+  catsDatabase[key] = req.body.cat_img;
+  key++;
+  return res.redirect('/cats');
+})
+
+
+app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
+

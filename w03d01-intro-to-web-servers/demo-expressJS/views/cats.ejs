@@ -1,16 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cats</title>
-</head>
-<body>
-  <h1>Cats Page!</h1>
-  <% for (cat in cats) { %>
-   <img src="<%= cats[cat] %>" />
-   <p><%= cats[cat]%> </p>
-  <% } %>
-</body>
-</html>
+<h1>Cats!!</h1>
+
+
+<%   if (1 == 1)  { %>
+
+  <h1>The statement was truthy!</h1>
+
+<% } %> 
+
+<% const array = [1,2,3,4,5]; %>
+
+<ul>
+<% for (let i of array) { %>
+  <li>test <%= i %> </li>
+<% } %>
+</ul>
+
+<% for (let catKey in cats)  {%>
+  <li><img src="<%= cats[catKey] %>" /></li>
+<%}%> 
