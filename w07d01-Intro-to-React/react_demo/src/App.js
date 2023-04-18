@@ -1,22 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
-// rule 4 -- import the component
 import Navbar from './components/Navbar';
-import Profile from './components/Profile';
+import Card from './components/Card';
 
 
+// your functions that return HTML
+// must return ONE parent HTML element
+
+// make sure to close your HTML correcty, 
+// because react REALLY cares about syntax of HTML
+
+
+// Components -- what are they?
 function App() {
-  // your react functions
-  // must return one HTML parent element!
-
-  // <%= %> ---- { }   
-  const a = 3.14;
-  const b = 'Welcome to my page';
   return (
-    <div>
-      {/* {  Navbar({a, item1: 'HOME', item2: 'LOGIN'})  } */}
-      <Navbar a={a} homeLink={'HOME'} loginLink={'LOGIN'}/>
-      <Profile image={'https://i.redd.it/7k24xova0ya11.jpg'} name={'Mr Meows'} title={'Lead Team Designer'}/>
+    <div className="App">
+
+      <Navbar menuItems={['Login', 'Register', 'Menu']} PI={3.14}/>
+      <Card 
+      image={'https://animals.sandiegozoo.org/sites/default/files/2016-11/animals_hero_giraffe_1_0.jpg'}
+      title={'CTO'}
+      name={'Mr G'}
+    />
+    <Card/>
     </div>
   );
 }

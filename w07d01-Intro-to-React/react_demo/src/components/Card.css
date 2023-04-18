@@ -1,0 +1,15 @@
+.card {
+    
+  background-color: lightgrey;
+  padding-top: 10px;
+  padding-left: 30px;
+  width: 250px;
+  font-family: sans-serif;
+}
+
+.card--img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
