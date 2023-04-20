@@ -1,22 +1,26 @@
 import React from 'react';
 import Comment from '../Comment';
 
-//                  {}
-const CommentList = props => {
 
-  const commentsHTML = [];
+const CommentList = (props) => {
 
-  // for (let comment of props.monkeyfuzz) {
-  //   commentsHTML.push(<Comment data={comment}/>)
-  // }
-
-  const commentsHTML2 = props.monkeyfuzz.map(comment => {
-    return <Comment data={comment} banana={props.toaster}/>
+  const commentArray = []
+  for (let comment of props.reply) {
+    commentArray.push(<Comment data={comment}/>)
+  }
+  
+  const commentArray2 = props.reply.map(comment => {
+    return <Comment data={comment}/>
   })
 
-  return (<div>
-    {commentsHTML2}
-  </div>)
+  const commentArray3 = props.reply.map(comment => <Comment data={comment} jam={props.toast}/>)
+
+
+  return (
+    <div>
+      {commentArray3}
+    </div>
+  )
 }
 
 export default CommentList;

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { action } from "@storybook/addon-actions";
 
 import Comment from '../Components/Comment';
-import CommentList from '../Components/CommentList/';
+import CommentList from '../Components/CommentList';
 
 
 const comment = {
@@ -46,8 +46,7 @@ storiesOf('Comments', module)
 // Properties
 // Components <-> Functions
 //
-	storiesOf('CommentList', module)
-		// .add('default list', () => CommentList({a:1, b:2, c:3}))
-		.add('default list', () => <CommentList monkeyfuzz={comments}/>)
-
-
+storiesOf('CommentList', module)
+.add('default comment list', () => <CommentList a={1} b={2} reply={comments}/>)
+//           properties = props
+// CommentList({a:1, b:2})
