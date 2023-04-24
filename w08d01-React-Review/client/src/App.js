@@ -1,45 +1,22 @@
 import './App.css';
-import TodoList from './components/TodoList';
-
+import React from 'react';
+import Title, { SubTitle } from './components/Title';
+import TaskList from './components/TaskList';
 import Form from './components/Form';
 import useApp from './hooks/useApp';
 
 
 function App() {
-  const {todos, addItem} = useApp();
-
+  const {tasks, addTask} = useApp();
 
   return (
     <div className="App">
-      <h1>Todo List!</h1>
-      <TodoList list={todos}/>
-      <Form addItem={addItem}/>
+      <Title>Todo List -- :)</Title>
+      <SubTitle/>
+      {tasks.length ? <TaskList tasks={tasks}/> : <h2>Loading....</h2>}
+      <Form addTask={addTask}/>
     </div>
   );
 }
 
 export default App;
-
-
-//   Clothing Store app
-
-
-
-
-
-
-
-
-
-
-
-
-// App.js
-// [{id: 43, name: 'shirt'}]
-// <ClothesList list={list}/>
-// /items/:id  --------> {id: 43, name: shirt, descr, availSizes, colors: ....}
-
-
-// <MoreInfo id={currentItem.id}/>
-
-// useEffect(() =>  {...axios}, [props.id])

@@ -1,20 +1,22 @@
-import React, {useState} from 'react';
-
-
+import React from "react";
+import useForm from "../hooks/useForm";
+import './Form.css';
 
 const Form = props => {
-  const [item, setItem] = useState('');
+  const {onSubmit, input, onInputChange} = useForm(props.addTask);
 
-  const formFunction = (evt) => {
-    evt.preventDefault();
-    console.log("item", item);
-    props.addItem(item);
-  }
-
-  return (<form onSubmit={formFunction}>
-    <input type="string" name="item" onChange={evt => setItem(evt.target.value)} value={item}/>
-    <button>add!</button>
-  </form>)
+  return (
+    <form className="form" onSubmit={onSubmit}>
+      <input
+        className="form--input"
+        type="text"
+        name="item"
+        value={input}
+        onChange={onInputChange}
+      />
+      <button className="form--btn">Add Item</button>
+    </form>
+  )
 }
 
-export default Form;
+export default Form

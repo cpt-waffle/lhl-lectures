@@ -1,9 +1,9 @@
 #### React Review
 
-- Components
-- storybook
-- API
-- State
-- Props
-- useEffect
-- Custom Hooks
+- Components   X
+- storybook    X
+- API          X
+- useEffect    X
+- State        X
+- Props        X
+- Custom Hooks X

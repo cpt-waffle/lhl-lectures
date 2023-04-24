@@ -2,30 +2,30 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 const useApp = () => {
-  const [todos, setTodos] = useState([]);
-
+  const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    axios.get('/todos').then(res => {
-      console.log(res);
-      // data = res.data;
-      setTodos(res.data);
-    })
+    axios.get('/tasks').then(res => {
+        setTasks(res.data);
+    }).catch(e => {
 
+    })
+    
   }, [])
 
-  const addItem = (item) => {
-    console.log('add item, line 22: app.js', item);
-    axios.post('/todos', {item}).then(res => {
-      console.log("axios finished")
-      console.log(res);
-      setTodos(prev => [...prev, res.data]);
-    })
+  const addTask = (task) => {
 
+    axios.post('/tasks', {title: task}).then(res => {
+      setTasks(prev => {
+        return [...prev, {...res.data}];
+      })
+    }).catch(e => {
+      alert('error on backend :(');
+    })
   }
 
-  return {todos, addItem}
-
+  return {tasks, addTask};
 }
+
 
 export default useApp;

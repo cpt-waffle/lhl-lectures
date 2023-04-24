@@ -1,25 +1,19 @@
 import React from 'react';
 
 import {storiesOf} from '@storybook/react';
+import Task from '../components/TaskList/Task';
+import TaskList from '../components/TaskList';
 
 ///
-import Todo, {AA} from '../components/Todo';
-import TodoList from '../components/TodoList';
 
 storiesOf('h1', module)
 .add('default h1', () => <h1>hello world</h1>)
 
+// Task({a:1, b:2, c:3, name: 'Do a React Review'})
+//          ^--- props object
+storiesOf('Task Component', module )
+  .add('Task', () => <Task name={'Do a React Review'}/>)
 
-const todoItem = {id: 1, title: 'buy milk!'};
-
-// Todo
-storiesOf('Todo', module)
-.add('Todo default', () => <Todo title={'check how to export a component regularly'} />)
-.add('Todo but with an api mockup', () => <Todo title={todoItem.title}/> )
-.add('AA', () =>  <AA/>)
-
-//  Todo({...})
-// TodoList
 
 const todoItems = [
   {id: 1, title: 'aaa'},
@@ -28,12 +22,6 @@ const todoItems = [
   {id: 4, title: 'finish testing'},
   {id: 5, title: 'bbb'},
 ]
-
-storiesOf('TodoList', module)
-.add('TodoList default', () => <TodoList list={todoItems}/>)
-// Form
-
-
-
-storiesOf('Form', module)
-.add('Form Default', () => <h1>hello world</h1>)
+  
+storiesOf('Task List Component', module)
+  .add('Task List', () => <TaskList tasks={todoItems}/>)
