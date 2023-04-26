@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "devmode": "NODE_ENV=TEST npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

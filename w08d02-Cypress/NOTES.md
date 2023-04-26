@@ -9,47 +9,79 @@
 - Q&A
 
 
+## Why Do We Test?
 
-## Different Types of Testing
-
-- Unit Tests
-- Integration Tests
-- Function Tests
-- static Tests
-- E2E  -- End to End
--  How the backend works, how the frontwords, how the frontend interacts with the user
--- (User Story Testing (A Vasiliy Term***))
-
-## Cypress
-
-Installation of Cypress
-
-### FRONTEND
-
-`npm install -D cypress@9.7.0` -- 
--- add to package.json (scheduler)
-`"cypress": "./node_modules/.bin/cypress open"`
-
-### Backend setup
-
--- in scheduler_api 
--- `env.development`
---  ^--- copy that file and paste/rename `env.test`
--- DATABASE=scheduler_developement --- scheduler_test (REPLACE WIHT SCHEDULER_TEST)
-   --- psql (logged in as development:development)
-   --- create database scheduler_test
-   --- \q
--- `NODE_ENV=TEST npm start` <-- the command to start everything
-
--- `localhost:8080/api/debug/reset`
-
-### For the windows users ( The ones that are running WSL2/VM)
-
--- needs to install XCV Server (X server)
--- link in compass
-
--- IF IT DOES NOT WORK --- that means you have a firewall issue
--- TURN OFF YOUR FIREWALL FOR A BIT
--- (make a rule in the firewall to allow internal connections to X server)
+- to avoid errors a user might make that will break code
+- code works as expected
+- edge cases
+- test driven development practices !
 
 
+- Save Time ( in the long run! )
+- Save Money (hopefully less downtime !)
+- Save your weekend 
+---> NEVER DEPLOY ON A FRIDAY 
+(prob best to deploy on a tuesday)
+
+### Different Types of Testing
+
+- Unit Testing
+- Integration Testing 
+- Static Test
+- E2E Testing (Today!)
+
+
+End to End Testing
+(User Story Testing)
+
+"I have expensive Taste..."
+
+### Cypress
+
+The testing framework we will use for E2E testing!
+
+### Installation Notes!
+
+In Compass it will ask you to install this packages Globally
+`-g`
+
+`npm install -D cypress@9.7.0`
+
+-- add a command to package.json
+
+```json
+    "cypress": "./node_modules/.bin/cypress open"
+```
+
+### FOR WINDOWS ONLY
+
+if you installed the VcXSrv package, and you are still encountering an error,
+this maybe due to a firewall issue.
+
+Advice: Turn off the windows firewall for a the remainder of the activities, once done turn it back on!
+
+McAfee Firewall, TURN THAT OFF AS WELL!!
+
+
+### Starting to write your tests
+
+- Run your react application scheduler in a terminal
+- for backend, you will need to make ANOTHER .env file
+  ^--- env.development 
+  ^--- env.test
+  ```json
+  database scheduler_test
+  password: development
+  ```
+- you need to CREATE A NEW DATABASE scheduler_test
+- when you are inside of psql `CREATE DATABASE scheduler_test OWNER development;`
+
+- Run your backend server in a terminal 
+  ^--- (needs to run development mode )
+`NODE_ENV=TEST npm start`
+
+- visit `localhost:8080/api/debug/reset`
+
+- run cypress in another terminal 
+
+### (3 terminals in total!)
