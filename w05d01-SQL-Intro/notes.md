@@ -9,156 +9,147 @@
  - more queries 
  - BONUS -- IDE for Databases 
 
-### Theory
-
-## --------------- The Story of You and TinyApp --------------------- #
+### The Story of Becoming a Billionare with TinyApp (and losing it :( )
 
 - you have finished tinyapp!
-- you have gotten it marked, you passed it!
-- you decided to deploy it
-- TINY APP HAS BLEW UP IN POPULARITY !!!!!!!!!!!!!!!!!!!!!!!!!!!
-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-- bye bootcamp!, going go buy island!
-- 2 months pass, and we see a drop in users :(
-- users want more features 
-- take your laptop, and you start coding your features!
--- DARK MODE!!!!
--- analytics
--- admin/ number of users
--- admin/ most popular URL
--- friend groups/groups  
+- you have submitted it!
+- you looked into dev ops 
+- you deployed it just to see how :)
+- TINY APP BLEW UP WITH USERS !!!
+- #1 twitter, mastadon, 
+- facebook, 
+- 2 million users per day...
+- 7 million of new tinyURLs created per day!
+- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+- buy an island, make a house, live there forever!
+------- 2 months pass -------------
+- competitors have way more new features!!
+ -- user accounts 
+ -- dark mode 
+ -- able to look at present users urls,
+ -- public/private sharing of urls
+ -- etc....
+ -- analytics
 
-- you need to deploy, these features.....
-- you will push your features to github, some automation will happen,  prod server
----- THE SERVER WILL RESTART TO TAKE THE NEW CHANGES x_x
+- take your laptop out, and start building these features!
+- a week has passed, all features have been created !
+- time to add to to the deployed application!!
 
-### We destroy the codebase of TinyApp
+-- restart of the server 
 
--- you can rebuild it BETTER
-
-### If you lose your data..... you app is dead forever... :(
-
-
-### Data Persistence ###
-
-I want to be able to turn off my server, and turn it on, and have all my users, urls, etc. still be there...
-
-Lets use a file (.txt) to store users, and urls, and anything else we wish to keep persisted.
-
-How would we start storing data?
-
-we can use `csv` format!!
+^ ----- you lose all your database, usersDatabase urlsDatabase
 
 
-Maybe our database file shouldnt even be on the same computer (server) as your server for tinyApp !
+### Data Persistence
 
+a way to save data, and even if the computer, restarts, refreshes, the data is saved, and can be still pulled in/pulled out, etc.
 
-|tinyappy server|     <------------->     |database.txt server|
+We'll make a file, `.txt` and save all our data!
 
-*You* will need to build server interaction, between 2 servers
+### Data Organization
 
-`express` server, /save {}
+first line of our file, will contain names of our data columns
+everything under the first line will be that data and it will organized by the columns. `csv` format
 
+### Data Interaction 
 
-## Databases (Relational)
+we will need to build tools to interact with our data file somehow...
+```fs library```
+- fs.fileRead()  --- syntax to be able to call upon reading our file, writing to it, 
+- fs.fileWrite()
 
-- place where you can keep, organize, retrieve, data (service)
+Creating our own data manipulation language
 
-- PSQL Postgresql
+### Host our Data System not on the same computer/server as our application
 
--- The tools (how to, create, store, organize, access this data)
+Build another EXPRESS server, that we're able to interact with the data, and send queues, to the app to notify it for things like: "data has changed", "data has been edited" , "cannot edit data" , etc 
 
--- PSQL
--- Oracle
--- mysql
--- CouchDB
--- MongoDB
--- MariaDB
--- CassandraDB
--- etc
+^-- re-inventing the wheel 
 
-### PSQL (Postgres!)
+### Databases
 
+Relational Databases 
+
+ - PSQL
+ - mySQL
+ - Oracle
+ - MariaDB
+
+Nonrelational Databases
+
+- MongoDB
+- Redis
+- CouchDB
+- etc
+
+## Postgres!!
+
+postgres is a database service (free)
+
+first command to get inside of postgres
+
+```
+sudo services postgresql start  
+sudo service  start postgresql
+```
 ```sh
-psql  # to get into postgres
-psql -h localhost -U labber -d w05d01 # to specifically connect as a different user!
-\q    # to quit out of postgres
-\l    # to see all database on the system
-\du   # to see all the users that have access to your postgres
-\c _database_name # to connect to a specific database
-\dt   # display all the tables in the database
-\i    # run the sql commands in the file given
+psql   # connect you to postgres
+\q     # quit you out of postgres
+\du    # display users
+\l     # display databases that your postgres service contains
+\dt    # display tables
+\c database_name # connect to another database
 ```
 
-## SQL
 
-a language to interact with the data inside of your database <-- YOU WILL USE THIS FROM TODAY UNTIL THE END OF BOOTCAMP
+# SQL
 
-### Create a database;
+a language to interact with THE DATA thats inside of the databse
+
+#### Creates you the database in your postgres
 
 ```sql
-CREATE DATABASE _database_name;
+CREATE DATABASE database_name;
 ```
 
+#### To delete a database
+
+if there are other users, or other instances connected to a database you are trying to drop, postgres will not drop it :(
 
 ```sql
-DROP DATABASE _database_name; # SCARY COMMAND!
+DROP DATABASE database_name;
 ```
 
+#### Creating Tables 
 
-### To create a table 
-
-INTEGER
-TEXT
-VARCHAR
-TIMESTAMP
-DATE
-BOOLEAN
+- INTEGER
+- TEXT
+- VARCHAR
+- TIMESTAMP
+- BOOLEAN
+- DATE
 
 
 ```sql
 CREATE TABLE table_name (
-  column_name column_type,
-  column_name column_type,
-  column_name column_type,
-  column_name column_type,
-  ...
+  column_name, column_type,
+  column_name, column_type,
+  column_name, column_type,
+  column_name, column_type,
 )
 ```
 
-```sql
+#### INSERT data  into the table
 
-CREATE TABLE fruits (
-  name VARCHAR(50),
-  seeded BOOLEAN
-);
+```sql
+INSERT INTO table_name (column_name, column_name, etc) VALUES (val1, val2, etc);
 ```
 
 
-### To add infomation into the tables 
-
-```sql
-INSERT INTO table_name (column_name, column_name, column_name,) VALUES (val1, val2);
-```
 
 
-```sql
-INSERT INTO fruits (name, seeded) VALUES ('apple', true);
-```
-
-```sql
-UPDATE table_name
-SET column_name = val1,
-column_name1 = val2,
-column_name2 = val3,
-
-WHERE condition
-
-```
 
 
-### GRABBING DATA OUT for us to See!
 
-```sql
-SELECT column_name, column_name, etc FROM table_name; 
-```
+
+
