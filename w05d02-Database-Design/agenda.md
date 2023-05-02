@@ -10,139 +10,148 @@
 - General Design Concepts
 - Breakout Exercise
 - Take up Exercise ^
+- BONUS -- show an IDE for database 
+
+### User Stories 
+
+A description of a feature 
+
+As a ____________
+I want to be able to/ I should be able to 
+_________________________________________
+because 
+_________________________________________
+
+*** Tables are NOUNS ***
 
 
-## When we thing of on app, we make up stories, of how the app is going to be used...
+### Tables, what is it?
+
+- rows and columns
+- simular data grouped together
+- store related data
+- entity storing info about a specific thing
+- organized info
 
 
-### User Stories
+Tinyapp (DATABASE)
 
-a describition of a feature that you "may" want to build for your app.
+email,   password,   longURL,                 shortURL 
+vasily@k.ca  234249dsf93  www.google.ca            9fi9345j
+a@b.ca  9gjfdlg03j4  www.facebook.com         fsd0j452
+vasily@k.ca  234249dsf93  www.reddit.com           fjgggg43
+vasily@k.ca  234249dsf93  www.amazon.ca            sadz241f
+vasily@k.ca  234249dsf93  www.canadiantire.ca      lk9;lk33
+a@b.ca  9gjfdlg03j4  www.apple.com            90-234df
 
-As a ________________________
-I want to be able to/I should be able to ________________________________
-because _________________________________________________________________
-
-As a user, I want to be able to create a shortURL for aLongURL i am going to submit.
-
-** Tables are Nouns **
-
-### Tables, What are they?
-
-- a set of values linked to ID
-- rows and columns 
-- organized data
 
 ### ERD - Entity Relationship Diagram
 
-- a way to visually show how your database(tables) look like
+- a way to visually show how your database looks like ( connections between tables, etc)
 
 ### Table Conventions
 
-- pluralize our table names 
-- singular table convention 
-
-- tables with multiple words we use snake_case and we pluralize the last word!
-
-
-## TinyApp Database
-THE DATABASE
+- pluralize our table names <<<<(Lighthouse perfers pluralized tables)
+- singular name their table 
+- use snake_case for multiple words for a table
 
 
-`urls`
-id      longURL,       shortURL       user_id
- 1        google.ca       f435s5         1
- 2        reddit.com      d9255f         2
- 3        facebook.com    f69dfg         1
- 4        amazon.ca       xxxasr         1
+Tinyapp (DATABASE) refactored
 
 `users`
-id          email            password                     first_name,    last_name
-1            v@k.ca            gj034u0wruf05u023u50259032480
-2            a@b.com           950-250250w0ru0wur0su085u02u5
-3...
+(PK) id SERIAL INTEGER,     email,   password,   
+1                        vasily@k.ca  234249dsf93  
+2                        a@b.ca  9gjfdlg03j4 
 
-## Datatypes
+`urls`
+longURL,                 shortURL            user_id
+www.google.ca            9fi9345j              1
+www.facebook.com         fsd0j452              2
+www.reddit.com           fjgggg43              1
+www.amazon.ca            sadz241f              1
+www.canadiantire.ca      lk9;lk33              1
+www.apple.com            90-234df              2
 
-INTEGERS (PK, FK, SERIAL)
-CHAR(VARCHAR)
-TEXT
-BOOLEAN
-DATE
+### Datatypes
 
-### Performance and Storage
+- INTEGERS(PK, FK, SERIAL )
+- CHAR(TEXT(unlimited), VARCHAR(255))
+- BOOLEAN
+- DATE
+- TIMESTAMP
 
-- data is cheap!
-
--- year 2000 ---> How much GB of HHD and how much ram did your computers have?
---   120gb THIS IS GOING TO BE ENOUGH FOR A LIFETIME!
---   512mb
-
-VARCHAR and TEXT
-
-TEXT(unlimited CHAR) 
-VARCHAR (0-255 CHAR) 9 - characters
-
-### Integers (serial, pk, id, fk)
-
-`Primary Key - PK`
--- Any column (string, boolean, int, etc) CAN BE primary key
-
-Integer, unique, serial (auto increments upwards, 1,2,3....)
+### Performance and Storage 
 
 
-`Foreign Key - FK`
+- nowdays data is cheap!
+- but not so long time ago (50-60 years)
+- storage WAS SUPER EXPENSIVE!!
 
-A REFERENCE IN ANOTHER TABLE
-Foreign key has to be THE SAME DATATYPE as THE KEY that is being refenced
 
-### Relationships
+TEXT('a'---------------------------------------------') allocating 1gb!!
+VARCHAR(255bytes) <-- 255 characters maximum
 
-#### -- one to one (rare)
+##  INTEGERS 
+
+#### Primary Key (PK)
+
+is always a unique value for every row 
+Primary keys CAN BE (string , boolean, integer, etc)
+
+DATA VOLITILITY
+
+
+#### Foreign Key (FK)
+
+is just a REFERENCE TO A ROW IN A ANOTHER TABLE!!!!
+Foreign Key has to be THE SAME DATATYPE as THE KEY that is being referenced
+
+
+### One to One (rare)
 One X has One Y
 One Y has One X
 
-#### -- one to many (very common)
-One X has Many Y
+### One to Many (very common)
+One X has MANY Y
 One Y has One X
 
-#### -- many to many (common) 
+### Many to Many (common, but cannot exist in the database...)
+One X has MANY Y
+One Y HAS MANY X
 
-One X has Many Y
-One Y has Many X
-THIS RELATIONSHIP CANNOT TRULY EXIST (In psql)
+A bridge table to signify the Many To Many Relationship between the tables
 
-A bridge table will fix the Many to Many relationship
-its a 3rd table between the 2 tables that hav ethe many to many relationship
-3rd table will take EVERY FOREIGN key that needs to be assigned to perform the many to many relationship
+A bridge table will fix the many to many relationship
+its the 3rd table, between the 2 tables that have the many to many relationship
+Bridge table will have every FOREIGN KEY from the 2 other tables in it.
 
-One to many   <  >      Many to one
+<one to many>    <many to one>
 
 
 ### General Concepts
 
--- start with your CORE stories ( )
-    ^--- Create the tables only for your core stories first, eventually add more tables after you create the core features.
+- always start with core user stories, to build your initial database
 
-#### AGGREGATE FUNCTIONS
+
+#### Aggregate Functions
 
 (SUM, AVG, COUNT, etc)
 
-Do not store, aggregate values into columns
+Do not store aggregate values ( because you can you the functions and get more relevent data)
 
-#### NOT NULL FIELDS
 
-first_name   NOT NULL
-last_name    NOT NULL
-picture      DEFAULT (default.img)
-phonenumber  DEFAULT (000-000-0000)
- 
---- Tinder ---
-email (phone number)
+### Constraints 
 
-#### Try not to HARD DELETE Rows
+email             NOT NULL
+first_name       ---------
+last_name        ---------
+phone_number    ----------- DEFAULT(000-000-0000)
+picture          ---------- DEFAULT(default.img)
 
-`urls`
+#### Deletion
+
+TRY not to HARD DELETE rows
+
 id      longURL,       shortURL       user_id     deleted(FALSE)
  1        google.ca       f435s5         1           TRUE
  2        reddit.com      d9255f         2           fALSE
