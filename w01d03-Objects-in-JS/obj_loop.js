@@ -8,26 +8,15 @@ const list = {
     i8: 'apples'
 }
 
-
-// for in loop!
-for (let key in list) {
-    console.log(key);
+for (let key in list ) {
     console.log(list[key]);
 }
 
-// for of loops DO NOT work with objects
-for (let v of list) {
-    console.log(v);
-}
+console.log(list);
+console.log(Object.keys(list));    // gives back an array
+console.log(Object.values(list));  // gives back an array
+console.log(Object.entries(list)); // gives back an array
 
-
-//         Arrays    Objects   Strings
-//  in        X        X         X
-//  of        X                  X
-// cstyle     X                  X
-
-// Object.keys({a:1, b:2, c:3}) ==> ['a','b','c'];
-// Object.values({a:1, b:2, c:3}) ==> [1,2,3];
-// Object.entries({a:1, b:2, c:3}) ==> [['a', 1], ['b', 2], ['c', 3]]
-
-
+//              c style    for of    for in
+// array          X         X         X
+// object                             X

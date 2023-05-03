@@ -2,96 +2,76 @@
 
 ////// variables -- place to hold values
 
-let fruit = 'banana';
-const PI = 3.14;
+let fruit = 'banana'; // change value
+const PI = 3.14;      // stays the same
 
-fruit = 'apple';
 
+fruit = 12.24;
 // console.log(fruit);
+// PI = 4;
 // console.log(PI);
 
-///// Arrays ------------ a container/list/collection that can hold MULTIPLE values
+////////////// Arrays
 
-const arrays = [1,2,3,4, 'five', 'six', 'seven', 22.3, false, true];
-//              0 1 2 3     4      5       6      7      8      9
-// console.log(arrays);
-arrays.push(99.99999);
-// console.log(arrays);
+// making a collection
+// making a list 
 
-/// individual values
+const array = [1,2,3,4, 'five', 'six', 7.5, false, true, [1,2,3], undefined];
+//  index      0,1,2,3,   4       5  ,  6     7      8     9   ,     10 
+// console.log("BEFORE_--------------------");
+// console.log(array);
 
-// console.log(arrays[4]);
-arrays[4] = 'not five anymore :(';
-// console.log(arrays);
+// add more items into it
+array.push('ANOTHER ELEMENT');
+array[7] = 7.77;
+// console.log("AFTER--------------------");
 
-/////////////////////////////////????/////////////////////////
+// console.log(array);
+// replace an element in array
 
-//                make       model    engine type     year     color seats  isracingcar?
-const firstCar = ['toyota', 'rav4', 'hybrid electrics', 2027, 'red', 4, false, function() { console.log("ON!")}];
-//                   0        1          2               3       4   5     6
-// 7 months later...
-// In arrays, order MATTERS
-const secondCar = ['v4', 'civic', 'honda', 'white', 2022];
-
-// function review --
-
-// console.log(firstCar);
-const printCarDetails = function(car) {
-  //...
-  console.log("Make:", car[0]);
-  console.log("Model:", car[1]);
-  console.log("Year:", car[3]);
-
+// Context ???
+///               make      model     year    transmission interiorType,  seats, features
+const firstCar = ['toyota', 'corolla', 2002, 'auto', 'fabric', 4, 'ac'];
+//                   0         1        2
+const secondCar = ['honda', 2012, 4, 'auto', 'leather', 'bluetooth', 'civic']
+// arrays REALLY CARE ABOUT THIER ORDER OF ITEMS
+const printCarDetails = function(carArr) {
+  console.log(carArr[0], carArr[1], carArr[2]);
+  console.log("Number of seats: ", carArr[5]);
 }
 
 // printCarDetails(firstCar);
 // printCarDetails(secondCar);
 
-/////////////////////// OBJECTS //////////////////////////////
-
-// a collection of data (just like an array...)
-// to denote an object we use CURLY brackets.
-// key: value pairs
-// THE ORDER OF VALUES, DOES NOT MATTER
-const firstCarObj = {
-  model: 'm2',
-  features: ["GPS", "rear camera", "8-track with a tape stuck inside it"],
-  isSportsCar: true,
-  seats: 2,
-  year: 2023,
-  make: 'bmw',
+// key called accessThis ???
+// ----> undefined 
+const firstCarObj = { 
+  year: 2002,
+  model:'corolla',
+  transmission:"auto",
+  seats: 4,
+  make: 'toyota',
+  interiorType: 'fabric', 
+  features: ['ac', 'cd player'],
+  "this is a key": 'value'
+  // key: 'value'
 };
-// console.log(firstCarObj);
-// we can add/remove values in an object...
 
-// console.log(firstCarObj);
+// to access values in an object we have 2 different notations
+// We DO NOT CARE ABOUT ORDER
+// dot notation
+// console.log('BEFORE----------------\n', firstCarObj);
+console.log(firstCarObj.model);
+// i want to add another key value pair to an object that has been already created
+firstCarObj.color = 'silver gray';
+// change a value to an existing key
+firstCarObj.interiorType = ['leather', 'fabric'];
+// console.log('AFTER---------------\n',firstCarObj);
 
-firstCarObj.transmission = 'manual';
-// console.log(firstCarObj);
+// console.log(firstCarObj.features[1]);
 
+// square bracket notation
 
-const printCarDetailsObj = function(car) {
-  console.log('Make: ', car.make);
-  console.log('Model: ', car.model);
-  console.log('Year: ', car.year);
-  console.log('feature: ', car.features[2])
-
-}
-
-
-
-const letter = 'c';
-
-const result = {};
-// = 5
-
-// dot notation...
-result.letter = 5;
-// square bracket notation.. (just like in an array but not an array)
-// keys are strings
-//        c
-result[letter] = 9;
-
-
-console.log(result['car']);
-// {c: 5}
+const accessThis = 'seats';
+// arr[0]
+console.log(firstCarObj[accessThis])
