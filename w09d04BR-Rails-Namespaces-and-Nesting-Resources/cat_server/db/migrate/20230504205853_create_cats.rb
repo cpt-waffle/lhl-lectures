@@ -8,6 +8,3 @@ class CreateCats < ActiveRecord::Migration[7.0]
     end
   end
 end
-
-#  1 -- do a rollback and re-add and then re-migrate
-#  2 -- make a new migration and add 
