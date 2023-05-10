@@ -1,28 +1,30 @@
 const net = require('net');
-// stdin -- to collect what you type on your terminal
+// require a module to be able to collect your typing from your keyboard 
+const keyboard = require('./keyboard');
 
-// keyboard controlls, this will track keystrokes and when press enter will send message
-const keyboard = require('./controls');
+const client = net.createConnection({host: 'localhost', port: 3001});
+//       ^instead of localhost
+//       ^use my IP i shared in zoom
 
-// creates a connection to the server
-const client = net.createConnection({host: 'localhost', port: '3001'});
-
-// sets encoding for incoming messages ( so we as a user can undertand them)
 client.setEncoding('utf8');
 
+client.on('connect', () => {
+  console.log("You have connected!");
+  console.log("Welcome :)");
+})
 
-const name = 'Anon';
-
-// whenever the messages come in from the server, THIS callback runs
 client.on('data', (data) => {
-  // console.log('data has come in!');
-  // we print the message that came in (data is the message)
+  console.log("data came from server");
   console.log(data);
 })
 
-// we initialzed keyboard here so we can write messages to the server
-keyboard.startKeyboard(client, name);
+keyboard.setKeyboard(client);
+
+// to send a message from the client to server
+// you will use a function called. .write()
 
 
-// initial hello the server
-client.write(`${name}:  hello there!`);
+
+// setInterval(() => {
+//   client.write("HELLO!!!!!");
+// }, 2000);

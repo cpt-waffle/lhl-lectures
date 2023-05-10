@@ -1,4 +1,5 @@
---- w2 Agenda
+# W2D3 - Networking with TCP 
+## -- Agenda
 
 - What is Networking? 
 - Networking with TCP
@@ -7,67 +8,78 @@
 - (BONUS: you should be able to connect to my computer :) )
 - demo
 
-
 ## What is Networking??
 
-- connecting with people 
-- connecting with anything 
-- connection between clients 
+- making connections
+- communicating
+- connection between many things/people
 
-## Rules for Networking 
+## Rules for Neworking with a Person
 
-- walk up to them/call em  
-- introduce myself
-- handshake/elbow bump
-- share names
-- start a convo 
-  ^- dont talk over the other person
-   - listen for one convo, then you are allowed to talk
-   -
-- conclusion
-- say goodbye 
-- leave 
+I want to talk to a person
 
-### Rules for Communcation for Computers
-### Transmission Control Protocol (TCP)
+First I have to find a person...
+- Approach the person
+- link up some way 
+ ^---- introduction (Hi!, my name is _____)
+ ^--- go away....  ^---- hi nice to meet you! 
 
-- we need to know where the computer that I want to interact with is: (address)
-- we need to approach the computer (connection)
-- we connect to this computer (introductions -- hello, my name is, i come from ____, do you want to talk?)
--  start interacting 
-  - Computer A sends a message 
-  - Computer B recieves a message
-  - Computer A sends a message 
-  - Computer A sends a message 
-  - Computer A sends a message
-  - Computer B recieves a message
-  - Computer B sends a message a back
-  - Computer B sends a message a back
-  - Computer B sends a message a back
-  - Computer B sends a message a back
-  - Computer B sends a message a back
-- Computer A Disconnects 
-- **Interaction Over**
+ we talk
+ they talk
+ we talk
+ we talk
+ we talk
+ they talk
+ they talk 
+ - say it was nice talking to you 
+ - im going go now 
+ - goodbye
+ - walk away
+
+## Rules for Connecting with Computers
+ ^ 
+## Transmission Control Protocol
+
+we need to know where the computer we want to connect with is
+- we approach the computer 
+- we make an introduction (Hi! My name is _______ )
+- Go away -------------- Hi Welcome 
+Computer A Sends a Message 
+Computer A Sends a Message 
+Computer A Sends a Message 
+Computer B sends a Message
+Computer B sends a Message
+Computer A Sends a Message 
+Computer B sends a Message
+Computer A Sends a Message 
+Computer A Sends a Message 
+Computer A Sends a Message 
+Computer A Sends a Message
+Computer B sends a Message
+Computer B sends a Message
+Computer B sends a Message
+- Im going to disconnect now, Goodbye!
+- IM OUT 
+
+## Mediums of Communication
+
+- bluetooth
+- wifi
+- cable
+
+### HTTP 
+- Hyper Text Transfer Protocol
+
+I need to know who i want to interact with ( their address www.)
+we attempt to contact that server
+if it goes well 
+you connect
+you ask for something ------------------ REQ ---------------->
+the servers responds back <--------------RES -----------------
+DISCONNECT
 
 
-### HTTP
-
-- we need to know where the computer that I want to interact with is: (address)
-- we need to approach the computer (connection)
-- we connect to this computer (introductions -- hello, my name is, i come from ____, do you want to talk?)
-
-- Computer A sends a REQUEST (one message )    ------------------>
-- Computer B sends a RESPONSE (one message)    <------------------
-**DISCONNECT**
-
-
-### Computer Mediums
-
-Networks
-  ^--->  Global and Local (networks)
-
-
-  
-Routers
-Modems
-
+### IPs (local and Global)
+### Networks 
+### Ports
+### Services
