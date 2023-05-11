@@ -5,31 +5,24 @@
 
 const fs = require('fs');
 
-let data1 = 0;
-let data2 = 0;
-let data3 = 0;
+// doLaundry((laundry) => {
+  //dryLaundry((laundry) => {... })
+// })
 
-fs.readFile('./data1.txt', 'utf8', (err, data) => {
-  if (err) {
-    throw err;
-  }
-  console.log('data', data);
-  data1 = data;
-  fs.readFile('./data2.txt', 'utf8', (err, data) => {
-    if (err) {
-      throw err;
-    }
-    console.log('data', data);
-    data2 = data;
-    fs.readFile('./data3.txt', 'utf8', (err, data) => {
-      if (err) {
-        throw err;
-      }
-      console.log('data', data);
-      data3 = data;
-      console.log(`${data1} - ${data2} - ${data3} = ${data1 - data2 - data3}`);
+// returns undefined 
+fs.readFile('./data1.txt', 'utf8', (err, data1) => {
+  if (err) throw err;
+  console.log('data1', data1); // 140
+  fs.readFile('./data2.txt', 'utf8', (err, data2) => {
+    if (err) throw err;
+    console.log('data2', data2); 
+    fs.readFile('./data3.txt', 'utf8', (err, data3) => {
+      if (err) throw err;
+      console.log('data3', data3); 
+      console.log(`${data1} - ${data2} - ${data3} = ${data1-data2-data3}`);
     })
   })
+
 })
 
 

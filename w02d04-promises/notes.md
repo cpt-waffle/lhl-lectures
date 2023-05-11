@@ -7,21 +7,20 @@
 - Promises: Using Promise functions
 - Promises: Building Your Own promise function 
 
+### Async Functions -- Chores
 
+Vaccum 
+Dishes
+Mopping
+Dust
+Laundry
+Yard Work
+Trash
+Walk the Dak
 
-## Async Functions
-
-- vaccum
-- do laundry
-- walk the dog
-- dusting 
-
-```js
-vaccum();
-doLaundry((clothes) => {
-  foldTheLaundry(clothes);
-}); // async
-walkTheDog();
-dusting();
-
-```
+///////////////////
+                                FULFILLED PROMISE            FULFILLED 
+                                /                \         /
+Function ----> Promise (PENDING)                   PROMISE
+                                \                 /        \
+                                REJECTED :(                  REJECT

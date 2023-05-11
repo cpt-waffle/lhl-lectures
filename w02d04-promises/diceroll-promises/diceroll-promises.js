@@ -2,48 +2,43 @@
 // The roll should take around 2 seconds...
 // and make 3 consecutive dice rolls
 
+const { stdin } = require("process");
+
 // const randomNumber = function() { ... }
-const randomNumber = (diceSize) => {
-  const result = Math.floor(Math.random() * diceSize) + 1;
+
+
+const randomNumber = (dice) => {
+  const result = Math.floor(Math.random() * dice) + 1;
   return result;
 }
 
-const diceRoll = () => {
-  console.log('dice is rolling...');
 
+const diceRoll = () => {
+  console.log("Rolling....");
   return new Promise((resolve, reject) => {
-    // do something async
     setTimeout(() => {
       const result = randomNumber(6);
-      if (result > 3) {
-        return resolve(result);
-      } else {
-        return reject(':*(');
+      if ( result < 3) {
+        return reject(':(');
       }
-      
-    
-    }, 1000);
+
+      return resolve(result);
+    }, 2000)
   })
 }
 
-const result = diceRoll();
-console.log(result);
-
-result.then(v => {
-  console.log("dice: ", v);
+diceRoll().then(num =>{
+  console.log("the number was", num);
   return diceRoll()
-}).then(num => {
-  console.log("dice: ", num);
+}).then(num =>{
+  console.log("the number was", num);
   return diceRoll()
-}).then(num => {
-  console.log("dice: ", num);
+}).then(num =>{
+  console.log("the number was", num);
   return diceRoll()
-}).then(num => {
-  console.log("dice: ", num);
-  return diceRoll()
-}).then(num => {
-  console.log("dice: ", num);
+}).then(num =>{
+  console.log("the number was", num);
   return diceRoll()
 }).catch(e => {
-  throw e;
+  console.log(e);
 })
