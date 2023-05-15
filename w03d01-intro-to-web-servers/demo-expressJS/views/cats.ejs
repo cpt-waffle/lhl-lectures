@@ -1,20 +1,4 @@
-<h1>Cats!!</h1>
 
-
-<%   if (1 == 1)  { %>
-
-  <h1>The statement was truthy!</h1>
-
-<% } %> 
-
-<% const array = [1,2,3,4,5]; %>
-
-<ul>
-<% for (let i of array) { %>
-  <li>test <%= i %> </li>
+<% for (key in cats) { %>
+  <img src="<%= cats[key] %>" />
 <% } %>
-</ul>
-
-<% for (let catKey in cats)  {%>
-  <li><img src="<%= cats[catKey] %>" /></li>
-<%}%> 

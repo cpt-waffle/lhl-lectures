@@ -1,9 +1,10 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require("express");
 const app = express();
-const PORT = 8080;
+const port = 8080;
 
-// objects, arrays 
+// intialize EJS
+app.set('view engine', 'ejs');
+
 const catsDatabase = {
   1: 'https://i.kym-cdn.com/photos/images/newsfeed/001/394/314/c62.jpg' ,
   2: 'https://i.cbc.ca/1.5359228.1577206958!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_620/smudge-the-viral-cat.jpg',
@@ -11,51 +12,42 @@ const catsDatabase = {
   4: 'https://i.imgur.com/drvA0ew.jpg'
 }
 
-let key = 5; 
-
-// EJS
-app.set('view engine', 'ejs');
-
-// to parse the body of your POST requests
-// app.use(express.bodyParser.urlencoded({extends: false}));
-app.use(express.urlencoded({extended: true}));
-
-
-// GET / (home)
-app.get('/', (req, res)=> {
-  console.log("someone is trying to visit our home page!");
-  // return res.send(''); // not being used because of the EJS view engine
+let num = 0
+app.get('/', (req, res) => {
+  console.log("GET /");
+  num++;
+  // return res.send(`<body><h1>Hello World</h1><ul><li>${num}</li><li>two</li></ul></body>`);
   return res.render('home');
 })
-//     request             response
 
-// your browser can only read, HTML, JS, CSS 
-app.get('/cats', (req, res) => {
-  console.log('someone is trying to visit GET /cats');
-  // return res.send('(^-_-^)~');
+app.get('/testing', (req, res) => {
+  console.log("GET /testing");
+  return res.send('tesing worked :)');
+})
 
-  //             ''   {}   <--- js object, shares its key/val pairs with the view thats being rendered 
-  // res.render(___, ___)
-  // const obj = {a: [0,1,2,3], b: 'butter', c: true, d: undefined}
-  const templateVars = {cats: catsDatabase};
-  // templateVars = {};
-  // templateVars.cats = catsDatabase;
+app.get('/cats', (req,res) => {
+  console.log("GET  /cats");
+  // first param is the ejs file name
+  // second param is an object that will be SHARED WITH the ejs file
+  const templateVars = {a: 3.14, cats: catsDatabase};
   return res.render('cats', templateVars);
 })
 
-app.get('/cats/new', (req, res) => {
-  console.log("someone is visiting GET /cats/new page");
-  return res.render('cats_new');
+// urls/:shortURL
+app.get('/cats/:id', (req, res) => {
+  console.log(req.params)
+  console.log('GET /CATS/:id');
+  // get the cat from our database
+  const cat = catsDatabase[req.params.id];
+  // if cat exists display it
+  if (cat) {
+    return res.render('cat', {cat});
+  }
+
+  // if cat doesnt exist, send an error
+  return res.send('cat does not exist');
 })
 
-app.post('/cats', (req, res) => {
-  console.log("someone is trying to save a cat");
-  console.log(req.body); // cat_img
-  catsDatabase[key] = req.body.cat_img;
-  key++;
-  return res.redirect('/cats');
-})
 
 
-app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
-
+app.listen(port, () => console.log("Server is listening on port ", port));
