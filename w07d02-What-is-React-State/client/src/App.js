@@ -1,23 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import Card from './components/Card';
+import { useState } from 'react';
 
 function App() {
+
+  const [users, setsUsers] = useState([
+    {
+      name: 'Vas',
+      title: 'instructor'
+    },
+    {
+      name: 'Beth',
+      title: 'Marketing'
+    },
+    {
+      name: 'Charley',
+      title: 'developer'
+    },
+
+  ]);
+
+  const [totalLikes, setTotalLikes] = useState(0);
+
+  const onTotalClick= () => {
+    setTotalLikes(totalLikes + 1);
+  }
+
+  
+  const cards = users.map(user => {
+    // array.push(...)
+    return <Card name={user.name} title={user.title} onTotalClick={onTotalClick}/>
+  })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar totalLikes={totalLikes}/>
+      <h1>{totalLikes}</h1>
+      {cards}
+      {/*Card({name: 'Vas', title: 'Instructor})*/}
     </div>
   );
 }
