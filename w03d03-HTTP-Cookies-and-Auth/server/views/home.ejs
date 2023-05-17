@@ -4,14 +4,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title>Home Page!</title>
 </head>
 <body>
-  <h1>Home Page :)</h1>
+  <h1>Home Page!</h1>
   <% if (user) { %>
-    <h1>Logged in as <%= user.email%></h1>
-    <form method="POST" action="/logout"><button>Logout</button></form>
+    <h2>You are logged in as!</h2>
+    <h3><%= user.email %> </h3>
+    <form method="post" action="/logout">
+      <button>Logout</button>
+    </form>
   <% } else { %>
+    <h2>Please Log in!</h2>
     <a href="/login">Login</a>
   <% } %>
 </body>
