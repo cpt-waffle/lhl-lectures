@@ -1,0 +1,6 @@
+.task {
+  display: flex;
+  background-color: cornflowerblue;
+  padding: 3px;
+  justify-content: space-around;
+}
