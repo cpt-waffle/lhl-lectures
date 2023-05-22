@@ -1,0 +1,10 @@
+.poster {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  width: 400px;
+}
+
+.poster--img {
+  width: 350px;
+}
