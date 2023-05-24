@@ -35,3 +35,17 @@ The client makes a request, or mulitple requests to the SERVER for the data
 data will be replied back, as a json, or XML
 the client recieves that data, and embeds it into the HTML/CSS of the app/website
 
+### Ajax Requests
+
+Microsoft 
+
+client asks the server for data, but the browser does not refresh, 
+the client then takes that date and loads it/ uses it for the website
+
+GET and POSTs
+
+## Disclaimer
+
+-- making the AJAX request, is actually easy
+BUT alot of setup, behind the scenes work will need to happen to RENDER that data 
+that comes in, 
