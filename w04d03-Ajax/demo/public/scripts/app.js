@@ -1,75 +1,68 @@
-
-
 const PI = 3.14;
 
 const hello = () => {
-
+  console.log("hello!");
+  return 3;
 }
 
-const appendMovies = (movieArr) => {
-  // gets an array of movies/shows
-  // loops through them and appends each movie to our HTML page
-  for (movieObj of movieArr) {
-    appendMovie(movieObj);
-  }
-}
-
-const appendMovie = (movie) => {
-  const image = 'https://i.kym-cdn.com/photos/images/newsfeed/001/394/314/c62.jpg';
-  
-  let img = image;
-
+const addMovie = (movie) => {
+  let image = 'https://e0.pxfuel.com/wallpapers/312/311/desktop-wallpaper-why-you-must-experience-four-horsemen-at-least-once-in-your-lifetime-four-horsemen-funny-cat-faces-funny-animal-cute-cat-memes.jpg'
   if (movie.show.image) {
-    img = movie.show.image.original;
+    image = movie.show.image.medium;
   }
-  
-  const movieHTML = `
-    <article class="movie-container">
-    <img 
-      class="movie-container-image"
-      src="${img}"
-    />
-    <h2>${movie.show.name}</h2>
-    <h2>${movie.show.rating.average ? movie.show.rating.average : 'no yet rated' }</h2>
-    <h3>${movie.show.premiered}</h3>
-    <p>
+  $('#movies-list').append(`
+    <article class="movie">
+      <img
+        class="movie--img"
+        src="${image}"
+      />
+      <div class="movie--criteria">
+        <h2>Rating: ${movie.show.rating.average}</h2>
+        <h1>${movie.show.name}</h1>
+      </div>
+      </ul>
+      <p class="movie--description">
       ${movie.show.summary}
-    </p>
-  </article>
-  `
-  $('#movies').append(movieHTML);
+      </p>
+    </article>
+  `);
 }
 
-
-const getMovies = (str) => {
-  $.get(`https://api.tvmaze.com/search/shows?q=${str}`, function(data) {
-    $('#movies').empty();
-    appendMovies(data);
-  });
+const addMovies = (moviesArr) => {
+  for(let movie of moviesArr) {
+    addMovie(movie);
+  }
 }
+// $(document).ready(() => { ... })
+$(() => {  // GET /TWEETS
+  $.get('https://api.tvmaze.com/search/shows?q=dogs', (data) => {
+    console.log('data has come back!');
+    console.log(data);
+    addMovies(data);
+  })
 
-
-// things to put into the document.on.ready
-// functions that change DOM elements ( so anyhting on the HTML document)
-// event listners
-
-// $('#search').on('hover')
-
-$(() => {
-  getMovies('cars');
   $('#search').on('submit', (evt) => {
     evt.preventDefault();
-    const str = $('#search-input').val();
-    getMovies(str);
+    // jquery 
+    const searchField = $('#search-input').val();
+    // POST /TWEETS
+    // make an object to sent out in post
+    // or serialze() method for the form
+    $.get(`https://api.tvmaze.com/search/shows?q=${searchField}`, (data) => {
+      console.log('data has come back!');
+      console.log(data);
+      $('#movies-list').empty();
+      addMovies(data);
+    })
   });
 })
 
 
-/// 1) figure out a layout of how our movies are going to look like on the page
-//      build this in HTML/css
-//  1.5) figure out how to append our Movie container programmatically
-//  2) figure out how to append data
-//  3) figure out how to do that on load
-//  3.5)  from the ajax call to our HTML page
-//  4) we want to search the movies ourselves, need figure out how to add a form
-// and make custom search string parameters
+// 1) figure out the layout for every movie thats going to be displayed  [x]
+// 1.5) build the layout for the movie [x]
+// 2) Embed the layout for a movie, using app.js file and methods [x]
+// 2.5) use data from the app.js file, and make movie on the HTML based on that data [x]
+// 3) use data that is an array to render multiple movies on the page 
+// 3.5 ajax call [x]
+// 4) figure out how to load the data on initial refresh [x]
+// 5) how to make this work for an event listener when we need to search a different movie 
