@@ -9,79 +9,53 @@
 - Q&A
 
 
-## Why Do We Test?
+### Why we test ??
 
-- to avoid errors a user might make that will break code
-- code works as expected
-- edge cases
-- test driven development practices !
-
-
-- Save Time ( in the long run! )
-- Save Money (hopefully less downtime !)
-- Save your weekend 
----> NEVER DEPLOY ON A FRIDAY 
-(prob best to deploy on a tuesday)
+-- Testing is only good, when you are mid level of an app in 
+-- TDD you write test first, make sure it fails, and then write code to pass it
 
 ### Different Types of Testing
 
 - Unit Testing
-- Integration Testing 
-- Static Test
-- E2E Testing (Today!)
-
-
-End to End Testing
-(User Story Testing)
-
-"I have expensive Taste..."
+- Integrationg Testing
+- Static Testing 
+- E2E Testing (the most expensive tests)
 
 ### Cypress
 
-The testing framework we will use for E2E testing!
+## installation of Cypress
 
-### Installation Notes!
-
-In Compass it will ask you to install this packages Globally
-`-g`
+This is installed on the front-end of your application
 
 `npm install -D cypress@9.7.0`
 
--- add a command to package.json
-
-```json
-    "cypress": "./node_modules/.bin/cypress open"
-```
+## -------------------------------------------
 
 ### FOR WINDOWS ONLY
 
-if you installed the VcXSrv package, and you are still encountering an error,
-this maybe due to a firewall issue.
+install VCXSRV package (X Server)
 
-Advice: Turn off the windows firewall for a the remainder of the activities, once done turn it back on!
+Turn off your firewall!
+McAfee Firewall <--
 
-McAfee Firewall, TURN THAT OFF AS WELL!!
+## -------------------------------------------
 
+### Go into your package.json, of the front-end application
 
-### Starting to write your tests
+add the following line of code:
 
-- Run your react application scheduler in a terminal
-- for backend, you will need to make ANOTHER .env file
-  ^--- env.development 
-  ^--- env.test
-  ```json
-  database scheduler_test
-  password: development
-  ```
-- you need to CREATE A NEW DATABASE scheduler_test
-- when you are inside of psql `CREATE DATABASE scheduler_test OWNER development;`
+```json
+   "scripts": {
+      "cypress": "./node_modules/.bin/cypress open",
+   }
+```
 
-- Run your backend server in a terminal 
-  ^--- (needs to run development mode )
-`NODE_ENV=TEST npm start`
+### To start cypress
 
-- visit `localhost:8080/api/debug/reset`
+`npm run cypress `
 
-- run cypress in another terminal 
+### To start testing your application you will need to run
 
-### (3 terminals in total!)
+- backend server (test mode)
+- frontend server
+- cypress framework
