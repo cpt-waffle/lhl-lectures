@@ -1,27 +1,30 @@
-// BcryptJS Practice
-
 const bcrypt = require('bcryptjs');
 
-const plainTextPassword = '123';
+// const password = 'password';
+// console.log(password);
+// const salt = bcrypt.genSaltSync(10);
+// console.log(salt);
+// const hash = bcrypt.hashSync(password, salt);
+// console.log(hash);
+// // PLAINTEXT -------------> HASH A PASSWORD ---------> CHECK THE HASH
 
-const salt = bcrypt.genSaltSync(10);
-const hash = bcrypt.hashSync(plainTextPassword, salt);
-console.log(salt);
-console.log(hash);
-// hashing is a 1 WAY process
-// plainTextPass ------> hashSync ----> 943u5t09sjfg3j45024u09wsfj09052045254234
+// const tryToLoginPassword = 'password';
 
-// if (hash === req.body.pass) X not going to work :(
-console.log(bcrypt.compareSync('1234', hash));
-console.log(bcrypt.compareSync('iSecretlylove50cent', hash));
+// // Please do not take the attempted password, hash it, and check if 2 hashes matches using == or ===
+// const result = bcrypt.compareSync(tryToLoginPassword, hash);
 
-/////////////// Async
-console.log("--------------------Async ");
+// console.log(result);
 
-const plainTextPass2 = '!!!W3l123_45com3!!!';
-bcrypt.genSalt(10, (err, salt) => {
-  bcrypt.hash(plainTextPass2, salt, (err, hash) => {
-    console.log(hash);
-  })
+///////////////////////////////// ASYNC /////////////////////////////
+
+console.log("this is async");
+
+const pass = '1234';
+bcrypt.genSalt(10).then(salt => {
+  console.log(salt);
+  return bcrypt.hash(pass, salt);
+}).then(hash => {
+  console.log(hash);
 })
+
 

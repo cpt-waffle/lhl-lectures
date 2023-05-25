@@ -1,18 +1,26 @@
 const PORT = 8080;
 const express = require('express');
 const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
 const bcrypt = require('bcryptjs');
+
+const users = {
+  1: {id: 1, email: 'obiwan@gmail.com',  password: '$2a$10$znpXJHiM0nvBqlumFh01neYoI/HsoDXsaHjJ8fLfnDGIJ031ysqmK'},
+  2: {id: 2, email: 'gimli@gmail.com',   password: '$2a$10$2xZrZKvjDtL/EcRer7bcPOlq2QtGDiG1n52mpJaPO2VBz3VaNS2sa'},
+  3: {id: 3, email: 'a@b.ca',           password: '$2a$10$sZVt8lgGHm/jKqM29axIce0gVRC0q./Qr9tzldPaP6gNGrwYR8GKq'},
+};
 
 // Index counter for users DB
 let index = 4;
 
 
-const users = {
-  1: {id: 1, email: 'obiwan@gmail.com',  password: '$2a$10$zSSHe3wSxVjtwfaMe/NN.uK91LMPH4IK9eCwsIG33d3QtqB.qnM..'},
-  2: {id: 2, email: 'gimli@gmail.com',   password: '$2a$10$rLRXwypmo0AQMqdz8YARWe5JrYuFlrYOjgxIHVO7HaqdnK8hmKn1y'},
-  3: {id: 3, email: 'a@b.com',           password: '$2a$10$/8eMGSvATCzplO7r3E7Z0ubIiy2T9XQ.t/4Icu0Hu1j5JYuOnKN/e'},
-};
+
+// GET  /urls   edit urls_index.ejs  loop through url.longURL
+// POST /urls  
+// POST /urls/:id
+// GET /urls/u/:id
+// etc...
 
 
 const app = express();
@@ -23,33 +31,37 @@ app.set('view engine', 'ejs');
 // ----> req ---> MIDDLEWARE ---> route  
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: true}));
-app.use(cookieSession({
-  name: 'session',
-  keys: ['235fgs', 'sef25', 'test', 'app', 'hello'],
-  maxAge: 24 * 60 * 60 * 1000 // 24 hours
-}))
+app.use(cookieParser());
 
+app.use((req, res, next) => {
+  console.log("MY MIDDLEWARE!!!!!");
+  next();
+})
+
+app.use(cookieSession({
+  name: 'banana',
+  keys: ['123', '456', '789']
+
+}))
 
 app.get('/test', (req,res) => {
   res.send("ok!");
 })
 
-app.get('/', (req,res) => {
-  // res.cookie('weather', "snow");
-  // res.cookie('a', "1");
-  // res.cookie('b', "2");
-  // res.cookie('c', "3");
 
+app.get('/', (req,res) => {
+  console.log(req.body);
   // How do i get the cookie out of the request?
   // find the user for the user_id, stored in the cookie
   // and show that you are logged in?
   
+  console.log('Cookies: ', req.cookies)
+  console.log('req session', req.session);
   const templateVars = {user: null};
-  console.log(req.session);
   const user = users[req.session.user_id];
   templateVars.user = user;
   // const templateVars = {user}; // {user: user}
-  res.render('home', templateVars);
+  return res.render('home', templateVars);
 })
 
 //////////////  A page to let the user login
@@ -58,7 +70,7 @@ app.get('/login', (req, res) => {
   // Login needs to be a form, because we need information from the users
   // the form will need to make a request (POST) to another route, to validate that user
   // if user credentials are correct, "authenticate" them
-  res.render('login');
+  return res.render('login');
 })
 //// POST requests, are here for anytime we want to change/create something on the server
 app.post('/login', (req, res) => {
@@ -83,7 +95,7 @@ app.post('/login', (req, res) => {
         console.log("email and password has matched!");
         // redirect the user to /auth/:id/_______________
         // res.cookie('fruit', 'banana');
-        /////////////res.cookie('user_id', id);
+        // res.cookie('user_id', id);
         req.session.user_id = id;
         return res.redirect(`/`)
         // return res.send("YAY you are loggedn in :)")
@@ -100,35 +112,34 @@ app.post('/login', (req, res) => {
   return res.send('email and pass dont match');
 })
 
-app.post('/logout', (req, res) => {
-  // res.clearCookie('user_id');
-  req.session = null;
-  return res.redirect('/');
-})
-
 app.get('/register', (req, res) => {
-  if (req.session.user_id) {
-    return res.redirect('/');
+  if (req.cookies.user_id) {
+   return res.redirect('/'); 
   }
-
   return res.render('register');
 })
 
 app.post('/register', (req, res) => {
-
   for (let id in users) {
     if (users[id].email === req.body.email)
       return res.send("Error: email already in use!   :(");
   }
 
-  const tempUser = {id: index, email: req.body.email, password: bcrypt.hashSync(req.body.pass, 10)};
+  const salt = bcrypt.genSaltSync(10);
+  const hashPass = bcrypt.hashSync(req.body.pass, salt);
+  const tempUser = {id: index, email: req.body.email, password: hashPass};
   users[index] = tempUser;
-  // res.cookie('user_id', users[index].id)
+  // res.cookie('user_id', users[index].id);
   req.session.user_id = users[index].id;
   index++;
   return res.redirect('/');
 })
 
+
+app.post('/logout', (req, res) => {
+  req.session = null;
+  return res.redirect('/');
+})
 
 
 ///////////////////////////AUTHENTICATED ROUTES /////////////////////

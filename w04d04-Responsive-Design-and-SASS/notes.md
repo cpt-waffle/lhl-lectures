@@ -9,26 +9,22 @@ What that means ?  How far have we come!
 ---- flexbox with breakpoints
 ---- sass (bonus)
 
-
 ### Back in the Day...
 
-smart phones did not exist (not yet)
-LCD or CRT 15 - 20 inch max 
+2004-2008
 
-2007-2008
+- Giant 17-19 inch monitors CRTs
+- LCD screens 17-19 squares 
 
-Iphone 1 was released!
+- Iphone 1 announced
+- Every app showed on iphone 
+- they used another iphone!
+- pinch to zoom !
+- watch youtube !
 
-- you can browse the web, on your phone!
-- 4inch phone ^
-- pinch to zoom!
-- watch youtube
 
+### Support for smaller screens or different size of screen in general
 
-HOW DO WE, SUPPORT DEVICES THIS SMALL!?!?
-
-Req ---------------------------> the backend detects (or asks, what device size are you you using?)
-
-            A different HTML (layout) page that would fit EXACTLY to the device width
-<----------------------------RES
+Why don't we detect what device they are using on a request....
+and give back a website/view for that SPECIFIC device as a response...
 

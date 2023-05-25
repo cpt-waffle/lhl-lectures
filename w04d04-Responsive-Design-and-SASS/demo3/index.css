@@ -4,44 +4,57 @@
   font-size: 20px;
 }
 
+.navbar {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar--item {
+  text-align: center;
+  background-color: cornflowerblue;
+  padding: 2px;
+  color: white;
+}
+
+.navbar--item:hover {
+  background-color: skyblue;
+}
+
 .profile {
-  padding-top: 1rem;
   display: flex;
   justify-content: center;
+  padding-top: 2rem;
 }
 
-.profile-img {
-  width: 260px;
-  height: 260px;
-  object-fit: cover;
+.profile--img {
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
-  border: 3px solid cornflowerblue;
-}
-
-.nav-item {
-  background-color: cornflowerblue;
-  text-align: center;
-  padding: 5px;
-  margin: 1px;
-}
-
-.p-content {
-  padding-bottom: 1rem;
+  object-fit: cover;
+  border: 2px solid green;
 }
 
 
-@media screen and (min-width: 700px) {
+.content {
+  padding-top: 3rem;
+}
+
+@media screen and (min-width: 750px){
+
   .navbar {
-    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
   }
-  .nav-item {
+  .navbar--item {
     flex-grow: 1;
+    font-size: 2rem;
   }
 
-  .profile-img {
+  .profile--img {
     border-radius: 0;
-    height: auto;
     width: 100%;
+    height: auto;
+    border: none;
   }
 
   .bio-content {

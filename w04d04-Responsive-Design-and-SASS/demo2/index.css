@@ -2,37 +2,41 @@
     margin: 0;
     padding: 0;
     font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
 }
-
 
 .nav {
-    display: flex;
-    justify-content: space-between;
-}
-
-.nav-item {
-    text-align: center;
     background-color: cornflowerblue;
-    flex-grow: 1;
+    display: flex;
+    justify-content: space-around;
 }
 
-/* media queries/ breakpoints  */
-/* if sizeofscreen <= 400px  OVERWRITE every class with the class inside of these brackets*/
+.nav--item {
+    font-size: 2rem;
+}
+
+/*             <= 800 */
+@media screen and (max-width: 800px) {
+    .nav {
+        background-color: goldenrod;
+    }
+}
+
 @media screen and (max-width: 400px) {
     .nav {
         display: block;
-    }
-
-    .nav-item {
-        background-color: blueviolet;
-        font-size: 2rem;
+        text-align: center;
     }
 }
-/* if sizeofscreen >= 800px OVERWRITE every class with class inside of these brackets*/
-@media screen and (min-width: 800px) {
-    .nav-item {
-        background-color: crimson;
+/*       <= 950 */
+@media screen and (min-width: 950px) {
+    .nav--item {
+        font-size: 4rem;
+
+    }
+
+    .nav--item:hover {
+        background-color: lightblue;
         padding: 10px;
     }
+    
 }

@@ -1,4 +1,4 @@
-### Immutable Update Patterns
+### Immutable Update Patterns W7D4 
 
 Today we will be talking about Immutable Patterns in react.
 

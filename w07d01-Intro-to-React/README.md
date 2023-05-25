@@ -1,7 +1,5 @@
 ## Component-Based UI w/ React
 
-[Repo Link](https://github.com/vasiliy-klimkin/w7d1-react)
-
 Today we will be talking about `React` and Integrating React Components.
 
 #### Storybook
