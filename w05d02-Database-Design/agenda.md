@@ -12,148 +12,159 @@
 - Take up Exercise ^
 - BONUS -- show an IDE for database 
 
-### User Stories 
 
-A description of a feature 
+## How do WE think of tables 
 
-As a ____________
-I want to be able to/ I should be able to 
-_________________________________________
-because 
-_________________________________________
+### User Stories
 
-*** Tables are NOUNS ***
+A description of a feature for an application.
 
+```
+As a  ____________
+I want to be able to do 
+________________________
+________________________
+Because
+________________________
+________________________
+```
 
-### Tables, what is it?
+*** Tables Are NOUNS ***
+
+### Whats a Table
 
 - rows and columns
-- simular data grouped together
-- store related data
-- entity storing info about a specific thing
-- organized info
+- stored data
+- organization
 
 
-Tinyapp (DATABASE)
+## TinyApp ##
 
-email,   password,   longURL,                 shortURL 
-vasily@k.ca  234249dsf93  www.google.ca            9fi9345j
-a@b.ca  9gjfdlg03j4  www.facebook.com         fsd0j452
-vasily@k.ca  234249dsf93  www.reddit.com           fjgggg43
-vasily@k.ca  234249dsf93  www.amazon.ca            sadz241f
-vasily@k.ca  234249dsf93  www.canadiantire.ca      lk9;lk33
-a@b.ca  9gjfdlg03j4  www.apple.com            90-234df
+Database Table
+(.csv)
+email,                password,       longURL,              shortURL
+vasily@gmail.com     du0u3248f234     www.google.ca          F3F2a24
+vasily@gmail.com     du0u3248f234     www.reddit.com         5g94fdd
+a@b.ca               f9sut0245029     www.apple.com          oofmn45
+vasily@gmail.com     du0u3248f234     www.canadiantire.ca    Xdfc442
 
 
 ### ERD - Entity Relationship Diagram
 
-- a way to visually show how your database looks like ( connections between tables, etc)
+- a way to visually show how your database looks like (connections between tables, fk, pk, etc)
+
+`users`
+--------------------------------------
+PK
+id,   email,                password,
+1    v@gmail.com          du0u3248f234
+2    a@b.ca               f9sut0245029
+--------------------------------------
+
+
+`urls`
+--------------------------------------    
+PK                                        FK
+id    longURL,              shortURL          user_id
+1    www.google.ca          F3F2a24             1
+2    www.reddit.com         5g94fdd             1
+3    www.apple.com          oofmn45             2
+4    www.canadiantire.ca    Xdfc442             1
+-------------------------------------- 
 
 ### Table Conventions
 
-- pluralize our table names <<<<(Lighthouse perfers pluralized tables)
-- singular name their table 
-- use snake_case for multiple words for a table
-
-
-Tinyapp (DATABASE) refactored
-
-`users`
-(PK) id SERIAL INTEGER,     email,   password,   
-1                        vasily@k.ca  234249dsf93  
-2                        a@b.ca  9gjfdlg03j4 
-
-`urls`
-longURL,                 shortURL            user_id
-www.google.ca            9fi9345j              1
-www.facebook.com         fsd0j452              2
-www.reddit.com           fjgggg43              1
-www.amazon.ca            sadz241f              1
-www.canadiantire.ca      lk9;lk33              1
-www.apple.com            90-234df              2
+- pluralized our table names <--(Lighthouse labs Prefers this convention)
+- make sure you use snake_case for multiple words for a table
+- column names should be singular UNLESS its a collection []
 
 ### Datatypes
 
-- INTEGERS(PK, FK, SERIAL )
-- CHAR(TEXT(unlimited), VARCHAR(255))
+- INTEGERS (PK, FK)
+- CHAR( VARCHAR OR TEXT )  
+-   CHAR VARCHAR 0 - 255 bytes (max 255 letters stored ) 
+-   TEXT is unlimited size ()
 - BOOLEAN
-- DATE
-- TIMESTAMP
-
-### Performance and Storage 
-
-
-- nowdays data is cheap!
-- but not so long time ago (50-60 years)
-- storage WAS SUPER EXPENSIVE!!
+- DATE / TIMESTAMP
+- FLOATS
+- DECIMALS
 
 
-TEXT('a'---------------------------------------------') allocating 1gb!!
-VARCHAR(255bytes) <-- 255 characters maximum
+### Performance and Storage
 
-##  INTEGERS 
+- nowdays data is CHEAP !!! 1tb storage 500gb SSDs
+- harddrive 1-2tb 30-50$  8 tb - 100$
 
-#### Primary Key (PK)
+back to 1990s - 2000s
 
-is always a unique value for every row 
-Primary keys CAN BE (string , boolean, integer, etc)
-
-DATA VOLITILITY
+100gb storage, you are set for life
+RAM 512mb ddr2 or 1
 
 
-#### Foreign Key (FK)
+### Primary Key
 
-is just a REFERENCE TO A ROW IN A ANOTHER TABLE!!!!
-Foreign Key has to be THE SAME DATATYPE as THE KEY that is being referenced
+is a unique VALUE
+Primary keys CAN BE ANY DATATYPE (strings, booleans, integers, etc)
+PK (SERIAL INTEGER) ---> INTEGER will always autoincrement upwards 
++1
+Emails, 
+
+
+### Foreign Key
+just a reference to a row in another table
+Foreign key has to be the same DATATYPE as the KEY that is being referenced!
 
 
 ### One to One (rare)
 One X has One Y
 One Y has One X
 
-### One to Many (very common)
-One X has MANY Y
-One Y has One X
-
-### Many to Many (common, but cannot exist in the database...)
-One X has MANY Y
-One Y HAS MANY X
-
-A bridge table to signify the Many To Many Relationship between the tables
-
-A bridge table will fix the many to many relationship
-its the 3rd table, between the 2 tables that have the many to many relationship
-Bridge table will have every FOREIGN KEY from the 2 other tables in it.
-
-<one to many>    <many to one>
+### One To many (very common)
+One X has MANy Y
+One Y Has one X
 
 
-### General Concepts
+### Many to Many (very common,  but cannot exist in psql....)
+One X Has Many Y
+One Y has Many X
 
-- always start with core user stories, to build your initial database
+A bridge table is needed to fix this relationship
+A bridge table is a 3rd table, between the 2 tables that will have both foreign keys, 
+changing the `many to many` to `one to many` from A to B  and `many to one` from B to C
 
+### General concepts
 
-#### Aggregate Functions
+- Always starts with core user stories, create tables based on the CORE users stories, 
+- and then move on to the the other stories that are not CORE
+
+### Aggregate Functions
 
 (SUM, AVG, COUNT, etc)
 
-Do not store aggregate values ( because you can you the functions and get more relevent data)
+- NEVER store aggregate values 
 
 
-### Constraints 
+### Constraints
 
-email             NOT NULL
-first_name       ---------
-last_name        ---------
-phone_number    ----------- DEFAULT(000-000-0000)
-picture          ---------- DEFAULT(default.img)
+email         <--- NOT NULL
+password      <--- NOT NULL
+first_name    DEFAULT("")
+last_name     DEFAULT("")
+phone_number  DEFAULT(000-000-0000)
+picture       DEFAULT("default.img")
+Address
+etc...
 
-#### Deletion
+### Deletions
 
-TRY not to HARD DELETE rows
+Try not to HARD DELETE any data from your tables
 
-id      longURL,       shortURL       user_id     deleted(FALSE)
- 1        google.ca       f435s5         1           TRUE
- 2        reddit.com      d9255f         2           fALSE
- 3        facebook.com    f69dfg         1           FALSE
- 4        amazon.ca       xxxasr         1           FALSE
+`urls`
+--------------------------------------    
+PK                                              FK
+id    longURL,              shortURL          user_id                  DELETED(DEFAULT: false)
+1    www.google.ca          F3F2a24             1                             false
+2    www.reddit.com         5g94fdd             1                             false
+3    www.apple.com          oofmn45             2                             true
+4    www.canadiantire.ca    Xdfc442             1                             false
+--------------------------------------  
