@@ -8,24 +8,27 @@
 - Q and A
 
 
-### Web Stack so far
+### Theory of Why we need Databases
 
-### Tiny App World
- 
- - not enough features
- -- metrics
- -- dark mode 
- -- user groups
- -- friends lists
- -- chats
+- imagine TinyApp was deployed, to a real server thatt users can access
+- this app blew up in user activity
+- you have become a billionare !!!
+- users demand new features
+- make those demand features (user groups, analytics, dark mode, etc)
+- features all the features
+- deploy the features out to the server
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+restart your node server
+urlsDatabase { {}, {} }
+usersDatabase { {}, {} }
 
-You Build these features on a branch (git)
+-- Maybe i can use a file to store my data..
+.csv 
+
+id,   shor_url, long_url, user_id
 
 
+### Postgres
 
-Client                          ExpressJS                          DATABASE
-                                 Server
----------------REQ---------------->
-                                  LOGIC ----------ASK FOR DATA------------>
-                                  <---------------GET DATA BACK------------
-<--------------RES-----------------
+-- Service, thats able to be hosted on multiple machines,
+that can be accessed by anyone/anything that have the credentials

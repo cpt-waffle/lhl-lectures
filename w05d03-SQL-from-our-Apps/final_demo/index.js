@@ -1,19 +1,19 @@
 const bodyParser	= require('body-parser');
 const express			= require('express');
 const morgan			= require('morgan');
-const {Pool} = require('pg');
-
-const app = express();
-const PORT = 8080;
-
-// Credentials 
+// step 1, add pool and/or client
+const {Pool, Client} = require('pg');
+// step 2, add the credentials 
 const pool = new Pool({
   user: 'labber',
   host: 'localhost',
+  password: 'labber',
   database: 'w05d03',
   port: 5432,
-  password: 'labber'
 })
+
+const app = express();
+const PORT = 8080;
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -33,13 +33,12 @@ app.get('/', (req, res) => {
 
 app.get('/sandbox', (req, res) => {
 	const templateVars = {};
-	console.log('req.body', req.body); // POST req with FORMS
-	console.log('req.params', req.params); // /employees/:id <--- param
-	console.log('req.query', req.query);  // GET FORM tacs on the command to the URL
-
-if (!req.query.command) {
-	return res.render('sandbox', templateVars);
-}
+	console.log("req.body", req.body);
+	console.log("req.params", req.params);
+	console.log("req.query", req.query);
+	if (!req.query.command) {
+		return res.render('sandbox', templateVars);
+	}
 
 	pool.query(req.query.command).then(data => {
 		templateVars.result = data.rows;
@@ -48,32 +47,16 @@ if (!req.query.command) {
 		templateVars.error = e.message;
 		return res.render('sandbox', templateVars);
 	})
-
-	// return res.render('sandbox', templateVars);
-
-
 })
 
 app.get('/employees/:id', (req, res) => {
 	const templateVars = {};
-	// SQL INJECTION
-	//                                true/false OR true = TRUE
-	//                                     false OR true = TRUE
-	// SELECT * FROM employees WHERE id = 1 OR 1 = 1;
-	//
-
-	// 
-
-	///  req.params.id = 1 OR 1 = 1;
-	//pool.query(`SELECT * FROM employees WHERE id = ${req.params.id}`)
-
-	// pool.query('SELECT * FROM employees where id = $1 AND name = $2', [req.params.id, req.params.name])
-
+	//                                          = 4 OR 1 = 1 
 	pool.query(`SELECT * FROM employees WHERE id = $1`, [req.params.id]).then(data => {
 		templateVars.employees = data.rows;
 		return res.render('employees_index', templateVars);
-	}).catch(e => {
-		return res.send("error has occured please try again :)");
+	}).catch( e => {
+		res.send(e.message);
 	})
 
 })
@@ -81,14 +64,20 @@ app.get('/employees/:id', (req, res) => {
 
 app.get('/departments', (req, res) => {  // app.get Is HTTP
 	const templateVars = {};
-	pool.query('SELECT * FROM departments;').then(data => {
-		templateVars.departments = data.rows;
+	pool.query("SELECT * FROM departments").then(data => {
+		console.log(data.rows);
+		templateVars.result = data.rows;
 		return res.render('departments_index', templateVars); // RESPONSE
 	})
 })
 
 app.get('/api/departments', (req, res) => {
-	res.send('ok');
+	const templateVars = {};
+	pool.query("SELECT * FROM departments").then(data => {
+		console.log(data.rows);
+		templateVars.result = data.rows;
+		return res.json(templateVars) // RESPONSE
+	})
 })
 
 app.listen(PORT, () => console.log("Server is listening on:", PORT));
