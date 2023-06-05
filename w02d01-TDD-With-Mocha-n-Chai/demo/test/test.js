@@ -1,41 +1,33 @@
 const assert = require('chai').assert;
-const palindrome = require('../palindrome');
+const helper = require('../palindrome');
 
-describe('Sample Quick Test', () => {
-  it(' checks if 2 + 2 ie equal to 4', () => {
-    const result = 2 + 2;
-    assert.equal(result, 4);
+// console.log(assert);
+
+describe('sample test', () => {
+  it('checks if 1 + 1 is equal to 2', () => {
+    const result = 1 + 1;
+    assert.equal(result, 2);
   })
 })
 
-describe('Palindrome Tests', () => {
-  describe('Regular Tests', () => {
-    it(' checks that level is a palindrome', () => {
-      assert.isTrue(palindrome('level'), "FAIL: level is a PALINDROME and should return TRUE");
+describe('palindrome tests', () => {
+  it ('checks if kayak is a palindrome', () => {
+    assert.isTrue(helper.palindrome('kayak'));
+  })
+  it ('checks if racecar is a palindrome', () => {
+    assert.isTrue(helper.palindrome('racecar'));
+  })
+  describe('palindrome -- edge cases ', () => {
+    it ('checks if "taco cat" is a palindrome', () => {
+      assert.isTrue(helper.palindrome('taco cat'));
+    })
+    
+    it ('checks if "a man a plan a canal panama" is a palindrome', () => {
+      assert.isTrue(helper.palindrome('a man a plan a canal panama'));
     })
 
-    it(' checks that kayak is a palindrome', () => {
-      assert.isTrue(palindrome('kayak'), 'FAIL: kayak is a PALINDROME and should return TRUE');
-    })
-
-    it(' checks if racecar is a palindrome', () => {
-      assert.isTrue(palindrome('racecar'), "FAIL: racecar is a PALINDROME and should return TRUE");
-    })
-
-    it(' checks if noon is a plaindrome', () => {
-      assert.isTrue(palindrome('noon'), "FAIL: noon is a PALINDROME and should return TRUE");
+    it ('checks if LEvEl is a "taco cat"', () => {
+      assert.isTrue(helper.palindrome('LEvEl'));
     })
   })
-
-  describe("Edge Cases Tests", () => {
-    it('checks if my gym is a palindrome ', () => {
-      assert.isTrue(palindrome('my gym'), "FAIL: 'my gym' is a PALINDROME and should return TRUE");
-    })
-
-    it('checks if a man a plan a canal panama is a palindrome', () => {
-      assert.isTrue(palindrome('a man a plan a canal panama'), "FAIL: 'a man a plan a canal panama' is a PALINDROME and should return TRUE");
-    })
-  })
-
-
 })

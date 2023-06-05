@@ -1,12 +1,7 @@
-const palindrome = require('./palindrome'); // {palindrome: f(), PI: 3.14};
-// console.log(helper);
-console.log('----------------- main.js -------------');
-// console.log("palindrome app!");
-
-if (palindrome('racecar')) {
-  console.log("yes racecar is palindrome!");
-} else {
-  console.log("no racecar is not!");
-}
+const helper = require('./palindrome'); // {}
+const palidrome = helper.palindrome; 
 
 
+console.log("checks if fruits are a palindrome");
+
+console.log("is apple a palindrome?", helper.palindrome('apple'));
