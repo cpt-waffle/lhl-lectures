@@ -1,4 +1,6 @@
 
 ## --  Advanced Topic  --
-REAL TIME COMMUNICATION
+ 
+ - Finals 
+ - REAL TIME COMMUNICATION
 
