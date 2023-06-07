@@ -1,3 +1,4 @@
+
 <% if @user %>
   <h1><%= @user.name %> </h1>
 <% else %>
@@ -5,8 +6,11 @@
 <% end %>
 
 
+
 <ul>
+
 <% @cats.each do |cat| %>
-  <li><%= cat.name %>  <%= cat.color %></li>
-<%end %>
+  <li> <%= cat.name %> ,  <%= cat.color %> </li>
+<% end %>
+
 </ul>

@@ -1,9 +1,4 @@
 class PagesController < ApplicationController
-
-  def banana
+  def about
   end
-  
-  def teams
-  end
-
 end
