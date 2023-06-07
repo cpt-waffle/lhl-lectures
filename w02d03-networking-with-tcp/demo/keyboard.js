@@ -1,17 +1,16 @@
-const stdin = process.stdin;
+const { stdin } = require('process');
 
-const setKeyboard = (client) => {
+
+stdin.setEncoding('utf8');
+
+const setKeyboard = (client, user) => {
   stdin.on('data', (data) => {
-    // what you type in terminal 
-    // after you press enter
-    // will be sent to the server
-    // using the .write command
+    // if keypressed === 'w' client.write("Move: Up")
+    // if keypressed === 'a' client.write("Move: Left")
   
-    // if W is pressed --> client.write("Move: Up");
-    client.write(data);
+    client.write(`${user}:  ${data}`);
   })
 }
 
-module.exports = { setKeyboard };
-// dont use export default command
-// use the es5 module.exports
+
+module.exports = setKeyboard;

@@ -1,26 +1,16 @@
-const net = require('net');
+const net = require('node:net');
 
-// your connection between you and the server
-// ^ the client parameter
-const users = [];
-
+const connections = [];
 const server = net.createServer((client) => {
-  
-  console.log("Someone has connected :)");
-  // console.log(client)
+  console.log("someone has connected!");
   client.setEncoding('utf8');
-  users.push(client);
-  client.on('data', (data) => {
-    console.log("data has come in!");
+  connections.push(client);
+  client.on('data', data => {
     // console.log(data);
-    users.forEach(user => user.write(data));
+    connections.forEach(client => {
+      client.write(data);
+    })
   })
-
-  // setInterval(() => {
-  //   client.write('Hello from server :)');
-  // }, 2000);
-
 })
 
-//            PORTS
-server.listen(3001, () => console.log("Server is on :)"));
+server.listen(3001, () => console.log("Server is on 3001"));
