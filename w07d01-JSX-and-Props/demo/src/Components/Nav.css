@@ -1,0 +1,6 @@
+.nav {
+  background-color: cornflowerblue;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}

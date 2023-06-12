@@ -1,0 +1,12 @@
+.poster {
+  background-color: black;
+  text-align: center;
+  padding: 20px;
+  width: 650px;
+  
+}
+
+.poster--img {
+  width: 90%;
+  object-fit: cover;
+}
