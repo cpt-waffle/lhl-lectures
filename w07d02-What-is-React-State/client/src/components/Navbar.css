@@ -4,6 +4,7 @@
   background-color: #111152;
   margin: auto;
   align-items: center;
+  justify-content: space-between;
 }
 
 .navbar h1 {

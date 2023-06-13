@@ -2,11 +2,11 @@ import './Navbar.css';
 
 const Navbar = props => {
   return (
-    <nav className='navbar'>
-      <h1>some nav</h1>
-      <h1>{props.totalLikes}</h1>
+    <nav className="navbar" style={{backgroundColor: `rgba(255,0,0,${props.color})` }}>
+      <h1>Some navbar</h1>
+      <h1>{props.numberOfClicks}</h1>
     </nav>
-  )
+  );
 }
 
 export default Navbar;
