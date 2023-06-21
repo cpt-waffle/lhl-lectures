@@ -3,18 +3,17 @@ import React, { useState } from 'react';
 
 function Form(props) {
     const [val, changeVal] = useState('');
-    const [error, setError] = useState(false);
-
+    const [err, setErr] = useState(false);
 
     const handleSubmit = evt => {
         evt.preventDefault();
-        if (val.length !== 0) {
+        if (val) {
             props.addItem(val);
-            changeVal('');
-            setError(false);
-
+            if (err) {
+                setErr(false);
+            }
         } else {
-            setError(true);
+            setErr(true);
         }
     }
 
@@ -31,9 +30,9 @@ function Form(props) {
                     value={val}
                     onChange={evt => changeVal(evt.target.value)}
                 />
-                <button data-testid="form-button" className="submit-btn" >Add</button>
-                {error && <h2>Task Cannot be Blank!!</h2>}
+                <button className="submit-btn">Add</button>
             </form>
+            {err && <h2>Cannot be Blank!</h2>}
         </div>
     )
 }

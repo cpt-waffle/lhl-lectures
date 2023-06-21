@@ -1,29 +1,39 @@
 import React from 'react';
-import {render, fireEvent} from '@testing-library/react';
-import '@testing-library/jest-dom';
+import {render, fireEvent} from "@testing-library/react";
+import "@testing-library/jest-dom";
+
 import Form from '../Form';
 
+
 describe('Form Tests', () => {
-  it("renders", () => {
-    const { container,debug } = render(<Form/>);
-    expect(container).toBeInTheDocument();
+  it('renders the form component', () => {
+    const {container, debug} = render(<Form/>);
+    // console.log(debug(container));
   })
 
-  it('clicks the button of the form, and tries to submit something that is empty', () => {
-    const fn = jest.fn();
-    const { container,debug, getByTestId } = render(<Form addItem={fn}/>);
-    const button = getByTestId('form-button');
-    fireEvent.click(button);
-    expect(fn).not.toHaveBeenCalled();
+  it('renders the form, and we attempt to click the add button', () => {
+    // let i = 0;
+    // const fakeFunction = () => {
+    //   console.log("FAKE!!!");
+    //   i++;
+    // }
+    /// REPLACING ^^ with MOCK function
+    const fakeFunction = jest.fn();
+
+    const {container, debug, getByText} = render(<Form addItem={fakeFunction}/>);
+    // debug(getByText('Add'));
+    fireEvent.click(getByText('Add'))
+    // console.log(debug(container));
+    expect(fakeFunction).not.toHaveBeenCalled();
   })
 
-  it('writes a correct task, and attempts to submit it', () => {
-    const fn = jest.fn();
-    const { container,debug, getByTestId } = render(<Form addItem={fn}/>);
-    const button = getByTestId('form-button');
-    const input = getByTestId('form-input');
-    fireEvent.change(input, {target:{value: 'Buy MilkZZZZZZZZZZZZzz'}});
-    fireEvent.click(button);
-    expect(fn).toHaveBeenCalled();
+  it('renders the form, we type in buy milk, and add it', () => {
+    const fakeFunction = jest.fn();
+    const {container, debug, getByText, getByTestId} = render(<Form addItem={fakeFunction}/>);
+    fireEvent.change(getByTestId('form-input'), {target: {value: 'buy milk'}});
+    fireEvent.click(getByText('Add'))
+    expect(fakeFunction).toHaveBeenCalled();
+
+
   })
 })

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import List from './Components/List';
 import Form from './Components/Form';
 
@@ -15,7 +16,15 @@ const list = [
 
 export default () => {
 
-  const [todoList, modifyList] = useState(list);
+  const [todoList, modifyList] = useState([]);
+
+  useEffect(() => {
+    axios.get('/todos').then(res => {
+      console.log("DATA !!!");
+      console.log(res.data);
+      modifyList(res.data);
+    })
+  }, [])
 
   const toggleDone = i => {
     modifyList( prev => {

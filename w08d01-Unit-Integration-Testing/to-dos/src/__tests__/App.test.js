@@ -1,12 +1,14 @@
 import React from 'react';
-import App from '../App';
-import { render } from '@testing-library/react';
-import '@testing-library/jest-dom'
+import {render, fireEvent, waitFor} from "@testing-library/react";
+import "@testing-library/jest-dom";
 
-describe('App Tests', () => {
-  it(' renders', () => {
-    const { debug, getByText } = render(<App/>);
-    
-    expect(getByText(/All items to be Done!/i)).toHaveClass('todo');
+import App from '../App';
+
+describe("App Tests", () => {
+  it('renders app', async () => {
+    const {container,debug, findByText, getByText} = render(<App/>);
+
+    const item1 = await findByText(/AAAAAAAAAAAAAAAAAAAAA/i);
+    console.log(debug(item1));
   })
 })
