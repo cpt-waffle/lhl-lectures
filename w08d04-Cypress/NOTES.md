@@ -9,53 +9,39 @@
 - Q&A
 
 
-### Why we test ??
-
--- Testing is only good, when you are mid level of an app in 
--- TDD you write test first, make sure it fails, and then write code to pass it
-
 ### Different Types of Testing
 
-- Unit Testing
-- Integrationg Testing
-- Static Testing 
-- E2E Testing (the most expensive tests)
+- Unit Testing   -- quick to write, quick to run, faster to work through
+- Integration Testing -- quick to write, quick to run, faster to work through
+- Static Testing --  quick to run 
+- End to End Testing -- expensive, and a bit slower 
+
 
 ### Cypress
 
-## installation of Cypress
+how to install cypress
 
-This is installed on the front-end of your application
+going into the directory of your project, and running:
 
-`npm install -D cypress@9.7.0`
+```npm install -D cypress@9.7.0```
 
-## -------------------------------------------
+add the script into package.json
 
-### FOR WINDOWS ONLY
-
-install VCXSRV package (X Server)
-
-Turn off your firewall!
-McAfee Firewall <--
-
-## -------------------------------------------
-
-### Go into your package.json, of the front-end application
-
-add the following line of code:
-
-```json
-   "scripts": {
-      "cypress": "./node_modules/.bin/cypress open",
-   }
+```
+    "cypress": "./node_modules/.bin/cypress open"
 ```
 
-### To start cypress
+##### Windows 10  or using WSL2
 
-`npm run cypress `
+install VCXRV package from compass or find it yourself on google 
 
-### To start testing your application you will need to run
+Firewalls 
 
-- backend server (test mode)
-- frontend server
-- cypress framework
+-- windows firewall settings, xserver, give it a allow rule for public/private networks
+-- turn off the windows firewall for the activity 
+-- turn it back on when your done!
+-- mcaffee -- TURN IT OFF 
+
+### to run cypress
+
+`npm run cypress`
