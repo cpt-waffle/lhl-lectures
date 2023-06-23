@@ -1,74 +1,76 @@
 // variables
+
 var a = 'letter';
 let fruit = 'apple';
 const PI = 3.14;
 
-// console.log(a, fruit, PI);
+PI = 4;
+
+console.log(a);
+console.log(fruit);
+console.log(PI);
 
 // functions
 
 const foo = (a=0,b=0) => {
-  console.log("hello world");
+  console.log(a+b);
   const result = a + b;
   return result;
 }
 
-// console.log(foo());
+const r = foo(4,2)
+console.log('r is ', r);
 
 // if statements
-const v = 10;
 
-if (v < 10) {
-  console.log('v is less than 10');
-} else if (v === 10) {
-  console.log('v is 10');
+const value = 10;
+
+if (value < 10) {
+  console.log("value is less than 10");
+} else if (value === 10) {
+  console.log("value is 10");
 } else {
-  console.log('v is greater than 10');
+  console.log("value is greater than 10");
 }
 
-if (v) console.log('v is truthy');
-if (!false) console.log(":(");
+if (value === 10) console.log("value is 10 again :)");
+if (!false) console.log("its not 9");
 
+// Arrays
 
-// Arrays 
-const arr = [1,2,3, 'four', 'five', [6,7], false];
+const array = [
+  1,2,3,4,5,
+  'six', 'seven', 'eight',
+  [1,2,3]
+]
 
-console.log(arr[4]);
+console.log(array);
 
-// for in, for of, c style for loop, forEach, map, reduce, filter
-
-arr.forEach((item, index) => {
-    console.log(`${item} at index ${index}`);
+array.forEach((elem, index) => {
+  console.log(`element: ${elem} at index ${index}`);
 })
 
 // Objects
 
-const obj = {a:1, b:2, c:3}
-obj.e = 5;
+const obj = {a:1, b:2, c:3};
 
-console.log(obj);
-console.log(obj.a)
+console.log(obj.a);
 console.log(obj['a']);
-console.log(obj.e);
-console.log(obj['e']);
+// for (let key in obj)
+Object.keys(obj).forEach( key =>  {
+  console.log("--------");
+  console.log(key);
+  console.log(obj[key]);
+  console.log("--------");
+})
+callbacks
 
-for (let key in obj) {
-    console.log('----');
-    console.log(key);
-    console.log(obj[key])
-    console.log('----');
-}
-
-// Object.keys(obj).forEach((key) => { ... })
-
-
-// Callbacks
 const highOrder = cb => {
-    console.log("before");
-    cb(5);
-    console.log("after");
+  console.log('before');
+  cb(5);
+  console.log('after');
 }
 
 highOrder((num) => {
-    console.log("CALLBACK FUNCTION!", num)
+  console.log("CALLBACK RUNS~~  ", num);
 });

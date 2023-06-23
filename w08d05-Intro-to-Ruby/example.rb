@@ -1,72 +1,75 @@
 # variables
+
 a = 'letter'
 fruit = 'apple'
-PI = 3.14
+PI = 3.14 # any capital cased variable is considered to be a constant
 
-# puts a, fruit, PI
+PI = 4
 
-# Functions
+puts a
+puts fruit
+puts PI
 
-def foo(a=0,b=0)
-  puts "hello world"
-  # implicit return 
-  a + b
+# functions
+
+def foo a=0,b=0
+  puts a+b
+  a + b # implicit return
+  
 end
 
-# puts foo()
+r = foo(4,2)
+puts "r is #{r}"
 
 # if statements
-# v = 10
 
-if v < 10 
-  puts 'v is less than 10'
-elsif v == 10
-  puts 'v is 10'
+value = 10
+
+if value < 10
+  puts "value is less than 10"
+elsif value == 10
+  puts "value is 10"
 else
-  puts 'v is greater than 10'
+  puts "value is greater than 10"
 end
 
-puts 'v is truthy' if v
-puts "this is a !falsey" unless false
-
+puts "value is 10 again :)" if value == 10 
+puts "its not 9" unless false # if !
 
 # Arrays
 
-arr = [1,2,3, 'four', 'five', [6,7], false]
+array = [
+  1,2,3,4,5,
+  'six', 'seven', 'eight',
+  [1,2,3]
+]
 
-puts arr[4]
+puts array.to_s
 
-
-arr.each_with_index do |item, index| 
-  puts "#{item} at index #{index.inspect}"
+array.each_with_index do |elem, index|
+  puts "element:  #{elem} at index #{index}"
 end
 
 # Hashes
 
 obj = {a:1, b:2, c:3}
-obj["e"] = 5;
-
-puts obj
 
 puts obj[:a]
 
-puts obj["e"]
 
-obj.each do |key, value| 
-  puts "----"
+obj.each do |key, value|
+  puts "-----------"
   puts key
   puts value
-  puts "----"
+  puts "-----------"
+end
+# callbacks
+
+def high_order
+  puts 'before' # <--- TimeStamp 12:10:33
+  yield 5 # <-- some_expensive_long_function
+  puts 'after' # <-- TimeStamp  12:11:00
 end
 
 
-
-
-# Callbacks
-def high_order 
-  puts 'before'
-  yield 5
-  puts 'after'
-end
-
-high_order { |num| puts "CALLBACK FUNCTION #{num}"}
+high_order { |num| puts "CALLBACK RUNS~~  #{num.to_s}"}
