@@ -9,89 +9,68 @@
  - more queries 
  - BONUS -- IDE for Databases 
 
-### The Story of Becoming a Billionare with TinyApp (and losing it :( )
-
-- you have finished tinyapp!
-- you have submitted it!
-- you looked into dev ops 
-- you deployed it just to see how :)
-- TINY APP BLEW UP WITH USERS !!!
-- #1 twitter, mastadon, 
-- facebook, 
-- 2 million users per day...
-- 7 million of new tinyURLs created per day!
-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-- buy an island, make a house, live there forever!
-------- 2 months pass -------------
-- competitors have way more new features!!
- -- user accounts 
- -- dark mode 
- -- able to look at present users urls,
- -- public/private sharing of urls
- -- etc....
- -- analytics
-
-- take your laptop out, and start building these features!
-- a week has passed, all features have been created !
-- time to add to to the deployed application!!
-
--- restart of the server 
-
-^ ----- you lose all your database, usersDatabase urlsDatabase
 
 
-### Data Persistence
+## Why do we need databases
 
-a way to save data, and even if the computer, restarts, refreshes, the data is saved, and can be still pulled in/pulled out, etc.
+- tinyapp 
+- deployed tinyapp
+- 3 million users, with many urls 
+- bigger than other social media apps
+- users are starting to demand NEW FEATURES
+- runtime memory, 
+- we need a way to save this data, even though our server will restart/relocate/etc
 
-We'll make a file, `.txt` and save all our data!
 
-### Data Organization
+## Postgres and SQL
 
-first line of our file, will contain names of our data columns
-everything under the first line will be that data and it will organized by the columns. `csv` format
+Postgres is a program/service that is able to save data, and persist it, even if the power to the computer/server gets turned off, or server needs to be moved
 
-### Data Interaction 
+- connect to this server remotely
+- build programs to interact with the data
+- tools to look up data, connect data, add more data, and remove data
+- user managment/role managment
 
-we will need to build tools to interact with our data file somehow...
-```fs library```
-- fs.fileRead()  --- syntax to be able to call upon reading our file, writing to it, 
-- fs.fileWrite()
 
-Creating our own data manipulation language
+SQL is the language to manipulate, add and delete the data 
 
-### Host our Data System not on the same computer/server as our application
 
-Build another EXPRESS server, that we're able to interact with the data, and send queues, to the app to notify it for things like: "data has changed", "data has been edited" , "cannot edit data" , etc 
+### Lets get into postgres
 
-^-- re-inventing the wheel 
+connecting or getting into postres
 
-### Databases
-
-Relational Databases 
-
- - PSQL
- - mySQL
- - Oracle
- - MariaDB
-
-Nonrelational Databases
-
-- MongoDB
-- Redis
-- CouchDB
-- etc
-
-## Postgres!!
-
-postgres is a database service (free)
-
-first command to get inside of postgres
-
+```sh
+psql
 ```
-sudo services postgresql start  
-sudo service  start postgresql
+
+to quit out psql
+
+```sh
+\q  
 ```
+
+### Database
+
+a folder, that contains all of your data for that specific project
+
+to see what databases you have 
+
+```sh
+\l
+```
+
+To change the current databaes you are in, use
+
+```sh
+\c DATABASE_NAME
+```
+
+To look at the tables in the database, use the 
+
+```sh
+\dt 
+```
+
 ```sh
 psql   # connect you to postgres
 \q     # quit you out of postgres
@@ -101,55 +80,53 @@ psql   # connect you to postgres
 \c database_name # connect to another database
 ```
 
+^--- Postgres Commands
 
-# SQL
+## SQL
 
-a language to interact with THE DATA thats inside of the databse
+a Language to interact with THE DATA in your DATABASE
 
-#### Creates you the database in your postgres
 
-```sql
+# How to Create a database
+
+```SQL
 CREATE DATABASE database_name;
 ```
 
-#### To delete a database
+# To delete a database
 
-if there are other users, or other instances connected to a database you are trying to drop, postgres will not drop it :(
-
-```sql
+```SQL
 DROP DATABASE database_name;
 ```
 
-#### Creating Tables 
+## Tables -- what are they, Creating Tables
 
-- INTEGER
-- TEXT
-- VARCHAR
-- TIMESTAMP
-- BOOLEAN
-- DATE
+Tables are here to organize your data
+you are able create table and add data with its specific column names...
+
+
+| name | description | expired
+ ''      '         '   
+
+### Basic Column Types
+
+ - INTEGER
+ - TEXT
+ - BOOLEAN
+ - DATE
+
 
 
 ```sql
 CREATE TABLE table_name (
-  column_name, column_type,
-  column_name, column_type,
-  column_name, column_type,
-  column_name, column_type,
+  column_name column_type,
+  column_name column_type,
+  column_name column_type,
 )
 ```
 
-#### INSERT data  into the table
+### INSERT DATA INTO TABLE
 
 ```sql
-INSERT INTO table_name (column_name, column_name, etc) VALUES (val1, val2, etc);
+INSERT INTO table_name (column_name, column_name, column_name) VALUES ( val1, val2, val3);
 ```
-
-
-
-
-
-
-
-
-
