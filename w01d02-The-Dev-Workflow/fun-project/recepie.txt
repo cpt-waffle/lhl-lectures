@@ -1,7 +1,0 @@
-
-- eggs
-- milk
-- flour
-- salt
-- sugar
-- raisins

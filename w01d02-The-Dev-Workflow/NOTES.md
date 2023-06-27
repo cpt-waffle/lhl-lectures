@@ -1,6 +1,7 @@
 # --- First Lecture Agenda ---
 
 - Intros
+- During This Week
 - The dev workflow 
 - Git 
   - make repo
@@ -11,51 +12,55 @@
 - making a small program, refactoring, commiting, etc
 
 
-## Git is a tool, to keep history of your code
+# Week 1 
 
--- also lets you COLABORATE with other developers
+- Day 2 -- coding fundementals,
+- Day 3 -- still working with fundementals, Objects (another way to store values)
+- Day 4 -- still working with fundementals, Callbacks 
+- Day 5 -- Mock Programming Test (on fundementals)
 
 
-### To make a repository 
+## The Dev Workflow
+
+### Tools you are using
+
+- vscode ( any coding editor )
+- terminal ()
+```sh
+ls # list directory
+cd # change directy
+cd . 
+cd ..
+mkdir folder_name
+touch file.js
+rm file.txt 
+rm -r /folder_name
+```
+- git
+
+git is a tool that helps you keep track of changes you make for every and any file. 
+lets you make snapshots of files that you have created and worked upon.
+
+you write some code, its really good code  (it works :) )
+you add more things to that code, and its now not working correctly :(
+you can use github to go back in time, to the original good working code.
+
+
+to create a git repo
 
 ```sh
-cd folder_name
 git init
 ```
 
 
-### To add files to staging
+to look at whats being untracked/tracked or any changes 
 
 ```sh
-git add . # all files
-git add file_name
-```
-
-### To commit 
-
-```sh
-git commit -m "message"
-```
-
-### This command pushes all the changes to github.com repo
-```sh
-git push origin main
-```
-
-### TO get changes back from your github.com
-
-```sh
-git pull origin main
-```
-
-### to download your code from github to a new folder/machine/vm/laptop/etc
-
-```sh
-git clone _______ssh_clone_from_github____
+git status
 ```
 
 
-you can pull changes from github to your machine
 
-you can get all your files in the repository BACK 
-by using this one command
+
+
+
