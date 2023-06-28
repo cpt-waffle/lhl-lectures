@@ -8,27 +8,30 @@
 - Q and A
 
 
-### Theory of Why we need Databases
+### Theory 
 
-- imagine TinyApp was deployed, to a real server thatt users can access
-- this app blew up in user activity
-- you have become a billionare !!!
-- users demand new features
-- make those demand features (user groups, analytics, dark mode, etc)
-- features all the features
-- deploy the features out to the server
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-restart your node server
-urlsDatabase { {}, {} }
-usersDatabase { {}, {} }
-
--- Maybe i can use a file to store my data..
-.csv 
-
-id,   shor_url, long_url, user_id
+Because of psql being its own service, sometimes you want other programs to access the data.
 
 
-### Postgres
+database.txt
 
--- Service, thats able to be hosted on multiple machines,
-that can be accessed by anyone/anything that have the credentials
+[
+  {id:  name:, password: }
+  {id:  name:, password: }
+  {id:  name:, password: }
+  {id:  name:, password: }
+]
+
+fs.read
+
+fs.write
+
+```sh
+cptwaffle@cptwaffle-desktop:~/lhl/lectures/w05d03-SQL-from-our-Apps$ psql
+```
+
+the address is localhost
+the username   cptwaffle
+the database   cptwaffle
+password       ignored
+port           5432
