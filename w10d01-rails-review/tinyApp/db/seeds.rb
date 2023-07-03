@@ -17,4 +17,3 @@ Url.create(shortURL: 'ddd34f', longURL: 'www.wallmart.com', user_id: user_two.id
 Url.create(shortURL: 'fff3f3', longURL: 'www.reddit.com', user_id: user_two.id)
 Url.create(shortURL: 'r3twe5', longURL: 'www.youtube.com', user_id: user_two.id)
 Url.create(shortURL: 'sfsfsf', longURL: 'www.example.com', user_id: user_two.id)
-

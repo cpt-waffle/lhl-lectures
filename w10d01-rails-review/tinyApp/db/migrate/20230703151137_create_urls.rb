@@ -9,6 +9,5 @@ class CreateUrls < ActiveRecord::Migration[7.0]
   end
 end
 
-# - to fix this issue
-# 1- rollback and add the column 
-# 2- make a new migration
+# 1 - rollback and add the fk column 
+# 2 - add another migration that adds fk column
