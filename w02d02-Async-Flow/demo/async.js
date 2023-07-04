@@ -1,26 +1,31 @@
 
-setTimeout(() => { 
-  console.log("4"); 
-  setTimeout(() => {  
-    console.log("5");
-    setTimeout(() => {  
-      console.log("6");
-    }, 500)
-  }, 500)
-}, 2000)
-console.log("END");
+const a = () => {
+  console.log("this is a");
+}
+
+const b = () => {
+  console.log("this is b");
+}
+
+// some functions in javascript are async
+// and run somewhere else, while the main of the program runs parallel
+
+a(); // take out the garbage
+/* laundry()*/ setTimeout(() => {
+    // dryer();
+  console.log("TIMEOUT FUNCTION");
+}, 4000)
+b(); // volleyball();
 
 
 
 
-//      When you clean up your place, what are your chores???
+/////////  Chores for your place ///////
 
-
-// --  vaccum 
-// --  collect garbage
-//  -- laundry ---> folding clothes
-//  -- dishes
-
-
-
-
+// take out the garbage
+// clean the bird cage
+// vaccum
+// laundry
+// volleyball
+// mop floors
+7

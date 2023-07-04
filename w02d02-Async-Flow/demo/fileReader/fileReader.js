@@ -4,27 +4,39 @@
 // Subtract data2 and data3 numbers from data1 number
 
 const fs = require('fs');
-// Promises .then()
-// 140
-// async/await 
-fs.readFile('./data1.txt', 'utf8', (err, data1) => {
-  if (err) throw err;
-  console.log(data1);
 
-  fs.readFile('./data2.txt', 'utf8', (err, data2) => {
-    if (err) throw err;
-    console.log(data2);
+let value1 = 0;
+let value2 = 0;
+let value3 = 0;
 
-    fs.readFile('./data3.txt', 'utf8', (err, data3) => {
-      if (err) throw err;
-      console.log(data3);
-      console.log("Subtracting Results")
-      console.log(`${data1} - ${data2} - ${data3} = ${data1 - data2 - data3}`);
+
+
+fs.readFile('./data1.txt','utf8', (err, data) => {
+  if (err) throw err
+  value1 = data;
+  fs.readFile('./data2.txt','utf8', (err, data) => {
+    if (err) throw err
+    value2 = data;
+    fs.readFile('./data3.txt','utf8', (err, data) => {
+      if (err) throw err
+      value3 = data;
+      console.log('value1 is ',value1);
+      console.log('value2 is ',value2);
+      console.log('value3 is ',value3);
+      console.log('Subtract the values');
+      console.log(`${value1} - ${value2} - ${value3} = ${value1 - value2 - value3}`)
     })
   })
+
 })
-// 14
-
-// 100
 
 
+
+
+//   NEVER EVER EVER DO THIS !!!! BAD >:(
+// setTimeout(() => {
+//   console.log('value1 is ',value1);
+//   console.log('value2 is ',value2);
+//   console.log('value3 is ',value3);
+
+// }, 10)

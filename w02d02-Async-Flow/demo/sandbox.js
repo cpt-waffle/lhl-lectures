@@ -1,31 +1,36 @@
 // Review!
 
-// Functions
+// Functions!
 
-  // -- params, arguments
-  // -- returns
+// const greetings = function() {...}
 
-  // ----------------      params
-const greetings = function(a,b,c) {
-  console.log("Hello World!");
+const greetings = () => {
+  console.log("hello world");
+  console.log(2 + 2);
   return 3.14;
 }
 
-
-// const result = greetings(1,'two', false) // <----- arguments
-// console.log(result);
-
-
-// Callbacks  <------- ??
-// 
-
-const highOrderFunction = function(a,b,callback) {
-  console.log(a);
-  console.log(b);
-  console.log(callback());
+//                 parameters
+const printUser = (name, email) =>{
+  console.log("----------------");
+  console.log(email);
+  console.log('-- ', name);
+  console.log("----------------");
 
 }
+//          arguments
+// printUser('v', 'v@k.ca')
 
-const value = 2;
+//////////////////////////////CALLBACKS//////////////////////////////
 
-highOrderFunction(1,value, greetings);
+//                this is a function that is passed in as a parameter
+const startRace = (callback) => {
+  console.log("START");
+  console.log(callback);
+  console.log("END");
+}
+
+startRace(printUser);
+startRace(() => {
+  console.log("this function does nothing :(");
+})

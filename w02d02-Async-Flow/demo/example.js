@@ -2,6 +2,7 @@ const higherOrderFunc = function(callback) {
   const data = { initials: "YV" };
 
   console.log('BEFORE TIMEOUT CALL');
+  // async function
   setTimeout(() => {
     data.initials = "YAV";
     callback();
