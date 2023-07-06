@@ -9,28 +9,26 @@ const randomNumber = (dice) => {
   return result;
 }
 
- //               function              ( num ) => 
 const diceRoll = (cb) => {
-  console.log("Rolling....");
+  console.log("Rolling...");
   setTimeout(() => {
-    const result = randomNumber(6)
-    cb(result)
-  }, 2000)
+    const result = randomNumber(6);
+    if (result < 3) {
+      cb(':(', null);
+    }
+    cb(null, result);
+  }, 2000);
 }
 
-
-diceRoll((num) => {
-  console.log('the number was ', num);
-  diceRoll((num) => {
-    console.log('the number was ', num);
-    diceRoll((num) => {
-      console.log('the number was ', num);
-      diceRoll((num) => {
-        console.log('the number was ', num);
-        diceRoll((num) => {
-          console.log('the number was ', num);
-        })
-      })
+diceRoll((err, num) => {
+  if (err) throw err;
+  console.log("the number was", num);
+  diceRoll((err, num) => {
+    if (err) throw err;
+    console.log("the number was", num);
+    diceRoll((err, num) => {
+      if (err) throw err;
+      console.log("the number was", num);
     })
   })
 })

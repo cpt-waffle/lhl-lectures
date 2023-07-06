@@ -7,20 +7,21 @@
 - Promises: Using Promise functions
 - Promises: Building Your Own promise function 
 
-### Async Functions -- Chores
 
-Vaccum 
-Dishes
-Mopping
-Dust
-Laundry
-Yard Work
-Trash
-Walk the Dak
 
-///////////////////
-                                FULFILLED PROMISE            FULFILLED 
-                                /                \         /
-Function ----> Promise (PENDING)                   PROMISE
-                                \                 /        \
-                                REJECTED :(                  REJECT
+### Async Functions 
+
+
+## Chores
+
+- walking the dog
+- vaccuming
+- laundy ---> dryer ---> folded
+- voleyball
+
+/// Promise
+                                              FULFILLED PROMISE
+                                             /                  \
+Function   DoLaundry() ===> PROMISE (PENDING)                     PROMISE
+                                             \                  /
+                                                  REJECTS :(
