@@ -1,12 +1,24 @@
-<body>
-  <h1>This is my homepage!!</h1>
-  <% if () { %>
-    
-  <% } %>
-  <ul>
-    <% const array = ['one--1', 'two--2', 'three--3', 'four--4', 'five--5'] %>
-    <% for (let element of array) { %>
-      <li><%= element %></li>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <p>
+      this is my home page, welcome!
+    </p>
+    <% if (1 == 1 ) {%>
+      <% const a = 3; %>
+      <% const b = 4; %>
+      <h4><%=  a + b%></h4>
     <% } %>
-  </ul>
-</body>
+  
+    <% const arr = [1,2,3] %>
+  
+    <ul>
+    <% for (let num of arr) { %>
+       <li> <%= num %> </li>
+    <% } %>
+    </ul>
+  </body>
+</html>

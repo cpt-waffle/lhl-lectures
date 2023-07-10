@@ -1,9 +1,7 @@
-const express = require("express");
-const app = express();
-const port = 8080;
+const PORT = 8080;
 
-// intialize EJS
-app.set('view engine', 'ejs');
+const express = require('express');
+const app = express();
 
 const catsDatabase = {
   1: 'https://i.kym-cdn.com/photos/images/newsfeed/001/394/314/c62.jpg' ,
@@ -12,42 +10,36 @@ const catsDatabase = {
   4: 'https://i.imgur.com/drvA0ew.jpg'
 }
 
-let num = 0
-app.get('/', (req, res) => {
+
+// step #1 to adding ejs: 
+//  initialize
+app.set('view engine', 'ejs');
+// step #2: make a folder called "views"
+// step #3: make EJS files, with end of the file, .ejs
+
+app.get('/', (request, response) => {
   console.log("GET /");
-  num++;
-  // return res.send(`<body><h1>Hello World</h1><ul><li>${num}</li><li>two</li></ul></body>`);
-  return res.render('home');
+  // return response.send("hello world");
+  return response.render('home');
 })
 
-app.get('/testing', (req, res) => {
-  console.log("GET /testing");
-  return res.send('tesing worked :)');
-})
-
+let i = 0;
 app.get('/cats', (req,res) => {
-  console.log("GET  /cats");
-  // first param is the ejs file name
-  // second param is an object that will be SHARED WITH the ejs file
-  const templateVars = {a: 3.14, cats: catsDatabase};
+  console.log("GET /cats");
+  i++;
+  const templateVars = {
+    // a: 1,
+    // b:2,
+    // c:3,
+    // array: [0,0,1],
+    // o: {foo:'bar'}
+    catsDatabase
+  };
+  // res.render takes 2 parameters
+  //              name of the view (string)
   return res.render('cats', templateVars);
-})
-
-// urls/:shortURL
-app.get('/cats/:id', (req, res) => {
-  console.log(req.params)
-  console.log('GET /CATS/:id');
-  // get the cat from our database
-  const cat = catsDatabase[req.params.id];
-  // if cat exists display it
-  if (cat) {
-    return res.render('cat', {cat});
-  }
-
-  // if cat doesnt exist, send an error
-  return res.send('cat does not exist');
+  //                       ^ an object that is shared
 })
 
 
-
-app.listen(port, () => console.log("Server is listening on port ", port));
+app.listen(PORT, () => console.log("Server is listening on PORT, ", PORT));

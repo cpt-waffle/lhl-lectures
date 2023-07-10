@@ -1,24 +1,20 @@
 const http = require('http');
 
+
 const server = http.createServer((request, response) => {
   console.log("Someone has connected!");
+  // response.setEncoding('utf8');
   console.log(request.url);
   if (request.url === '/') {
-    return response.end('Welcome to my homepage');
+    return response.end('Welcome to my homepage!')
+  } else if (request.url === '/banana-muffins') {
+    return response.end('🍌 🧁')
   } else if (request.url === '/hello') {
-    let i = 0;
-    i++;
-    return response.end(`hello ${i}`);
-  
-  } else if (request.url === '/testing') {
-    return response.end('testing worked :)')
-  } else if (request.url === '/cats') {
-    return response.end('meow :)');
+    return response.end("hi!");
   } else {
-    return response.end('no route exists :(');
+    return response.end("route not found :(");
   }
-})
+});
 
 
-
-server.listen(8080,() => console.log("Server is on, and listening!"));
+server.listen(8080, () => console.log("Server is on!")); 

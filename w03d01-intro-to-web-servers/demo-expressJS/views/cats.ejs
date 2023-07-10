@@ -1,4 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>cats!</h1>
+  <%= JSON.stringify(locals.catsDatabase) %>
 
-<% for (key in cats) { %>
-  <img src="<%= cats[key] %>" />
-<% } %>
+  <ul>
+    <% for (let cat in catsDatabase) {%>
+      <li><img style="width: 200px;"src="<%= catsDatabase[cat] %>"/></li>
+    <% } %>
+  </ul>
+</body>
+</html>
