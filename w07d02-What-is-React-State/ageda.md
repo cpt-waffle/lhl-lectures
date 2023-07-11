@@ -9,3 +9,4 @@
 - disection of state (what each variable stands for)
 - practice the use of state variable
 - lifting state up!
+- talk about todays activities

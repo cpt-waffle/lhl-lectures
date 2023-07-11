@@ -1,10 +1,12 @@
 import './Navbar.css';
 
-const Navbar = props => {
+const Navbar = (props) => {
+  console.log(props)
+
   return (
-    <nav className="navbar" style={{backgroundColor: `rgba(255,0,0,${props.color})` }}>
+    <nav class="navbar">
       <h1>Some navbar</h1>
-      <h1>{props.numberOfClicks}</h1>
+      <h1>{props.num}</h1>
     </nav>
   );
 }
