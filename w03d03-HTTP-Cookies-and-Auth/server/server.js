@@ -1,5 +1,12 @@
 const PORT = 8080;
 
+const express = require('express');
+// 1) npm i morgan 
+// 2)
+const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
+
+// user database
 const users = {
   1: {id: 1, email: 'obiwan@gmail.com',  password: 'helloThere'},
   2: {id: 2, email: 'gimli@gmail.com',   password: 'andMyAxe'},
@@ -7,72 +14,80 @@ const users = {
   4: {id: 4, email: 'a1@b.com',           password: '123'},
 };
 
-const urlsDatabase = {
-  Bvxn6: {shortURL: 'Bvxn6', longURL: 'www.google.ca', user_id: 1},
-  as324: {shortURL: 'as324', longURL: 'www.reddit.com', user_id: 1}
-}
-
-
-const express = require('express');
-const morgan = require('morgan');
-const cookieParser = require('cookie-parser');
 
 const app = express();
+// 3)
+app.use(morgan('dev'));
+app.use(express.urlencoded({extended: true})); // body-parser;
+app.use(cookieParser());
 
 app.set('view engine', 'ejs');
-app.use(cookieParser());
-app.use(morgan('dev'));
-app.use(express.urlencoded({extended: true})); // req.body
 
+app.get('/test', (req, res) => {
+  return res.send("ok!");
+})
 
-app.get('/', (req, res) => {
-  // res.cookie('fruit', 'banana')
-  // res.cookie('fruit1', 'apple')
-  // res.cookie('fruit2', 'coconut')
-  // res.cookie('fruit3', 'grapes')
-  console.log(req.headers.cookie);
-  console.log(req.cookies); // .user_id = id
-  const userId = req.cookies.user_id; // <-------------
-  // find that user from our object database [id]
-  const user = users[userId]; 
-  // set them into template vars 
-  const templateVars = { user };
-  // and send them into the render
-  console.log(templateVars);
+app.get('/', (req,res) => {
+  // res.cookie('fruit', 'banana');
+  // res.cookie('fruit', 'apple');
+  // res.cookie('fruit', 'orange');
+  console.log('req.headers.cookie: ',req.headers.cookie);
+  console.log('req.cookies: ',req.cookies);
+  const user_id = req.cookies.user_id; // 1
+  const templateVars = {email: undefined}
+  if (user_id) {
+    templateVars.email = users[user_id].email;
+  }
   return res.render('home', templateVars);
 })
 
-//      string       callback
-app.get('/login', (req, res) => {
+
+app.get('/login', (req,res) => {
   return res.render('login');
 })
 
-// a route that takes in post request for login 
+// const users = {
+//   1: {id: 1, email: 'obiwan@gmail.com',  password: 'helloThere'},
+//   2: {id: 2, email: 'gimli@gmail.com',   password: 'andMyAxe'},
+//   3: {id: 3, email: 'a@b.com',           password: '123'},
+//   4: {id: 4, email: 'a1@b.com',           password: '123'},
+// };
+
+
+// [x] fill out a form with their credentials
+// [x] get the credials back to the backend server
+// validate those credentials if they exist in our server
+   // -[x] looping through users database
+   // -[x] finding an object that has the same email as the credential given
+   // -[x] checking the password of the object IF that object has matched the credential password 
+// if they valid we have to LOG THEM IN
+// if they are not valid we have to give them AN ERROR
+
 app.post('/login', (req, res) => {
-  // i need a way to send a request (as a client)
-  // with credentials, email and password
-  console.log(req.body.email);
-  console.log(req.body.pass);
-  console.log(req.body);
-  // loop through my users database
-  console.log("loop----");
-  for (let i in users) {
-    console.log(i);
-    console.log(users[i]);
-    if (users[i].email === req.body.email ) {
-      if(users[i].password === req.body.pass) {
-        res.cookie('user_id', users[i].id);
-        return res.redirect(`/`)
+  console.log("req.body ==>", req.body);
+
+  const formEmail = req.body.email; 
+  const formPass  = req.body.banana;
+  console.log("------------LOOP-------------")
+  for (key in users) {
+    console.log("key",key);
+    console.log("val", users[key]);
+    console.log("i email", users[key].email);
+    console.log("i password", users[key].password);
+    if (formEmail === users[key].email) {
+      if(formPass === users[key].password) {
+        // return res.send("We should log you in :)");
+        // res.redirect(`${key}/home`);
+        res.cookie('user_id', key);
+        return res.redirect('/');
+      } else {
+        return res.send("Email or password is incorrect :(");
       }
-      return res.send('cannot login, wrong email/pass');
     }
   }
-  // if email matches then check password
-  // if password and email matches
-  // login 
-  // if no --> tell em to leave/access denied
+  console.log("------------LOOP-------------")
 
-  return res.send("cannot login, wrong email/pass");
+  return res.send("Email or password is incorrect :(");
 })
 
 app.post('/logout', (req,res) => {
@@ -82,15 +97,16 @@ app.post('/logout', (req,res) => {
 
 
 
-//////////////// Logged In Routes //////////////////////
+app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
 
-// app.get('/:id/', (req,res) => {
-//   const templateVars = {};
-//   console.log(req.params);
-//   templateVars.user = users[req.params.id]
-//   console.log(templateVars);
-//   return res.render('home_loggedin', templateVars);
+
+
+// WRONG -----------------Logged in routes
+// app.get('/:user_id/home', (req,res) => {
+//   return res.render('loggedInHome', {username: users[req.params.user_id].email})
 // })
 
+// app.get('/:user_id/stuff', (req,res) => {
 
-app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
+// })
+// WRONG -----------------Logged in routes
