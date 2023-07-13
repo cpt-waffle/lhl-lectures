@@ -1,12 +1,13 @@
 import './Task.css';
 
-const Task = props => {
+const Task = (props) => {
+  console.log(props);
   return (
-    <div className='task'>
-      <h1>{props.name}</h1>
-      <button>Done</button>
+    <div className="task">
+      {props.banana}
     </div>
   )
 }
+
 
 export default Task;

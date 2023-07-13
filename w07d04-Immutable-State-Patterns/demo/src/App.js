@@ -1,9 +1,8 @@
 import './App.css';
+import TasksList from './components/TasksList';
 import Task from './components/Task';
-import {useState} from 'react';
-import TaskList from './components/TaskList';
+import { useState } from 'react';
 
-// mock data
 const mocktasks = [
   {id: 1, task: ' have a meeting '},
   {id: 2, task: ' check on finals'},
@@ -14,64 +13,68 @@ const mocktasks = [
 let i = 5;
 
 function App() {
-  const [tasks, setTasks] = useState(mocktasks); 
-  // const tasksComponents = []
-  // for (let task of tasks) {
-  //   tasksComponents.push(<Task/>)
-  // }
-  const tasksComponents = tasks.map(task => {
-    return <Task key={task.id} name={task.task}/>
-    // Task({})
-  })
 
-  const addTask = (evt) => {
-    console.log("add task");
-    evt.preventDefault();
-    console.log(evt.target.newTask.value);
-    const newTask = {id: i, task: evt.target.newTask.value};
+  // NEVER CHANGE STATE DIRECTLY
+  // [num, setNum]  X WRONG -> num++
+  const [tasks, setTasks] = useState(mocktasks);
+
+  // const photos = new array(3)
+
+  const onAddTaskClick = () => {
+    const newTask = {id: i, task: ' new task!!!'};
     i++;
-    const tasksCopy = [...tasks, newTask]
-    setTasks(prev => {
-      return [...prev, newTask];
-    });
+    // immutable patterns
+    // every time, you want to ALTER something, 
+    // you have to make a copy of the first thing, CHANGE it, and set that to the original
+    // NEVER ALTER STATE DIRECTLY ---> tasks.push(newTask);   BAAAD :(
 
-    newTask.id++
-    i++;
-    setTasks(prev => {
-      return [...prev, newTask];
-    });
+    // spread operator.
+    //shallow copying
+    // const tasksCopy = [...tasks, newTask];
 
-    // tasks.push(newTask);
-    // state --> tasks ---> 0x20435v
-    // state --> tasks ---> 0x20435v
-    // always PASS a new instance of an object/array
-    // NEVER CHANGE the ORIGINAL value of anything
-    // ALWAYS make a new copy change that copy and set it to the original!
-    //// not the most correct way to make a copy of the state...
-    /// coming up next time we will refactor this!
-    /////////////////////////////////
-    // const tasksCopy = [];
+    // const tasksCopy = tasks.map(task => {
+    //   return task
+    // });
     // for (let task of tasks) {
     //   tasksCopy.push(task);
     // }
 
-    // tasksCopy.push(newTask);
-    /////////////////////////////////
-    // forEach 
-    // the spread operator
-    //...
+    // tasksCopy.push(newTask)
+
+
+    setTasks(prev => {
+      console.log("prev", prev);
+      return [...prev, newTask]
+    });
+    // setTasks() ---> react goes to check on the state
+    // ---> previousState        ----> newState
+    // if (previousState !== newState) re-render()
+    // react keeps states by reference
+
+    // tasks ===> [1,2,3,4,5] 34567
+
+    console.log(tasks);
+
+    // alert("YES WE CLICKED IT!");
   }
+
+  // const tasksArray = [];
+
+  // for (let task of mocktasks) {
+  //   tasksArray.push(<Task banana={task.task}/>);
+  // }
+
+
+
+  //a map() function is a for loop that always returns an array
+  // if you are mapping through an array of 5 elements it will return an array of 5 elements
 
 
   return (
     <div className="App">
       <h1>W7D4 - Immutable Update Patterns!</h1>
-      {tasksComponents}
-      <TaskList tasks={tasks}/>
-      <form onSubmit={addTask}>
-        <input type="text" name="newTask" />
-        <button>Add a task</button>
-      </form>
+      <TasksList tasks={tasks}/>
+      <button onClick={onAddTaskClick}>Add A Task</button>
     </div>
   );
 }

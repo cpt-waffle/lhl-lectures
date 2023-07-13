@@ -1,32 +1,46 @@
-import logo from './logo.svg';
+
 import './App.css';
-import {useState, useReducer} from 'react';
+import {useReducer} from 'react';
 
-// initial state <-- (initial state)
-// funtion that changes that state based on x,y,z parameters <-- (reducer)
-
+// useReducer ==> useState++
 function App() {
-  const initialState = {likes:10, dislikes: 5};
+  const initialState = {likes: 10, dislikes: 5};
   const reducer = (state, action) => {
-    if (action === 'likes') {
-      return {...state, likes: state.likes + 1}
-    } else if (action === 'dislikes') {
-      return {...state, dislikes: state.dislikes + 1}
-    } else if (action === 'reset') {
-      return {...state, likes: 0, dislikes: 0}
-    }
 
-    // return {likes: 101, dislikes:22}
+    if (action === "LIKES") {
+      return {...state, likes: state.likes + 1}
+    } else if (action === "DISLIKES") {
+      return {...state, dislikes: state.dislikes + 1}
+    } else if (action === "RESET" ) {
+
+    } else {
+
+    }
   }
-//              dispatch
+
+  // const [likes, setLikes] = useState([])
   const [state, setState] = useReducer(reducer, initialState);
+
+  console.log(state);
+  // how to build components
+  // how to pass props
+  // useState
+  // useEffect
+
+  const onLikesClick = () => {
+    setState('LIKES');
+  }
+
+  const onDislikesClick = () => {
+    setState('DISLIKES');
+  }
 
   return (
     <div className="App">
       <h1>prev and reducers</h1>
-      <button onClick={() => setState('likes')}>Likes:  {state.likes}</button>
-      <button onClick={() => setState('dislikes')}>Dislikes: {state.dislikes}</button>
-      <button onClick={() => setState('reset')}>reset</button>
+      <button onClick={onLikesClick}>Likes {state.likes}</button>
+      <button onClick={onDislikesClick}>Dislikes {state.dislikes}</button>
+
     </div>
   );
 }
