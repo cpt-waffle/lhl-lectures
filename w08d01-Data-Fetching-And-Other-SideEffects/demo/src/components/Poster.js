@@ -1,13 +1,15 @@
-
 import './Poster.css';
 
 const Poster = props => {
+
   return (
-    <div className="poster">
-      <img className="poster--img" src={props.url}/>
-      <h3 className="poster--title">{props.name}</h3>
-    </div>
-  );
+  <article className="poster">
+    <img 
+      className="poster--img" 
+      src={props.img}
+    />
+    <h1> { props.title }</h1>
+  </article>)
 }
 
 export default Poster;

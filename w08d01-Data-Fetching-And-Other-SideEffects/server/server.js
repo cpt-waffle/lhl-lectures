@@ -1,9 +1,8 @@
 const PORT = 8080;
 const express = require('express');
+const morgan = require('morgan');
 
 const app = express();
-
-let i = 0;
 
 const memeList = [
   {id:1, name: "Adrian's fresh meme", url: 'https://preview.redd.it/ff3hhsds9ks41.jpg?width=960&crop=smart&auto=webp&s=bf75658ce17a530f610fdc49b772254e6356f145'},
@@ -13,11 +12,17 @@ const memeList = [
   {id:5, name: "meirl", url: "https://i.redd.it/lz77ubqd9vu81.jpg"}
 ];
 
+let i = 0;
 
-app.get('/posters', (req,res) => {
-  console.log("GET /posters", i);
-  i++;
-  res.json(memeList);
+app.use(morgan('dev'));
+
+app.get('/test', (req,res) => {
+  return res.json([1,2,3,4,5]);
 })
 
-app.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
+app.get('/posters', (req, res) => {
+  console.log(i++);
+  return res.json(memeList);
+})
+
+app.listen(PORT, () => console.log(`Server is listening on PORT`, PORT));
