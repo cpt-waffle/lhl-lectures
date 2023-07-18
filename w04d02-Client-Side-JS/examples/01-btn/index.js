@@ -1,16 +1,17 @@
+const PI = () => {
+  return 3.14;
+}
 
-let num = 0;
+const kirby = () => {
+  console.log(" <('_'<) ");
+}
+
+let i = 1;
 
 document.addEventListener('DOMContentLoaded', () => {
-  const counter = document.getElementById('counter');
-  const button = window.document.getElementById('btn');
-  
-  //null..
+  const button = document.getElementById('btn');
   button.addEventListener('click', () => {
-    num++;
-    counter.innerText = num;
-  })
+    document.getElementById('counter').innerText = i
+    i++;
+  });
 })
-
-console.log("document is ready!");
-
