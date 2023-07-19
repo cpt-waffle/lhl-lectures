@@ -9,10 +9,12 @@ function Form(props) {
         evt.preventDefault();
         if (val) {
             props.addItem(val);
+            if (err) {
+                setErr(false);
+            }
         } else {
             setErr(true);
         }
-
     }
 
     return (

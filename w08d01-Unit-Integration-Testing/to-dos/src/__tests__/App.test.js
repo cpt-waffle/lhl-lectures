@@ -1,18 +1,17 @@
 import React from 'react';
+import App from '../App';
 import {render} from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import App from '../App';
-
-
-describe("app test", () => {
-
+describe('app tests', () => {
   it('renders app', async () => {
-    const {container, debug, findByText} = render(<App/>);
-    // console.log(debug(container));
-    const text = await findByText('buy milk');
+    const {container, debug, findByText, getByPlaceholderText} = render(<App/>)
+    // anytime you use find* commands, you will put "await" infront if it
+    const item1 = await findByText('buy milk');
+    console.log(debug(container));
+    console.log(debug(item1));
+    const input = getByPlaceholderText('enter todo');
+    console.log(debug(input));
 
-    console.log(debug(container))
   })
-
 })

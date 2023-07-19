@@ -10,8 +10,13 @@
 - Jest-Dom
 - mocks
 
-### Why Do We Write Tests
+## Why Do we Test
 
-- to prevent bugs
-- to expect specific behaviour
-- save us time (in the long run...)
+- confirm proper functionality
+- make sure future changes don't break existing changes
+- save time
+- save money
+- save weekend
+
+
+ 

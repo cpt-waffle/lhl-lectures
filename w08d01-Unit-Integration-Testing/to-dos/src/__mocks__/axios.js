@@ -1,22 +1,25 @@
 
+// GET /todos ==> [...]
 
-const items = [
-  {item: "buy milk", done: false},
-  {item: 'finish testing', done: true}
+const fixtures = [
+  {item: 'buy milk', done: false},
+  {item: 'finish react testing with mocks', done: true},
+  {item: "apple banana coconut", done: false}
 ];
 
 
 export default {
   defaults: {baseURL: ''},
   get: jest.fn(url => {
-    console.log("THIS FUNCTION RUNS ",)
+    console.log("WHAT IS THIS");
+    console.log("URL");
     console.log(url);
     if (url === '/todos') {
       return Promise.resolve({
         status: 200,
         statusText: 'OK',
-        data: items
+        data: fixtures
       })
-    }
+    } 
   })
 }

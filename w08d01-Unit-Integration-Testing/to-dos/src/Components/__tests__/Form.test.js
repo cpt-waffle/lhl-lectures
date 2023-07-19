@@ -1,42 +1,36 @@
-import React from 'react';
+import React from "react";
+import Form from '../Form';
 import {render, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import Form from '../Form';
-
-
 describe('Form Tests', () => {
-  it('renders the form component', () => {
-    const {container, debug, getByTestId} = render(<Form/>);
-    const form = getByTestId('form');
-    console.log(debug(form));
-    expect(form).toHaveClass('addForm');
+  it('renders the form', () => {
+    const {container, debug} = render(<Form/>);
+    // console.log(debug(container));
   })
 
-  it('tries to submit a blank task', () => {
-    const mockFunction = jest.fn();
+  it('tries to submit an empty task (should not be able to)', () => {
+    const fakeFunction = jest.fn();
 
-
-    const {container, debug, getByTestId} = render(<Form addItem={mockFunction}/>);
-    const form = getByTestId('form');
+    const {container, debug, getByTestId } = render(<Form addItem={fakeFunction}/>);
     const button = getByTestId('button');
     fireEvent.click(button);
-    // console.log(debug(form));
-    expect(container).toHaveTextContent('Cannot be Blank!');
+    expect(fakeFunction).not.toHaveBeenCalled();
   })
 
 
-  it ('tries to submit a correct task', () => {
-    const mockFunction = jest.fn();
+  it('tries to submit "buy milk" (should be able to)', () => {
+    const fakeFunction = jest.fn();
 
-    const {container, debug, getByTestId} = render(<Form addItem={mockFunction}/>);
-    const form = getByTestId('form');
-    const input = getByTestId('input');
-    console.log(debug(input));
+    const {container, debug, getByTestId, getByPlaceholderText} = render(<Form addItem={fakeFunction}/>);
+    const button = getByTestId('button');
+    const input = getByPlaceholderText('enter todo');
+
     fireEvent.change(input, {target: {value: 'buy milk'}})
-    console.log(debug(form));
-    const button = getByTestId('button');
+    // find the input field and type in it
+
     fireEvent.click(button);
-    expect(mockFunction).toHaveBeenCalled();
+    expect(fakeFunction).toHaveBeenCalled();
+
   })
 })

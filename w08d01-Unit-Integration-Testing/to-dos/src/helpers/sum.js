@@ -3,4 +3,7 @@ const sum = (a, b) => {
   return a + b;
 }
 
-export default sum;
+// module.exports ...
+export default sum; 
+
+// create-react-app --> jest built in
