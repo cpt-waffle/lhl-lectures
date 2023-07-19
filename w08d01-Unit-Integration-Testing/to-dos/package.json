@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:8080/",
   "dependencies": {
+    "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "react": "^16.11.0",
@@ -32,8 +33,7 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^9.5.0",
+    "@testing-library/jest-dom": "^5.17.0",
     "jest": "^24.9.0"
   }
 }

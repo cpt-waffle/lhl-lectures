@@ -4,7 +4,7 @@ export default (props) => {
   return (
     <li className="todo-item" key={props.index} >
       
-      <p className="todo-title" data-testid="todo-name">{props.item}</p>
+      <p className="todo-title" data-testid="ttitle">{props.item}</p>
       <input
         id="check"
         className="checkbox"

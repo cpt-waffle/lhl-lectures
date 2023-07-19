@@ -16,7 +16,7 @@ const list = [
 
 export default () => {
 
-  const [todoList, modifyList] = useState([]);
+  const [todoList, modifyList] = useState([list]);
 
   useEffect(() => {
     axios.get('/todos').then(res => {

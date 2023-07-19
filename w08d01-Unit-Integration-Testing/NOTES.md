@@ -9,3 +9,9 @@
     - fireEvent
 - Jest-Dom
 - mocks
+
+### Why Do We Write Tests
+
+- to prevent bugs
+- to expect specific behaviour
+- save us time (in the long run...)
