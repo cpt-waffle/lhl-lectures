@@ -1,8 +1,8 @@
 * {
     margin: 0;
     padding: 0;
-    font-size: 16px;
 }
+
 
 .box-a {
     border: 2px dashed green;
@@ -10,33 +10,26 @@
 }
 
 .box-b {
-    border: 2px dashed blue;
+    border: 2px dashed red;
     font-size: 2em;
 }
 
 .box-c {
-    border: 2px dashed red;
+    border: 2px dashed blue;
     font-size: 2em;
 }
 
-.box-d {
-    border: 2px dashed green;
-    font-size: 2rem;
-}
-.box-d {
+.box-x {
     border: 2px dashed green;
     font-size: 2rem;
 }
 
-
-.box-e {
-    border: 2px dashed blue;
-    font-size: 2rem;
-
-}
-
-.box-f {
+.box-y {
     border: 2px dashed red;
     font-size: 2rem;
+}
 
+.box-z {
+    border: 2px dashed blue;
+    font-size: 2rem;
 }

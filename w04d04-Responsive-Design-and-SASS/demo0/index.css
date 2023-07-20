@@ -3,18 +3,12 @@
   padding: 0;
 }
 
-
 .box1 {
   background-color: cornflowerblue;
-  width: 100%;
+  width: 80%
 }
 
 .box2 {
-  background-color: blueviolet;
-  width: 70%;
-}
-
-.box3 {
-  background-color: firebrick;
-  width: 30%;
+  background-color: lightseagreen;
+  width: 40%;
 }

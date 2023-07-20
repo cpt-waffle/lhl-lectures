@@ -9,22 +9,26 @@ What that means ?  How far have we come!
 ---- flexbox with breakpoints
 ---- sass (bonus)
 
-### Back in the Day...
+##  Back in the Day...
 
-2004-2008
+2004-2008 
 
-- Giant 17-19 inch monitors CRTs
-- LCD screens 17-19 squares 
-
-- Iphone 1 announced
-- Every app showed on iphone 
-- they used another iphone!
-- pinch to zoom !
-- watch youtube !
+1gb of ram 
+crt monitors  17-19 inches
+LCD were just coming out 17-22 inch (square)
+Dial Internet (Juno)
 
 
-### Support for smaller screens or different size of screen in general
+Iphone 1 was announced!!
 
-Why don't we detect what device they are using on a request....
-and give back a website/view for that SPECIFIC device as a response...
+
+4inch screen  <--- how do you fit information on a 4 inch screen?
+pinch to zoom feature 
+
+
+We know browsers make get requests
+lets make sure when there is a get request, the browser collects what size of the dveice is being used
+(what is the device)
+and if the device is considred to be Mobile, we send them a TOTALLY DIFFERENT WEBPAGE
+
 

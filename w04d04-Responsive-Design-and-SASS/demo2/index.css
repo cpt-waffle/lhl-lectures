@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-size: 16px;
+
 }
 
 .nav {
@@ -11,32 +11,35 @@
 }
 
 .nav--item {
-    font-size: 2rem;
+
 }
 
-/*             <= 800 */
-@media screen and (max-width: 800px) {
+/* min-width or max-width or both */
+/*  <= 700px */
+@media screen and (max-width: 700px) {
+
+    * {
+        font-size: 32px;
+    }
+
+    .nav {
+        background-color: darkred;
+
+    }
+}
+
+
+@media screen and (min-width: 800px) {
     .nav {
         background-color: goldenrod;
     }
 }
 
-@media screen and (max-width: 400px) {
+
+@media screen and (max-width: 450px) {
     .nav {
-        display: block;
+        flex-direction: column;
         text-align: center;
-    }
-}
-/*       <= 950 */
-@media screen and (min-width: 950px) {
-    .nav--item {
-        font-size: 4rem;
-
-    }
-
-    .nav--item:hover {
-        background-color: lightblue;
-        padding: 10px;
     }
     
 }
