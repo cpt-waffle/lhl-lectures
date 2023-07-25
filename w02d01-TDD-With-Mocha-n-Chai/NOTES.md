@@ -6,33 +6,26 @@
 - Mocha and Chai talk
 - Testing With Mocha Chai
 
+### Why do we write/care/need/want Tests in our code/repo/libraries ??
 
-### Why do we Write/need/Want Tests in code?
+- checks for bugs 
+- make sure we pass edge cases and no errors on those edge cases
+- for accuracy in our code
+- check if code works in a safe enviroment, then use it in a real scenario/repo
 
-- so to test if the code is running
-- its working or not
-- reduce mental load 
-- working as intented 
-- figure out what scenarios are tested ( happy path vs Edge cases vs sad path )
-- other changes that you may not consider effect the overall code 
 
-- writing tests makes things faster, (Faster development,)
+### Tests Save us Time ?
+
+in the long time yes, in the short time, not really :(
+
+
 
 ### TDD -- Test Driven Development
 
-- you think of/ write the tests first ( and alittle bit of code to run those tests)
-- run the tests, they fail :(
-- write the code to pass each test
-- once all tests pass, feature complete :)
+- you have feature, that you need to implement
+- you write just enough code to compile the feature
+- you write tests (every and all tests you can think of!)
+- all your tests will fail :(
+- write code to pass each tests until all are passed
+- all tests pass == feature compelete
 
-## Code
-
-# Palindrome
-
-a string/text spells out the same exact word/phrase backwards
-
-- kayak
-- racecar
-- level
-- taco cat
-- a man a plan a canal panama

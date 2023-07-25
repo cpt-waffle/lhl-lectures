@@ -1,7 +1,17 @@
-const helper = require('./palindrome'); // {}
-const palidrome = helper.palindrome; 
+const palindrome = require('./palindrome');
+const chai = require('chai');
+const assert = chai.assert
 
 
-console.log("checks if fruits are a palindrome");
+// console.log(assert);
 
-console.log("is apple a palindrome?", helper.palindrome('apple'));
+
+assert.isTrue(palindrome('racecar'));
+// eqArrays
+// arrayEquals
+// head
+// tail
+// middle
+// mean
+// median
+//

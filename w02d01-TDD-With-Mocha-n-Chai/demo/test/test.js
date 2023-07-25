@@ -1,33 +1,31 @@
-const assert = require('chai').assert;
-const helper = require('../palindrome');
+const chai = require("chai");
+const assert = chai.assert;
+const palindrome = require('../palindrome');
 
-// console.log(assert);
 
-describe('sample test', () => {
-  it('checks if 1 + 1 is equal to 2', () => {
-    const result = 1 + 1;
-    assert.equal(result, 2);
+describe('palindrome tests', () => {
+  it(' checks if racecar is a palindrome', () => {
+    assert.isTrue(palindrome('racecar'));
+  })
+  it(' checks if level is a palindrome', () => {
+    assert.isTrue(palindrome('level'));
+  })
+  it(' checks if kayak is a palindrome', () => {
+    assert.isTrue(palindrome('kayak'));
+  })
+  it(' checks if rotator is a palindrome', () => {
+    assert.isTrue(palindrome('rotator'));
+  })
+  it(' checks if bob is a palindrome', () => {
+    assert.isTrue(palindrome('bob'));
   })
 })
 
-describe('palindrome tests', () => {
-  it ('checks if kayak is a palindrome', () => {
-    assert.isTrue(helper.palindrome('kayak'));
+describe('edge cases for palindrome', () => {
+  it(' checks if "taco cat" is a palindrome' , () => {
+   assert.isTrue( palindrome('taco cat'))
   })
-  it ('checks if racecar is a palindrome', () => {
-    assert.isTrue(helper.palindrome('racecar'));
-  })
-  describe('palindrome -- edge cases ', () => {
-    it ('checks if "taco cat" is a palindrome', () => {
-      assert.isTrue(helper.palindrome('taco cat'));
-    })
-    
-    it ('checks if "a man a plan a canal panama" is a palindrome', () => {
-      assert.isTrue(helper.palindrome('a man a plan a canal panama'));
-    })
-
-    it ('checks if LEvEl is a "taco cat"', () => {
-      assert.isTrue(helper.palindrome('LEvEl'));
-    })
+  it(' checks if "a man a plan a canal panama" is a palindrome' , () => {
+    assert.isTrue(palindrome('a man a plan a canal panama'))
   })
 })
