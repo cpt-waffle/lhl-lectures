@@ -8,15 +8,13 @@ const list = {
     i8: 'apples'
 }
 
+// objects can only use for in
+
 for (let key in list ) {
-    console.log(list[key]);
+    console.log(key, list[key]);
 }
 
-console.log(list);
-console.log(Object.keys(list));    // gives back an array
-console.log(Object.values(list));  // gives back an array
-console.log(Object.entries(list)); // gives back an array
 
-//              c style    for of    for in
-// array          X         X         X
-// object                             X
+console.log(Object.entries(list));
+console.log(Object.keys(list));
+console.log(Object.values(list));

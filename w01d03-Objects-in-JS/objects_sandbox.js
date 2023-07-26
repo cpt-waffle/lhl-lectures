@@ -1,77 +1,81 @@
 //  Review!
 
-////// variables -- place to hold values
+// variables -- place and hold values
+//
 
-let fruit = 'banana'; // change value
-const PI = 3.14;      // stays the same
+let fruit = 'banana';
+const PI = 3.14;
+fruit = 'apple';
 
 
-fruit = 12.24;
-// console.log(fruit);
-// PI = 4;
-// console.log(PI);
-
-////////////// Arrays
-
-// making a collection
-// making a list 
-
-const array = [1,2,3,4, 'five', 'six', 7.5, false, true, [1,2,3], undefined];
-//  index      0,1,2,3,   4       5  ,  6     7      8     9   ,     10 
-// console.log("BEFORE_--------------------");
-// console.log(array);
-
-// add more items into it
-array.push('ANOTHER ELEMENT');
-array[7] = 7.77;
-// console.log("AFTER--------------------");
+// Arrays 
+//
+const array = [1,2,3,4, 'five', 'six', 'seven', 7.5, 8.9, [9], undefined, false]; // square brackets represent an array
+//             0 1 2 3     4      5        6     7     8   9        10     11           
+// indexes - position of value in the array
 
 // console.log(array);
-// replace an element in array
+array.push(99.9);
+// console.log(array[4]);
+// order in arrays matter
 
-// Context ???
-///               make      model     year    transmission interiorType,  seats, features
-const firstCar = ['toyota', 'corolla', 2002, 'auto', 'fabric', 4, 'ac'];
-//                   0         1        2
-const secondCar = ['honda', 2012, 4, 'auto', 'leather', 'bluetooth', 'civic']
-// arrays REALLY CARE ABOUT THIER ORDER OF ITEMS
-const printCarDetails = function(carArr) {
-  console.log(carArr[0], carArr[1], carArr[2]);
-  console.log("Number of seats: ", carArr[5]);
+//  Context
+
+//               make         model
+const firstCar = ['toyota', 'corolla', 2002, 'silver', 'auto', 1.2, 'fabric', 4];
+//                  0          1
+const secondCar = ['civic', 'honda', 2014, 1.6, 'leather', 4, 'red']
+let x = 4;
+const printCarDetails = function(carArray) {
+  console.log(carArray[0], carArray[1], carArray[2])
+  console.log("Number of Seats, ", carArray[7]);
 }
+// console.log(firstCar)
 
 // printCarDetails(firstCar);
-// printCarDetails(secondCar);
 
-// key called accessThis ???
-// ----> undefined 
-const firstCarObj = { 
-  year: 2002,
-  model:'corolla',
-  transmission:"auto",
-  seats: 4,
+// Objects
+
+// a way to store many data together
+// an object can be as big as you want or as small as you want
+// you can increase and/or decrease the size of the object
+
+// to create an object
+
+// to add values, you will use (key: val) notation
+// the order DOES NOT MATTER in objects ()
+const firstCarObj = {
+  seatType: 'fabric',
   make: 'toyota',
-  interiorType: 'fabric', 
-  features: ['ac', 'cd player'],
-  "this is a key": 'value'
-  // key: 'value'
+  color: 'silver',
+  numOfSeats: 4,
+  model: 'corolla',
+  transmission: 'auto',
+  year: 2002,
+  KEY: 'this key'
 };
 
-// to access values in an object we have 2 different notations
-// We DO NOT CARE ABOUT ORDER
-// dot notation
-// console.log('BEFORE----------------\n', firstCarObj);
-console.log(firstCarObj.model);
-// i want to add another key value pair to an object that has been already created
-firstCarObj.color = 'silver gray';
-// change a value to an existing key
-firstCarObj.interiorType = ['leather', 'fabric'];
-// console.log('AFTER---------------\n',firstCarObj);
+const carsArr = [{make: 'toyota', model: 'corolla'}, {make: 'honda', model: 'civic'}];
+//                            0                                    1
 
-// console.log(firstCarObj.features[1]);
+// console.log(carsArr[1].model)
 
+const printCarDetails2 = function(carObj) {
+  console.log(carObj.make, carObj.model, carObj.year);
+  console.log("number of seats: ", carObj.numOfSeats);
+}
 // square bracket notation
+const KEY = 'make';
 
-const accessThis = 'seats';
-// arr[0]
-console.log(firstCarObj[accessThis])
+
+console.log(firstCarObj[KEY])
+
+// adding a key to an object (kind of like arr.push)
+// dot notation
+
+firstCarObj.wheelSize= '14 inch';
+firstCarObj['wheelSize2']= '14 inch';
+
+
+console.log(firstCarObj)
+

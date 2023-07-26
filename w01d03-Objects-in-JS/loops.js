@@ -1,21 +1,20 @@
-// cStyle
-for (let i = 0; i < str.length; i++) {
-  console.log("i", i );
-  console.log(string[i]);
-}
+  //  c style -- the most common one you know!
+  for (let i = 0; i < str.length; i++) {
+    console.log("i", i); // number
+    console.log(str[i]) // and a way to access that number
 
-
-// for in
-// loops through keys, or index
-for (let i in str) {
-  console.log("i", i );
-  console.log(string[i]);
-}
-
-
-
-  // for of
-  // -- loops through values
-  for (let i of str) {
-    console.log(i);
   }
+
+
+  //  for in loop
+  for (let i in str) {
+    console.log("i", i); // number
+    console.log(str[i]) // and a way to access that number
+
+  }
+
+    //  for of loop
+    for (let i of str) {
+      console.log("i", i); // the value
+  
+    }
