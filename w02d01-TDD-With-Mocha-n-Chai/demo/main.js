@@ -1,17 +1,11 @@
 const palindrome = require('./palindrome');
-const chai = require('chai');
-const assert = chai.assert
+// import/export
+console.log("--------------------------------------------------------")
+console.log(palindrome('racecar'));
+console.log("--------------------------------------------------------")
 
 
-// console.log(assert);
 
+console.log("THIS IS MAIN.js")
 
-assert.isTrue(palindrome('racecar'));
-// eqArrays
-// arrayEquals
-// head
-// tail
-// middle
-// mean
-// median
-//
+console.log('line number 4: !!!!');

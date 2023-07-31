@@ -4,30 +4,23 @@
 // if it's not return `false`.
 
 
-// TTD
-
-const palindrome = (str) => {
-  // console.log(str);
-  //...
-  // take a string and reverse it and store it 
-  const strNoSpace = str.replaceAll(' ', '');
-  // - how to convert a string into into an array
-  const strArray = strNoSpace.split('');
-  // - how to reverse (reverse())
-  const reverseArr = strArray.reverse();
-  // - how to convert a string into an array
-  const reverseStr = reverseArr.join('');
-  // - how to check if 2 strings match
-  if (reverseStr === strNoSpace) {
+const palindrome = str => {
+  // take a string, reverse it
+  // remove all spaces from string
+  const noSpaceStr = str.replaceAll(' ', '');
+  // take that reverse string, compare it with the original
+     // --> convert string into array
+    const strArray = noSpaceStr.split('');
+     // --> reverse the array  // reverse();
+    const strReverseArray = strArray.reverse();
+     // --> convert it back to a string
+    const strReverse = strReverseArray.join('');
+  // if its true return true if false return false
+  if (strReverse === noSpaceStr) {
     return true;
   } else {
-    return false;
+    return false; 
   }
-  // then check if reverse string is equal to the original
 }
 
-module.exports = palindrome;
-
-
-// modules
-// share information, functions, variables, arrays, objects, to another file....
+module.exports = palindrome
