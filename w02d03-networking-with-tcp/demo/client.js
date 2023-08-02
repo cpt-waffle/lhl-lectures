@@ -1,20 +1,25 @@
 const net = require('net');
-const setKeyboard  = require('./keyboard');
-const user = 'Vasiliy';
+const client = net.createConnection({host: 'localhost', port: 3001});
+const user = "Anon";
+const setkeyboard = require('./keyboard');
+
+// snek game
+
+//client.write
+
+// move a snake one way to verify it works 
+// setInterval(() => {
+//   client.write('ring ring ring ring ring banana phone!');
+// }, 1000);
 
 
-const client = net.createConnection({host:'localhost',  port: 3001}, () => {
-  console.log("you have connected to server!");
-  client.write(`This is ${user}, that is connected!`);
-  // name your snake
-  //client.write("Name: ___");
+client.write('ring ring ring ring ring banana phone!');
 
-  //client.write("Move: Up")
-});
-
-setKeyboard(client, user);
-
+// data comes back from the server
 client.setEncoding('utf8');
 client.on('data', data => {
   console.log(data);
 })
+
+setkeyboard(client, user);
+

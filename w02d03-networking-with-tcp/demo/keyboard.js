@@ -1,16 +1,16 @@
-const { stdin } = require('process');
-
-
+const stdin = process.stdin;
 stdin.setEncoding('utf8');
 
-const setKeyboard = (client, user) => {
-  stdin.on('data', (data) => {
-    // if keypressed === 'w' client.write("Move: Up")
-    // if keypressed === 'a' client.write("Move: Left")
+
+const setkeyboard = (client, user) => {
+  stdin.on('data', data => {
+    // if key was 'w'   client.write('Move: up')
+    // if key was 'a'   client.write('Move: left')
+    // if key was 's'   client.write('Move: right')
+    // if key was 'd'   client.write('Move: down')
   
     client.write(`${user}:  ${data}`);
   })
 }
 
-
-module.exports = setKeyboard;
+module.exports = setkeyboard;

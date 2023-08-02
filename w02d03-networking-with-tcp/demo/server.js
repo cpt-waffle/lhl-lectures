@@ -1,16 +1,24 @@
-const net = require('node:net');
+const net = require('net');
 
-const connections = [];
+
+const clients = [];
 const server = net.createServer((client) => {
   console.log("someone has connected!");
+  // console.log(client);
+  clients.push(client);
   client.setEncoding('utf8');
-  connections.push(client);
   client.on('data', data => {
+    console.log("someone has sent me a message:");
     // console.log(data);
-    connections.forEach(client => {
+    clients.forEach(client => {
       client.write(data);
     })
   })
+  // event listeners
+
 })
 
-server.listen(3001, () => console.log("Server is on 3001"));
+//            port
+server.listen(3001, () => {
+  console.log("Server is on!");
+})
