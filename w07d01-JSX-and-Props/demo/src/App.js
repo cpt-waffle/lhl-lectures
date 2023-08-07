@@ -1,54 +1,68 @@
 import './App.css';
-import NavBar from './Components/NavBar';
+import NavigationBar from './Components/NavigationBar';
 import DemotivationalPoster from './Components/DemotivationalPoster';
 
-// JSX -- Javascript and XML
-// Component -- a piece of UI
-
-// templates,  nav.ejs   <% include (../)
 function App() {
-  // AJAX GET ------------> Server ---------------> database
-  //   <--------------res ----- <-------------------------
+  // Babel  ------------------> JS(X)  ---------> HTML and JS
+  // Webpack  ----------------> puts all packages together and bundles them up
+  // snowpack
+  // vite 
+  // You can build your entire application inside of App.js
+  
 
-  const  array = [
-    {title: 'my title', desc: 'my desc'},
-    {title: 'aaa', desc: 'aa'},
-    {title: 'bbb', desc: 'bb'},
-  ];
+  // rules of jsx 
 
-  const posters = [];
+  // - (optional) you should return something to render 
+  // - one parent of html is required to encapsulate everything you will write
 
-  for (let obj of array) {
-    posters.push(<DemotivationalPoster title={obj.title} desc={obj.desc}/>)
+ 
+
+  // props
+  const demoObjects = [
+    {
+      title: 'Meme 1',
+      info: 'this is a meme',
+      img: 'https://hatrabbits.com/wp-content/uploads/2017/01/tafel-1.jpg',
+    },
+    {
+      title: 'Meme 2',
+      info: 'this is another meme2',
+      img: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
+    },
+    {
+      title: 'The freshest Meme',
+      info: 'Freshmaker',
+      img: 'https://png.pngitem.com/pimgs/s/49-497525_annoyed-peter-peter-family-guy-transparent-hd-png.png',
+    },
+  ]
+
+  const demoPosters = [];
+
+  for (let poster of demoObjects) {
+    demoPosters.push(<DemotivationalPoster 
+      title={poster.title} 
+      info={poster.info} 
+      img={poster.img}
+    />)
   }
 
-  const posters2 = array.map((obj) => {
-    return <DemotivationalPoster title={obj.title} desc={obj.desc}/>
+  const demoPosters2 = demoObjects.map( (poster) => {
+    return <DemotivationalPoster 
+      title={poster.title} 
+      info={poster.info} 
+      img={poster.img}
+    />
   })
 
 
+
+  // arguments, parameters
   return (
-    <div className="App">
-      <NavBar>
-        <h2>menu</h2>
-        <h2>profile</h2>  
-        <h2>logout</h2>
-      </NavBar>
-      {posters2}
-      <DemotivationalPoster 
-        title={'correct way'}
-        desc={'correct way'}
-        img={'https://www.exoprimal.com/assets/images/dinosurvival/dinosaurs_img-triceratops.png'}
-      />
-      <DemotivationalPoster 
-      />
-      <DemotivationalPoster 
-        title={'demotivational'}
-        desc={'such wow, much nostalgia'}
-        img={'https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg'}
-      />
+    <div>
+      <NavigationBar/>
+      {demoPosters2}
     </div>
-  );
+  )
 }
 
 export default App;
