@@ -8,3 +8,6 @@ class CreateCats < ActiveRecord::Migration[7.0]
     end
   end
 end
+
+#  rolling back a migration
+#  making a new migration

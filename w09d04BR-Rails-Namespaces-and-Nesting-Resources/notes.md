@@ -5,20 +5,13 @@
 - Static Pages/Pages Controller
 - namespace vs nested resources
 
+### 3 magical words
 
-### Configurations vs Conventions
+- Model
+- View
+- Controller
 
-- config everything
-  - 
+Entrypoint file for your project
 
-- follow the conventional rules set by the framework
+/config/routes.rb
 
-
-
-### MVC Pattern
-
-Model
-View
-Controller
-
-Routes.rb is where we start the server...

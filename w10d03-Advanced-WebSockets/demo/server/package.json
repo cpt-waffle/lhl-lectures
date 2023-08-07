@@ -1,22 +1,22 @@
 {
-  "name": "server",
+  "name": "demo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
     "ikea-name-generator": "^1.0.3",
-    "morgan": "^1.10.0",
     "socket.io": "^4.7.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.1"
   }
 }
