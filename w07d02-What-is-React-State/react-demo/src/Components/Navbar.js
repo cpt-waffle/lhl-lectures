@@ -1,12 +1,11 @@
-import './Navbar.css';
+import { useState } from "react";
 
 const Navbar = (props) => {
-  console.log(props)
 
   return (
-    <nav class="navbar">
+    <nav className="navbar">
       <h1>Some navbar</h1>
-      <h1>{props.num}</h1>
+      <h2>{props.banana}</h2>
     </nav>
   );
 }
