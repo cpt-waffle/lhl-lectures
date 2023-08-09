@@ -1,5 +1,6 @@
 .task {
-  background-color: cornflowerblue;
+  background-color: olivedrab;
   padding: 10px;
-  margin-bottom: 2px;
+  margin: 3px;
+  list-style: none;
 }

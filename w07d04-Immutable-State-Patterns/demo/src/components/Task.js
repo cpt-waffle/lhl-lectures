@@ -1,13 +1,11 @@
 import './Task.css';
 
-const Task = (props) => {
-  console.log(props);
+const Task = props => {
   return (
-    <div className="task">
-      {props.banana}
-    </div>
+    <li className='task'>
+      {props.name}
+    </li>
   )
 }
-
 
 export default Task;

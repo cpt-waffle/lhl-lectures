@@ -1,80 +1,92 @@
 import './App.css';
-import TasksList from './components/TasksList';
+import {useState} from 'react';
 import Task from './components/Task';
-import { useState } from 'react';
+import TaskList from './components/TaskList';
 
-const mocktasks = [
-  {id: 1, task: ' have a meeting '},
-  {id: 2, task: ' check on finals'},
-  {id: 3, task: ' go to physio'},
-  {id: 4, task: ' make a sandwitch'}
-];
-
-let i = 5;
+let id = 5;
 
 function App() {
+  const [num, setNum] = useState(0);
+  const [mtasks, setMTasks] = useState([
+    {id: 1, task: ' have a meeting '}, // 0
+    {id: 2, task: ' check on finals'}, // 1
+    {id: 3, task: ' go to physio'},    // 2
+    {id: 4, task: ' make a sandwitch'} // 3
+  ]);
 
-  // NEVER CHANGE STATE DIRECTLY
-  // [num, setNum]  X WRONG -> num++
-  const [tasks, setTasks] = useState(mocktasks);
+  // for loops simply loops through the array
 
-  // const photos = new array(3)
+// maps  loop through the array and return a new array
+// whatever the map returns in the callback will be pushed into
+// the brand new array (arr.push())
 
-  const onAddTaskClick = () => {
-    const newTask = {id: i, task: ' new task!!!'};
-    i++;
-    // immutable patterns
-    // every time, you want to ALTER something, 
-    // you have to make a copy of the first thing, CHANGE it, and set that to the original
-    // NEVER ALTER STATE DIRECTLY ---> tasks.push(newTask);   BAAAD :(
+// .forEach((elem, index, arr,))
 
-    // spread operator.
-    //shallow copying
-    // const tasksCopy = [...tasks, newTask];
+// Photo
+// PhotoList
 
-    // const tasksCopy = tasks.map(task => {
-    //   return task
-    // });
-    // for (let task of tasks) {
-    //   tasksCopy.push(task);
-    // }
+// 0:  1: 2: 3: 
 
-    // tasksCopy.push(newTask)
+  // VIRTUAL DOM
+  //  [] ---> 
 
-
-    setTasks(prev => {
-      console.log("prev", prev);
-      return [...prev, newTask]
-    });
-    // setTasks() ---> react goes to check on the state
-    // ---> previousState        ----> newState
-    // if (previousState !== newState) re-render()
-    // react keeps states by reference
-
-    // tasks ===> [1,2,3,4,5] 34567
-
-    console.log(tasks);
-
-    // alert("YES WE CLICKED IT!");
-  }
-
-  // const tasksArray = [];
-
-  // for (let task of mocktasks) {
-  //   tasksArray.push(<Task banana={task.task}/>);
+  //  {
+        // 1: {}
+        // 2: {}
+        // 3: {}
   // }
 
 
 
-  //a map() function is a for loop that always returns an array
-  // if you are mapping through an array of 5 elements it will return an array of 5 elements
+  const addOne = () => {
+    // setNum(val) => {
+      // if (num != val) { ... stateChanging, reRendering }
+    // }
+    setNum(num+1);
+  }
 
+  const addSwimmingTask = () => {
+    console.log("adding swimming....");
+    const swimmingTask = {id: id, task: 'swimming'};
+    id++;
+
+    // WRONG WAY ....
+    ////DO NOT DO THIS ---> // mtasks.push(swimmingTask);
+
+
+    // mtasks: f394285
+    // setMTasks(mtasks) 
+    // whats the address of the current state? 
+    // f394285
+    // whats the address of the value were passing into the setState function?
+    // f394285
+    // if both address match, that means its the same object/array
+    // im not re-rendering :(
+
+    // CORRECT WAY ------>     
+    // make a BRAND NEW COPY of a state  // { return tasks }
+    // const mTasksCopy = [...mtasks];
+    // const mTasksCopy = mtasks.map(tasks => tasks);
+    // for (let task of mtasks) {
+    //   mTasksCopy.push(task);
+    // }
+    // we alter that BRAND NEW COPY
+    // and then we SET THE COPY to THE ORIGINAL
+    setMTasks(prev => {
+      const mTasksCopy = [...prev];
+      mTasksCopy.push(swimmingTask);
+      return mTasksCopy;
+    });
+  }
 
   return (
+    // {}  ---> <%= %>,  <% %>
     <div className="App">
       <h1>W7D4 - Immutable Update Patterns!</h1>
-      <TasksList tasks={tasks}/>
-      <button onClick={onAddTaskClick}>Add A Task</button>
+      <h1>{num}</h1>
+      <button onClick={addOne}>Click Me</button>
+      <TaskList tasks={mtasks}/>
+      <button onClick={addSwimmingTask}>Add Swimming Task</button>
     </div>
   );
 }
