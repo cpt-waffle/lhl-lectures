@@ -1,26 +1,17 @@
 const PORT = 8080;
 const express = require('express');
 const morgan = require('morgan');
-const cookieParser = require('cookie-parser');
 const cookieSession = require('cookie-session');
 const bcrypt = require('bcryptjs');
 
 const users = {
-  1: {id: 1, email: 'obiwan@gmail.com',  password: '$2a$10$znpXJHiM0nvBqlumFh01neYoI/HsoDXsaHjJ8fLfnDGIJ031ysqmK'},
-  2: {id: 2, email: 'gimli@gmail.com',   password: '$2a$10$2xZrZKvjDtL/EcRer7bcPOlq2QtGDiG1n52mpJaPO2VBz3VaNS2sa'},
-  3: {id: 3, email: 'a@b.ca',           password: '$2a$10$sZVt8lgGHm/jKqM29axIce0gVRC0q./Qr9tzldPaP6gNGrwYR8GKq'},
+  1: {id: 1, email: 'obiwan@gmail.com',  password: '$2a$10$qwL9TUO/ZMWz6TlIJcoPSuHyQVTm82MLsfWZ5gDGdRYeJQNyxHLYC'},
+  2: {id: 2, email: 'gimli@gmail.com',   password: '$2a$10$bOalRf179YEsPcIVftHRj.UKCA.5hb6sqkR6k3zazgaOXnZwbZkCi'},
+  3: {id: 3, email: 'a@b.ca',           password: '$2a$10$PDI7a0meZkfiO0/g5D/kMemevp34hK94to9.mmgLY6NU5WxpyKG8q'},
 };
 
 // Index counter for users DB
 let index = 4;
-
-
-
-// GET  /urls   edit urls_index.ejs  loop through url.longURL
-// POST /urls  
-// POST /urls/:id
-// GET /urls/u/:id
-// etc...
 
 
 const app = express();
@@ -31,17 +22,10 @@ app.set('view engine', 'ejs');
 // ----> req ---> MIDDLEWARE ---> route  
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: true}));
-app.use(cookieParser());
-
-app.use((req, res, next) => {
-  console.log("MY MIDDLEWARE!!!!!");
-  next();
-})
 
 app.use(cookieSession({
   name: 'banana',
-  keys: ['123', '456', '789']
-
+  keys: ['one', 'two', 'three', 'four']
 }))
 
 app.get('/test', (req,res) => {
@@ -50,17 +34,13 @@ app.get('/test', (req,res) => {
 
 
 app.get('/', (req,res) => {
-  console.log(req.body);
-  // How do i get the cookie out of the request?
-  // find the user for the user_id, stored in the cookie
-  // and show that you are logged in?
-  
-  console.log('Cookies: ', req.cookies)
-  console.log('req session', req.session);
-  const templateVars = {user: null};
-  const user = users[req.session.user_id];
-  templateVars.user = user;
-  // const templateVars = {user}; // {user: user}
+  const user_id = req.session.user_id; // 1
+  console.log('req.cookies: ',req.cookies);
+  console.log('req.session: ', req.session);
+  const templateVars = {user: undefined}
+  if (user_id) {
+    templateVars.user = users[user_id];
+  }
   return res.render('home', templateVars);
 })
 
@@ -74,42 +54,31 @@ app.get('/login', (req, res) => {
 })
 //// POST requests, are here for anytime we want to change/create something on the server
 app.post('/login', (req, res) => {
-  // req.params    GET/POST    app.get('/:id')
-  // req.body      POST    FORM
-  // req.query      GET    ?a=3&b=4
+  console.log("req.body ==>", req.body);
 
-  // grab the data that the user entered in the form (email, password)
-  console.log('req.body =', req.body);
-
-  console.log('--Loop through database');
-  for (let id in users) {
-    console.log("id: ", id);
-    console.log("user =", users[id]);
-    // check if any email exists in my "database"
-    // if email exists, check if that password matches, 
-    if (req.body.email === users[id].email) {
-      console.log("found email that matches!!");
-      // if email exists, and password matches, "login them in"
-      // if (req.body.pass === users[id].password) {
-      if (bcrypt.compareSync(req.body.pass, users[id].password)) {
-        console.log("email and password has matched!");
-        // redirect the user to /auth/:id/_______________
-        // res.cookie('fruit', 'banana');
-        // res.cookie('user_id', id);
-        req.session.user_id = id;
-        return res.redirect(`/`)
-        // return res.send("YAY you are loggedn in :)")
-      // if not, send them an error :(
+  const formEmail = req.body.email; 
+  const formPass  = req.body.pass;
+  console.log("------------LOOP-------------")
+  for (key in users) {
+    console.log("key",key);
+    console.log("val", users[key]);
+    console.log("i email", users[key].email);
+    console.log("i password", users[key].password);
+    if (formEmail === users[key].email) {
+      if(bcrypt.compareSync(formPass, users[key].password)) {
+        // return res.send("We should log you in :)");
+        // res.redirect(`${key}/home`);
+        // res.cookie('user_id', key);
+        req.session.user_id = key;
+        return res.redirect('/');
       } else {
-        console.log("email matched, but password did not :(");
-        return res.send('Error, pass/email doesnt match');
+        return res.send("Email or password is incorrect :(");
       }
     }
   }
-  console.log('--end loop')
+  console.log("------------LOOP-------------")
 
-  // one request - one response  x
-  return res.send('email and pass dont match');
+  return res.send("Email or password is incorrect :(");
 })
 
 app.get('/register', (req, res) => {
@@ -125,9 +94,9 @@ app.post('/register', (req, res) => {
       return res.send("Error: email already in use!   :(");
   }
 
-  const salt = bcrypt.genSaltSync(10);
-  const hashPass = bcrypt.hashSync(req.body.pass, salt);
-  const tempUser = {id: index, email: req.body.email, password: hashPass};
+  const salt = bcrypt.genSaltSync();
+  const hashedPassword = bcrypt.hashSync(req.body.pass, salt);
+  const tempUser = {id: index, email: req.body.email, password: hashedPassword};
   users[index] = tempUser;
   // res.cookie('user_id', users[index].id);
   req.session.user_id = users[index].id;

@@ -1,30 +1,17 @@
 const bcrypt = require('bcryptjs');
 
-// const password = 'password';
-// console.log(password);
-// const salt = bcrypt.genSaltSync(10);
-// console.log(salt);
-// const hash = bcrypt.hashSync(password, salt);
-// console.log(hash);
-// // PLAINTEXT -------------> HASH A PASSWORD ---------> CHECK THE HASH
+const password = '1234';
 
-// const tryToLoginPassword = 'password';
+const salt = bcrypt.genSaltSync();
+console.log('salt:      ', salt);
+const hashedPassword = bcrypt.hashSync(password, salt);
 
-// // Please do not take the attempted password, hash it, and check if 2 hashes matches using == or ===
-// const result = bcrypt.compareSync(tryToLoginPassword, hash);
+console.log('password:  ', hashedPassword);
 
-// console.log(result);
+// form-info
 
-///////////////////////////////// ASYNC /////////////////////////////
+const formPassword = 'helloWorld';
 
-console.log("this is async");
+const result = bcrypt.compareSync(formPassword, hashedPassword);
 
-const pass = '1234';
-bcrypt.genSalt(10).then(salt => {
-  console.log(salt);
-  return bcrypt.hash(pass, salt);
-}).then(hash => {
-  console.log(hash);
-})
-
-
+console.log(result);
