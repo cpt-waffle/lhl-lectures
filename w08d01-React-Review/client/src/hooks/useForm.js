@@ -1,19 +1,13 @@
-import { useState } from "react";
+import {useState} from 'react';
 
-const useForm = (addTask) => {
-  const [input, setInput] = useState('');
+const useForm = () => {
+  const [input, setInput] = useState('buy milk');
 
-  const onInputChange = evt => {
+  const onChange = (evt) => {
     setInput(evt.target.value);
   }
 
-  const onSubmit = evt => {
-    evt.preventDefault();
-    addTask(input);
-    setInput('');
-  }
-
-  return {onSubmit, onInputChange, input}
+  return { input, onChange};
 }
 
 export default useForm;
