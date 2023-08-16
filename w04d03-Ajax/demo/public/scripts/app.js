@@ -1,68 +1,73 @@
+console.log("hello world");
+
 const PI = 3.14;
 
-const hello = () => {
-  console.log("hello!");
-  return 3;
+const getMovies = (str='boats') => {
+  $.get(`https://api.tvmaze.com/search/shows?q=${str}`, data => {
+    console.log(data)
+    addMovies(data);
+  });
 }
 
-const addMovie = (movie) => {
-  let image = 'https://e0.pxfuel.com/wallpapers/312/311/desktop-wallpaper-why-you-must-experience-four-horsemen-at-least-once-in-your-lifetime-four-horsemen-funny-cat-faces-funny-animal-cute-cat-memes.jpg'
-  if (movie.show.image) {
-    image = movie.show.image.medium;
+const addMovie = movieObject => {
+  console.log("movie object: ", movieObject);
+  let runtime = 'not started';
+  let summary = 'no summary given';
+  let img = 'https://wompampsupport.azureedge.net/fetchimage?siteId=7575&v=2&jpgQuality=100&width=700&url=https%3A%2F%2Fi.kym-cdn.com%2Fphotos%2Fimages%2Fnewsfeed%2F001%2F394%2F314%2Fc62.jpg'
+  if (movieObject.show.runtime) {
+    runtime = movieObject.show.runtime;
   }
-  $('#movies-list').append(`
-    <article class="movie">
-      <img
-        class="movie--img"
-        src="${image}"
-      />
-      <div class="movie--criteria">
-        <h2>Rating: ${movie.show.rating.average}</h2>
-        <h1>${movie.show.name}</h1>
-      </div>
-      </ul>
-      <p class="movie--description">
-      ${movie.show.summary}
+
+  if (movieObject.show.summary) {
+    summary = movieObject.show.summary;
+  }
+
+  if (movieObject.show.image) {
+    img = movieObject.show.image.original;
+  }
+  const movieTemplate = `
+  <article class="movie">
+    <img 
+      src="${img}" 
+      class="movie--img"
+    />
+    <div class="movie--info">
+      <h1>${movieObject.show.name}</h1>
+      <h2>${runtime}</h2>
+      <h3>${movieObject.show.genres}</h3>
+      <p>
+        ${summary}
       </p>
-    </article>
-  `);
+    </div>
+  </article>
+  `;
+
+  $('#movies').append(movieTemplate);
 }
 
-const addMovies = (moviesArr) => {
-  for(let movie of moviesArr) {
+const addMovies = moviesArr => {
+  for (let movie of moviesArr) {
     addMovie(movie);
   }
 }
-// $(document).ready(() => { ... })
-$(() => {  // GET /TWEETS
-  $.get('https://api.tvmaze.com/search/shows?q=dogs', (data) => {
-    console.log('data has come back!');
-    console.log(data);
-    addMovies(data);
-  })
 
-  $('#search').on('submit', (evt) => {
+
+// doc on ready
+$(() => {
+  getMovies();
+  $('#search').on('submit', evt => {
     evt.preventDefault();
-    // jquery 
-    const searchField = $('#search-input').val();
-    // POST /TWEETS
-    // make an object to sent out in post
-    // or serialze() method for the form
-    $.get(`https://api.tvmaze.com/search/shows?q=${searchField}`, (data) => {
-      console.log('data has come back!');
-      console.log(data);
-      $('#movies-list').empty();
-      addMovies(data);
-    })
+    const str = evt.target.movie.value
+    console.log($('#movie-str').val());
+    $('#movies').empty();
+    getMovies(str);
   });
 })
 
 
-// 1) figure out the layout for every movie thats going to be displayed  [x]
-// 1.5) build the layout for the movie [x]
-// 2) Embed the layout for a movie, using app.js file and methods [x]
-// 2.5) use data from the app.js file, and make movie on the HTML based on that data [x]
-// 3) use data that is an array to render multiple movies on the page 
-// 3.5 ajax call [x]
-// 4) figure out how to load the data on initial refresh [x]
-// 5) how to make this work for an event listener when we need to search a different movie 
+// 1) figure out the layout for every movie to be displayed [x]
+// 2) build the layout for the movie (put this on HTML )[x]
+// 3) use the layout to make the movie appear programatically from app.js [x]
+// 4) use the data to pass into the movie layout, so every movie is different [X]
+// 5) get the data from the API [x] 
+// 6) figure out how to do this on initial load/refresh [x]

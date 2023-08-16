@@ -1,21 +1,19 @@
+body {
+  background-color: black;
+  color: white;
+}
 
 .movie {
   display: flex;
-  align-items: center;
-  margin: 20px;
-  background-color: cornflowerblue;
-  padding: 2px;
+  background-color: #010330;
+  padding: 25px;
+  margin-bottom: 3px;
 }
 
 .movie--img {
-  width: 175px;
+  width: 150px;
 }
 
-.movie--criteria {
-  margin-left: 20px;
-  margin-right: 30px;
-}
-
-.movie--description {
-  width: 500px;
+.movie--info {
+  padding-left: 50px;
 }

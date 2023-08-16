@@ -4,48 +4,45 @@
 - AJAX (What is it and why)
 - Building an App with an API 
 
+### TinyApp 
 
-### TinyApp
+Server Side Rendering 
 
-Server Side Rendered application
-^-------- RENDERING
 
-Server                                                      Client
-  <------------------------------REQ----------------------------
-  run the route (event listner)
-  GET /urls
-  the logic of that route executes
-  res.render('____', templatevars)
-  ^--------------- EJS
-  Your Browser ONLY understands 3 types of files
+
+Client -----------------REQ----------------------->Server
+                                                 Does Some Logic
+                                                 Finds the corresponding EJS
+                                                 IT CONVERTS TO HTML
+  <---------------------RES------------------------
+
+  Your Browser only understands 3 types of files
+
   - HTML
   - JS
   - CSS
 
-Rebuild the EJS in HTML (run the logic inside the EJS and embed it)
-Grab all the JS files that are needed 
-Grab all the CSS files that are needed
--------------------------------RES------------------------------>
+  Server needs to REBUILD the EJS code ( compiling it ) into an HTML document
+  Grab the CSS files and upload em
+  Send of JS files ( for the front-end )
 
+  ### Client Side Rendering
 
-### Client Side Rendering 
+  The Server still sends out HTML, JS, CSS
+  but the initial HTML file, is just a template
+  Once that page has been loaded by the client,
+  The client will then ask for more information from server
+  when the data comes back, its up to the client to populate that data on the 
+  HTML page/file
 
-The Server sends out, an HTML, JS, and CSS
-The client makes a request, or mulitple requests to the SERVER for the data
-data will be replied back, as a json, or XML
-the client recieves that data, and embeds it into the HTML/CSS of the app/website
+### Ajax was created/thought of by Microsoft
 
-### Ajax Requests
+client asks the server for data, BUT the browser does not refresh
+when client gets the data, it will use some javascript code, to populate it on 
+the given web-page
 
-Microsoft 
-
-client asks the server for data, but the browser does not refresh, 
-the client then takes that date and loads it/ uses it for the website
-
-GET and POSTs
-
-## Disclaimer
-
--- making the AJAX request, is actually easy
-BUT alot of setup, behind the scenes work will need to happen to RENDER that data 
-that comes in, 
+- GET
+- POST
+- PUT
+- PATCH
+- DELETE
