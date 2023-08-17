@@ -7,17 +7,15 @@ const Form = ({handleAdd}) => {
   const [val, setVal] = useState('');
   const [err, setErr] = useState(false);
 
-
   const onSubmit = evt => {
       evt.preventDefault();
       if (val) {
-        if (err) {
-          setErr(false);
-        }
+        setErr(false);
         return handleAdd(val);
       } else {
         setErr(true);
       }
+
 
   }
 
@@ -25,7 +23,7 @@ const Form = ({handleAdd}) => {
     <form onSubmit={onSubmit}>
       <input name="newItem" type="text" value={val} onChange={evt => setVal(evt.target.value)}/>
       <button id="submit">Submit</button>
-      {err && <h1>cannot be blank!</h1>}
+      {err && <h3>cannot be blank!</h3>}
     </form>
   
   );

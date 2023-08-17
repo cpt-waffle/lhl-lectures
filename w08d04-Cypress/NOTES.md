@@ -11,37 +11,44 @@
 
 ### Different Types of Testing
 
-- Unit Testing   -- quick to write, quick to run, faster to work through
-- Integration Testing -- quick to write, quick to run, faster to work through
-- Static Testing --  quick to run 
-- End to End Testing -- expensive, and a bit slower 
+- Unit Testing  -- quick to write, quick to run, fast to test
+- Integration Testing -- quick to write, quick to run, fast to test
+- Static Testing  -- quick to write, quick to run, fast to test
+- End to End Testing - quick(ish) to write, not quick to run, takes a lot of resources 
+
+### As A User I want to make a short url by inputting a long URL'
 
 
-### Cypress
+### E2E
 
-how to install cypress
+- Cypress
 
-going into the directory of your project, and running:
+To install cypress, (in reality) you dont even need repo
 
-```npm install -D cypress@9.7.0```
+in today's activities you will be installing it in the repo. (client folder)
 
-add the script into package.json
-
+```sh
+npm install -D cypress@9.7.0
 ```
-    "cypress": "./node_modules/.bin/cypress open"
+
+### Windows 10 - 11 and/or using WSL2 or 3
+
+- install VCXRV (x server)
+- disable your firewall!
+
+
+-- windows firewall
+-- mcafee 
+
+### For Every system
+
+go to package.json of client
+and add the cypress command
+
+```json
+"cypress": "./node_modules/.bin/cypress open"
 ```
 
-##### Windows 10  or using WSL2
-
-install VCXRV package from compass or find it yourself on google 
-
-Firewalls 
-
--- windows firewall settings, xserver, give it a allow rule for public/private networks
--- turn off the windows firewall for the activity 
--- turn it back on when your done!
--- mcaffee -- TURN IT OFF 
-
-### to run cypress
+## To Run Cypress
 
 `npm run cypress`
