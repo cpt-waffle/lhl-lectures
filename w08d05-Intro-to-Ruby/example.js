@@ -1,76 +1,75 @@
-// variables
-
-var a = 'letter';
+// Variables
 let fruit = 'apple';
+a = 'letter';
 const PI = 3.14;
 
-PI = 4;
-
-console.log(a);
 console.log(fruit);
+console.log(a);
 console.log(PI);
 
-// functions
+// Functions 
 
 const foo = (a=0,b=0) => {
-  console.log(a+b);
-  const result = a + b;
-  return result;
+  console.log("this is my function");
+  return a + b;
 }
 
-const r = foo(4,2)
-console.log('r is ', r);
+const result = foo(9);
+console.log(result);
 
-// if statements
+// If Statements
 
 const value = 10;
 
 if (value < 10) {
-  console.log("value is less than 10");
+  console.log('value is less than 10');
 } else if (value === 10) {
-  console.log("value is 10");
+  console.log("Value is 10");
 } else {
   console.log("value is greater than 10");
 }
 
-if (value === 10) console.log("value is 10 again :)");
-if (!false) console.log("its not 9");
+if (value === 10) console.log(" :) ");
+
+if (value !== 0) console.log("it wasnt 0 :|");
 
 // Arrays
 
-const array = [
-  1,2,3,4,5,
-  'six', 'seven', 'eight',
-  [1,2,3]
-]
+const array = [1,2,3, 'four', 'five', [6,7,8]];
 
 console.log(array);
 
-array.forEach((elem, index) => {
-  console.log(`element: ${elem} at index ${index}`);
+console.log(array[0]);
+
+//  looping through arrays
+// for, while, forEach, map, reduce, filter, findOne, etc
+array.forEach((num, index) => {
+  console.log("------");
+  console.log(`${num} --> ${index}`);
+  console.log("------");
 })
 
 // Objects
 
 const obj = {a:1, b:2, c:3};
 
+console.log(obj);
 console.log(obj.a);
 console.log(obj['a']);
-// for (let key in obj)
-Object.keys(obj).forEach( key =>  {
-  console.log("--------");
-  console.log(key);
-  console.log(obj[key]);
-  console.log("--------");
+
+Object.keys(obj).forEach(key => {
+  console.log(`the key is ${key}`);
+  console.log(`the val is ${obj[key]}`);
 })
-callbacks
+
+// callbacks
 
 const highOrder = cb => {
-  console.log('before');
+  console.log("before");
   cb(5);
   console.log('after');
 }
 
-highOrder((num) => {
-  console.log("CALLBACK RUNS~~  ", num);
+highOrder(num => {
+  console.log("CALLBACK IS RUNNING NOW!", num);
 });

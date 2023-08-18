@@ -7,29 +7,31 @@
 - yield
 - rails talk ( the project you will be working on from tue - next week tue-wed?)
 
+### Javascript JS
 
-
-
-### JS 
-
--- 7-10 days in 1995
--- Brendon Eich
--- Java was popular at the time, same fame to javascript
--- functional language 
--- front-end  and/or back-end 
+-- 10 days in 1995
+-- Brendan Eich
+-- Java was popular language at the time, same fame to javascript
+-- functional langauge
+-- front end / back end 
 -- low level 
--- INSANELY LARGE ecosystems of packages
--- very active/VERY large community
--- ASYNC  --- (callbacks/promises/async/await)
+-- INSANELY LARGE ECOSYSTEMS OF PACKAGES
+-- its ASYNC  -- (callbacks/promises,async-await)
 
-### Ruby 
+### Ruby
 
 -- created in 1995
 -- created by Yukihiro Matsumoto (Matz)
--- only got popular in 2005 --- Ruby on Rails (ExpressJS but MVC)
--- class based language (OOP)
+-- only got popular in 2005 --- Ruby on Rails (ExpressJS Equivalent)
+-- class based langauge (OOP)
 -- highly abstracted, high level language
--- SYNC
--- performance issues
--- big ecosystem 
--- established community
+-- SYNC  :(
+-- x performance issues x
+-- fairly large ecosystem of pacakage (gems)
+
+
+### For next week
+
+you will treat the next as a new a job at a company
+
+- JR Web Developer
