@@ -1,81 +1,93 @@
-//  Review!
+// Review!
 
-// variables -- place and hold values
-//
+// variables -- place to hold/store data.
 
-let fruit = 'banana';
+// let -- lets you switch values of a variable
+let fruit = 'apple';
+fruit = 'banana';
+
+// console.log(fruit);
+
+// const -- once the variable is set, you cannot change its value
+// to anything else
+
 const PI = 3.14;
-fruit = 'apple';
+// PI = 4; X WRONG --- cant reassign!!
 
+// console.log(PI);
 
 // Arrays 
-//
-const array = [1,2,3,4, 'five', 'six', 'seven', 7.5, 8.9, [9], undefined, false]; // square brackets represent an array
-//             0 1 2 3     4      5        6     7     8   9        10     11           
-// indexes - position of value in the array
 
-// console.log(array);
-array.push(99.9);
-// console.log(array[4]);
-// order in arrays matter
+const arrayOfFruits = [
+  'apple',
+  'orange',
+  'coconut',
+  'banana',
+];
+// a reference passing
 
-//  Context
+const arrayCopy = arrayOfFruits;
 
-//               make         model
-const firstCar = ['toyota', 'corolla', 2002, 'silver', 'auto', 1.2, 'fabric', 4];
-//                  0          1
-const secondCar = ['civic', 'honda', 2014, 1.6, 'leather', 4, 'red']
-let x = 4;
-const printCarDetails = function(carArray) {
-  console.log(carArray[0], carArray[1], carArray[2])
-  console.log("Number of Seats, ", carArray[7]);
+arrayCopy.push('ANOTHER ONE');
+//////////////////////////////////////////
+
+// in arrays, the order really matters, 
+// so index denotes the order based on numerical values
+
+const car = ['toyota', 'corolla', 2012, 4, 'le', 'automatic', 'silver', 98000];
+//index         0          1       2    3   4         5          6        7   
+
+//             make-0,  model-1, year-2, type-3, transmission-4, etc
+const car1 = ['honda', 'civic', 2015, 2, 'R', 'manual', 'blue', 59000];
+const car2 = ['honda', 2, 10000, 2001, 'manual', undefined, 's2000'];
+
+car2.push('Baby blue');
+// console.log(car2);
+
+
+const printCarDetails = function(carArr) {
+  console.log(carArr[0], carArr[1]);
+  console.log(carArr[7]);
 }
-// console.log(firstCar)
 
-// printCarDetails(firstCar);
+// printCarDetails(car);
+// printCarDetails(car1);
+// printCarDetails(car2);
+
+//////////////////////////////////////////////////////////////////////
 
 // Objects
 
-// a way to store many data together
-// an object can be as big as you want or as small as you want
-// you can increase and/or decrease the size of the object
+// a way to store many data
+//                        (index) 
+// an object is set with, a key and a value
+// const car = ['toyota', 'corolla', 2012, 4, 'le', 'automatic', 'silver', 98000];
+// //              0         1         2
 
-// to create an object
+// object keys give you context of what the values are representing 
+// in an object the order of your keys does not matter at all
 
-// to add values, you will use (key: val) notation
-// the order DOES NOT MATTER in objects ()
-const firstCarObj = {
-  seatType: 'fabric',
-  make: 'toyota',
+// there cannot be 2 KEYS with the same name
+const carObj = {
   color: 'silver',
-  numOfSeats: 4,
+  seats: 4,
   model: 'corolla',
-  transmission: 'auto',
-  year: 2002,
-  KEY: 'this key'
+  year: 2012,
+  type: 'le',
+  transmission: 'automatic',
+  make: 'toyota',
+  milage: 98000,
+  driver: {name: 'vas'},
 };
 
-const carsArr = [{make: 'toyota', model: 'corolla'}, {make: 'honda', model: 'civic'}];
-//                            0                                    1
+// car[0] --> toyota
+// console.log(carObj);
+// .push  equivalent 
+// carObj.materialType = 'Leather';
+const KEY = 'APPLE';
 
-// console.log(carsArr[1].model)
+// arr[0] arr[1] 
+// Object Square Bracket notation
+carObj[KEY] = 'some fruit variable idk';
 
-const printCarDetails2 = function(carObj) {
-  console.log(carObj.make, carObj.model, carObj.year);
-  console.log("number of seats: ", carObj.numOfSeats);
-}
-// square bracket notation
-const KEY = 'make';
-
-
-console.log(firstCarObj[KEY])
-
-// adding a key to an object (kind of like arr.push)
-// dot notation
-
-firstCarObj.wheelSize= '14 inch';
-firstCarObj['wheelSize2']= '14 inch';
-
-
-console.log(firstCarObj)
-
+console.log(carObj.KEY); // undefined

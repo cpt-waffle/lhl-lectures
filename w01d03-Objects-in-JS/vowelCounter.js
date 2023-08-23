@@ -9,20 +9,24 @@ And sing our whaling tune.`;
 // Write a function that takes in a string, and counts how many letter "A" are in this string
 
 const countA = function(str) {
-  // --- steps to take
-  // set a counter for letter a
+  // -- steps to take 
+  // convert to lowerCase to make sure we count all letter A's
   const strLowercase = str.toLowerCase();
 
+  // how do count when we see the letter A/a appear ?
   let aCounter = 0;
-  //  for of loop
-  for (let letter of strLowercase) {
-    // if i see letter a then counter goes up by +1
+  // how do i go through the string, letter by letter? LOOP?
+  // for (let i = 0; i < str.length; i++) {
+    for (letter of strLowercase) {
+    // console.log("letter --->, ", strLowercase[i]);
     if (letter === 'a') {
       aCounter++;
     }
   }
+  // for in, for of ???
 
-  // return the counter!
+
+  // how do i return the count all of the letter a's?
   return aCounter;
 }
 
@@ -37,20 +41,15 @@ const countA = function(str) {
 
 
 
-
-
-
-// console.log(countA(string));
-
-
 // Write a function called countVowels that takes in a string, 
 // that counts ALL the vowels in a given string
 
 const countVowels = function(str) {
-  // --- steps to take
+  // -- steps to take 
+  // convert to lowerCase to make sure we count all letter A's
   const strLowercase = str.toLowerCase();
-  
-  // set a counter for letter a
+
+  // how do count vowels  ?
   const vowels = {
     a: 0,
     e: 0,
@@ -58,10 +57,12 @@ const countVowels = function(str) {
     o: 0,
     u: 0,
     y: 0
-  }
-  //  for of loop
-  for (let letter of strLowercase) {
-    // if i see letter a then counter goes up by +1
+  };
+  let aCounter = 0;
+  // how do i go through the string, letter by letter? LOOP?
+  // for (let i = 0; i < str.length; i++) {
+    for (letter of strLowercase) {
+    // console.log("letter --->, ", strLowercase[i]);
     if (letter === 'a') {
       vowels.a++;
     } else if (letter === 'e') {
@@ -75,10 +76,12 @@ const countVowels = function(str) {
     } else if (letter === 'y') {
       vowels.y++;
     }
-
   }
-  // return the counter!
-  return vowels
+  // for in, for of ???
+
+
+  // how do i return the count all of the letter a's?
+  return vowels;
 }
 
 
@@ -97,25 +100,26 @@ const countVowels = function(str) {
 // count every letter of a string..............
 
 const countLetters = function(str) {
-    // --- steps to take
-    const strLowercase = str.toLowerCase();
-  
-    //an object of letters;
-    const result = {};
-
-    //  for of loop
-    for (let letter of strLowercase) {
-      // if we see a letter, and its not in our object, create it with value of 1
-      if (result[letter] === undefined) {
-        result[letter] = 1;
-      } else {
-        // if we see a letter, and it IS in our object, increment it by +1
-        result[letter]++;
-      }
+  const strLowercase = str.toLowerCase();
+  // how do count vowels  ?
+  const lettersCounter = {};
+  // how do i go through the string, letter by letter? LOOP?
+  // for (let i = 0; i < str.length; i++) {
+    for (letter of strLowercase) {
+    // console.log("letter --->, ", strLowercase[i]);
+    if (lettersCounter[letter] === undefined) {
+      lettersCounter[letter] = 1;
+    } else {
+      lettersCounter[letter]++;
     }
-    // return the counter!
-    return result;
+
+  }
+  // for in, for of ???
+
+  // how do i return the count all of the letter a's?
+  return lettersCounter;
+
 }
 
-
 console.log(countLetters(string));
+
