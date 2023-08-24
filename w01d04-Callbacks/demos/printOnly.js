@@ -3,41 +3,36 @@
 // the callback will determine which elements to print
 
 const arr = [1,'two', 3, 'four', 5, 'six', 7, 'eight', 9, 'ten']
-//                                cb ==> true/false
-const printOnly = function(array, cb) {
-  console.log(cb);
-  // 1
+
+// high order function 
+// is a function that takes in a callback
+const printOnly = function(array, callback) {
+  console.log(callback);
   for (let element of array) {
-    if (cb(element)) {
+    if (callback(element)) {
       console.log(element);
     }
   }
 
 }
-// ES5 
-// const _____ = function(...) { .... }
-// ES6
-// const _____ = ( ... ) => { ... }
-// arrow function notation
-// -- less code to write 
-// -- if you have a 1 line of code, and its a return, you do not need to write { } or the return word itself. ES6 function will auto return if the function is 1 liner
-const isAlwaysTrue = (v) => true;
 
+const num = 5;
 
-const isAlwaysFalse = (v) => {
-  return false;
+const isNumber = n => typeof n === 'number';
+
+const isStr = (s) => {
+  return typeof s === 'string';
 }
 
-const isNumber = (v) => {
- return (typeof v === 'number');
-}
 
-printOnly(arr, (v) => true);
-
-printOnly(arr, (v) => {
-  return false;
+// a callback is just a function that can be passed as a argument
+printOnly(arr, (n) => {
+  return typeof n === 'number';
 });
 
-printOnly(arr,  (v) => {
-  return (typeof v === 'number');
-});
+
+
+
+
+
+// printOnly(['a', 'b', 'c', 4, 2, 1, 'd', 'e', false], isStr);

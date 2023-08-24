@@ -1,56 +1,53 @@
-// console.log("test");
 // review
-// variables
 
-let fruit = 'banana';
+// variables 
+// to store some data that we can re-use or keep as reference
+
+let fruit = 'apple';
 const PI = 3.14;
 
+fruit = 'banana';
 
-// console.log(fruit);
-fruit = 'apple';
-// console.log(fruit);
+// console.log(fruit, PI);
 
-// functions
-// -- an action
-// -- a tool that turns input and gives back output
-// -- reusable block code
+//  Functions
 
-// function declaration
-// parameters and arguments ----
-// parameters --
-const greetings = function(a) {
-  console.log("HELLO, ", a);
-  // -- when the return is ran, anything bellow it will not execute.
-  // -- return can only return 1 thing ( 1 value )
-  return [2,3];
+//  -- its an action 
+//  -- a block code, that can be re-called at any point
+//  -- the block of code can accept arguments/parameters
+
+// parameters
+// default parameters
+const greetings = (name, num1=0, num2=0, num3=0) => {
+  const result = num1+num2+num3;
+  console.log("Hello World!", name, num1, num2, num3);
+  return result;
 }
 
-// function return type
-// arguments --------- data that we are sending into the function
-const name = 'Mathiew';
 
-// const a = greetings('Vasiliy');
-// greetings('Meg');
-// greetings('Eddie');
-// greetings(name);
+// arguments 
+// const functionResult = greetings('Vasiliy',9,4);
+// console.log(functionResult);
+// console.log(greetings('Edward',1,2,3));
 
-// console.log(a);
-// this is a variable ?
+const name = 'Bob';
+const num0 = 3;
+const num1 = 2;
+const num2 = 5;
 
-const solveQuestion = function(a, b) {
-  const result = a + b;
-  console.log('Solution:', result);
-}
- //                                  c --- callback ( function )
-const printQuestion = function(a, b, c) {
-  console.log(c);
-  console.log("--- Question ----");
-  console.log(a, " + ", b, " = ");
-  c(a,b);
+// console.log(greetings(name, num0, num1, num2));
+///////////////////////////////////////////////////////////////
+
+const customPrint = name => {
+  console.log("Hello There!", name);
+  name(' is equal to?');
+  console.log("---- End of CustomPRint ----");
 }
 
-const val1 = 2;
-const val2 = 2;
+const askQuestion = customEnding => console.log("whats 2 + 2 = ?", customEnding);
 
-printQuestion(2, 2, solveQuestion);
 
+const newName = "vasiliy";
+
+customPrint(askQuestion);
+askQuestion();

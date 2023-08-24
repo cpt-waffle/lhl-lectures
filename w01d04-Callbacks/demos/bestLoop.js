@@ -5,18 +5,31 @@
 
 
 const bestLoop = (arr, cb) => {
-  for (let elem of arr) {
-    cb(elem);
+  for (let index in arr) {
+    cb(arr[index], index);
   }
 }
 
-const numbers = [1,2,3,4,5,6,7,8,9];
 
-const result = [];
+bestLoop([1,2,3,4,5,6,7,8,9,10], num => console.log(num));
 
-bestLoop(numbers, (e) => {
-  console.log(e * 2);
-  result.push(e * 2);
+let result = 0;
+bestLoop([1,2,3,4,5,6,7,8,9,10], num => {
+  result = result + num;
+})
+console.log(result);
+
+bestLoop([1,2,3,4,5,6,7,8,9,10], (num, i) => {
+  console.log(" value is: ", num);
+  console.log(" index is: ", i);
+  console.log("-----------");
 })
 
-console.log(result);
+const evenIndex = [];
+
+bestLoop([1,2,3,4,5,6,7,8,9,10], (num, i) => {
+  if (num % 2 === 0) {
+    evenIndex.push(i);
+  }
+})
+console.log(evenIndex);
