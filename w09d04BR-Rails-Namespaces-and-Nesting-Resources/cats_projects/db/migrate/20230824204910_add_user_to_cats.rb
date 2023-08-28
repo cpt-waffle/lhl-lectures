@@ -1,4 +1,4 @@
-class AddUsersToCats < ActiveRecord::Migration[7.0]
+class AddUserToCats < ActiveRecord::Migration[7.0]
   def change
     add_reference :cats, :user
   end

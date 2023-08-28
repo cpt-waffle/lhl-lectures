@@ -9,5 +9,6 @@ class CreateCats < ActiveRecord::Migration[7.0]
   end
 end
 
-#  rolling back a migration
-#  making a new migration
+
+#  roll back a commit/migration <--- deletes all data/history of commit
+#  add a new commit/migration  <--- keeps everything just makes change for later

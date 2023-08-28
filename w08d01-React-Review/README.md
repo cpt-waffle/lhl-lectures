@@ -43,11 +43,18 @@ Leaving the server for now, we'll first create our react app with `cra`
 
 ### Building Components 
 
+In package.json of client, add:
+
+```
+"proxy": "http://localhost:8080"
+```
+
 A component should:
 
  - have react import (optional for new react ver)
  - have a function that gets exported  ( default or otherwise )
  - function returns JSX to be rendered
+
 
 
 ```jsx
@@ -133,7 +140,7 @@ In the next refactor, we will add a use-effect to get data from our `back-end` s
 function App() {
   const [items, setItems] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:8080/todos').then((res) => {
+    axios.get('/todos').then((res) => {
     setItems([...res.data])
   })
   }, [])
@@ -167,7 +174,7 @@ const useApplication = () => {
     const [error, setError] = useState('');
 
     useEffect(() => {
-      axios.get('http://localhost:8080/todos').then(response => {
+      axios.get('/todos').then(response => {
         setList([...response.data]);
       })
     }, []);
@@ -175,7 +182,7 @@ const useApplication = () => {
     const addItem = (task) => {
       console.log("LINE 17 from app.js!!");
       const newTask = {id: i++, task: task, done: false};
-      axios.post('http://localhost:8080/todos', { newTask }).then(() => {
+      axios.post('/todos', { newTask }).then(() => {
         setList(prev => [...prev, newTask]);
       }).catch(e => {
         setError("Error: Backend not responding :(");
