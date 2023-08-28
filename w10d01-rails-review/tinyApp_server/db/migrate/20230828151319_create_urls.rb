@@ -9,5 +9,6 @@ class CreateUrls < ActiveRecord::Migration[7.0]
   end
 end
 
-# 1 - rollback and add the fk column 
-# 2 - add another migration that adds fk column
+
+#  1 - rollback 
+#  2 - add another migration 
