@@ -3,25 +3,35 @@
  
  - Finals 
  - REAL TIME COMMUNICATION
+ - web sockets (advanced lecture)
 
 
-HTTP 
+### Snek Game
 
-req ---------------------->
-< ------------------------res
+TCP connection
+you connect ----->
 
+----------------message----------->
+<---------------message------------
+----------------message----------->
+----------------message----------->
+----------------message----------->
+<---------------message------------
+<---------------message------------
+<---------------message------------
+<---------------message------------
+----------------message----------->
 
-TCP
+## ---------------------------
 
-connect
-<--------------------------------
-<--------------------------------
-<--------------------------------
-<--------------------------------
--------------------------------->
--------------------------------->
--------------------------------->
-<--------------------------------
+- notifications in realtime
+- chat applications
+- real time actions 
 
+### Socket.io
 
-## Chat Application
+## Hardest part about building an app with real time communication (esp with react)
+
+- debugging, and refreshing sessions
+
+### WS / WSS
