@@ -5,27 +5,33 @@
 
 const fs = require('fs');
 
-//   const laundry =  doLaundry();
-//
+let data1 = undefined;
+let data2 = undefined;
+let data3 = undefined;
+
 
 const readThreeFiles = (cb) => {
-  fs.readFile('data1.txt', 'utf8', (err, data1) => {
+  fs.readFile('./data1.txt', 'utf8', (err, data) => {
     if (err) throw err;
-    console.log('data1', data1);
-    fs.readFile('data2.txt', 'utf8', (err, data2) => {
+    console.log(data);
+    data1 = data;
+    fs.readFile('./data2.txt', 'utf8', (err, data) => {
       if (err) throw err;
-      console.log('data2', data2);
-      fs.readFile('data3.txt', 'utf8', (err, data3) => {
+      console.log(data);
+      data2 = data; 
+      fs.readFile('./data3.txt', 'utf8', (err, data) => {
         if (err) throw err;
-        console.log('data3', data3);
+        console.log(data);
+        data3 = data;
+        console.log("all data is:   ",data1, data2, data3);
+        console.log(`${data1} - ${data2} - ${data3} = ${data1 - data2 - data3}`);
         const result = data1 - data2 - data3;
-        console.log(`${data1} - ${data2} - ${data3} = ${result}`);
-        cb(result);
+        cb(result)
       })
     })
   })
 }
 
-readThreeFiles((r) => {
-  console.log("the result is", r);
+readThreeFiles(val => {
+  console.log("the value is =" , val);
 })

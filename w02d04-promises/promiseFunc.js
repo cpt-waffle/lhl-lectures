@@ -1,13 +1,13 @@
 
-const hello = (bool) => {
+const hello = (v) => {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (!bool) {
-        return resolve('Hi There!');
-      } else {
-        return reject('>:(');
-      }
-    },2000);
+    if (!v) {
+      setTimeout(() => {
+        resolve('hello there');
+      }, 1000)
+    } else {
+      reject(':(');
+    }
   })
 }
 

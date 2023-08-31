@@ -10,25 +10,28 @@ const randomNumber = (dice) => {
 }
 
 const diceRoll = (cb) => {
-  console.log("Rolling...");
+  console.log('Rolling...');
   setTimeout(() => {
     const result = randomNumber(6);
-    if (result < 3) {
-      cb(':(', null);
+    // err, value
+    if (result === 5) {
+      cb("you rolled a 5 :(", null);
+    } else {
+      cb(null, result);
     }
-    cb(null, result);
-  }, 2000);
+
+  }, 2000)
 }
 
 diceRoll((err, num) => {
   if (err) throw err;
-  console.log("the number was", num);
+  console.log("the number was:  ", num);
   diceRoll((err, num) => {
     if (err) throw err;
-    console.log("the number was", num);
+    console.log("the number was:  ", num);
     diceRoll((err, num) => {
       if (err) throw err;
-      console.log("the number was", num);
+      console.log("the number was:  ", num);
     })
   })
 })

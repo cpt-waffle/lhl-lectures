@@ -10,29 +10,29 @@ const randomNumber = (dice) => {
 }
 
 const diceRoll = () => {
-  console.log("Rolling...");
   return new Promise((resolve, reject) => {
+    console.log("Rolling...");
     setTimeout(() => {
       const result = randomNumber(6);
-      if (result < 3) {
-        return reject(':(');
+      if (result === 5) {
+        reject('you rolled a 5 :(');
+      } else {
+        resolve(result);
       }
-
-      return resolve(result);
-      
     }, 2000)
   })
 }
 
 diceRoll().then(num => {
-  console.log("the number was", num);
-  return diceRoll()
+  console.log("the number was:  ", num);
+  return diceRoll();
 }).then(num => {
-  console.log("the number was", num);
-  return diceRoll()
+  console.log("the number was:  ", num);
+  return diceRoll();
 }).then(num => {
-  console.log("the number was", num);
+  console.log("the number was:  ", num);
 }).catch(e => {
-  console.log("error happend :(");
+  console.log("error has happened :(");
   console.log(e);
 })
+
