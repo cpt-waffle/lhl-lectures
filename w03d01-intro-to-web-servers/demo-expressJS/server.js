@@ -1,7 +1,7 @@
-const PORT = 8080;
-
 const express = require('express');
 const app = express();
+
+app.set('view engine', 'ejs');
 
 const catsDatabase = {
   1: 'https://i.kym-cdn.com/photos/images/newsfeed/001/394/314/c62.jpg' ,
@@ -10,36 +10,72 @@ const catsDatabase = {
   4: 'https://i.imgur.com/drvA0ew.jpg'
 }
 
+let num = 5;
 
-// step #1 to adding ejs: 
-//  initialize
-app.set('view engine', 'ejs');
-// step #2: make a folder called "views"
-// step #3: make EJS files, with end of the file, .ejs
+const urlsDatabase = {
+  fj0345: 'www.google.ca',
+  esfjils: 'www.reddit.com',
+}
 
-app.get('/', (request, response) => {
+
+// MAGICAL LINE
+app.use(express.urlencoded({extended: true}));
+
+
+
+app.get('/', (req, res) => {
   console.log("GET /");
-  // return response.send("hello world");
-  return response.render('home');
+  // res.send('welcome to my homepage!');
+  res.render('home');
 })
 
-let i = 0;
-app.get('/cats', (req,res) => {
+app.get('/hello', (req, res) => {
+  console.log("GET /hello");
+  res.send(`
+    <html>
+      <head>
+      </head>
+      <body>
+        <h1>Good Morning Everybody</h1>
+        <p> this is just a paragraph </p>
+        <h4> I want to sleep :( </h4>
+      </body>
+    </html>
+  `);
+})
+
+app.get('/hi', (req, res) => {
+  console.log('GET /hi');
+  res.send('hi');
+})
+
+app.get('/banana', (req,res) => {
+  console.log('GET /banana');
+  return res.send('🍌');
+})
+
+app.get('/cats', (req, res) => {
+  // "<%="
+
+  // "<% "
   console.log("GET /cats");
-  i++;
-  const templateVars = {
-    // a: 1,
-    // b:2,
-    // c:3,
-    // array: [0,0,1],
-    // o: {foo:'bar'}
-    catsDatabase
-  };
-  // res.render takes 2 parameters
-  //              name of the view (string)
-  return res.render('cats', templateVars);
-  //                       ^ an object that is shared
+  const templateVars = {cats: catsDatabase};
+  templateVars.cats = catsDatabase;
+  
+  res.render('cats', templateVars);
 })
 
+app.get('/cats/new', (req, res) => {
+  res.render('cats_create');
+})
 
-app.listen(PORT, () => console.log("Server is listening on PORT, ", PORT));
+app.post('/cats', (req, res) => {
+  console.log("POST /cats");
+  console.log(req.body);
+  catsDatabase[num] = req.body.cat_img;
+  num++;
+  res.redirect('/cats');
+});
+
+
+app.listen(8080, () => console.log(`Server is listening on port 8080`));

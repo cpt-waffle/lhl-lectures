@@ -8,7 +8,7 @@
 - EJS
 - server side rendering (dynamic pages)
 
-- BONUS
+## BONUS
 
 - POST requests
 - saving data to your server
@@ -16,38 +16,33 @@
 
 ### TCP
 
-You need an address (port)
-you attempt to make a connection
+IP Address
+PORTs
 
-you are now able to send messages 
+### Connections 
 
---------------------------------------------->>
---------------------------------------------->>
---------------------------------------------->>
---------------------------------------------->>
-<<---------------------------------------------
-<<---------------------------------------------
-<<---------------------------------------------
-<<---------------------------------------------
---------------------------------------------->>
-<<---------------------------------------------
+You established a connection, by providing the IP, and PORT
+(server allowd you to connect)
 
-(lose connection)
-(timeout)
-(disconnect)
+messages ------------------------------------------->
+<--------------------------------------------------- messages
+messages ------------------------------------------->
+messages ------------------------------------------->
+messages ------------------------------------------->
+<--------------------------------------------------- messages
+<--------------------------------------------------- messages
+<--------------------------------------------------- messages
+messages ------------------------------------------->
+messages ------------------------------------------->
+<--------------------------------------------------- messages
+
 
 ### HTTP
 
-You need an address (port)
-you attempt to make a connection
-if/when a connection is made:
-YOU ARE ALLOWED to send 1 message 
-(information about your computer, and what you want) Headers
+You established a connection, by providing the IP, and PORT (DHCP)
+(server allowd you to connect)
 
--------------------------------REQ--------------->
+-------------------------__REQ ------------------------>
+<------------------------__RES -------------------------
 
-The server MUST send you back one message, with either data, or error
-
-<-----------------------------RES-----------------
-
-(disconnect)
+CONNECTION OVER

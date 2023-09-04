@@ -3,16 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>cats</title>
 </head>
 <body>
-  <h1>cats!</h1>
-  <%= JSON.stringify(locals.catsDatabase) %>
+    <h1>Cats</h1>
+    <!-- for education purposes only -->
+    <% const array = [1,2,3,4]; %> 
+    <% const obj  = {a:1, b:2 ,c:3} %>
 
-  <ul>
-    <% for (let cat in catsDatabase) {%>
-      <li><img style="width: 200px;"src="<%= catsDatabase[cat] %>"/></li>
+    <%= JSON.stringify(cats) %>
+
+
+    <% if (false) { %>
+      <h2>something was truthy </h2>
     <% } %>
-  </ul>
+
+
+    <ul>
+    <% for (let elem in cats) { %>
+      <li><img src="<%= cats[elem] %>" style="width: 250px"/></li>
+    <% } %>
+    </ul>
 </body>
 </html>
