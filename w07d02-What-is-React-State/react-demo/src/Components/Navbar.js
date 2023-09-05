@@ -1,11 +1,11 @@
-import { useState } from "react";
+import './Navbar.css';
 
 const Navbar = (props) => {
-
   return (
     <nav className="navbar">
+
       <h1>Some navbar</h1>
-      <h2>{props.banana}</h2>
+      <h3>{props.num}</h3>
     </nav>
   );
 }

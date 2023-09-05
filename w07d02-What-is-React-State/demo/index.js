@@ -1,4 +1,3 @@
-// document.on('ready')
 const someoneClickedMyButton = () => {
     console.log("pressed");
     const number = Number($('#likes-count').text());
@@ -6,6 +5,7 @@ const someoneClickedMyButton = () => {
     $('#likes-count').text(number + 1);
 }
 
+// document.on('ready')
 $(() => {
     console.log('ready');
     

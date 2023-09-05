@@ -1,8 +1,8 @@
 ### Agenda
 
 - Review -- Building Components
-- theory of state
 - event listeners
+- theory of state
 - state explanation
 - useState hook
 - buidling/using state
