@@ -1,11 +1,13 @@
 import './Task.css';
 
-const Task = props => {
+//  props --> just an object with all the things passed in
+const Task = (props) => {
   return (
-    <li className='task'>
-      {props.name}
-    </li>
-  )
+    <div className="task">
+      <h5>{props.name}</h5>
+    </div>
+
+  );
 }
 
 export default Task;

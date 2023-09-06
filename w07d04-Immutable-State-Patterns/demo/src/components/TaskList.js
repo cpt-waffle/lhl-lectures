@@ -1,16 +1,14 @@
-import Task from "./Task";
+
 
 const TaskList = props => {
-  const arr = props.tasks.map(task => {
-    return <Task key={task.id} name={task.task}/>
-  });
+
+  const tasksHTML = props.tasks.map(taskObj => <Task key={taskObj.id} name={taskObj.task}/>)
 
   return (
-    <ul>
-      {arr}
-    </ul>
+    <div>
+      {tasksHTML}
+    </div>
   )
 }
-
 
 export default TaskList;
