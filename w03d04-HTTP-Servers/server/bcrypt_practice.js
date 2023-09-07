@@ -1,17 +1,27 @@
 const bcrypt = require('bcryptjs');
 
-const password = '1234';
+const salt = bcrypt.genSaltSync(10);
 
-const salt = bcrypt.genSaltSync();
-console.log('salt:      ', salt);
-const hashedPassword = bcrypt.hashSync(password, salt);
+console.log(`Salt:  `, salt);
 
-console.log('password:  ', hashedPassword);
+const hash = bcrypt.hashSync('1234', salt);
 
-// form-info
+console.log(`Hash:  `, hash);
 
-const formPassword = 'helloWorld';
+// Hashing is a ONE WAY PROCESS
 
-const result = bcrypt.compareSync(formPassword, hashedPassword);
 
-console.log(result);
+// To check if plain text string matches the hash
+console.log(bcrypt.compareSync('hell1', hash));
+
+
+console.log(bcrypt);
+
+console.log("---------------- Async -----------------");
+
+bcrypt.genSalt(10, (err, salt) => {
+  console.log("Async Salt: ", salt);
+  bcrypt.hash('hello', salt, (err, hash) => {
+    console.log('Async Hash:  ', hash);
+  })
+})

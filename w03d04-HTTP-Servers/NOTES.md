@@ -14,59 +14,17 @@ Security :)
 
 plain text passwords should not be stored, because they can be used maliciously
 
-NEVER STORE PASSWORDS AS STRINGS (OR TEXT)
+NEVER STORE PLAIN TEXT PASSWORDS !!
 
 ### Hashing
 
-plain-text-string -------------> algo ---> SALT -------> 2308fujs0jf23j40928ujr08wsu43
+string/text --------> algo -------> salt ----------> 20-39i4kr0sp9i50923u5rospijf2035j0wjr029u34509
 
-hashing is one way ------> 
+hashing is one way, and cannot be reversed
 
-To dehash a password, a hacker must try out different passwords until the hash matches the other hash.
+### bcrypt/bcryptJS
 
-
-```js
-const plaintextPass = 'secret';
-
-// // time, and making info worth it?
-const salt = bcrypt.genSaltSync(10);
-console.log(salt);
-
-// // what is a salt?
-const hash = bcrypt.hashSync(plaintextPass, salt);
-console.log(hash);
-```
-
-####  to check plain text with encrypted
-
-```js
-
-const result = bcrypt.compareSync('test', hash);
-
-console.log(result); // true or false?
-```
+bcrypt is written in C      --> so its very fast!!
+bcryptJS is written in JS   --> pretty slow :(
 
 
-### Encryption
-
-text -----------------------> ENCRYPT ALGO --------> 952jopisfjsrj2rfs90825vik04
-952jopisfjsrj2rfs90825vik04 ->ENCRYPT ALGO --------> text
-
-
-Client(Firefox/Chrome/Safari)
-
---------LOGIN --------------------------->
-<-------GREAT YOU ARE LOGGED IN----------
-cookie: 2394psiodkf345kpkfspktp34k5
----------------NEW REQ --------------->
-cookie on server: {user_id: 4}
-
-### HTTPS
-
-Computer                                                        Server
--------------------------------REQ-------------------------------->
-<--------were incrypting this HTML---- decrypt it with this code --
-                              SSL Certificate 
-
-<------------------------------RES---------------------------------
-             
