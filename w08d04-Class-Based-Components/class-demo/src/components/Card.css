@@ -1,8 +1,12 @@
-
 .card--img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  border: 3px solid limegreen;
+  border: 2px solid green;
   object-fit: cover;
+}
+
+.card {
+  background-color: #36454F;
+  padding: 20px;
 }

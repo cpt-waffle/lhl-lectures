@@ -8,13 +8,12 @@ function App() {
   const name = 'Mr Meows';
   const title = 'Senior Nap Engineer';
 
-
   return (
     <div className="App">
       <h1>Class Demo</h1>
       <Card
-        image={img} 
-        name={name} 
+        img={img}
+        name={name}
         title={title}
       />
     </div>

@@ -11,12 +11,11 @@ function App() {
   return (
     <div className="App">
       <h1>Functional Demo</h1>
-      <Card 
-        image={img} 
-        name={name} 
+      <Card
+        img={img}
+        name={name}
         title={title}
       />
-      {/* Card({img, name, title}) */}
     </div>
   );
 }
