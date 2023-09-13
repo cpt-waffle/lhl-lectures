@@ -3,17 +3,26 @@ body {
   color: white;
 }
 
-.movie {
+
+.show {
+  padding: 20px;
+  background-color: #131c2a;
   display: flex;
-  background-color: #010330;
-  padding: 25px;
-  margin-bottom: 3px;
+  margin-bottom: 10px;
 }
 
-.movie--img {
-  width: 150px;
+.show--img {
+  width: 165px;
 }
 
-.movie--info {
-  padding-left: 50px;
+.show--desc {
+  padding-left: 35px;
+}
+
+#search-form {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  background-color: palevioletred;
+  padding: 40px;
 }

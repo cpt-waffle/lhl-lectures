@@ -4,45 +4,49 @@
 - AJAX (What is it and why)
 - Building an App with an API 
 
-### TinyApp 
 
-Server Side Rendering 
+### Server Side Rendering!
+
+- TinyApp
 
 
+Client ------------------------- REQ --------------------------->  SERVER
+                                                               does logic 
+<------------------------------- RES ----------------------------
 
-Client -----------------REQ----------------------->Server
-                                                 Does Some Logic
-                                                 Finds the corresponding EJS
-                                                 IT CONVERTS TO HTML
-  <---------------------RES------------------------
+EJS  (templateVars)
+Just before the server sends the page out, it builds it in HTML
+<%= %>
+<% %>
 
-  Your Browser only understands 3 types of files
+The server had to build the HTML page...
 
-  - HTML
-  - JS
-  - CSS
+the browser only understands
 
-  Server needs to REBUILD the EJS code ( compiling it ) into an HTML document
-  Grab the CSS files and upload em
-  Send of JS files ( for the front-end )
+- HTML
+- JS
+- CSS
 
-  ### Client Side Rendering
+### Client Side Rendering
 
-  The Server still sends out HTML, JS, CSS
-  but the initial HTML file, is just a template
-  Once that page has been loaded by the client,
-  The client will then ask for more information from server
-  when the data comes back, its up to the client to populate that data on the 
-  HTML page/file
+The server still sends out HTML, JS, CSS but only a bare minimum
+
+
+The client may ask for more data, then the server gives it that data, and the client adds the data 
+to the page by themselves
+
+With client side rendering, the server has less processing to do.
+
+for the client its beneficial because less data needs to be re-loaded, making it faster
 
 ### Ajax was created/thought of by Microsoft
 
-client asks the server for data, BUT the browser does not refresh
-when client gets the data, it will use some javascript code, to populate it on 
-the given web-page
 
-- GET
-- POST
-- PUT
-- PATCH
-- DELETE
+
+#### Disclaimer
+
+the AJAX request, is actually pretty easy to do,
+
+BUT
+
+doing all the work to make the data appear, is hard...
