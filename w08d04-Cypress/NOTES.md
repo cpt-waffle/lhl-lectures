@@ -9,46 +9,59 @@
 - Q&A
 
 
-### Different Types of Testing
 
-- Unit Testing  -- quick to write, quick to run, fast to test
-- Integration Testing -- quick to write, quick to run, fast to test
-- Static Testing  -- quick to write, quick to run, fast to test
-- End to End Testing - quick(ish) to write, not quick to run, takes a lot of resources 
 
-### As A User I want to make a short url by inputting a long URL'
+## Different Types of Testing
+
+Unit/Integration 
+
+- JEST 
+- Terminal
+
+- cheap 
+
+End to Testing 
+
+- visual 
+- expensive on time 
+- expensive on resources
 
 
 ### E2E
 
 - Cypress
 
-To install cypress, (in reality) you dont even need repo
+to install cypress, (in reality you dont even need a repository)
 
-in today's activities you will be installing it in the repo. (client folder)
+in todays activities, you will asked to install a SPECIFIC version of cypress!
+
+9.7.0
+
+In compass, they ask you to install it `globaly`
+
+in your frontend app (scheduler)
 
 ```sh
 npm install -D cypress@9.7.0
 ```
 
-### Windows 10 - 11 and/or using WSL2 or 3
+Windows 10 
 
 - install VCXRV (x server)
-- disable your firewall!
-
-
--- windows firewall
--- mcafee 
+- disable your firewall ( add a rule to allow internal connections for VCXRV x server)
+   - windows firewall 
+   - mcaffee
 
 ### For Every system
 
-go to package.json of client
-and add the cypress command
+go to your frontend folder (scheduler)
+open up package.json
+add this line: 
 
 ```json
 "cypress": "./node_modules/.bin/cypress open"
 ```
 
-## To Run Cypress
+### To Start Cypress
 
-`npm run cypress`
+npm run cypress

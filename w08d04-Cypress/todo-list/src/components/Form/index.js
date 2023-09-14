@@ -9,12 +9,16 @@ const Form = ({handleAdd}) => {
 
   const onSubmit = evt => {
       evt.preventDefault();
-      if (val) {
-        setErr(false);
-        return handleAdd(val);
+      if (val.length) {
+        handleAdd(val);
+        setVal('');
+        if (err) {
+          setErr(false);
+        }
       } else {
         setErr(true);
       }
+
 
 
   }
