@@ -1,75 +1,74 @@
 // Variables
-let fruit = 'apple';
-a = 'letter';
+let fruit = 'banana';
 const PI = 3.14;
+// PI = 4;
+b = 'a random lettter';
 
 console.log(fruit);
-console.log(a);
 console.log(PI);
+console.log(b);
+// --------------------
 
-// Functions 
+// Functions
 
-const foo = (a=0,b=0) => {
-  console.log("this is my function");
-  return a + b;
+const foo = (a=0, b=0) => {
+  console.log("this is a function~!");
+  console.log(`${a} + ${b} = ${a + b}`)
+  a + b;
 }
 
-const result = foo(9);
-console.log(result);
+const result1 = foo(9);
+console.log('result:',  result);
 
-// If Statements
+// if statements
 
 const value = 10;
 
-if (value < 10) {
+if (value < 10 ) {
   console.log('value is less than 10');
 } else if (value === 10) {
-  console.log("Value is 10");
+  console.log('value is 10');
 } else {
-  console.log("value is greater than 10");
+  console.log('value is greater than 10');
 }
 
-if (value === 10) console.log(" :) ");
-
-if (value !== 0) console.log("it wasnt 0 :|");
+if (value === 10) console.log(":)");
+if (value !== 0 ) console.log('value is not 0');
 
 // Arrays
 
-const array = [1,2,3, 'four', 'five', [6,7,8]];
+const array = [1,2,3, 'four', false, [4,5,6]]
 
 console.log(array);
+console.log(array[3]);
 
-console.log(array[0]);
+// for, while,  forEach, map...
 
-//  looping through arrays
-// for, while, forEach, map, reduce, filter, findOne, etc
-array.forEach((num, index) => {
-  console.log("------");
-  console.log(`${num} --> ${index}`);
-  console.log("------");
+array.forEach((num, index, arr) => {
+  console.log("our number at iterator: ", num, index);
 })
 
 // Objects
 
-const obj = {a:1, b:2, c:3};
+const obj= {a: 1, b:2, c:3};
 
 console.log(obj);
 console.log(obj.a);
 console.log(obj['a']);
 
+
 Object.keys(obj).forEach(key => {
-  console.log(`the key is ${key}`);
-  console.log(`the val is ${obj[key]}`);
+  console.log(`key=${key}   val=${obj[key]}`);
 })
 
-// callbacks
+// Callbacks
 
-const highOrder = cb => {
-  console.log("before");
-  cb(5);
-  console.log('after');
+const highOrder = callback => {
+  console.log('beginning');
+  callback(5);
+  console.log('end');
 }
 
-highOrder(num => {
-  console.log("CALLBACK IS RUNNING NOW!", num);
+highOrder((num) => {
+  console.log(`middle callback :) ${num}`)
 });

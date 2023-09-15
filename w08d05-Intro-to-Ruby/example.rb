@@ -1,74 +1,78 @@
-# Variables
-fruit = 'apple'
-a = 'letter'
+#  Variables
+fruit = 'banana'
 PI = 3.14
+# PI = 4
+b = 'a random letter'
 
 puts fruit
-puts a
 puts PI
+puts b
+# --------------------------
 
-# Functions
+#  Functions
 
 def foo a=0, b=0
-  puts "this is my function"
+  puts "this is a function~!"
+  puts "#{a} + #{b} = #{a + b}"
   a + b
 end
 
-result = foo 9
-puts result
+result1 = foo 9
+puts "result:  #{result}"
 
-# If Statements
+# if statements
 
 value = 10
 
 if value < 10
   puts 'value is less than 10'
-elsif value == 10
+elsif value == 10 
   puts 'value is 10'
-else
+else 
   puts 'value is greater than 10'
 end
 
-puts ' :) ' if value == 10
-
-puts "It wasn't 0 :|" unless value == 0 
+puts ":)" if value == 10
+puts 'value is not 0' unless value == 0
 
 # Arrays
 
-array = [1,2,3, 'four', 'five', [6,7,8]]
+array = [1,2,3, 'four', false, [4,5,6]]
 
 puts array.to_s
+puts array[3]
 
-puts array[0]
 
-# looping through arrays
 
 array.each_with_index do |num, index|
-  puts "-------"
-  puts "#{num.to_s} --> #{index}"
-  puts "-------"
+  puts "pur number at iterator: #{num} #{index}"
 end
 
-# Objects/Hashes
+Objects/hash
 
-obj = {a: 1, b:2, c:3}
+obj = {a:1 ,b:2, c:3}
 
 puts obj
 puts obj[:a]
-puts obj[:a]
+
+
 
 obj.each do |key, val|
-  puts "the key is #{key}"
-  puts "the val is #{val}"
+  puts "key=#{key}    val=#{val}"
 end
 
-# yield 
+# Yield
 
-def high_order
-  puts "before"
+def high_order 
+  puts "beginning"
   yield 5
-  puts 'after'
+  puts "end"
 end
 
 
-high_order { |num| puts "CALLBACK IS RUNNING NOW! #{num}" }
+high_order {|num| puts "middle callback :) #{num}"}
+
+
+# get a timestamp --- new Date()
+# fibanachi in yield
+# get a timestamp --- new Date()
