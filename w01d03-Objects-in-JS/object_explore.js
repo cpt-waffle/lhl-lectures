@@ -50,5 +50,3 @@ const tvShow = {
             }
         }
 }
-
-console.log(tvShow.show.network.country.name);
