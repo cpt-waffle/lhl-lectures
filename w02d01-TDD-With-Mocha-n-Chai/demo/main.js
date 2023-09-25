@@ -1,11 +1,9 @@
 const palindrome = require('./palindrome');
-// import/export
-console.log("--------------------------------------------------------")
-console.log(palindrome('racecar'));
-console.log("--------------------------------------------------------")
 
+console.log('the return from palindrome require is....');
 
+console.log(palindrome);
 
-console.log("THIS IS MAIN.js")
+console.log(palindrome('racecar'))
 
-console.log('line number 4: !!!!');
+// console.log(module);

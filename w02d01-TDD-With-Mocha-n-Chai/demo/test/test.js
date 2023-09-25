@@ -1,42 +1,35 @@
 const palindrome = require('../palindrome');
-const chai = require('chai');
-const assert = chai.assert;
+const assert = require('chai').assert;
 
-describe('--- Palindrome Tests ---', () => {
-  describe('palindrome simple tests', () => {
-    it(' tests if racecar is a palindrome (should return true)', () => {
+describe('Palindrome Tests', () => {
+  describe('-- Basic Tests --', () => {
+    it(" checks if 'hello' is NOT a palindrome, should return false", () => {
+      assert.isFalse(palindrome('hello'));
+    })
+
+    it(" checks if 'racecar' is a palindrome, should return TRUE", () => {
       assert.isTrue(palindrome('racecar'));
     })
 
-    it(' tests if level is a palindrome (should return true)', () => {
+    it(" checks if 'level' is a palindrome, should return TRUE", () => {
       assert.isTrue(palindrome('level'));
     })
 
-    it(' tests if abba is a palindrome (should return true)', () => {
-      assert.isTrue(palindrome('abba'));
+    it(" checks if 'anna' is a palindrome, should return TRUE", () => {
+      assert.isTrue(palindrome('anna'));
     })
 
-    it(' tests if kayak is a palindrome (should return true)', () => {
-      assert.isTrue(palindrome('kayak'));
-    })
-
-    it(' tests if madam is a palindrome (should return true)', () => {
+    it(" checks if 'madam' is a palindrome, should return TRUE", () => {
       assert.isTrue(palindrome('madam'));
     })
   })
-  
-  describe('palidrome edge cases', () => {
-    it(' tests if "taco cat" is a palindrome (should return true)', () => {
-      assert.isTrue(palindrome('taco cat'));
-    })
-
-    it(' tests if "nurses run" is a palindrome (should return true)', () => {
+  describe(' -- Edge Case Tests --', () => {
+    it(" checks if 'nurses run' is a palindrome, should return TRUE", () => {
       assert.isTrue(palindrome('nurses run'));
     })
-
-    it(' tests if "a man a plan a canal panama" is a palindrome (should return true)', () => {
+    it(" checks if 'a man a plan a canal panama' is a palindrome, should return TRUE", () => {
       assert.isTrue(palindrome('a man a plan a canal panama'));
     })
-
   })
+
 })
