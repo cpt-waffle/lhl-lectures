@@ -5,13 +5,12 @@
 - Static Pages/Pages Controller
 - namespace vs nested resources
 
-### 3 magical words
 
-- Model
-- View
-- Controller
+## important stuff to look into
 
-Entrypoint file for your project
 
-/config/routes.rb
+config/routes.rb
 
+Models
+Views
+controllers
