@@ -3,26 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cats</title>
+  <title>Cats</title>
+
 </head>
 <body>
-    <h1>Cats</h1>
-    <!-- for education purposes only -->
-    <% const array = [1,2,3,4]; %> 
-    <% const obj  = {a:1, b:2 ,c:3} %>
+  <h1>Look at all these Cats!</h1>
+  <%= JSON.stringify(catsDatabase) %>
+  <% for (let key in catsDatabase) { %>
+    <img src="<%= catsDatabase[key] %>" style="width: 200px"/>
+  <% } %>
 
-    <%= JSON.stringify(cats) %>
-
-
-    <% if (false) { %>
-      <h2>something was truthy </h2>
-    <% } %>
-
-
-    <ul>
-    <% for (let elem in cats) { %>
-      <li><img src="<%= cats[elem] %>" style="width: 250px"/></li>
-    <% } %>
-    </ul>
-</body>
+  </body>
 </html>

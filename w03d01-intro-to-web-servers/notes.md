@@ -7,42 +7,56 @@
 - GET Requests
 - EJS
 - server side rendering (dynamic pages)
-
-## BONUS
-
-- POST requests
-- saving data to your server
+- if we have time BONUS: POST Requests 
 
 
-### TCP
 
-IP Address
-PORTs
+### TCP 
 
-### Connections 
+We needed to know the address (IP and port)
+we attempted to connect to the server
 
-You established a connection, by providing the IP, and PORT
-(server allowd you to connect)
+the server accepted (if it was online...)
 
-messages ------------------------------------------->
-<--------------------------------------------------- messages
-messages ------------------------------------------->
-messages ------------------------------------------->
-messages ------------------------------------------->
-<--------------------------------------------------- messages
-<--------------------------------------------------- messages
-<--------------------------------------------------- messages
-messages ------------------------------------------->
-messages ------------------------------------------->
-<--------------------------------------------------- messages
+--------------------------------------------->
+--------------------------------------------->
+--------------------------------------------->
+--------------------------------------------->
+--------------------------------------------->
+<---------------------------------------------
+<---------------------------------------------
+<---------------------------------------------
+<---------------------------------------------
+--------------------------------------------->
+<---------------------------------------------
+--------------------------------------------->
+<---------------------------------------------
+
+
+I want to disconnect 
+
+The server would turn off / crash 
 
 
 ### HTTP
 
-You established a connection, by providing the IP, and PORT (DHCP)
-(server allowd you to connect)
+Hyper Text Transfer Protocol 
 
--------------------------__REQ ------------------------>
-<------------------------__RES -------------------------
 
-CONNECTION OVER
+We needed to know the address (IP and port) of the website (strings and finds them the corresponding adress)
+
+We attempt to connect to the server 
+
+we are connected:
+
+----------------REQUEST----------------------->, your ip, what os you are using, what browser, have you been there before?, what types of files do you accept?
+
+<---------------RESPONSE----------------------- what did you request, will be send back, status code, 
+
+1xx - please wait server is doing something
+2xx - everything is ok 
+3xx - redirections
+4xx - 404 --page not found 
+5xx - server error :(
+
+connection is terminated

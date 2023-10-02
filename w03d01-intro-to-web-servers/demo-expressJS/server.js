@@ -1,7 +1,12 @@
 const express = require('express');
-const app = express();
 
-app.set('view engine', 'ejs');
+const app = express();
+let number = 0;
+
+urlsDatabase = {
+  'f92345f': 'www.google.ca',
+  '93Dx452': 'www.news.ca'
+}
 
 const catsDatabase = {
   1: 'https://i.kym-cdn.com/photos/images/newsfeed/001/394/314/c62.jpg' ,
@@ -10,72 +15,41 @@ const catsDatabase = {
   4: 'https://i.imgur.com/drvA0ew.jpg'
 }
 
-let num = 5;
+app.set('view engine', 'ejs');
 
-const urlsDatabase = {
-  fj0345: 'www.google.ca',
-  esfjils: 'www.reddit.com',
-}
-
-
-// MAGICAL LINE
-app.use(express.urlencoded({extended: true}));
-
-
-
-app.get('/', (req, res) => {
-  console.log("GET /");
-  // res.send('welcome to my homepage!');
-  res.render('home');
-})
-
-app.get('/hello', (req, res) => {
-  console.log("GET /hello");
-  res.send(`
-    <html>
-      <head>
-      </head>
-      <body>
-        <h1>Good Morning Everybody</h1>
-        <p> this is just a paragraph </p>
-        <h4> I want to sleep :( </h4>
-      </body>
-    </html>
-  `);
-})
+app.get('/', (request, response) => {
+  console.log('GET /');
+  response.render('homepage');
+});
 
 app.get('/hi', (req, res) => {
   console.log('GET /hi');
-  res.send('hi');
+
+  res.send('hello!');
 })
 
-app.get('/banana', (req,res) => {
+app.get('/banana', (req, res) => {
   console.log('GET /banana');
-  return res.send('🍌');
+  number++;
+  res.render('banana', {number, PI: 3.14});
 })
 
 app.get('/cats', (req, res) => {
-  // "<%="
-
-  // "<% "
-  console.log("GET /cats");
-  const templateVars = {cats: catsDatabase};
-  templateVars.cats = catsDatabase;
-  
+  console.log('GET /cats');
+  const templateVars = {catsDatabase};
   res.render('cats', templateVars);
 })
 
-app.get('/cats/new', (req, res) => {
-  res.render('cats_create');
+app.get('/cats/:id', (req, res) => {
+  console.log("GET /CATS/:id");
+  console.log(req.params.id);
+  const picture = catsDatabase[req.params.id];
+  console.log(picture);
+  const templateVars = {picture};
+  res.render('cats_specific', templateVars);
 })
 
-app.post('/cats', (req, res) => {
-  console.log("POST /cats");
-  console.log(req.body);
-  catsDatabase[num] = req.body.cat_img;
-  num++;
-  res.redirect('/cats');
-});
+
 
 
 app.listen(8080, () => console.log(`Server is listening on port 8080`));
