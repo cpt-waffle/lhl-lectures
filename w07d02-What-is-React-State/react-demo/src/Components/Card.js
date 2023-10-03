@@ -1,64 +1,68 @@
 import './Card.css';
-import {useState} from 'react';
+import { useState } from 'react';  
 
-//  React State 
+// let likes = 1;
+
+// react state hook
+// --- just a variable, a way store data
+// any data, arrays, objects, numbers, booleans, strings, 
+// if you need to change the value/variable, you must do it by following the react rule 
+// -- use the function that is provided to change the value
 
 const Card = (props) => {
+  // the function is provided to CHANGE the value of the state
+  // you MUST USE THE PROVIDED FUNCTION TO CHANGE STATE
+  // x - you MUST NEVER change state directly
+  // x - whatisthis[0] = 3  <--------- WRONG DONT DO THIS
 
-  // [ ]
-  // the first value of the array is the value we pass as the parameter
-  const [num, setNum] = useState(2); // returns[v, f()] 
+  // array destruction 
+  // assign values from an array to variables in a one line
+  const [likes, setLikes] = useState(2);
   const [dislikes, setDislikes] = useState(1);
-  // const num = whatAreYou[0];
-  // const setNum = whatAreYou[1];
-  // the second value is a function that changes the first value <---
-  // when you use the function to change the state...
+  const [show, toggleShow] = useState(true);
 
-  // changeState = v => {
-    // state = v;
-    // reRenderMyComponentButEfficiently()
-  // }
-
-
-  const someoneClickedMyButton = () => {
-    // num = 
-    // ^--- NEVER CHANGE STATE DIRECTLY
-    setNum(num + 1);
-    props.addOne();
-    console.log('pressed!');
+  // Virtual Dom =  {}
+  // event listeners
+  const bananaFunction = () => {
+    setLikes(likes + 1); // async
+    props.setNum(props.num + 1);
   }
 
   const onDislikeClick = () => {
-    props.addOne();
-    setDislikes(dislikes + 1);
+    props.setNum(props.num + 1);
+
+    setDislikes(dislikes + 1); // async
   }
-  // Virtual DOM
 
-  // const a = <h1>Hello World</h1>;
-
-  // console.log(a);
-
-  // const virtualDOM = {
-  //   img0238940925: { children: '', src: '', className: ''},
-  //   h1904350945: {},
-  //   // ...              3
-  //   h42349234: {text: num}
-  // }
-
-  // DOM 
-  console.log("RE-Render!");
+  const onToggle = () => {
+    props.setNum(props.num + 1);
+    toggleShow(!show);
+  }
 
   return (
-    <div className="card">
-      <img className="card--img" src="https://i.redd.it/7k24xova0ya11.jpg"/>
-      <h1 className="card--name">Mr Meows {props.num}</h1>
-      <h3 className="card--title">Lead Team Designer</h3>
-      <button onClick={someoneClickedMyButton}>Like</button>
-      <h4>{num}</h4>
-      <button onClick={onDislikeClick}>Dislikes</button>
-      <h4>{dislikes}</h4>
+    <div>
+      <h2>{props.num}</h2>
+      {show ? (
+        <div className="card">
+          <img onMouseEnter ={() => console.log('drag enter')} className="card--img" src="https://i.redd.it/7k24xova0ya11.jpg"/>
+          <h1 className="card--name">Mr Meows</h1>
+          <h3 className="card--title">Lead Team Designer</h3>
+          <button onClick={bananaFunction}>
+            Like
+          </button>
+          <h4>{likes}</h4>
+          <button onClick={onDislikeClick}>
+            Dislikes
+          </button>
+          <h4>{dislikes}</h4>
+          <button onClick={onToggle}>Hide</button>
+        </div>
+      ) : (
+      <button onClick={onToggle}>Show</button>
+      )}
     </div>
-  )
+    )
+
 }
 
 export default Card;
