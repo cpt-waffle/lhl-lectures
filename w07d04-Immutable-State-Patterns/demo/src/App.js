@@ -1,51 +1,58 @@
 import './App.css';
-import { useState } from 'react';
-import Task from './components/Task';
-import TaskList from './components/TaskList';
+import TaskList from './Components/TaskList';
+import {useState} from 'react';
 
-let x = 5;
+  let id = 5;
 
 function App() {
+
+  const mockTask = {id: 1, name: "wash the dishes"};
+
   const [tasks, setTasks] = useState([
-    {id: 1, task: ' have a meeting '}, // 0
-    {id: 2, task: ' check on finals'}, // 1
-    {id: 3, task: ' go to physio'},    // 2
-    {id: 4, task: ' make a sandwitch'} // 3
-  ]);
-
-  // const tasksCopy = [...tasks];
-  // tasksCopy[0] = {... tasksCopy[0], task: 'eat some food'}
-  
-
-  // for (let taskObj of tasks) {
-  //   tasksHTML.push(<Task name={taskObj.task}/>);
-  // }
-
-  const tasksHTML = tasks.map(taskObj => <Task key={taskObj.id} name={taskObj.task}/>)
+    {id: 1, name: ' have a meeting '}, // 0
+    {id: 2, name: ' check on finals'}, // 1
+    {id: 3, name: ' go to physio'},    // 2
+    {id: 4, name: ' make a sandwitch'} // 3
+  ]); // reference passed 
 
 
-  const addSwimming = () => {
-    const newTask = {id: x, task: 'Swimming'};
-    // immutability
-    // make a copy
-    const tasksCopy = [...tasks];
-    // change the copy
-    tasksCopy.push(newTask);
-    // set the copy to the original
-    setTasks(tasksCopy);
-    x++;
-    // DO NOT CHANGE THE ORIGINAL DIRECTLY!!!!!
+  const onSwimButton = () => {
+    const newTask = {id: id, name: 'go swimming'};
+    // IMMUTABILITY
+    // const tasksCopy = [];
+    // for (const task of tasks) {
+    //   tasksCopy.push(task);
+    // }
+    // const tasksCopy = [...tasks, newTask];
+    // VIRTUAL DOM = {
 
+    // }
+
+    
+    // never change a value directly
+    // always make a copy and change the copy
+    setTasks(prev => {
+      return [...prev, newTask]
+    }); // setState for new task
+
+    // the memory address/reference, access the array, and 1 more value
+    // setTasks = (val=tasks) => {
+    //   if (val !== tasks) {
+    //     changeState(val)
+    //   }
+    // }
+
+
+    console.log(tasks);
+    id++;
   }
-
-
 
   return (
 
     <div className="App">
       <h1>W7D4 - Immutable Update Patterns!</h1>
       <TaskList tasks={tasks}/>
-      <button onClick={addSwimming}>Add Swimming!!!</button>
+      <button onClick={onSwimButton}>Go Swimming</button>
     </div>
   );
 }

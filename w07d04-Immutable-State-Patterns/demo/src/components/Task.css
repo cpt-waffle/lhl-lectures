@@ -1,9 +1,0 @@
-.task {
-  background-color: cornflowerblue;
-  padding: 10px;
-  display: flex;
-}
-
-.task:hover {
-  background-color: lightblue;
-}
