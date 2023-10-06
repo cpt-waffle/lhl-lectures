@@ -1,20 +1,23 @@
-import { useState } from "react";
 
-const useColor = (array) => {
+import { useState} from 'react';
+
+const useColor = colors => {
   const [index, setIndex] = useState(0);
 
-  const next = () => {
-    if (index < array.length -1)
-    setIndex(prev => prev + 1);
+  const colorsArray = colors; 
+
+  const incrementIndex = () => {
+    setIndex(prev => (prev + 1) % (colorsArray.length));
   }
 
-  const back = () => {
-    if (index > 0)
+  const decrementIndex = () => {
+    if (index > 0) {
       setIndex(prev => prev - 1);
-
+    }
   }
 
-  return {currentColor: array[index], next, back}
+
+  return { colorsArray, selectedColor: colors[index], incrementIndex, decrementIndex};
 }
 
 export default useColor;

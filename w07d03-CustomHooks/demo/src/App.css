@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+.walk {
+  background-color: green;
+  color: white;
+}
+
+.stop {
+  background-color: red;
+  color: white;
+}
+
+.img {
+  width: 120px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.color {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  border: 1px solid grey;
+  width: 400px;
+}
