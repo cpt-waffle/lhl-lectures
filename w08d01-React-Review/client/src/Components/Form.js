@@ -1,18 +1,28 @@
-import useForm from "../hooks/useForm";
+import useForm from '../hooks/useForm';
 
 const Form = props => {
-  const {input, onChange} = useForm();
 
-  const onFormSubmit = (evt) => {
+  const img = useForm();
+  const title = useForm();
+  const subtitle = useForm();
+
+  const onSubmit = evt => {
     evt.preventDefault();
-    console.log('form submission function!');
-    props.addTask(input);
+    props.addPoster(img.val, title.val, subtitle.val);
   }
 
+  console.log(img, title, subtitle)
+
+
   return (
-    <form onSubmit={onFormSubmit}>
-      <input type="text" name="newTask" value={input} onChange={onChange}/>
-      <button>Add Task</button>
+    <form onSubmit={onSubmit}>
+      <h1>Add a new poster here!</h1>
+
+      <p>Img: <input type="text" name="img" value={img.val} onChange={img.onChangeVal}/></p>
+      <p>Title: <input type="text" name="title" value={title.val} onChange={title.onChangeVal}/></p>
+      <p>SubTitle: <input type="text" name="subtitle" value={subtitle.val} onChange={subtitle.onChangeVal}/></p>
+      <br/>
+      <button>Submit!</button>
     </form>
   )
 }

@@ -1,13 +1,15 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
 const useForm = () => {
-  const [input, setInput] = useState('buy milk');
+  const [val, setVal] = useState('');
 
-  const onChange = (evt) => {
-    setInput(evt.target.value);
-  }
+  const onChangeVal = evt => {
+    setVal(evt.target.value);
+  } 
 
-  return { input, onChange};
+  return {val, onChangeVal}
+
 }
+
 
 export default useForm;

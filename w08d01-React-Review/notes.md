@@ -1,8 +1,14 @@
 #### React Review
 
-- Components   
+- Components   X
 - API          
-- useEffect    
+- useEffect   
 - State        
 - Props        
 - Custom Hooks 
+- useReducer
+
+
+### Components
+
+is a UI of an application
