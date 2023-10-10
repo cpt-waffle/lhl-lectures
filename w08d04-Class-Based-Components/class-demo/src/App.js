@@ -1,20 +1,19 @@
-import React from 'react';
 import './App.css';
-import Card from './components/Card';
+import Card from './Components/Card';
+import Title from './Components/Title';
+
+const img = 'https://i.pinimg.com/originals/59/54/b4/5954b408c66525ad932faa693a647e3f.jpg'
+
 
 function App() {
-
-  const img = "https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?auto=compress&fit=scale&fm=pjpg&h=350&w=700"
-  const name = 'Mr Meows';
-  const title = 'Senior Nap Engineer';
-
   return (
     <div className="App">
       <h1>Class Demo</h1>
+      <Title/>
       <Card
         img={img}
-        name={name}
-        title={title}
+        title={'Senior Nap Engineer'}
+        name={'Mr Meows'}
       />
     </div>
   );
