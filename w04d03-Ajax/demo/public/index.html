@@ -9,20 +9,20 @@
   <script
   src="https://code.jquery.com/jquery-3.7.0.min.js"
   integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous" defer></script>
   <meta charset="UTF-8">
-  <script src="/scripts/app.js"></script>
+  <script src="/scripts/app.js" defer></script>
 </head>
 <body>
   <h2>Ajax</h2>
 
-  <form id="search-form">
-    <input type="text" name="str"/>
-    <button>Search Show</button>
-  </form>
-
-  <div id="shows">
-
-  </div>
+<form class="movie--search">
+  <h2>Search any movie or show!</h2>
+  <input type="text" name="searchString"/>
+  <button>Search</button>
+</form>
+<div id="movies-container">
+  
+</div>
 </body>
 </html>

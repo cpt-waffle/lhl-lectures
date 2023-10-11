@@ -3,26 +3,29 @@ body {
   color: white;
 }
 
-
-.show {
-  padding: 20px;
-  background-color: #131c2a;
+.movie {
   display: flex;
-  margin-bottom: 10px;
+  padding: 25px;
+  background-color: #090923;
+  margin: 20px;
 }
 
-.show--img {
-  width: 165px;
+.movie:hover {
+  background-color: #0e244c;
 }
 
-.show--desc {
-  padding-left: 35px;
+.movie--img {
+  width: 225px;
+  height: 300px;
+  object-fit: cover;
 }
 
-#search-form {
-  margin: 30px;
-  display: flex;
-  justify-content: center;
-  background-color: palevioletred;
+.movie--desc {
+  margin-left: 10px;
+}
+
+.movie--search {
+  text-align: center;
   padding: 40px;
+  background-color: tomato;
 }

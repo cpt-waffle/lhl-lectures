@@ -5,48 +5,38 @@
 - Building an App with an API 
 
 
-### Server Side Rendering!
-
-- TinyApp
+### Client and Server Side Rendering
 
 
-Client ------------------------- REQ --------------------------->  SERVER
-                                                               does logic 
-<------------------------------- RES ----------------------------
+TinyApp --- server side rendering application
 
-EJS  (templateVars)
-Just before the server sends the page out, it builds it in HTML
-<%= %>
-<% %>
-
-The server had to build the HTML page...
-
-the browser only understands
-
-- HTML
-- JS
-- CSS
-
-### Client Side Rendering
-
-The server still sends out HTML, JS, CSS but only a bare minimum
+                         GET /URLS
+Client ---------------------------REQ-------------------> Server
+                                                            urls.ejs <%= %>
+                                                            <conversion>
+                                                            urls.html
+    <-----------------------------RES----------------------
 
 
-The client may ask for more data, then the server gives it that data, and the client adds the data 
-to the page by themselves
+## Client Side Rendering
 
-With client side rendering, the server has less processing to do.
+The server sends out a layout, of HTML, JS, CSS (bare minimum)
 
-for the client its beneficial because less data needs to be re-loaded, making it faster
+once the HTML is finished loading on the client, the JS file will ask for a request from a server,
+and the server will deliver JSON object/array to the client
 
-### Ajax was created/thought of by Microsoft
+the client will then use the JS file to manually add the JSON object/array to the HTML
+
+### AJAX 
+
+is a way to ask for data, from the server to the client.  The client does not refresh the page. 
+
+Microsoft. 
+
+### Drawbacks 
+
+-- sometimes, the google/bing/search engines, bots may not be able to understand what is your site about
 
 
 
-#### Disclaimer
 
-the AJAX request, is actually pretty easy to do,
-
-BUT
-
-doing all the work to make the data appear, is hard...
