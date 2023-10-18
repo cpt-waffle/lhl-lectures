@@ -1,77 +1,79 @@
-const string = `We're whalers on the moon,
+const string = `🍌🍌We're whalers on the moon,
 We carry a harpoon,
-For they ain't no whales
+For they 🍌ain't no whales
 So we tell tall tales
-And sing our whaling tune.`;
+And sing our whaling tune.🍌🍌`;
 
 
+// 
 // how many letter 'A's are in this sentance
-// Write a function that takes in a string, and counts how many letter "A" are in this string
+// Write a function that takes in a string,
+//and counts how many letter "A" are in this string
 
 const countA = function(str) {
   // steps to take 
 
-  // make a counter for letter a
+  // add a counter to record number of A's
   let aCounter = 0;
-  const strLowerCase = str.toLowerCase();
-
-  // loop throughe string (for of)
-  for (let letter of strLowerCase) {
-    // if we see a count a
+  // convert everything to lowerCase first
+  const lowerCaseString = str.toLowerCase();
+  // iterate through the string (loop)
+  // what kind of loop should we use? FOR OF
+  for (let letter of lowerCaseString) {
+    // if a then iterate the counter
     if (letter === 'a') {
-      aCounter++
+      // aCounter = aCounter + 1;
+      aCounter++;
     }
   }
-
-
-  // return the aCounter
   return aCounter;
+
 }
 
 // console.log(countA(string));
+
+
+
+
+
 //////////////////////////////////////////////////////////////
 
 // Write a function called countVowels that takes in a string, 
 // that counts ALL the vowels in a given string
 
+
+
 const countVowels = function(str) {
-  // a e i o u y
-  // steps to take 
-  console.log('countVowels');
-  // make a counter for letter a
-  const vowels = {
-    a: 0,
-    e: 0,
-    i: 0,
-    o: 0,
-    u: 0,
-    y: 0,
-  }
 
-  const strLowerCase = str.toLowerCase();
-
-  // loop throughe string (for of)
-  for (let letter of strLowerCase) {
-    // if we see a count a
-
+  const result = {a: 0, e: 0, i: 0, o: 0, u: 0, y: 0 };
+  // convert everything to lowerCase first
+  const lowerCaseString = str.toLowerCase();
+  // iterate through the string (loop)
+  // what kind of loop should we use? FOR OF
+  for (let letter of lowerCaseString) {
+    // if a then iterate the counter
     if (letter === 'a') {
-      vowels.a++;
+      // aCounter = aCounter + 1;
+      result.a++;
     } else if (letter === 'e') {
-      vowels.e++;
+      // aCounter = aCounter + 1;
+      result.e++;
     } else if (letter === 'i') {
-      vowels.i++;
+      // aCounter = aCounter + 1;
+      result.i++;
     } else if (letter === 'o') {
-      vowels.o++;
+      // aCounter = aCounter + 1;
+      result.o++;
     } else if (letter === 'u') {
-      vowels.u++;
+      // aCounter = aCounter + 1;
+      result.u++;
     } else if (letter === 'y') {
-      vowels.y++; 
+      // aCounter = aCounter + 1;
+      result.y++;
     }
   }
-
-
-  // return the aCounter
-  return vowels;
+  // return an array or object 
+  return result;
 }
 
 
@@ -86,34 +88,29 @@ const countVowels = function(str) {
 
 
 
+
 // countLetters
 // count every letter of a string..............
 
 const countLetters = function(str) {
- // a e i o u y
-  // steps to take 
-  console.log('countLetters');
-  // make a counter for letter a
-  const allCharacters = {}
-
-  const strLowerCase = str.toLowerCase();
-
-  // loop throughe string (for of)
-  for (let letter of strLowerCase) {
-    // if we see a letter we make a key for it with value 1
-    if (allCharacters[letter] === undefined) {
-      allCharacters[letter] = 1;
+  const result = {};
+  // convert everything to lowerCase first
+  const lowerCaseString = str.toLowerCase();
+  // iterate through the string (loop)
+  // what kind of loop should we use? FOR OF
+  for (let letter of lowerCaseString) {
+    // if (the letter we are looping through is not in our object)
+    if (result[letter] === undefined) {
+      result[letter] = 1;
     } else {
-      allCharacters[letter]++;
+      result[letter]++;
     }
 
   }
-
-
-  // return the aCounter
-  return allCharacters;
-
+  // return an array or object 
+  return result;
 }
+
 
 console.log(countLetters(string));
 
