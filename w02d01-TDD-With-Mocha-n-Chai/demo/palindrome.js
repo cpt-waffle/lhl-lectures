@@ -3,18 +3,20 @@
 // backwards, if it is, return `true`, 
 // if it's not return `false`.
 
+// abba ===> abba
+// hello ==> olleh
+
 const palindrome = str => {
-  // code goes here...
-  // const strNoSpace = str.replace(/\s/g, '' ); 
-  const strNoSpace = str.replaceAll(' ', '');
-  // take a string, reverse it
-  const strArr = strNoSpace.split('');
-  const reversedArr = strArr.reverse();
-  const reversedStr = reversedArr.join("");
-  // check if a string is the same string backwards 
 
-  return strNoSpace === reversedStr;
+  const strNoSpaces = str.replaceAll(' ', '');
+  const array = strNoSpaces.split('');
+  const arrayReversed = array.reverse();
+  const strReversed = arrayReversed.join('');
 
+  return strNoSpaces === strReversed;
 }
 
+
 module.exports = palindrome;
+// what you put into module.exports, can be used by other files 
+// as long as the file gets required/imported

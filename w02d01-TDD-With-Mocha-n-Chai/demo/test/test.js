@@ -1,34 +1,37 @@
 const palindrome = require('../palindrome');
 const assert = require('chai').assert;
 
-describe('Palindrome Tests', () => {
-  describe('-- Basic Tests --', () => {
-    it(" checks if 'hello' is NOT a palindrome, should return false", () => {
+describe('Palindrome Functions Tests', () => {
+  describe('regular tests', () => {
+    it('checks if abba is a palindrome', () => {
+      assert.isTrue(palindrome('abba'));
+    })
+
+    it('checks if hello is NOT palindrome', () => {
       assert.isFalse(palindrome('hello'));
     })
 
-    it(" checks if 'racecar' is a palindrome, should return TRUE", () => {
-      assert.isTrue(palindrome('racecar'));
+    it('checks if kayak is a palindrome', () => {
+      assert.isTrue(palindrome('kayak'));
     })
 
-    it(" checks if 'level' is a palindrome, should return TRUE", () => {
-      assert.isTrue(palindrome('level'));
+    it('checks if deified is a palindrome', () => {
+      assert.isTrue(palindrome('deified'));
     })
 
-    it(" checks if 'anna' is a palindrome, should return TRUE", () => {
-      assert.isTrue(palindrome('anna'));
+    it('checks if mom is a palindrome', () => {
+      assert.isTrue(palindrome('mom'));
     })
-
-    it(" checks if 'madam' is a palindrome, should return TRUE", () => {
-      assert.isTrue(palindrome('madam'));
-    })
+  
   })
-  describe(' -- Edge Case Tests --', () => {
-    it(" checks if 'nurses run' is a palindrome, should return TRUE", () => {
-      assert.isTrue(palindrome('nurses run'));
-    })
-    it(" checks if 'a man a plan a canal panama' is a palindrome, should return TRUE", () => {
+
+  describe('edge cases tests', () => {
+
+    it('checks if a man a plan a canal panama is a palindrome', () => {
       assert.isTrue(palindrome('a man a plan a canal panama'));
+    })
+    it('checks if nurses run is a palindrome', () => {
+      assert.isTrue(palindrome('nurses run'));
     })
   })
 

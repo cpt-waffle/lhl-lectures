@@ -1,9 +1,12 @@
+
 const palindrome = require('./palindrome');
+const cowsay = require('cowsay');
+const assert = require('chai').assert;
 
-console.log('the return from palindrome require is....');
+console.log(assert);
 
-console.log(palindrome);
+console.log(palindrome('abba'));
+console.log("main.js");
 
-console.log(palindrome('racecar'))
 
-// console.log(module);
+console.log(cowsay.say({text: 'this is bananas!'}));

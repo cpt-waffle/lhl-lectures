@@ -1,50 +1,54 @@
 const palindrome = require('./palindrome');
 
-console.log("-- Tests --")
+console.log("----- Tests -----");
 
-// hello
+if (palindrome('abba') === true) {
+  console.log('PASSED: abba is a palidnrome');
+} else {
+  console.log("FAILED: abba should return TRUE, because it's a palindrome");
+}
+
+
 if (palindrome('hello') === false) {
-  console.log("PASSED: 'hello' is NOT a palindrome!!");
+  console.log('PASSED: hello is NOT a palidnrome');
 } else {
-  console.log("FAIL:  'hello' should FAIL :(");
+  console.log("FAILED: hello should return FALSE, because it's a palindrome");
 }
-// racecar
+
 if (palindrome('racecar') === true) {
-  console.log("PASSED: 'racecar' is a palindrome!!");
+  console.log('PASSED: racecar is a palidnrome');
 } else {
-  console.log("FAIL:  'racecar' should pass :(");
-}
-// level
-if (palindrome('level') === true) {
-  console.log("PASSED: 'level' is a palindrome!!");
-} else {
-  console.log("FAIL:  'level' should pass :(");
-}
-// anna
-if (palindrome('anna') === true) {
-  console.log("PASSED: 'anna' is a palindrome!!");
-} else {
-  console.log("FAIL:  'anna' should pass :(");
-}
-// madam
-if (palindrome('madam') === true) {
-  console.log("PASSED: 'madam' is a palindrome!!");
-} else {
-  console.log("FAIL:  'madam' should pass :(");
+  console.log("FAILED: racecar should return TRUE, because it's a palindrome");
 }
 
-console.log('-- Edge Case Tests -- ');
+if (palindrome('kayak') === true) {
+  console.log('PASSED: kayak is a palidnrome');
+} else {
+  console.log("FAILED: kayak should return TRUE, because it's a palindrome");
+}
 
-// a man a plan a canal panama
+if (palindrome('deified') === true) {
+  console.log('PASSED: deified is a palidnrome');
+} else {
+  console.log("FAILED: deified should return TRUE, because it's a palindrome");
+}
+
+if (palindrome('mom') === true) {
+  console.log('PASSED: mom is a palidnrome');
+} else {
+  console.log("FAILED: mom should return TRUE, because it's a palindrome");
+}
+
+console.log('------ Edge Cases Tests ----');
+
 if (palindrome('a man a plan a canal panama') === true) {
-  console.log("PASSED: 'a man a plan a canal panama' is a palindrome!!");
+  console.log('PASSED: "a man a plan a canal panama" is a palindrome');
 } else {
-  console.log("FAIL:  'a man a plan a canal panama' should pass :(");
+  console.log("FAILED: 'a man a plan a canal panama' should return TRUE, because it's a palindrome");
 }
 
-// nurses run
 if (palindrome('nurses run') === true) {
-  console.log("PASSED: 'nurses run' is a palindrome!!");
+  console.log('PASSED: "nurses run" is a palindrome');
 } else {
-  console.log("FAIL:  'nurses run' should pass :(");
+  console.log("FAILED: 'nurses run' should return TRUE, because it's a palindrome");
 }

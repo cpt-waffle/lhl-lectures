@@ -6,27 +6,30 @@
 - Mocha and Chai talk
 - Testing With Mocha Chai
 
+### Why do we even want to write test code ?
 
 
-### Why do we want to test our code? Why do we even care about testing?
+- saves time 
+- writting actual code easier 
+- debugging a bit easier
+- documentation 
+- make code predictable
 
-- makes code predictible
-- automated testing helps with code grwoth
-- to make sure our logic transate dto code correctly
-- readability 
-- save time / save money $
+### Does it really save time 
 
-### Does Testing Save Time ?
+Writting tests means that you write more code:
 
-in a long run YES, in a short run, not really :(
+and more code, means you will use more time
+
+each test can be ran in a couple of seconds or less than a second
 
 
-### TDD -  Test Driven Development
+### TDD - Test Driven Development
 
-- you have a feature that you need to implement
-- you want to write enough code to compile the feature ( the feature will crash)
-- you write your tests
-- all tests fail :(
-- write your feature and makes sure it starts passing each test
+- you have to write a feature for implementation
+- you write the testing code first, with all expect results, and outputs and inputs, etc
+- you write alittle bit of your feature just so it can run the tests
+- every test should fail :(
+- write your feature to start passing each and every test
 - all tests pass :)
-
+- feature is complete !
