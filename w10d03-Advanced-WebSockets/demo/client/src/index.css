@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.messages {
+  width: 700px;
+  height: 400px;
+  border: 2px solid green;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.flex {
+  display: flex;
+}
