@@ -8,113 +8,102 @@
 - (BONUS: you should be able to connect to my computer :) )
 - demo
 
-### What is Networking
 
-- connecting mulitple computers
+### What is Networking ?
+
 - making connections
-- connecting to somebody in a web like fashion
-- to add/share info through the web 
+- transfering data 
+- communication between things 
+
+### How to Communicate between 2 people ?
+
+See a person, or know where they are
+Approach the person
+Greet -- have a way to say who you are and ask if they want to talk or have a conversation 
+exchange of words on information
+
+- when I speak, the other person listens
+- when they speak, i listen
+- no talking over each other
+- no screaming
+- no nonstop banter
+- if we did not understand something, we can ask to reclarify to get a better sense
+of the topic
+
+to end a convo:
+say your goodbyes, "Hey i gotta go, thank you" leave
+
+if you gotta end a convo very abruptly:
+walk away...
+
+### Rules of Communication between Two Computers
+### Transmission Control Protocol
+### TCP 
+
+Before connecting to a computer, we must know where they are located, 
+and thier address 
+
+Attempting to connect:
+
+We give our credentials to the the computer, and see if we are allowed to connect
+
+if connection gets established we can messages(payloads) between each computer
+
+Computer A --------------------------> Computer B
+Computer B <-------------------------- Computer A
+Computer A --------------------------> Computer B
+Computer A --------------------------> Computer B
+Computer A --------------------------> Computer B
+Computer A --------------------------> Computer B
+Computer B <-------------------------- Computer A
+Computer B <-------------------------- Computer A
+Computer B <-------------------------- Computer A
+Computer B <-------------------------- Computer A
+Computer A --------------------------> Computer B
+Computer B <-------------------------- Computer A
+
+If we want disconnect, we fire an event to tell the other computer that we are
+disconnecting.
+
+if connection breaks, the other computer will realize they are no longer connected
+because there has been no response for quite some time, and cannot reach the other 
+computer.
 
 
-### How do we As People Communicate with Each other
+### HTTP 
+### HyperText Transfer Protocol
 
-Person A
+Before connecting to a computer, we must know where they are located, 
+and thier address 
 
-wants to communicate with person:
+Attempting to connect:
 
-Person B
+We give our credentials to the the computer, and see if we are allowed to connect
 
-Find where Person B is (location)
-Walk up to Person B
-Say Hi!
-(social rules -- follow them)
-Person B can say im busy and now convo is over :(
+if connection gets established we can messages(payloads) between each computer
 
-Person B can say Hi back --->
+A Computer once connected, can only send 1 message called a REQUEST
 
-Person A speaks 
-Person B listens
-Person B speaks 
-Person A listens
-Person A speaks 
-Person A speaks 
-Person A speaks 
-Person B listens
-Person B speaks 
-Person B speaks 
-Person B speaks 
-Person B speaks 
-Person B speaks 
-Person B speaks 
-Person A listens
+-----------------------------------------------> REQ
 
-to exit a convo we should follow these rules:
+The Computer that we are connected to can only send one message, and its called RESPONSE
 
-- say "bye i gotta go" (good finished convo)
-- turn around and walk away abrupt finished convo)
+<----------------------------------------------- RES
 
 
-### TCP - Transmission Control Protocol
-
-rules that the computers follow to connect with each other
-
-Computer A 
-Computer B
-
-Computer A must approach computer B by knowing where it is
-provide an address (IPs and PORTs)
-
-Computer A attempts to connect with Computer B by presenting its credentials
-
-"Hi Im Computer A, i'm at __________, these are my credentials ________, would you like to
-connect ?? "
-
-Computer B: "no"
-
-DISCONNECT
-
----------------
-
-Computer B: "yes"
-and now both computers are connected with each other
-
-Computer A can send messages 
-
-------------------- messages ---------------------->
-------------------- messages ---------------------->
-------------------- messages ---------------------->
-------------------- messages ---------------------->
-------------------- messages ---------------------->
-Computer B listens for those messages
-<------------------- messages ----------------------
-<------------------- messages ----------------------
-<------------------- messages ----------------------
-------------------- messages ---------------------->
-<------------------- messages ----------------------
-------------------- messages ---------------------->
-<------------------- messages ----------------------
-
-disconnect without saying anything (closing program, turning off computer, crash x_x)
-
-disconnect but tell comptuer B that you are leaving/disconnecting
+exchange has been done, disconnect
 
 
 
-### Terminology of Connecting 
+### Credentials 
 
-## IP
+IP 
 
-Local IP
- is an address thats given by your local area network to any device
+local IP
 
 Global IP
 
+PORTS
 
+Services 
 
-
-Networks
-
-
-Ports
-
-Servers
