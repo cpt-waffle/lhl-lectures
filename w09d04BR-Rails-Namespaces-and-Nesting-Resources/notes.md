@@ -6,11 +6,11 @@
 - namespace vs nested resources
 
 
-## important stuff to look into
+## The Important Stuff in Rails
+
+-- Model
+-- View 
+-- Controller
 
 
-config/routes.rb
-
-Models
-Views
-controllers
+starting file ---> config/routes.rb
