@@ -1,69 +1,78 @@
 import './App.css';
-import NavigationBar from './Components/NavigationBar';
+// const Navbar = require('./Components/Navbar');
+import Navbar from './Components/Navbar';
 import DemotivationalPoster from './Components/DemotivationalPoster';
 
+
+ // props
+ const demoObjects = [
+  {
+    id: 1,
+    title: 'Meme 1',
+    info: 'this is a meme',
+    img: 'https://hatrabbits.com/wp-content/uploads/2017/01/tafel-1.jpg',
+  },
+  {
+    id: 2,
+    title: 'Meme 2',
+    info: 'this is another meme2',
+    img: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
+  },
+  {
+    id: 3,
+    title: 'The freshest Meme',
+    info: 'Freshmaker',
+    img: 'https://png.pngitem.com/pimgs/s/49-497525_annoyed-peter-peter-family-guy-transparent-hd-png.png',
+  },
+]
+
+// main file
 function App() {
-  // Babel  ------------------> JS(X)  ---------> HTML and JS
-  // Webpack  ----------------> puts all packages together and bundles them up
-  // snowpack
-  // vite 
-  // You can build your entire application inside of App.js
-  
 
-  // rules of jsx 
+  const array = [];
 
-  // - (optional) you should return something to render 
-  // - one parent of html is required to encapsulate everything you will write
+  // for loops are not perfered in react at all :(
+  // forEach, map, reduce, filter, etc
+  // for (let poster of demoObjects) {
+  //   array.push(
+  //   <DemotivationalPoster
+  //     img={poster.img}
+  //     title={poster.title}
+  //     caption={poster.info} 
+  //   />
+  //   )
+  // }
 
- 
-
-  // props
-  const demoObjects = [
-    {
-      title: 'Meme 1',
-      info: 'this is a meme',
-      img: 'https://hatrabbits.com/wp-content/uploads/2017/01/tafel-1.jpg',
-    },
-    {
-      title: 'Meme 2',
-      info: 'this is another meme2',
-      img: 'https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg',
-    },
-    {
-      title: 'The freshest Meme',
-      info: 'Freshmaker',
-      img: 'https://png.pngitem.com/pimgs/s/49-497525_annoyed-peter-peter-family-guy-transparent-hd-png.png',
-    },
-  ]
-
-  const demoPosters = [];
-
-  for (let poster of demoObjects) {
-    demoPosters.push(<DemotivationalPoster 
-      title={poster.title} 
-      info={poster.info} 
-      img={poster.img}
-    />)
-  }
-
-  const demoPosters2 = demoObjects.map( (poster) => {
+  const array2 = demoObjects.map((poster) => {
     return <DemotivationalPoster 
-      title={poster.title} 
-      info={poster.info} 
       img={poster.img}
+      title={poster.title}
+      caption={poster.info}
+      key={poster.id}
     />
-  })
+  });
 
 
 
-  // arguments, parameters
   return (
-    <div>
-      <NavigationBar/>
-      {demoPosters2}
+    <div className="App">
+      <Navbar/>
+      {array2}
+      {/* <DemotivationalPoster 
+        title={'Realization'}
+        caption={'confusion at its finest!'}
+        img={'https://images.theconversation.com/files/38926/original/5cwx89t4-1389586191.jpg?ixlib=rb-1.1.0'}
+      />
+      <DemotivationalPoster/> */}
     </div>
-  )
+  );
 }
 
 export default App;
 
+// compiles all of this
+// back into
+// 3 files
+// HTML
+// JS
+// CSS

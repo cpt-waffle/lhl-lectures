@@ -1,11 +1,21 @@
 .poster {
-  background-color: black;
-  color: white;
-  padding: 20px;
-  width: 500px;
   text-align: center;
+  background-color: black;
+  width: 650px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
 }
 
 .poster--img {
-  width: 450px;
+  width: 600px;
+}
+
+
+.poster--title {
+
+}
+
+.poster--caption {
+
 }
