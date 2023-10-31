@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All the Memes</title>
+</head>
+<body>
+  <h1>Check out these old memes!</h1>
+  <a href="/memes/new"><button>Make a new Meme</button></a>
+  <% for (let meme in memes) {%>
+    <div>
+      <img src="<%= memes[meme] %>" style="width: 200px"/>
+      <a href="/memes/<%= meme %>">Click here to go to meme</a>
+    </div>
+  <% } %>
+</body>
+</html>
