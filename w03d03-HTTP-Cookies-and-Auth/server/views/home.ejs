@@ -6,14 +6,16 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Home Page - User Auth</h1>
-  <% if (email)  { %>
-      <h1>You are logged in as <%= email %> </h1>
-      <form method="POST" action="/logout">
-        <button>Logout</button>
-      </form>
-    <% } else { %>
-      <a href="/login">Click here to Login</a>
-    <% } %>
+  <h1>Welcome to my Homepage!</h1>
+  <% if (user) { %>
+    <p>you are logged in as <%= user.email %> </p>
+    <form method="POST" action="/logout">
+      <button>Logout</button>
+    </form>
+  <% } else { %>
+    <p>we will work on login/register today</p>
+    <a href="/login">Click here to Login</a>
+    <a href="/register">Click here to Register</a>
+  <% } %>
 </body>
 </html>
