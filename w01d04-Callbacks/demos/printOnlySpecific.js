@@ -1,29 +1,45 @@
 // write a function that takes an array as an argument.
 // then it prints out ONLY numbers from this array.
 const arr = [1,'two', 3, 'four', 5, 'six', 7, 'eight', 9, 'ten'];
-//           0,  1    2    3     4 
 
-const printOnlyNumbers = function(array) {
-  for (let element of array) {
-    if (typeof element === 'number') {
-      console.log(element);
+// make a function
+// the function will take in the parameter
+const printNumbers = function(array) {
+  // loop thorugh the array passed in
+  for (let value of array) {
+    // if the current element is a number we print
+    if (typeof value === 'number') {
+      console.log(value);
     }
+    // if not number we skip
   }
 }
 
-printOnlyNumbers(arr);
+// for (let i = 0; i < array.length - 1; i++);
+// for (let index in array)  -----> loops through only the index
+// for (let value of array)  ----> the values of the array
+
+
+
+
+printNumbers(arr);
 
 
 
 // write a function that takes an array as an argument.
 // then it prints out ONLY strings from this array.
 
-const printOnlyStrings = function(array) {
-  for (let element of array) {
-    if (typeof element === 'string') {
-      console.log(element);
+// make a function
+// the function will take in the parameter
+const printStrings = function(array) {
+  // loop thorugh the array passed in
+  for (let value of array) {
+    // if the current element is a number we print
+    if (typeof value === 'string') {   //   <-----------
+      console.log(value);
     }
+    // if not number we skip
   }
 }
 
-printOnlyStrings(arr);
+printStrings(arr);

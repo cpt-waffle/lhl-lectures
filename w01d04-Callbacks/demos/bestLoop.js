@@ -1,35 +1,26 @@
 // make a function that loops through the array
 // and also takes a callback to do anything we want with every element of the array
 
-// const bestLoop = function () { ... }
 
 
-const bestLoop = (arr, cb) => {
-  for (let index in arr) {
-    cb(arr[index], index);
+// make a function called best loop, 2 arguments (array and cb)
+
+const bestLoop = (array, cb) => {
+  for (let value of array) {
+    // every element needs to be called with callback so that the end user decides what to do with 
+    cb(value);
   }
 }
 
+const array = [1,2,3,4,5,6,7,8,9,10];
 
-bestLoop([1,2,3,4,5,6,7,8,9,10], num => console.log(num));
+const arr2 = [];
 
-let result = 0;
-bestLoop([1,2,3,4,5,6,7,8,9,10], num => {
-  result = result + num;
-})
-console.log(result);
-
-bestLoop([1,2,3,4,5,6,7,8,9,10], (num, i) => {
-  console.log(" value is: ", num);
-  console.log(" index is: ", i);
-  console.log("-----------");
+bestLoop(array, (value) => {
+  console.log(value * 3);
+  if (value % 2)
+    arr2.push(value);
 })
 
-const evenIndex = [];
-
-bestLoop([1,2,3,4,5,6,7,8,9,10], (num, i) => {
-  if (num % 2 === 0) {
-    evenIndex.push(i);
-  }
-})
-console.log(evenIndex);
+console.log(arr2);
+// element

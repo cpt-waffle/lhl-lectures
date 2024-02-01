@@ -4,35 +4,35 @@
 
 const arr = [1,'two', 3, 'four', 5, 'six', 7, 'eight', 9, 'ten']
 
-// high order function 
-// is a function that takes in a callback
+
+
 const printOnly = function(array, callback) {
-  console.log(callback);
-  for (let element of array) {
-    if (callback(element)) {
-      console.log(element);
+    console.log(callback);
+    for (let value of array) {
+      if (callback(value)) {  // <-----------
+        console.log(value);
+      }
     }
-  }
-
-}
-
-const num = 5;
-
-const isNumber = n => typeof n === 'number';
-
-const isStr = (s) => {
-  return typeof s === 'string';
 }
 
 
-// a callback is just a function that can be passed as a argument
-printOnly(arr, (n) => {
-  return typeof n === 'number';
+const isNumber = function(v) {
+  if (typeof v === 'number') return true;
+
+  return false;
+}
+
+//   annon function
+printOnly(arr, () => true);
+
+printOnly(arr, () => {
+  return false;
+});
+
+printOnly(arr, isNumber);
+
+printOnly([1,'a',2,'b','c',3,4,5], function(v) {
+  return typeof v === "string";
 });
 
 
-
-
-
-
-// printOnly(['a', 'b', 'c', 4, 2, 1, 'd', 'e', false], isStr);

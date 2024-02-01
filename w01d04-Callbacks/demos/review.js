@@ -1,53 +1,65 @@
 // review
 
-// variables 
-// to store some data that we can re-use or keep as reference
+// Variable
+// to store some data or information or an adress 
 
 let fruit = 'apple';
 const PI = 3.14;
-
-fruit = 'banana';
+fruit = 'banana'
 
 // console.log(fruit, PI);
 
-//  Functions
 
-//  -- its an action 
-//  -- a block code, that can be re-called at any point
-//  -- the block of code can accept arguments/parameters
+const numbers = [1,2,3,4,5,6];
+//             0 1 2 3 4 
 
-// parameters
-// default parameters
-const greetings = (name, num1=0, num2=0, num3=0) => {
-  const result = num1+num2+num3;
-  console.log("Hello World!", name, num1, num2, num3);
-  return result;
+numbers.push(7);
+// numbers = [1,2,3]; // error;
+
+const wins = {alice: 3, bob: 0, david: 4};
+//           alice       bob     david
+
+// console.log(numbers);
+
+///// Functions are sort of assigned to variables
+
+// function definition
+// arguments and 
+// parameters --- inside function definition, that the function will take is called a parameter
+
+// documentation to say which parameters are required
+// we need a and b but C is option
+// TS
+
+// arrow function notation
+const sum2 = (a,b,c) => {
+
 }
 
 
-// arguments 
-// const functionResult = greetings('Vasiliy',9,4);
-// console.log(functionResult);
-// console.log(greetings('Edward',1,2,3));
+const sum = (a,b,c) => {
+  console.log("----------------------");
+  console.log(a + b + c);
+  console.log("----------------------");
 
-const name = 'Bob';
-const num0 = 3;
-const num1 = 2;
-const num2 = 5;
-
-// console.log(greetings(name, num0, num1, num2));
-///////////////////////////////////////////////////////////////
-
-const customPrint = name => {
-  console.log("Hello There!", name);
-  name(' is equal to?');
-  console.log("---- End of CustomPRint ----");
+  // return 3;
 }
 
-const askQuestion = customEnding => console.log("whats 2 + 2 = ?", customEnding);
+// argument --- passing the values 
+// sum();
 
 
-const newName = "vasiliy";
 
-customPrint(askQuestion);
-askQuestion();
+// callbacks 
+// are just function parameters that happen to be other functions
+const printEverythingWeTakeIn = function(param1, param2) {
+  console.log(param1);
+  sum(3,2,1);
+  console.log(param2(3,2,1));
+}
+
+
+const fruit2 = 'apple';
+
+// printEverythingWeTakeIn('a', fruit2);
+printEverythingWeTakeIn('a', sum); // <<--- wierd

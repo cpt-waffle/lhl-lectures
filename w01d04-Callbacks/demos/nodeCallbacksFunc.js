@@ -1,27 +1,32 @@
 // // map // forEach // Filter // reduce
 
-const array = [23, 54, 85, 11, 21, 0];
 
-array.forEach((element, index, arr) => {
-  // console.log(element);
-  // console.log(index);
-  // console.log(arr);
+const array = [1,2,3,4,5,6,7,8,9,10];
+
+
+const result = array.map((elem, i, arr) => {
+  // console.log(elem);
+  // console.log(i);
+  return elem * 5;
 })
 
-// Map
-const newArray = array.map(element => element + 10);
+// console.log(result)
 
-// console.log(newArray);
+console.log('forEach')
+array.forEach((elem, i, arr) => {
+  // console.log(elem);
+})
+
+// console.log('filter');
 
 
-const filteredArray = array.filter(element => element < 50);
+const result2 = array.filter((elem, i) => elem % 2 === 0);
 
-console.log(filteredArray);
 
-const result = array.reduce((accumilator, currValue) => {
-  console.log("acc ->", accumilator);
-  console.log("currVal ->",currValue);
-  return accumilator + currValue
-}, 0)
+// console.log(result2);
 
-console.log(result);
+const result3 = array.reduce((acc, curr) => {
+  console.log('curr -->', curr);
+  console.log('acc -->', acc);
+  return curr + acc;
+});
