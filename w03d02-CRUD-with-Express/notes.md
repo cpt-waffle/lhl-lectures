@@ -2,17 +2,29 @@
  
  - (REVIEW) Building an express server with EJS templates (Basic)
  - Installing Nodemon
- - Talking about CRUD
+ - Talking about CRUD/BREAD
  - RESTFUL conventions
-
- ## BREAK
-
- - Adding CRUD into our said server
+ - Adding CRUD/BREAD into our said server
  - Adding middleware ( <and what is this middleware ?>  )
  - Finishing up the server 
---------------------------------------------------
 
-## Express
 
-it is a framework that lets us build a server that uses HTTP/HTTPS requests
-to send out html pages to the client.
+
+### BREAD/CRUD
+
+C - Create
+R - Read
+U - Update
+D - Delete
+
+-----------------
+
+B - browse/retrieve all of resources
+R - Read/retrieve a singular reosurce
+E - edit a specific resource
+A - add a specific resource
+D - delete a specific resource
+
+
+### RESTFUL convetion
+

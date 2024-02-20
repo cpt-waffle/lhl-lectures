@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cat Mugs</title>
+</head>
+<body>
+  <h1>All Cat Mugs</h1>
+  <a href="/">Home</a>
+  <%= JSON.stringify(mugs[0].title) %>
+
+  <% for (let index in mugs) { %>
+    <article style="border: 2px solid green; width: 200px; text-align: center;">
+      <h1><%=mugs[index].title%></h1>
+      <a href="catmugs/<%= mugs[index].id %>">
+        <img src="<%= mugs[index].imgUrl %>" style="width: 100px;"/>
+      </a>
+      <h3>price: <%= mugs[index].price %></h3>
+    </article>
+  <% } %>
+</body>
+</html>
