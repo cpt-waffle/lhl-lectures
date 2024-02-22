@@ -1,14 +1,22 @@
 
-const hello = (v) => {
+
+const hello = (name) => {
   return new Promise((resolve, reject) => {
-    if (!v) {
-      setTimeout(() => {
-        resolve('hello there');
-      }, 1000)
+    if (name === 'vas') {
+      reject('bad name!')
     } else {
-      reject(':(');
+      console.log('hello ', name);
+      resolve(3.14);
     }
   })
 }
 
-module.exports = hello;
+a = hello('vas').then(val => {
+  console.log('the value i got back is ', val);
+
+});
+
+
+console.log(a);
+
+

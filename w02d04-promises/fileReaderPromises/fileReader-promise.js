@@ -7,46 +7,37 @@ const fs = require('fs').promises;
 
 
 const readThreeFiles = () => {
-  let data1 = undefined;
-  let data2 = undefined;
-  let data3 = undefined;
-  // async/await
-  return fs.readFile('./data1.txt', 'utf8').then(data => {
-    console.log(data);
-    data1 = data;
+  fs.readFile('./data1.txt', 'utf8').then((data1) => {
+    console.log("DATA 1 READ FINISHED ------------------->:   ",data1);
     return fs.readFile('./data2.txt', 'utf8')
-  }).then((data) => {
-    data2 = data;
+  }).then((data2) => {
+    console.log("DATA 2 READ FINISHED ------------------->:   ",data2);
     return fs.readFile('./data3.txt', 'utf8')
-  }).then(data => {
-    data3 = data;
-    console.log(`${data1} - ${data2} - ${data3} = ${data1 - data2 - data3}`);
-    const result = data1 - data2 - data3;
-    return result;
+  }).then((data3) => {
+    console.log("DATA 3 READ FINISHED ------------------->:   ",data3);
   }).catch(e => {
-    console.log("-- an error has occured :(");
-    console.log(e);
+    console.log("error has occured");
+    console.log(e.message);
   })
 }
 
-// readThreeFiles().then(val => {
-//   console.log('the value is=  ', val);
-// })
+
+readThreeFiles();
 
 
-const readThreeFilesAsyncAwait = async () => {
-  // async/await
-  try {
-  const data1 = await fs.readFile('./data1.txt', 'utf8');
-  const data2 = await fs.readFile('./data2.txt', 'utf8');
-  const data3 = await fs.readFile('./data3.txt', 'utf8');
+// const readThreeFiles = async () => {
+//   try {
+//     const data1 = await fs.readFile('./data1.txt', 'utf8');
+//     console.log("DATA 1 READ FINISHED ------------------->:   ",data1);
+//     const data2 = await fs.readFile('./data2.txt', 'utf8');
+//     console.log("DATA 1 READ FINISHED ------------------->:   ",data2);
+//     const data3 = await fs.readFile('./data3.txt', 'utf8');
+//     console.log("DATA 1 READ FINISHED ------------------->:   ",data3);
 
-  console.log(data1, data2, data3);
-  console.log(`${data1} - ${data2} - ${data3} = ${data1 - data2 - data3}`);
-  } catch (e) {
-    console.log("---- error ----");
-    console.log(e);
-  }
-}
+//     console.log(data1, data2, data3);
+//   } catch (e) {
 
-readThreeFilesAsyncAwait();
+//   }
+
+
+// }

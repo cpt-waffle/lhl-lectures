@@ -4,34 +4,25 @@
 
 // const randomNumber = function() { ... }
 
-const randomNumber = (dice) => {
-  const result = Math.floor(Math.random() * dice) + 1;
+const randomNumber = dice => {
+  const result = Math.floor(Math.random() * dice ) + 1;
   return result;
 }
 
-const diceRoll = (cb) => {
-  console.log('Rolling...');
+const diceRoll = (callback) => {
+  console.log("Rolling the dice...");
   setTimeout(() => {
-    const result = randomNumber(6);
-    // err, value
-    if (result === 5) {
-      cb("you rolled a 5 :(", null);
-    } else {
-      cb(null, result);
-    }
-
+    const number = randomNumber(6);
+    callback(number);
   }, 2000)
 }
 
-diceRoll((err, num) => {
-  if (err) throw err;
-  console.log("the number was:  ", num);
-  diceRoll((err, num) => {
-    if (err) throw err;
-    console.log("the number was:  ", num);
-    diceRoll((err, num) => {
-      if (err) throw err;
-      console.log("the number was:  ", num);
-    })
-  })
-})
+diceRoll((value) => {
+  console.log('we rolled a:  ', value);
+  diceRoll((value) => {
+    console.log('we rolled a:  ', value);
+    diceRoll((value) => {
+      console.log('we rolled a:  ', value);
+    });
+  });
+});

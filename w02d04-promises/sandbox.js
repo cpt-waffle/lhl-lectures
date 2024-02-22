@@ -1,13 +1,17 @@
 // review/examples
 
-const hello = require('./promiseFunc');
+// callbacks 
+
+const greetings = (callback) => {
+  console.log('inside my greetings function');
+  callback();
+}
+
+setTimeout(() => {
+  console.log("I will run eventually!!!") 
+}, 1000);
 
 
-console.log(hello);
-
-hello(1).then(greetings => {
-  console.log("we got back value");
-  console.log(greetings);
-}).catch(e => {
-  console.log("error has occured", e);
-});
+// async functions
+// async functions don't return anything usually (null)
+// async functions take in a callback to give you result in it

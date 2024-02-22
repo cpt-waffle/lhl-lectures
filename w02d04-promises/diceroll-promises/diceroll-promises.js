@@ -4,35 +4,35 @@
 
 // const randomNumber = function() { ... }
 
-const randomNumber = (dice) => {
-  const result = Math.floor(Math.random() * dice) + 1;
+const randomNumber = dice => {
+  const result = Math.floor(Math.random() * dice ) + 1;
   return result;
 }
 
+// promises
 const diceRoll = () => {
+  console.log("Rolling the dice...");
   return new Promise((resolve, reject) => {
-    console.log("Rolling...");
     setTimeout(() => {
-      const result = randomNumber(6);
-      if (result === 5) {
-        reject('you rolled a 5 :(');
+      const number = randomNumber(6);
+      if (number === 5) {
+        reject('you rolled a 5 :(')
       } else {
-        resolve(result);
+        resolve(number);
       }
     }, 2000)
   })
 }
 
-diceRoll().then(num => {
-  console.log("the number was:  ", num);
-  return diceRoll();
-}).then(num => {
-  console.log("the number was:  ", num);
-  return diceRoll();
-}).then(num => {
-  console.log("the number was:  ", num);
+diceRoll().then(value => {
+  console.log('we rolled a  ', value);
+  return diceRoll()
+}).then(value => {
+  console.log('we rolled a  ', value);
+  return diceRoll()
+}).then(value => {
+  console.log('we rolled a  ', value);
 }).catch(e => {
-  console.log("error has happened :(");
-  console.log(e);
+  console.log("a roll went badly :(");
+  // console.log(e.message);
 })
-
