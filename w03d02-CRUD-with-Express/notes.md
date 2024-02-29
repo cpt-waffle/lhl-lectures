@@ -9,22 +9,31 @@
  - Finishing up the server 
 
 
+### Setting up an ExpressJS Server
+
+- npm init -- to get the package.json 
+- make .gitignore and put in node_modules/
+
+- npm install express
+- start coding
+
 
 ### BREAD/CRUD
 
-C - Create
-R - Read
-U - Update
-D - Delete
+C  ---  creating
+R  ---  reading
+U  ---  updating 
+D  ---  deleting
 
------------------
+---------------------------
 
-B - browse/retrieve all of resources
-R - Read/retrieve a singular reosurce
-E - edit a specific resource
-A - add a specific resource
-D - delete a specific resource
+B  --- Browsing/retrieving resources
+R  --- Read single resource
+E  --- editing a specific resource
+A  --- Add a resource
+D  --- Deleting
 
 
-### RESTFUL convetion
+### In Express, you have the choice of making any route with any name
 
+RESTFUL convention

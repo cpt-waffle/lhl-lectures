@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <h1>Check out these Awesome Cat mugs!</h1>
+    <% for (let key in mugs) { %>
+      <div>
+        <h3><%= mugs[key].name %></h3>
+        <img style="width: 140px; height: 140px; object-fit: cover;" src="<%= mugs[key].imgUrl %>"/>
+      </div>
+    <% } %>
+
+   
+
+</body>
+</html>
