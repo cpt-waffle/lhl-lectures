@@ -1,79 +1,112 @@
+import './App.css'
+import { io } from 'socket.io-client';
 import { useState, useEffect } from 'react';
-import {io} from 'socket.io-client';
 
 const URL = 'http://localhost:8080';
 
 const socket = io(URL);
 
+// why do we need a useReducer vs useState ?
+
+// useState > useReducer
+// try to seperate your state as much as you possibly
+// can 
+
+// /weeks  --- seperated states
+// /appointments  --- seperated states
+// /users  --- seperated states
+
+// useEffect, useState,
+// (look into useMemo, useCallback and useREducer)
+
+
+// /day    -- take all these states and put em into 1
+// /weeks
+// appoints -- 
+// reducer gives actions, and based on that action
+// a specific part of your object state changes
+
+// useContext <--- put something in here that doesnt change often at all
+//      put something thats basically read-only
+
+
+// mount the app
+// unmount the app
+// mount the app
+
+
+
 function App() {
-  const [name, setName] = useState(null);
+  const [user, setUser] = useState(null);
   const [users, setUsers] = useState([]);
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    console.log('MOUNTS <-----');
-    const newConnection = payload => {
-      console.log('you have connected');
-      setName(payload.name);
+    // declare all event listners
+
+    const userConnected = payload => {
+      console.log(payload);
+      setUser(payload.user);
       setUsers(payload.users);
     }
 
     const newUser = payload => {
-      console.log("someone new has joined the chat");
-      console.log(payload);
-      setUsers(prev => [...prev, payload.name]);
+      setUsers(prev => [...prev, payload.user])
     }
 
     const newMessage = payload => {
-      console.log("message is here!");
-      console.log(payload);
       setMessages(prev => [...prev, payload]);
     }
 
-    socket.on('NEW_CONNECTION', newConnection);
-    socket.on('NEW_USER', newUser);
-    socket.on('NEW_MESSAGE', newMessage);
+    console.log("mounting....");
+    socket.on('USER_CONNECTED', userConnected);
+    socket.on('NEW_USER_CONNECTED', newUser);
+    socket.on('NEW_MSG', newMessage);
+
 
     return () => {
-      console.log('COMPONENT UNMOUNTS ----');
-      socket.off('NEW_CONNECTION', newConnection);
-      socket.off('NEW_USER', newUser);
-      socket.off('NEW_MESSAGE', newMessage);
+      // undeclare all event listeners
+      console.log("unmount....");
+      socket.off('USER_CONNECTED', userConnected);
+      socket.off('NEW_USER_CONNECTED', newUser);
+      socket.off('NEW_MSG', newMessage);
+
 
     }
 
-  }, [])
+  }, []);
 
   const onSubmit = evt => {
     evt.preventDefault();
-    console.log('your message you written:');
+    console.log("test");
     console.log(evt.target.msg.value);
-    socket.emit('SEND_MESSAGE', {name, msg: evt.target.msg.value});
+    const payload = {user, message: evt.target.msg.value};
+    console.log(payload);
+    socket.emit('SEND_MSG', payload);
   }
 
   return (
-    <>
-      { name ? <h2>You are connected as: {name}</h2> : <h1>Connecting...</h1>}
+    <main>
+      <h1>Chat App</h1>
+      <h2>Current User: {user ? user : "loading..."}</h2>
       <div>
-        <div className="users">
-          <h3>Connected users</h3>
-          <ol>
-            {users.map(user => <li key={user}>{user}</li>)}
-          </ol>
-        </div>
-        <div className="messages">
+        <ul>
+          {users.map(user => <li key={user}>{user}</li>)}
+        </ul>
+      </div>
+      <div>
         <ol>
-          {messages.map(message => <li key={message.id}>
-            <strong>{message.name}</strong>: {message.msg}
+          {messages.map(message => 
+          <li key={message.id}>
+            <h5>{message.user}</h5>: {message.message}
           </li>)}
         </ol>
-        </div>
       </div>
-        <form onSubmit={onSubmit}>
-          <input type="text" name="msg"/>
-          <button>send</button>
-        </form>
-    </>
+      <form onSubmit={onSubmit}>
+        <input type="text" name="msg"/>
+        <button>Send Message!</button>
+      </form>
+    </main>
   )
 }
 
