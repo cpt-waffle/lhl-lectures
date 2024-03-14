@@ -1,8 +1,7 @@
-
-
-#btn {
-  width: 100px;
-  height: 100px;
-  background-color: cornflowerblue;
-  border-radius: 50%;
+.btn {
+  background-color: red;
+  border: none;
+  padding: 16px;
+  font-size: 12px;
+  color: white;
 }
