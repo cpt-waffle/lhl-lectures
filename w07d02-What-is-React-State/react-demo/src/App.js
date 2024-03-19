@@ -1,25 +1,27 @@
 import './App.css';
-
+import Navbar from './components/Navbar';
+import Card from './components/Card';
+import AddWord from './components/AddWord';
 import { useState } from 'react';
-import Navbar from './Components/Navbar';
-import Card from './Components/Card';
-import CharacterCounter from './Components/CharacterCounter';
+import ReducerComponent from './components/ReducerComponent';
 
 
 function App() {
+  const [counter, setCounter] = useState(0);
 
-  const [num, setNum] = useState(0);
+  const addOne = () => {
+    setCounter(counter + 1);
+  }
 
   return (
     <div>
-      <Navbar num={num}/>
-      <div className='flex'>
-        <Card setNum={setNum} num={num}/>
-        <Card setNum={setNum} num={num}/>
-        <Card setNum={setNum} num={num}/>
-        <Card setNum={setNum} num={num}/>
+      <Navbar banana={counter}/>
+      <div class="cards">
+        <Card addOne={addOne} counter={counter}/>
+        <AddWord/>
       </div>
-      <CharacterCounter/>
+
+      <ReducerComponent/>
     </div>
   );
 }

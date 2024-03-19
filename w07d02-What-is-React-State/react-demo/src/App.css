@@ -3,6 +3,9 @@
   padding: 0;
 }
 
-.flex {
+.cards {
   display: flex;
+  justify-content: space-between;
+  margin: 2%;
 }
+

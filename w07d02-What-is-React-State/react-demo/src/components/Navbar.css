@@ -1,13 +1,17 @@
-
 .navbar {
   display: flex;
   height: 90px;
   background-color: #111152;
   margin: auto;
   align-items: center;
+  justify-content: space-between;
 }
 
 .navbar h1 {
   padding-left: 10px;
   color:white;
+}
+
+.navbar h2 {
+  padding-right: 10px;
 }
