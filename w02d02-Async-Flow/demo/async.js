@@ -1,31 +1,34 @@
+// how async works in js examples here:
 
-const a = () => {
-  console.log("this is a");
+const start = function() {
+  console.log("START");
 }
 
-const b = () => {
-  console.log("this is b");
+const end = function() {
+  console.log("END");
 }
 
-// some functions in javascript are async
-// and run somewhere else, while the main of the program runs parallel
 
-a(); // take out the garbage
-/* laundry()*/ setTimeout(() => {
-    // dryer();
-  console.log("TIMEOUT FUNCTION");
-}, 4000)
-b(); // volleyball();
+console.log('0');
+setTimeout(function() {
+  console.log("Laudry");
+}, 3000);
+setTimeout(function() {
+  console.log("Dishes");
+}, 2000);
+start();
+console.log("Middle!");
+end();
+console.log('20');
 
 
 
 
-/////////  Chores for your place ///////
-
-// take out the garbage
-// clean the bird cage
-// vaccum
-// laundry
-// volleyball
-// mop floors
-7
+// goOutside();
+// sayHiToTheNeighbour();
+// goBackHome();
+// async doTheDishes((completed) => putDishesAway());
+// vaccum();
+// async doTheLaundy((completed) => fold());
+// downloadNewSeasonOfaShow();
+// sleep();

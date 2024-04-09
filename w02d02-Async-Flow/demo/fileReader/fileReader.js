@@ -5,38 +5,20 @@
 
 const fs = require('fs');
 
-let value1 = 0;
-let value2 = 0;
-let value3 = 0;
 
+// Promises == async/await
+// promises in 2 days lecture
+//  async/await <----
 
-
-fs.readFile('./data1.txt','utf8', (err, data) => {
-  if (err) throw err
-  value1 = data;
-  fs.readFile('./data2.txt','utf8', (err, data) => {
-    if (err) throw err
-    value2 = data;
-    fs.readFile('./data3.txt','utf8', (err, data) => {
-      if (err) throw err
-      value3 = data;
-      console.log('value1 is ',value1);
-      console.log('value2 is ',value2);
-      console.log('value3 is ',value3);
-      console.log('Subtract the values');
-      console.log(`${value1} - ${value2} - ${value3} = ${value1 - value2 - value3}`)
+fs.readFile('./data1.txt', 'utf8', (err, data1) => {
+  if (err) throw err;
+  fs.readFile('./data2.txt', 'utf8', (err, data2) => {
+    if (err) throw err;
+    fs.readFile('./data3.txt', 'utf8', (err, data3) => {
+      if (err) throw err;
+      console.log(`${data1} - ${data2} - ${data3} = ${data1 - data2 - data3}`);
     })
   })
-
 })
 
 
-
-
-//   NEVER EVER EVER DO THIS !!!! BAD >:(
-// setTimeout(() => {
-//   console.log('value1 is ',value1);
-//   console.log('value2 is ',value2);
-//   console.log('value3 is ',value3);
-
-// }, 10)

@@ -2,9 +2,10 @@
 // to read the contents of "https://www.example.edu"
 const request = require('request');
 
-request('https://www.example324234234.edu', (err, res, body) => {
-  console.log("Error", err);
-  console.log("resonse:", res);
-  console.log("body: ", body);
+
+request("https://api.tvmaze.com/search/shows?q=fruits", function(err, resp, body) {
+  // console.log(err);
+  // console.log(resp);
+  console.log(JSON.parse(body)[0].show.name);
 
 })
