@@ -1,9 +1,19 @@
-import Poster from "./Poster";
+import Poster from './Poster';
 
-const PosterList = props => {
-  return (<div>
-    {props.posters.map( poster => <Poster key={poster.id} img={poster.url} title={poster.name}/>)}
-  </div>)
+const PosterList = (props) => {
+  const posters = props.posters;
+
+  const arrayOfPostersComponentsUsingMap = posters.map(poster => {
+    return <Poster 
+      key={poster.id}
+      img={poster.img}
+      title={poster.title}
+      caption={poster.caption}
+      />
+  })
+
+  return <>{arrayOfPostersComponentsUsingMap}</>
 }
+
 
 export default PosterList;
