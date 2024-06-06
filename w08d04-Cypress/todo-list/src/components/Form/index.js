@@ -8,26 +8,23 @@ const Form = ({handleAdd}) => {
   const [err, setErr] = useState(false);
 
   const onSubmit = evt => {
-      evt.preventDefault();
-      if (val.length) {
-        handleAdd(val);
-        setVal('');
-        if (err) {
-          setErr(false);
-        }
-      } else {
-        setErr(true);
+    evt.preventDefault();
+    if (val.length !== 0) {
+      handleAdd(val);
+      setVal('');
+      if (err) {
+        setErr(false);
       }
-
-
-
+    } else {
+      setErr(true);
+    }
   }
 
   return (
     <form onSubmit={onSubmit}>
       <input name="newItem" type="text" value={val} onChange={evt => setVal(evt.target.value)}/>
-      <button id="submit">Submit</button>
-      {err && <h3>cannot be blank!</h3>}
+      <button id="submit" data-cy="submit">Submit</button>
+      {err && <h3>Task cannot be Blank!</h3>}
     </form>
   
   );

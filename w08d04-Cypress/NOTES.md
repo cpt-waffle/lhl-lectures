@@ -9,59 +9,74 @@
 - Q&A
 
 
+### Different Types Of Testing
+
+- unit/integration
+- End to End (E2E)
+- Static
 
 
-## Different Types of Testing
+## End To End Testing
 
-Unit/Integration 
+you get to test your app all the way through
 
-- JEST 
-- Terminal
-
-- cheap 
-
-End to Testing 
-
-- visual 
-- expensive on time 
-- expensive on resources
+storyboard testing
+user stories testing
 
 
-### E2E
+### Cypress!
 
-- Cypress
+- end to end testing system (+ more)
+- alot of visuals 
+- industry standards 
 
-to install cypress, (in reality you dont even need a repository)
 
-in todays activities, you will asked to install a SPECIFIC version of cypress!
-
-9.7.0
-
-In compass, they ask you to install it `globaly`
-
-in your frontend app (scheduler)
+### Installing Cypress (for scheduler)*
 
 ```sh
-npm install -D cypress@9.7.0
+npm install cypress@9.7.0 --save-dev
 ```
 
-Windows 10 
+Windows 10 using WSL2 
 
-- install VCXRV (x server)
-- disable your firewall ( add a rule to allow internal connections for VCXRV x server)
-   - windows firewall 
-   - mcaffee
+- install VCXRV (x-server)
+- disable your firewall (add a rulle to allow internal internet connections for X-server)
 
-### For Every system
 
-go to your frontend folder (scheduler)
-open up package.json
-add this line: 
+### Add a line of code to package.json so we are able to start cypress
 
 ```json
-"cypress": "./node_modules/.bin/cypress open"
+scripts: {
+   ...
+   "cypress": "./node_modules/.bin/cypress open",
+}
 ```
 
-### To Start Cypress
 
-npm run cypress
+### Jest Commands
+
+
+getByText
+GetByPlaceholderName
+getByTestId
+
+
+debug()
+
+
+### What are some benefits and drawbacks between Jest and Cypress ??
+
+
+Cypress 
+ - visuals
+ - see what happens
+ - checks to see if your frontend and backend is working together correctly!
+
+
+
+### To start Writing Tests for your application
+
+- make sure you have the:
+- frontend app running   (terminal 1)
+- backend server running (terminal 2)
+- cypress is on          (terminal 3)
