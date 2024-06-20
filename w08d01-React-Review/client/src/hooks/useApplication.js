@@ -1,34 +1,33 @@
+import {useState, useEffect} from 'react';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
-
-
-let id = 4;
 
 const useApplication = () => {
-  const [posters, setPosters] = useState([]);
+  const [notes, setNotes] = useState([]);
 
-
-  // /api/photos
-  // /api/topics
-  // /api/topics/photos/:id
+  // dev env
+  // use effects run twice
+  // MOUNT --> UNMOUNT --> REMOUNT
   useEffect(() => {
-    axios.get('/posters').then(res => {
-      console.log(res);
-      setPosters([...res.data]);
-    }).catch( e => {
-      console.log("error -------------->", e)
+    axios.get('/notes').then(res => {
+      setNotes(res.data);
     })
-  }, [])
+    // web canvas
+
+  }, [])// <-- dependancy array,
 
 
-  const addPoster = (img, title, subtitle) => {
-    setPosters(prev => [...prev, {id, img, title, subtitle}]);
-    id++;
+  const onFormSubmit = (newNote) => {
+    console.log('this function runs in app.js on line 28');
+    console.log(newNote);
+    axios.post('/notes', {newNote}).then(res => {
+      console.log('it worked', res.data);
+      setNotes(prev => [...prev, res.data]);
+    }).catch(e => {
+      console.log('didnt work :(');
+    })
   }
 
-  return { addPoster, posters};
+  return {notes, onFormSubmit}
 }
-
-
 
 export default useApplication;

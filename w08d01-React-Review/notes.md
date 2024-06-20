@@ -1,12 +1,11 @@
 #### React Review
 
-- Components   X
+- Components   
 - API          
 - useEffect   
 - State        
 - Props        
 - Custom Hooks 
-- useReducer
 
 
 ### Components

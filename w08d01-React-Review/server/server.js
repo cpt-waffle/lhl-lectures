@@ -1,19 +1,48 @@
-const express = require("express");
+// .env
+// .env.dev
+// .env.local
+const PORT = 8080;
+const express = require('express');
 
 const app = express();
 
-const posters = [
-	{id: 1, img: 'https://images.ctfassets.net/hrltx12pl8hq/12wPNuS1sirO3hOes6l7Ds/9c69a51705b4a3421d65d6403ec815b1/non_cheesy_stock_photos_cover-edit.jpg', title: 'hats', subtitle: 'not for everyone'},
-	{id: 2, img: 'https://images.pexels.com/photos/4587955/pexels-photo-4587955.jpeg?cs=srgb&dl=pexels-anna-shvets-4587955.jpg&fm=jpg', title:'Cats', subtitle: 'cats'},
-  {id: 3, img: 'https://i.kym-cdn.com/entries/icons/original/000/030/115/cover4.jpg', title: 'Teams', subtitle: 'share victory, blame defeat on someone else'},
-  {id: 4, img: 'https://i.ytimg.com/vi/CSHbSe7iW_E/maxresdefault.jpg', title: 'Leadership', subtitle: 'sometimes following blindly is not a good idea'},
-  {id: 5, img: 'https://media.istockphoto.com/id/157402340/photo/left-behind.jpg?s=612x612&w=0&k=20&c=ttF1xIAwRdL2v0UoL6Y_xdbpSQJzdVIokVdBBrM2I3Q=', title: 'Getting', subtitle: 'sometimes you gotta be creative'},
-]
+app.use(express.json());
 
+const notes = [
+  {
+    id: 1,
+    title: 'cat names',
+    note: 'These are the cat names i thought of:   Mr Meow, Garfield, and Gandalf'
+  },
+  {
+    id: 2,
+    title: 'things i should buy',
+    note: 'a house, a car, a boat'
+  },
+  {
+    id: 3,
+    title: 'bad drinks',
+    note: 'all pop'
+  },
+];
 
-app.get('/posters', (req, res) => {
-  return res.json(posters);
+let id = 4;
+
+app.get('/notes', (req, res) => {
+  // pg.query('SELECT * FROM notes;').then(data => res.json(data.rows));
+  return res.json(notes);
+})
+
+app.post('/notes', (req, res) => {
+  console.log("POST /notes");
+  console.log(req.body);
+  // pg.query("INSERT INTO notes VALUES("")
+  const note = {id:id,title: req.body.newNote.title, note: req.body.newNote.note};
+  notes.push(note);
+  id++;
+  return res.json(note);
+
 })
 
 
-app.listen(8080, console.log(`Server is listening on port 8080`));
+app.listen(PORT, () => console.log("Server is on and listening on port ", PORT));

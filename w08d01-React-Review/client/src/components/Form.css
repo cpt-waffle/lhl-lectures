@@ -1,0 +1,13 @@
+
+.form {
+  text-align: center;
+  width: 400px;
+  background-color: skyblue;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.form-body {
+  display: flex;
+  flex-direction: column;
+}
